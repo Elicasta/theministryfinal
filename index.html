@@ -734,9 +734,8 @@ const PW_ADMIN    = 'ministryadmin';
 const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
-// Paste your Supabase project URL and anon key here
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -963,6 +962,7 @@ let isProjector=false, isScriptureDisplay=false;
 let scAuto=true, p1ScOverlayOn=false, p1ActiveVerse=null;
 let qUnlocked=false;
 let bc=null;
+let sbPoll=null, sbConnected=false;
 
 // ── BOOT ──
 document.addEventListener('DOMContentLoaded',()=>{
@@ -1092,6 +1092,7 @@ function unlockQ(broadcast){
   // Broadcast to attendees
   if(broadcast){
     try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'q_unlock'});}catch(e){}
+    sbWrite({type:'q_unlock'});
   }
 }
 function adminUnlockQ(){
@@ -1173,6 +1174,7 @@ function showP1Overlay(){
   const tog2=document.getElementById('p1ov-toggle-right');if(tog2)tog2.textContent='&#128196; Showing';
   // Broadcast to P1 projector
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'p1_overlay_show',ref:document.getElementById('p1ov-ref').textContent,kjv:document.getElementById('p1ov-text').textContent});}catch(e){}
+  sbWrite({type:'p1_overlay_show',ref:document.getElementById('p1ov-ref').textContent,kjv:document.getElementById('p1ov-text').textContent});
 }
 function hideP1Overlay(){
   const ov=document.getElementById('p1-sc-overlay');
@@ -1181,6 +1183,7 @@ function hideP1Overlay(){
   const tog=document.getElementById('cmd-sc-tog');if(tog)tog.classList.remove('active');
   const tog2=document.getElementById('p1ov-toggle-right');if(tog2)tog2.textContent='Show on Slide';
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'p1_overlay_hide'});}catch(e){}
+  sbWrite({type:'p1_overlay_hide'});
 }
 function toggleP1ScOverlay(){
   if(p1ScOverlayOn) hideP1Overlay();
@@ -1199,6 +1202,7 @@ function pushVerseToP1(verse){
   if(!p1ScOverlayOn) showP1Overlay();
   else{
     try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'p1_overlay_show',ref:verse.ref,kjv:verse.kjv});}catch(e){}
+    sbWrite({type:'p1_overlay_show',ref:verse.ref,kjv:verse.kjv});
   }
 }
 
@@ -1306,6 +1310,7 @@ function toggleScAuto(){
 function pushCurScripture(){broadcastScripture(curSlide);}
 function clearP2(){
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'scripture_clear'});}catch(e){}
+  sbWrite({type:'scripture_clear'});
   flashP2('Cleared');
 }
 function broadcastScripture(idx){
@@ -1314,6 +1319,7 @@ function broadcastScripture(idx){
 }
 function pushRawScripture(sc){
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'scripture',scripture:sc});flashP2('Pushed');}catch(e){}
+  sbWrite({type:'scripture',scripture:sc});
 }
 function flashP2(msg){
   const l=document.getElementById('cmd-p2lbl');
@@ -1321,48 +1327,85 @@ function flashP2(msg){
 }
 
 // ── BROADCAST ──
+// ── MESSAGE HANDLER (shared: BroadcastChannel + Supabase) ──
+function handleMessage(msg){
+  if(!msg||!msg.type) return;
+  if(isProjector){
+    if(msg.type==='slide'){
+      document.getElementById('p1-wait').classList.add('hidden');
+      const ssl=document.getElementById('ssl');
+      if(!ssl.classList.contains('on')){ssl.classList.add('on');buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);renderDots(LESSON1_SLIDES.length);}
+      document.getElementById('p1-status').textContent='Live';
+      document.getElementById('p1-status').classList.add('live');
+      if(msg.slide!==curSlide) goTo(msg.slide);
+    }
+    if(msg.type==='p1_overlay_show'){
+      document.getElementById('p1ov-ref').textContent=msg.ref||'';
+      document.getElementById('p1ov-text').textContent=msg.kjv||'';
+      document.getElementById('p1-sc-overlay').classList.add('show');
+    }
+    if(msg.type==='p1_overlay_hide'){
+      document.getElementById('p1-sc-overlay').classList.remove('show');
+    }
+  }
+  if(isScriptureDisplay){
+    if(msg.type==='scripture') showP2(msg.scripture);
+    else if(msg.type==='scripture_clear') clearP2Display();
+    const s=document.getElementById('sp-wait-status');if(s){s.textContent='Live';s.classList.add('live');}
+  }
+  if(!isAdmin && msg.type==='q_unlock') unlockQ(false);
+  if(isAdmin&&(msg.type==='scripture'||msg.type==='scripture_clear')){
+    const d=document.getElementById('cmd-p2dot');if(d)d.classList.add('live');
+    const l=document.getElementById('cmd-p2lbl');if(l)l.textContent='Connected';
+  }
+}
 function initBC(){
+  try{ bc=new BroadcastChannel(CHANNEL_ID); bc.onmessage=(e)=>handleMessage(e.data); }catch(err){}
+  if(window.SB_URL&&window.SB_KEY) initSupabaseSync();
+}
+
+// ── SUPABASE NETWORK SYNC ──
+let _lastSbWrite='';
+async function sbWrite(payload){
+  if(!window.SB_URL||!window.SB_KEY) return;
   try{
-    bc=new BroadcastChannel(CHANNEL_ID);
-    bc.onmessage=(e)=>{
-      const msg=e.data;
-      // P1 projector
-      if(isProjector){
-        if(msg.type==='slide'){
-          document.getElementById('p1-wait').classList.add('hidden');
-          const ssl=document.getElementById('ssl');
-          if(!ssl.classList.contains('on')){ssl.classList.add('on');buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);renderDots(LESSON1_SLIDES.length);}
-          document.getElementById('p1-status').textContent='Live';
-          document.getElementById('p1-status').classList.add('live');
-          goTo(msg.slide);
-        }
-        if(msg.type==='p1_overlay_show'){
-          document.getElementById('p1ov-ref').textContent=msg.ref;
-          document.getElementById('p1ov-text').textContent=msg.kjv;
-          document.getElementById('p1-sc-overlay').classList.add('show');
-        }
-        if(msg.type==='p1_overlay_hide'){
-          document.getElementById('p1-sc-overlay').classList.remove('show');
-        }
-      }
-      // P2 scripture display
-      if(isScriptureDisplay){
-        if(msg.type==='scripture') showP2(msg.scripture);
-        else if(msg.type==='scripture_clear') clearP2Display();
-        const s=document.getElementById('sp-wait-status');if(s){s.textContent='Live';s.classList.add('live');}
-      }
-      // Questionnaire unlock (attendees)
-      if(!isAdmin && msg.type==='q_unlock') unlockQ(false);
-      // Admin P2 feedback
-      if(isAdmin&&(msg.type==='scripture'||msg.type==='scripture_clear')){
-        const d=document.getElementById('cmd-p2dot');if(d)d.classList.add('live');
-        const l=document.getElementById('cmd-p2lbl');if(l)l.textContent='Connected';
-      }
-    };
-  }catch(err){}
+    await fetch(window.SB_URL+'/rest/v1/sync_state',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':window.SB_KEY,'Authorization':'Bearer '+window.SB_KEY,'Prefer':'resolution=merge-duplicates,return=minimal'},
+      body:JSON.stringify({id:1,payload:JSON.stringify(payload),updated_at:new Date().toISOString()})
+    });
+  }catch(e){}
+}
+let _lastSbTs='';
+async function sbPollFn(){
+  if(!window.SB_URL||!window.SB_KEY) return;
+  try{
+    const r=await fetch(window.SB_URL+'/rest/v1/sync_state?id=eq.1&select=payload,updated_at',{
+      headers:{'apikey':window.SB_KEY,'Authorization':'Bearer '+window.SB_KEY}
+    });
+    const d=await r.json();
+    if(d&&d[0]&&d[0].payload&&d[0].updated_at!==_lastSbTs){
+      _lastSbTs=d[0].updated_at;
+      handleMessage(JSON.parse(d[0].payload));
+    }
+  }catch(e){}
+}
+function initSupabaseSync(){
+  if(isProjector||isScriptureDisplay){
+    sbPoll=setInterval(sbPollFn,1500);
+  } else if(isAdmin){
+    // verify connection
+    fetch(window.SB_URL+'/rest/v1/sync_state?id=eq.1&select=id',{headers:{'apikey':window.SB_KEY,'Authorization':'Bearer '+window.SB_KEY}})
+      .then(r=>r.json()).then(d=>{
+        sbConnected=true;
+        const l=document.getElementById('cmd-p2lbl');
+        if(l) l.textContent='Supabase ✓';
+      }).catch(()=>{});
+  }
 }
 function broadcastSlide(i){
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage({type:'slide',slide:i});}catch(e){}
+  sbWrite({type:'slide',slide:i});
 }
 function showP2(sc){
   document.getElementById('sp-wait').classList.add('hidden');
