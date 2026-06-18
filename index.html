@@ -741,6 +741,10 @@ const PW_ATTENDEE = 'ministry2026';
 const PW_ADMIN    = 'ministryadmin';
 const CHANNEL_ID  = 'the-ministry-2026';
 
+// ── SUPABASE CONFIG ──
+window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
+window.SB_KEY = ''; // paste your anon public key here
+
 // ── DATA ──
 const LESSON1_SLIDES = [
   {
@@ -966,8 +970,7 @@ let isProjector=false, isScriptureDisplay=false;
 let scAuto=true, p1ScOverlayOn=false, p1ActiveVerse=null;
 let qUnlocked=false;
 let bc=null;
-
-// ── BOOT ──
+let sbChannel=null;
 document.addEventListener('DOMContentLoaded',()=>{
   const p=new URLSearchParams(window.location.search);
   if(p.has('scripture')){
