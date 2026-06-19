@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>The Ministry — Matthew 10 Series</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -783,6 +783,149 @@ body.projector-mode .projector-wait-qr{display:none!important;}
 }
 </style>
 
+
+<style id="v12-standby-sync-mobile-fix">
+/* v12: make standby screens readable, themed, and stable in ProPresenter. */
+html,body{overscroll-behavior:none;}
+body.projector-mode .p1-wait,
+body.scripture-mode #scripture-display .sp-wait{
+  background:#040404!important;
+  overflow:hidden!important;
+}
+body.projector-mode .p1-wait::before,
+body.scripture-mode #scripture-display .sp-wait::before{
+  background-image:url('assets/ministry-bg.jpeg')!important;
+  background-size:cover!important;
+  background-position:center 46%!important;
+  filter:brightness(.72) saturate(.82)!important;
+  opacity:1!important;
+}
+body.projector-mode .p1-wait::after,
+body.scripture-mode #scripture-display .sp-wait::after{
+  background:
+    radial-gradient(circle at 70% 50%, rgba(0,0,0,.12) 0%, rgba(0,0,0,.34) 42%, rgba(0,0,0,.72) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.80) 0%,rgba(0,0,0,.46) 47%,rgba(0,0,0,.20) 72%,rgba(0,0,0,.42) 100%)!important;
+}
+body.projector-mode .p1-wait{
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  padding:0!important;
+}
+body.projector-mode .pw-ti{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(20px,2vw,36px)!important;
+  max-width:none!important;
+  font-size:clamp(5rem,9vw,10.5rem)!important;
+  letter-spacing:-.018em!important;
+  line-height:.86!important;
+  text-align:center!important;
+}
+body.projector-mode .pw-ti::before{
+  width:5px!important;
+  height:.64em!important;
+  margin:0!important;
+  transform:none!important;
+  flex:0 0 auto!important;
+}
+body.projector-mode .pw-ti span{
+  display:inline!important;
+  letter-spacing:-.022em!important;
+}
+body.projector-mode .pw-sb{
+  text-align:center!important;
+  margin-top:2.2vh!important;
+  font-size:clamp(.8rem,1vw,1.2rem)!important;
+  color:rgba(241,237,228,.56)!important;
+}
+body.projector-mode .pw-st{
+  margin-top:4vh!important;
+}
+body.projector-mode .projector-wait-qr{display:grid!important;}
+
+/* Scripture side-screen standby: low-distraction title lockup only. */
+body.scripture-mode #scripture-display .sp-wait{
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+}
+body.scripture-mode .sp-wm{display:none!important;}
+body.scripture-mode .sp-wt{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(18px,1.8vw,32px)!important;
+  font-family:var(--fd)!important;
+  font-size:clamp(4rem,8vw,9rem)!important;
+  line-height:.86!important;
+  letter-spacing:-.015em!important;
+}
+body.scripture-mode .sp-wt::before{
+  content:''!important;
+  width:5px!important;
+  height:.64em!important;
+  background:var(--red)!important;
+  display:inline-block!important;
+  flex:0 0 auto!important;
+}
+body.scripture-mode .sp-wt span{color:var(--red)!important;letter-spacing:-.02em!important;}
+body.scripture-mode .sp-ws{
+  margin-top:1.8vh!important;
+  color:rgba(241,237,228,.58)!important;
+  font-family:var(--fc)!important;
+  font-weight:800!important;
+  letter-spacing:.24em!important;
+  text-transform:uppercase!important;
+  font-size:clamp(.78rem,1vw,1.1rem)!important;
+}
+body.scripture-mode .sp-wst{display:none!important;}
+body.scripture-mode .sp-wait .projector-wait-qr{display:none!important;}
+.sp-live-dot{
+  position:fixed!important;
+  top:24px!important;
+  right:28px!important;
+  width:12px!important;
+  height:12px!important;
+  border-radius:50%!important;
+  background:#5b1a18!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  z-index:20!important;
+}
+.sp-live-dot.live{background:#35c759!important;box-shadow:0 0 16px rgba(53,199,89,.75)!important;}
+
+/* Mobile controller: no zoom drift, and Start is always findable. */
+html,body,.mobile-mode-screen,#admin-hub{touch-action:manipulation;}
+.mobile-mode-screen{position:fixed!important;inset:0!important;width:100svw!important;height:100svh!important;max-width:100svw!important;max-height:100svh!important;}
+.mobile-mode-screen .mm-start-action{
+  background:#18a94b!important;
+  border-color:#18a94b!important;
+  color:#fff!important;
+}
+.mobile-mode-screen .mm-bigbtn.start{
+  background:#18a94b!important;
+  border-color:#18a94b!important;
+  color:#fff!important;
+}
+@media(max-width:560px){
+  .mobile-mode-screen .mm-actions{grid-template-columns:1fr 1fr!important;}
+  .mobile-mode-screen .mm-verses{flex:1 1 auto!important;min-height:180px!important;}
+}
+</style>
+<script id="v12-mobile-zoom-lock">
+(function(){
+  document.addEventListener('gesturestart',function(e){e.preventDefault();},{passive:false});
+  document.addEventListener('gesturechange',function(e){e.preventDefault();},{passive:false});
+  let lastTouchEnd=0;
+  document.addEventListener('touchend',function(e){
+    const now=Date.now();
+    if(now-lastTouchEnd<=300){e.preventDefault();}
+    lastTouchEnd=now;
+  },{passive:false});
+})();
+</script>
+
 </head>
 <body>
 
@@ -964,6 +1107,7 @@ body.projector-mode .projector-wait-qr{display:none!important;}
     <div class="sp-wm"></div>
     <div class="sp-wt">THE <span>MINISTRY</span></div>
     <div class="sp-ws">Scriptures &middot; KJV / RVR 1960</div>
+    <div class="sp-live-dot" id="sp-live-dot"></div>
     <div class="sp-wst" id="sp-wait-status">Waiting for presenter...</div>
     <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img src="assets/qr-ministry.png" alt="Join session QR"><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img src="assets/qr-guide.png" alt="Bible study app QR"><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
   </div>
@@ -1160,7 +1304,7 @@ body.projector-mode .projector-wait-qr{display:none!important;}
   <div class="mm-main">
     <div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
     <div class="mm-nav"><button class="mm-bigbtn" onclick="ctrlPrev()">Prev</button><button class="mm-bigbtn red" onclick="ctrlNext()">Next</button></div>
-    <div class="mm-actions"><button class="mm-action" onclick="toggleP1ScOverlay()">Overlay</button><button class="mm-action" onclick="clearP1Overlay()">X Verse</button><button class="mm-action" onclick="panicClear()">Clear</button></div>
+    <div class="mm-actions"><button class="mm-action mm-start-action" onclick="startPresentation()">Start</button><button class="mm-action" onclick="toggleP1ScOverlay()">Overlay</button><button class="mm-action" onclick="clearP1Overlay()">X Verse</button><button class="mm-action" onclick="panicClear()">Clear</button></div>
     <div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
   </div>
 </div>
@@ -1180,7 +1324,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1403,6 +1547,7 @@ const QUESTIONS = [
 
 // ── STATE ──
 let isAdmin=false, userName='', curSlide=0;
+let presentationStarted=false;
 let isProjector=false, isScriptureDisplay=false, isObsLower=false, isObsFull=false, isConfidence=false;
 let scAuto=true, p1ScOverlayOn=false, p1ActiveVerse=null;
 let qUnlocked=false;
@@ -1623,13 +1768,13 @@ function goTo(i){
   // Admin slide movement should always clear active scripture overlays first.
   // This prevents projector 1 / OBS from staying on a verse while the main slide advances.
   if(isAdmin && !_suppressSync){
+    presentationStarted=true;
     p1ScOverlayOn=false;
     p1ActiveVerse=null;
     const ov=document.getElementById('p1-sc-overlay');
     if(ov) ov.classList.remove('show');
+    // Slide changes clear only the P1 overlay. P2 should keep following the slide scripture.
     sbSend({type:'p1_overlay_hide'});
-    sbSend({type:'scripture_clear'});
-    sbSend({type:'clear_overlays'});
   }
   // Sync overlay if on locally only. Admin next/prev intentionally disables this.
   if(p1ScOverlayOn && p1ActiveVerse===null){
@@ -1638,10 +1783,9 @@ function goTo(i){
   }
   // Admin/controller is the only source of truth. Projectors never echo commands back.
   if(isAdmin && !_suppressSync){
-    // Manual scripture only. Slide navigation clears scripture overlays and does not push a new verse.
-    // This prevents random verses/waiting states between slides.
-    // if(scAuto) broadcastScripture(i);
+    // Projector 1 moves slides. Projector 2 follows the current scripture when Auto P2 is on.
     broadcastSlide(i);
+    if(scAuto) broadcastScripture(i);
   }
   updateCtrlSurface(i);
   updateMobileMode(i);
@@ -1829,6 +1973,7 @@ function handleMessage(msg){
   if(!msg||!msg.type) return;
   if(isProjector){
     if(msg.type==='slide'){
+      presentationStarted=true;
       document.getElementById('p1-wait').classList.add('hidden');
       const ssl=document.getElementById('ssl');
       if(!ssl.classList.contains('on')){
@@ -1914,6 +2059,7 @@ function initRealtimeSync(){
           const d=document.getElementById('cmd-p2dot');if(d)d.classList.add('live');
           const ps=document.getElementById('p1-status');if(ps&&isProjector){ps.textContent='Connected';ps.classList.add('live');}
           const sps=document.getElementById('sp-wait-status');if(sps&&isScriptureDisplay){sps.textContent='Connected';sps.classList.add('live');}
+          const spd=document.getElementById('sp-live-dot');if(spd&&isScriptureDisplay)spd.classList.add('live');
         }
       });
   };
@@ -1944,6 +2090,7 @@ function showP2(sc){
   document.body.classList.add('p2-live');
   document.getElementById('sp-wait').classList.add('hidden');
   document.getElementById('sp-content').style.display='flex';
+  const dot=document.getElementById('sp-live-dot'); if(dot) dot.classList.add('live');
   document.getElementById('sp-ref-en').textContent=sc.ref_en||sc.ref||'';
   document.getElementById('sp-tx-en').textContent=sc.text_en||sc.kjv||'';
   const esRef=sc.ref_es||((sc.ref_en||sc.ref||'').replace('Matthew','Mateo'));
@@ -1956,6 +2103,7 @@ function clearP2Display(){
   document.getElementById('sp-content').style.display='none';
   const w=document.getElementById('sp-wait');w.classList.remove('hidden');
   const s=document.getElementById('sp-wait-status');if(s){s.textContent='Cleared';s.classList.remove('live');}
+  const dot=document.getElementById('sp-live-dot'); if(dot) dot.classList.remove('live');
 }
 
 
@@ -1986,7 +2134,7 @@ function updateMobileMode(i){
   const ti=document.getElementById('mm-title'); if(ti) ti.textContent=l.title;
   const pb=document.getElementById('mm-prev-start');
   if(pb){
-    if(i<=0){pb.textContent='Start';pb.classList.add('start');}
+    if(!presentationStarted || i<=0){pb.textContent='Start';pb.classList.add('start');}
     else{pb.innerHTML='&#8592; Prev';pb.classList.remove('start');}
   }
 }
@@ -2003,13 +2151,14 @@ function reloadProjectors(){sbSend({type:'reload_projectors',ts:Date.now()});}
 function panicClear(){hideP1Overlay();clearP2();sbSend({type:'panic_clear',ts:Date.now()});}
 function startPresentation(){
   curSlide=0;
+  presentationStarted=true;
   p1ScOverlayOn=false;
   p1ActiveVerse=null;
   const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
   if(isAdmin){
     sbSend({type:'p1_overlay_hide'});
-    sbSend({type:'scripture_clear'});
     sbSend({type:'slide',slide:0,start:true});
+    if(scAuto) broadcastScripture(0);
   }
   const ssl=document.getElementById('ssl');
   if(ssl){
@@ -2019,7 +2168,7 @@ function startPresentation(){
   }
 }
 function mobilePrevOrStart(){
-  if(curSlide<=0){startPresentation();return;}
+  if(!presentationStarted || curSlide<=0){startPresentation();return;}
   ctrlPrev();
 }
 function requestAuxFullscreen(){
