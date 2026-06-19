@@ -688,6 +688,101 @@ body.projector-mode #ssl.on .slide.on{
 }
 </style>
 
+
+
+<style id="v11-start-mobile-cleanup">
+/* v11: loading screen is the true standby state. Cover slide starts only when admin starts. */
+body.projector-mode .p1-wait{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  text-align:left!important;
+  padding-left:8.25vw!important;
+}
+body.projector-mode .p1-wait.hidden{display:none!important;}
+body.projector-mode .p1-wait::before{
+  background-position:center 48%!important;
+  filter:brightness(.42) saturate(.72)!important;
+  opacity:.96!important;
+}
+body.projector-mode .p1-wait::after{
+  background:
+    radial-gradient(circle at 72% 46%, rgba(0,0,0,.10) 0%, rgba(0,0,0,.22) 27%, rgba(0,0,0,.62) 63%, rgba(0,0,0,.90) 100%),
+    linear-gradient(90deg, rgba(3,3,3,.90) 0%, rgba(3,3,3,.58) 42%, rgba(3,3,3,.22) 70%, rgba(3,3,3,.45) 100%)!important;
+}
+body.projector-mode .pw-ti{
+  display:block!important;
+  font-family:var(--fd)!important;
+  font-size:clamp(6rem,9.2vw,11.3rem)!important;
+  line-height:.84!important;
+  letter-spacing:-.045em!important;
+  text-align:left!important;
+  max-width:min(760px,48vw)!important;
+}
+body.projector-mode .pw-ti::before{
+  content:''!important;
+  display:inline-block!important;
+  width:4px!important;
+  height:.55em!important;
+  background:var(--red)!important;
+  margin-right:14px!important;
+  transform:translateY(-.08em)!important;
+}
+body.projector-mode .pw-ti span{display:block!important;color:var(--red)!important;letter-spacing:-.055em!important;}
+body.projector-mode .pw-sb{
+  font-size:clamp(.75rem,.9vw,1.05rem)!important;
+  margin-top:1.6vh!important;
+  letter-spacing:.22em!important;
+  max-width:760px!important;
+}
+body.projector-mode .pw-st{
+  margin-top:2.4vh!important;
+  width:auto!important;
+  display:inline-flex!important;
+}
+body.projector-mode .projector-wait-qr{display:none!important;}
+
+.cmd-start{background:#18a94b!important;border-color:#18a94b!important;color:#fff!important;}
+.cmd-start:hover{background:#148d3f!important;border-color:#148d3f!important;}
+.mm-bigbtn.start{background:#18a94b!important;border-color:#18a94b!important;color:#fff!important;}
+
+/* Admin mobile cleanup: keep the command rail locked, allow horizontal scroll inside it, keep controls available. */
+#admin-hub{width:100vw;max-width:100vw;overflow:hidden!important;}
+#admin-hub .cmd-bar{position:sticky;top:0;left:0;right:0;z-index:30;max-width:100vw;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;}
+#admin-hub .cmd-sec{flex:0 0 auto;}
+@media(max-width:768px){
+  body.am{overflow:hidden!important;}
+  #admin-hub{height:100dvh!important;min-height:100dvh!important;}
+  #admin-hub .cmd-bar{height:64px!important;min-height:64px!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;}
+  #admin-hub .cmd-sec{height:64px!important;padding:0 10px!important;}
+  #admin-hub .cmd-ctr{font-size:1.9rem!important;min-width:58px!important;}
+  #admin-hub .cmd-prev,#admin-hub .cmd-next{height:38px!important;padding:8px 14px!important;}
+  #admin-hub .cmd-stitle{max-width:160px!important;}
+  #admin-hub .ctrl-grid{display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto auto!important;overflow-y:auto!important;height:calc(100dvh - 64px)!important;min-height:0!important;}
+  #admin-hub .ctrl-left,#admin-hub .ctrl-center,#admin-hub .ctrl-right{border-right:0!important;border-bottom:1px solid var(--ln)!important;min-height:0!important;overflow:visible!important;}
+  #admin-hub .ctrl-left{max-height:52dvh!important;overflow:hidden!important;}
+  #admin-hub .ctrl-panel.on{max-height:calc(52dvh - 41px)!important;overflow-y:auto!important;}
+  #admin-hub .ctrl-center{display:flex!important;max-height:none!important;}
+  #admin-hub .ctrl-prev-wrap{padding:10px!important;}
+  #admin-hub .ctrl-prev-stage{max-width:min(92vw,420px)!important;}
+  #admin-hub .ctrl-notes{max-height:180px!important;}
+  #admin-hub .ctrl-right{display:block!important;}
+  #admin-hub .ctrl-right > div[style*="overflow-y"]{max-height:none!important;overflow:visible!important;}
+}
+
+/* Mobile Mode: lock to device viewport, no sideways drift. */
+.mobile-mode-screen{width:100vw!important;height:100dvh!important;max-width:100vw!important;overflow:hidden!important;}
+.mobile-mode-screen .mm-main{overflow-y:auto!important;overflow-x:hidden!important;}
+@media(max-width:560px){
+  .mobile-mode-screen .mm-main{padding:12px!important;gap:10px!important;}
+  .mobile-mode-screen .mm-status{grid-template-columns:auto 1fr!important;}
+  .mobile-mode-screen .mm-timer{grid-column:1 / -1;text-align:right;font-size:2.2rem!important;}
+  .mobile-mode-screen .mm-bigbtn{min-height:86px!important;font-size:2.1rem!important;}
+  .mobile-mode-screen .mm-actions{grid-template-columns:1fr 1fr!important;}
+  .mobile-mode-screen .mm-verses{min-height:220px!important;}
+}
+</style>
+
 </head>
 <body>
 
@@ -893,6 +988,7 @@ body.projector-mode #ssl.on .slide.on{
       <div><span class="cmd-lbl">Slide</span><div class="cmd-ctr" id="cmd-ctr">1/15</div></div>
     </div>
     <div class="cmd-sec">
+      <button class="cmd-pill cmd-start" onclick="startPresentation()">Start</button>
       <button class="cmd-prev" onclick="ctrlPrev()">&#8592; Prev</button>
       <button class="cmd-next" onclick="ctrlNext()">Next &#8594;</button>
     </div>
@@ -916,6 +1012,7 @@ body.projector-mode #ssl.on .slide.on{
       <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">&#9679; Auto P2</button>
       <button class="cmd-pill" onclick="openSS()">&#9654; Present</button>
       <button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button>
+      <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
       <button class="cmd-pill" onclick="projFS()">&#9974; FS</button>
     </div>
     <div class="cmd-sec"><div><span class="cmd-timer-sub">Timer</span><div class="cmd-timer" id="cmd-timer">00:00</div></div></div>
@@ -1083,7 +1180,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1356,15 +1453,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(p.has('projector') || route==='1' || route==='projector'){
     document.body.classList.add('projector-mode');
     isProjector=true;
-    // Build the cover slide immediately so ProPresenter never sees a blank/black canvas.
     const ssl=document.getElementById('ssl');
     if(ssl){
-      ssl.classList.add('on');
+      ssl.classList.remove('on');
       buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
       renderDots(LESSON1_SLIDES.length);
-      _suppressSync=true; goTo(curSlide||0); _suppressSync=false;
+      _suppressSync=true; goTo(0); _suppressSync=false;
     }
-    document.getElementById('p1-wait').classList.add('hidden');
+    const wait=document.getElementById('p1-wait');
+    if(wait) wait.classList.remove('hidden');
     initBC(); startTimer(); return;
   }
   const u=localStorage.getItem('tm_u'), a=localStorage.getItem('tm_a');
@@ -1771,6 +1868,7 @@ function handleMessage(msg){
     if(msg.type==='p1_overlay_show') updateConfidenceScripture({ref_en:msg.ref,kjv:msg.kjv});
     if(msg.type==='p1_overlay_hide' || msg.type==='scripture_clear') clearConfidenceScripture();
   }
+  if(msg.type==='request_fullscreen' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){tryRemoteFullscreen();}
   if(msg.type==='reload_projectors' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){location.reload();}
   if(msg.type==='panic_clear'){
     const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
@@ -1886,6 +1984,11 @@ function updateMobileMode(i){
   const n=document.getElementById('mm-num'); if(n) n.textContent=`${i+1}/${LESSON1_SLIDES.length}`;
   const t=document.getElementById('mm-type'); if(t) t.textContent=l.type;
   const ti=document.getElementById('mm-title'); if(ti) ti.textContent=l.title;
+  const pb=document.getElementById('mm-prev-start');
+  if(pb){
+    if(i<=0){pb.textContent='Start';pb.classList.add('start');}
+    else{pb.innerHTML='&#8592; Prev';pb.classList.remove('start');}
+  }
 }
 function buildMobileVerseList(){
   const wrap=document.getElementById('mm-verse-list'); if(!wrap) return;
@@ -1898,6 +2001,35 @@ function pushVerseFromMobile(id){
 }
 function reloadProjectors(){sbSend({type:'reload_projectors',ts:Date.now()});}
 function panicClear(){hideP1Overlay();clearP2();sbSend({type:'panic_clear',ts:Date.now()});}
+function startPresentation(){
+  curSlide=0;
+  p1ScOverlayOn=false;
+  p1ActiveVerse=null;
+  const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
+  if(isAdmin){
+    sbSend({type:'p1_overlay_hide'});
+    sbSend({type:'scripture_clear'});
+    sbSend({type:'slide',slide:0,start:true});
+  }
+  const ssl=document.getElementById('ssl');
+  if(ssl){
+    ssl.classList.add('on');
+    if(!document.querySelector('#ss-slides .slide')){buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);renderDots(LESSON1_SLIDES.length);}
+    _suppressSync=true; goTo(0); _suppressSync=false;
+  }
+}
+function mobilePrevOrStart(){
+  if(curSlide<=0){startPresentation();return;}
+  ctrlPrev();
+}
+function requestAuxFullscreen(){
+  sbSend({type:'request_fullscreen',ts:Date.now()});
+}
+function tryRemoteFullscreen(){
+  const target=document.documentElement;
+  if(document.fullscreenElement) return;
+  try{target.requestFullscreen && target.requestFullscreen().catch(()=>{});}catch(e){}
+}
 
 // ── OBS SCRIPTURE OUTPUTS ──
 function showOBS(sc){
