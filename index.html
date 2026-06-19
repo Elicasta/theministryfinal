@@ -477,6 +477,42 @@ body.projector-mode .sl-big-text{font-size:clamp(5.5rem,8.6vw,10.5rem)!important
 body.obs-mode{background:transparent!important;overflow:hidden}.obs-screen{display:none;position:fixed;inset:0;z-index:13000;background:transparent;color:var(--w);font-family:var(--fb)}body.obs-mode .obs-screen{display:block}.obs-lower{position:absolute;left:4vw;right:4vw;bottom:5vh;background:rgba(4,4,4,.82);border-left:5px solid var(--red);padding:22px 28px;box-shadow:0 12px 40px rgba(0,0,0,.4)}.obs-ref{font-family:var(--fc);font-size:1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:7px}.obs-text{font-family:var(--fp);font-style:italic;font-size:clamp(1.5rem,2.6vw,3.3rem);line-height:1.18}.obs-full{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(0,0,0,.86);padding:8vw}.obs-full .obs-ref{font-size:clamp(1rem,1.4vw,1.6rem)}.obs-full .obs-text{font-size:clamp(3.2rem,5.2vw,7rem)}
 .ask-drawer{position:fixed;left:0;right:0;bottom:0;z-index:16000;background:#0d0d0d;border-top:2px solid var(--red);padding:22px;transform:translateY(105%);transition:transform .25s ease}.ask-drawer.open{transform:none}.ask-title{font-family:var(--fd);font-size:2rem;text-transform:uppercase}.ask-sub{font-family:var(--fc);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:12px}.ask-ta{width:100%;min-height:110px;background:#050505;border:1px solid var(--ln);color:var(--w);font-family:var(--fb);font-size:1rem;padding:12px;resize:vertical;outline:none}.ask-row{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}.ask-ok{display:none;font-family:var(--fc);font-size:.7rem;color:var(--red);letter-spacing:.12em;text-transform:uppercase}.ask-ok.on{display:inline-flex;align-items:center}
 
+
+/* =========================================================
+   V6 CLEANUP: output screens should stay clean while live
+   ========================================================= */
+body.projector-mode .sl-sc{align-items:flex-start!important;justify-content:center!important;text-align:left!important;padding:9vh 8vw!important}
+body.projector-mode .sl-sc>div{width:auto!important;max-width:none!important}
+body.projector-mode .sl-sc-mk{width:4px!important;max-width:4px!important;height:72px!important;min-height:72px!important;background:var(--red)!important;margin:0 0 24px 0!important;flex:0 0 auto!important;align-self:flex-start!important}
+body.projector-mode .sl-sc-rf{font-size:clamp(.88rem,1.05vw,1.2rem)!important;letter-spacing:.24em!important;margin-bottom:18px!important}
+body.projector-mode .sl-sc-tx{font-size:clamp(2.25rem,3.4vw,4.25rem)!important;line-height:1.22!important;max-width:min(1280px,82vw)!important;margin-bottom:20px!important}
+body.projector-mode .sl-sc-tk{font-size:clamp(.92rem,1.15vw,1.25rem)!important;max-width:min(980px,72vw)!important;opacity:.72!important}
+body.scripture-mode .sp-content{align-items:center!important;justify-content:center!important;text-align:left!important;padding:6vh 8vw!important}
+body.scripture-mode .sp-inner{width:min(1260px,82vw)!important;max-width:min(1260px,82vw)!important}
+body.scripture-mode .sp-mk{width:4px!important;height:70px!important;left:auto!important;top:auto!important;position:relative!important;margin:0 0 22px -28px!important}
+body.scripture-mode .sp-ref-en{font-size:clamp(.84rem,1.08vw,1.2rem)!important;margin-bottom:18px!important}
+body.scripture-mode .sp-tx-en{font-size:clamp(2rem,3vw,3.7rem)!important;line-height:1.24!important;max-width:1220px!important}
+body.scripture-mode .sp-ref-es{font-size:clamp(.68rem,.86vw,.94rem)!important;margin-top:38px!important;padding-top:26px!important}
+body.scripture-mode .sp-tx-es{font-size:clamp(1.08rem,1.55vw,1.9rem)!important;line-height:1.34!important;max-width:1060px!important}
+body.projector-mode #ssl.on .projector-fs-btn,body.scripture-mode .sp-wait.hidden~.projector-fs-btn,body.obs-mode .projector-fs-btn,body.confidence-mode .projector-fs-btn,body.projector-mode #ssl.on .proj-ctrl-bar{opacity:0!important;pointer-events:none!important;transition:opacity .18s ease!important}
+body.projector-mode:hover #ssl.on .projector-fs-btn,body.scripture-mode:hover .projector-fs-btn,body.obs-mode:hover .projector-fs-btn,body.confidence-mode:hover .projector-fs-btn,body.projector-mode:hover #ssl.on .proj-ctrl-bar{opacity:1!important;pointer-events:auto!important}
+body.obs-mode .obs-tools{opacity:0!important;transition:opacity .18s ease!important;pointer-events:auto!important}body.obs-mode:hover .obs-tools{opacity:1!important}
+body.obs-mode .obs-screen{background:transparent!important;pointer-events:none!important}
+body.obs-mode .obs-lower{position:absolute!important;left:3.2vw!important;right:auto!important;bottom:4.5vh!important;width:min(760px,56vw)!important;background:rgba(5,5,5,.86)!important;border-left:0!important;border-bottom:5px solid var(--red)!important;padding:18px 22px 20px!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important;text-align:left!important}
+body.obs-mode .obs-lower .obs-series{font-family:var(--fc)!important;font-size:.7rem!important;font-weight:900!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--red)!important;margin-bottom:5px!important}
+body.obs-mode .obs-lower .obs-ref{font-family:var(--fc)!important;font-size:.82rem!important;font-weight:800!important;letter-spacing:.12em!important;color:rgba(241,237,228,.72)!important;margin-bottom:5px!important}
+body.obs-mode .obs-lower .obs-text{font-family:var(--fc)!important;font-style:normal!important;font-weight:900!important;text-transform:uppercase!important;font-size:clamp(1.05rem,1.6vw,1.9rem)!important;line-height:1.05!important;letter-spacing:.02em!important}
+body.obs-mode .obs-lower .obs-summary{font-family:var(--fb)!important;font-size:.78rem!important;color:rgba(241,237,228,.68)!important;margin-top:8px!important}
+body.obs-mode .obs-screen.green{background:#00b140!important}body.obs-mode .obs-screen.green .obs-lower{background:rgba(0,0,0,.94)!important}
+body.obs-mode .obs-full{position:absolute!important;inset:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;background:rgba(0,0,0,.86)!important;padding:8vw!important;border:0!important;width:auto!important;box-shadow:none!important}
+body.obs-mode .obs-full .obs-series,body.obs-mode .obs-full .obs-summary{display:none!important}
+body.obs-mode .obs-full .obs-ref{font-family:var(--fc)!important;font-size:clamp(.9rem,1.25vw,1.45rem)!important;font-weight:900!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:var(--red)!important;margin-bottom:22px!important}
+body.obs-mode .obs-full .obs-text{font-family:var(--fp)!important;font-style:italic!important;font-weight:400!important;text-transform:none!important;font-size:clamp(2.4rem,4.4vw,5.9rem)!important;line-height:1.14!important;letter-spacing:0!important;max-width:1380px!important;color:var(--w)!important}
+body.obs-mode .obs-screen.green .obs-full{background:#00b140!important}body.obs-mode .obs-screen.green .obs-full::before{content:'';position:absolute;inset:7vw;background:rgba(0,0,0,.92);z-index:-1}
+.conf-current.scripture-active .conf-title{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(2.1rem,3.6vw,4.8rem)!important;line-height:1.16!important;text-transform:none!important}
+.conf-current.scripture-active .conf-ref{color:var(--red)!important}.conf-current.scripture-active .conf-es{display:block;margin-top:18px;padding-top:16px;border-top:1px solid rgba(241,237,228,.16);font-family:var(--fp);font-style:italic;font-size:clamp(1.05rem,1.7vw,2.1rem);line-height:1.25;color:rgba(241,237,228,.64)}
+
+body.scripture-mode.p2-live .projector-fs-btn{opacity:0!important;pointer-events:none!important}body.scripture-mode.p2-live:hover .projector-fs-btn{opacity:1!important;pointer-events:auto!important}
 </style>
 </head>
 <body>
@@ -873,7 +909,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1105,21 +1141,30 @@ let _suppressSync=false, _timerStart=Date.now(), _timerInt=null;
 let questions=[];
 document.addEventListener('DOMContentLoaded',()=>{
   const p=new URLSearchParams(window.location.search);
+  const path=window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();
+  const cleanRoute={
+    projector:'projector',
+    scriptures:'scriptures',
+    scripture:'scriptures',
+    obslowerthirds:'obslowerthirds',
+    obsslides:'obsslides',
+    confidence:'confidence'
+  }[path] || '';
   const raw=(p.get('projector')||p.get('screen')||'').toLowerCase();
   const obsRaw=(p.get('obs')||'').toLowerCase();
-  const route=raw||obsRaw;
+  const route=cleanRoute||raw||obsRaw;
 
-  // Human-readable output names:
-  // ?projector=projector, ?projector=scriptures, ?projector=obslowerthirds, ?projector=obsslides, ?projector=confidence
-  // Legacy names still work: ?projector=1, ?scripture, ?obs=lower, ?obs=full
-  if(p.has('scripture') || raw==='2' || raw==='scripture' || raw==='scriptures'){
+  // Clean output routes:
+  // /projector, /scriptures, /obslowerthirds, /obsslides, /confidence
+  // Legacy query routes still work for safety: ?projector=1, ?projector=2, ?obs=lower, ?obs=full
+  if(p.has('scripture') || route==='2' || route==='scripture' || route==='scriptures'){
     isScriptureDisplay=true;
     document.body.classList.add('scripture-mode');
     document.getElementById('sc').classList.remove('on');
     initBC(); startTimer(); return;
   }
-  if(p.has('obs') || raw==='3' || raw==='4' || raw==='obslowerthirds' || raw==='obsslides'){
-    const full=(obsRaw==='full'||raw==='4'||raw==='obsslides');
+  if(p.has('obs') || route==='3' || route==='4' || route==='lower' || route==='full' || route==='obslowerthirds' || route==='obsslides'){
+    const full=(obsRaw==='full'||route==='4'||route==='full'||route==='obsslides');
     isObsLower=!full; isObsFull=full;
     document.body.classList.add('obs-mode');
     document.getElementById('sc').classList.remove('on');
@@ -1127,14 +1172,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(box && isObsFull) box.className='obs-full';
     initBC(); startTimer(); return;
   }
-  if(raw==='5' || raw==='confidence'){
+  if(route==='5' || route==='confidence'){
     isConfidence=true;
     document.body.classList.add('confidence-mode');
     document.getElementById('sc').classList.remove('on');
     updateConfidence(curSlide);
     initBC(); startTimer(); return;
   }
-  if(p.has('projector')){
+  if(p.has('projector') || route==='1' || route==='projector'){
     document.body.classList.add('projector-mode');
     isProjector=true;
     document.getElementById('p1-wait').classList.remove('hidden');
@@ -1536,11 +1581,13 @@ function handleMessage(msg){
   if(isConfidence){
     if(msg.type==='slide') updateConfidence(msg.slide);
     if(msg.type==='scripture') updateConfidenceScripture(msg.scripture);
+    if(msg.type==='p1_overlay_show') updateConfidenceScripture({ref_en:msg.ref,kjv:msg.kjv});
+    if(msg.type==='p1_overlay_hide' || msg.type==='scripture_clear') clearConfidenceScripture();
   }
   if(msg.type==='reload_projectors' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){location.reload();}
   if(msg.type==='panic_clear'){
     const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
-    if(isScriptureDisplay) clearP2Display(); if(isObsLower||isObsFull) clearOBS();
+    if(isScriptureDisplay) clearP2Display(); if(isObsLower||isObsFull) clearOBS(); if(isConfidence) clearConfidenceScripture();
   }
   if(isAdmin && msg.type==='question_submit'){
     questions.unshift(msg.question); renderQuestionsMini();
@@ -1609,6 +1656,7 @@ function broadcastSlide(i){
   sbSend({type:'slide',slide:i});
 }
 function showP2(sc){
+  document.body.classList.add('p2-live');
   document.getElementById('sp-wait').classList.add('hidden');
   document.getElementById('sp-content').style.display='flex';
   document.getElementById('sp-ref-en').textContent=sc.ref_en||sc.ref||'';
@@ -1619,6 +1667,7 @@ function showP2(sc){
   document.getElementById('sp-tx-es').textContent=esText;
 }
 function clearP2Display(){
+  document.body.classList.remove('p2-live');
   document.getElementById('sp-content').style.display='none';
   const w=document.getElementById('sp-wait');w.classList.remove('hidden');
   const s=document.getElementById('sp-wait-status');if(s){s.textContent='Cleared';s.classList.remove('live');}
@@ -1665,11 +1714,15 @@ function panicClear(){hideP1Overlay();clearP2();sbSend({type:'panic_clear',ts:Da
 
 // ── OBS SCRIPTURE OUTPUTS ──
 function showOBS(sc){
-  const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text');
+  const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
   if(ref) ref.textContent=sc.ref_en||sc.ref||'';
   if(txt) txt.textContent=sc.text_en||sc.kjv||'';
+  if(sum) sum.textContent=isObsFull ? '' : 'Active Scripture';
 }
-function clearOBS(){const txt=document.getElementById('obs-text'); if(txt) txt.textContent='';}
+function clearOBS(){
+  const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
+  if(ref) ref.textContent=''; if(txt) txt.textContent=''; if(sum) sum.textContent='';
+}
 
 function slidePlainTitle(i){
   const s=LESSON1_SLIDES[i]; if(!s) return {title:'Waiting', type:'', ref:''};
@@ -1686,20 +1739,45 @@ function showOBSSlide(i){
   if(sum) sum.textContent=`${cur.type} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
 }
 function toggleObsGreen(){const s=document.getElementById('obs-screen'); if(s) s.classList.toggle('green');}
+function firstNoteLine(note){
+  if(!note) return 'No notes for this slide.';
+  const clean=String(note).trim();
+  const first=clean.split(/(?<=\.)\s+/)[0];
+  return first || clean;
+}
+function findSpanishFor(ref, text){
+  const r=(ref||'').toLowerCase().replace(/\s+/g,' ');
+  const t=(text||'').slice(0,60).toLowerCase();
+  const hit=SCRIPTURE_MAP.find(x=>
+    ((x.ref_en||'').toLowerCase()===r || (x.ref_en||'').toLowerCase().includes(r) || r.includes((x.ref_en||'').toLowerCase())) && x.text_es
+  ) || SCRIPTURE_MAP.find(x=> t && (x.text_en||'').toLowerCase().includes(t));
+  return hit ? {ref_es:hit.ref_es, text_es:hit.text_es} : {ref_es:'RVR 1960', text_es:''};
+}
 function updateConfidence(i){
   curSlide=i;
   const cur=slidePlainTitle(i), next=slidePlainTitle(i+1);
+  const card=document.querySelector('.conf-current');
   const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
+  if(card) card.classList.remove('scripture-active');
   if(ck) ck.textContent=`Current · Slide ${i+1}/${LESSON1_SLIDES.length} · ${cur.type}`;
   if(ct) ct.innerHTML=(cur.title||'The Ministry').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
   if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
   if(nt) nt.innerHTML=(next.title||'End').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
-  if(nn) nn.innerHTML=NOTES_L1[i] || 'No notes for this slide.';
+  if(nn) nn.textContent=firstNoteLine(NOTES_L1[i]);
 }
 function updateConfidenceScripture(sc){
-  const cr=document.getElementById('conf-current-ref');
-  if(cr && sc) cr.textContent=`Active Scripture: ${sc.ref_en||sc.ref||''}`;
+  if(!sc) return;
+  const card=document.querySelector('.conf-current');
+  const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref');
+  const ref=sc.ref_en||sc.ref||'';
+  const en=sc.text_en||sc.kjv||'';
+  const es=sc.text_es ? {ref_es:sc.ref_es||'RVR 1960', text_es:sc.text_es} : findSpanishFor(ref,en);
+  if(card) card.classList.add('scripture-active');
+  if(ck) ck.textContent='Active Scripture';
+  if(cr) cr.textContent=`${ref} · KJV / ${es.ref_es||'RVR 1960'}`;
+  if(ct) ct.innerHTML=`${en}<span class="conf-es">${es.text_es||''}</span>`;
 }
+function clearConfidenceScripture(){ updateConfidence(curSlide); }
 
 
 // ── SIMPLE LIVE QUESTIONS ──
