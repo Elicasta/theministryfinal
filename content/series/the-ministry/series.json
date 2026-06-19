@@ -1,0 +1,12 @@
+{
+  "id": "the-ministry",
+  "title": "The Ministry",
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "title": "The Price of Being Sent",
+      "path": "/content/series/the-ministry/lesson-1/lesson.md",
+      "enabled": false
+    }
+  ]
+}

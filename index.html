@@ -1407,10 +1407,10 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
-const LESSON1_SLIDES = [
+let LESSON1_SLIDES = [
   {
     t: 'cover',
     eyebrow: 'The Ministry &middot; Matthew 10',
@@ -1554,7 +1554,7 @@ const LESSON1_SLIDES = [
   },
 ];
 
-const NOTES_L1 = {
+let NOTES_L1 = {
   0: 'Cover slide. Let it breathe. No rush.',
   1: 'Read slowly. Do not rush the text.',
   2: 'This is the diagnostic. Called → Empowered → Sent. The order is the whole point.',
@@ -1572,10 +1572,10 @@ const NOTES_L1 = {
   14: 'Final slide. Close in prayer after this.',
 };
 
-const SCRIPTURE_MAP = [{"ref_en": "Matthew 10:1-10", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\" — Matthew 10:1", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1-2", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits… Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother.\"", "ref_es": "Mateo 10:1-2", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad… Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano.\""}, {"ref_en": "Matthew 10:1-2", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits… Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother.\"", "ref_es": "Mateo 10:1-2", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad… Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:2-4", "text_en": "\"Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother; Philip, and Bartholomew; Thomas, and Matthew the publican; James the son of Alphaeus, and Lebbaeus, whose surname was Thaddaeus; Simon the Canaanite, and Judas Iscariot, who also betrayed him.\"", "ref_es": "Mateo 10:2-4", "text_es": "\"Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano; Felipe, Bartolomé, Tomás, Mateo el publicano, Jacobo hijo de Alfeo, Lebeo, por sobrenombre Tadeo, Simón el cananista, y Judas Iscariote, el que también le entregó.\""}, {"ref_en": "Matthew 10:4", "text_en": "\"Simon the Canaanite, and Judas Iscariot, who also betrayed him.\"", "ref_es": "Mateo 10:4", "text_es": "\"Simón el cananista, y Judas Iscariote, el que también le entregó.\""}, {"ref_en": "Matthew 10:5-6", "text_en": "\"These twelve Jesus sent forth, and commanded them, saying, Go not into the way of the Gentiles, and into any city of the Samaritans enter ye not: But go rather to the lost sheep of the house of Israel.\"", "ref_es": "Mateo 10:5-6", "text_es": "\"A estos doce envió Jesús, y les dio instrucciones, diciendo: Por camino de gentiles no vayáis, y en ciudad de samaritanos no entréis, sino id antes a las ovejas perdidas de la casa de Israel.\""}, {"ref_en": "Matthew 10:7-10", "text_en": "\"And as ye go, preach, saying, The kingdom of heaven is at hand. Heal the sick, cleanse the lepers, raise the dead, cast out devils: freely ye have received, freely give. Provide neither gold, nor silver, nor brass in your purses, Nor scrip for your journey… for the workman is worthy of his meat.\"", "ref_es": "Mateo 10:7-10", "text_es": "\"Y yendo, predicad, diciendo: El reino de los cielos se ha acercado. Sanad enfermos, limpiad leprosos, resucitad muertos, echad fuera demonios; de gracia recibisteis, dad de gracia. No os proveáis de oro, ni plata… porque el obrero es digno de su alimento.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}];
+let SCRIPTURE_MAP = [{"ref_en": "Matthew 10:1-10", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\" — Matthew 10:1", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:1-2", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits… Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother.\"", "ref_es": "Mateo 10:1-2", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad… Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano.\""}, {"ref_en": "Matthew 10:1-2", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits… Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother.\"", "ref_es": "Mateo 10:1-2", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad… Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}, {"ref_en": "Matthew 10:2-4", "text_en": "\"Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother; Philip, and Bartholomew; Thomas, and Matthew the publican; James the son of Alphaeus, and Lebbaeus, whose surname was Thaddaeus; Simon the Canaanite, and Judas Iscariot, who also betrayed him.\"", "ref_es": "Mateo 10:2-4", "text_es": "\"Los nombres de los doce apóstoles son estos: el primero, Simón, llamado Pedro, y Andrés su hermano; Jacobo hijo de Zebedeo, y Juan su hermano; Felipe, Bartolomé, Tomás, Mateo el publicano, Jacobo hijo de Alfeo, Lebeo, por sobrenombre Tadeo, Simón el cananista, y Judas Iscariote, el que también le entregó.\""}, {"ref_en": "Matthew 10:4", "text_en": "\"Simon the Canaanite, and Judas Iscariot, who also betrayed him.\"", "ref_es": "Mateo 10:4", "text_es": "\"Simón el cananista, y Judas Iscariote, el que también le entregó.\""}, {"ref_en": "Matthew 10:5-6", "text_en": "\"These twelve Jesus sent forth, and commanded them, saying, Go not into the way of the Gentiles, and into any city of the Samaritans enter ye not: But go rather to the lost sheep of the house of Israel.\"", "ref_es": "Mateo 10:5-6", "text_es": "\"A estos doce envió Jesús, y les dio instrucciones, diciendo: Por camino de gentiles no vayáis, y en ciudad de samaritanos no entréis, sino id antes a las ovejas perdidas de la casa de Israel.\""}, {"ref_en": "Matthew 10:7-10", "text_en": "\"And as ye go, preach, saying, The kingdom of heaven is at hand. Heal the sick, cleanse the lepers, raise the dead, cast out devils: freely ye have received, freely give. Provide neither gold, nor silver, nor brass in your purses, Nor scrip for your journey… for the workman is worthy of his meat.\"", "ref_es": "Mateo 10:7-10", "text_es": "\"Y yendo, predicad, diciendo: El reino de los cielos se ha acercado. Sanad enfermos, limpiad leprosos, resucitad muertos, echad fuera demonios; de gracia recibisteis, dad de gracia. No os proveáis de oro, ni plata… porque el obrero es digno de su alimento.\""}, {"ref_en": "Matthew 10:1", "text_en": "\"And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.\"", "ref_es": "Mateo 10:1", "text_es": "\"Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.\""}];
 
 
-const VERSE_BANK = [{"id": "v1", "ref": "Matthew 10:1", "kjv": "And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.", "slides": [0, 1, 2, 3, 4, 5, 6, 9, 14]}, {"id": "v2", "ref": "Matthew 10:2", "kjv": "Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother;", "slides": [7, 8]}, {"id": "v3", "ref": "Matthew 10:3", "kjv": "Philip, and Bartholomew; Thomas, and Matthew the publican; James the son of Alphaeus, and Lebbaeus, whose surname was Thaddaeus;", "slides": [10]}, {"id": "v4", "ref": "Matthew 10:4", "kjv": "Simon the Canaanite, and Judas Iscariot, who also betrayed him.", "slides": [11]}, {"id": "v5", "ref": "Matthew 10:5", "kjv": "These twelve Jesus sent forth, and commanded them, saying, Go not into the way of the Gentiles, and into any city of the Samaritans enter ye not:", "slides": [12]}, {"id": "v6", "ref": "Matthew 10:6", "kjv": "But go rather to the lost sheep of the house of Israel.", "slides": [12]}, {"id": "v7", "ref": "Matthew 10:7", "kjv": "And as ye go, preach, saying, The kingdom of heaven is at hand.", "slides": [13]}, {"id": "v8", "ref": "Matthew 10:8", "kjv": "Heal the sick, cleanse the lepers, raise the dead, cast out devils: freely ye have received, freely give.", "slides": [13]}, {"id": "v9", "ref": "Matthew 10:9", "kjv": "Provide neither gold, nor silver, nor brass in your purses,", "slides": [13]}, {"id": "v10", "ref": "Matthew 10:10", "kjv": "Nor scrip for your journey, neither two coats, neither shoes, nor yet staves: for the workman is worthy of his meat.", "slides": [13]}];
+let VERSE_BANK = [{"id": "v1", "ref": "Matthew 10:1", "kjv": "And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness and all manner of disease.", "slides": [0, 1, 2, 3, 4, 5, 6, 9, 14]}, {"id": "v2", "ref": "Matthew 10:2", "kjv": "Now the names of the twelve apostles are these; The first, Simon, who is called Peter, and Andrew his brother; James the son of Zebedee, and John his brother;", "slides": [7, 8]}, {"id": "v3", "ref": "Matthew 10:3", "kjv": "Philip, and Bartholomew; Thomas, and Matthew the publican; James the son of Alphaeus, and Lebbaeus, whose surname was Thaddaeus;", "slides": [10]}, {"id": "v4", "ref": "Matthew 10:4", "kjv": "Simon the Canaanite, and Judas Iscariot, who also betrayed him.", "slides": [11]}, {"id": "v5", "ref": "Matthew 10:5", "kjv": "These twelve Jesus sent forth, and commanded them, saying, Go not into the way of the Gentiles, and into any city of the Samaritans enter ye not:", "slides": [12]}, {"id": "v6", "ref": "Matthew 10:6", "kjv": "But go rather to the lost sheep of the house of Israel.", "slides": [12]}, {"id": "v7", "ref": "Matthew 10:7", "kjv": "And as ye go, preach, saying, The kingdom of heaven is at hand.", "slides": [13]}, {"id": "v8", "ref": "Matthew 10:8", "kjv": "Heal the sick, cleanse the lepers, raise the dead, cast out devils: freely ye have received, freely give.", "slides": [13]}, {"id": "v9", "ref": "Matthew 10:9", "kjv": "Provide neither gold, nor silver, nor brass in your purses,", "slides": [13]}, {"id": "v10", "ref": "Matthew 10:10", "kjv": "Nor scrip for your journey, neither two coats, neither shoes, nor yet staves: for the workman is worthy of his meat.", "slides": [13]}];
 
 const QUESTIONS = [
   {
@@ -1628,6 +1628,38 @@ const QUESTIONS = [
   }
 ];
 
+
+
+// ── OPTIONAL LESSON CONTENT LOADER ───────────────────────
+// Future lesson system. By default the built-in lesson stays active.
+// To load from repo content, set `"enabled": true` inside:
+// /content/series/the-ministry/lesson-1/lesson.md
+async function loadLessonData(){
+  const params = new URLSearchParams(window.location.search);
+  const lesson = (params.get('lesson') || 'lesson-1').replace(/[^a-z0-9_-]/gi,'').toLowerCase();
+  const series = (params.get('series') || 'the-ministry').replace(/[^a-z0-9_-]/gi,'').toLowerCase();
+  const url = `/content/series/${series}/${lesson}/lesson.md`;
+  try{
+    const res = await fetch(url, {cache:'no-store'});
+    if(!res.ok) return;
+    const md = await res.text();
+    const match = md.match(/```lesson-json\s*([\s\S]*?)```/i) || md.match(/<!--\s*lesson-json\s*([\s\S]*?)\s*-->/i);
+    if(!match) return;
+    const data = JSON.parse(match[1]);
+    if(!data || data.enabled !== true) return;
+    if(Array.isArray(data.slides) && data.slides.length) LESSON1_SLIDES = data.slides;
+    if(data.notes && typeof data.notes === 'object') NOTES_L1 = data.notes;
+    if(Array.isArray(data.scriptures)) SCRIPTURE_MAP = data.scriptures;
+    if(Array.isArray(data.verseBank)) VERSE_BANK = data.verseBank;
+    if(data.spanish && typeof data.spanish === 'object'){
+      Object.keys(data.spanish).forEach(k=>{ VB_SPANISH[k]=data.spanish[k]; });
+    }
+    window.__loadedLessonPath = url;
+  }catch(err){
+    console.warn('Lesson content loader skipped:', err);
+  }
+}
+
 // ── STATE ──
 let isAdmin=false, userName='', curSlide=0;
 let presentationStarted=false;
@@ -1638,7 +1670,8 @@ let bc=null;
 let sbChannel=null;
 let _suppressSync=false, _timerStart=Date.now(), _timerInt=null;
 let questions=[];
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
+  await loadLessonData();
   const p=new URLSearchParams(window.location.search);
   const path=window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();
   const cleanRoute={
@@ -2521,5 +2554,81 @@ function renderQuestionsMini(){
   };
 })();
 </script>
+
+
+<script id="v15-confidence-next-cleanup-js">
+(function(){
+  function strip(html){
+    const d=document.createElement('div');
+    d.innerHTML=String(html||'');
+    return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();
+  }
+  function highlight(text){
+    return String(text||'').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED|COMMAND|SENT|CALL|WORK)\b/gi,'<span>$1</span>');
+  }
+  function confidenceTitleFor(index){
+    const s=LESSON1_SLIDES[index];
+    if(!s) return {html:'End', isScripture:false, ref:''};
+    if(typeof window.slidePlainTitle==='function'){
+      const p=window.slidePlainTitle(index);
+      if(s.t==='sc') return {html:p.ref || s.ref || 'Scripture', isScripture:true, ref:p.ref || s.ref || ''};
+      return {html:highlight(p.title || 'Next'), isScripture:false, ref:p.ref || ''};
+    }
+    if(s.t==='sc') return {html:s.ref || 'Scripture', isScripture:true, ref:s.ref || ''};
+    const raw=s.title || s.hl || s.text || s.ref || 'Next';
+    return {html:highlight(strip(raw)), isScripture:false, ref:s.ref || ''};
+  }
+  function nextTeachingIndex(fromIndex){
+    for(let n=fromIndex+1;n<LESSON1_SLIDES.length;n++){
+      const s=LESSON1_SLIDES[n];
+      if(s && s.t!=='sc') return n;
+    }
+    return -1;
+  }
+  window.confidenceNextLabel=function(_slide, currentIndex){
+    // Confidence monitor previews the next teaching/main slide, not the supporting scripture slide.
+    const n=nextTeachingIndex(typeof currentIndex==='number' ? currentIndex : curSlide);
+    if(n<0) return {html:'End', isScripture:false};
+    const item=confidenceTitleFor(n);
+    return {html:item.html, isScripture:item.isScripture};
+  };
+  window.renderConfidenceScripture=function(sc, label='Current Scripture'){
+    if(!sc) return;
+    const card=document.querySelector('.conf-current');
+    const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref');
+    const ref=sc.ref_en||sc.ref||'';
+    const en=String(sc.text_en||sc.kjv||sc.text||'').replace(/&ldquo;|&rdquo;/g,'"').replace(/^"|"$/g,'').replace(/<[^>]*>/g,'');
+    let es;
+    if(sc.text_es){ es={ref_es:sc.ref_es||String(ref).replace('Matthew','Mateo'), text_es:sc.text_es}; }
+    else if(typeof findSpanishFor==='function'){ es=findSpanishFor(ref,en); }
+    else { es={ref_es:'RVR 1960', text_es:''}; }
+    if(card) card.classList.add('scripture-active');
+    if(ck) ck.textContent=label;
+    if(cr) cr.textContent=`${ref} · KJV${es.ref_es ? ' / '+es.ref_es : ''}`;
+    if(ct) ct.innerHTML=`${en}<span class="conf-es">${(es.text_es||'').replace(/^"|"$/g,'')}</span>`;
+  };
+  window.updateConfidence=function(i){
+    curSlide=i;
+    const slide=LESSON1_SLIDES[i] || LESSON1_SLIDES[0];
+    const card=document.querySelector('.conf-current');
+    const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
+    const next=window.confidenceNextLabel(null, i);
+    if(nt){ nt.innerHTML=next.html; nt.classList.toggle('next-scripture', !!next.isScripture); }
+    if(nn) nn.textContent=(typeof firstNoteLine==='function'?firstNoteLine(NOTES_L1[i]):(NOTES_L1[i]||''));
+    if(slide && slide.t==='sc'){
+      window.renderConfidenceScripture({ref_en:slide.ref, text_en:strip(slide.text)}, 'Current Scripture');
+      return;
+    }
+    const cur=(typeof window.slidePlainTitle==='function') ? window.slidePlainTitle(i) : confidenceTitleFor(i);
+    if(card) card.classList.remove('scripture-active');
+    if(ck) ck.textContent='Current Slide';
+    if(ct) ct.innerHTML=highlight(cur.title||cur.html||'The Ministry');
+    if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
+  };
+  window.updateConfidenceScripture=function(sc){ window.renderConfidenceScripture(sc, 'Active Scripture'); };
+  window.clearConfidenceScripture=function(){ window.updateConfidence(curSlide); };
+})();
+</script>
+
 </body>
 </html>
