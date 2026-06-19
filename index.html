@@ -926,6 +926,88 @@ html,body,.mobile-mode-screen,#admin-hub{touch-action:manipulation;}
 })();
 </script>
 
+
+<style id="v13-teaching-obs-cleanup">
+/* v13: teaching slides remove point numbers, center the content vertically while keeping the text left-aligned. */
+body.projector-mode .sl-te{
+  justify-content:center!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+  padding:8vh 7vw 8vh 7.5vw!important;
+}
+body.projector-mode .sl-te-n{display:none!important;}
+body.projector-mode .sl-te-h{
+  margin-top:0!important;
+  margin-bottom:clamp(28px,3.2vh,46px)!important;
+  max-width:min(1380px,88vw)!important;
+}
+body.projector-mode .sl-pts{
+  max-width:min(1180px,80vw)!important;
+  margin-left:1.1vw!important;
+}
+body.projector-mode .sl-te-ref{
+  font-family:var(--fc)!important;
+  font-size:clamp(.86rem,1vw,1.18rem)!important;
+  font-weight:900!important;
+  letter-spacing:.22em!important;
+  text-transform:uppercase!important;
+  color:rgba(241,237,228,.58)!important;
+  margin-top:clamp(18px,2.3vh,32px)!important;
+}
+/* Same cleaner teaching slide for previews/OBS full slide render. */
+.sl-te-n{display:none!important;}
+.sl-te-ref{
+  font-family:var(--fc);font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(241,237,228,.55);margin-top:18px;
+}
+/* OBS full slides: clean statement/main-point mode, not a long wall. */
+body.obs-mode .obs-full{
+  background:rgba(0,0,0,.48)!important;
+  padding:7vw 8vw!important;
+}
+body.obs-mode .obs-full .obs-ref{
+  font-size:clamp(.78rem,1vw,1.15rem)!important;
+  letter-spacing:.24em!important;
+  margin-bottom:clamp(18px,2.2vh,30px)!important;
+}
+body.obs-mode .obs-full .obs-text{
+  font-family:var(--fd)!important;
+  font-style:normal!important;
+  font-weight:400!important;
+  text-transform:uppercase!important;
+  letter-spacing:.01em!important;
+  font-size:clamp(3.2rem,6.1vw,8.6rem)!important;
+  line-height:.88!important;
+  max-width:1320px!important;
+}
+body.obs-mode .obs-full.scripture .obs-text{
+  font-family:var(--fp)!important;
+  font-style:italic!important;
+  font-weight:400!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+  font-size:clamp(2.5rem,4.2vw,5.6rem)!important;
+  line-height:1.12!important;
+  max-width:1380px!important;
+}
+body.obs-mode .obs-full .obs-summary{
+  display:block!important;
+  max-width:920px!important;
+  margin-top:clamp(18px,2.8vh,34px)!important;
+  font-family:var(--fc)!important;
+  font-size:clamp(.95rem,1.25vw,1.45rem)!important;
+  font-weight:800!important;
+  letter-spacing:.05em!important;
+  line-height:1.25!important;
+  text-transform:none!important;
+  color:rgba(241,237,228,.66)!important;
+}
+body.obs-mode .obs-full.scripture .obs-summary{
+  font-family:var(--fb)!important;
+  text-transform:none!important;
+  font-weight:400!important;
+  color:rgba(241,237,228,.55)!important;
+}
+</style>
 </head>
 <body>
 
@@ -1324,7 +1406,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -2291,6 +2373,136 @@ function renderQuestionsMini(){
   box.innerHTML=all.length?all.map(q=>`<div style="border-top:1px solid var(--ln);padding:8px 0"><span style="color:var(--red)">${q.name||'Anonymous'}:</span> ${q.text}</div>`).join(''):'No questions yet.';
 }
 
+</script>
+
+<script id="v13-teaching-obs-cleanup-js">
+(function(){
+  function strip(html){
+    const d=document.createElement('div');
+    d.innerHTML=String(html||'');
+    return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();
+  }
+  function safe(s){return String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+  // Teaching slides: no point number. This becomes the standard render moving forward.
+  window.renderSlide=function(s,i){
+    const d=`data-i="${i}"`;
+    switch(s.t){
+      case 'cover':return`<div class="slide sl-cover"${d}><div class="sl-cover-bg"></div><div class="sl-cover-ov"></div><div class="sl-cover-body"><div class="sl-cey">${s.eyebrow}</div><div class="sl-ct"><span class="tt">THE</span><span class="tm">MINISTRY</span></div><div class="sl-cln">${s.lesson}</div><div class="sl-cnm">${s.title}</div><div class="sl-crf">${s.ref}</div><div class="sl-cft"><div class="sl-cm"><div class="sl-cml">Presenter</div><div class="sl-cmv">Elder Eli Castaneda</div></div><div class="sl-cm"><div class="sl-cml">Date</div><div class="sl-cmv">June 18, 2026</div></div><div class="sl-cm"><div class="sl-cml">Text</div><div class="sl-cmv">Matthew 10:1-10</div></div></div></div></div>`;
+      case 'sc':return`<div class="slide sl-sc"${d}><div class="sl-sc-mk"></div><div class="sl-sc-rf">&#10013; ${s.ref}</div><div class="sl-sc-tx">${s.text}</div><div class="sl-sc-tk">${s.tk}</div></div>`;
+      case 'te':return`<div class="slide sl-te"${d}><div class="sl-te-h">${s.hl}</div><ul class="sl-pts">${(s.pts||[]).map(p=>`<li>${p}</li>`).join('')}</ul>${s.ref?`<div class="sl-te-ref">${s.ref}</div>`:''}</div>`;
+      case 'big':return`<div class="slide sl-big"${d}>${s.sup?`<div class="sl-big-sup">${s.sup}</div>`:''}<div class="sl-big-text">${s.text}</div>${s.ref?`<div class="sl-big-ref">${s.ref}</div>`:''}</div>`;
+      case 'names':return`<div class="slide sl-names"${d}><div class="sl-nhd">Matthew 10:2-4</div><div class="sl-nhl">${s.hl}</div><div class="sl-ngrid">${(s.people||[]).map(p=>`<div class="sl-nc"><div class="sl-ncn">${p.name}</div><div class="sl-nct">${p.note}</div></div>`).join('')}</div></div>`;
+      case 'final':return`<div class="slide sl-final"${d}><div class="sl-fk">${s.kicker}</div><div class="sl-ft">${s.text}</div><div class="sl-fl">${s.sub}</div>${s.ref?`<div class="sl-fr">${s.ref}</div>`:''}</div>`;
+      default:return'';
+    }
+  };
+
+  window.slidePlainTitle=function(i){
+    const s=LESSON1_SLIDES[i]; if(!s) return {title:'End', type:'', ref:'', summary:''};
+    const ref=s.ref || (SCRIPTURE_MAP[i] && (SCRIPTURE_MAP[i].ref_en||SCRIPTURE_MAP[i].ref)) || '';
+    if(s.t==='cover') return {title:s.title,type:'Cover',ref:s.ref||'Matthew 10:1-10',summary:'Elder Eli Castaneda'};
+    if(s.t==='sc') return {title:strip(s.text),type:'Scripture',ref:s.ref,summary:strip(s.tk||'')};
+    if(s.t==='te') return {title:strip(s.hl),type:'Teaching',ref,summary:(s.pts||[]).slice(-1).map(strip).join('') || 'Elder Eli Castaneda'};
+    if(s.t==='big') return {title:strip(s.text),type:'Statement',ref,summary:'Elder Eli Castaneda'};
+    if(s.t==='names') return {title:strip(s.hl||'The Twelve Named'),type:'Names',ref:'Matthew 10:2-4',summary:'Elder Eli Castaneda'};
+    if(s.t==='final') return {title:strip(s.text),type:'Closing',ref:s.ref||'Matthew 10',summary:strip(s.sub||'')};
+    return {title:'Current Slide',type:s.t,ref,summary:'Elder Eli Castaneda'};
+  };
+
+  window.showOBS=function(sc){
+    const box=document.getElementById('obs-lower');
+    const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
+    const en=String(sc.text_en||sc.kjv||'').replace(/^"|"$/g,'');
+    if(box) box.classList.add('scripture');
+    if(ref) ref.textContent=sc.ref_en||sc.ref||'Matthew 10';
+    if(txt) txt.textContent=en;
+    if(sum) sum.textContent='KJV';
+  };
+
+  window.showOBSSlide=function(i){
+    curSlide=i;
+    const s=LESSON1_SLIDES[i];
+    const cur=window.slidePlainTitle(i);
+    const box=document.getElementById('obs-lower');
+    const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
+    if(box) box.classList.remove('scripture');
+    if(!s){ if(ref)ref.textContent=''; if(txt)txt.textContent=''; if(sum)sum.textContent=''; return; }
+    if(isObsLower){
+      if(ref) ref.textContent=cur.ref || 'Matthew 10';
+      if(txt) txt.textContent=cur.title || 'Current Slide';
+      if(sum) sum.textContent='Elder Eli Castaneda';
+      return;
+    }
+    if(isObsFull){
+      if(s.t==='sc'){
+        const sc=SCRIPTURE_MAP[i] || {ref_en:s.ref,text_en:strip(s.text)};
+        window.showOBS(sc);
+        return;
+      }
+      if(ref) ref.textContent=cur.ref || 'Matthew 10';
+      if(txt) txt.textContent=cur.title || 'Current Slide';
+      if(sum) sum.textContent=cur.summary || 'Elder Eli Castaneda';
+    }
+  };
+
+  // OBS full should not be hijacked by every Auto P2 verse push after slide movement.
+  // It shows scripture on actual scripture slides or manual scripture pushes, and otherwise shows the clean main point.
+  window.__lastObsSlideAt=0;
+  window.handleMessage=function(msg){
+    if(!msg||!msg.type) return;
+    if(isProjector){
+      if(msg.type==='slide'){
+        presentationStarted=true;
+        document.getElementById('p1-wait').classList.add('hidden');
+        const ssl=document.getElementById('ssl');
+        if(!ssl.classList.contains('on')){
+          ssl.classList.add('on');
+          buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+          renderDots(LESSON1_SLIDES.length);
+        }
+        const p1s=document.getElementById('p1-status'); if(p1s){p1s.textContent='Live';p1s.classList.add('live');}
+        _suppressSync=true; goTo(msg.slide); _suppressSync=false;
+      }
+      if(msg.type==='p1_overlay_show'){
+        document.getElementById('p1ov-ref').textContent=msg.ref||'';
+        document.getElementById('p1ov-text').textContent=msg.kjv||'';
+        document.getElementById('p1-sc-overlay').classList.add('show');
+      }
+      if(msg.type==='p1_overlay_hide'){document.getElementById('p1-sc-overlay').classList.remove('show');}
+    }
+    if(isScriptureDisplay){
+      if(msg.type==='scripture') showP2(msg.scripture);
+      else if(msg.type==='scripture_clear') clearP2Display();
+      const s=document.getElementById('sp-wait-status'); if(s){s.textContent='Live';s.classList.add('live');}
+    }
+    if(isObsLower||isObsFull){
+      if(msg.type==='slide'){ window.__lastObsSlideAt=Date.now(); window.showOBSSlide(msg.slide); }
+      if(msg.type==='scripture' && isObsFull){
+        const current=LESSON1_SLIDES[curSlide];
+        const autoFollow=(Date.now()-window.__lastObsSlideAt)<900;
+        if((current && current.t==='sc') || !autoFollow){ window.showOBS(msg.scripture); }
+      }
+      if(msg.type==='scripture_clear' && isObsFull) clearOBS();
+    }
+    if(isConfidence){
+      if(msg.type==='slide') updateConfidence(msg.slide);
+      if(msg.type==='scripture') updateConfidenceScripture(msg.scripture);
+      if(msg.type==='p1_overlay_show') updateConfidenceScripture({ref_en:msg.ref,kjv:msg.kjv});
+      if(msg.type==='p1_overlay_hide' || msg.type==='scripture_clear') clearConfidenceScripture();
+    }
+    if(msg.type==='request_fullscreen' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){tryRemoteFullscreen();}
+    if(msg.type==='reload_projectors' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){location.reload();}
+    if(msg.type==='panic_clear'){
+      const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
+      if(isScriptureDisplay) clearP2Display(); if(isObsLower||isObsFull) clearOBS(); if(isConfidence) clearConfidenceScripture();
+    }
+    if(isAdmin&&(msg.type==='scripture'||msg.type==='scripture_clear')){
+      const d=document.getElementById('cmd-p2dot');if(d)d.classList.add('live');
+      const l=document.getElementById('cmd-p2lbl');if(l)l.textContent='Connected';
+    }
+  };
+})();
 </script>
 </body>
 </html>
