@@ -592,86 +592,102 @@ body.obs-mode:hover .obs-tools{opacity:1!important;pointer-events:auto!important
 /* Remove faint filler labels from active scripture views */
 #obs-summary:empty{display:none!important;}
 
+</style>
 
 
-/* v9: ProPresenter title slide scale fix
-   Keep all teaching/scripture slides untouched. Only the cover/title slide gets a larger full-screen layout. */
+<style id="v10-cover-and-projector-stability">
+/* v10: clean projector cover pass. Keep teaching slides unchanged. */
 body.projector-mode .sl-cover{
-  width:100vw!important;
-  height:100vh!important;
-  min-height:100vh!important;
   padding:0!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-  overflow:hidden!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
 }
 body.projector-mode .sl-cover-bg{
-  inset:0!important;
   background-size:cover!important;
-  background-position:center!important;
-  transform:none!important;
+  background-position:center 48%!important;
+  filter:brightness(.46) saturate(.72)!important;
+  opacity:.96!important;
 }
 body.projector-mode .sl-cover-ov{
-  background:linear-gradient(102deg,rgba(5,5,5,.98) 0%,rgba(5,5,5,.88) 38%,rgba(5,5,5,.46) 72%,rgba(5,5,5,.22) 100%)!important;
+  background:
+    radial-gradient(circle at 72% 46%, rgba(0,0,0,.10) 0%, rgba(0,0,0,.22) 27%, rgba(0,0,0,.62) 63%, rgba(0,0,0,.90) 100%),
+    linear-gradient(90deg, rgba(3,3,3,.90) 0%, rgba(3,3,3,.58) 42%, rgba(3,3,3,.22) 70%, rgba(3,3,3,.45) 100%)!important;
 }
 body.projector-mode .sl-cover-body{
-  width:min(900px,54vw)!important;
-  max-width:54vw!important;
-  margin-left:7vw!important;
-  margin-top:0!important;
+  width:min(860px,48vw)!important;
+  margin-left:8.5vw!important;
+  margin-top:12.5vh!important;
   transform:none!important;
 }
 body.projector-mode .sl-cey{
-  font-size:clamp(.76rem,1vw,1.15rem)!important;
-  letter-spacing:.26em!important;
-  margin-bottom:20px!important;
-  color:rgba(241,237,228,.5)!important;
+  font-size:clamp(.58rem,.72vw,.92rem)!important;
+  margin-bottom:1.4vh!important;
+  letter-spacing:.28em!important;
+  opacity:.75!important;
 }
 body.projector-mode .sl-cey::before{
+  height:2.15em!important;
   width:4px!important;
-  height:26px!important;
 }
 body.projector-mode .sl-ct{
-  margin-bottom:28px!important;
-  line-height:.78!important;
+  margin-bottom:4.6vh!important;
+  line-height:.84!important;
 }
 body.projector-mode .sl-ct .tt,
 body.projector-mode .sl-ct .tm{
-  font-size:clamp(9rem,13vw,15.8rem)!important;
-  letter-spacing:-.035em!important;
-  line-height:.76!important;
+  font-size:clamp(6.4rem,9.6vw,12rem)!important;
+  letter-spacing:-.045em!important;
 }
 body.projector-mode .sl-cln{
-  font-size:clamp(.72rem,.95vw,1rem)!important;
-  letter-spacing:.24em!important;
-  margin-bottom:8px!important;
+  font-size:clamp(.62rem,.78vw,.95rem)!important;
+  margin-bottom:1.1vh!important;
 }
 body.projector-mode .sl-cnm{
-  font-size:clamp(1.45rem,2vw,2.2rem)!important;
-  line-height:1.05!important;
+  font-size:clamp(1.25rem,1.6vw,2.05rem)!important;
+  line-height:1.06!important;
+  margin-bottom:.65vh!important;
   max-width:760px!important;
-  margin-bottom:8px!important;
 }
 body.projector-mode .sl-crf{
-  font-size:clamp(1rem,1.25vw,1.3rem)!important;
-  margin-bottom:42px!important;
+  font-size:clamp(.9rem,1.05vw,1.25rem)!important;
+  margin-bottom:5.2vh!important;
+  color:rgba(241,237,228,.55)!important;
 }
 body.projector-mode .sl-cft{
-  gap:44px!important;
+  gap:3.3vw!important;
 }
 body.projector-mode .sl-cml{
-  font-size:clamp(.58rem,.75vw,.82rem)!important;
+  font-size:clamp(.48rem,.58vw,.72rem)!important;
 }
 body.projector-mode .sl-cmv{
-  font-size:clamp(.78rem,1vw,1rem)!important;
-}
-@media(max-width:1100px){
-  body.projector-mode .sl-cover-body{width:72vw!important;max-width:72vw!important;margin-left:6vw!important;}
-  body.projector-mode .sl-ct .tt,body.projector-mode .sl-ct .tm{font-size:clamp(6rem,17vw,11rem)!important;}
+  font-size:clamp(.7rem,.78vw,.95rem)!important;
 }
 
+/* Keep projector navigation out of the presentation. It only appears when directly hovered. */
+body.projector-mode .proj-ctrl-bar{
+  opacity:0!important;
+  transform:translateY(70%)!important;
+  transition:opacity .18s ease, transform .18s ease!important;
+  pointer-events:auto!important;
+}
+body.projector-mode .proj-ctrl-bar:hover,
+body.projector-mode .proj-ctrl-bar:focus-within{
+  opacity:1!important;
+  transform:translateY(0)!important;
+}
+
+/* Remove fullscreen/hub visual weight while live. Keep tiny hover controls usable. */
+body.projector-mode .pcb{opacity:.55!important;}
+body.projector-mode .proj-ctrl-bar:not(:hover) .pcb,
+body.projector-mode .proj-ctrl-bar:not(:hover) #proj-info{opacity:0!important;}
+
+/* Hard guard against accidental blank slide render. */
+body.projector-mode #ssl.on #ss-slides,
+body.projector-mode #ssl.on .slide.on{
+  visibility:visible!important;
+}
 </style>
+
 </head>
 <body>
 
@@ -1067,7 +1083,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1340,7 +1356,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(p.has('projector') || route==='1' || route==='projector'){
     document.body.classList.add('projector-mode');
     isProjector=true;
-    document.getElementById('p1-wait').classList.remove('hidden');
+    // Build the cover slide immediately so ProPresenter never sees a blank/black canvas.
+    const ssl=document.getElementById('ssl');
+    if(ssl){
+      ssl.classList.add('on');
+      buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+      renderDots(LESSON1_SLIDES.length);
+      _suppressSync=true; goTo(curSlide||0); _suppressSync=false;
+    }
+    document.getElementById('p1-wait').classList.add('hidden');
     initBC(); startTimer(); return;
   }
   const u=localStorage.getItem('tm_u'), a=localStorage.getItem('tm_a');
