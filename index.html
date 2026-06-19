@@ -573,12 +573,13 @@ body.scripture-mode .sp-corner{display:none!important;}
 
 /* Confidence monitor: scripture must fit inside the current-slide box */
 .conf-current{overflow:hidden!important;}
-.conf-current.scripture-active{justify-content:center!important;padding:28px 34px!important;}
-.conf-current.scripture-active .conf-kicker{display:none!important;}
-.conf-current.scripture-active .conf-title{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(1.55rem,2.85vw,3.45rem)!important;line-height:1.08!important;text-transform:none!important;max-height:74%!important;overflow:hidden!important;display:block!important;}
-.conf-current.scripture-active .conf-es{display:block!important;margin-top:16px!important;padding-top:14px!important;border-top:1px solid rgba(241,237,228,.16)!important;font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(.86rem,1.25vw,1.45rem)!important;line-height:1.18!important;color:rgba(241,237,228,.62)!important;}
-.conf-current.scripture-active .conf-ref{font-family:var(--fc)!important;font-size:clamp(.6rem,.85vw,.9rem)!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--red)!important;margin-top:14px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
-.conf-next-title{font-size:clamp(2.1rem,3.8vw,4.7rem)!important;}
+.conf-current.scripture-active{justify-content:center!important;padding:26px 34px!important;}
+.conf-current.scripture-active .conf-kicker{display:block!important;margin-bottom:14px!important;}
+.conf-current.scripture-active .conf-title{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(1.45rem,2.55vw,3.15rem)!important;line-height:1.11!important;text-transform:none!important;max-height:none!important;overflow:visible!important;display:block!important;letter-spacing:0!important;}
+.conf-current.scripture-active .conf-es{display:block!important;margin-top:14px!important;padding-top:14px!important;border-top:1px solid rgba(241,237,228,.16)!important;font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(.86rem,1.18vw,1.36rem)!important;line-height:1.18!important;color:rgba(241,237,228,.62)!important;letter-spacing:0!important;}
+.conf-current.scripture-active .conf-ref{font-family:var(--fc)!important;font-size:clamp(.6rem,.78vw,.82rem)!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--red)!important;margin-top:12px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.conf-next-title{font-size:clamp(2rem,3.2vw,4rem)!important;overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:5!important;-webkit-box-orient:vertical!important;}
+.conf-next-title.next-scripture{font-size:clamp(2.4rem,3.6vw,4.4rem)!important;color:rgba(241,237,228,.72)!important;}
 
 /* OBS lower thirds: slide info only, clean labels, no slide-count clutter */
 .obs-summary{color:rgba(241,237,228,.68)!important;}
@@ -1406,7 +1407,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -2322,31 +2323,47 @@ function findSpanishFor(ref, text){
   const byText=SCRIPTURE_MAP.find(x=> t && String(x.text_en||'').replace(/["“”]/g,'').toLowerCase().includes(t));
   return byText ? {ref_es:byText.ref_es, text_es:byText.text_es} : {ref_es:'RVR 1960', text_es:''};
 }
-function updateConfidence(i){
-  curSlide=i;
-  const cur=slidePlainTitle(i), next=slidePlainTitle(i+1);
-  const card=document.querySelector('.conf-current');
-  const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
-  if(card) card.classList.remove('scripture-active');
-  if(ck) ck.textContent='Current Slide';
-  if(ct) ct.innerHTML=(cur.title||'The Ministry').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
-  if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
-  if(nt) nt.innerHTML=(next.title||'End').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
-  if(nn) nn.textContent=firstNoteLine(NOTES_L1[i]);
+function confidenceNextLabel(slide){
+  if(!slide) return {html:'End', isScripture:false};
+  if(slide.t==='sc') return {html:(slide.ref||'Scripture'), isScripture:true};
+  const raw=String(slide.title||slide.ref||'Next').replace(/<[^>]*>/g,'');
+  return {html:raw.replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED|COMMAND)\b/gi,'<span>$1</span>'), isScripture:false};
 }
-function updateConfidenceScripture(sc){
+function renderConfidenceScripture(sc, label='Active Scripture'){
   if(!sc) return;
   const card=document.querySelector('.conf-current');
   const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref');
   const ref=sc.ref_en||sc.ref||'';
-  const en=String(sc.text_en||sc.kjv||'').replace(/^"|"$/g,'');
+  const en=String(sc.text_en||sc.kjv||sc.text||'').replace(/&ldquo;|&rdquo;/g,'"').replace(/^"|"$/g,'').replace(/<[^>]*>/g,'');
   let es;
   if(sc.text_es){ es={ref_es:sc.ref_es||String(ref).replace('Matthew','Mateo'), text_es:sc.text_es}; }
   else { es=findSpanishFor(ref,en); }
   if(card) card.classList.add('scripture-active');
-  if(ck) ck.textContent='Scripture';
+  if(ck) ck.textContent=label;
   if(cr) cr.textContent=`${ref} · KJV / ${es.ref_es||'RVR 1960'}`;
-  if(ct) ct.innerHTML=`${en}<span class="conf-es">${es.text_es||''}</span>`;
+  if(ct) ct.innerHTML=`${en}<span class="conf-es">${(es.text_es||'').replace(/^"|"$/g,'')}</span>`;
+}
+function updateConfidence(i){
+  curSlide=i;
+  const slide=LESSON1_SLIDES[i-1] || LESSON1_SLIDES[0];
+  const nextSlide=LESSON1_SLIDES[i] || null;
+  const card=document.querySelector('.conf-current');
+  const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
+  const next=confidenceNextLabel(nextSlide);
+  if(nt){ nt.innerHTML=next.html; nt.classList.toggle('next-scripture', !!next.isScripture); }
+  if(nn) nn.textContent=firstNoteLine(NOTES_L1[i]);
+  if(slide && slide.t==='sc'){
+    renderConfidenceScripture({ref_en:slide.ref, text_en:slide.text}, 'Current Scripture');
+    return;
+  }
+  const cur=slidePlainTitle(i);
+  if(card) card.classList.remove('scripture-active');
+  if(ck) ck.textContent='Current Slide';
+  if(ct) ct.innerHTML=(cur.title||'The Ministry').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED|COMMAND)\b/gi,'<span>$1</span>');
+  if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
+}
+function updateConfidenceScripture(sc){
+  renderConfidenceScripture(sc, 'Active Scripture');
 }
 function clearConfidenceScripture(){ updateConfidence(curSlide); }
 
