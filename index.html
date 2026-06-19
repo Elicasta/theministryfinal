@@ -442,7 +442,7 @@ body.scripture-mode .sp-corner{left:50%;right:auto;transform:translateX(-50%);bo
 .ctrl-prev-wrap{padding:10px}.ctrl-prev-stage{max-width:300px!important}.ctrl-prev-stage .slide{font-size:.18em!important}.ctrl-notes{font-size:.9rem}.cmd-timer{font-family:var(--fd);font-size:2rem;color:var(--w);line-height:1;min-width:72px}.cmd-timer-sub{font-family:var(--fc);font-size:.46rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase}.live-dot{width:10px;height:10px;border-radius:50%;background:#34c759;box-shadow:0 0 10px rgba(52,199,89,.55);display:inline-block}.ctrl-ab.warn{border-color:rgba(212,147,59,.35);color:var(--gold)}
 
 /* V3 projector polish */
-.projector-fs-btn{position:fixed;right:22px;bottom:22px;z-index:16000;border:1px solid rgba(232,24,13,.65);background:rgba(8,8,8,.72);color:var(--red);font-family:var(--fc);font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:12px 16px;backdrop-filter:blur(10px);cursor:pointer;display:none}.projector-fs-btn:hover{background:rgba(232,24,13,.12);color:#fff}body.projector-mode .projector-fs-btn,body.scripture-mode .projector-fs-btn,body.obs-mode .projector-fs-btn,body.confidence-mode .projector-fs-btn{display:block}
+.projector-fs-btn{display:none!important}
 body.projector-mode .p1-wait,body.scripture-mode #scripture-display .sp-wait{background:#050505;overflow:hidden}.p1-wait::before,.sp-wait::before{content:'';position:absolute;inset:0;background-image:url('assets/ministry-bg.jpeg');background-size:cover;background-position:center;filter:brightness(.22) saturate(.45);opacity:.72}.p1-wait::after,.sp-wait::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.74) 44%,rgba(5,5,5,.45) 100%)}.p1-wait>* , .sp-wait>*{position:relative;z-index:2}.pw-mk,.sp-wm{display:none!important}.pw-ti,.sp-wt{font-family:var(--fd);font-size:clamp(4rem,8vw,9rem)!important;line-height:.86;text-align:left;display:flex;align-items:center;gap:2.2vw}.pw-ti::before,.sp-wt::before{content:'';width:4px;height:.72em;background:var(--red);display:inline-block}.pw-ti span,.sp-wt span{color:var(--red)}.pw-sb,.sp-ws{font-family:var(--fc);font-size:clamp(.85rem,1.1vw,1.2rem)!important;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(241,237,228,.45);text-align:left;margin-top:16px}.pw-st,.sp-wst{margin-top:30px;border:1px solid rgba(232,24,13,.45);padding:12px 20px;font-family:var(--fc);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);background:rgba(0,0,0,.38)}.projector-wait-qr{position:relative;z-index:3;display:grid;grid-template-columns:repeat(2,minmax(160px,210px));gap:26px;margin-top:44px}.projector-wait-qr-card{border:1px solid rgba(232,24,13,.42);background:rgba(0,0,0,.35);padding:16px}.projector-wait-qr-card img{width:100%;display:block;image-rendering:pixelated}.projector-wait-qr-card b{display:block;margin-top:12px;font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}.projector-wait-qr-card span{display:block;margin-top:4px;font-family:var(--fb);font-size:.72rem;color:rgba(241,237,228,.62)}
 /* Give teaching slide numbers air above title on giant screens */
 body.projector-mode .sl-te-n{margin:0 0 1.15rem 0!important;display:block!important;position:relative!important;z-index:2!important}body.projector-mode .sl-te-h{clear:both!important;margin-top:0!important;position:relative!important;z-index:3!important}
@@ -513,6 +513,25 @@ body.obs-mode .obs-screen.green .obs-full{background:#00b140!important}body.obs-
 .conf-current.scripture-active .conf-ref{color:var(--red)!important}.conf-current.scripture-active .conf-es{display:block;margin-top:18px;padding-top:16px;border-top:1px solid rgba(241,237,228,.16);font-family:var(--fp);font-style:italic;font-size:clamp(1.05rem,1.7vw,2.1rem);line-height:1.25;color:rgba(241,237,228,.64)}
 
 body.scripture-mode.p2-live .projector-fs-btn{opacity:0!important;pointer-events:none!important}body.scripture-mode.p2-live:hover .projector-fs-btn{opacity:1!important;pointer-events:auto!important}
+
+/* V7 fixes: no big fullscreen button, stable first slide, OBS outputs corrected */
+.projector-fs-btn{display:none!important}
+body.obs-mode .obs-screen{background-image:url('assets/ministry-bg.jpeg')!important;background-size:cover!important;background-position:center!important;pointer-events:none!important;}
+body.obs-mode .obs-screen::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.70);z-index:0;pointer-events:none;}
+body.obs-mode .obs-screen.green{background:#00b140!important;background-image:none!important;}
+body.obs-mode .obs-screen.green::before{display:none!important;}
+body.obs-mode .obs-tools{pointer-events:auto!important;opacity:0!important;transition:opacity .18s ease!important;}
+body.obs-mode:hover .obs-tools{opacity:1!important;}
+body.obs-mode .obs-lower,body.obs-mode .obs-full{z-index:2!important;}
+body.obs-mode .obs-lower{left:3.2vw!important;right:auto!important;bottom:4.5vh!important;width:min(760px,56vw)!important;background:rgba(5,5,5,.86)!important;border-left:0!important;border-bottom:5px solid var(--red)!important;padding:18px 22px 20px!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important;text-align:left!important;}
+body.obs-mode .obs-full{position:absolute!important;inset:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;background:rgba(0,0,0,.46)!important;padding:8vw!important;border:0!important;width:auto!important;box-shadow:none!important;}
+body.obs-mode .obs-screen.green .obs-full{background:transparent!important;}
+body.obs-mode .obs-screen.green .obs-full::before{display:none!important;}
+body.obs-mode .obs-full .obs-series{display:block!important;font-family:var(--fc)!important;font-size:clamp(.72rem,1vw,1.05rem)!important;font-weight:900!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:var(--red)!important;margin-bottom:22px!important;}
+body.obs-mode .obs-full .obs-summary{display:block!important;font-family:var(--fb)!important;font-size:clamp(.85rem,1.1vw,1.1rem)!important;color:rgba(241,237,228,.52)!important;margin-top:24px!important;}
+body.obs-mode .obs-full .obs-ref{font-family:var(--fc)!important;font-size:clamp(.9rem,1.25vw,1.45rem)!important;font-weight:900!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:var(--red)!important;margin-bottom:22px!important;}
+body.obs-mode .obs-full .obs-text{font-family:var(--fp)!important;font-style:italic!important;font-weight:400!important;text-transform:none!important;font-size:clamp(2.4rem,4.1vw,5.3rem)!important;line-height:1.14!important;letter-spacing:0!important;max-width:1380px!important;color:var(--w)!important;}
+
 </style>
 </head>
 <body>
@@ -881,7 +900,7 @@ body.scripture-mode.p2-live .projector-fs-btn{opacity:0!important;pointer-events
   </div>
   <div class="conf-notes"><div class="conf-notes-label">Presenter Notes</div><div class="conf-notes-text" id="conf-notes-text">Open the presenter/admin and send the first slide.</div></div>
 </div>
-<button class="projector-fs-btn" onclick="projFS()">Fullscreen</button>
+
 
 <!-- MOBILE MODE CONTROLLER -->
 <div id="mobile-mode" class="mobile-mode-screen">
@@ -909,7 +928,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1349,6 +1368,7 @@ function goTo(i){
     const ov=document.getElementById('p1-sc-overlay');
     if(ov) ov.classList.remove('show');
     sbSend({type:'p1_overlay_hide'});
+    sbSend({type:'scripture_clear'});
     sbSend({type:'clear_overlays'});
   }
   // Sync overlay if on locally only. Admin next/prev intentionally disables this.
@@ -1556,7 +1576,9 @@ function handleMessage(msg){
       }
       document.getElementById('p1-status').textContent='Live';
       document.getElementById('p1-status').classList.add('live');
-      if(msg.slide!==curSlide){ _suppressSync=true; goTo(msg.slide); _suppressSync=false; }
+      _suppressSync=true;
+      goTo(msg.slide);
+      _suppressSync=false;
     }
     if(msg.type==='p1_overlay_show'){
       document.getElementById('p1ov-ref').textContent=msg.ref||'';
@@ -1574,9 +1596,9 @@ function handleMessage(msg){
     if(s){s.textContent='Live';s.classList.add('live');}
   }
   if(isObsLower||isObsFull){
-    if(msg.type==='scripture') showOBS(msg.scripture);
-    if(msg.type==='scripture_clear') clearOBS();
     if(msg.type==='slide') showOBSSlide(msg.slide);
+    if(msg.type==='scripture' && isObsFull) showOBS(msg.scripture);
+    if(msg.type==='scripture_clear' && isObsFull) clearOBS();
   }
   if(isConfidence){
     if(msg.type==='slide') updateConfidence(msg.slide);
@@ -1715,11 +1737,16 @@ function panicClear(){hideP1Overlay();clearP2();sbSend({type:'panic_clear',ts:Da
 // ── OBS SCRIPTURE OUTPUTS ──
 function showOBS(sc){
   const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
+  const en=sc.text_en||sc.kjv||'';
   if(ref) ref.textContent=sc.ref_en||sc.ref||'';
-  if(txt) txt.textContent=sc.text_en||sc.kjv||'';
-  if(sum) sum.textContent=isObsFull ? '' : 'Active Scripture';
+  if(txt) txt.textContent=en;
+  if(sum) sum.textContent=isObsFull ? 'Active Scripture' : '';
 }
 function clearOBS(){
+  if(isObsFull){
+    showOBSSlide(curSlide);
+    return;
+  }
   const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
   if(ref) ref.textContent=''; if(txt) txt.textContent=''; if(sum) sum.textContent='';
 }
@@ -1732,11 +1759,20 @@ function slidePlainTitle(i){
   return {title,type:l.type,ref};
 }
 function showOBSSlide(i){
+  curSlide=i;
   const cur=slidePlainTitle(i);
   const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
-  if(ref) ref.textContent=cur.ref || `Slide ${i+1}`;
-  if(txt) txt.innerHTML=cur.title || 'Current Slide';
-  if(sum) sum.textContent=`${cur.type} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+  if(isObsLower){
+    if(ref) ref.textContent=`${cur.ref || 'Matthew 10'} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+    if(txt) txt.innerHTML=cur.title || 'Current Slide';
+    if(sum) sum.textContent=`${cur.type} · The Ministry`;
+    return;
+  }
+  if(isObsFull){
+    if(ref) ref.textContent=cur.ref || `Slide ${i+1}`;
+    if(txt) txt.innerHTML=cur.title || 'Current Slide';
+    if(sum) sum.textContent=`${cur.type} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+  }
 }
 function toggleObsGreen(){const s=document.getElementById('obs-screen'); if(s) s.classList.toggle('green');}
 function firstNoteLine(note){
@@ -1745,13 +1781,18 @@ function firstNoteLine(note){
   const first=clean.split(/(?<=\.)\s+/)[0];
   return first || clean;
 }
+function normalizeRefKey(ref){
+  return String(ref||'').toLowerCase().replace('mateo','matthew').replace(/[^a-z0-9: -]/g,'').replace(/\s+/g,' ').trim();
+}
 function findSpanishFor(ref, text){
-  const r=(ref||'').toLowerCase().replace(/\s+/g,' ');
-  const t=(text||'').slice(0,60).toLowerCase();
-  const hit=SCRIPTURE_MAP.find(x=>
-    ((x.ref_en||'').toLowerCase()===r || (x.ref_en||'').toLowerCase().includes(r) || r.includes((x.ref_en||'').toLowerCase())) && x.text_es
-  ) || SCRIPTURE_MAP.find(x=> t && (x.text_en||'').toLowerCase().includes(t));
-  return hit ? {ref_es:hit.ref_es, text_es:hit.text_es} : {ref_es:'RVR 1960', text_es:''};
+  const key=normalizeRefKey(ref);
+  const vb=VERSE_BANK.find(v=>normalizeRefKey(v.ref)===key);
+  if(vb) return {ref_es:vb.ref.replace('Matthew','Mateo'), text_es:getVBSpanish(vb.id)};
+  const exact=SCRIPTURE_MAP.find(x=>normalizeRefKey(x.ref_en)===key && x.text_es);
+  if(exact) return {ref_es:exact.ref_es||'RVR 1960', text_es:exact.text_es};
+  const t=String(text||'').replace(/["“”]/g,'').slice(0,80).toLowerCase();
+  const byText=SCRIPTURE_MAP.find(x=> t && String(x.text_en||'').replace(/["“”]/g,'').toLowerCase().includes(t));
+  return byText ? {ref_es:byText.ref_es, text_es:byText.text_es} : {ref_es:'RVR 1960', text_es:''};
 }
 function updateConfidence(i){
   curSlide=i;
@@ -1770,8 +1811,10 @@ function updateConfidenceScripture(sc){
   const card=document.querySelector('.conf-current');
   const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref');
   const ref=sc.ref_en||sc.ref||'';
-  const en=sc.text_en||sc.kjv||'';
-  const es=sc.text_es ? {ref_es:sc.ref_es||'RVR 1960', text_es:sc.text_es} : findSpanishFor(ref,en);
+  const en=String(sc.text_en||sc.kjv||'').replace(/^"|"$/g,'');
+  let es;
+  if(sc.text_es){ es={ref_es:sc.ref_es||String(ref).replace('Matthew','Mateo'), text_es:sc.text_es}; }
+  else { es=findSpanishFor(ref,en); }
   if(card) card.classList.add('scripture-active');
   if(ck) ck.textContent='Active Scripture';
   if(cr) cr.textContent=`${ref} · KJV / ${es.ref_es||'RVR 1960'}`;
