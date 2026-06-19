@@ -440,6 +440,19 @@ body.scripture-mode .sp-ref-es{display:block!important;font-family:var(--fc);fon
 body.scripture-mode .sp-tx-es{display:block!important;font-family:var(--fp);font-style:italic;font-size:clamp(1.45rem,2.1vw,2.65rem)!important;line-height:1.28!important;color:rgba(241,237,228,.72)!important;margin-top:14px!important;max-width:1160px!important}
 body.scripture-mode .sp-corner{left:50%;right:auto;transform:translateX(-50%);bottom:34px;color:rgba(241,237,228,.28)}
 .ctrl-prev-wrap{padding:10px}.ctrl-prev-stage{max-width:300px!important}.ctrl-prev-stage .slide{font-size:.18em!important}.ctrl-notes{font-size:.9rem}.cmd-timer{font-family:var(--fd);font-size:2rem;color:var(--w);line-height:1;min-width:72px}.cmd-timer-sub{font-family:var(--fc);font-size:.46rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase}.live-dot{width:10px;height:10px;border-radius:50%;background:#34c759;box-shadow:0 0 10px rgba(52,199,89,.55);display:inline-block}.ctrl-ab.warn{border-color:rgba(212,147,59,.35);color:var(--gold)}
+
+/* V3 projector polish */
+.projector-fs-btn{position:fixed;right:22px;bottom:22px;z-index:16000;border:1px solid rgba(232,24,13,.65);background:rgba(8,8,8,.72);color:var(--red);font-family:var(--fc);font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:12px 16px;backdrop-filter:blur(10px);cursor:pointer;display:none}.projector-fs-btn:hover{background:rgba(232,24,13,.12);color:#fff}body.projector-mode .projector-fs-btn,body.scripture-mode .projector-fs-btn,body.obs-mode .projector-fs-btn,body.confidence-mode .projector-fs-btn{display:block}
+body.projector-mode .p1-wait,body.scripture-mode #scripture-display .sp-wait{background:#050505;overflow:hidden}.p1-wait::before,.sp-wait::before{content:'';position:absolute;inset:0;background-image:url('assets/ministry-bg.jpeg');background-size:cover;background-position:center;filter:brightness(.22) saturate(.45);opacity:.72}.p1-wait::after,.sp-wait::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.74) 44%,rgba(5,5,5,.45) 100%)}.p1-wait>* , .sp-wait>*{position:relative;z-index:2}.pw-mk,.sp-wm{display:none!important}.pw-ti,.sp-wt{font-family:var(--fd);font-size:clamp(4rem,8vw,9rem)!important;line-height:.86;text-align:left;display:flex;align-items:center;gap:2.2vw}.pw-ti::before,.sp-wt::before{content:'';width:4px;height:.72em;background:var(--red);display:inline-block}.pw-ti span,.sp-wt span{color:var(--red)}.pw-sb,.sp-ws{font-family:var(--fc);font-size:clamp(.85rem,1.1vw,1.2rem)!important;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(241,237,228,.45);text-align:left;margin-top:16px}.pw-st,.sp-wst{margin-top:30px;border:1px solid rgba(232,24,13,.45);padding:12px 20px;font-family:var(--fc);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);background:rgba(0,0,0,.38)}.projector-wait-qr{position:relative;z-index:3;display:grid;grid-template-columns:repeat(2,minmax(160px,210px));gap:26px;margin-top:44px}.projector-wait-qr-card{border:1px solid rgba(232,24,13,.42);background:rgba(0,0,0,.35);padding:16px}.projector-wait-qr-card img{width:100%;display:block;image-rendering:pixelated}.projector-wait-qr-card b{display:block;margin-top:12px;font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}.projector-wait-qr-card span{display:block;margin-top:4px;font-family:var(--fb);font-size:.72rem;color:rgba(241,237,228,.62)}
+/* Give teaching slide numbers air above title on giant screens */
+body.projector-mode .sl-te-n{margin:0 0 1.15rem 0!important;display:block!important;position:relative!important;z-index:2!important}body.projector-mode .sl-te-h{clear:both!important;margin-top:0!important;position:relative!important;z-index:3!important}
+body.projector-mode .sl-te{gap:0!important}.slide .sl-te-n + .sl-te-h{margin-top:.15em!important}
+/* OBS lower thirds as actual lower third, not a slide clone */
+body.obs-mode{background:transparent!important}.obs-screen{pointer-events:none}.obs-tools{position:fixed;top:18px;right:18px;z-index:16001;display:flex;gap:8px;pointer-events:auto}.obs-tool{border:1px solid rgba(232,24,13,.55);background:rgba(0,0,0,.62);color:var(--red);font-family:var(--fc);font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 11px;cursor:pointer}.obs-lower{left:3.2vw!important;right:auto!important;bottom:4.6vh!important;width:min(760px,56vw)!important;background:rgba(5,5,5,.78)!important;border-left:0!important;border-bottom:5px solid var(--red)!important;padding:18px 22px 20px!important;box-shadow:0 16px 40px rgba(0,0,0,.45)!important}.obs-series{font-family:var(--fc);font-size:.7rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:5px}.obs-ref{font-size:.86rem!important;margin-bottom:4px!important;color:rgba(241,237,228,.72)!important}.obs-text{font-family:var(--fc)!important;font-style:normal!important;font-weight:900!important;text-transform:uppercase;font-size:clamp(1.15rem,1.7vw,2.05rem)!important;line-height:1.02!important;letter-spacing:.025em}.obs-summary{font-family:var(--fb);font-size:.78rem;color:rgba(241,237,228,.68);margin-top:7px;line-height:1.25}.obs-screen.green{background:#00b140!important}.obs-screen.green .obs-lower{background:rgba(0,0,0,.92)!important}.obs-full{background:rgba(0,0,0,.86)!important}.obs-screen.green .obs-full{background:#00b140!important}.obs-screen.green .obs-full::before{content:'';position:absolute;inset:7vw;background:rgba(0,0,0,.9);z-index:-1}
+/* Confidence monitor */
+body.confidence-mode{background:#050505;color:var(--w);overflow:hidden}.confidence-screen{display:none;position:fixed;inset:0;z-index:14000;background:#060606;color:var(--w);font-family:var(--fb)}body.confidence-mode .confidence-screen{display:grid;grid-template-rows:auto 1fr auto}.conf-top{height:72px;border-bottom:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;padding:0 30px;background:#090909}.conf-brand{font-family:var(--fd);font-size:2.1rem;letter-spacing:.04em}.conf-brand span{color:var(--red)}.conf-live{font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(241,237,228,.5)}.conf-live::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:#44c45a;margin-right:9px}.conf-main{display:grid;grid-template-columns:1.35fr .8fr;gap:24px;padding:26px;min-height:0}.conf-card{border:1px solid var(--ln);background:#0d0d0d;min-height:0}.conf-current{padding:34px;display:flex;flex-direction:column;justify-content:center}.conf-kicker{font-family:var(--fc);font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:12px}.conf-title{font-family:var(--fd);font-size:clamp(4.4rem,7vw,8rem);line-height:.86;text-transform:uppercase}.conf-title span{color:var(--red)}.conf-ref{font-family:var(--fc);font-size:1rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,237,228,.48);margin-top:24px}.conf-side{display:grid;grid-template-rows:auto 1fr;gap:18px}.conf-timer{padding:28px;text-align:center}.conf-timer-label{font-family:var(--fc);font-size:.7rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:8px}.conf-timer-value{font-family:var(--fd);font-size:clamp(5rem,9vw,10rem);line-height:.8}.conf-next{padding:26px;display:flex;flex-direction:column;justify-content:center}.conf-next-label{font-family:var(--fc);font-size:.75rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:12px}.conf-next-title{font-family:var(--fd);font-size:clamp(2.6rem,4.6vw,5.4rem);line-height:.88;text-transform:uppercase;color:rgba(241,237,228,.9)}.conf-notes{border-top:1px solid var(--ln);background:#0a0a0a;padding:20px 30px;min-height:110px}.conf-notes-label{font-family:var(--fc);font-size:.75rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px}.conf-notes-text{font-family:var(--fb);font-size:clamp(1.2rem,1.8vw,2rem);line-height:1.25;color:rgba(241,237,228,.82)}
+@media(max-width:900px){.projector-wait-qr{grid-template-columns:1fr 1fr}.conf-main{grid-template-columns:1fr}.conf-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.conf-title{font-size:4rem}.conf-next-title{font-size:2.6rem}.obs-lower{width:86vw!important}}
+
 /* Mobile controller */
 .mobile-mode-screen{display:none;position:fixed;inset:0;z-index:12000;background:#050505;color:var(--w);overflow:hidden}.mobile-mode-screen.on{display:flex;flex-direction:column}.mm-top{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid var(--ln);background:#0b0b0b}.mm-brand{font-family:var(--fd);font-size:1.15rem;letter-spacing:.08em}.mm-brand span{color:var(--red)}.mm-close{background:transparent;border:1px solid var(--ln);color:var(--mu);font-family:var(--fc);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px}.mm-main{flex:1;display:flex;flex-direction:column;padding:18px;gap:14px;min-height:0}.mm-status{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;border:1px solid var(--ln);background:#0d0d0d;padding:12px}.mm-num{font-family:var(--fd);font-size:3.2rem;line-height:.9;color:var(--red)}.mm-type{font-family:var(--fc);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}.mm-title{font-family:var(--fc);font-size:1.05rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;line-height:1.05}.mm-timer{font-family:var(--fd);font-size:2.6rem;line-height:.9}.mm-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mm-bigbtn{min-height:120px;border:1px solid var(--ln);background:#141414;color:var(--w);font-family:var(--fd);font-size:2.6rem;letter-spacing:.03em;text-transform:uppercase}.mm-bigbtn.red{background:var(--red);border-color:var(--red);color:#fff}.mm-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mm-action{border:1px solid var(--ln);background:transparent;color:var(--mu);font-family:var(--fc);font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:13px 8px}.mm-action.on{border-color:rgba(232,24,13,.45);color:var(--red)}.mm-verses{min-height:0;display:flex;flex-direction:column;border:1px solid var(--ln);background:#0d0d0d}.mm-v-head{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-bottom:1px solid var(--ln);font-family:var(--fc);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}.mm-v-list{overflow:auto;padding:10px;display:grid;gap:8px}.mm-v-btn{text-align:left;border:1px solid var(--ln);background:#111;color:var(--w);padding:12px;font-family:var(--fb)}.mm-v-ref{font-family:var(--fc);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:4px}.mm-v-tx{font-family:var(--fp);font-style:italic;font-size:.9rem;line-height:1.3;color:rgba(241,237,228,.72)}
 @media (orientation:landscape) and (max-height:600px){.mm-main{display:grid;grid-template-columns:1.1fr 1fr}.mm-status,.mm-actions{grid-column:1}.mm-verses{grid-row:1 / span 3;grid-column:2}.mm-bigbtn{min-height:96px}.mm-nav{grid-column:1}.mm-timer{font-size:2rem}}
@@ -485,7 +498,6 @@ body.obs-mode{background:transparent!important;overflow:hidden}.obs-screen{displ
     <div class="sc-btns">
       <button class="btn btn-red" onclick="showModal('attendee')">Enter Session</button>
       <button class="btn btn-outline" onclick="showModal('admin')">Presenter</button>
-      <button class="btn btn-outline btn-mini" onclick="projFS()">Fullscreen</button>
     </div>
     <div class="sc-qr-wrap">
       <div class="sc-qr-card"><img src="assets/qr-ministry.png" alt="The Ministry QR"><div class="sc-qr-label">Join Session</div><div class="sc-qr-url">theministry.vercel.app</div></div>
@@ -636,8 +648,9 @@ body.obs-mode{background:transparent!important;overflow:hidden}.obs-screen{displ
 <div class="p1-wait hidden" id="p1-wait">
   <div class="pw-mk"></div>
   <div class="pw-ti">THE <span>MINISTRY</span></div>
-  <div class="pw-sb">A Matthew Chapter 10 Series &middot; Projector 1</div>
+  <div class="pw-sb">A Matthew Chapter 10 Series &middot; Main Projector</div>
   <div class="pw-st" id="p1-status">Waiting for presenter...</div>
+  <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img src="assets/qr-ministry.png" alt="Join session QR"><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img src="assets/qr-guide.png" alt="Bible study app QR"><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
 </div>
 
 <!-- PROJECTOR 2 — SCRIPTURE -->
@@ -645,8 +658,9 @@ body.obs-mode{background:transparent!important;overflow:hidden}.obs-screen{displ
   <div class="sp-wait" id="sp-wait">
     <div class="sp-wm"></div>
     <div class="sp-wt">THE <span>MINISTRY</span></div>
-    <div class="sp-ws">Scripture Display &middot; Projector 2</div>
+    <div class="sp-ws">Scriptures &middot; KJV / RVR 1960</div>
     <div class="sp-wst" id="sp-wait-status">Waiting for presenter...</div>
+    <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img src="assets/qr-ministry.png" alt="Join session QR"><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img src="assets/qr-guide.png" alt="Bible study app QR"><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
   </div>
   <div class="sp-content" id="sp-content" style="display:none">
     <div class="sp-bg"></div><div class="sp-bg-ov"></div>
@@ -807,11 +821,31 @@ body.obs-mode{background:transparent!important;overflow:hidden}.obs-screen{displ
 
 <!-- PROJECTOR 3 / 4 — OBS SCRIPTURE OVERLAYS -->
 <div id="obs-screen" class="obs-screen">
+  <div class="obs-tools">
+    <button class="obs-tool" onclick="toggleObsGreen()">Green Screen</button>
+    <button class="obs-tool" onclick="projFS()">Fullscreen</button>
+  </div>
   <div id="obs-lower" class="obs-lower">
-    <div class="obs-ref" id="obs-ref">Matthew 10:1</div>
-    <div class="obs-text" id="obs-text"></div>
+    <div class="obs-series">The Ministry · Matthew 10</div>
+    <div class="obs-ref" id="obs-ref">Current Slide</div>
+    <div class="obs-text" id="obs-text">Waiting for presenter</div>
+    <div class="obs-summary" id="obs-summary">Lower thirds output</div>
   </div>
 </div>
+
+<!-- PROJECTOR 5 — CONFIDENCE MONITOR -->
+<div id="confidence-screen" class="confidence-screen">
+  <div class="conf-top"><div class="conf-brand">THE <span>MINISTRY</span></div><div class="conf-live" id="conf-status">Confidence Monitor</div></div>
+  <div class="conf-main">
+    <div class="conf-card conf-current"><div class="conf-kicker" id="conf-current-kicker">Current · Slide 1</div><div class="conf-title" id="conf-current-title">The Ministry</div><div class="conf-ref" id="conf-current-ref">Matthew 10 Series</div></div>
+    <div class="conf-side">
+      <div class="conf-card conf-timer"><div class="conf-timer-label">Timer</div><div class="conf-timer-value" id="conf-timer">00:00</div></div>
+      <div class="conf-card conf-next"><div class="conf-next-label">Next Slide</div><div class="conf-next-title" id="conf-next-title">Waiting</div></div>
+    </div>
+  </div>
+  <div class="conf-notes"><div class="conf-notes-label">Presenter Notes</div><div class="conf-notes-text" id="conf-notes-text">Open the presenter/admin and send the first slide.</div></div>
+</div>
+<button class="projector-fs-btn" onclick="projFS()">Fullscreen</button>
 
 <!-- MOBILE MODE CONTROLLER -->
 <div id="mobile-mode" class="mobile-mode-screen">
@@ -839,7 +873,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1062,7 +1096,7 @@ const QUESTIONS = [
 
 // ── STATE ──
 let isAdmin=false, userName='', curSlide=0;
-let isProjector=false, isScriptureDisplay=false, isObsLower=false, isObsFull=false;
+let isProjector=false, isScriptureDisplay=false, isObsLower=false, isObsFull=false, isConfidence=false;
 let scAuto=true, p1ScOverlayOn=false, p1ActiveVerse=null;
 let qUnlocked=false;
 let bc=null;
@@ -1071,26 +1105,40 @@ let _suppressSync=false, _timerStart=Date.now(), _timerInt=null;
 let questions=[];
 document.addEventListener('DOMContentLoaded',()=>{
   const p=new URLSearchParams(window.location.search);
-  if(p.has('scripture')){
+  const raw=(p.get('projector')||p.get('screen')||'').toLowerCase();
+  const obsRaw=(p.get('obs')||'').toLowerCase();
+  const route=raw||obsRaw;
+
+  // Human-readable output names:
+  // ?projector=projector, ?projector=scriptures, ?projector=obslowerthirds, ?projector=obsslides, ?projector=confidence
+  // Legacy names still work: ?projector=1, ?scripture, ?obs=lower, ?obs=full
+  if(p.has('scripture') || raw==='2' || raw==='scripture' || raw==='scriptures'){
     isScriptureDisplay=true;
     document.body.classList.add('scripture-mode');
     document.getElementById('sc').classList.remove('on');
-    initBC(); return;
+    initBC(); startTimer(); return;
   }
-  if(p.has('obs')){
-    const mode=p.get('obs')||'lower';
-    isObsLower=mode!=='full'; isObsFull=mode==='full';
+  if(p.has('obs') || raw==='3' || raw==='4' || raw==='obslowerthirds' || raw==='obsslides'){
+    const full=(obsRaw==='full'||raw==='4'||raw==='obsslides');
+    isObsLower=!full; isObsFull=full;
     document.body.classList.add('obs-mode');
     document.getElementById('sc').classList.remove('on');
     const box=document.getElementById('obs-lower');
     if(box && isObsFull) box.className='obs-full';
-    initBC(); return;
+    initBC(); startTimer(); return;
+  }
+  if(raw==='5' || raw==='confidence'){
+    isConfidence=true;
+    document.body.classList.add('confidence-mode');
+    document.getElementById('sc').classList.remove('on');
+    updateConfidence(curSlide);
+    initBC(); startTimer(); return;
   }
   if(p.has('projector')){
     document.body.classList.add('projector-mode');
     isProjector=true;
     document.getElementById('p1-wait').classList.remove('hidden');
-    initBC(); return;
+    initBC(); startTimer(); return;
   }
   const u=localStorage.getItem('tm_u'), a=localStorage.getItem('tm_a');
   if(u==='1') showHub();
@@ -1248,9 +1296,18 @@ function goTo(i){
   const pi=document.getElementById('proj-info');if(pi)pi.textContent=`Lesson 1 · Slide ${i+1}/${count}`;
   // Auto unlock Q on final slide (presenter only)
   if(i===count-1 && isAdmin && !qUnlocked) unlockQ(true);
-  // Sync overlay if on
+  // Admin slide movement should always clear active scripture overlays first.
+  // This prevents projector 1 / OBS from staying on a verse while the main slide advances.
+  if(isAdmin && !_suppressSync){
+    p1ScOverlayOn=false;
+    p1ActiveVerse=null;
+    const ov=document.getElementById('p1-sc-overlay');
+    if(ov) ov.classList.remove('show');
+    sbSend({type:'p1_overlay_hide'});
+    sbSend({type:'clear_overlays'});
+  }
+  // Sync overlay if on locally only. Admin next/prev intentionally disables this.
   if(p1ScOverlayOn && p1ActiveVerse===null){
-    // auto-sync to slide's scripture
     const sc=SCRIPTURE_MAP[i];
     if(sc) setP1Overlay({ref:sc.ref_en, kjv:sc.text_en});
   }
@@ -1474,8 +1531,13 @@ function handleMessage(msg){
   if(isObsLower||isObsFull){
     if(msg.type==='scripture') showOBS(msg.scripture);
     if(msg.type==='scripture_clear') clearOBS();
+    if(msg.type==='slide') showOBSSlide(msg.slide);
   }
-  if(msg.type==='reload_projectors' && (isProjector||isScriptureDisplay||isObsLower||isObsFull)){location.reload();}
+  if(isConfidence){
+    if(msg.type==='slide') updateConfidence(msg.slide);
+    if(msg.type==='scripture') updateConfidenceScripture(msg.scripture);
+  }
+  if(msg.type==='reload_projectors' && (isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence)){location.reload();}
   if(msg.type==='panic_clear'){
     const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
     if(isScriptureDisplay) clearP2Display(); if(isObsLower||isObsFull) clearOBS();
@@ -1570,7 +1632,7 @@ function startTimer(){
   _timerInt=setInterval(()=>{
     const s=Math.floor((Date.now()-_timerStart)/1000), m=String(Math.floor(s/60)).padStart(2,'0'), sec=String(s%60).padStart(2,'0');
     const val=`${m}:${sec}`;
-    ['cmd-timer','mm-timer'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=val;});
+    ['cmd-timer','mm-timer','conf-timer'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=val;});
   },500);
 }
 function slideLabel(s){
@@ -1608,6 +1670,37 @@ function showOBS(sc){
   if(txt) txt.textContent=sc.text_en||sc.kjv||'';
 }
 function clearOBS(){const txt=document.getElementById('obs-text'); if(txt) txt.textContent='';}
+
+function slidePlainTitle(i){
+  const s=LESSON1_SLIDES[i]; if(!s) return {title:'Waiting', type:'', ref:''};
+  const l=slideLabel(s);
+  const title=l.title.replace(/&nbsp;/g,' ').replace(/\s+/g,' ').trim();
+  const ref=s.ref || (SCRIPTURE_MAP[i] && (SCRIPTURE_MAP[i].ref_en||SCRIPTURE_MAP[i].ref)) || '';
+  return {title,type:l.type,ref};
+}
+function showOBSSlide(i){
+  const cur=slidePlainTitle(i);
+  const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
+  if(ref) ref.textContent=cur.ref || `Slide ${i+1}`;
+  if(txt) txt.innerHTML=cur.title || 'Current Slide';
+  if(sum) sum.textContent=`${cur.type} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+}
+function toggleObsGreen(){const s=document.getElementById('obs-screen'); if(s) s.classList.toggle('green');}
+function updateConfidence(i){
+  curSlide=i;
+  const cur=slidePlainTitle(i), next=slidePlainTitle(i+1);
+  const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
+  if(ck) ck.textContent=`Current · Slide ${i+1}/${LESSON1_SLIDES.length} · ${cur.type}`;
+  if(ct) ct.innerHTML=(cur.title||'The Ministry').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
+  if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
+  if(nt) nt.innerHTML=(next.title||'End').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
+  if(nn) nn.innerHTML=NOTES_L1[i] || 'No notes for this slide.';
+}
+function updateConfidenceScripture(sc){
+  const cr=document.getElementById('conf-current-ref');
+  if(cr && sc) cr.textContent=`Active Scripture: ${sc.ref_en||sc.ref||''}`;
+}
+
 
 // ── SIMPLE LIVE QUESTIONS ──
 function openAskDrawer(){const d=document.getElementById('ask-drawer'); if(d) d.classList.add('open');}
