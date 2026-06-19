@@ -592,6 +592,85 @@ body.obs-mode:hover .obs-tools{opacity:1!important;pointer-events:auto!important
 /* Remove faint filler labels from active scripture views */
 #obs-summary:empty{display:none!important;}
 
+
+
+/* v9: ProPresenter title slide scale fix
+   Keep all teaching/scripture slides untouched. Only the cover/title slide gets a larger full-screen layout. */
+body.projector-mode .sl-cover{
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow:hidden!important;
+}
+body.projector-mode .sl-cover-bg{
+  inset:0!important;
+  background-size:cover!important;
+  background-position:center!important;
+  transform:none!important;
+}
+body.projector-mode .sl-cover-ov{
+  background:linear-gradient(102deg,rgba(5,5,5,.98) 0%,rgba(5,5,5,.88) 38%,rgba(5,5,5,.46) 72%,rgba(5,5,5,.22) 100%)!important;
+}
+body.projector-mode .sl-cover-body{
+  width:min(900px,54vw)!important;
+  max-width:54vw!important;
+  margin-left:7vw!important;
+  margin-top:0!important;
+  transform:none!important;
+}
+body.projector-mode .sl-cey{
+  font-size:clamp(.76rem,1vw,1.15rem)!important;
+  letter-spacing:.26em!important;
+  margin-bottom:20px!important;
+  color:rgba(241,237,228,.5)!important;
+}
+body.projector-mode .sl-cey::before{
+  width:4px!important;
+  height:26px!important;
+}
+body.projector-mode .sl-ct{
+  margin-bottom:28px!important;
+  line-height:.78!important;
+}
+body.projector-mode .sl-ct .tt,
+body.projector-mode .sl-ct .tm{
+  font-size:clamp(9rem,13vw,15.8rem)!important;
+  letter-spacing:-.035em!important;
+  line-height:.76!important;
+}
+body.projector-mode .sl-cln{
+  font-size:clamp(.72rem,.95vw,1rem)!important;
+  letter-spacing:.24em!important;
+  margin-bottom:8px!important;
+}
+body.projector-mode .sl-cnm{
+  font-size:clamp(1.45rem,2vw,2.2rem)!important;
+  line-height:1.05!important;
+  max-width:760px!important;
+  margin-bottom:8px!important;
+}
+body.projector-mode .sl-crf{
+  font-size:clamp(1rem,1.25vw,1.3rem)!important;
+  margin-bottom:42px!important;
+}
+body.projector-mode .sl-cft{
+  gap:44px!important;
+}
+body.projector-mode .sl-cml{
+  font-size:clamp(.58rem,.75vw,.82rem)!important;
+}
+body.projector-mode .sl-cmv{
+  font-size:clamp(.78rem,1vw,1rem)!important;
+}
+@media(max-width:1100px){
+  body.projector-mode .sl-cover-body{width:72vw!important;max-width:72vw!important;margin-left:6vw!important;}
+  body.projector-mode .sl-ct .tt,body.projector-mode .sl-ct .tm{font-size:clamp(6rem,17vw,11rem)!important;}
+}
+
 </style>
 </head>
 <body>
@@ -988,7 +1067,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
