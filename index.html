@@ -532,6 +532,66 @@ body.obs-mode .obs-full .obs-summary{display:block!important;font-family:var(--f
 body.obs-mode .obs-full .obs-ref{font-family:var(--fc)!important;font-size:clamp(.9rem,1.25vw,1.45rem)!important;font-weight:900!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:var(--red)!important;margin-bottom:22px!important;}
 body.obs-mode .obs-full .obs-text{font-family:var(--fp)!important;font-style:italic!important;font-weight:400!important;text-transform:none!important;font-size:clamp(2.4rem,4.1vw,5.3rem)!important;line-height:1.14!important;letter-spacing:0!important;max-width:1380px!important;color:var(--w)!important;}
 
+
+
+/* V8 CLEAN PASS: output stability, no random chrome, cleaner scripture sizing */
+body.projector-mode #ssl.on .proj-ctrl-bar{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translateY(100%)!important;
+  transition:opacity .18s ease, transform .18s ease!important;
+}
+body.projector-mode #ssl.on .proj-ctrl-bar:hover,
+body.projector-mode #ssl.on .proj-ctrl-bar:focus-within{
+  opacity:1!important;
+  pointer-events:auto!important;
+  transform:translateY(0)!important;
+}
+body.projector-mode #ssl.on .projector-fs-btn,
+body.scripture-mode .projector-fs-btn,
+body.obs-mode .projector-fs-btn,
+body.confidence-mode .projector-fs-btn{display:none!important;}
+.projector-fs-btn{display:none!important;}
+#proj-info{display:none!important;}
+
+/* Projector 1 scripture overlay: KJV only, centered, no top red mark or filler label */
+#p1-sc-overlay{align-items:center!important;justify-content:center!important;text-align:center!important;padding:8vh 9vw!important;background:rgba(0,0,0,.965)!important;overflow:hidden!important;}
+#p1-sc-overlay .p1ov-mark{display:none!important;}
+#p1-sc-overlay .p1ov-ref{font-family:var(--fc)!important;font-size:clamp(.9rem,1.05vw,1.2rem)!important;font-weight:900!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:var(--red)!important;margin:0 0 22px!important;text-align:center!important;}
+#p1-sc-overlay .p1ov-text{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(2.2rem,3.9vw,4.9rem)!important;line-height:1.14!important;max-width:1420px!important;margin:0 auto!important;color:var(--w)!important;text-align:center!important;}
+#p1-sc-overlay .p1ov-corner{display:none!important;}
+
+/* Projector 2 scripture screen: centered bilingual scripture, not oversized */
+body.scripture-mode .sp-content{align-items:center!important;justify-content:center!important;text-align:left!important;padding:6vh 8vw!important;overflow:hidden!important;}
+body.scripture-mode .sp-inner{width:min(1320px,84vw)!important;max-width:min(1320px,84vw)!important;}
+body.scripture-mode .sp-mk{height:78px!important;top:25vh!important;}
+body.scripture-mode .sp-ref-en{font-size:clamp(.92rem,1.1vw,1.25rem)!important;margin-bottom:18px!important;}
+body.scripture-mode .sp-tx-en{font-size:clamp(1.9rem,3vw,3.7rem)!important;line-height:1.18!important;max-width:1240px!important;}
+body.scripture-mode .sp-ref-es{font-size:clamp(.66rem,.82vw,.95rem)!important;margin-top:36px!important;padding-top:26px!important;}
+body.scripture-mode .sp-tx-es{font-size:clamp(1rem,1.45vw,1.7rem)!important;line-height:1.28!important;max-width:1080px!important;}
+body.scripture-mode .sp-corner{display:none!important;}
+
+/* Confidence monitor: scripture must fit inside the current-slide box */
+.conf-current{overflow:hidden!important;}
+.conf-current.scripture-active{justify-content:center!important;padding:28px 34px!important;}
+.conf-current.scripture-active .conf-kicker{display:none!important;}
+.conf-current.scripture-active .conf-title{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(1.55rem,2.85vw,3.45rem)!important;line-height:1.08!important;text-transform:none!important;max-height:74%!important;overflow:hidden!important;display:block!important;}
+.conf-current.scripture-active .conf-es{display:block!important;margin-top:16px!important;padding-top:14px!important;border-top:1px solid rgba(241,237,228,.16)!important;font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(.86rem,1.25vw,1.45rem)!important;line-height:1.18!important;color:rgba(241,237,228,.62)!important;}
+.conf-current.scripture-active .conf-ref{font-family:var(--fc)!important;font-size:clamp(.6rem,.85vw,.9rem)!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--red)!important;margin-top:14px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.conf-next-title{font-size:clamp(2.1rem,3.8vw,4.7rem)!important;}
+
+/* OBS lower thirds: slide info only, clean labels, no slide-count clutter */
+.obs-summary{color:rgba(241,237,228,.68)!important;}
+.obs-ref{letter-spacing:.12em!important;text-transform:uppercase!important;}
+.obs-tools{opacity:0!important;pointer-events:none!important;transition:opacity .18s ease!important;}
+body.obs-mode:hover .obs-tools{opacity:1!important;pointer-events:auto!important;}
+.obs-screen:not(.green){background-image:url('assets/ministry-bg.jpeg')!important;background-size:cover!important;background-position:center!important;}
+.obs-screen:not(.green)::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.72);z-index:-2;}
+.obs-screen.green{background:#00b140!important;background-image:none!important;}
+
+/* Remove faint filler labels from active scripture views */
+#obs-summary:empty{display:none!important;}
+
 </style>
 </head>
 <body>
@@ -680,7 +740,7 @@ body.obs-mode .obs-full .obs-text{font-family:var(--fp)!important;font-style:ita
       <div class="p1ov-mark"></div>
       <div class="p1ov-ref" id="p1ov-ref">Matthew 10:1</div>
       <div class="p1ov-text" id="p1ov-text"></div>
-      <div class="p1ov-corner">KJV &middot; The Ministry &middot; Matthew 10</div>
+      <div class="p1ov-corner"></div>
     </div>
   </div>
   <div class="ss-nav">
@@ -928,7 +988,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // ── DATA ──
 const LESSON1_SLIDES = [
@@ -1357,7 +1417,7 @@ function goTo(i){
   document.querySelectorAll('.ss-dot').forEach((d,j)=>d.classList.toggle('on',j===i));
   const pt=document.getElementById('ss-pt');if(pt)pt.textContent=`${i+1} / ${count}`;
   const prog=document.getElementById('ss-prog');if(prog)prog.style.width=`${((i+1)/count*100).toFixed(1)}%`;
-  const pi=document.getElementById('proj-info');if(pi)pi.textContent=`Lesson 1 · Slide ${i+1}/${count}`;
+  const pi=document.getElementById('proj-info');if(pi)pi.textContent='';
   // Auto unlock Q on final slide (presenter only)
   if(i===count-1 && isAdmin && !qUnlocked) unlockQ(true);
   // Admin slide movement should always clear active scripture overlays first.
@@ -1378,7 +1438,9 @@ function goTo(i){
   }
   // Admin/controller is the only source of truth. Projectors never echo commands back.
   if(isAdmin && !_suppressSync){
-    if(scAuto) broadcastScripture(i);
+    // Manual scripture only. Slide navigation clears scripture overlays and does not push a new verse.
+    // This prevents random verses/waiting states between slides.
+    // if(scAuto) broadcastScripture(i);
     broadcastSlide(i);
   }
   updateCtrlSurface(i);
@@ -1740,7 +1802,7 @@ function showOBS(sc){
   const en=sc.text_en||sc.kjv||'';
   if(ref) ref.textContent=sc.ref_en||sc.ref||'';
   if(txt) txt.textContent=en;
-  if(sum) sum.textContent=isObsFull ? 'Active Scripture' : '';
+  if(sum) sum.textContent='';
 }
 function clearOBS(){
   if(isObsFull){
@@ -1752,7 +1814,7 @@ function clearOBS(){
 }
 
 function slidePlainTitle(i){
-  const s=LESSON1_SLIDES[i]; if(!s) return {title:'Waiting', type:'', ref:''};
+  const s=LESSON1_SLIDES[i]; if(!s) return {title:'End', type:'', ref:''};
   const l=slideLabel(s);
   const title=l.title.replace(/&nbsp;/g,' ').replace(/\s+/g,' ').trim();
   const ref=s.ref || (SCRIPTURE_MAP[i] && (SCRIPTURE_MAP[i].ref_en||SCRIPTURE_MAP[i].ref)) || '';
@@ -1763,15 +1825,15 @@ function showOBSSlide(i){
   const cur=slidePlainTitle(i);
   const ref=document.getElementById('obs-ref'), txt=document.getElementById('obs-text'), sum=document.getElementById('obs-summary');
   if(isObsLower){
-    if(ref) ref.textContent=`${cur.ref || 'Matthew 10'} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+    if(ref) ref.textContent=cur.ref || 'Matthew 10';
     if(txt) txt.innerHTML=cur.title || 'Current Slide';
-    if(sum) sum.textContent=`${cur.type} · The Ministry`;
+    if(sum) sum.textContent='Elder Eli Castaneda';
     return;
   }
   if(isObsFull){
-    if(ref) ref.textContent=cur.ref || `Slide ${i+1}`;
+    if(ref) ref.textContent=cur.ref || 'Matthew 10';
     if(txt) txt.innerHTML=cur.title || 'Current Slide';
-    if(sum) sum.textContent=`${cur.type} · Slide ${i+1}/${LESSON1_SLIDES.length}`;
+    if(sum) sum.textContent='Elder Eli Castaneda';
   }
 }
 function toggleObsGreen(){const s=document.getElementById('obs-screen'); if(s) s.classList.toggle('green');}
@@ -1800,7 +1862,7 @@ function updateConfidence(i){
   const card=document.querySelector('.conf-current');
   const ck=document.getElementById('conf-current-kicker'), ct=document.getElementById('conf-current-title'), cr=document.getElementById('conf-current-ref'), nt=document.getElementById('conf-next-title'), nn=document.getElementById('conf-notes-text');
   if(card) card.classList.remove('scripture-active');
-  if(ck) ck.textContent=`Current · Slide ${i+1}/${LESSON1_SLIDES.length} · ${cur.type}`;
+  if(ck) ck.textContent='Current Slide';
   if(ct) ct.innerHTML=(cur.title||'The Ministry').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
   if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
   if(nt) nt.innerHTML=(next.title||'End').replace(/\b(MINISTRY|SURRENDER|MATTERS|DANGEROUS|ASSIGNMENT|OBEDIENCE|OWNED)\b/gi,'<span>$1</span>');
@@ -1816,7 +1878,7 @@ function updateConfidenceScripture(sc){
   if(sc.text_es){ es={ref_es:sc.ref_es||String(ref).replace('Matthew','Mateo'), text_es:sc.text_es}; }
   else { es=findSpanishFor(ref,en); }
   if(card) card.classList.add('scripture-active');
-  if(ck) ck.textContent='Active Scripture';
+  if(ck) ck.textContent='Scripture';
   if(cr) cr.textContent=`${ref} · KJV / ${es.ref_es||'RVR 1960'}`;
   if(ct) ct.innerHTML=`${en}<span class="conf-es">${es.text_es||''}</span>`;
 }
