@@ -183,3 +183,7 @@ Use this version if v18 gets stuck after the Start slide.
 - Projector/scriptures/confidence can recover even if they missed the original lesson-select broadcast.
 - Selecting Lesson 1 or Lesson 2 still resets to standby, but the next Start/Next command forces every output onto the selected lesson.
 - No visual or Supabase schema changes.
+## v44 Scripture Spanish Text Fix
+- Fixed manual Lesson 2 scripture pushes on `/scriptures` so Mateo/RVR text is actually Spanish in the main large area.
+- Kept KJV as the smaller secondary text.
+- No route, Supabase, poll, question, or lesson sync changes.

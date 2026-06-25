@@ -441,7 +441,7 @@ body.scripture-mode #scripture-display{display:flex;}
 body.projector-mode .slide{font-size:1em}body.projector-mode .sl-te-h{font-size:clamp(4rem,7vw,8rem)}body.projector-mode .sl-pts li{font-size:clamp(1.45rem,2vw,2.25rem)}body.projector-mode .sl-big-text{font-size:clamp(5rem,8vw,9.5rem)}
 #p1-sc-overlay{align-items:center!important;justify-content:center!important;text-align:center!important;padding:7vh 8vw!important;background:rgba(4,4,4,.96)!important}.p1ov-mark{height:62px;margin:0 auto 26px}.p1ov-ref{font-size:clamp(1rem,1.25vw,1.35rem)}.p1ov-text{font-size:clamp(3rem,4.6vw,6.4rem)!important;line-height:1.16!important;max-width:1500px!important;margin:0 auto}.p1ov-corner{right:50%;transform:translateX(50%);bottom:34px}
 body.scripture-mode #scripture-display{background:#000}
-/* PROJECTOR 2: bilingual scripture display. English KJV is primary, Spanish RVR 1960 supports below. */
+/* PROJECTOR 2: bilingual scripture display. Spanish RVR 1960 is primary, English KJV supports below. */
 body.scripture-mode .sp-content{align-items:center;justify-content:center!important;text-align:left;padding:7vh 9vw!important;background:#000!important}
 body.scripture-mode .sp-inner{width:min(1420px,84vw)!important;max-width:min(1420px,84vw)!important;margin:0 auto!important}
 body.scripture-mode .sp-mk{width:4px;height:96px;background:var(--red);position:absolute;left:calc(50% - min(710px,42vw) - 34px);top:24.5vh;margin:0!important}
@@ -1645,7 +1645,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -2876,8 +2876,20 @@ const VB_SPANISH={
   v8:'Sanad enfermos, limpiad leprosos, resucitad muertos, echad fuera demonios; de gracia recibisteis, dad de gracia.',
   v9:'No os proveáis de oro, ni plata, ni cobre en vuestros cintos,',
   v10:'ni de alforja para el camino, ni de dos túnicas, ni de calzado, ni de bordón; porque el obrero es digno de su alimento.',
+  l2v11:'Mas en cualquier ciudad o aldea donde entréis, informaos quién en ella sea digno, y posad allí hasta que salgáis.',
+  l2v12:'Y al entrar en la casa, saludadla.',
+  l2v13:'Y si la casa fuere digna, vuestra paz vendrá sobre ella; mas si no fuere digna, vuestra paz se volverá a vosotros.',
+  l2v14:'Y si alguno no os recibiere, ni oyere vuestras palabras, salid de aquella casa o ciudad, y sacudid el polvo de vuestros pies.',
+  l2v15:'De cierto os digo que en el día del juicio, será más tolerable el castigo para la tierra de Sodoma y de Gomorra, que para aquella ciudad.',
+  l2v16:'He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.',
 };
-function getVBSpanish(id){return VB_SPANISH[id]||'';}
+function getVBSpanish(id){
+  if(VB_SPANISH[id]) return VB_SPANISH[id];
+  const v=(Array.isArray(VERSE_BANK)?VERSE_BANK:[]).find(x=>x.id===id);
+  if(!v) return '';
+  const map=(Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP:[]).find(x=>(x.ref_en||x.ref)===v.ref || (x.ref_es||'').replace('Mateo','Matthew')===v.ref);
+  return map ? (map.text_es||map.rvr||'') : '';
+}
 function markVBPushed(id){
   document.querySelectorAll('.vb-card').forEach(c=>c.classList.remove('pushed'));
   const card=document.getElementById('vbc-'+id);if(card)card.classList.add('pushed');
