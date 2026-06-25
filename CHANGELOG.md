@@ -155,3 +155,9 @@ Use this version if v18 gets stuck after the Start slide.
 - `/projector`, `/scriptures`, `/confidence`, `/mobile`, `/obslowerthirds`, and `/obsslides` can stay unchanged during live setup.
 - Selecting a lesson resets outputs to standby, clears overlays/polls locally, rebuilds slides, verse bank, poll bank, and confidence data.
 - Query params like `?lesson=lesson-2` still work as a testing override.
+
+## v39 Default Route Lesson Sync Fix
+- Lesson selection now travels with slide and scripture commands.
+- Projector/scriptures/confidence can recover even if they missed the original lesson-select broadcast.
+- Selecting Lesson 1 or Lesson 2 still resets to standby, but the next Start/Next command forces every output onto the selected lesson.
+- No visual or Supabase schema changes.

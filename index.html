@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -2475,16 +2475,32 @@ function resetForLessonChange(){
   const ssl=document.getElementById('ssl'); if(ssl) ssl.classList.remove('on');
   const wait=document.getElementById('p1-wait'); if(wait) wait.classList.remove('hidden');
   const p1s=document.getElementById('p1-status'); if(p1s){p1s.textContent='Standby';p1s.classList.remove('live');}
+  const pws=document.querySelector('.pw-sb'); if(pws && window.LESSON_DATA){pws.textContent=`${window.LESSON_DATA.label} · ${window.LESSON_DATA.title} · Main Projector`;}
+  const spws=document.querySelector('.sp-ws'); if(spws && window.LESSON_DATA){spws.textContent=`${window.LESSON_DATA.label} · ${window.LESSON_DATA.text} · RVR 1960 / KJV`;}
   if(typeof clearP2Display==='function' && isScriptureDisplay) clearP2Display();
   try{buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);renderDots(LESSON1_SLIDES.length);}catch(e){}
   try{buildCtrlSurface();buildVerseBank();buildMobileVerseList();renderPollBank&&renderPollBank();}catch(e){}
   try{updateCtrlSurface(0);updateMobileMode(0);updateConfidence&&updateConfidence(0);}catch(e){}
   try{document.querySelectorAll('.lesson-pill').forEach(btn=>btn.classList.toggle('on',btn.dataset.lesson===window.LESSON_SLUG));}catch(e){}
 }
+function rebuildLessonSurfaces(targetSlide=0){
+  try{buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);renderDots(LESSON1_SLIDES.length);}catch(e){}
+  try{buildCtrlSurface();buildVerseBank();buildMobileVerseList();renderPollBank&&renderPollBank();}catch(e){}
+  try{updateCtrlSurface(targetSlide);updateMobileMode(targetSlide);updateConfidence&&updateConfidence(targetSlide);}catch(e){}
+  try{document.querySelectorAll('.lesson-pill').forEach(btn=>btn.classList.toggle('on',btn.dataset.lesson===window.LESSON_SLUG));}catch(e){}
+}
+function applyIncomingLesson(slug,targetSlide=0){
+  const next=normalizeLessonSlug(slug);
+  if(next && next!==window.LESSON_SLUG){
+    applySelectedLesson(next);
+    curSlide=Math.max(0,Math.min(targetSlide||0,LESSON1_SLIDES.length-1));
+    rebuildLessonSurfaces(curSlide);
+  }
+}
 function selectLesson(slug,broadcast=true){
   const lesson=applySelectedLesson(slug);
   resetForLessonChange();
-  if(broadcast && typeof sbSend==='function') sbSend({type:'lesson_select',lesson:lesson.slug,ts:Date.now()});
+  if(broadcast && typeof sbSend==='function') sbSend({type:'lesson_select',lesson:lesson.slug,slide:0,started:false,ts:Date.now()});
   return lesson;
 }
 function adminSelectLesson(slug){
@@ -2907,7 +2923,7 @@ function broadcastScripture(idx){
   pushRawScripture(sc);
 }
 function pushRawScripture(sc){
-  sbSend({type:'scripture',scripture:sc});flashP2('Pushed');
+  sbSend({type:'scripture',scripture:sc,lesson:(window.LESSON_SLUG||'lesson-1')});flashP2('Pushed');
 }
 function flashP2(msg){
   const l=document.getElementById('cmd-p2lbl');
@@ -2918,6 +2934,9 @@ function flashP2(msg){
 // Shared by BroadcastChannel (same device) and Supabase Realtime (cross-device, cross-network)
 function handleMessage(msg){
   if(!msg||!msg.type) return;
+  if(msg.lesson && msg.lesson!==window.LESSON_SLUG && msg.type!=='lesson_select'){
+    applyIncomingLesson(msg.lesson, Number.isFinite(+msg.slide)?+msg.slide:curSlide);
+  }
   if(msg.type==='lesson_select'){
     selectLesson(msg.lesson||'lesson-1',false);
     return;
@@ -3054,7 +3073,7 @@ async function sbSend(msg){
   })();
 }
 function broadcastSlide(i){
-  sbSend({type:'slide',slide:i});
+  sbSend({type:'slide',slide:i,lesson:(window.LESSON_SLUG||'lesson-1')});
 }
 function showP2(sc){
   document.body.classList.add('p2-live');
@@ -3187,7 +3206,7 @@ function startPresentation(){
   const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
   if(isAdmin){
     sbSend({type:'p1_overlay_hide'});
-    sbSend({type:'slide',slide:0,start:true});
+    sbSend({type:'slide',slide:0,start:true,lesson:(window.LESSON_SLUG||'lesson-1')});
     // Do not auto-push a scripture on Start. Scripture screens should stay on the series/title standby until the first actual scripture/teaching slide is advanced.
     if(isScriptureDisplay) clearP2Display();
   }
