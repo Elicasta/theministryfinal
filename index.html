@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -4650,6 +4650,214 @@ body.audience-slave .poll-screen *{
     const email=$('mo-email');
     if(email && localStorage.getItem(EMAIL_KEY)) email.value=localStorage.getItem(EMAIL_KEY);
   });
+})();
+</script>
+
+
+
+<style>
+/* =========================================================
+   v35 admin live data polish
+   - Same question naming in sidebar and tab
+   - Live poll results inside Polls tab
+   - Answered poll archive stays inside Polls tab
+========================================================= */
+.admin-live-poll-panel{border-top:1px solid var(--ln);margin-top:16px;padding-top:16px;}
+.admin-live-poll-card,.admin-poll-card,.admin-q-card{background:rgba(255,255,255,.025);border:1px solid var(--ln);padding:14px;margin:10px 0;}
+.admin-live-poll-meta,.admin-poll-meta,.admin-q-meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--mu);font-family:var(--fc);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.admin-live-poll-title,.admin-poll-text,.admin-q-text{color:var(--w);font-size:1rem;line-height:1.35;margin-bottom:10px;}
+.admin-poll-rows{display:grid;gap:8px;margin-top:10px;}
+.admin-poll-row{display:grid;grid-template-columns:minmax(90px,1fr) 2fr auto;gap:10px;align-items:center;color:var(--mu);font-size:.82rem;}
+.admin-poll-bar{height:8px;background:rgba(255,255,255,.08);overflow:hidden;border:1px solid var(--ln);}
+.admin-poll-fill{height:100%;background:var(--red);}
+.admin-empty{color:var(--mu);padding:18px;border:1px dashed var(--ln);font-size:.85rem;}
+.admin-q-list .admin-q-card{margin-bottom:10px;}
+.admin-q-actions,.admin-live-poll-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.admin-inline-btn,.admin-q-actions button,.admin-live-poll-actions button{background:transparent;border:1px solid var(--ln);color:var(--w);font-family:var(--fc);text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;padding:7px 9px;cursor:pointer;}
+.admin-inline-btn:hover,.admin-q-actions button:hover,.admin-live-poll-actions button:hover{border-color:var(--red);color:var(--red);}
+.admin-live-tag{color:var(--green,#22C55E);}
+</style>
+<script>
+// =========================================================
+// v35 admin live data polish
+// Keeps the stable v34 behavior. Only fixes admin display wiring.
+// =========================================================
+(function(){
+  const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const SERIES=(window.SERIES_CONFIG&&window.SERIES_CONFIG.slug)||window.SERIES_SLUG||'the-ministry';
+  const LESSON=(window.LESSON_DATA&&window.LESSON_DATA.slug)||window.LESSON_SLUG||'lesson-1';
+  const getJSON=(url,opts)=>fetch(url,opts).then(async r=>{ if(!r.ok) throw new Error(await r.text()); return r.json(); });
+
+  function displayName(row){
+    const raw=row?.display_name||row?.name||row?.attendee_name||row?.user_name||'';
+    const clean=String(raw||'').trim();
+    if(!clean || clean.toLowerCase()==='anonymousnew' || clean.toLowerCase()==='anonymousanswered') return 'Anonymous';
+    return clean;
+  }
+  function normalizeQuestion(row){
+    return {
+      id:String(row.dbId||row.id||row.question_id||('q-'+Math.random().toString(16).slice(2))),
+      dbId:String(row.dbId||row.id||row.question_id||''),
+      name:displayName(row),
+      text:row.text||row.question||row.message||'',
+      status:row.status || (row.is_hidden?'hidden':row.is_answered?'answered':'new'),
+      ts:row.ts||row.created_at||row.updated_at||new Date().toISOString()
+    };
+  }
+  function questionStore(){
+    try{ return Array.isArray(window.questions)?window.questions:(window.questions=[]); }
+    catch(e){ window.questions=[]; return window.questions; }
+  }
+  function mergeQuestions(rows){
+    const map=new Map(questionStore().map(q=>[String(q.dbId||q.id), normalizeQuestion(q)]));
+    (rows||[]).map(normalizeQuestion).forEach(q=>map.set(String(q.dbId||q.id),q));
+    const all=Array.from(map.values()).filter(q=>q.text).sort((a,b)=>new Date(b.ts)-new Date(a.ts));
+    window.questions=all;
+    try{localStorage.setItem('tm_questions',JSON.stringify(all.slice(0,150)));}catch(e){}
+    return all;
+  }
+  async function fetchQuestions(){
+    try{
+      const data=await getJSON(`/api/questions-list?series_slug=${encodeURIComponent(SERIES)}&lesson_slug=${encodeURIComponent(LESSON)}`);
+      return mergeQuestions(data.questions||[]);
+    }catch(e){
+      console.warn('v35 questions fetch failed',e);
+      try{return mergeQuestions(JSON.parse(localStorage.getItem('tm_questions')||'[]'));}catch(_){return questionStore();}
+    }
+  }
+  function questionCard(q,compact=false){
+    q=normalizeQuestion(q);
+    return `<div class="admin-q-card">
+      <div class="admin-q-meta"><span>${esc(q.name)}</span><span style="color:${q.status==='new'?'var(--red)':'var(--mu)'}">${esc(q.status)}</span><span>${esc(new Date(q.ts||Date.now()).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'}))}</span></div>
+      <div class="admin-q-text">${esc(q.text)}</div>
+      <div class="admin-q-actions">
+        <button onclick="updateQuestionV35('${esc(q.dbId||q.id)}','answered')">Answered</button>
+        <button onclick="updateQuestionV35('${esc(q.dbId||q.id)}','hidden')">Hide</button>
+        <button onclick="updateQuestionV35('${esc(q.dbId||q.id)}','new')">New</button>
+      </div>
+    </div>`;
+  }
+  window.updateQuestionV35=async function(id,status){
+    try{await getJSON('/api/question-update',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,status})});}catch(e){console.warn('v35 question update failed',e);}
+    questionStore().forEach(q=>{if(String(q.dbId||q.id)===String(id)) q.status=status;});
+    window.renderQuestionsMini&&window.renderQuestionsMini(false);
+    window.renderQuestionsTabV35&&window.renderQuestionsTabV35(false);
+  };
+  window.renderQuestionsMini=async function(fetchFirst=true){
+    if(fetchFirst) await fetchQuestions();
+    const right=document.querySelector('#admin-hub .ctrl-right [style*="overflow-y"]') || document.querySelector('#admin-hub .ctrl-right');
+    if(!right) return;
+    let panel=document.getElementById('admin-questions-panel');
+    if(!panel){
+      panel=document.createElement('div');
+      panel.id='admin-questions-panel';
+      panel.className='admin-questions-panel';
+      right.appendChild(panel);
+    }
+    const all=questionStore().filter(q=>(q.status||'new')!=='hidden');
+    panel.innerHTML=`<div class="admin-questions-head"><div class="admin-questions-title">Live Questions</div><div class="admin-questions-count">${all.length}</div></div><div id="admin-questions-list">${all.length?all.slice(0,8).map(q=>questionCard(q,true)).join(''):'<div class="admin-question-empty">No questions yet.</div>'}</div>`;
+  };
+  window.renderQuestionsTabV35=async function(fetchFirst=true){
+    const list=document.getElementById('admin-questions-tab-list');
+    const count=document.getElementById('admin-questions-tab-count');
+    if(!list) return;
+    if(fetchFirst){list.innerHTML='<div class="admin-empty">Loading questions...</div>'; await fetchQuestions();}
+    const all=questionStore();
+    const newCount=all.filter(q=>(q.status||'new')==='new').length;
+    if(count) count.textContent=`${newCount} new / ${all.length} total`;
+    list.innerHTML=all.length?all.map(q=>questionCard(q,false)).join(''):'<div class="admin-empty">No questions yet.</div>';
+  };
+
+  function normalizePoll(row){
+    let opts=row?.options||[];
+    if(typeof opts==='string'){try{opts=JSON.parse(opts)}catch(e){opts=opts.split(',').map(x=>x.trim()).filter(Boolean)}}
+    const id=row?.poll_id||row?.id||row?.pollId||'';
+    return {id:String(id), question:row?.question||'Poll', options:Array.isArray(opts)?opts:[], status:row?.status||(row?.active?'live':row?.answered?'answered':'closed'), updatedAt:row?.updated_at||row?.closed_at||row?.created_at||new Date().toISOString()};
+  }
+  function groupVotes(votes){
+    const out={};
+    (votes||[]).forEach(v=>{const id=String(v.poll_id||v.pollId||''); if(!id)return; (out[id]||(out[id]=[])).push(v);});
+    return out;
+  }
+  function currentActivePoll(){
+    const p=window.pollState&&window.pollState.active;
+    if(!p) return null;
+    return normalizePoll({poll_id:p.id,question:p.question,options:p.options,status:'live',active:true,updated_at:new Date().toISOString()});
+  }
+  function localVotesFor(pollId){
+    try{return ((window.pollState&&window.pollState.responses&&window.pollState.responses[pollId])||[]).map(v=>({poll_id:pollId,answer:v.answer||v}));}catch(e){return[];}
+  }
+  function pollRows(p,votes){
+    const total=(votes||[]).length;
+    const tally={}; (p.options||[]).forEach(o=>tally[String(o).trim()]=0);
+    (votes||[]).forEach(v=>{const k=String(v.answer||'').trim(); tally[k]=(tally[k]||0)+1;});
+    return `<div class="admin-poll-rows">${(p.options||[]).map(o=>{const k=String(o).trim(); const n=tally[k]||0; const pct=total?Math.round(n/total*100):0; return `<div class="admin-poll-row"><div>${esc(k)}</div><div class="admin-poll-bar"><div class="admin-poll-fill" style="width:${pct}%"></div></div><div>${pct}% (${n})</div></div>`;}).join('')}</div><div class="admin-q-meta" style="margin-top:8px"><span>${total} answer${total===1?'':'s'}</span></div>`;
+  }
+  async function fetchPolls(){
+    try{return await getJSON(`/api/polls-list?series_slug=${encodeURIComponent(SERIES)}&lesson_slug=${encodeURIComponent(LESSON)}`);}catch(e){console.warn('v35 polls fetch failed',e);return {polls:[],votes:[]};}
+  }
+  window.renderPollsTabV35=async function(){
+    const tab=document.getElementById('tab-polls');
+    if(!tab) return;
+    let liveBox=document.getElementById('admin-live-poll-box');
+    if(!liveBox){
+      liveBox=document.createElement('div');
+      liveBox.id='admin-live-poll-box';
+      liveBox.className='admin-live-poll-panel';
+      const bank=document.getElementById('poll-bank-list');
+      if(bank && bank.nextSibling) tab.insertBefore(liveBox,bank.nextSibling); else tab.appendChild(liveBox);
+    }
+    let archive=document.getElementById('admin-polls-tab-archive');
+    if(!archive){
+      const wrap=document.createElement('div');
+      wrap.className='admin-poll-archive-wrap';
+      wrap.innerHTML=`<div class="admin-poll-archive-toolbar"><b>Answered Polls</b><span id="admin-polls-tab-count">0 saved</span><button class="admin-inline-btn" onclick="renderPollsTabV35()">Refresh</button></div><div class="admin-poll-archive-list" id="admin-polls-tab-archive"><div class="admin-empty">No answered polls yet.</div></div>`;
+      tab.appendChild(wrap); archive=document.getElementById('admin-polls-tab-archive');
+    }
+    const data=await fetchPolls();
+    const voteGroups=groupVotes(data.votes||[]);
+    const polls=(data.polls||[]).map(normalizePoll);
+    const active=currentActivePoll();
+    const livePolls=[];
+    if(active) livePolls.push(active);
+    polls.filter(p=>p.status==='live' && (!active || p.id!==active.id)).forEach(p=>livePolls.push(p));
+    liveBox.innerHTML=`<div class="admin-poll-archive-toolbar"><b>Live Poll Results</b><span>${livePolls.length} live</span><button class="admin-inline-btn" onclick="renderPollsTabV35()">Refresh</button></div>${livePolls.length?livePolls.map(p=>{const votes=[...(voteGroups[p.id]||[]),...localVotesFor(p.id)];return `<div class="admin-live-poll-card"><div class="admin-live-poll-meta"><span class="admin-live-tag">Live</span><span>${esc(p.id)}</span></div><div class="admin-live-poll-title">${esc(p.question)}</div>${pollRows(p,votes)}<div class="admin-live-poll-actions"><button onclick="closeActivePoll(true);setTimeout(renderPollsTabV35,300)">Kill Poll</button></div></div>`}).join(''):'<div class="admin-empty">No active poll.</div>'}`;
+    const answered=polls.filter(p=>p.status!=='live');
+    const count=document.getElementById('admin-polls-tab-count'); if(count) count.textContent=`${answered.length} saved`;
+    archive.innerHTML=answered.length?answered.map(p=>`<div class="admin-poll-card"><div class="admin-poll-meta"><span>${esc(p.status)}</span><span>${esc(new Date(p.updatedAt).toLocaleString())}</span></div><div class="admin-poll-text">${esc(p.question)}</div>${pollRows(p,voteGroups[p.id]||[])}</div>`).join(''):'<div class="admin-empty">No answered polls yet. Launch and kill/replace a poll to archive it here.</div>';
+  };
+
+  function ensureQuestionTab(){
+    const tabs=document.querySelector('#admin-hub .ctrl-tabs');
+    const polls=document.getElementById('tab-polls');
+    if(!tabs||!polls) return;
+    if(!document.getElementById('tab-questions')){
+      const qBtn=document.createElement('button'); qBtn.className='ctrl-tab'; qBtn.textContent='Questions'; qBtn.onclick=function(){switchTab('questions',this); window.renderQuestionsTabV35(true);}; tabs.appendChild(qBtn);
+      const panel=document.createElement('div'); panel.className='ctrl-panel'; panel.id='tab-questions'; panel.innerHTML=`<div class="admin-q-toolbar"><b>Live Questions</b><span id="admin-questions-tab-count">0 new / 0 total</span><button class="admin-inline-btn" onclick="renderQuestionsTabV35(true)">Refresh</button></div><div class="admin-q-list" id="admin-questions-tab-list"><div class="admin-empty">No questions yet.</div></div>`; polls.parentNode.insertBefore(panel,polls.nextSibling);
+    }
+  }
+  const prevSwitch=window.switchTab;
+  window.switchTab=function(name,btn){
+    const r=prevSwitch?prevSwitch(name,btn):undefined;
+    if(name==='questions') setTimeout(()=>window.renderQuestionsTabV35(true),0);
+    if(name==='polls') setTimeout(()=>window.renderPollsTabV35(),0);
+    return r;
+  };
+  const prevBuild=window.buildCtrlSurface;
+  if(prevBuild){window.buildCtrlSurface=function(){const r=prevBuild.apply(this,arguments);setTimeout(()=>{ensureQuestionTab();window.renderQuestionsMini(true);window.renderQuestionsTabV35(false);window.renderPollsTabV35();},400);return r;};}
+  const prevShow=window.showAdminHub;
+  if(prevShow){window.showAdminHub=function(){const r=prevShow.apply(this,arguments);setTimeout(()=>{ensureQuestionTab();window.renderQuestionsMini(true);window.renderQuestionsTabV35(false);window.renderPollsTabV35();},500);return r;};}
+  const prevAddVote=window.addPollVote;
+  if(prevAddVote){window.addPollVote=function(vote){const r=prevAddVote.apply(this,arguments);setTimeout(()=>window.renderPollsTabV35(),200);return r;};}
+  const prevOpenPoll=window.openPoll;
+  if(prevOpenPoll){window.openPoll=function(poll){const r=prevOpenPoll.apply(this,arguments);setTimeout(()=>window.renderPollsTabV35(),250);return r;};}
+  const prevClosePoll=window.closeActivePoll;
+  if(prevClosePoll){window.closeActivePoll=function(){const r=prevClosePoll.apply(this,arguments);setTimeout(()=>window.renderPollsTabV35(),500);return r;};}
+  try{
+    const bc=new BroadcastChannel('tm-sync');
+    bc.onmessage=(ev)=>{const m=ev.data||{}; if(m.type==='question_submit'){mergeQuestions([m.question]);setTimeout(()=>{window.renderQuestionsMini(false);window.renderQuestionsTabV35(false);},0);} if(m.type==='poll_open'||m.type==='poll_close'||m.type==='poll_vote') setTimeout(()=>window.renderPollsTabV35(),250);};
+  }catch(e){}
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{ensureQuestionTab();window.renderQuestionsMini(true);window.renderPollsTabV35();},1000));
 })();
 </script>
 

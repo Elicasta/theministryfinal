@@ -324,3 +324,6 @@ supabase/v33-attendee-identity-patch.sql
 - Made Supabase sync fire-and-forget so phone taps do not wait on the network.
 - Added visible connection fallback labels for Local only / Live / Realtime error states.
 - Did not change projector visuals, confidence layout, poll UI, or routes.
+
+### v35 admin data notes
+The Admin Polls tab now shows the currently active live poll and its results, plus answered poll archive beneath it. The Questions tab and right sidebar use the same question normalizer so names display consistently.

@@ -129,3 +129,9 @@ Use this version if v18 gets stuck after the Start slide.
 - Made Supabase sync fire-and-forget so phone taps do not wait on the network.
 - Added visible connection fallback labels for Local only / Live / Realtime error states.
 - Did not change projector visuals, confidence layout, poll UI, or routes.
+
+## v35 Admin live data display polish
+- Standardized question display names between the sidebar and Questions tab.
+- Added live poll results into the Polls tab, not only the right sidebar.
+- Kept answered poll archive inside the Polls tab.
+- No route, sync, projector, scripture, confidence, or audience behavior changes.
