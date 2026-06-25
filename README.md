@@ -299,3 +299,20 @@ Optional check endpoint:
 
 ## v32 Supabase patch
 If polls or attendees do not save, run `supabase/v32-poll-attendee-patch.sql` in Supabase SQL Editor, redeploy Vercel, then test one poll and one attendee check-in.
+
+## v33 attendee identity notes
+
+Audience users now enter with:
+
+- name
+- email
+- access code
+
+The app stores a local `session_id` and receives an `attendee_id` / `email_hash` from `/api/waitlist`.
+Questions and poll votes include this attendee/session identity so the admin archive and Supabase data stay tied together without exposing email publicly.
+
+Run this SQL patch if upgrading an older database:
+
+```txt
+supabase/v33-attendee-identity-patch.sql
+```

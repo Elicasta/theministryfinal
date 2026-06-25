@@ -1,7 +1,15 @@
+import crypto from 'node:crypto';
+
 function clean(value, max = 2000) {
   return String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
 }
-
+function normalizeEmail(email) {
+  return clean(email, 320).toLowerCase();
+}
+function hashEmail(email) {
+  const e = normalizeEmail(email);
+  return e ? crypto.createHash('sha256').update(e).digest('hex') : null;
+}
 async function supaFetch(SB_URL, SB_KEY, path, opts = {}) {
   const r = await fetch(`${SB_URL}/rest/v1/${path}`, {
     ...opts,
@@ -31,13 +39,21 @@ export default async function handler(req, res) {
   const answer = clean(vote.answer, 1000);
   if (!pollId || !answer) return res.status(400).json({ error: 'Poll id and answer required' });
 
-  const clientVoteId = clean(vote.id || vote.client_vote_id || `vote_${Date.now()}_${Math.random().toString(16).slice(2)}`, 160);
+  const email = normalizeEmail(vote.email || body.email);
+  const voteEmailHash = clean(vote.email_hash || body.email_hash || '', 160) || hashEmail(email);
+  const sessionId = clean(vote.session_id || body.session_id || '', 160);
+  const attendeeId = clean(vote.attendee_id || body.attendee_id || '', 80);
+  const clientVoteId = clean(vote.id || vote.client_vote_id || `${pollId}_${sessionId || Date.now()}_${Math.random().toString(16).slice(2)}`, 180);
+
   const payload = {
     poll_id: pollId,
     answer,
     anonymous: vote.anonymous !== false,
     display_name: vote.anonymous === false ? clean(vote.name || vote.display_name || 'Anonymous', 160) : null,
-    client_vote_id: clientVoteId
+    client_vote_id: clientVoteId,
+    attendee_id: attendeeId || null,
+    session_id: sessionId || null,
+    email_hash: voteEmailHash || null
   };
 
   try {
@@ -64,14 +80,43 @@ export default async function handler(req, res) {
       });
     }
 
-    // Avoid duplicate client votes without requiring a unique constraint.
-    const vq = new URLSearchParams();
-    vq.set('select', 'id,client_vote_id');
-    vq.set('client_vote_id', `eq.${clientVoteId}`);
-    vq.set('limit', '1');
-    const existingVote = await supaFetch(SB_URL, SB_KEY, `lesson_poll_votes?${vq.toString()}`);
-    if (existingVote.ok && Array.isArray(existingVote.json) && existingVote.json.length) {
-      return res.status(200).json({ ok: true, saved: false, duplicate: true });
+    // Prefer duplicate prevention by session_id. Fall back to email_hash. Fall back to client_vote_id.
+    let existingVote = null;
+    if (sessionId) {
+      const vq = new URLSearchParams();
+      vq.set('select', 'id');
+      vq.set('poll_id', `eq.${pollId}`);
+      vq.set('session_id', `eq.${sessionId}`);
+      vq.set('limit', '1');
+      existingVote = await supaFetch(SB_URL, SB_KEY, `lesson_poll_votes?${vq.toString()}`);
+    }
+    if ((!existingVote || !existingVote.ok || !Array.isArray(existingVote.json) || !existingVote.json.length) && voteEmailHash) {
+      const vq = new URLSearchParams();
+      vq.set('select', 'id');
+      vq.set('poll_id', `eq.${pollId}`);
+      vq.set('email_hash', `eq.${voteEmailHash}`);
+      vq.set('limit', '1');
+      existingVote = await supaFetch(SB_URL, SB_KEY, `lesson_poll_votes?${vq.toString()}`);
+    }
+    if ((!existingVote || !existingVote.ok || !Array.isArray(existingVote.json) || !existingVote.json.length) && clientVoteId) {
+      const vq = new URLSearchParams();
+      vq.set('select', 'id');
+      vq.set('client_vote_id', `eq.${clientVoteId}`);
+      vq.set('limit', '1');
+      existingVote = await supaFetch(SB_URL, SB_KEY, `lesson_poll_votes?${vq.toString()}`);
+    }
+
+    if (existingVote && existingVote.ok && Array.isArray(existingVote.json) && existingVote.json.length) {
+      // Update the answer instead of inserting another vote.
+      const p = new URLSearchParams();
+      p.set('id', `eq.${existingVote.json[0].id}`);
+      const write = await supaFetch(SB_URL, SB_KEY, `lesson_poll_votes?${p.toString()}`, {
+        method: 'PATCH',
+        headers: { Prefer: 'return=minimal' },
+        body: JSON.stringify(payload)
+      });
+      if (!write.ok) return res.status(500).json({ error: 'Poll vote update failed', details: write.text, payload_keys: Object.keys(payload) });
+      return res.status(200).json({ ok: true, saved: true, updated: true });
     }
 
     const write = await supaFetch(SB_URL, SB_KEY, 'lesson_poll_votes', {

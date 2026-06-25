@@ -9,12 +9,16 @@ create table if not exists public.attendees (
   id uuid primary key default gen_random_uuid(),
   name text,
   email text,
+  email_hash text,
+  session_id text,
   checked_in_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
 create index if not exists attendees_email_idx on public.attendees(email);
+create index if not exists attendees_email_hash_idx on public.attendees(email_hash);
+create index if not exists attendees_session_id_idx on public.attendees(session_id);
 create index if not exists attendees_checked_in_at_idx on public.attendees(checked_in_at desc);
 
 alter table public.attendees add column if not exists source text default 'session_access';
@@ -32,6 +36,9 @@ create table if not exists public.responses (
   category text,
   response text not null,
   anonymous boolean not null default false,
+  attendee_id uuid,
+  session_id text,
+  email_hash text,
   created_at timestamptz not null default now()
 );
 
@@ -62,6 +69,9 @@ create table if not exists public.lesson_questions (
   text text not null,
   status text not null default 'new', -- new, answered, hidden, archived
   anonymous boolean not null default true,
+  attendee_id uuid,
+  session_id text,
+  email_hash text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   archived_at timestamptz
@@ -102,10 +112,15 @@ create table if not exists public.lesson_poll_votes (
   anonymous boolean not null default true,
   display_name text,
   client_vote_id text unique,
+  attendee_id uuid,
+  session_id text,
+  email_hash text,
   created_at timestamptz not null default now()
 );
 
 create index if not exists lesson_poll_votes_poll_id_idx on public.lesson_poll_votes(poll_id);
+create index if not exists lesson_poll_votes_session_idx on public.lesson_poll_votes(session_id);
+create index if not exists lesson_poll_votes_email_hash_idx on public.lesson_poll_votes(email_hash);
 create index if not exists lesson_poll_votes_created_at_idx on public.lesson_poll_votes(created_at desc);
 
 -- 07. Updated-at helper

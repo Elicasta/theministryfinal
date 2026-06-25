@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -3227,7 +3227,8 @@ function renderQuestionsMini(){
 <div class="mo-box">
 <div class="mo-title">THE <span>MINISTRY</span></div>
 <div class="mo-sub" id="mo-sub">Enter your name and the access code.</div>
-<input class="mo-inp" id="mo-name" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()" placeholder="Your name" type="text"/>
+<input class="mo-inp" id="mo-name" onkeydown="if(event.key==='Enter')document.getElementById('mo-email').focus()" placeholder="Your name" type="text"/>
+<input class="mo-inp" id="mo-email" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()" placeholder="Your email" type="email" autocomplete="email"/>
 <input class="mo-inp" id="mo-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Access code" type="password"/>
 <div class="mo-err" id="mo-err">Incorrect code. Try again.</div>
 <div class="mo-row">
@@ -4458,6 +4459,152 @@ body.audience-slave .poll-screen *{
     return r;
   };
   document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{installAdminTabsV31(); fetchQuestionsV31().then(()=>renderQuestionsTabV31(false)); renderPollArchiveInTabV31();},800));
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   v33 Attendee Identity Patch
+   - Requires name + email + access code for audience entry.
+   - Stores attendee/session identity locally.
+   - Sends attendee/session identity with questions and poll votes.
+   - Does not change projector/admin sync behavior.
+========================================================= */
+(function(){
+  const SERIES_SLUG='the-ministry';
+  const LESSON_SLUG='lesson-1';
+  const SESSION_ID_KEY='tm_session_id';
+  const ATTENDEE_ID_KEY='tm_attendee_id';
+  const EMAIL_KEY='tm_email';
+  const EMAIL_HASH_KEY='tm_email_hash';
+  function $(id){return document.getElementById(id);}
+  function clean(v){return String(v||'').trim();}
+  function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(v).toLowerCase());}
+  function sessionId(){
+    let id=localStorage.getItem(SESSION_ID_KEY);
+    if(!id){ id='sess_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10); localStorage.setItem(SESSION_ID_KEY,id); }
+    return id;
+  }
+  function attendeeContext(){
+    return {
+      name: clean(localStorage.getItem('tm_name')||window.userName||'Anonymous') || 'Anonymous',
+      email: clean(localStorage.getItem(EMAIL_KEY)||''),
+      email_hash: clean(localStorage.getItem(EMAIL_HASH_KEY)||''),
+      attendee_id: clean(localStorage.getItem(ATTENDEE_ID_KEY)||''),
+      session_id: sessionId(),
+      series_slug: SERIES_SLUG,
+      lesson_slug: LESSON_SLUG
+    };
+  }
+  window.getAttendeeContext=attendeeContext;
+
+  async function saveAttendee(name,email){
+    const payload={name,email,session_id:sessionId(),source:'session_access',series_slug:SERIES_SLUG,lesson_slug:LESSON_SLUG};
+    const r=await fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    let data={}; try{data=await r.json();}catch(e){}
+    if(!r.ok) throw new Error(data.error||'Could not enter session');
+    if(data.attendee){
+      if(data.attendee.id) localStorage.setItem(ATTENDEE_ID_KEY,data.attendee.id);
+      if(data.attendee.email_hash) localStorage.setItem(EMAIL_HASH_KEY,data.attendee.email_hash);
+      if(data.attendee.session_id) localStorage.setItem(SESSION_ID_KEY,data.attendee.session_id);
+    }
+    localStorage.setItem('tm_attendee_saved_'+email.toLowerCase().replace(/\W+/g,'_'),new Date().toISOString());
+    return data;
+  }
+
+  const oldShowModal=window.showModal;
+  window.showModal=function(t){
+    if(oldShowModal) oldShowModal(t);
+    const isAdm=t==='admin';
+    const email=$('mo-email');
+    const name=$('mo-name');
+    const sub=$('mo-sub');
+    if(email){
+      email.style.display=isAdm?'none':'block';
+      if(!isAdm) email.value=localStorage.getItem(EMAIL_KEY)||'';
+    }
+    if(name && !isAdm) name.value=localStorage.getItem('tm_name')||name.value||'';
+    if(sub) sub.textContent=isAdm?'Enter the admin code.':'Enter your name, email, and the access code.';
+  };
+
+  window.checkPw=async function(){
+    const err=$('mo-err'); if(err) err.classList.remove('on');
+    const pw=($('mo-pw')||{}).value||'';
+    const name=clean(($('mo-name')||{}).value);
+    const email=clean(($('mo-email')||{}).value).toLowerCase();
+    if(pw===window.PW_ADMIN || pw==='ministryadmin'){
+      localStorage.setItem('tm_a','1'); localStorage.setItem('tm_u','1');
+      if(typeof activateAdmin==='function') activateAdmin();
+      if(typeof closeModal==='function') closeModal();
+      return;
+    }
+    if(pw===window.PW_ATTENDEE || pw==='ministry2026'){
+      if(!name){ if(err){err.textContent='Enter your name.';err.classList.add('on');} return; }
+      if(!validEmail(email)){ if(err){err.textContent='Enter a valid email.';err.classList.add('on');} return; }
+      localStorage.setItem('tm_u','1');
+      localStorage.setItem('tm_name',name);
+      localStorage.setItem(EMAIL_KEY,email);
+      if(typeof setUserName==='function') setUserName(name);
+      const btn=document.querySelector('#modal .btn-red'); const oldText=btn&&btn.textContent;
+      try{
+        if(btn){btn.textContent='Entering...';btn.disabled=true;}
+        await saveAttendee(name,email);
+        if(typeof closeModal==='function') closeModal();
+        if(typeof showHub==='function') showHub();
+      }catch(e){
+        console.warn('attendee save failed',e);
+        if(err){err.textContent='Could not save your session. Check email and try again.';err.classList.add('on');}
+      }finally{
+        if(btn){btn.textContent=oldText||'Enter';btn.disabled=false;}
+      }
+      return;
+    }
+    if(err){err.textContent='Incorrect code. Try again.';err.classList.add('on');}
+  };
+
+  window.submitAskQuestion=function(){
+    const ta=$('ask-ta'); if(!ta||!ta.value.trim()) return;
+    const ctx=attendeeContext();
+    const q={id:'q'+Date.now(), text:ta.value.trim(), name:ctx.name||'Anonymous', ts:new Date().toISOString(), session_id:ctx.session_id, attendee_id:ctx.attendee_id, email_hash:ctx.email_hash};
+    try{const old=JSON.parse(localStorage.getItem('tm_questions')||'[]'); old.unshift(q); localStorage.setItem('tm_questions',JSON.stringify(old.slice(0,50)));}catch(e){}
+    try{fetch('/api/question-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:q.id,name:q.name,text:q.text,series_slug:SERIES_SLUG,lesson_slug:LESSON_SLUG,anonymous:true,email:ctx.email,email_hash:ctx.email_hash,session_id:ctx.session_id,attendee_id:ctx.attendee_id})}).catch(()=>{});}catch(e){}
+    if(typeof sbSend==='function') sbSend({type:'question_submit',question:q});
+    try{window.questions=window.questions||[]; window.questions.unshift(q); if(typeof renderQuestionsMini==='function') renderQuestionsMini();}catch(e){}
+    ta.value=''; const ok=$('ask-ok'); if(ok){ok.classList.add('on');setTimeout(()=>ok.classList.remove('on'),1800);} if(typeof closeAskDrawer==='function') setTimeout(closeAskDrawer,500);
+  };
+
+  window.submitPollVote=function(){
+    const poll=window.pollState&&window.pollState.active;
+    const selected=window.pollState&&window.pollState.selected;
+    if(!poll||!selected) return;
+    const anon=$('poll-anon');
+    const ctx=attendeeContext();
+    const answer=String(selected||'').trim();
+    const vote={
+      id:'vote-'+Date.now()+'-'+Math.random().toString(16).slice(2,6),
+      pollId:poll.id,
+      answer,
+      anonymous:!anon||anon.checked,
+      name:(!anon||anon.checked)?'Anonymous':(ctx.name||'Anonymous'),
+      attendee_id:ctx.attendee_id,
+      session_id:ctx.session_id,
+      email_hash:ctx.email_hash,
+      email:ctx.email,
+      ts:new Date().toISOString()
+    };
+    try{ if(typeof rememberPollVote==='function') rememberPollVote(vote); }catch(e){}
+    if(typeof window.addPollVote==='function') window.addPollVote(vote);
+    if(typeof sbSend==='function') sbSend({type:'poll_vote',vote,ts:Date.now()});
+    const thanks=$('poll-thanks'); if(thanks)thanks.classList.add('on');
+    const submit=$('poll-submit'); if(submit){submit.disabled=true;submit.textContent='Submitted';}
+    setTimeout(()=>{const screen=$('poll-screen'); if(screen)screen.classList.remove('on'); if(submit)submit.textContent='Submit';},900);
+  };
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    const email=$('mo-email');
+    if(email && localStorage.getItem(EMAIL_KEY)) email.value=localStorage.getItem(EMAIL_KEY);
+  });
 })();
 </script>
 
