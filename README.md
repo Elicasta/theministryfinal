@@ -228,3 +228,23 @@ Audience questions submitted from the user hub appear in `/admin` under **Contro
 
 ### Audience Slave Mode
 When a session is live, the audience/user side follows the admin-controlled presentation. In this mode, slide navigation is disabled for the audience. Users can only interact with active polls or press **Exit Live ×** to return to the hub.
+
+## Supabase schema
+
+Run this when setting up persistence:
+
+```sql
+-- open Supabase SQL Editor and paste:
+supabase/schema.sql
+```
+
+The schema includes:
+
+- `attendees`
+- `responses`
+- `sync_state`
+- `lesson_questions`
+- `lesson_polls`
+- `lesson_poll_votes`
+
+The app still works without persistence. Live questions save locally and broadcast immediately. If `SUPABASE_URL` and `SUPABASE_ANON_KEY` are configured in Vercel, `/api/question-submit` can save live questions into `lesson_questions`.

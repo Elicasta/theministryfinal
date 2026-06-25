@@ -87,3 +87,8 @@ Use this version if v18 gets stuck after the Start slide.
 - Hid slideshow navigation controls while the audience user side is in slave/live-follow mode.
 - Kept a clear Exit Live control at the top right so users can leave slave mode.
 - Kept Return to Session available from the user hub when a live session is active.
+
+## v29 Confidence Restore + SQL Coverage
+- Restored confidence monitor slide formatting after poll state by clearing `poll-current` when normal slide/scripture rendering resumes.
+- Added full Supabase schema migration for attendees, responses, sync state, live questions, polls, and poll votes.
+- Added optional `/api/question-submit` endpoint for persistent live questions when Supabase env vars are configured.

@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -2680,6 +2680,7 @@ function submitAskQuestion(){
   const ta=document.getElementById('ask-ta'); if(!ta||!ta.value.trim()) return;
   const q={id:'q'+Date.now(), text:ta.value.trim(), name:userName||'Anonymous', ts:new Date().toISOString()};
   try{const old=JSON.parse(localStorage.getItem('tm_questions')||'[]'); old.unshift(q); localStorage.setItem('tm_questions',JSON.stringify(old.slice(0,50)));}catch(e){}
+  try{fetch('/api/question-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:q.id,name:q.name,text:q.text,series_slug:'the-ministry',lesson_slug:'lesson-1',anonymous:true})}).catch(()=>{});}catch(e){}
   sbSend({type:'question_submit',question:q}); questions.unshift(q); renderQuestionsMini();
   ta.value=''; const ok=document.getElementById('ask-ok'); if(ok){ok.classList.add('on');setTimeout(()=>ok.classList.remove('on'),1800);} setTimeout(closeAskDrawer,500);
 }
@@ -2870,7 +2871,7 @@ function renderQuestionsMini(){
     const ref=sc.ref_en||sc.ref||'';
     const en=strip(sc.text_en||sc.kjv||sc.text||'').replace(/^"|"$/g,'');
     const es=sc.text_es?{ref_es:sc.ref_es||String(ref).replace('Matthew','Mateo'),text_es:sc.text_es}:spanishFor(ref,en);
-    if(card){card.classList.remove('slide-current');card.classList.add('scripture-active');}
+    if(card){card.classList.remove('slide-current','poll-current');card.classList.add('scripture-active');}
     if(ck) ck.textContent=label||'Current Scripture';
     if(ct) ct.innerHTML=safe(en).replace(/^"|"$/g,'')+(es.text_es?`<span class="conf-es">${safe(es.text_es).replace(/^"|"$/g,'')}</span>`:'');
     if(cr) cr.textContent=`${ref} · KJV${es.ref_es?' / '+es.ref_es:''}`;
@@ -2905,7 +2906,7 @@ function renderQuestionsMini(){
     }
 
     const cur=titleFor(curSlide);
-    if(card){card.classList.remove('scripture-active');card.classList.add('slide-current');}
+    if(card){card.classList.remove('scripture-active','poll-current');card.classList.add('slide-current');}
     if(ck) ck.textContent=cur.type||'Current Slide';
     if(ct) ct.innerHTML=accent(cur.title||'The Ministry');
     if(cr) cr.textContent=cur.ref || 'Matthew 10 Series';
