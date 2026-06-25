@@ -1206,6 +1206,71 @@ body.confidence-mode .conf-notes-text{
   -webkit-box-orient:vertical!important;
   -webkit-line-clamp:2!important;
 }
+
+
+/* =========================================================
+   05. v22-polls-and-output-adjustments
+   Adds polling UI, default OBS lower-third green screen, and Spanish-primary scripture display.
+========================================================= */
+body.obs-mode.lower #obs-screen{background:#00b140!important;}
+body.obs-mode.lower #obs-screen .obs-lower{background:rgba(0,0,0,.92)!important;}
+.sp-ref-en::after{content:' · RVR 1960';}
+.sp-ref-es::after{content:' · KJV';}
+.sp-ref-en,.sp-ref-es{text-transform:uppercase;}
+.sp-tx-en{font-size:clamp(2.2rem,4.2vw,5.2rem)!important;line-height:1.08!important;}
+.sp-tx-es{font-size:clamp(1rem,1.65vw,2.05rem)!important;line-height:1.24!important;color:rgba(241,237,228,.72)!important;}
+.poll-screen{position:fixed;inset:0;z-index:19000;display:none;align-items:center;justify-content:center;background:rgba(5,5,5,.94);padding:28px;color:var(--w);}
+.poll-screen.on{display:flex;}
+.poll-screen::before{content:'';position:absolute;inset:0;background-image:url('assets/ministry-bg.jpeg');background-size:cover;background-position:center;filter:brightness(.18) saturate(.55);opacity:.82;}
+.poll-screen::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(5,5,5,.98),rgba(5,5,5,.75),rgba(5,5,5,.92));}
+.poll-card{position:relative;z-index:2;width:min(980px,94vw);border:1px solid rgba(232,24,13,.36);background:rgba(7,7,7,.82);box-shadow:0 22px 70px rgba(0,0,0,.5);padding:34px;}
+.poll-kicker{font-family:var(--fc);font-size:.62rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+.poll-title{font-family:var(--fd);font-size:clamp(2.4rem,6vw,5.8rem);line-height:.9;text-transform:uppercase;letter-spacing:.01em;margin-bottom:18px;}
+.poll-sub{font-family:var(--fp);font-style:italic;color:rgba(241,237,228,.54);font-size:clamp(.95rem,1.5vw,1.22rem);margin-bottom:24px;}
+.poll-options{display:grid;gap:10px;}
+.poll-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.12);color:var(--w);font-family:var(--fc);font-size:clamp(1rem,2.2vw,1.45rem);font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:16px 18px;cursor:pointer;text-align:left;transition:transform .14s, border-color .14s, background .14s;}
+.poll-option:hover,.poll-option.selected{border-color:rgba(232,24,13,.62);background:rgba(232,24,13,.12);transform:translateY(-1px);}
+.poll-check{font-size:.72rem;color:var(--red);letter-spacing:.14em;opacity:0;}
+.poll-option.selected .poll-check{opacity:1;}
+.poll-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap;}
+.poll-save-anon{font-family:var(--fc);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,237,228,.68);display:flex;align-items:center;gap:8px;}
+.poll-save-anon input{accent-color:var(--red);}
+.poll-submit{background:var(--red);border:1px solid var(--red);color:#fff;font-family:var(--fc);font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:13px 22px;cursor:pointer;}
+.poll-submit:disabled{opacity:.45;cursor:not-allowed;}
+.poll-close{background:transparent;border:1px solid rgba(255,255,255,.14);color:rgba(241,237,228,.68);font-family:var(--fc);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;cursor:pointer;}
+.poll-thanks{display:none;margin-top:18px;font-family:var(--fc);font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#34c759;}
+.poll-thanks.on{display:block;}
+.poll-results{position:fixed;left:clamp(24px,5vw,82px);bottom:clamp(28px,6vw,88px);z-index:18000;width:min(860px,88vw);display:none;border-left:6px solid var(--red);background:rgba(5,5,5,.88);box-shadow:0 16px 50px rgba(0,0,0,.55);padding:22px 26px;color:var(--w);}
+.poll-results.on{display:block;}
+.poll-results.green{background:#00b140;color:#fff;}
+.poll-results-k{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+.poll-results-q{font-family:var(--fd);font-size:clamp(1.55rem,3.2vw,3.2rem);line-height:.95;text-transform:uppercase;margin-bottom:14px;}
+.poll-result-row{display:grid;grid-template-columns:minmax(120px,220px) 1fr auto;align-items:center;gap:14px;margin:8px 0;font-family:var(--fc);font-weight:800;letter-spacing:.06em;text-transform:uppercase;}
+.poll-result-label{font-size:.9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.poll-result-bar{height:12px;background:rgba(255,255,255,.12);overflow:hidden;}
+.poll-result-fill{height:100%;background:var(--red);width:0%;transition:width .25s ease;}
+.poll-result-pct{font-size:1rem;color:var(--w);min-width:52px;text-align:right;}
+.poll-result-count{font-family:var(--fc);font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,237,228,.52);margin-top:12px;}
+.poll-admin-builder{display:grid;gap:10px;padding:14px;}
+.poll-admin-builder textarea,.poll-admin-builder input{width:100%;background:#101010;border:1px solid var(--ln);color:var(--w);font-family:var(--fb);font-size:.82rem;padding:10px;outline:none;}
+.poll-admin-builder textarea:focus,.poll-admin-builder input:focus{border-color:var(--red);}
+.poll-admin-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.poll-bank-list{display:grid;gap:6px;padding:0 14px 16px;}
+.poll-bank-card{border:1px solid var(--ln);background:rgba(255,255,255,.025);padding:11px;cursor:pointer;transition:.15s;}
+.poll-bank-card:hover{border-color:rgba(232,24,13,.4);background:rgba(232,24,13,.06);}
+.poll-bank-title{font-family:var(--fc);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--w);line-height:1.15;}
+.poll-bank-meta{font-family:var(--fc);font-size:.55rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:5px;}
+.mm-poll-panel{display:none;position:absolute;inset:0;z-index:3;background:#070707;padding:14px;overflow-y:auto;}
+.mm-poll-panel.on{display:block;}
+.mm-poll-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.mm-poll-title{font-family:var(--fc);font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);}
+.mm-poll-close{background:transparent;border:1px solid var(--ln);color:var(--mu);font-family:var(--fc);font-weight:800;text-transform:uppercase;letter-spacing:.12em;padding:8px 10px;}
+.mm-poll-card{border:1px solid var(--ln);background:#101010;margin-bottom:8px;padding:12px;font-family:var(--fc);font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.15;}
+.mm-poll-card button{margin-top:10px;width:100%;background:var(--red);border:0;color:white;padding:10px;font-family:var(--fc);font-weight:900;letter-spacing:.12em;text-transform:uppercase;}
+.mm-poll-custom{display:grid;gap:8px;border-top:1px solid var(--ln);padding-top:12px;margin-top:14px;}
+.mm-poll-custom textarea,.mm-poll-custom input{background:#101010;border:1px solid var(--ln);color:var(--w);padding:10px;font-family:var(--fb);font-size:16px;}
+@media(max-width:720px){.poll-card{padding:24px 18px}.poll-title{font-size:clamp(2.2rem,13vw,4rem)}.poll-result-row{grid-template-columns:1fr auto;gap:8px}.poll-result-bar{grid-column:1 / -1;grid-row:2}.poll-results{left:16px;right:16px;bottom:20px;width:auto;padding:18px}.poll-results-q{font-size:2rem}}
+
 </style>
 
 
@@ -1296,7 +1361,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -2584,6 +2649,224 @@ function renderQuestionsMini(){
 
   if(isConfidence) setTimeout(()=>window.updateConfidence(curSlide||0),0);
 })();
+
+
+// =========================================================
+// 05. v22-polls-and-output-adjustments
+// Poll system is intentionally frontend-only for this static template.
+// It uses the existing sync channel and stores attendee answers anonymously in localStorage.
+// =========================================================
+(function(){
+  const stripHtml=(html)=>{const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();};
+  const safe=(s)=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  window.POLL_BANK = window.POLL_BANK || [
+    {id:'poll-yes-no-ready',type:'yesno',question:'Do you feel called to examine the price before asking for the platform?',options:['Yes','No']},
+    {id:'poll-formation',type:'choice',question:'Which part of ministry needs the most formation first?',options:['Character','Obedience','Endurance','Compassion']},
+    {id:'poll-response',type:'choice',question:'What is the hardest part of being sent?',options:['Surrender','Boundaries','Rejection','Consistency']}
+  ];
+  window.pollState = window.pollState || {active:null,selected:null,responses:{}};
+
+  function currentPoll(){ return window.pollState && window.pollState.active; }
+  function optionKey(opt){ return String(opt||'').trim(); }
+  function pollId(){ return 'poll-'+Date.now()+'-'+Math.random().toString(16).slice(2,7); }
+  function normalizePoll(p){
+    const opts=(p.options||[]).map(o=>String(o).trim()).filter(Boolean);
+    return {id:p.id||pollId(), type:p.type||'choice', question:String(p.question||'Live poll').trim(), options:opts.length?opts:['Yes','No'], createdAt:p.createdAt||new Date().toISOString()};
+  }
+  function getPollResponses(id){ return (window.pollState.responses && window.pollState.responses[id]) || []; }
+  function rememberPollVote(vote){
+    try{const old=JSON.parse(localStorage.getItem('tm_poll_answers')||'[]'); old.unshift(vote); localStorage.setItem('tm_poll_answers',JSON.stringify(old.slice(0,250)));}catch(e){}
+  }
+
+  window.renderPollBank=function(){
+    const box=document.getElementById('poll-bank-list');
+    if(box){
+      box.innerHTML=(window.POLL_BANK||[]).map(p=>`<div class="poll-bank-card" onclick="launchPollById('${safe(p.id)}')"><div class="poll-bank-title">${safe(p.question)}</div><div class="poll-bank-meta">${safe((p.options||[]).join(' / '))}</div></div>`).join('');
+    }
+    const mm=document.getElementById('mm-poll-bank');
+    if(mm){
+      mm.innerHTML=(window.POLL_BANK||[]).map(p=>`<div class="mm-poll-card"><div>${safe(p.question)}</div><div style="color:var(--mu);font-size:.62rem;margin-top:6px">${safe((p.options||[]).join(' / '))}</div><button onclick="launchPollById('${safe(p.id)}');closeMobilePollPanel(this)">Launch</button></div>`).join('');
+    }
+  };
+  window.launchPollById=function(id){
+    const p=(window.POLL_BANK||[]).find(x=>x.id===id);
+    if(p) window.launchPoll(p,true);
+  };
+  window.launchQuickYesNo=function(){
+    const q=(document.getElementById('poll-custom-question')||{}).value || 'Yes or no?';
+    window.launchPoll({type:'yesno',question:q,options:['Yes','No']},true);
+  };
+  window.launchCustomPoll=function(){
+    const q=(document.getElementById('poll-custom-question')||{}).value || 'Live poll';
+    const raw=(document.getElementById('poll-custom-options')||{}).value || 'Yes, No';
+    const options=raw.split(',').map(x=>x.trim()).filter(Boolean);
+    window.launchPoll({type:options.length===2&&/yes/i.test(options[0])?'yesno':'choice',question:q,options},true);
+  };
+  window.launchMobileCustomPoll=function(el){
+    if(typeof mobileFeedback==='function') mobileFeedback('tap',el);
+    const q=(document.getElementById('mm-poll-question')||{}).value || 'Live poll';
+    const raw=(document.getElementById('mm-poll-options')||{}).value || 'Yes, No';
+    const options=raw.split(',').map(x=>x.trim()).filter(Boolean);
+    window.launchPoll({question:q,options},true);
+    window.closeMobilePollPanel(el);
+  };
+  window.openMobilePollPanel=function(el){
+    if(typeof mobileFeedback==='function') mobileFeedback('tap',el);
+    const p=document.getElementById('mm-poll-panel'); if(p){p.classList.add('on'); renderPollBank();}
+  };
+  window.closeMobilePollPanel=function(el){
+    if(typeof mobileFeedback==='function') mobileFeedback('tap',el);
+    const p=document.getElementById('mm-poll-panel'); if(p)p.classList.remove('on');
+  };
+
+  window.launchPoll=function(p,broadcast=true){
+    const poll=normalizePoll(p);
+    window.pollState.active=poll;
+    window.pollState.selected=null;
+    window.pollState.responses[poll.id]=window.pollState.responses[poll.id]||[];
+    renderPollOverlay(poll);
+    renderPollResults();
+    if(broadcast && typeof sbSend==='function') sbSend({type:'poll_open',poll,ts:Date.now()});
+  };
+  window.closeActivePoll=function(broadcast=true){
+    const id=currentPoll() && currentPoll().id;
+    window.pollState.active=null;
+    window.pollState.selected=null;
+    hidePollUI();
+    if(broadcast && typeof sbSend==='function') sbSend({type:'poll_close',pollId:id,ts:Date.now()});
+  };
+  window.hidePollForUserOnly=function(){
+    const el=document.getElementById('poll-screen'); if(el)el.classList.remove('on');
+  };
+  function hidePollUI(){
+    const s=document.getElementById('poll-screen'); if(s)s.classList.remove('on');
+    const r=document.getElementById('poll-results'); if(r)r.classList.remove('on');
+  }
+  function shouldShowVotingOverlay(){ return !(isProjector||isScriptureDisplay||isObsLower||isObsFull||isConfidence||isAdmin); }
+  function shouldShowResultOverlay(){ return (isProjector||isScriptureDisplay||isObsLower||isObsFull); }
+  function renderPollOverlay(poll){
+    const screen=document.getElementById('poll-screen'); if(!screen||!poll) return;
+    const q=document.getElementById('poll-question'), opts=document.getElementById('poll-options'), thanks=document.getElementById('poll-thanks'), sub=document.getElementById('poll-sub');
+    if(q)q.textContent=poll.question;
+    if(sub)sub.textContent='Choose one answer. Your response can be saved anonymously.';
+    if(thanks)thanks.classList.remove('on');
+    window.pollState.selected=null;
+    const submit=document.getElementById('poll-submit'); if(submit)submit.disabled=true;
+    if(opts){
+      opts.innerHTML=(poll.options||[]).map((o,i)=>`<button class="poll-option" onclick="selectPollOption('${safe(o)}',this)"><span>${safe(o)}</span><span class="poll-check">Selected</span></button>`).join('');
+    }
+    if(shouldShowVotingOverlay()) screen.classList.add('on'); else screen.classList.remove('on');
+  }
+  window.selectPollOption=function(value,btn){
+    window.pollState.selected=value;
+    document.querySelectorAll('.poll-option').forEach(b=>b.classList.remove('selected'));
+    if(btn)btn.classList.add('selected');
+    const submit=document.getElementById('poll-submit'); if(submit)submit.disabled=false;
+  };
+  window.submitPollVote=function(){
+    const poll=currentPoll(); if(!poll||!window.pollState.selected) return;
+    const anon=document.getElementById('poll-anon');
+    const vote={id:'vote-'+Date.now()+'-'+Math.random().toString(16).slice(2,6),pollId:poll.id,answer:optionKey(window.pollState.selected),anonymous:!anon||anon.checked,name:(!anon||anon.checked)?'Anonymous':(userName||'Anonymous'),ts:new Date().toISOString()};
+    rememberPollVote(vote);
+    addPollVote(vote);
+    if(typeof sbSend==='function') sbSend({type:'poll_vote',vote,ts:Date.now()});
+    const thanks=document.getElementById('poll-thanks'); if(thanks)thanks.classList.add('on');
+    const submit=document.getElementById('poll-submit'); if(submit){submit.disabled=true;submit.textContent='Submitted';}
+    setTimeout(()=>{const screen=document.getElementById('poll-screen'); if(screen)screen.classList.remove('on'); if(submit)submit.textContent='Submit';},900);
+  };
+  function addPollVote(vote){
+    if(!vote||!vote.pollId) return;
+    const arr=window.pollState.responses[vote.pollId]=window.pollState.responses[vote.pollId]||[];
+    if(!arr.some(v=>v.id===vote.id)) arr.push(vote);
+    renderPollResults();
+    renderPollAdminSummary();
+  }
+  window.addPollVote=addPollVote;
+  window.renderPollResults=function(){
+    const poll=currentPoll(); const box=document.getElementById('poll-results'); if(!box||!poll) return;
+    const q=document.getElementById('poll-results-q'), rows=document.getElementById('poll-results-rows'), count=document.getElementById('poll-result-count');
+    const votes=getPollResponses(poll.id);
+    const total=votes.length;
+    const tally={}; (poll.options||[]).forEach(o=>tally[optionKey(o)]=0); votes.forEach(v=>{const k=optionKey(v.answer); tally[k]=(tally[k]||0)+1;});
+    if(q)q.textContent=poll.question;
+    if(rows){
+      rows.innerHTML=(poll.options||[]).map(o=>{const k=optionKey(o), n=tally[k]||0, pct=total?Math.round((n/total)*100):0; return `<div class="poll-result-row"><div class="poll-result-label">${safe(k)}</div><div class="poll-result-bar"><div class="poll-result-fill" style="width:${pct}%"></div></div><div class="poll-result-pct">${pct}%</div></div>`;}).join('');
+    }
+    if(count)count.textContent=`${total} answer${total===1?'':'s'}`;
+    box.classList.toggle('green',!!isObsLower);
+    if(shouldShowResultOverlay()) box.classList.add('on');
+  };
+  function renderPollAdminSummary(){
+    let box=document.getElementById('admin-poll-summary');
+    if(!box){
+      const right=document.querySelector('.ctrl-right [style*="overflow-y"]');
+      if(right){const div=document.createElement('div'); div.className='ctrl-ag'; div.innerHTML='<div class="ctrl-ag-lbl">Poll Results</div><div id="admin-poll-summary" style="font-family:var(--fc);font-size:.72rem;color:var(--mu);line-height:1.35">No active poll.</div>'; right.appendChild(div); box=div.querySelector('#admin-poll-summary');}
+    }
+    if(!box) return;
+    const poll=currentPoll(); if(!poll){box.textContent='No active poll.';return;}
+    const votes=getPollResponses(poll.id), total=votes.length, tally={}; poll.options.forEach(o=>tally[optionKey(o)]=0); votes.forEach(v=>{const k=optionKey(v.answer); tally[k]=(tally[k]||0)+1;});
+    box.innerHTML=`<div style="color:var(--w);margin-bottom:6px">${safe(poll.question)}</div>`+poll.options.map(o=>{const k=optionKey(o),n=tally[k]||0,pct=total?Math.round(n/total*100):0;return `<div>${safe(k)}: <span style="color:var(--red)">${pct}%</span> <span style="color:var(--mu)">(${n})</span></div>`}).join('')+`<div style="margin-top:6px;color:var(--mu)">${total} answers</div>`;
+  }
+
+  // Spanish RVR becomes the main side-screen scripture. KJV moves underneath as supporting text.
+  window.showP2=function(sc){
+    document.body.classList.add('p2-live');
+    const wait=document.getElementById('sp-wait'); if(wait) wait.classList.add('hidden');
+    const content=document.getElementById('sp-content'); if(content) content.style.display='flex';
+    const dot=document.getElementById('sp-live-dot'); if(dot) dot.classList.add('live');
+    const enRef=sc.ref_en||sc.ref||'';
+    const enText=sc.text_en||sc.kjv||'';
+    const esRef=sc.ref_es||String(enRef).replace('Matthew','Mateo');
+    const esText=sc.text_es||sc.rvr||'';
+    const r1=document.getElementById('sp-ref-en'), t1=document.getElementById('sp-tx-en'), r2=document.getElementById('sp-ref-es'), t2=document.getElementById('sp-tx-es');
+    if(r1)r1.textContent=esRef;
+    if(t1)t1.textContent=esText || enText;
+    if(r2)r2.textContent=enRef;
+    if(t2)t2.textContent=enText;
+  };
+
+  // OBS lower thirds should start green by default for chroma key.
+  function forceObsLowerGreen(){
+    if(isObsLower){
+      document.body.classList.add('obs-mode','lower');
+      const s=document.getElementById('obs-screen'); if(s)s.classList.add('green');
+    }
+  }
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(forceObsLowerGreen,0));
+  const oldToggleObsGreen=window.toggleObsGreen;
+  window.toggleObsGreen=function(){const s=document.getElementById('obs-screen'); if(s)s.classList.toggle('green');};
+
+  // Wrap navigation so next/previous kills the poll overlay, like clearing verse overlays.
+  const oldNext=window.nextSlide, oldPrev=window.prevSlide, oldCtrlNext=window.ctrlNext, oldCtrlPrev=window.ctrlPrev, oldGoTo=window.goTo;
+  window.nextSlide=function(){ if(currentPoll()) window.closeActivePoll(true); return oldNext?oldNext():undefined; };
+  window.prevSlide=function(){ if(currentPoll()) window.closeActivePoll(true); return oldPrev?oldPrev():undefined; };
+  window.ctrlNext=function(){ if(currentPoll()) window.closeActivePoll(true); return oldCtrlNext?oldCtrlNext():window.nextSlide(); };
+  window.ctrlPrev=function(){ if(currentPoll()) window.closeActivePoll(true); return oldCtrlPrev?oldCtrlPrev():window.prevSlide(); };
+
+  // Final message wrapper for polls. Preserve existing stable handler first.
+  const previousHandle=window.handleMessage;
+  window.handleMessage=function(msg){
+    if(msg&&msg.type==='poll_open'){
+      window.pollState.active=normalizePoll(msg.poll);
+      window.pollState.selected=null;
+      window.pollState.responses[window.pollState.active.id]=window.pollState.responses[window.pollState.active.id]||[];
+      renderPollOverlay(window.pollState.active); renderPollResults(); renderPollAdminSummary(); return;
+    }
+    if(msg&&msg.type==='poll_close'){ window.pollState.active=null; window.pollState.selected=null; hidePollUI(); renderPollAdminSummary(); return; }
+    if(msg&&msg.type==='poll_vote'){ addPollVote(msg.vote); return; }
+    if(msg&&msg.type==='slide'){ hidePollUI(); window.pollState.active=null; }
+    return previousHandle?previousHandle(msg):undefined;
+  };
+
+  // Ensure dynamically added controls exist after admin/mobile opens.
+  const oldSwitchTab=window.switchTab;
+  window.switchTab=function(name,btn){ const r=oldSwitchTab?oldSwitchTab(name,btn):undefined; if(name==='polls') renderPollBank(); return r; };
+  const oldOpenMobile=window.openMobileMode;
+  window.openMobileMode=function(){ const r=oldOpenMobile?oldOpenMobile():undefined; setTimeout(renderPollBank,0); return r; };
+  setTimeout(()=>{renderPollBank(); renderPollAdminSummary();},300);
+})();
+
 </script>
 
 </head>
@@ -2758,7 +3041,7 @@ function renderQuestionsMini(){
 <div class="sp-wait" id="sp-wait">
 <div class="sp-wm"></div>
 <div class="sp-wt">THE <span>MINISTRY</span></div>
-<div class="sp-ws">Scriptures · KJV / RVR 1960</div>
+<div class="sp-ws">Scriptures · RVR 1960 / KJV</div>
 <div class="sp-live-dot" id="sp-live-dot"></div>
 <div class="sp-wst" id="sp-wait-status">Waiting for presenter...</div>
 <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img alt="Join session QR" src="assets/qr-ministry.png"/><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img alt="Bible study app QR" src="assets/qr-guide.png"/><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
@@ -2772,7 +3055,7 @@ function renderQuestionsMini(){
 <div class="sp-ref-es" id="sp-ref-es"></div>
 <div class="sp-tx-es" id="sp-tx-es"></div>
 </div>
-<div class="sp-corner">The Ministry · Matthew 10 · KJV / RVR 1960</div>
+<div class="sp-corner">The Ministry · Matthew 10 · RVR 1960 / KJV</div>
 </div>
 </div>
 <!-- ADMIN CONTROL SURFACE -->
@@ -2806,7 +3089,7 @@ function renderQuestionsMini(){
 <div class="cmd-sec">
 <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">● Auto P2</button>
 <button class="cmd-pill" onclick="openSS()">▶ Present</button>
-<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button>
+<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button>
 <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
 <button class="cmd-pill" onclick="projFS()">⛶ FS</button>
 </div>
@@ -2821,7 +3104,7 @@ function renderQuestionsMini(){
 <div class="ctrl-left">
 <div class="ctrl-tabs">
 <button class="ctrl-tab on" onclick="switchTab('slides',this)">Slides</button>
-<button class="ctrl-tab" onclick="switchTab('verses',this)">Verse Bank</button>
+<button class="ctrl-tab" onclick="switchTab('verses',this)">Verse Bank</button><button class="ctrl-tab" onclick="switchTab('polls',this)">Polls</button>
 </div>
 <!-- Slide list panel -->
 <div class="ctrl-panel on" id="tab-slides">
@@ -2833,6 +3116,20 @@ function renderQuestionsMini(){
 <div class="vbank-header">Matthew 10:1-10 · KJV · Tap to push</div>
 <div id="verse-bank-cards"></div>
 </div>
+</div>
+<!-- Poll bank panel -->
+<div class="ctrl-panel" id="tab-polls">
+<div class="poll-admin-builder">
+<div class="vbank-header">Live Polls · Launch premade or create on the fly</div>
+<textarea id="poll-custom-question" rows="3" placeholder="Poll question..."></textarea>
+<input id="poll-custom-options" placeholder="Options separated by commas. Example: Yes, No" />
+<div class="poll-admin-row">
+<button class="ctrl-ab red-btn" onclick="launchCustomPoll()">Launch Poll</button>
+<button class="ctrl-ab" onclick="launchQuickYesNo()">Quick Yes / No</button>
+<button class="ctrl-ab danger" onclick="closeActivePoll(true)">Kill Poll</button>
+</div>
+</div>
+<div class="poll-bank-list" id="poll-bank-list"></div>
 </div>
 </div>
 <!-- CENTER: Preview + Notes -->
@@ -2944,10 +3241,42 @@ function renderQuestionsMini(){
 <div class="mm-main">
 <div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
 <div class="mm-nav"><button class="mm-bigbtn" id="mm-prev-start" onclick="mobilePrevOrStart(this)">Prev</button><button class="mm-bigbtn red" onclick="mobileNext(this)">Next</button></div>
-<div class="mm-actions"><button class="mm-action mm-start-action" onclick="mobileStart(this)">Start</button><button class="mm-action" onclick="mobileOverlay(this)">Overlay</button><button class="mm-action" onclick="mobileClearP1Overlay(this)">X Verse</button><button class="mm-action" onclick="mobilePanicClear(this)">Clear</button></div>
+<div class="mm-actions"><button class="mm-action mm-start-action" onclick="mobileStart(this)">Start</button><button class="mm-action" onclick="mobileOverlay(this)">Overlay</button><button class="mm-action" onclick="mobileClearP1Overlay(this)">X Verse</button><button class="mm-action" onclick="mobilePanicClear(this)">Clear</button><button class="mm-action" onclick="openMobilePollPanel(this)">Poll</button></div>
 <div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
 </div>
+<div class="mm-poll-panel" id="mm-poll-panel">
+  <div class="mm-poll-head"><div class="mm-poll-title">Polls</div><button class="mm-poll-close" onclick="closeMobilePollPanel(this)">Close</button></div>
+  <div id="mm-poll-bank"></div>
+  <div class="mm-poll-custom">
+    <textarea id="mm-poll-question" rows="3" placeholder="Add poll question..."></textarea>
+    <input id="mm-poll-options" placeholder="Options: Yes, No" />
+    <button class="mm-bigbtn red" onclick="launchMobileCustomPoll(this)">Launch Poll</button>
+    <button class="mm-bigbtn" onclick="closeActivePoll(true);closeMobilePollPanel(this)">Kill Poll</button>
+  </div>
 </div>
+</div>
+
+<!-- LIVE POLL OVERLAY -->
+<div class="poll-screen" id="poll-screen">
+  <div class="poll-card">
+    <div class="poll-kicker" id="poll-kicker">Live Poll</div>
+    <div class="poll-title" id="poll-question">Question</div>
+    <div class="poll-sub" id="poll-sub">Choose one answer. Your response can be saved anonymously.</div>
+    <div class="poll-options" id="poll-options"></div>
+    <div class="poll-actions">
+      <label class="poll-save-anon"><input id="poll-anon" type="checkbox" checked /> Save my answer anonymously</label>
+      <div style="display:flex;gap:8px;align-items:center"><button class="poll-close" onclick="hidePollForUserOnly()">Close</button><button class="poll-submit" id="poll-submit" onclick="submitPollVote()" disabled>Submit</button></div>
+    </div>
+    <div class="poll-thanks" id="poll-thanks">Saved anonymously.</div>
+  </div>
+</div>
+<div class="poll-results" id="poll-results">
+  <div class="poll-results-k">Live Poll Results</div>
+  <div class="poll-results-q" id="poll-results-q">Waiting</div>
+  <div id="poll-results-rows"></div>
+  <div class="poll-result-count" id="poll-result-count">0 answers</div>
+</div>
+
 <!-- ASK QUESTION DRAWER -->
 <div class="ask-drawer" id="ask-drawer">
 <div class="ask-title">Ask a Question</div>

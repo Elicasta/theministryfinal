@@ -36,3 +36,14 @@ Use this version if v18 gets stuck after the Start slide.
 - Added button press compression, quick pulse, status glow, and slide/timer/title bump feedback.
 - Applied feedback to Start, Previous, Next, Overlay, X Verse, Clear, Close, and verse-bank buttons.
 - No route, visual output, projector, scripture, OBS, confidence, or data-structure changes.
+
+## v22 Polls + Scripture Output Adjustments
+- Set OBS lower thirds to green screen by default for chroma key workflows.
+- Changed the scripture side screen so Spanish RVR 1960 is the primary large text and KJV is the smaller supporting text.
+- Added a frontend live poll system using the existing sync channel.
+- Added premade poll bank and custom poll launcher in admin.
+- Added Poll button and poll launcher in Mobile Mode.
+- Added yes/no and multi-choice poll support.
+- Added anonymous answer saving on attendee devices through localStorage.
+- Added live poll result percentage overlay for projector/OBS outputs.
+- Poll overlays clear when the presenter advances slides.

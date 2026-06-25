@@ -159,3 +159,32 @@ The Mobile Mode controller includes two feedback layers:
 2. Visual tap feedback for iPhone, iPad, and iOS home-screen PWAs where web vibration is usually ignored.
 
 The visual fallback includes button compression, a quick tap pulse, status glow, and small slide/timer/title bump feedback. This is intentionally local-only and does not change sync behavior.
+
+## v22 Poll System Notes
+
+The poll system is frontend-only in this static template. It uses the existing app sync channel to open polls, close polls, and report votes back to the presenter.
+
+Presenter locations:
+
+- `/admin` → Polls tab
+- `/mobile` → Poll button
+
+Poll types:
+
+- Yes / No poll
+- Multiple choice poll
+- Premade poll bank
+- On-the-fly custom poll
+
+Audience behavior:
+
+- When a poll is active, the attendee screen is taken over by the poll overlay.
+- Attendees can save their answer anonymously.
+- Answers are stored locally in the attendee browser and broadcast back through the existing sync channel when available.
+
+Output behavior:
+
+- Projector/OBS outputs show percentage results.
+- Advancing the slide kills the active poll overlay, similar to clearing verse overlays.
+
+Note: because this is still a static presentation template, long-term poll persistence across all devices should eventually move to a real backend. For now, this keeps the live system simple and avoids adding login/database/editor features.
