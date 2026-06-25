@@ -145,3 +145,17 @@ Before a live session, test:
 If a bug affects the engine, patch the master template first. Then copy the patched engine section into active series folders.
 
 If a change is only series content, edit only that series folder.
+
+
+### Mobile haptics
+
+Mobile Mode includes light haptic feedback for Start, Previous, Next, Overlay, Clear, and verse push controls. This uses the browser Vibration API. Android Chrome supports it. iOS Safari may ignore it, so the controls still work normally without vibration.
+
+## Mobile controller feedback
+
+The Mobile Mode controller includes two feedback layers:
+
+1. Vibration through `navigator.vibrate()` where the browser supports it. This usually works on Android Chrome and Android installed PWAs.
+2. Visual tap feedback for iPhone, iPad, and iOS home-screen PWAs where web vibration is usually ignored.
+
+The visual fallback includes button compression, a quick tap pulse, status glow, and small slide/timer/title bump feedback. This is intentionally local-only and does not change sync behavior.

@@ -23,3 +23,16 @@ This cleanup intentionally does not add login, database editing, markdown loadin
 - No feature changes.
 
 Use this version if v18 gets stuck after the Start slide.
+
+## v20 Mobile Haptics
+- Added mobile haptic feedback helper using `navigator.vibrate()` where supported.
+- Added haptic feedback to Mobile Mode Start, Previous, Next, Overlay, Clear, and verse push controls.
+- Preserved v19 stable sync behavior and did not change routes, visuals, or data structure.
+
+## v21 Mobile PWA Tap Feedback
+- Kept v19/v20 stable sync behavior unchanged.
+- Kept Android/web vibration support through `navigator.vibrate()`.
+- Added iOS/PWA-safe visual tap feedback for Mobile Mode controls.
+- Added button press compression, quick pulse, status glow, and slide/timer/title bump feedback.
+- Applied feedback to Start, Previous, Next, Overlay, X Verse, Clear, Close, and verse-bank buttons.
+- No route, visual output, projector, scripture, OBS, confidence, or data-structure changes.

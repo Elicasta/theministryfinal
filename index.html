@@ -930,6 +930,54 @@ html,body,.mobile-mode-screen,#admin-hub{touch-action:manipulation;}
 }
 
 
+/* v21: PWA-safe mobile controller feedback. Real vibration works where supported;
+   this visual pulse is the iOS/PWA fallback so taps still feel confirmed. */
+.mobile-mode-screen button{
+  -webkit-tap-highlight-color:transparent!important;
+  user-select:none!important;
+  touch-action:manipulation!important;
+  will-change:transform,filter,box-shadow!important;
+  transition:transform .08s ease-out,filter .08s ease-out,box-shadow .12s ease-out!important;
+}
+.mobile-mode-screen button:active{
+  transform:scale(.965)!important;
+  filter:brightness(1.22)!important;
+}
+.mobile-mode-screen button.tap-pulse{
+  animation:mobileTapPulse 180ms ease-out!important;
+}
+.mobile-mode-screen .mm-num.mm-bump,
+.mobile-mode-screen .mm-timer.mm-bump,
+.mobile-mode-screen .mm-title.mm-bump{
+  animation:mobileStatusBump 190ms ease-out!important;
+}
+.mobile-mode-screen .mm-status.mm-confirm{
+  animation:mobileConfirmGlow 240ms ease-out!important;
+}
+@keyframes mobileTapPulse{
+  0%{transform:scale(1);filter:brightness(1);box-shadow:none;}
+  45%{transform:scale(.955);filter:brightness(1.28);box-shadow:0 0 0 4px rgba(232,24,13,.18);}
+  100%{transform:scale(1);filter:brightness(1);box-shadow:none;}
+}
+@keyframes mobileStatusBump{
+  0%{transform:scale(1);filter:brightness(1);}
+  45%{transform:scale(1.045);filter:brightness(1.2);}
+  100%{transform:scale(1);filter:brightness(1);}
+}
+@keyframes mobileConfirmGlow{
+  0%{border-color:var(--ln);box-shadow:none;}
+  45%{border-color:rgba(232,24,13,.65);box-shadow:0 0 0 4px rgba(232,24,13,.12);}
+  100%{border-color:var(--ln);box-shadow:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mobile-mode-screen button.tap-pulse,
+  .mobile-mode-screen .mm-num.mm-bump,
+  .mobile-mode-screen .mm-timer.mm-bump,
+  .mobile-mode-screen .mm-title.mm-bump,
+  .mobile-mode-screen .mm-status.mm-confirm{animation:none!important;}
+}
+
+
 /* =========================================================
    05. v13-teaching-obs-cleanup
    Preserved from the stable working build. Keep order.
@@ -1248,7 +1296,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -2044,16 +2092,75 @@ function startTimer(){
     ['cmd-timer','mm-timer','conf-timer'].forEach(id=>{const el=document.getElementById(id); if(el) el.textContent=val;});
   },500);
 }
+
+
+// ── MOBILE HAPTIC + PWA-SAFE TAP FEEDBACK ──────────────────────────────
+// Real vibration is available on many Android browsers/PWAs. iOS Safari/PWA usually
+// ignores navigator.vibrate(), so the visual pulse below confirms each tap.
+function hapticFeedback(type='tap'){
+  try{
+    if(!('vibrate' in navigator)) return;
+    const patterns={
+      tap:10,
+      nav:18,
+      start:[28,32,28],
+      verse:[14,24,14],
+      clear:35,
+      error:[10,35,10]
+    };
+    navigator.vibrate(patterns[type]||patterns.tap);
+  }catch(e){}
+}
+function visualTapFeedback(el){
+  if(!el || !el.classList) return;
+  el.classList.remove('tap-pulse');
+  void el.offsetWidth;
+  el.classList.add('tap-pulse');
+}
+function pulseMobileStatus(){
+  ['mm-num','mm-timer','mm-title'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('mm-bump');
+    void el.offsetWidth;
+    el.classList.add('mm-bump');
+  });
+  const status=document.querySelector('#mobile-mode .mm-status');
+  if(status){
+    status.classList.remove('mm-confirm');
+    void status.offsetWidth;
+    status.classList.add('mm-confirm');
+  }
+}
+function mobileFeedback(type='tap',el=null){
+  hapticFeedback(type);
+  visualTapFeedback(el);
+  pulseMobileStatus();
+}
+function mobileStart(el){mobileFeedback('start',el);startPresentation();}
+function mobileNext(el){mobileFeedback('nav',el);ctrlNext();}
+function mobileOverlay(el){mobileFeedback('tap',el);toggleP1ScOverlay();}
+function mobileClearP1Overlay(el){mobileFeedback('clear',el);clearP1Overlay();}
+function mobilePanicClear(el){mobileFeedback('clear',el);panicClear();}
 function slideLabel(s){
   const tl={cover:'Cover',sc:'Scripture',te:'Teaching',big:'Statement',names:'Names',final:'Closing'};
   const title=s.t==='big'?s.text.replace(/<[^>]+>/g,'').substring(0,48):s.t==='te'?s.hl.replace(/<[^>]+>/g,'').substring(0,48):s.t==='cover'?s.title:s.t==='sc'?s.ref:s.t==='names'?'The Twelve Named':'Final Landing';
   return {type:tl[s.t]||s.t,title};
 }
 function openMobileMode(){
+  installMobileTapFeedback();
   const mm=document.getElementById('mobile-mode'); if(!mm) return;
   buildMobileVerseList(); updateMobileMode(curSlide); mm.classList.add('on'); startTimer();
 }
 function closeMobileMode(){const mm=document.getElementById('mobile-mode'); if(mm) mm.classList.remove('on');}
+function installMobileTapFeedback(){
+  if(window.__mobileTapFeedbackInstalled) return;
+  window.__mobileTapFeedbackInstalled=true;
+  document.addEventListener('pointerdown',e=>{
+    const btn=e.target && e.target.closest ? e.target.closest('#mobile-mode button') : null;
+    if(btn) visualTapFeedback(btn);
+  },{passive:true});
+}
 function updateMobileMode(i){
   const s=LESSON1_SLIDES[i]; if(!s) return; const l=slideLabel(s);
   const n=document.getElementById('mm-num'); if(n) n.textContent=`${i+1}/${LESSON1_SLIDES.length}`;
@@ -2067,10 +2174,11 @@ function updateMobileMode(i){
 }
 function buildMobileVerseList(){
   const wrap=document.getElementById('mm-verse-list'); if(!wrap) return;
-  wrap.innerHTML=VERSE_BANK.map(v=>`<button class="mm-v-btn" onclick="pushVerseFromMobile('${v.id}')"><div class="mm-v-ref">${v.ref}</div><div class="mm-v-tx">${v.kjv}</div></button>`).join('');
+  wrap.innerHTML=VERSE_BANK.map(v=>`<button class="mm-v-btn" onclick="pushVerseFromMobile('${v.id}',this)"><div class="mm-v-ref">${v.ref}</div><div class="mm-v-tx">${v.kjv}</div></button>`).join('');
 }
-function pushVerseFromMobile(id){
-  const v=VERSE_BANK.find(x=>x.id===id); if(!v) return;
+function pushVerseFromMobile(id,el=null){
+  mobileFeedback('verse',el);
+  const v=VERSE_BANK.find(x=>x.id===id); if(!v){mobileFeedback('error',el);return;}
   pushVerseToP1({ref:v.ref,kjv:v.kjv});
   pushRawScripture({ref_en:v.ref,text_en:v.kjv,ref_es:v.ref.replace('Matthew','Mateo'),text_es:getVBSpanish(v.id)});
 }
@@ -2094,8 +2202,9 @@ function startPresentation(){
     _suppressSync=true; goTo(0); _suppressSync=false;
   }
 }
-function mobilePrevOrStart(){
-  if(!presentationStarted || curSlide<=0){startPresentation();return;}
+function mobilePrevOrStart(el){
+  if(!presentationStarted || curSlide<=0){mobileFeedback('start',el);startPresentation();return;}
+  mobileFeedback('nav',el);
   ctrlPrev();
 }
 function requestAuxFullscreen(){
@@ -2831,11 +2940,11 @@ function renderQuestionsMini(){
 </div>
 <!-- MOBILE MODE CONTROLLER -->
 <div class="mobile-mode-screen" id="mobile-mode">
-<div class="mm-top"><div class="mm-brand">THE <span>MINISTRY</span></div><button class="mm-close" onclick="closeMobileMode()">Close</button></div>
+<div class="mm-top"><div class="mm-brand">THE <span>MINISTRY</span></div><button class="mm-close" onclick="mobileFeedback('tap',this);closeMobileMode()">Close</button></div>
 <div class="mm-main">
 <div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
-<div class="mm-nav"><button class="mm-bigbtn" onclick="ctrlPrev()">Prev</button><button class="mm-bigbtn red" onclick="ctrlNext()">Next</button></div>
-<div class="mm-actions"><button class="mm-action mm-start-action" onclick="startPresentation()">Start</button><button class="mm-action" onclick="toggleP1ScOverlay()">Overlay</button><button class="mm-action" onclick="clearP1Overlay()">X Verse</button><button class="mm-action" onclick="panicClear()">Clear</button></div>
+<div class="mm-nav"><button class="mm-bigbtn" id="mm-prev-start" onclick="mobilePrevOrStart(this)">Prev</button><button class="mm-bigbtn red" onclick="mobileNext(this)">Next</button></div>
+<div class="mm-actions"><button class="mm-action mm-start-action" onclick="mobileStart(this)">Start</button><button class="mm-action" onclick="mobileOverlay(this)">Overlay</button><button class="mm-action" onclick="mobileClearP1Overlay(this)">X Verse</button><button class="mm-action" onclick="mobilePanicClear(this)">Clear</button></div>
 <div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
 </div>
 </div>
