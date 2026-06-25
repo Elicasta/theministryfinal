@@ -92,3 +92,12 @@ Use this version if v18 gets stuck after the Start slide.
 - Restored confidence monitor slide formatting after poll state by clearing `poll-current` when normal slide/scripture rendering resumes.
 - Added full Supabase schema migration for attendees, responses, sync state, live questions, polls, and poll votes.
 - Added optional `/api/question-submit` endpoint for persistent live questions when Supabase env vars are configured.
+
+## v30 Live Data Admin Fix
+- Admin questions now fetch from Supabase through `/api/questions-list` instead of only local BroadcastChannel/localStorage.
+- Added `/questions` admin page for submitted questions with Answered/Hidden controls.
+- Added `/polls` admin page with live and answered poll archive.
+- Wired poll creation/archive to `/api/poll-save`.
+- Wired poll votes to `/api/poll-vote-submit`.
+- Added question update API for marking questions answered/hidden/new.
+- Expanded `supabase/schema.sql` with event-mode RLS policies and poll/question tables.

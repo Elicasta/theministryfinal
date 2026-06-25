@@ -1,6 +1,6 @@
--- The Ministry app core Supabase schema.
--- Use this for a simple public event deployment with anonymous attendee interaction.
--- For production/public multi-church use, add auth/session-scoped RLS before opening it broadly.
+-- The Ministry app Supabase schema
+-- Run this in Supabase SQL Editor.
+-- This creates the tables needed for live questions, polls, poll votes, attendee registration, workbook responses, and sync state.
 
 create extension if not exists pgcrypto;
 
@@ -32,8 +32,7 @@ create table if not exists public.responses (
 create index if not exists responses_session_idx on public.responses(session);
 create index if not exists responses_created_at_idx on public.responses(created_at desc);
 
--- 03. Live sync state used by the projector/controller screens.
--- The frontend currently upserts id = 1 and stores the latest command payload.
+-- 03. Live sync state
 create table if not exists public.sync_state (
   id integer primary key default 1,
   payload text not null default '{}',
@@ -45,7 +44,6 @@ insert into public.sync_state (id, payload)
 values (1, '{}')
 on conflict (id) do nothing;
 
--- Helpful for realtime updates.
 alter table public.sync_state replica identity full;
 
 -- 04. Live audience questions
@@ -67,7 +65,6 @@ create index if not exists lesson_questions_series_lesson_idx on public.lesson_q
 create index if not exists lesson_questions_created_at_idx on public.lesson_questions(created_at desc);
 create index if not exists lesson_questions_status_idx on public.lesson_questions(status);
 
--- Optional alias view if you prefer the shorter table name in Supabase UI.
 create or replace view public.questions as
 select * from public.lesson_questions;
 
@@ -81,7 +78,7 @@ create table if not exists public.lesson_polls (
   poll_type text not null default 'choice', -- yesno, choice
   options jsonb not null default '[]'::jsonb,
   save_anonymous boolean not null default true,
-  status text not null default 'archived', -- live, archived, killed, replaced
+  status text not null default 'archived', -- live, archived, killed, closed, replaced
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   archived_at timestamptz
@@ -136,31 +133,53 @@ create trigger lesson_polls_set_updated_at
 before update on public.lesson_polls
 for each row execute function public.set_updated_at();
 
--- 08. Realtime publications
--- If this errors because supabase_realtime already contains the table, it is safe to ignore.
+-- 08. RLS policies for current public event mode
+-- This is event-mode permissive. Tighten this later when admin login exists.
+alter table public.attendees enable row level security;
+alter table public.responses enable row level security;
+alter table public.sync_state enable row level security;
+alter table public.lesson_questions enable row level security;
+alter table public.lesson_polls enable row level security;
+alter table public.lesson_poll_votes enable row level security;
+
+drop policy if exists "event_attendees_insert" on public.attendees;
+create policy "event_attendees_insert" on public.attendees for insert to anon with check (true);
+drop policy if exists "event_attendees_read" on public.attendees;
+create policy "event_attendees_read" on public.attendees for select to anon using (true);
+
+drop policy if exists "event_responses_insert" on public.responses;
+create policy "event_responses_insert" on public.responses for insert to anon with check (true);
+drop policy if exists "event_responses_read" on public.responses;
+create policy "event_responses_read" on public.responses for select to anon using (true);
+
+drop policy if exists "event_sync_read" on public.sync_state;
+create policy "event_sync_read" on public.sync_state for select to anon using (true);
+drop policy if exists "event_sync_write" on public.sync_state;
+create policy "event_sync_write" on public.sync_state for all to anon using (true) with check (true);
+
+drop policy if exists "event_questions_insert" on public.lesson_questions;
+create policy "event_questions_insert" on public.lesson_questions for insert to anon with check (true);
+drop policy if exists "event_questions_read" on public.lesson_questions;
+create policy "event_questions_read" on public.lesson_questions for select to anon using (true);
+drop policy if exists "event_questions_update" on public.lesson_questions;
+create policy "event_questions_update" on public.lesson_questions for update to anon using (true) with check (true);
+
+drop policy if exists "event_polls_write" on public.lesson_polls;
+create policy "event_polls_write" on public.lesson_polls for all to anon using (true) with check (true);
+drop policy if exists "event_polls_read" on public.lesson_polls;
+create policy "event_polls_read" on public.lesson_polls for select to anon using (true);
+
+drop policy if exists "event_poll_votes_insert" on public.lesson_poll_votes;
+create policy "event_poll_votes_insert" on public.lesson_poll_votes for insert to anon with check (true);
+drop policy if exists "event_poll_votes_read" on public.lesson_poll_votes;
+create policy "event_poll_votes_read" on public.lesson_poll_votes for select to anon using (true);
+
+-- 09. Realtime publications
+-- If any command complains that the table is already in the publication, it is safe to ignore.
 do $$
 begin
-  begin
-    alter publication supabase_realtime add table public.sync_state;
-  exception when duplicate_object then null;
-  end;
-
-  begin
-    alter publication supabase_realtime add table public.lesson_questions;
-  exception when duplicate_object then null;
-  end;
-
-  begin
-    alter publication supabase_realtime add table public.lesson_polls;
-  exception when duplicate_object then null;
-  end;
-
-  begin
-    alter publication supabase_realtime add table public.lesson_poll_votes;
-  exception when duplicate_object then null;
-  end;
+  begin alter publication supabase_realtime add table public.sync_state; exception when duplicate_object then null; end;
+  begin alter publication supabase_realtime add table public.lesson_questions; exception when duplicate_object then null; end;
+  begin alter publication supabase_realtime add table public.lesson_polls; exception when duplicate_object then null; end;
+  begin alter publication supabase_realtime add table public.lesson_poll_votes; exception when duplicate_object then null; end;
 end $$;
-
--- 09. RLS note
--- Current event-mode setup can stay unrestricted if you are using anon inserts for a live event.
--- Before turning this into a public product, enable RLS and add session/auth-scoped policies.

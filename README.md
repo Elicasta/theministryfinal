@@ -248,3 +248,32 @@ The schema includes:
 - `lesson_poll_votes`
 
 The app still works without persistence. Live questions save locally and broadcast immediately. If `SUPABASE_URL` and `SUPABASE_ANON_KEY` are configured in Vercel, `/api/question-submit` can save live questions into `lesson_questions`.
+
+## Live data notes
+
+Questions and polls use Vercel API routes plus Supabase tables.
+
+Required Vercel environment variables:
+
+```txt
+SUPABASE_URL=https://cgliqvizpcctqhsldixn.supabase.co
+SUPABASE_ANON_KEY=your_anon_public_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+Run this SQL in Supabase first:
+
+```txt
+supabase/schema.sql
+```
+
+Admin live data pages:
+
+```txt
+/questions
+/polls
+```
+
+If questions save in Supabase but do not show in `/admin`, check `/api/questions-list` in Vercel logs.
+
+Polls were previously frontend-only. v30 wires poll save and poll vote APIs so `lesson_polls` and `lesson_poll_votes` can fill.
