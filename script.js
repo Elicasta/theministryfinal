@@ -981,7 +981,8 @@ function startPresentation(){
   if(isAdmin){
     sbSend({type:'p1_overlay_hide'});
     sbSend({type:'slide',slide:0,start:true});
-    if(scAuto) broadcastScripture(0);
+    // Do not auto-push a scripture on Start. Scripture screens should stay on the series/title standby until the first actual scripture/teaching slide is advanced.
+    if(isScriptureDisplay) clearP2Display();
   }
   const ssl=document.getElementById('ssl');
   if(ssl){
@@ -1590,3 +1591,24 @@ function renderQuestionsMini(){
   setTimeout(()=>{renderPollBank(); renderPollAdminSummary();},300);
 })();
 
+
+// v23-scripture-standby-and-poll-takeover
+(function(){
+  const oldLaunchPoll=window.launchPoll;
+  window.launchPoll=function(p,broadcast){
+    const r=oldLaunchPoll?oldLaunchPoll(p,broadcast):undefined;
+    if(isScriptureDisplay) document.body.classList.add('poll-active');
+    return r;
+  };
+  const oldCloseActivePoll=window.closeActivePoll;
+  window.closeActivePoll=function(broadcast){
+    document.body.classList.remove('poll-active');
+    return oldCloseActivePoll?oldCloseActivePoll(broadcast):undefined;
+  };
+  const oldHandle=window.handleMessage;
+  window.handleMessage=function(msg){
+    if(msg&&msg.type==='poll_open'&&isScriptureDisplay) document.body.classList.add('poll-active');
+    if(msg&&(msg.type==='poll_close'||msg.type==='slide'||msg.type==='panic_clear')&&isScriptureDisplay) document.body.classList.remove('poll-active');
+    return oldHandle?oldHandle(msg):undefined;
+  };
+})();

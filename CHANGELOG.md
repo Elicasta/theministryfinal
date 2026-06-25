@@ -1,4 +1,16 @@
+
+## v24 Poll Main Screen Routing
+- Active polls now take over the main projector and OBS full slide outputs.
+- OBS lower thirds now shows active poll results in a lower-third format instead of a full-screen takeover.
+- Poll overlays still clear on Next/Previous.
+
 # Changelog
+
+## v23 Scripture Standby + Poll Scripture Takeover
+- `/scriptures` now stays on the title/series standby screen when the presentation starts.
+- Removed the automatic slide-0 scripture push on Start.
+- `/scriptures` now becomes a full-screen poll results display while a poll is active.
+- Next/Previous/poll close clears the poll takeover state.
 
 ## v17 Master Template Cleanup
 

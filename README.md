@@ -188,3 +188,21 @@ Output behavior:
 - Advancing the slide kills the active poll overlay, similar to clearing verse overlays.
 
 Note: because this is still a static presentation template, long-term poll persistence across all devices should eventually move to a real backend. For now, this keeps the live system simple and avoids adding login/database/editor features.
+
+
+### v23 behavior note
+
+- The `/scriptures` screen should start on the series/title standby screen. It should not show a scripture immediately when Start is pressed.
+- When a poll is active, `/scriptures` is intentionally taken over by the poll result display so the side screens can show percentages clearly.
+- Advancing slides or closing the poll clears the poll takeover.
+
+
+### Poll output behavior
+
+When a poll is active:
+
+- `/projector` shows full-screen poll results.
+- `/scriptures` shows full-screen poll results.
+- `/obsslides` shows full-screen poll results.
+- `/obslowerthirds` shows compact broadcast-style poll results in the lower-third position.
+- Next or Previous clears the active poll.

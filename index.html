@@ -1271,6 +1271,145 @@ body.obs-mode.lower #obs-screen .obs-lower{background:rgba(0,0,0,.92)!important;
 .mm-poll-custom textarea,.mm-poll-custom input{background:#101010;border:1px solid var(--ln);color:var(--w);padding:10px;font-family:var(--fb);font-size:16px;}
 @media(max-width:720px){.poll-card{padding:24px 18px}.poll-title{font-size:clamp(2.2rem,13vw,4rem)}.poll-result-row{grid-template-columns:1fr auto;gap:8px}.poll-result-bar{grid-column:1 / -1;grid-row:2}.poll-results{left:16px;right:16px;bottom:20px;width:auto;padding:18px}.poll-results-q{font-size:2rem}}
 
+
+
+/* =========================================================
+   v23 Scripture standby + poll takeover polish
+   - Scriptures remain on series/title screen after Start.
+   - Active polls take over scripture side screens instead of appearing as a small lower card.
+========================================================= */
+body.scripture-mode.poll-active #sp-content{display:none!important;}
+body.scripture-mode.poll-active #sp-wait{display:none!important;}
+body.scripture-mode .poll-results.on{
+  display:flex!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  left:0!important;
+  right:auto!important;
+  bottom:auto!important;
+  z-index:24000!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:clamp(56px,8vw,110px)!important;
+  border-left:0!important;
+  background:rgba(5,5,5,.94)!important;
+  overflow:hidden!important;
+}
+body.scripture-mode .poll-results.on::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url('assets/ministry-bg.jpeg');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(.22) saturate(.55);
+  opacity:.9;
+}
+body.scripture-mode .poll-results.on::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.76),rgba(5,5,5,.92));
+}
+body.scripture-mode .poll-results.on>*{position:relative;z-index:2;}
+body.scripture-mode .poll-results-k{font-size:clamp(.72rem,1vw,1rem)!important;margin-bottom:16px!important;}
+body.scripture-mode .poll-results-q{font-size:clamp(3rem,6vw,7rem)!important;max-width:1200px!important;line-height:.92!important;margin-bottom:34px!important;}
+body.scripture-mode .poll-result-row{grid-template-columns:minmax(180px,300px) 1fr auto!important;gap:22px!important;margin:18px 0!important;}
+body.scripture-mode .poll-result-label{font-size:clamp(1.1rem,1.8vw,2rem)!important;}
+body.scripture-mode .poll-result-bar{height:20px!important;}
+body.scripture-mode .poll-result-pct{font-size:clamp(1.4rem,2.4vw,2.6rem)!important;min-width:90px!important;}
+body.scripture-mode .poll-result-count{font-size:clamp(.7rem,1vw,1rem)!important;margin-top:24px!important;}
+
+
+/* =========================================================
+   v24 Poll display routing
+   - Poll results take over main projector and OBS full slides.
+   - OBS lower thirds keeps a broadcast lower-third poll format.
+========================================================= */
+body.projector-mode.poll-active #ssl,
+body.projector-mode.poll-active #p1-wait,
+body.obs-mode.full.poll-active #obs-lower{display:none!important;}
+body.projector-mode.poll-active .poll-results.on,
+body.obs-mode.full.poll-active .poll-results.on{
+  display:flex!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  left:0!important;
+  right:auto!important;
+  bottom:auto!important;
+  z-index:24000!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:clamp(58px,7vw,106px)!important;
+  border-left:0!important;
+  background:rgba(5,5,5,.94)!important;
+  overflow:hidden!important;
+}
+body.projector-mode.poll-active .poll-results.on::before,
+body.obs-mode.full.poll-active .poll-results.on::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url('assets/ministry-bg.jpeg');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(.2) saturate(.55);
+  opacity:.9;
+}
+body.projector-mode.poll-active .poll-results.on::after,
+body.obs-mode.full.poll-active .poll-results.on::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(5,5,5,.97),rgba(5,5,5,.72),rgba(5,5,5,.9));
+}
+body.projector-mode.poll-active .poll-results.on>*,
+body.obs-mode.full.poll-active .poll-results.on>*{position:relative;z-index:2;}
+body.projector-mode.poll-active .poll-results-k,
+body.obs-mode.full.poll-active .poll-results-k{font-size:clamp(.72rem,1vw,1rem)!important;margin-bottom:16px!important;}
+body.projector-mode.poll-active .poll-results-q,
+body.obs-mode.full.poll-active .poll-results-q{font-size:clamp(3rem,5.8vw,6.7rem)!important;max-width:1280px!important;line-height:.92!important;margin-bottom:32px!important;}
+body.projector-mode.poll-active .poll-result-row,
+body.obs-mode.full.poll-active .poll-result-row{grid-template-columns:minmax(180px,320px) 1fr auto!important;gap:22px!important;margin:18px 0!important;}
+body.projector-mode.poll-active .poll-result-label,
+body.obs-mode.full.poll-active .poll-result-label{font-size:clamp(1.05rem,1.7vw,2rem)!important;}
+body.projector-mode.poll-active .poll-result-bar,
+body.obs-mode.full.poll-active .poll-result-bar{height:20px!important;}
+body.projector-mode.poll-active .poll-result-pct,
+body.obs-mode.full.poll-active .poll-result-pct{font-size:clamp(1.4rem,2.3vw,2.5rem)!important;min-width:88px!important;}
+body.projector-mode.poll-active .poll-result-count,
+body.obs-mode.full.poll-active .poll-result-count{font-size:clamp(.7rem,1vw,1rem)!important;margin-top:24px!important;}
+
+body.obs-mode.lower.poll-active .poll-results.on{
+  display:block!important;
+  position:absolute!important;
+  left:3.2vw!important;
+  right:auto!important;
+  bottom:4.5vh!important;
+  top:auto!important;
+  width:min(760px,56vw)!important;
+  height:auto!important;
+  z-index:24000!important;
+  border-left:0!important;
+  border-bottom:5px solid var(--red)!important;
+  background:rgba(0,0,0,.94)!important;
+  padding:18px 22px 20px!important;
+  box-shadow:0 16px 40px rgba(0,0,0,.45)!important;
+  color:var(--w)!important;
+}
+body.obs-mode.lower.poll-active .poll-results.on::before,
+body.obs-mode.lower.poll-active .poll-results.on::after{display:none!important;}
+body.obs-mode.lower.poll-active .poll-results-k{font-size:.62rem!important;letter-spacing:.2em!important;margin-bottom:6px!important;color:var(--red)!important;}
+body.obs-mode.lower.poll-active .poll-results-q{font-family:var(--fc)!important;font-size:clamp(1.05rem,1.65vw,1.9rem)!important;line-height:1.05!important;letter-spacing:.02em!important;margin-bottom:12px!important;}
+body.obs-mode.lower.poll-active .poll-result-row{display:grid!important;grid-template-columns:minmax(94px,170px) 1fr auto!important;gap:10px!important;margin:7px 0!important;}
+body.obs-mode.lower.poll-active .poll-result-label{font-size:.72rem!important;white-space:nowrap!important;}
+body.obs-mode.lower.poll-active .poll-result-bar{height:9px!important;}
+body.obs-mode.lower.poll-active .poll-result-pct{font-size:.86rem!important;min-width:44px!important;}
+body.obs-mode.lower.poll-active .poll-result-count{font-size:.58rem!important;margin-top:10px!important;}
 </style>
 
 
@@ -1361,7 +1500,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -2258,7 +2397,8 @@ function startPresentation(){
   if(isAdmin){
     sbSend({type:'p1_overlay_hide'});
     sbSend({type:'slide',slide:0,start:true});
-    if(scAuto) broadcastScripture(0);
+    // Do not auto-push a scripture on Start. Scripture screens should stay on the series/title standby until the first actual scripture/teaching slide is advanced.
+    if(isScriptureDisplay) clearP2Display();
   }
   const ssl=document.getElementById('ssl');
   if(ssl){
@@ -2678,6 +2818,9 @@ function renderQuestionsMini(){
   function rememberPollVote(vote){
     try{const old=JSON.parse(localStorage.getItem('tm_poll_answers')||'[]'); old.unshift(vote); localStorage.setItem('tm_poll_answers',JSON.stringify(old.slice(0,250)));}catch(e){}
   }
+  function setPollActiveClass(on){
+    document.body.classList.toggle('poll-active', !!on);
+  }
 
   window.renderPollBank=function(){
     const box=document.getElementById('poll-bank-list');
@@ -2723,6 +2866,7 @@ function renderQuestionsMini(){
   window.launchPoll=function(p,broadcast=true){
     const poll=normalizePoll(p);
     window.pollState.active=poll;
+    setPollActiveClass(true);
     window.pollState.selected=null;
     window.pollState.responses[poll.id]=window.pollState.responses[poll.id]||[];
     renderPollOverlay(poll);
@@ -2732,6 +2876,7 @@ function renderQuestionsMini(){
   window.closeActivePoll=function(broadcast=true){
     const id=currentPoll() && currentPoll().id;
     window.pollState.active=null;
+    setPollActiveClass(false);
     window.pollState.selected=null;
     hidePollUI();
     if(broadcast && typeof sbSend==='function') sbSend({type:'poll_close',pollId:id,ts:Date.now()});
@@ -2784,7 +2929,9 @@ function renderQuestionsMini(){
   }
   window.addPollVote=addPollVote;
   window.renderPollResults=function(){
-    const poll=currentPoll(); const box=document.getElementById('poll-results'); if(!box||!poll) return;
+    const poll=currentPoll(); const box=document.getElementById('poll-results');
+    setPollActiveClass(!!poll);
+    if(!box||!poll) return;
     const q=document.getElementById('poll-results-q'), rows=document.getElementById('poll-results-rows'), count=document.getElementById('poll-result-count');
     const votes=getPollResponses(poll.id);
     const total=votes.length;
@@ -2849,13 +2996,14 @@ function renderQuestionsMini(){
   window.handleMessage=function(msg){
     if(msg&&msg.type==='poll_open'){
       window.pollState.active=normalizePoll(msg.poll);
+      setPollActiveClass(true);
       window.pollState.selected=null;
       window.pollState.responses[window.pollState.active.id]=window.pollState.responses[window.pollState.active.id]||[];
       renderPollOverlay(window.pollState.active); renderPollResults(); renderPollAdminSummary(); return;
     }
-    if(msg&&msg.type==='poll_close'){ window.pollState.active=null; window.pollState.selected=null; hidePollUI(); renderPollAdminSummary(); return; }
+    if(msg&&msg.type==='poll_close'){ window.pollState.active=null; setPollActiveClass(false); window.pollState.selected=null; hidePollUI(); renderPollAdminSummary(); return; }
     if(msg&&msg.type==='poll_vote'){ addPollVote(msg.vote); return; }
-    if(msg&&msg.type==='slide'){ hidePollUI(); window.pollState.active=null; }
+    if(msg&&msg.type==='slide'){ hidePollUI(); window.pollState.active=null; setPollActiveClass(false); }
     return previousHandle?previousHandle(msg):undefined;
   };
 
@@ -2867,6 +3015,35 @@ function renderQuestionsMini(){
   setTimeout(()=>{renderPollBank(); renderPollAdminSummary();},300);
 })();
 
+
+
+// =========================================================
+// v23-scripture-standby-and-poll-takeover
+// Small safe patch: Start does not auto-send slide-0 scripture, and scripture screens become full-screen poll results while a poll is active.
+// =========================================================
+(function(){
+  const oldLaunchPoll=window.launchPoll;
+  window.launchPoll=function(p,broadcast){
+    const r=oldLaunchPoll?oldLaunchPoll(p,broadcast):undefined;
+    if(isScriptureDisplay) document.body.classList.add('poll-active');
+    return r;
+  };
+  const oldCloseActivePoll=window.closeActivePoll;
+  window.closeActivePoll=function(broadcast){
+    document.body.classList.remove('poll-active');
+    return oldCloseActivePoll?oldCloseActivePoll(broadcast):undefined;
+  };
+  const oldHidePollUI=window.hidePollUI;
+  if(typeof oldHidePollUI==='function'){
+    window.hidePollUI=function(){ document.body.classList.remove('poll-active'); return oldHidePollUI(); };
+  }
+  const oldHandle=window.handleMessage;
+  window.handleMessage=function(msg){
+    if(msg&&msg.type==='poll_open'&&isScriptureDisplay) document.body.classList.add('poll-active');
+    if(msg&&(msg.type==='poll_close'||msg.type==='slide'||msg.type==='panic_clear')&&isScriptureDisplay) document.body.classList.remove('poll-active');
+    return oldHandle?oldHandle(msg):undefined;
+  };
+})();
 </script>
 
 </head>
