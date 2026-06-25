@@ -327,3 +327,33 @@ supabase/v33-attendee-identity-patch.sql
 
 ### v35 admin data notes
 The Admin Polls tab now shows the currently active live poll and its results, plus answered poll archive beneath it. The Questions tab and right sidebar use the same question normalizer so names display consistently.
+
+
+## Lesson selection
+
+Lesson 1 remains the default. To run Lesson 2, add `?lesson=lesson-2` to each presentation route:
+
+```txt
+/projector?lesson=lesson-2
+/scriptures?lesson=lesson-2
+/confidence?lesson=lesson-2
+/admin?lesson=lesson-2
+/mobile?lesson=lesson-2
+/obslowerthirds?lesson=lesson-2
+/obsslides?lesson=lesson-2
+```
+
+The admin screen also includes Lesson 1 and Lesson 2 quick links. Keep all live outputs on the same lesson query so the slide numbers, scripture map, poll archive, questions, and controller stay aligned.
+
+### v38 lesson selection behavior
+Use the permanent routes for live screens:
+
+- `/projector`
+- `/scriptures`
+- `/confidence`
+- `/mobile`
+- `/obslowerthirds`
+- `/obsslides`
+- `/admin`
+
+Choose Lesson 1 or Lesson 2 from `/admin`. The selected lesson is broadcast to all open outputs. Query params such as `?lesson=lesson-2` remain available for testing, but are no longer required for normal live use.

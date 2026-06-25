@@ -140,3 +140,18 @@ Use this version if v18 gets stuck after the Start slide.
 - Changed audience poll anonymous-save checkbox to be off by default.
 - No other behavior changed.
 
+
+
+## v37 Lesson 2 Added
+- Added Lesson 2: The Discipline of the Sent.
+- Kept Lesson 1 intact as the default lesson.
+- Lesson 2 is selectable with `?lesson=lesson-2` or the admin Lesson 2 button.
+- Added Lesson 2 slides, presenter notes, scripture mappings, verse bank, reflection questions, and poll bank.
+- No projector, sync, Supabase, audience, or admin data wiring changes.
+
+## v38 Default Route Lesson Selector
+- Kept Lesson 1 and Lesson 2 in the same app.
+- Admin lesson buttons now control the selected lesson for all permanent output routes.
+- `/projector`, `/scriptures`, `/confidence`, `/mobile`, `/obslowerthirds`, and `/obsslides` can stay unchanged during live setup.
+- Selecting a lesson resets outputs to standby, clears overlays/polls locally, rebuilds slides, verse bank, poll bank, and confidence data.
+- Query params like `?lesson=lesson-2` still work as a testing override.
