@@ -121,3 +121,11 @@ Use this version if v18 gets stuck after the Start slide.
 - Linked questions and poll votes to attendee/session identity.
 - Added safer poll duplicate handling by session/email hash.
 - Added Supabase patch `supabase/v33-attendee-identity-patch.sql`.
+
+
+## v34 Supabase Realtime Wiring Fix
+- Added `/api/config` so browser outputs can load `SUPABASE_URL` and `SUPABASE_ANON_KEY` from Vercel environment variables.
+- Restored local-first BroadcastChannel behavior so same-machine controls stay snappy.
+- Made Supabase sync fire-and-forget so phone taps do not wait on the network.
+- Added visible connection fallback labels for Local only / Live / Realtime error states.
+- Did not change projector visuals, confidence layout, poll UI, or routes.

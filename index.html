@@ -1647,7 +1647,33 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // loaded from /api/config when deployed
+let sbClient = null;
+let sbConfigPromise = null;
+let sbRealtimeStarted = false;
+let sbLastRemoteAt = 0;
+
+async function loadSupabasePublicConfig(){
+  if(window.SB_URL && window.SB_KEY) return {supabaseUrl:window.SB_URL,supabaseAnonKey:window.SB_KEY};
+  if(sbConfigPromise) return sbConfigPromise;
+  sbConfigPromise = fetch('/api/config',{cache:'no-store'})
+    .then(r=>r.ok?r.json():Promise.reject(new Error('config fetch failed')))
+    .then(cfg=>{
+      if(cfg && cfg.supabaseUrl) window.SB_URL = cfg.supabaseUrl;
+      if(cfg && cfg.supabaseAnonKey) window.SB_KEY = cfg.supabaseAnonKey;
+      return cfg || {};
+    })
+    .catch(err=>{console.warn('Supabase public config unavailable',err); return {};});
+  return sbConfigPromise;
+}
+
+function markRealtimeStatus(text,live=false){
+  const l=document.getElementById('cmd-p2lbl'); if(l) l.textContent=text;
+  const d=document.getElementById('cmd-p2dot'); if(d) d.classList.toggle('live',!!live);
+  const ps=document.getElementById('p1-status'); if(ps&&isProjector){ps.textContent=text;ps.classList.toggle('live',!!live);}
+  const sps=document.getElementById('sp-wait-status'); if(sps&&isScriptureDisplay){sps.textContent=text;sps.classList.toggle('live',!!live);}
+  const spd=document.getElementById('sp-live-dot'); if(spd&&isScriptureDisplay) spd.classList.toggle('live',!!live);
+}
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -2358,56 +2384,75 @@ function handleMessage(msg){
 // ── INIT: BroadcastChannel (local) + Supabase Realtime (network) ──
 function initBC(){
   try{
-    bc=new BroadcastChannel(CHANNEL_ID);
+    if(!bc) bc=new BroadcastChannel(CHANNEL_ID);
     bc.onmessage=(e)=>handleMessage(e.data);
   }catch(e){}
-  if(window.SB_URL && window.SB_KEY){
-    initRealtimeSync();
-  }
+  // Realtime is loaded asynchronously so static Vercel HTML does not need hardcoded keys.
+  loadSupabasePublicConfig().then(()=>{
+    if(window.SB_URL && window.SB_KEY) initRealtimeSync();
+    else markRealtimeStatus('Local only',false);
+  });
 }
 
 // ── SUPABASE REALTIME (WebSocket — works across any network) ──
 function initRealtimeSync(){
-  const script=document.createElement('script');
-  script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-  script.onload=()=>{
-    const sb=window.supabase.createClient(window.SB_URL, window.SB_KEY);
-    sbChannel=sb.channel('ministry-sync')
-      .on('postgres_changes',{event:'*',schema:'public',table:'sync_state'},payload=>{
-        try{
-          const msg=JSON.parse(payload.new.payload);
-          if(!isAdmin) handleMessage(msg);
-        }catch(e){}
-      })
-      .subscribe((status)=>{
-        if(status==='SUBSCRIBED'){
-          const l=document.getElementById('cmd-p2lbl');if(l)l.textContent='Live ✓';
-          const d=document.getElementById('cmd-p2dot');if(d)d.classList.add('live');
-          const ps=document.getElementById('p1-status');if(ps&&isProjector){ps.textContent='Connected';ps.classList.add('live');}
-          const sps=document.getElementById('sp-wait-status');if(sps&&isScriptureDisplay){sps.textContent='Connected';sps.classList.add('live');}
-          const spd=document.getElementById('sp-live-dot');if(spd&&isScriptureDisplay)spd.classList.add('live');
-        }
-      });
+  if(sbRealtimeStarted || !window.SB_URL || !window.SB_KEY) return;
+  sbRealtimeStarted = true;
+  const start=()=>{
+    try{
+      sbClient = window.supabase.createClient(window.SB_URL, window.SB_KEY);
+      sbChannel = sbClient.channel('ministry-sync')
+        .on('postgres_changes',{event:'*',schema:'public',table:'sync_state'},payload=>{
+          try{
+            const row=payload.new||{};
+            const msg=typeof row.payload==='string'?JSON.parse(row.payload):row.payload;
+            if(!msg || !msg.type) return;
+            sbLastRemoteAt = Date.now();
+            if(!isAdmin) handleMessage(msg);
+          }catch(e){console.warn('Realtime payload parse failed',e);}
+        })
+        .subscribe((status)=>{
+          if(status==='SUBSCRIBED') markRealtimeStatus('Live ✓',true);
+          if(status==='CHANNEL_ERROR' || status==='TIMED_OUT') markRealtimeStatus('Realtime error',false);
+        });
+    }catch(e){
+      sbRealtimeStarted=false;
+      markRealtimeStatus('Realtime error',false);
+      console.warn('Realtime init failed',e);
+    }
   };
-  document.head.appendChild(script);
+  if(window.supabase) start();
+  else{
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+    script.onload=start;
+    script.onerror=()=>{sbRealtimeStarted=false;markRealtimeStatus('Realtime lib failed',false);};
+    document.head.appendChild(script);
+  }
 }
 
 // ── SEND: BroadcastChannel (instant, local) + Supabase (network) ──
 async function sbSend(msg){
+  // Always fire local BroadcastChannel first. This keeps same-machine ProPresenter/Chrome outputs snappy.
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage(msg);}catch(e){}
-  if(!window.SB_URL||!window.SB_KEY) return;
-  try{
-    await fetch(window.SB_URL+'/rest/v1/sync_state',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'apikey':window.SB_KEY,
-        'Authorization':'Bearer '+window.SB_KEY,
-        'Prefer':'resolution=merge-duplicates,return=minimal'
-      },
-      body:JSON.stringify({id:1,payload:JSON.stringify(msg),updated_at:new Date().toISOString()})
-    });
-  }catch(e){}
+
+  // Network sync is fire-and-forget. Never let Supabase latency block the controller tap.
+  (async()=>{
+    await loadSupabasePublicConfig();
+    if(!window.SB_URL||!window.SB_KEY) return;
+    try{
+      await fetch(window.SB_URL+'/rest/v1/sync_state',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'apikey':window.SB_KEY,
+          'Authorization':'Bearer '+window.SB_KEY,
+          'Prefer':'resolution=merge-duplicates,return=minimal'
+        },
+        body:JSON.stringify({id:1,payload:JSON.stringify(msg),updated_at:new Date().toISOString()})
+      });
+    }catch(e){console.warn('Supabase sync write failed',e);}
+  })();
 }
 function broadcastSlide(i){
   sbSend({type:'slide',slide:i});
