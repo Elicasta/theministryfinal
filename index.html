@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -2473,7 +2473,13 @@ function resetForLessonChange(){
   try{closeActivePoll && closeActivePoll(false);}catch(e){}
   const ov=document.getElementById('p1-sc-overlay'); if(ov) ov.classList.remove('show');
   const ssl=document.getElementById('ssl'); if(ssl) ssl.classList.remove('on');
-  const wait=document.getElementById('p1-wait'); if(wait) wait.classList.remove('hidden');
+  const wait=document.getElementById('p1-wait');
+  // Lesson changes should only show standby on the actual projector output.
+  // Keep /admin, /mobile, and the audience hub on their current interface.
+  if(wait){
+    if(isProjector) wait.classList.remove('hidden');
+    else wait.classList.add('hidden');
+  }
   const p1s=document.getElementById('p1-status'); if(p1s){p1s.textContent='Standby';p1s.classList.remove('live');}
   const pws=document.querySelector('.pw-sb'); if(pws && window.LESSON_DATA){pws.textContent=`${window.LESSON_DATA.label} · ${window.LESSON_DATA.title} · Main Projector`;}
   const spws=document.querySelector('.sp-ws'); if(spws && window.LESSON_DATA){spws.textContent=`${window.LESSON_DATA.label} · ${window.LESSON_DATA.text} · RVR 1960 / KJV`;}

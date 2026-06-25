@@ -1,3 +1,9 @@
+
+## v40 Mobile Lesson Select Fix
+- Fixed lesson selection showing the projector standby screen on mobile/admin/audience routes.
+- Lesson changes still reset projector outputs to standby.
+- No slide, Supabase, poll, question, or visual behavior changes.
+
 ## v32 Poll/Attendee Supabase Compatibility
 - Made poll save API independent of `on_conflict` so older Supabase tables work.
 - Made poll archive API use `select=*` and safer ordering.
