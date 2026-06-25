@@ -295,3 +295,7 @@ Optional check endpoint:
 ```txt
 /api/attendees-list?series_slug=the-ministry&lesson_slug=lesson-1
 ```
+
+
+## v32 Supabase patch
+If polls or attendees do not save, run `supabase/v32-poll-attendee-patch.sql` in Supabase SQL Editor, redeploy Vercel, then test one poll and one attendee check-in.

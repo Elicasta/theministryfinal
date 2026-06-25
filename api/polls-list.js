@@ -2,6 +2,14 @@ function clean(value, max = 2000) {
   return String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
 }
 
+async function supaGet(SB_URL, SB_KEY, path) {
+  const r = await fetch(`${SB_URL}/rest/v1/${path}`, { headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` } });
+  const text = await r.text().catch(() => '');
+  let json = null;
+  try { json = text ? JSON.parse(text) : null; } catch(e) {}
+  return { ok: r.ok, status: r.status, text, json };
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -14,30 +22,27 @@ export default async function handler(req, res) {
   const status = clean(req.query.status || '', 80);
 
   const p = new URLSearchParams();
-  p.set('select', 'id,poll_id,series_slug,lesson_slug,question,poll_type,options,save_anonymous,status,created_at,updated_at,archived_at');
+  p.set('select', '*');
   p.set('series_slug', `eq.${series}`);
   p.set('lesson_slug', `eq.${lesson}`);
-  p.set('order', 'updated_at.desc');
+  p.set('order', 'created_at.desc');
   p.set('limit', '100');
   if (status) p.set('status', `eq.${status}`);
 
   try {
-    const pollsReq = await fetch(`${SB_URL}/rest/v1/lesson_polls?${p.toString()}`, {
-      headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` }
-    });
-    if (!pollsReq.ok) return res.status(500).json({ error: 'Poll fetch failed', details: await pollsReq.text().catch(() => '') });
-    const polls = await pollsReq.json();
-    const ids = polls.map(x => x.poll_id).filter(Boolean);
+    const pollsReq = await supaGet(SB_URL, SB_KEY, `lesson_polls?${p.toString()}`);
+    if (!pollsReq.ok) return res.status(500).json({ error: 'Poll fetch failed', details: pollsReq.text });
+    const polls = Array.isArray(pollsReq.json) ? pollsReq.json : [];
+    const ids = [...new Set(polls.map(x => x.poll_id).filter(Boolean))];
     let votes = [];
     if (ids.length) {
       const vp = new URLSearchParams();
-      vp.set('select', 'id,poll_id,answer,anonymous,display_name,client_vote_id,created_at');
-      vp.set('poll_id', `in.(${ids.map(x => `"${String(x).replace(/"/g,'\\"')}"`).join(',')})`);
+      vp.set('select', '*');
+      vp.set('poll_id', `in.(${ids.map(x => '"' + String(x).replace(/"/g,'\\"') + '"').join(',')})`);
       vp.set('limit', '2000');
-      const votesReq = await fetch(`${SB_URL}/rest/v1/lesson_poll_votes?${vp.toString()}`, {
-        headers: { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` }
-      });
-      if (votesReq.ok) votes = await votesReq.json();
+      const votesReq = await supaGet(SB_URL, SB_KEY, `lesson_poll_votes?${vp.toString()}`);
+      if (!votesReq.ok) return res.status(500).json({ error: 'Vote fetch failed', details: votesReq.text, polls_count: polls.length });
+      votes = Array.isArray(votesReq.json) ? votesReq.json : [];
     }
     return res.status(200).json({ ok: true, polls, votes });
   } catch (e) {

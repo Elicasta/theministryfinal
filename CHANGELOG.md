@@ -1,3 +1,9 @@
+## v32 Poll/Attendee Supabase Compatibility
+- Made poll save API independent of `on_conflict` so older Supabase tables work.
+- Made poll archive API use `select=*` and safer ordering.
+- Added `supabase/v32-poll-attendee-patch.sql` for existing projects.
+- Preserved admin tabs, audience lock, and presentation behavior.
+
 
 ## v28 User Interaction Lock + Admin Questions Panel
 - Locked audience slave mode so left/right screen taps no longer advance or reverse slides.
