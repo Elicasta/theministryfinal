@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -3636,7 +3636,7 @@ function renderQuestionsMini(){
     <div class="poll-sub" id="poll-sub">Choose one answer. Your response can be saved anonymously.</div>
     <div class="poll-options" id="poll-options"></div>
     <div class="poll-actions">
-      <label class="poll-save-anon"><input id="poll-anon" type="checkbox" checked /> Save my answer anonymously</label>
+      <label class="poll-save-anon"><input id="poll-anon" type="checkbox" /> Save my answer anonymously</label>
       <div style="display:flex;gap:8px;align-items:center"><button class="poll-close" onclick="hidePollForUserOnly()">Close</button><button class="poll-submit" id="poll-submit" onclick="submitPollVote()" disabled>Submit</button></div>
     </div>
     <div class="poll-thanks" id="poll-thanks">Saved anonymously.</div>
@@ -3691,7 +3691,7 @@ function renderQuestionsMini(){
       type:poll.type||'choice',
       options:poll.options||[],
       responses,
-      savedAnonymous:true,
+      savedAnonymous:false,
       reason,
       updatedAt:new Date().toISOString()
     };

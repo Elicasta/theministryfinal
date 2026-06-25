@@ -135,3 +135,8 @@ Use this version if v18 gets stuck after the Start slide.
 - Added live poll results into the Polls tab, not only the right sidebar.
 - Kept answered poll archive inside the Polls tab.
 - No route, sync, projector, scripture, confidence, or audience behavior changes.
+
+## v36 Anonymous Default Off
+- Changed audience poll anonymous-save checkbox to be off by default.
+- No other behavior changed.
+
