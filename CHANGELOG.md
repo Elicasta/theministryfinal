@@ -14,3 +14,10 @@
 ## Notes
 
 This cleanup intentionally does not add login, database editing, markdown loading, or a drag-and-drop lesson builder. Those should come later after the static live presentation system stays stable.
+
+## v18 Sync Snappiness Patch
+- Restored local-first sync behavior for fast controller taps.
+- Added a bundled `deck_state` message so slide + scripture sync can travel as one command.
+- Added message IDs and de-dupe protection to prevent repeated/echoed commands.
+- Added localStorage pulse fallback for same-browser outputs.
+- Kept Supabase network sync as fire-and-forget so the phone controller does not wait on REST latency.

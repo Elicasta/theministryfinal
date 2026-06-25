@@ -1245,10 +1245,13 @@ const PASSWORDS = Object.freeze({ attendee: 'ministry2026', admin: 'ministryadmi
 const PW_ATTENDEE = PASSWORDS.attendee;
 const PW_ADMIN    = PASSWORDS.admin;
 const CHANNEL_ID  = 'the-ministry-2026';
+const SYNC_SOURCE_ID = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+const SYNC_SEEN = new Set();
+let SYNC_SEQ = 0;
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -1710,9 +1713,9 @@ function goTo(i){
   }
   // Admin/controller is the only source of truth. Projectors never echo commands back.
   if(isAdmin && !_suppressSync){
+    // Send one bundled state packet for snappier phone control.
     // Projector 1 moves slides. Projector 2 follows the current scripture when Auto P2 is on.
-    broadcastSlide(i);
-    if(scAuto) broadcastScripture(i);
+    broadcastDeckState(i);
   }
   updateCtrlSurface(i);
   updateMobileMode(i);
@@ -1898,7 +1901,30 @@ function flashP2(msg){
 // Shared by BroadcastChannel (same device) and Supabase Realtime (cross-device, cross-network)
 function handleMessage(msg){
   if(!msg||!msg.type) return;
+  if(msg.id){
+    if(SYNC_SEEN.has(msg.id)) return;
+    SYNC_SEEN.add(msg.id);
+    if(SYNC_SEEN.size>250){
+      const first=SYNC_SEEN.values().next().value;
+      SYNC_SEEN.delete(first);
+    }
+  }
   if(isProjector){
+    if(msg.type==='deck_state'){
+      presentationStarted=true;
+      document.getElementById('p1-wait').classList.add('hidden');
+      const ssl=document.getElementById('ssl');
+      if(!ssl.classList.contains('on')){
+        ssl.classList.add('on');
+        buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+        renderDots(LESSON1_SLIDES.length);
+      }
+      document.getElementById('p1-status').textContent='Live';
+      document.getElementById('p1-status').classList.add('live');
+      _suppressSync=true;
+      goTo(msg.slide||0);
+      _suppressSync=false;
+    }
     if(msg.type==='slide'){
       presentationStarted=true;
       document.getElementById('p1-wait').classList.add('hidden');
@@ -1924,17 +1950,24 @@ function handleMessage(msg){
     }
   }
   if(isScriptureDisplay){
-    if(msg.type==='scripture') showP2(msg.scripture);
+    if(msg.type==='deck_state' && msg.scripture) showP2(msg.scripture);
+    else if(msg.type==='scripture') showP2(msg.scripture);
     else if(msg.type==='scripture_clear') clearP2Display();
     const s=document.getElementById('sp-wait-status');
     if(s){s.textContent='Live';s.classList.add('live');}
   }
   if(isObsLower||isObsFull){
+    if(msg.type==='deck_state') showOBSSlide(msg.slide||0);
     if(msg.type==='slide') showOBSSlide(msg.slide);
     if(msg.type==='scripture' && isObsFull) showOBS(msg.scripture);
     if(msg.type==='scripture_clear' && isObsFull) clearOBS();
   }
   if(isConfidence){
+    if(msg.type==='deck_state'){
+      updateConfidence(msg.slide||0);
+      if(msg.scripture) updateConfidenceScripture(msg.scripture);
+      else clearConfidenceScripture();
+    }
     if(msg.type==='slide') updateConfidence(msg.slide);
     if(msg.type==='scripture') updateConfidenceScripture(msg.scripture);
     if(msg.type==='p1_overlay_show') updateConfidenceScripture({ref_en:msg.ref,kjv:msg.kjv});
@@ -1961,6 +1994,13 @@ function initBC(){
   try{
     bc=new BroadcastChannel(CHANNEL_ID);
     bc.onmessage=(e)=>handleMessage(e.data);
+  }catch(e){}
+  try{
+    window.addEventListener('storage',e=>{
+      if(e.key==='tm_sync_pulse' && e.newValue){
+        try{handleMessage(JSON.parse(e.newValue));}catch(err){}
+      }
+    });
   }catch(e){}
   if(window.SB_URL && window.SB_KEY){
     initRealtimeSync();
@@ -1994,11 +2034,22 @@ function initRealtimeSync(){
 }
 
 // ── SEND: BroadcastChannel (instant, local) + Supabase (network) ──
+function prepareSyncMessage(msg){
+  if(!msg.id) msg.id = `${SYNC_SOURCE_ID}-${++SYNC_SEQ}`;
+  msg.source = msg.source || SYNC_SOURCE_ID;
+  msg.sent_at = msg.sent_at || Date.now();
+  return msg;
+}
 async function sbSend(msg){
+  msg = prepareSyncMessage(msg);
+  // Local-first path: keep ProPresenter/Chrome outputs instant.
   try{if(!bc)bc=new BroadcastChannel(CHANNEL_ID);bc.postMessage(msg);}catch(e){}
+  try{localStorage.setItem('tm_sync_pulse', JSON.stringify(msg));}catch(e){}
+
+  // Network path: fire-and-forget so phone taps never wait on Supabase/REST latency.
   if(!window.SB_URL||!window.SB_KEY) return;
   try{
-    await fetch(window.SB_URL+'/rest/v1/sync_state',{
+    fetch(window.SB_URL+'/rest/v1/sync_state',{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -2006,9 +2057,14 @@ async function sbSend(msg){
         'Authorization':'Bearer '+window.SB_KEY,
         'Prefer':'resolution=merge-duplicates,return=minimal'
       },
-      body:JSON.stringify({id:1,payload:JSON.stringify(msg),updated_at:new Date().toISOString()})
-    });
+      body:JSON.stringify({id:1,payload:JSON.stringify(msg),updated_at:new Date().toISOString()}),
+      keepalive:true
+    }).catch(()=>{});
   }catch(e){}
+}
+function broadcastDeckState(i){
+  const sc = scAuto ? SCRIPTURE_MAP[i] : null;
+  sbSend({type:'deck_state',slide:i,scripture:sc||null});
 }
 function broadcastSlide(i){
   sbSend({type:'slide',slide:i});

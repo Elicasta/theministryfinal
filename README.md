@@ -145,3 +145,14 @@ Before a live session, test:
 If a bug affects the engine, patch the master template first. Then copy the patched engine section into active series folders.
 
 If a change is only series content, edit only that series folder.
+
+
+## Sync behavior
+
+The controller sends commands local-first for speed:
+
+1. BroadcastChannel for same-browser/same-machine outputs.
+2. localStorage pulse fallback for same-origin browser windows.
+3. Supabase REST/Realtimesync when `window.SB_KEY` is configured.
+
+Slide changes now send one bundled `deck_state` packet so the main projector and scripture screen stay together without extra network chatter.
