@@ -357,3 +357,7 @@ Use the permanent routes for live screens:
 - `/admin`
 
 Choose Lesson 1 or Lesson 2 from `/admin`. The selected lesson is broadcast to all open outputs. Query params such as `?lesson=lesson-2` remain available for testing, but are no longer required for normal live use.
+
+
+### v42 note
+Lesson 2 verse bank entries are split verse-by-verse for cleaner mobile control.

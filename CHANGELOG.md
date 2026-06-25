@@ -1,4 +1,14 @@
 
+## v42 Individual Lesson 2 Verse Bank
+- Split Lesson 2 mobile/admin verse bank into individual Matthew 10:11, 10:12, 10:13, 10:14, 10:15, and 10:16 entries.
+- Preserved grouped scripture slide rendering and all sync/projector behavior.
+
+# v41 Home Lesson Highlight Fix
+- Home/landing screen now highlights the selected active lesson instead of always highlighting Lesson 1.
+- Hub current lesson card now follows the selected lesson.
+- Lesson selection behavior, slide sync, Supabase, polls, and questions were not changed.
+
+
 ## v40 Mobile Lesson Select Fix
 - Fixed lesson selection showing the projector standby screen on mobile/admin/audience routes.
 - Lesson changes still reset projector outputs to standby.
