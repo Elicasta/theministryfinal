@@ -17,6 +17,12 @@ create table if not exists public.attendees (
 create index if not exists attendees_email_idx on public.attendees(email);
 create index if not exists attendees_checked_in_at_idx on public.attendees(checked_in_at desc);
 
+alter table public.attendees add column if not exists source text default 'session_access';
+alter table public.attendees add column if not exists series_slug text default 'the-ministry';
+alter table public.attendees add column if not exists lesson_slug text default 'lesson-1';
+create index if not exists attendees_series_lesson_idx on public.attendees(series_slug, lesson_slug, created_at desc);
+
+
 -- 02. Reflection / workbook responses
 create table if not exists public.responses (
   id uuid primary key default gen_random_uuid(),

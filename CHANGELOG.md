@@ -101,3 +101,10 @@ Use this version if v18 gets stuck after the Start slide.
 - Wired poll votes to `/api/poll-vote-submit`.
 - Added question update API for marking questions answered/hidden/new.
 - Expanded `supabase/schema.sql` with event-mode RLS policies and poll/question tables.
+
+## v31 Admin tabs + attendee check-in fix
+- Moved live questions into an admin tab next to Polls instead of relying on separate raw dashboard pages.
+- Added answered poll results directly inside the Polls admin tab.
+- Kept /questions and /polls routes as optional utility pages, but admin workflow now stays inside /admin.
+- Fixed attendee check-in saving by allowing name-only session access records in api/waitlist.js.
+- Added attendee source/series/lesson fields to Supabase schema and added api/attendees-list.js for checking saved attendees.

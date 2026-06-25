@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -4260,6 +4260,204 @@ body.audience-slave .poll-screen *{
     }
   });
   setTimeout(()=>{ if(location.pathname!=='/questions'&&location.pathname!=='/polls'){window.refreshQuestionsNow();renderAnsweredPollsPanel();} },1200);
+})();
+</script>
+
+
+
+<!-- =========================================================
+     v31 Admin Integrated Questions/Polls + Attendee Check-in
+     - Adds Questions as an admin tab next to Polls.
+     - Moves answered poll results into the Polls tab.
+     - Saves attendee check-ins when users enter the session.
+========================================================= -->
+<style>
+/* v31: integrated admin data panels */
+#tab-questions .admin-q-toolbar,
+#tab-polls .admin-poll-archive-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 16px;border-bottom:1px solid var(--ln);
+  font-family:var(--fc);text-transform:uppercase;letter-spacing:.18em;font-size:.68rem;font-weight:800;color:var(--mu);
+}
+#tab-questions .admin-q-toolbar b,
+#tab-polls .admin-poll-archive-toolbar b{color:var(--red);font-size:.72rem;letter-spacing:.22em;}
+.admin-inline-btn{border:1px solid rgba(232,24,13,.45);background:rgba(232,24,13,.08);color:var(--red);font-family:var(--fc);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.58rem;padding:8px 10px;cursor:pointer;}
+.admin-inline-btn:hover{background:rgba(232,24,13,.16);}
+.admin-q-list,.admin-poll-archive-list{padding:12px 16px 24px;display:grid;gap:10px;max-height:calc(100vh - 310px);overflow:auto;}
+.admin-q-card,.admin-poll-card{border:1px solid var(--ln);background:rgba(255,255,255,.025);padding:12px;display:grid;gap:8px;}
+.admin-q-meta,.admin-poll-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-family:var(--fc);font-size:.55rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);}
+.admin-q-meta .is-new,.admin-poll-meta .is-live{color:var(--red);}
+.admin-q-text,.admin-poll-text{font-size:.95rem;line-height:1.35;color:var(--w);}
+.admin-q-actions{display:flex;gap:6px;flex-wrap:wrap;}
+.admin-q-actions button{border:1px solid var(--ln);background:#101010;color:var(--mu);font-family:var(--fc);font-size:.52rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 8px;cursor:pointer;}
+.admin-q-actions button:hover{color:var(--w);border-color:rgba(232,24,13,.5);}
+.admin-empty{border:1px dashed var(--ln);padding:18px;color:var(--mu);font-size:.85rem;}
+.admin-poll-rows{display:grid;gap:7px;margin-top:2px;}
+.admin-poll-row{display:grid;grid-template-columns:minmax(80px,1fr) 2fr 72px;gap:8px;align-items:center;color:var(--mu);font-size:.75rem;}
+.admin-poll-bar{height:7px;background:rgba(255,255,255,.08);overflow:hidden;}
+.admin-poll-fill{height:100%;background:var(--red);}
+#admin-answered-polls{display:none!important;}
+@media (max-width: 760px){.admin-q-list,.admin-poll-archive-list{max-height:60vh}.admin-poll-row{grid-template-columns:1fr;gap:4px}}
+</style>
+<script>
+(function(){
+  const SERIES_SLUG_V31='the-ministry';
+  const LESSON_SLUG_V31='lesson-1';
+  const escV31=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const getJsonV31=async(url,opts)=>{const r=await fetch(url,opts); if(!r.ok) throw new Error(await r.text().catch(()=>r.statusText)); return await r.json();};
+
+  function normalizeQuestionV31(row){
+    return {
+      id:row.question_id||row.id||('q_'+Date.now()),
+      dbId:row.id||row.dbId||row.question_id,
+      name:row.name||'Anonymous',
+      text:row.text||row.question||'',
+      status:row.status||'new',
+      ts:row.created_at||row.updated_at||row.ts||new Date().toISOString()
+    };
+  }
+  function getQuestionStoreV31(){
+    try{return Array.isArray(window.questions)?window.questions:(window.questions=[]);}catch(e){window.questions=[];return window.questions;}
+  }
+  function mergeQuestionsV31(rows){
+    const store=getQuestionStoreV31();
+    const map=new Map(store.map(q=>[String(q.dbId||q.id),q]));
+    (rows||[]).map(normalizeQuestionV31).forEach(q=>map.set(String(q.dbId||q.id),q));
+    const all=Array.from(map.values()).sort((a,b)=>new Date(b.ts||0)-new Date(a.ts||0));
+    window.questions=all;
+    try{localStorage.setItem('tm_questions',JSON.stringify(all.slice(0,120)));}catch(e){}
+    return all;
+  }
+  async function fetchQuestionsV31(){
+    try{
+      const data=await getJsonV31(`/api/questions-list?series_slug=${SERIES_SLUG_V31}&lesson_slug=${LESSON_SLUG_V31}`);
+      return mergeQuestionsV31(data.questions||[]);
+    }catch(e){
+      console.warn('v31 question fetch failed',e);
+      try{return mergeQuestionsV31(JSON.parse(localStorage.getItem('tm_questions')||'[]'));}catch(_){return getQuestionStoreV31();}
+    }
+  }
+  async function updateQuestionV31(id,status){
+    try{await getJsonV31('/api/question-update',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,status})});}catch(e){console.warn('v31 question update failed',e);}
+    getQuestionStoreV31().forEach(q=>{if(String(q.dbId||q.id)===String(id)) q.status=status;});
+    renderQuestionsTabV31(false);
+    if(window.renderQuestionsMini) window.renderQuestionsMini();
+  }
+  window.updateQuestionV31=updateQuestionV31;
+
+  function questionCardV31(q){
+    const status=String(q.status||'new');
+    return `<div class="admin-q-card">
+      <div class="admin-q-meta"><span>${escV31(q.name||'Anonymous')}</span><span class="${status==='new'?'is-new':''}">${escV31(status)}</span><span>${escV31(new Date(q.ts||Date.now()).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'}))}</span></div>
+      <div class="admin-q-text">${escV31(q.text)}</div>
+      <div class="admin-q-actions">
+        <button onclick="updateQuestionV31('${escV31(q.dbId||q.id)}','answered')">Answered</button>
+        <button onclick="updateQuestionV31('${escV31(q.dbId||q.id)}','hidden')">Hide</button>
+        <button onclick="updateQuestionV31('${escV31(q.dbId||q.id)}','new')">New</button>
+      </div>
+    </div>`;
+  }
+  async function renderQuestionsTabV31(fetchFirst=true){
+    const list=document.getElementById('admin-questions-tab-list');
+    const count=document.getElementById('admin-questions-tab-count');
+    if(!list) return;
+    if(fetchFirst) list.innerHTML='<div class="admin-empty">Loading questions...</div>';
+    const all=fetchFirst?await fetchQuestionsV31():getQuestionStoreV31();
+    const sorted=[...all].sort((a,b)=>new Date(b.ts||0)-new Date(a.ts||0));
+    const newCount=sorted.filter(q=>(q.status||'new')==='new').length;
+    if(count) count.textContent=`${newCount} new / ${sorted.length} total`;
+    list.innerHTML=sorted.length?sorted.map(questionCardV31).join(''):'<div class="admin-empty">No questions yet.</div>';
+  }
+  window.renderQuestionsTabV31=renderQuestionsTabV31;
+
+  function normalizePollV31(row){
+    let opts=row.options||[];
+    if(typeof opts==='string'){try{opts=JSON.parse(opts)}catch(e){opts=opts.split(',').map(x=>x.trim()).filter(Boolean)}}
+    return {id:row.poll_id||row.id, question:row.question||'Poll', options:Array.isArray(opts)?opts:[], status:row.status||'closed', updatedAt:row.updated_at||row.created_at||new Date().toISOString()};
+  }
+  function groupVotesV31(votes){
+    const out={};
+    (votes||[]).forEach(v=>{const id=v.poll_id||v.pollId;if(id)(out[id]=out[id]||[]).push(v);});
+    return out;
+  }
+  function pollRowsV31(p,votes){
+    const total=(votes||[]).length;
+    const tally={};(p.options||[]).forEach(o=>tally[String(o).trim()]=0);
+    (votes||[]).forEach(v=>{const k=String(v.answer||'').trim();tally[k]=(tally[k]||0)+1;});
+    return `<div class="admin-poll-rows">${(p.options||[]).map(o=>{const k=String(o).trim(),n=tally[k]||0,pct=total?Math.round(n/total*100):0;return `<div class="admin-poll-row"><div>${escV31(k)}</div><div class="admin-poll-bar"><div class="admin-poll-fill" style="width:${pct}%"></div></div><div>${pct}% (${n})</div></div>`}).join('')}</div><div class="admin-q-meta" style="margin-top:8px"><span>${total} answer${total===1?'':'s'}</span></div>`;
+  }
+  async function renderPollArchiveInTabV31(){
+    const box=document.getElementById('admin-polls-tab-archive');
+    const count=document.getElementById('admin-polls-tab-count');
+    if(!box) return;
+    box.innerHTML='<div class="admin-empty">Loading answered polls...</div>';
+    try{
+      const data=await getJsonV31(`/api/polls-list?series_slug=${SERIES_SLUG_V31}&lesson_slug=${LESSON_SLUG_V31}`);
+      const votes=groupVotesV31(data.votes||[]);
+      const polls=(data.polls||[]).map(normalizePollV31).filter(p=>p.status!=='live');
+      if(count) count.textContent=`${polls.length} saved`;
+      box.innerHTML=polls.length?polls.map(p=>`<div class="admin-poll-card"><div class="admin-poll-meta"><span>${escV31(p.status)}</span><span>${escV31(new Date(p.updatedAt).toLocaleString())}</span></div><div class="admin-poll-text">${escV31(p.question)}</div>${pollRowsV31(p,votes[p.id]||[])}</div>`).join(''):'<div class="admin-empty">No answered polls yet. Launch and kill/replace a poll to archive it here.</div>';
+    }catch(e){
+      box.innerHTML='<div class="admin-empty">Could not load poll archive. Check Supabase env vars and API logs.</div>';
+      console.warn('v31 poll archive failed',e);
+    }
+  }
+  window.renderPollArchiveInTabV31=renderPollArchiveInTabV31;
+
+  function installAdminTabsV31(){
+    const tabs=document.querySelector('#admin-hub .ctrl-tabs');
+    const polls=document.getElementById('tab-polls');
+    if(!tabs||!polls||document.getElementById('tab-questions')) return;
+    const qBtn=document.createElement('button');
+    qBtn.className='ctrl-tab'; qBtn.textContent='Questions'; qBtn.onclick=function(){switchTab('questions',this); renderQuestionsTabV31(true);};
+    tabs.appendChild(qBtn);
+    const panel=document.createElement('div');
+    panel.className='ctrl-panel'; panel.id='tab-questions';
+    panel.innerHTML=`<div class="admin-q-toolbar"><b>Live Questions</b><span id="admin-questions-tab-count">0 new / 0 total</span><button class="admin-inline-btn" onclick="renderQuestionsTabV31(true)">Refresh</button></div><div class="admin-q-list" id="admin-questions-tab-list"><div class="admin-empty">No questions yet.</div></div>`;
+    polls.parentNode.insertBefore(panel,polls.nextSibling);
+    if(!document.getElementById('admin-polls-tab-archive')){
+      const archive=document.createElement('div');
+      archive.innerHTML=`<div class="admin-poll-archive-toolbar"><b>Answered Polls</b><span id="admin-polls-tab-count">0 saved</span><button class="admin-inline-btn" onclick="renderPollArchiveInTabV31()">Refresh</button></div><div class="admin-poll-archive-list" id="admin-polls-tab-archive"><div class="admin-empty">No answered polls yet.</div></div>`;
+      polls.appendChild(archive);
+    }
+  }
+  const oldSwitchTabV31=window.switchTab;
+  window.switchTab=function(name,btn){
+    const r=oldSwitchTabV31?oldSwitchTabV31(name,btn):undefined;
+    if(name==='questions') setTimeout(()=>renderQuestionsTabV31(true),0);
+    if(name==='polls') setTimeout(()=>renderPollArchiveInTabV31(),0);
+    return r;
+  };
+  const oldBuildCtrlSurfaceV31=window.buildCtrlSurface;
+  if(oldBuildCtrlSurfaceV31){window.buildCtrlSurface=function(){const r=oldBuildCtrlSurfaceV31.apply(this,arguments);setTimeout(()=>{installAdminTabsV31(); renderPollArchiveInTabV31(); renderQuestionsTabV31(false);},0);return r;};}
+  const oldShowAdminHubV31=window.showAdminHub;
+  if(oldShowAdminHubV31){window.showAdminHub=function(){const r=oldShowAdminHubV31.apply(this,arguments);setTimeout(()=>{installAdminTabsV31(); renderQuestionsTabV31(true); renderPollArchiveInTabV31();},200);return r;};}
+
+  async function registerAttendeeV31(name){
+    const clean=(name||localStorage.getItem('tm_name')||'Anonymous').trim()||'Anonymous';
+    const key='tm_attendee_saved_'+clean.toLowerCase().replace(/\W+/g,'_');
+    if(localStorage.getItem(key)) return;
+    try{
+      await getJsonV31('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:clean,source:'session_access',series_slug:SERIES_SLUG_V31,lesson_slug:LESSON_SLUG_V31})});
+      localStorage.setItem(key,new Date().toISOString());
+    }catch(e){console.warn('v31 attendee save failed',e);}
+  }
+  const oldCheckPwV31=window.checkPw;
+  window.checkPw=function(){
+    const pw=(document.getElementById('mo-pw')||{}).value;
+    const name=((document.getElementById('mo-name')||{}).value||'').trim();
+    if(pw===window.PW_ATTENDEE || pw==='ministry2026') setTimeout(()=>registerAttendeeV31(name),0);
+    return oldCheckPwV31?oldCheckPwV31.apply(this,arguments):undefined;
+  };
+
+  const oldHandleV31=window.handleMessage;
+  window.handleMessage=function(msg){
+    const r=oldHandleV31?oldHandleV31(msg):undefined;
+    if(msg&&msg.type==='question_submit') setTimeout(()=>{mergeQuestionsV31([msg.question]); renderQuestionsTabV31(false);},0);
+    if(msg&&(msg.type==='poll_open'||msg.type==='poll_close'||msg.type==='poll_vote')) setTimeout(renderPollArchiveInTabV31,400);
+    return r;
+  };
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{installAdminTabsV31(); fetchQuestionsV31().then(()=>renderQuestionsTabV31(false)); renderPollArchiveInTabV31();},800));
 })();
 </script>
 

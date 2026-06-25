@@ -277,3 +277,21 @@ Admin live data pages:
 If questions save in Supabase but do not show in `/admin`, check `/api/questions-list` in Vercel logs.
 
 Polls were previously frontend-only. v30 wires poll save and poll vote APIs so `lesson_polls` and `lesson_poll_votes` can fill.
+
+### v31 Admin data notes
+
+Questions now appear inside `/admin` as a **Questions** tab next to Slides, Verse Bank, and Polls. Answered poll results now appear inside the **Polls** tab.
+
+Attendees save when a user enters the session password. This uses `/api/waitlist` and can save a name-only check-in without requiring an email address.
+
+Run `supabase/schema.sql` again after this update so `attendees` has these optional tracking fields:
+
+- `source`
+- `series_slug`
+- `lesson_slug`
+
+Optional check endpoint:
+
+```txt
+/api/attendees-list?series_slug=the-ministry&lesson_slug=lesson-1
+```
