@@ -1,11 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" name="viewport"/>
 <title>The Ministry — Matthew 10 Series</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow+Condensed:wght@400;600;700;800;900&amp;family=Barlow:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
 <style>
+/* =========================================================
+   THE MINISTRY MASTER TEMPLATE
+   Editable theme variables live in :root below.
+   Behavior was preserved from the stable working GitHub build.
+========================================================= */
+
+/* =========================================================
+   01. Core layout, public hub, projector, admin, mobile, and base output styles
+   Preserved from the stable working build. Keep order.
+========================================================= */
 :root {
   --bg:#0A0A0A; --bgd:#111; --bgc:#1A1A1A; --bgcc:#1E1E1E;
   --w:#F1EDE4; --mu:#666; --ln:#202020;
@@ -593,10 +604,11 @@ body.obs-mode:hover .obs-tools{opacity:1!important;pointer-events:auto!important
 /* Remove faint filler labels from active scripture views */
 #obs-summary:empty{display:none!important;}
 
-</style>
 
-
-<style id="v10-cover-and-projector-stability">
+/* =========================================================
+   02. v10-cover-and-projector-stability
+   Preserved from the stable working build. Keep order.
+========================================================= */
 /* v10: clean projector cover pass. Keep teaching slides unchanged. */
 body.projector-mode .sl-cover{
   padding:0!important;
@@ -687,11 +699,12 @@ body.projector-mode #ssl.on #ss-slides,
 body.projector-mode #ssl.on .slide.on{
   visibility:visible!important;
 }
-</style>
 
 
-
-<style id="v11-start-mobile-cleanup">
+/* =========================================================
+   03. v11-start-mobile-cleanup
+   Preserved from the stable working build. Keep order.
+========================================================= */
 /* v11: loading screen is the true standby state. Cover slide starts only when admin starts. */
 body.projector-mode .p1-wait{
   display:flex!important;
@@ -782,10 +795,12 @@ body.projector-mode .projector-wait-qr{display:none!important;}
   .mobile-mode-screen .mm-actions{grid-template-columns:1fr 1fr!important;}
   .mobile-mode-screen .mm-verses{min-height:220px!important;}
 }
-</style>
 
 
-<style id="v12-standby-sync-mobile-fix">
+/* =========================================================
+   04. v12-standby-sync-mobile-fix
+   Preserved from the stable working build. Keep order.
+========================================================= */
 /* v12: make standby screens readable, themed, and stable in ProPresenter. */
 html,body{overscroll-behavior:none;}
 body.projector-mode .p1-wait,
@@ -913,22 +928,12 @@ html,body,.mobile-mode-screen,#admin-hub{touch-action:manipulation;}
   .mobile-mode-screen .mm-actions{grid-template-columns:1fr 1fr!important;}
   .mobile-mode-screen .mm-verses{flex:1 1 auto!important;min-height:180px!important;}
 }
-</style>
-<script id="v12-mobile-zoom-lock">
-(function(){
-  document.addEventListener('gesturestart',function(e){e.preventDefault();},{passive:false});
-  document.addEventListener('gesturechange',function(e){e.preventDefault();},{passive:false});
-  let lastTouchEnd=0;
-  document.addEventListener('touchend',function(e){
-    const now=Date.now();
-    if(now-lastTouchEnd<=300){e.preventDefault();}
-    lastTouchEnd=now;
-  },{passive:false});
-})();
-</script>
 
 
-<style id="v13-teaching-obs-cleanup">
+/* =========================================================
+   05. v13-teaching-obs-cleanup
+   Preserved from the stable working build. Keep order.
+========================================================= */
 /* v13: teaching slides remove point numbers, center the content vertically while keeping the text left-aligned. */
 body.projector-mode .sl-te{
   justify-content:center!important;
@@ -1008,408 +1013,247 @@ body.obs-mode .obs-full.scripture .obs-summary{
   font-weight:400!important;
   color:rgba(241,237,228,.55)!important;
 }
+
+
+/* =========================================================
+   06. v16-confidence-monitor-cleanup
+   Preserved from the stable working build. Keep order.
+========================================================= */
+/* v16: confidence monitor is a presenter tool, not another projector. Keep it fitted. */
+body.confidence-mode,
+body.confidence-mode .confidence-screen{
+  width:100vw!important;
+  height:100vh!important;
+  max-width:100vw!important;
+  max-height:100vh!important;
+  overflow:hidden!important;
+}
+body.confidence-mode .confidence-screen{
+  grid-template-rows:68px minmax(0,1fr) 126px!important;
+}
+body.confidence-mode .conf-top{
+  height:68px!important;
+  padding:0 30px!important;
+  flex:0 0 auto!important;
+}
+body.confidence-mode .conf-main{
+  min-height:0!important;
+  height:100%!important;
+  overflow:hidden!important;
+  padding:20px 24px!important;
+  gap:22px!important;
+  grid-template-columns:minmax(0,1.45fr) minmax(390px,.75fr)!important;
+}
+body.confidence-mode .conf-side{
+  min-height:0!important;
+  height:100%!important;
+  overflow:hidden!important;
+  grid-template-rows:236px minmax(0,1fr)!important;
+  gap:18px!important;
+}
+body.confidence-mode .conf-card,
+body.confidence-mode .conf-current,
+body.confidence-mode .conf-next,
+body.confidence-mode .conf-timer{
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+body.confidence-mode .conf-current{
+  padding:32px 44px!important;
+  justify-content:center!important;
+}
+body.confidence-mode .conf-current.slide-current .conf-title{
+  font-family:var(--fd)!important;
+  font-style:normal!important;
+  text-transform:uppercase!important;
+  font-size:clamp(3.2rem,5.2vw,6.9rem)!important;
+  line-height:.88!important;
+  letter-spacing:-.015em!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:4!important;
+}
+body.confidence-mode .conf-current.scripture-active{
+  padding:30px 38px!important;
+  justify-content:center!important;
+}
+body.confidence-mode .conf-current.scripture-active .conf-title{
+  font-family:var(--fp)!important;
+  font-style:italic!important;
+  text-transform:none!important;
+  font-size:clamp(1.55rem,2.35vw,3.05rem)!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+  max-height:none!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:7!important;
+}
+body.confidence-mode .conf-current.scripture-active .conf-es{
+  display:block!important;
+  margin-top:14px!important;
+  padding-top:14px!important;
+  border-top:1px solid rgba(241,237,228,.16)!important;
+  font-family:var(--fp)!important;
+  font-style:italic!important;
+  font-size:clamp(.9rem,1.15vw,1.32rem)!important;
+  line-height:1.18!important;
+  color:rgba(241,237,228,.62)!important;
+  letter-spacing:0!important;
+}
+body.confidence-mode .conf-kicker{
+  flex:0 0 auto!important;
+  font-size:clamp(.62rem,.82vw,.9rem)!important;
+  margin-bottom:16px!important;
+}
+body.confidence-mode .conf-ref{
+  flex:0 0 auto!important;
+  font-size:clamp(.72rem,.9vw,1rem)!important;
+  margin-top:22px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+body.confidence-mode .conf-timer{
+  padding:20px 24px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+body.confidence-mode .conf-timer-value{
+  font-size:clamp(5.2rem,8vw,8.6rem)!important;
+}
+body.confidence-mode .conf-next{
+  padding:28px 34px!important;
+  justify-content:center!important;
+}
+body.confidence-mode .conf-next-title{
+  font-size:clamp(2rem,3.15vw,4.15rem)!important;
+  line-height:.92!important;
+  letter-spacing:-.01em!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:4!important;
+}
+body.confidence-mode .conf-next-title.next-scripture{
+  font-size:clamp(2.1rem,3vw,3.75rem)!important;
+}
+body.confidence-mode .conf-notes{
+  min-height:0!important;
+  height:126px!important;
+  overflow:hidden!important;
+  padding:16px 30px!important;
+}
+body.confidence-mode .conf-notes-text{
+  font-size:clamp(1.1rem,1.5vw,1.6rem)!important;
+  line-height:1.25!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical!important;
+  -webkit-line-clamp:2!important;
+}
 </style>
-</head>
-<body>
-
-<!-- LANDING -->
-<div id="sc" class="scr on">
-  <div class="sc-bg"></div><div class="sc-ov"></div>
-  <div class="sc-inner">
-    <div class="sc-ey">CALLED CLOSE. SENT FAR.</div>
-    <div class="sc-title"><span class="tt">THE</span><span class="tm">MINISTRY</span></div>
-    <div class="sc-sub">A Matthew Chapter 10 Series</div>
-    <div class="sc-tag">Ministry does not begin with a platform. It begins with a call.</div>
-    <div class="sc-series">
-      <div class="sc-si active">Lesson 1 &middot; June 18</div>
-      <div class="sc-si locked">Lesson 2 &middot; June 25</div>
-      <div class="sc-si locked">Lesson 3 &middot; July 2</div>
-      <div class="sc-si locked">Lesson 4 &middot; July 9</div>
-    </div>
-    <div class="sc-btns">
-      <button class="btn btn-red" onclick="showModal('attendee')">Enter Session</button>
-      <button class="btn btn-outline" onclick="showModal('admin')">Presenter</button>
-    </div>
-    <div class="sc-qr-wrap">
-      <div class="sc-qr-card"><img src="assets/qr-ministry.png" alt="The Ministry QR"><div class="sc-qr-label">Join Session</div><div class="sc-qr-url">theministry.vercel.app</div></div>
-      <div class="sc-qr-card"><img src="assets/qr-guide.png" alt="Apostolic Guide QR"><div class="sc-qr-label">Bible Study App</div><div class="sc-qr-url">apostolicguide.com</div></div>
-    </div>
-    <div class="sc-pass">Password: <span>ministry2026</span></div>
-  </div>
-  <button class="admin-dot" onclick="showModal('admin')">&#9679;&#9679;&#9679;</button>
-</div>
-
-<!-- MODAL -->
-<div id="modal" class="hidden">
-  <div class="mo-box">
-    <div class="mo-title">THE <span>MINISTRY</span></div>
-    <div class="mo-sub" id="mo-sub">Enter your name and the access code.</div>
-    <input class="mo-inp" id="mo-name" placeholder="Your name" type="text" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()">
-    <input class="mo-inp" id="mo-pw" placeholder="Access code" type="password" onkeydown="if(event.key==='Enter')checkPw()">
-    <div class="mo-err" id="mo-err">Incorrect code. Try again.</div>
-    <div class="mo-row">
-      <button class="btn btn-red" onclick="checkPw()" style="flex:1">Enter</button>
-      <button class="mo-cancel" onclick="closeModal()">Cancel</button>
-    </div>
-  </div>
-</div>
-
-<!-- HUB -->
-<div id="sh" class="scr">
-  <div class="hub-hdr">
-    <div class="hub-logo">THE <span>MINISTRY</span></div>
-    <div class="hub-nav">
-      <span id="user-chip"></span>
-      <button class="hub-nb" onclick="openSS()">Slides</button>
-      <button class="hub-nb" onclick="openQuestionnaire()">Reflect</button>
-      <button class="hub-nb" onclick="openAskDrawer()">Ask</button>
-      <button class="hub-nb" id="admin-btn" onclick="showModal('admin')">Admin</button>
-    </div>
-  </div>
-  <div class="hub-hero">
-    <div class="hub-hero-bg"></div><div class="hub-hero-ov"></div>
-    <div class="hub-hi">
-      <div class="hub-ey">Matthew 10 Series</div>
-      <div class="hub-title">THE <span>MINISTRY</span></div>
-      <div class="hub-sub">A Matthew Chapter 10 Series</div>
-      <div class="hub-ref">Called, authorized, sent, resisted, refined, and rewarded.</div>
-      <div class="hub-btns">
-        <button class="btn btn-red" onclick="openSS()">Open Slides &rarr;</button>
-        <button class="btn btn-outline" onclick="openQuestionnaire()">Reflect &rarr;</button>
-        <button class="btn btn-outline" onclick="openAskDrawer()">Ask a Question</button>
-      </div>
-    </div>
-  </div>
-  <div class="series-bar">
-    <div class="series-lbl">Series Progress &middot; Every Thursday</div>
-    <div class="series-row">
-      <div class="s-cell active" onclick="openSS()"><div class="cd">June 18</div><div><span class="cn">01 &middot;</span> The Price of Being Sent</div></div>
-      <div class="s-cell locked"><div class="cd">June 25</div><div><span class="cn">02 &middot;</span> The Instructions for the Work</div><span class="cl">&#128274;</span></div>
-      <div class="s-cell locked"><div class="cd">July 2</div><div><span class="cn">03 &middot;</span> How to Do Ministry</div><span class="cl">&#128274;</span></div>
-      <div class="s-cell locked"><div class="cd">July 9</div><div><span class="cn">04 &middot;</span> The Reward of the Work</div><span class="cl">&#128274;</span></div>
-    </div>
-  </div>
-  <div class="hub-body">
-    <div class="hub-lbl">Current Lesson</div>
-    <div class="lcard" onclick="openSS()">
-      <div><div class="lc-wk">Lesson 1 &middot; June 18, 2026</div><div class="lc-ti">The Price of Being Sent</div><div class="lc-rf">Matthew 10:1-10 &middot; 15 Slides</div></div>
-      <div style="display:flex;align-items:center;gap:12px"><div class="lc-bg live">Live</div><div style="color:var(--mu)">&rarr;</div></div>
-    </div>
-    <div style="margin-top:26px"><div class="hub-lbl">Reflection</div>
-      <div class="lcard" id="q-hub-card" onclick="openQuestionnaire()">
-        <div><div class="lc-wk">End of Lesson 1</div><div class="lc-ti">Personal Examination</div><div class="lc-rf">6 sections &middot; 17 questions</div></div>
-        <div id="q-hub-badge" style="display:flex;align-items:center;gap:12px"><div class="lc-bg" id="q-lock-badge">&#128274; Unlocks at close</div></div>
-      </div>
-    </div>
-    <div style="margin-top:26px"><div class="hub-lbl">Coming Soon</div>
-      <div class="lcard locked"><div><div class="lc-wk">June 25, 2026</div><div class="lc-ti">The Instructions for the Work</div><div class="lc-rf">Matthew 10:11-23</div></div><div class="lc-bg">Locked</div></div>
-      <div class="lcard locked"><div><div class="lc-wk">July 2, 2026</div><div class="lc-ti">How to Do Ministry</div><div class="lc-rf">Matthew 10:24-33 &middot; 1 &amp; 2 Timothy</div></div><div class="lc-bg">Locked</div></div>
-      <div class="lcard locked"><div><div class="lc-wk">July 9, 2026</div><div class="lc-ti">The Reward of the Work</div><div class="lc-rf">Matthew 10:34-42</div></div><div class="lc-bg">Locked</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- QUESTIONNAIRE -->
-<div id="questionnaire" class="scr locked">
-  <div class="q-hdr">
-    <div class="q-logo">THE <span>MINISTRY</span></div>
-    <button class="q-back" onclick="showHub()">&#8592; Back</button>
-  </div>
-  <!-- LOCKED STATE -->
-  <div id="q-locked-view" class="q-body">
-    <div class="q-lock-icon">&#128274;</div>
-    <div class="q-lock-title">Reflection Locked</div>
-    <div class="q-lock-sub">This section unlocks when the lesson is complete. Stay present with the teaching.</div>
-  </div>
-  <!-- OPEN STATE -->
-  <div id="q-open-view" class="q-body" style="display:none">
-    <div class="q-hero">
-      <div class="q-hero-ey">Lesson 1 &middot; End of Session</div>
-      <div class="q-hero-title">Personal Examination</div>
-      <div class="q-hero-sub">The Price of Being Sent &middot; Matthew 10:1-10</div>
-    </div>
-    <div id="q-sections"></div>
-    <div style="padding-bottom:60px;text-align:center;font-family:var(--fc);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)">
-      The Ministry &middot; Matthew 10 &middot; Elder Eli Castaneda
-    </div>
-  </div>
-</div>
-
-<!-- SLIDESHOW (P1) -->
-<div id="ssl" class="scr">
-  <div class="ss-hdr">
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="ss-lbl">THE <span>MINISTRY</span></div>
-      <div class="ss-count" id="ss-pt">1 / 15</div>
-    </div>
-    <div class="ss-hdr-r">
-      <button class="ss-cb" onclick="toggleFS()">&#9974;</button>
-      <button class="ss-cb" onclick="closeSlideshow()">&#8592; Hub</button>
-    </div>
-  </div>
-  <div class="ss-prog-bar"><div class="ss-prog" id="ss-prog"></div></div>
-  <div class="ss-stage" id="ss-stage" onclick="handleStageClick(event)">
-    <div class="ss-stage-bg"></div>
-    <div id="ss-slides"></div>
-    <!-- SCRIPTURE OVERLAY -->
-    <div id="p1-sc-overlay">
-      <div class="p1ov-mark"></div>
-      <div class="p1ov-ref" id="p1ov-ref">Matthew 10:1</div>
-      <div class="p1ov-text" id="p1ov-text"></div>
-      <div class="p1ov-corner"></div>
-    </div>
-  </div>
-  <div class="ss-nav">
-    <button class="ss-arr" onclick="prevSlide()">&#8592;</button>
-    <div class="ss-dots" id="ss-dots"></div>
-    <button class="ss-arr" onclick="nextSlide()">&#8594;</button>
-  </div>
-</div>
-
-<!-- P1 PROJECTOR CTRL BAR -->
-<div class="proj-ctrl-bar" id="proj-ctrl-bar">
-  <button class="pcb" onclick="prevSlide()">&#8592; Prev</button>
-  <button class="pcb" onclick="nextSlide()">Next &#8594;</button>
-  <span id="proj-info"></span>
-  <button class="pcb" onclick="projFS()">&#9974; FS</button>
-  <button class="pcb red" onclick="showHub()">&#8962; Hub</button>
-</div>
-
-<!-- P1 WAIT -->
-<div class="p1-wait hidden" id="p1-wait">
-  <div class="pw-mk"></div>
-  <div class="pw-ti">THE <span>MINISTRY</span></div>
-  <div class="pw-sb">A Matthew Chapter 10 Series &middot; Main Projector</div>
-  <div class="pw-st" id="p1-status">Waiting for presenter...</div>
-  <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img src="assets/qr-ministry.png" alt="Join session QR"><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img src="assets/qr-guide.png" alt="Bible study app QR"><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
-</div>
-
-<!-- PROJECTOR 2 — SCRIPTURE -->
-<div id="scripture-display">
-  <div class="sp-wait" id="sp-wait">
-    <div class="sp-wm"></div>
-    <div class="sp-wt">THE <span>MINISTRY</span></div>
-    <div class="sp-ws">Scriptures &middot; KJV / RVR 1960</div>
-    <div class="sp-live-dot" id="sp-live-dot"></div>
-    <div class="sp-wst" id="sp-wait-status">Waiting for presenter...</div>
-    <div class="projector-wait-qr"><div class="projector-wait-qr-card"><img src="assets/qr-ministry.png" alt="Join session QR"><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img src="assets/qr-guide.png" alt="Bible study app QR"><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
-  </div>
-  <div class="sp-content" id="sp-content" style="display:none">
-    <div class="sp-bg"></div><div class="sp-bg-ov"></div>
-    <div class="sp-inner">
-      <div class="sp-mk"></div>
-      <div class="sp-ref-en" id="sp-ref-en"></div>
-      <div class="sp-tx-en" id="sp-tx-en"></div>
-      <div class="sp-ref-es" id="sp-ref-es"></div>
-      <div class="sp-tx-es" id="sp-tx-es"></div>
-    </div>
-    <div class="sp-corner">The Ministry &middot; Matthew 10 &middot; KJV / RVR 1960</div>
-  </div>
-</div>
-
-<!-- ADMIN CONTROL SURFACE -->
-<div id="admin-hub" class="scr">
-  <!-- COMMAND BAR -->
-  <div class="cmd-bar">
-    <div class="cmd-sec">
-      <div><span class="cmd-lbl">Slide</span><div class="cmd-ctr" id="cmd-ctr">1/15</div></div>
-    </div>
-    <div class="cmd-sec">
-      <button class="cmd-pill cmd-start" onclick="startPresentation()">Start</button>
-      <button class="cmd-prev" onclick="ctrlPrev()">&#8592; Prev</button>
-      <button class="cmd-next" onclick="ctrlNext()">Next &#8594;</button>
-    </div>
-    <div class="cmd-sec" style="min-width:180px">
-      <div><div class="cmd-stype" id="cmd-stype">Cover</div><div class="cmd-stitle" id="cmd-stitle">The Price of Being Sent</div></div>
-    </div>
-    <!-- Scripture Overlay Toggle -->
-    <div class="cmd-sec">
-      <div>
-        <span class="cmd-lbl">P1 Scripture</span>
-        <div style="display:flex;gap:5px;margin-top:3px">
-          <button class="cmd-sc-toggle" id="cmd-sc-tog" onclick="toggleP1ScOverlay()">&#128196; Show on Slide</button>
-        </div>
-      </div>
-    </div>
-    <div class="cmd-sec">
-      <div class="cmd-p2dot" id="cmd-p2dot"></div>
-      <div><span class="cmd-lbl">P2 Status</span><div class="cmd-p2lbl" id="cmd-p2lbl">Waiting</div></div>
-    </div>
-    <div class="cmd-sec">
-      <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">&#9679; Auto P2</button>
-      <button class="cmd-pill" onclick="openSS()">&#9654; Present</button>
-      <button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button>
-      <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
-      <button class="cmd-pill" onclick="projFS()">&#9974; FS</button>
-    </div>
-    <div class="cmd-sec"><div><span class="cmd-timer-sub">Timer</span><div class="cmd-timer" id="cmd-timer">00:00</div></div></div>
-    <div class="cmd-sec cmd-right">
-      <button class="cmd-pill danger" onclick="adminLogout()">&#10005; Out</button>
-    </div>
-  </div>
-
-  <!-- 3-COL GRID -->
-  <div class="ctrl-grid">
-
-    <!-- LEFT: Slides + Verse Bank -->
-    <div class="ctrl-left">
-      <div class="ctrl-tabs">
-        <button class="ctrl-tab on" onclick="switchTab('slides',this)">Slides</button>
-        <button class="ctrl-tab" onclick="switchTab('verses',this)">Verse Bank</button>
-      </div>
-      <!-- Slide list panel -->
-      <div class="ctrl-panel on" id="tab-slides">
-        <div class="ctrl-slide-list" id="ctrl-slide-list"></div>
-      </div>
-      <!-- Verse bank panel -->
-      <div class="ctrl-panel" id="tab-verses">
-        <div class="vbank-inner">
-          <div class="vbank-header">Matthew 10:1-10 &middot; KJV &middot; Tap to push</div>
-          <div id="verse-bank-cards"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CENTER: Preview + Notes -->
-    <div class="ctrl-center">
-      <div class="ctrl-col-hdr"><span>Preview</span><span style="color:var(--mu)" id="prev-lbl">Slide 1</span></div>
-      <div class="ctrl-prev-wrap">
-        <div class="ctrl-prev-stage" id="preview-stage">
-          <div id="preview-slides"></div>
-          <div class="ctrl-prev-lbl" id="prev-lbl2">1 of 15</div>
-        </div>
-      </div>
-      <div class="ctrl-pnav">
-        <button class="ctrl-pnav-prev" id="pnav-prev" onclick="ctrlPrev()">&#8592; Prev</button>
-        <div class="ctrl-pnav-ctr" id="pnav-ctr">1/15</div>
-        <button class="ctrl-pnav-next" id="pnav-next" onclick="ctrlNext()">Next &#8594;</button>
-      </div>
-      <div class="ctrl-notes">
-        <div class="ctrl-notes-hdr">Presenter Notes</div>
-        <div class="ctrl-notes-txt" id="ctrl-notes"></div>
-      </div>
-    </div>
-
-    <!-- RIGHT: Status + Actions -->
-    <div class="ctrl-right">
-      <div class="ctrl-col-hdr">Controls</div>
-      <div style="flex:1;overflow-y:auto">
-        <div class="ctrl-stat">
-          <div class="ctrl-stat-lbl">Current Slide</div>
-          <div class="ctrl-stat-val" id="rp-slide">1</div>
-          <div class="ctrl-stat-sub" id="rp-type">Cover</div>
-        </div>
-        <div class="ctrl-stat">
-          <div class="ctrl-stat-lbl">Active Scripture</div>
-          <div style="font-family:var(--fc);font-size:.85rem;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase;line-height:1.2" id="rp-ref">Matthew 10:1</div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">Navigation</div>
-          <div class="ctrl-ar" style="flex-direction:column;gap:4px">
-            <button class="ctrl-ab full" onclick="ctrlPrev()">&#8592; Previous</button>
-            <button class="ctrl-ab full red-btn" onclick="ctrlNext()">Next &#8594;</button>
-          </div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">Projector Safety</div>
-          <div class="ctrl-ar">
-            <button class="ctrl-ab warn" onclick="reloadProjectors()">Reload Projectors</button>
-            <button class="ctrl-ab danger" onclick="panicClear()">Clear All Overlays</button>
-          </div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">P1 Scripture Overlay</div>
-          <div class="ctrl-ar">
-            <button class="ctrl-ab" id="p1ov-toggle-right" onclick="toggleP1ScOverlay()">Show on Slide</button>
-            <button class="ctrl-ab danger" onclick="clearP1Overlay()">Clear</button>
-          </div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">Projector 2</div>
-          <div class="ctrl-ar">
-            <button class="ctrl-ab" onclick="pushCurScripture()">Push Current</button>
-            <button class="ctrl-ab danger" onclick="clearP2()">Clear</button>
-          </div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">Session</div>
-          <div class="ctrl-ar">
-            <button class="ctrl-ab" onclick="openSS()">&#9654; Present</button>
-            <button class="ctrl-ab" onclick="showHub()">&#8962; Hub</button>
-          </div>
-        </div>
-        <div class="ctrl-ag">
-          <div class="ctrl-ag-lbl">Questionnaire</div>
-          <div class="ctrl-ar">
-            <button class="ctrl-ab" id="q-unlock-btn" onclick="adminUnlockQ()">Unlock Now</button>
-          </div>
-          <div style="font-family:var(--fc);font-size:.5rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-top:6px" id="q-status-lbl">Locked until final slide</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
-
-<!-- PROJECTOR 3 / 4 — OBS SCRIPTURE OVERLAYS -->
-<div id="obs-screen" class="obs-screen">
-  <div class="obs-tools">
-    <button class="obs-tool" onclick="toggleObsGreen()">Green Screen</button>
-    <button class="obs-tool" onclick="projFS()">Fullscreen</button>
-  </div>
-  <div id="obs-lower" class="obs-lower">
-    <div class="obs-series">The Ministry · Matthew 10</div>
-    <div class="obs-ref" id="obs-ref">Current Slide</div>
-    <div class="obs-text" id="obs-text">Waiting for presenter</div>
-    <div class="obs-summary" id="obs-summary">Lower thirds output</div>
-  </div>
-</div>
-
-<!-- PROJECTOR 5 — CONFIDENCE MONITOR -->
-<div id="confidence-screen" class="confidence-screen">
-  <div class="conf-top"><div class="conf-brand">THE <span>MINISTRY</span></div><div class="conf-live" id="conf-status">Confidence Monitor</div></div>
-  <div class="conf-main">
-    <div class="conf-card conf-current"><div class="conf-kicker" id="conf-current-kicker">Current · Slide 1</div><div class="conf-title" id="conf-current-title">The Ministry</div><div class="conf-ref" id="conf-current-ref">Matthew 10 Series</div></div>
-    <div class="conf-side">
-      <div class="conf-card conf-timer"><div class="conf-timer-label">Timer</div><div class="conf-timer-value" id="conf-timer">00:00</div></div>
-      <div class="conf-card conf-next"><div class="conf-next-label">Next Slide</div><div class="conf-next-title" id="conf-next-title">Waiting</div></div>
-    </div>
-  </div>
-  <div class="conf-notes"><div class="conf-notes-label">Presenter Notes</div><div class="conf-notes-text" id="conf-notes-text">Open the presenter/admin and send the first slide.</div></div>
-</div>
-
-
-<!-- MOBILE MODE CONTROLLER -->
-<div id="mobile-mode" class="mobile-mode-screen">
-  <div class="mm-top"><div class="mm-brand">THE <span>MINISTRY</span></div><button class="mm-close" onclick="closeMobileMode()">Close</button></div>
-  <div class="mm-main">
-    <div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
-    <div class="mm-nav"><button class="mm-bigbtn" onclick="ctrlPrev()">Prev</button><button class="mm-bigbtn red" onclick="ctrlNext()">Next</button></div>
-    <div class="mm-actions"><button class="mm-action mm-start-action" onclick="startPresentation()">Start</button><button class="mm-action" onclick="toggleP1ScOverlay()">Overlay</button><button class="mm-action" onclick="clearP1Overlay()">X Verse</button><button class="mm-action" onclick="panicClear()">Clear</button></div>
-    <div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
-  </div>
-</div>
-
-<!-- ASK QUESTION DRAWER -->
-<div class="ask-drawer" id="ask-drawer">
-  <div class="ask-title">Ask a Question</div>
-  <div class="ask-sub">Send it to the presenter for live Q&A.</div>
-  <textarea class="ask-ta" id="ask-ta" placeholder="Type your question here..."></textarea>
-  <div class="ask-row"><span class="ask-ok" id="ask-ok">Sent</span><button class="btn btn-outline" onclick="closeAskDrawer()">Cancel</button><button class="btn btn-red" onclick="submitAskQuestion()">Submit</button></div>
-</div>
 
 <script>
-const PW_ATTENDEE = 'ministry2026';
-const PW_ADMIN    = 'ministryadmin';
+// =========================================================
+// THE MINISTRY MASTER TEMPLATE
+// Edit series/theme/lesson constants near the top of section 02.
+// Do not edit the engine sections unless patching system behavior.
+// =========================================================
+
+// =========================================================
+// 01. v12-mobile-zoom-lock
+// Preserved from the stable working build. Keep order.
+// =========================================================
+(function(){
+  document.addEventListener('gesturestart',function(e){e.preventDefault();},{passive:false});
+  document.addEventListener('gesturechange',function(e){e.preventDefault();},{passive:false});
+  let lastTouchEnd=0;
+  document.addEventListener('touchend',function(e){
+    const now=Date.now();
+    if(now-lastTouchEnd<=300){e.preventDefault();}
+    lastTouchEnd=now;
+  },{passive:false});
+})();
+
+
+// =========================================================
+// 02. Series config, lesson data, state, sync, renderers, routes, admin/mobile controls
+// Preserved from the stable working build. Keep order.
+// =========================================================
+// =========================================================
+// EDITABLE SECTION: SERIES CONFIG
+// Change this block when duplicating the template for a new series.
+// =========================================================
+const SERIES_CONFIG = Object.freeze({
+  title: 'THE MINISTRY',
+  subtitle: 'Matthew Chapter 10 Series',
+  lessonTitle: 'The Price of Being Sent',
+  speaker: 'Elder Eli Castaneda',
+  publicUrl: 'https://theministry.vercel.app',
+  guideUrl: 'https://apostolicguide.com'
+});
+
+// =========================================================
+// EDITABLE SECTION: THEME CONFIG
+// Change colors/background here for a new series. CSS reads these variables.
+// =========================================================
+const THEME_CONFIG = Object.freeze({
+  backgroundImage: 'assets/ministry-bg.jpeg',
+  colors: {
+    bg: '#0A0A0A',
+    bgd: '#111111',
+    bgc: '#1A1A1A',
+    bgcc: '#1E1E1E',
+    text: '#F1EDE4',
+    muted: '#666666',
+    line: '#202020',
+    accent: '#E8180D',
+    accentDark: '#C41409',
+    gold: '#D4933B'
+  }
+});
+
+function applyThemeConfig(theme){
+  if(!theme || !theme.colors) return;
+  const r=document.documentElement;
+  r.style.setProperty('--bg', theme.colors.bg);
+  r.style.setProperty('--bgd', theme.colors.bgd);
+  r.style.setProperty('--bgc', theme.colors.bgc);
+  r.style.setProperty('--bgcc', theme.colors.bgcc);
+  r.style.setProperty('--w', theme.colors.text);
+  r.style.setProperty('--mu', theme.colors.muted);
+  r.style.setProperty('--ln', theme.colors.line);
+  r.style.setProperty('--red', theme.colors.accent);
+  r.style.setProperty('--redd', theme.colors.accentDark);
+  r.style.setProperty('--gold', theme.colors.gold);
+}
+applyThemeConfig(THEME_CONFIG);
+
+// =========================================================
+// EDITABLE SECTION: PASSWORDS / SYNC CONFIG
+// =========================================================
+const PASSWORDS = Object.freeze({ attendee: 'ministry2026', admin: 'ministryadmin' });
+const PW_ATTENDEE = PASSWORDS.attendee;
+const PW_ADMIN    = PASSWORDS.admin;
 const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
 window.SB_KEY = ''; // paste your anon public key here
 
-// ── DATA ──
+// =========================================================
+// EDITABLE SECTION: LESSON DATA
+// Update slides here for a new lesson or duplicate this file for a new series.
+// =========================================================
 const LESSON1_SLIDES = [
   {
     t: 'cover',
@@ -2390,9 +2234,11 @@ function renderQuestionsMini(){
   box.innerHTML=all.length?all.map(q=>`<div style="border-top:1px solid var(--ln);padding:8px 0"><span style="color:var(--red)">${q.name||'Anonymous'}:</span> ${q.text}</div>`).join(''):'No questions yet.';
 }
 
-</script>
 
-<script id="v13-teaching-obs-cleanup-js">
+// =========================================================
+// 03. v13-teaching-obs-cleanup-js
+// Preserved from the stable working build. Keep order.
+// =========================================================
 (function(){
   function strip(html){
     const d=document.createElement('div');
@@ -2520,152 +2366,12 @@ function renderQuestionsMini(){
     }
   };
 })();
-</script>
 
 
-<style id="v16-confidence-monitor-cleanup">
-/* v16: confidence monitor is a presenter tool, not another projector. Keep it fitted. */
-body.confidence-mode,
-body.confidence-mode .confidence-screen{
-  width:100vw!important;
-  height:100vh!important;
-  max-width:100vw!important;
-  max-height:100vh!important;
-  overflow:hidden!important;
-}
-body.confidence-mode .confidence-screen{
-  grid-template-rows:68px minmax(0,1fr) 126px!important;
-}
-body.confidence-mode .conf-top{
-  height:68px!important;
-  padding:0 30px!important;
-  flex:0 0 auto!important;
-}
-body.confidence-mode .conf-main{
-  min-height:0!important;
-  height:100%!important;
-  overflow:hidden!important;
-  padding:20px 24px!important;
-  gap:22px!important;
-  grid-template-columns:minmax(0,1.45fr) minmax(390px,.75fr)!important;
-}
-body.confidence-mode .conf-side{
-  min-height:0!important;
-  height:100%!important;
-  overflow:hidden!important;
-  grid-template-rows:236px minmax(0,1fr)!important;
-  gap:18px!important;
-}
-body.confidence-mode .conf-card,
-body.confidence-mode .conf-current,
-body.confidence-mode .conf-next,
-body.confidence-mode .conf-timer{
-  min-width:0!important;
-  min-height:0!important;
-  overflow:hidden!important;
-}
-body.confidence-mode .conf-current{
-  padding:32px 44px!important;
-  justify-content:center!important;
-}
-body.confidence-mode .conf-current.slide-current .conf-title{
-  font-family:var(--fd)!important;
-  font-style:normal!important;
-  text-transform:uppercase!important;
-  font-size:clamp(3.2rem,5.2vw,6.9rem)!important;
-  line-height:.88!important;
-  letter-spacing:-.015em!important;
-  max-width:100%!important;
-  overflow:hidden!important;
-  display:-webkit-box!important;
-  -webkit-box-orient:vertical!important;
-  -webkit-line-clamp:4!important;
-}
-body.confidence-mode .conf-current.scripture-active{
-  padding:30px 38px!important;
-  justify-content:center!important;
-}
-body.confidence-mode .conf-current.scripture-active .conf-title{
-  font-family:var(--fp)!important;
-  font-style:italic!important;
-  text-transform:none!important;
-  font-size:clamp(1.55rem,2.35vw,3.05rem)!important;
-  line-height:1.12!important;
-  letter-spacing:0!important;
-  max-height:none!important;
-  overflow:hidden!important;
-  display:-webkit-box!important;
-  -webkit-box-orient:vertical!important;
-  -webkit-line-clamp:7!important;
-}
-body.confidence-mode .conf-current.scripture-active .conf-es{
-  display:block!important;
-  margin-top:14px!important;
-  padding-top:14px!important;
-  border-top:1px solid rgba(241,237,228,.16)!important;
-  font-family:var(--fp)!important;
-  font-style:italic!important;
-  font-size:clamp(.9rem,1.15vw,1.32rem)!important;
-  line-height:1.18!important;
-  color:rgba(241,237,228,.62)!important;
-  letter-spacing:0!important;
-}
-body.confidence-mode .conf-kicker{
-  flex:0 0 auto!important;
-  font-size:clamp(.62rem,.82vw,.9rem)!important;
-  margin-bottom:16px!important;
-}
-body.confidence-mode .conf-ref{
-  flex:0 0 auto!important;
-  font-size:clamp(.72rem,.9vw,1rem)!important;
-  margin-top:22px!important;
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
-}
-body.confidence-mode .conf-timer{
-  padding:20px 24px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:center!important;
-  justify-content:center!important;
-}
-body.confidence-mode .conf-timer-value{
-  font-size:clamp(5.2rem,8vw,8.6rem)!important;
-}
-body.confidence-mode .conf-next{
-  padding:28px 34px!important;
-  justify-content:center!important;
-}
-body.confidence-mode .conf-next-title{
-  font-size:clamp(2rem,3.15vw,4.15rem)!important;
-  line-height:.92!important;
-  letter-spacing:-.01em!important;
-  overflow:hidden!important;
-  display:-webkit-box!important;
-  -webkit-box-orient:vertical!important;
-  -webkit-line-clamp:4!important;
-}
-body.confidence-mode .conf-next-title.next-scripture{
-  font-size:clamp(2.1rem,3vw,3.75rem)!important;
-}
-body.confidence-mode .conf-notes{
-  min-height:0!important;
-  height:126px!important;
-  overflow:hidden!important;
-  padding:16px 30px!important;
-}
-body.confidence-mode .conf-notes-text{
-  font-size:clamp(1.1rem,1.5vw,1.6rem)!important;
-  line-height:1.25!important;
-  overflow:hidden!important;
-  display:-webkit-box!important;
-  -webkit-box-orient:vertical!important;
-  -webkit-line-clamp:2!important;
-}
-</style>
-
-<script id="v16-confidence-monitor-cleanup-js">
+// =========================================================
+// 04. v16-confidence-monitor-cleanup-js
+// Preserved from the stable working build. Keep order.
+// =========================================================
 (function(){
   const strip=(html)=>{const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();};
   const safe=(s)=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -2770,6 +2476,379 @@ body.confidence-mode .conf-notes-text{
   if(isConfidence) setTimeout(()=>window.updateConfidence(curSlide||0),0);
 })();
 </script>
+
+</head>
+<body><!-- MASTER TEMPLATE BODY: screen containers below. Public behavior preserved. -->
+<!-- LANDING -->
+<div class="scr on" id="sc">
+<div class="sc-bg"></div><div class="sc-ov"></div>
+<div class="sc-inner">
+<div class="sc-ey">CALLED CLOSE. SENT FAR.</div>
+<div class="sc-title"><span class="tt">THE</span><span class="tm">MINISTRY</span></div>
+<div class="sc-sub">A Matthew Chapter 10 Series</div>
+<div class="sc-tag">Ministry does not begin with a platform. It begins with a call.</div>
+<div class="sc-series">
+<div class="sc-si active">Lesson 1 · June 18</div>
+<div class="sc-si locked">Lesson 2 · June 25</div>
+<div class="sc-si locked">Lesson 3 · July 2</div>
+<div class="sc-si locked">Lesson 4 · July 9</div>
+</div>
+<div class="sc-btns">
+<button class="btn btn-red" onclick="showModal('attendee')">Enter Session</button>
+<button class="btn btn-outline" onclick="showModal('admin')">Presenter</button>
+</div>
+<div class="sc-qr-wrap">
+<div class="sc-qr-card"><img alt="The Ministry QR" src="assets/qr-ministry.png"/><div class="sc-qr-label">Join Session</div><div class="sc-qr-url">theministry.vercel.app</div></div>
+<div class="sc-qr-card"><img alt="Apostolic Guide QR" src="assets/qr-guide.png"/><div class="sc-qr-label">Bible Study App</div><div class="sc-qr-url">apostolicguide.com</div></div>
+</div>
+<div class="sc-pass">Password: <span>ministry2026</span></div>
+</div>
+<button class="admin-dot" onclick="showModal('admin')">●●●</button>
+</div>
+<!-- MODAL -->
+<div class="hidden" id="modal">
+<div class="mo-box">
+<div class="mo-title">THE <span>MINISTRY</span></div>
+<div class="mo-sub" id="mo-sub">Enter your name and the access code.</div>
+<input class="mo-inp" id="mo-name" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()" placeholder="Your name" type="text"/>
+<input class="mo-inp" id="mo-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Access code" type="password"/>
+<div class="mo-err" id="mo-err">Incorrect code. Try again.</div>
+<div class="mo-row">
+<button class="btn btn-red" onclick="checkPw()" style="flex:1">Enter</button>
+<button class="mo-cancel" onclick="closeModal()">Cancel</button>
+</div>
+</div>
+</div>
+<!-- HUB -->
+<div class="scr" id="sh">
+<div class="hub-hdr">
+<div class="hub-logo">THE <span>MINISTRY</span></div>
+<div class="hub-nav">
+<span id="user-chip"></span>
+<button class="hub-nb" onclick="openSS()">Slides</button>
+<button class="hub-nb" onclick="openQuestionnaire()">Reflect</button>
+<button class="hub-nb" onclick="openAskDrawer()">Ask</button>
+<button class="hub-nb" id="admin-btn" onclick="showModal('admin')">Admin</button>
+</div>
+</div>
+<div class="hub-hero">
+<div class="hub-hero-bg"></div><div class="hub-hero-ov"></div>
+<div class="hub-hi">
+<div class="hub-ey">Matthew 10 Series</div>
+<div class="hub-title">THE <span>MINISTRY</span></div>
+<div class="hub-sub">A Matthew Chapter 10 Series</div>
+<div class="hub-ref">Called, authorized, sent, resisted, refined, and rewarded.</div>
+<div class="hub-btns">
+<button class="btn btn-red" onclick="openSS()">Open Slides →</button>
+<button class="btn btn-outline" onclick="openQuestionnaire()">Reflect →</button>
+<button class="btn btn-outline" onclick="openAskDrawer()">Ask a Question</button>
+</div>
+</div>
+</div>
+<div class="series-bar">
+<div class="series-lbl">Series Progress · Every Thursday</div>
+<div class="series-row">
+<div class="s-cell active" onclick="openSS()"><div class="cd">June 18</div><div><span class="cn">01 ·</span> The Price of Being Sent</div></div>
+<div class="s-cell locked"><div class="cd">June 25</div><div><span class="cn">02 ·</span> The Instructions for the Work</div><span class="cl">🔒</span></div>
+<div class="s-cell locked"><div class="cd">July 2</div><div><span class="cn">03 ·</span> How to Do Ministry</div><span class="cl">🔒</span></div>
+<div class="s-cell locked"><div class="cd">July 9</div><div><span class="cn">04 ·</span> The Reward of the Work</div><span class="cl">🔒</span></div>
+</div>
+</div>
+<div class="hub-body">
+<div class="hub-lbl">Current Lesson</div>
+<div class="lcard" onclick="openSS()">
+<div><div class="lc-wk">Lesson 1 · June 18, 2026</div><div class="lc-ti">The Price of Being Sent</div><div class="lc-rf">Matthew 10:1-10 · 15 Slides</div></div>
+<div style="display:flex;align-items:center;gap:12px"><div class="lc-bg live">Live</div><div style="color:var(--mu)">→</div></div>
+</div>
+<div style="margin-top:26px"><div class="hub-lbl">Reflection</div>
+<div class="lcard" id="q-hub-card" onclick="openQuestionnaire()">
+<div><div class="lc-wk">End of Lesson 1</div><div class="lc-ti">Personal Examination</div><div class="lc-rf">6 sections · 17 questions</div></div>
+<div id="q-hub-badge" style="display:flex;align-items:center;gap:12px"><div class="lc-bg" id="q-lock-badge">🔒 Unlocks at close</div></div>
+</div>
+</div>
+<div style="margin-top:26px"><div class="hub-lbl">Coming Soon</div>
+<div class="lcard locked"><div><div class="lc-wk">June 25, 2026</div><div class="lc-ti">The Instructions for the Work</div><div class="lc-rf">Matthew 10:11-23</div></div><div class="lc-bg">Locked</div></div>
+<div class="lcard locked"><div><div class="lc-wk">July 2, 2026</div><div class="lc-ti">How to Do Ministry</div><div class="lc-rf">Matthew 10:24-33 · 1 &amp; 2 Timothy</div></div><div class="lc-bg">Locked</div></div>
+<div class="lcard locked"><div><div class="lc-wk">July 9, 2026</div><div class="lc-ti">The Reward of the Work</div><div class="lc-rf">Matthew 10:34-42</div></div><div class="lc-bg">Locked</div></div>
+</div>
+</div>
+</div>
+<!-- QUESTIONNAIRE -->
+<div class="scr locked" id="questionnaire">
+<div class="q-hdr">
+<div class="q-logo">THE <span>MINISTRY</span></div>
+<button class="q-back" onclick="showHub()">← Back</button>
+</div>
+<!-- LOCKED STATE -->
+<div class="q-body" id="q-locked-view">
+<div class="q-lock-icon">🔒</div>
+<div class="q-lock-title">Reflection Locked</div>
+<div class="q-lock-sub">This section unlocks when the lesson is complete. Stay present with the teaching.</div>
+</div>
+<!-- OPEN STATE -->
+<div class="q-body" id="q-open-view" style="display:none">
+<div class="q-hero">
+<div class="q-hero-ey">Lesson 1 · End of Session</div>
+<div class="q-hero-title">Personal Examination</div>
+<div class="q-hero-sub">The Price of Being Sent · Matthew 10:1-10</div>
+</div>
+<div id="q-sections"></div>
+<div style="padding-bottom:60px;text-align:center;font-family:var(--fc);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)">
+      The Ministry · Matthew 10 · Elder Eli Castaneda
+    </div>
+</div>
+</div>
+<!-- SLIDESHOW (P1) -->
+<div class="scr" id="ssl">
+<div class="ss-hdr">
+<div style="display:flex;align-items:center;gap:12px">
+<div class="ss-lbl">THE <span>MINISTRY</span></div>
+<div class="ss-count" id="ss-pt">1 / 15</div>
+</div>
+<div class="ss-hdr-r">
+<button class="ss-cb" onclick="toggleFS()">⛶</button>
+<button class="ss-cb" onclick="closeSlideshow()">← Hub</button>
+</div>
+</div>
+<div class="ss-prog-bar"><div class="ss-prog" id="ss-prog"></div></div>
+<div class="ss-stage" id="ss-stage" onclick="handleStageClick(event)">
+<div class="ss-stage-bg"></div>
+<div id="ss-slides"></div>
+<!-- SCRIPTURE OVERLAY -->
+<div id="p1-sc-overlay">
+<div class="p1ov-mark"></div>
+<div class="p1ov-ref" id="p1ov-ref">Matthew 10:1</div>
+<div class="p1ov-text" id="p1ov-text"></div>
+<div class="p1ov-corner"></div>
+</div>
+</div>
+<div class="ss-nav">
+<button class="ss-arr" onclick="prevSlide()">←</button>
+<div class="ss-dots" id="ss-dots"></div>
+<button class="ss-arr" onclick="nextSlide()">→</button>
+</div>
+</div>
+<!-- P1 PROJECTOR CTRL BAR -->
+<div class="proj-ctrl-bar" id="proj-ctrl-bar">
+<button class="pcb" onclick="prevSlide()">← Prev</button>
+<button class="pcb" onclick="nextSlide()">Next →</button>
+<span id="proj-info"></span>
+<button class="pcb" onclick="projFS()">⛶ FS</button>
+<button class="pcb red" onclick="showHub()">⌂ Hub</button>
+</div>
+<!-- P1 WAIT -->
+<div class="p1-wait hidden" id="p1-wait">
+<div class="pw-mk"></div>
+<div class="pw-ti">THE <span>MINISTRY</span></div>
+<div class="pw-sb">A Matthew Chapter 10 Series · Main Projector</div>
+<div class="pw-st" id="p1-status">Waiting for presenter...</div>
+<div class="projector-wait-qr"><div class="projector-wait-qr-card"><img alt="Join session QR" src="assets/qr-ministry.png"/><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img alt="Bible study app QR" src="assets/qr-guide.png"/><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
+</div>
+<!-- PROJECTOR 2 — SCRIPTURE -->
+<div id="scripture-display">
+<div class="sp-wait" id="sp-wait">
+<div class="sp-wm"></div>
+<div class="sp-wt">THE <span>MINISTRY</span></div>
+<div class="sp-ws">Scriptures · KJV / RVR 1960</div>
+<div class="sp-live-dot" id="sp-live-dot"></div>
+<div class="sp-wst" id="sp-wait-status">Waiting for presenter...</div>
+<div class="projector-wait-qr"><div class="projector-wait-qr-card"><img alt="Join session QR" src="assets/qr-ministry.png"/><b>Join Session</b><span>theministry.vercel.app</span></div><div class="projector-wait-qr-card"><img alt="Bible study app QR" src="assets/qr-guide.png"/><b>Bible Study App</b><span>apostolicguide.com</span></div></div>
+</div>
+<div class="sp-content" id="sp-content" style="display:none">
+<div class="sp-bg"></div><div class="sp-bg-ov"></div>
+<div class="sp-inner">
+<div class="sp-mk"></div>
+<div class="sp-ref-en" id="sp-ref-en"></div>
+<div class="sp-tx-en" id="sp-tx-en"></div>
+<div class="sp-ref-es" id="sp-ref-es"></div>
+<div class="sp-tx-es" id="sp-tx-es"></div>
+</div>
+<div class="sp-corner">The Ministry · Matthew 10 · KJV / RVR 1960</div>
+</div>
+</div>
+<!-- ADMIN CONTROL SURFACE -->
+<div class="scr" id="admin-hub">
+<!-- COMMAND BAR -->
+<div class="cmd-bar">
+<div class="cmd-sec">
+<div><span class="cmd-lbl">Slide</span><div class="cmd-ctr" id="cmd-ctr">1/15</div></div>
+</div>
+<div class="cmd-sec">
+<button class="cmd-pill cmd-start" onclick="startPresentation()">Start</button>
+<button class="cmd-prev" onclick="ctrlPrev()">← Prev</button>
+<button class="cmd-next" onclick="ctrlNext()">Next →</button>
+</div>
+<div class="cmd-sec" style="min-width:180px">
+<div><div class="cmd-stype" id="cmd-stype">Cover</div><div class="cmd-stitle" id="cmd-stitle">The Price of Being Sent</div></div>
+</div>
+<!-- Scripture Overlay Toggle -->
+<div class="cmd-sec">
+<div>
+<span class="cmd-lbl">P1 Scripture</span>
+<div style="display:flex;gap:5px;margin-top:3px">
+<button class="cmd-sc-toggle" id="cmd-sc-tog" onclick="toggleP1ScOverlay()">📄 Show on Slide</button>
+</div>
+</div>
+</div>
+<div class="cmd-sec">
+<div class="cmd-p2dot" id="cmd-p2dot"></div>
+<div><span class="cmd-lbl">P2 Status</span><div class="cmd-p2lbl" id="cmd-p2lbl">Waiting</div></div>
+</div>
+<div class="cmd-sec">
+<button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">● Auto P2</button>
+<button class="cmd-pill" onclick="openSS()">▶ Present</button>
+<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button>
+<button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
+<button class="cmd-pill" onclick="projFS()">⛶ FS</button>
+</div>
+<div class="cmd-sec"><div><span class="cmd-timer-sub">Timer</span><div class="cmd-timer" id="cmd-timer">00:00</div></div></div>
+<div class="cmd-sec cmd-right">
+<button class="cmd-pill danger" onclick="adminLogout()">✕ Out</button>
+</div>
+</div>
+<!-- 3-COL GRID -->
+<div class="ctrl-grid">
+<!-- LEFT: Slides + Verse Bank -->
+<div class="ctrl-left">
+<div class="ctrl-tabs">
+<button class="ctrl-tab on" onclick="switchTab('slides',this)">Slides</button>
+<button class="ctrl-tab" onclick="switchTab('verses',this)">Verse Bank</button>
+</div>
+<!-- Slide list panel -->
+<div class="ctrl-panel on" id="tab-slides">
+<div class="ctrl-slide-list" id="ctrl-slide-list"></div>
+</div>
+<!-- Verse bank panel -->
+<div class="ctrl-panel" id="tab-verses">
+<div class="vbank-inner">
+<div class="vbank-header">Matthew 10:1-10 · KJV · Tap to push</div>
+<div id="verse-bank-cards"></div>
+</div>
+</div>
+</div>
+<!-- CENTER: Preview + Notes -->
+<div class="ctrl-center">
+<div class="ctrl-col-hdr"><span>Preview</span><span id="prev-lbl" style="color:var(--mu)">Slide 1</span></div>
+<div class="ctrl-prev-wrap">
+<div class="ctrl-prev-stage" id="preview-stage">
+<div id="preview-slides"></div>
+<div class="ctrl-prev-lbl" id="prev-lbl2">1 of 15</div>
+</div>
+</div>
+<div class="ctrl-pnav">
+<button class="ctrl-pnav-prev" id="pnav-prev" onclick="ctrlPrev()">← Prev</button>
+<div class="ctrl-pnav-ctr" id="pnav-ctr">1/15</div>
+<button class="ctrl-pnav-next" id="pnav-next" onclick="ctrlNext()">Next →</button>
+</div>
+<div class="ctrl-notes">
+<div class="ctrl-notes-hdr">Presenter Notes</div>
+<div class="ctrl-notes-txt" id="ctrl-notes"></div>
+</div>
+</div>
+<!-- RIGHT: Status + Actions -->
+<div class="ctrl-right">
+<div class="ctrl-col-hdr">Controls</div>
+<div style="flex:1;overflow-y:auto">
+<div class="ctrl-stat">
+<div class="ctrl-stat-lbl">Current Slide</div>
+<div class="ctrl-stat-val" id="rp-slide">1</div>
+<div class="ctrl-stat-sub" id="rp-type">Cover</div>
+</div>
+<div class="ctrl-stat">
+<div class="ctrl-stat-lbl">Active Scripture</div>
+<div id="rp-ref" style="font-family:var(--fc);font-size:.85rem;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase;line-height:1.2">Matthew 10:1</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">Navigation</div>
+<div class="ctrl-ar" style="flex-direction:column;gap:4px">
+<button class="ctrl-ab full" onclick="ctrlPrev()">← Previous</button>
+<button class="ctrl-ab full red-btn" onclick="ctrlNext()">Next →</button>
+</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">Projector Safety</div>
+<div class="ctrl-ar">
+<button class="ctrl-ab warn" onclick="reloadProjectors()">Reload Projectors</button>
+<button class="ctrl-ab danger" onclick="panicClear()">Clear All Overlays</button>
+</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">P1 Scripture Overlay</div>
+<div class="ctrl-ar">
+<button class="ctrl-ab" id="p1ov-toggle-right" onclick="toggleP1ScOverlay()">Show on Slide</button>
+<button class="ctrl-ab danger" onclick="clearP1Overlay()">Clear</button>
+</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">Projector 2</div>
+<div class="ctrl-ar">
+<button class="ctrl-ab" onclick="pushCurScripture()">Push Current</button>
+<button class="ctrl-ab danger" onclick="clearP2()">Clear</button>
+</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">Session</div>
+<div class="ctrl-ar">
+<button class="ctrl-ab" onclick="openSS()">▶ Present</button>
+<button class="ctrl-ab" onclick="showHub()">⌂ Hub</button>
+</div>
+</div>
+<div class="ctrl-ag">
+<div class="ctrl-ag-lbl">Questionnaire</div>
+<div class="ctrl-ar">
+<button class="ctrl-ab" id="q-unlock-btn" onclick="adminUnlockQ()">Unlock Now</button>
+</div>
+<div id="q-status-lbl" style="font-family:var(--fc);font-size:.5rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Locked until final slide</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PROJECTOR 3 / 4 — OBS SCRIPTURE OVERLAYS -->
+<div class="obs-screen" id="obs-screen">
+<div class="obs-tools">
+<button class="obs-tool" onclick="toggleObsGreen()">Green Screen</button>
+<button class="obs-tool" onclick="projFS()">Fullscreen</button>
+</div>
+<div class="obs-lower" id="obs-lower">
+<div class="obs-series">The Ministry · Matthew 10</div>
+<div class="obs-ref" id="obs-ref">Current Slide</div>
+<div class="obs-text" id="obs-text">Waiting for presenter</div>
+<div class="obs-summary" id="obs-summary">Lower thirds output</div>
+</div>
+</div>
+<!-- PROJECTOR 5 — CONFIDENCE MONITOR -->
+<div class="confidence-screen" id="confidence-screen">
+<div class="conf-top"><div class="conf-brand">THE <span>MINISTRY</span></div><div class="conf-live" id="conf-status">Confidence Monitor</div></div>
+<div class="conf-main">
+<div class="conf-card conf-current"><div class="conf-kicker" id="conf-current-kicker">Current · Slide 1</div><div class="conf-title" id="conf-current-title">The Ministry</div><div class="conf-ref" id="conf-current-ref">Matthew 10 Series</div></div>
+<div class="conf-side">
+<div class="conf-card conf-timer"><div class="conf-timer-label">Timer</div><div class="conf-timer-value" id="conf-timer">00:00</div></div>
+<div class="conf-card conf-next"><div class="conf-next-label">Next Slide</div><div class="conf-next-title" id="conf-next-title">Waiting</div></div>
+</div>
+</div>
+<div class="conf-notes"><div class="conf-notes-label">Presenter Notes</div><div class="conf-notes-text" id="conf-notes-text">Open the presenter/admin and send the first slide.</div></div>
+</div>
+<!-- MOBILE MODE CONTROLLER -->
+<div class="mobile-mode-screen" id="mobile-mode">
+<div class="mm-top"><div class="mm-brand">THE <span>MINISTRY</span></div><button class="mm-close" onclick="closeMobileMode()">Close</button></div>
+<div class="mm-main">
+<div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
+<div class="mm-nav"><button class="mm-bigbtn" onclick="ctrlPrev()">Prev</button><button class="mm-bigbtn red" onclick="ctrlNext()">Next</button></div>
+<div class="mm-actions"><button class="mm-action mm-start-action" onclick="startPresentation()">Start</button><button class="mm-action" onclick="toggleP1ScOverlay()">Overlay</button><button class="mm-action" onclick="clearP1Overlay()">X Verse</button><button class="mm-action" onclick="panicClear()">Clear</button></div>
+<div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
+</div>
+</div>
+<!-- ASK QUESTION DRAWER -->
+<div class="ask-drawer" id="ask-drawer">
+<div class="ask-title">Ask a Question</div>
+<div class="ask-sub">Send it to the presenter for live Q&amp;A.</div>
+<textarea class="ask-ta" id="ask-ta" placeholder="Type your question here..."></textarea>
+<div class="ask-row"><span class="ask-ok" id="ask-ok">Sent</span><button class="btn btn-outline" onclick="closeAskDrawer()">Cancel</button><button class="btn btn-red" onclick="submitAskQuestion()">Submit</button></div>
+</div>
+
+
+
 
 </body>
 </html>
