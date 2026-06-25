@@ -1,4 +1,11 @@
 
+## v28 User Interaction Lock + Admin Questions Panel
+- Locked audience slave mode so left/right screen taps no longer advance or reverse slides.
+- Kept poll overlays interactive while the live audience view is locked.
+- Added a persistent Live Questions panel back into the admin controls.
+- Questions submitted from the user side now show in the admin questions panel.
+
+
 ## v27 Confidence Poll Fit
 - Fitted live poll results inside the confidence monitor current-slide panel.
 - Reduced poll question/results typography so results no longer overflow the confidence box.

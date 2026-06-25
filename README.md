@@ -221,3 +221,10 @@ While the mobile poll editor is open or an input/textarea is focused, keyboard s
 
 ### v26 Audience Slave Mode Notes
 When the audience/user side enters live slave mode, the slide navigation chrome is hidden so attendees cannot accidentally navigate the lesson. They can exit with the **Exit Live ×** button and return later from the hub using **Return to Session** while the session is live.
+
+
+### Live Questions
+Audience questions submitted from the user hub appear in `/admin` under **Controls → Live Questions**. The panel shows the most recent submitted questions and updates when `question_submit` messages arrive.
+
+### Audience Slave Mode
+When a session is live, the audience/user side follows the admin-controlled presentation. In this mode, slide navigation is disabled for the audience. Users can only interact with active polls or press **Exit Live ×** to return to the hub.

@@ -1647,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -3799,6 +3799,195 @@ function renderQuestionsMini(){
 
   document.addEventListener('DOMContentLoaded',()=>{ensureAudienceControls();refreshPollIndicators();});
   setTimeout(()=>{ensureAudienceControls();refreshPollIndicators();},500);
+})();
+</script>
+
+
+<!-- =========================================================
+     v28 User Interaction Lock + Admin Questions Panel
+     - Audience slave mode becomes view-only except active polls.
+     - Questions are always visible in admin controls.
+========================================================= -->
+<style>
+/* Audience live view is view-only. Poll overlay remains interactive. */
+body.audience-slave #ssl,
+body.audience-slave #ssl .ss-stage,
+body.audience-slave #ssl #ss-slides,
+body.audience-slave #ssl .slide{
+  cursor:default!important;
+}
+body.audience-slave #ssl .ss-stage{
+  pointer-events:auto!important;
+}
+body.audience-slave #ssl .ss-stage *:not(#p1-sc-overlay):not(#p1-sc-overlay *){
+  user-select:none!important;
+}
+body.audience-slave .poll-screen,
+body.audience-slave .poll-screen *{
+  pointer-events:auto!important;
+}
+.admin-questions-panel{
+  border:1px solid var(--ln);
+  background:rgba(255,255,255,.025);
+  margin-top:12px;
+}
+.admin-questions-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 12px;
+  border-bottom:1px solid var(--ln);
+}
+.admin-questions-title{
+  font-family:var(--fc);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--red);
+}
+.admin-questions-count{
+  font-family:var(--fc);
+  font-size:.56rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--mu);
+}
+.admin-question-item{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.admin-question-item:last-child{border-bottom:0;}
+.admin-question-meta{
+  font-family:var(--fc);
+  font-size:.52rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:4px;
+}
+.admin-question-text{
+  font-family:var(--fb);
+  font-size:.82rem;
+  line-height:1.25;
+  color:rgba(241,237,228,.84);
+  overflow-wrap:anywhere;
+}
+.admin-question-empty{
+  padding:12px;
+  font-family:var(--fc);
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--mu);
+}
+</style>
+<script>
+(function(){
+  const originalHandleStageClick = window.handleStageClick;
+  window.handleStageClick = function(e){
+    // Audience slave mode is view-only. User can only interact with active polls.
+    if(document.body.classList.contains('audience-slave')){
+      if(e && e.target && e.target.closest && e.target.closest('.poll-screen')) return;
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      return false;
+    }
+    return originalHandleStageClick ? originalHandleStageClick(e) : undefined;
+  };
+
+  // Stop keyboard and pointer navigation from audience/slave screens.
+  document.addEventListener('keydown',function(e){
+    if(!document.body.classList.contains('audience-slave')) return;
+    const t=e.target;
+    const inPoll=t && t.closest && t.closest('.poll-screen');
+    const editable=t && t.matches && t.matches('input,textarea,select,[contenteditable="true"]');
+    if(inPoll || editable) return;
+    if([' ','Spacebar','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','PageUp','PageDown','Home','End','Enter'].includes(e.key)){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  },true);
+
+  document.addEventListener('click',function(e){
+    if(!document.body.classList.contains('audience-slave')) return;
+    if(e.target.closest('.poll-screen,.slave-exit')) return;
+    // Block slide click zones, dots, arrows, and any leftover controls in the live audience view.
+    if(e.target.closest('#ssl')){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  },true);
+
+  function loadQuestions(){
+    let local=[];
+    try{ local=JSON.parse(localStorage.getItem('tm_questions')||'[]')||[]; }catch(e){ local=[]; }
+    const mem=Array.isArray(window.questions)?window.questions:[];
+    return [...mem,...local]
+      .filter(Boolean)
+      .filter((q,i,a)=>a.findIndex(x=>(x.id||x.ts||x.text)===(q.id||q.ts||q.text))===i)
+      .sort((a,b)=>String(b.ts||'').localeCompare(String(a.ts||'')));
+  }
+
+  function ensureAdminQuestionsPanel(){
+    if(!document.getElementById('admin-hub')) return null;
+    let panel=document.getElementById('admin-questions-panel');
+    if(panel) return panel;
+    const rightScroll=document.querySelector('#admin-hub .ctrl-right [style*="overflow-y"]') || document.querySelector('#admin-hub .ctrl-right');
+    if(!rightScroll) return null;
+    panel=document.createElement('div');
+    panel.id='admin-questions-panel';
+    panel.className='admin-questions-panel';
+    panel.innerHTML=`
+      <div class="admin-questions-head">
+        <div class="admin-questions-title">Live Questions</div>
+        <div class="admin-questions-count" id="admin-questions-count">0</div>
+      </div>
+      <div id="admin-questions-list"><div class="admin-question-empty">No questions yet.</div></div>`;
+    rightScroll.appendChild(panel);
+    return panel;
+  }
+
+  window.renderQuestionsMini=function(){
+    const panel=ensureAdminQuestionsPanel();
+    if(!panel) return;
+    const all=loadQuestions();
+    const count=document.getElementById('admin-questions-count');
+    const list=document.getElementById('admin-questions-list');
+    if(count) count.textContent=String(all.length);
+    if(!list) return;
+    if(!all.length){
+      list.innerHTML='<div class="admin-question-empty">No questions yet.</div>';
+      return;
+    }
+    list.innerHTML=all.slice(0,12).map(q=>{
+      const name=(q.name||'Anonymous').toString().replace(/[<>&]/g,m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+      const text=(q.text||'').toString().replace(/[<>&]/g,m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+      return `<div class="admin-question-item"><div class="admin-question-meta">${name}</div><div class="admin-question-text">${text}</div></div>`;
+    }).join('');
+  };
+
+  const oldHandleMessage=window.handleMessage;
+  window.handleMessage=function(msg){
+    const r=oldHandleMessage?oldHandleMessage(msg):undefined;
+    if(msg && msg.type==='question_submit') setTimeout(window.renderQuestionsMini,0);
+    return r;
+  };
+
+  const oldOpenAdmin=window.openAdmin;
+  if(oldOpenAdmin){
+    window.openAdmin=function(){ const r=oldOpenAdmin.apply(this,arguments); setTimeout(window.renderQuestionsMini,0); return r; };
+  }
+  const oldShowAdmin=window.showAdmin;
+  if(oldShowAdmin){
+    window.showAdmin=function(){ const r=oldShowAdmin.apply(this,arguments); setTimeout(window.renderQuestionsMini,0); return r; };
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(window.renderQuestionsMini,300));
+  setTimeout(window.renderQuestionsMini,900);
 })();
 </script>
 
