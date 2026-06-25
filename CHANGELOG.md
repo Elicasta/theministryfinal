@@ -1,4 +1,10 @@
 
+## v43 Scripture RVR Manual Trigger Fix
+- Fixed manual scripture pushes so `/scriptures` keeps Spanish RVR as the main text and KJV as the smaller supporting text.
+- Removed duplicate CSS version suffixes from scripture references.
+- No projector, lesson, poll, question, Supabase, or sync behavior changed.
+
+
 ## v42 Individual Lesson 2 Verse Bank
 - Split Lesson 2 mobile/admin verse bank into individual Matthew 10:11, 10:12, 10:13, 10:14, 10:15, and 10:16 entries.
 - Preserved grouped scripture slide rendering and all sync/projector behavior.

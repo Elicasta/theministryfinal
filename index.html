@@ -1214,8 +1214,6 @@ body.confidence-mode .conf-notes-text{
 ========================================================= */
 body.obs-mode.lower #obs-screen{background:#00b140!important;}
 body.obs-mode.lower #obs-screen .obs-lower{background:rgba(0,0,0,.92)!important;}
-.sp-ref-en::after{content:' · RVR 1960';}
-.sp-ref-es::after{content:' · KJV';}
 .sp-ref-en,.sp-ref-es{text-transform:uppercase;}
 .sp-tx-en{font-size:clamp(2.2rem,4.2vw,5.2rem)!important;line-height:1.08!important;}
 .sp-tx-es{font-size:clamp(1rem,1.65vw,2.05rem)!important;line-height:1.24!important;color:rgba(241,237,228,.72)!important;}
@@ -1647,7 +1645,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // loaded from /api/config when deployed
+window.SB_KEY = ''; // loaded from /api/config when deployed
 let sbClient = null;
 let sbConfigPromise = null;
 let sbRealtimeStarted = false;
@@ -3116,16 +3114,27 @@ function broadcastSlide(i){
   sbSend({type:'slide',slide:i,lesson:(window.LESSON_SLUG||'lesson-1')});
 }
 function showP2(sc){
+  // Projector 2 / scriptures screen is Spanish-primary: RVR main, KJV secondary.
+  // Keep this here, not only in later patch blocks, because scripture commands call this lexical function directly.
   document.body.classList.add('p2-live');
-  document.getElementById('sp-wait').classList.add('hidden');
-  document.getElementById('sp-content').style.display='flex';
+  const wait=document.getElementById('sp-wait'); if(wait) wait.classList.add('hidden');
+  const content=document.getElementById('sp-content'); if(content) content.style.display='flex';
   const dot=document.getElementById('sp-live-dot'); if(dot) dot.classList.add('live');
-  document.getElementById('sp-ref-en').textContent=sc.ref_en||sc.ref||'';
-  document.getElementById('sp-tx-en').textContent=sc.text_en||sc.kjv||'';
-  const esRef=sc.ref_es||((sc.ref_en||sc.ref||'').replace('Matthew','Mateo'));
+
+  const enRef=sc.ref_en||sc.ref||'';
+  const enText=sc.text_en||sc.kjv||'';
+  const esRef=sc.ref_es||String(enRef).replace('Matthew','Mateo');
   const esText=sc.text_es||sc.rvr||'';
-  document.getElementById('sp-ref-es').textContent=esText?`${esRef} · RVR 1960`:'';
-  document.getElementById('sp-tx-es').textContent=esText;
+
+  const mainRef=document.getElementById('sp-ref-en');
+  const mainText=document.getElementById('sp-tx-en');
+  const subRef=document.getElementById('sp-ref-es');
+  const subText=document.getElementById('sp-tx-es');
+
+  if(mainRef) mainRef.textContent=esText ? esRef : enRef;
+  if(mainText) mainText.textContent=esText || enText;
+  if(subRef) subRef.textContent=enText ? `${enRef} · KJV` : '';
+  if(subText) subText.textContent=enText;
 }
 function clearP2Display(){
   document.body.classList.remove('p2-live');
