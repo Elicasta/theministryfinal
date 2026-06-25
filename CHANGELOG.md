@@ -1,4 +1,10 @@
 
+## v27 Confidence Poll Fit
+- Fitted live poll results inside the confidence monitor current-slide panel.
+- Reduced poll question/results typography so results no longer overflow the confidence box.
+- Preserved projector, scripture, OBS, user slave mode, and mobile controller behavior.
+
+
 ## v24 Poll Main Screen Routing
 - Active polls now take over the main projector and OBS full slide outputs.
 - OBS lower thirds now shows active poll results in a lower-third format instead of a full-screen takeover.
@@ -69,3 +75,8 @@ Use this version if v18 gets stuck after the Start slide.
 - Archived active polls and answers into local lesson storage when replaced, killed, closed, or cleared by slide navigation.
 - Added keyboard shortcut guard so editing a poll question/options does not advance slides.
 - Added optional SQL migration notes for future Supabase poll persistence.
+
+## v26 Audience Slave Mode Polish
+- Hid slideshow navigation controls while the audience user side is in slave/live-follow mode.
+- Kept a clear Exit Live control at the top right so users can leave slave mode.
+- Kept Return to Session available from the user hub when a live session is active.

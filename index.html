@@ -1410,6 +1410,153 @@ body.obs-mode.lower.poll-active .poll-result-label{font-size:.72rem!important;wh
 body.obs-mode.lower.poll-active .poll-result-bar{height:9px!important;}
 body.obs-mode.lower.poll-active .poll-result-pct{font-size:.86rem!important;min-width:44px!important;}
 body.obs-mode.lower.poll-active .poll-result-count{font-size:.58rem!important;margin-top:10px!important;}
+
+
+/* v26 audience slave mode polish */
+.slave-exit{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  min-width:42px;
+  height:42px;
+  padding:0 14px;
+  border:1px solid rgba(241,237,228,.24);
+  background:rgba(8,7,6,.72);
+  color:var(--w);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-radius:999px;
+  font-family:var(--fc);
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 14px 40px rgba(0,0,0,.32);
+}
+body.audience-slave .slave-exit{display:flex;}
+body.audience-slave #ssl .ss-hdr,
+body.audience-slave #ssl .ss-nav,
+body.audience-slave #ssl .ss-prog-bar{display:none!important;}
+body.audience-slave #ssl{height:100dvh!important;}
+body.audience-slave #ssl .ss-stage{height:100dvh!important;min-height:100dvh!important;flex:1 1 auto!important;}
+body.audience-slave #ssl #ss-slides{height:100dvh!important;}
+body.session-live:not(.audience-slave) .return-session-btn{display:inline-flex;}
+.return-session-btn{display:none;}
+body.audience-slave .poll-screen.on{z-index:99998;}
+@media(max-width:768px){
+  .slave-exit{top:10px;right:10px;height:40px;min-width:40px;padding:0 12px;font-size:.58rem;}
+  body.audience-slave #ssl .slide{font-size:.78em;}
+}
+
+
+
+/* =========================================================
+   v27 Confidence Poll Fit
+   Keeps live poll results readable inside the confidence monitor current-slide box.
+========================================================= */
+body.confidence-mode .conf-current.poll-current{
+  justify-content:center!important;
+  align-items:stretch!important;
+  padding:clamp(18px,2vw,32px)!important;
+  overflow:hidden!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-title{
+  font-family:var(--fb)!important;
+  font-size:1rem!important;
+  line-height:1.1!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-height:0!important;
+  max-height:100%!important;
+  overflow:hidden!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-q{
+  font-family:var(--fd)!important;
+  font-size:clamp(1.7rem,3.2vw,4.3rem)!important;
+  line-height:.94!important;
+  text-transform:uppercase!important;
+  letter-spacing:.01em!important;
+  color:var(--w)!important;
+  margin-bottom:clamp(14px,2vw,26px)!important;
+  max-height:calc(3lh + 4px)!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-line-clamp:3!important;
+  -webkit-box-orient:vertical!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-rows{
+  display:grid!important;
+  gap:clamp(8px,1vw,14px)!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-row{
+  display:grid!important;
+  grid-template-columns:minmax(110px,220px) 1fr minmax(58px,auto)!important;
+  align-items:center!important;
+  gap:clamp(10px,1.2vw,18px)!important;
+  min-width:0!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-label{
+  font-family:var(--fc)!important;
+  font-size:clamp(.78rem,1.05vw,1.28rem)!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  color:rgba(241,237,228,.88)!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-bar{
+  height:clamp(10px,1.2vw,16px)!important;
+  background:rgba(255,255,255,.12)!important;
+  overflow:hidden!important;
+  min-width:0!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-fill{
+  height:100%!important;
+  background:var(--red)!important;
+  transition:width .25s ease!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-pct{
+  font-family:var(--fd)!important;
+  font-size:clamp(1.05rem,1.55vw,2rem)!important;
+  line-height:1!important;
+  color:var(--w)!important;
+  text-align:right!important;
+  white-space:nowrap!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-poll-count{
+  font-family:var(--fc)!important;
+  font-size:clamp(.58rem,.78vw,.92rem)!important;
+  font-weight:900!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  color:rgba(241,237,228,.5)!important;
+  margin-top:clamp(12px,1.5vw,20px)!important;
+}
+body.confidence-mode .conf-current.poll-current .conf-ref{
+  margin-top:clamp(10px,1.2vw,16px)!important;
+  font-size:clamp(.58rem,.75vw,.9rem)!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+@media(max-width:900px){
+  body.confidence-mode .conf-current.poll-current .conf-poll-q{font-size:clamp(1.45rem,6vw,2.8rem)!important;}
+  body.confidence-mode .conf-current.poll-current .conf-poll-row{grid-template-columns:1fr auto!important;}
+  body.confidence-mode .conf-current.poll-current .conf-poll-bar{grid-column:1 / -1!important;grid-row:2!important;}
+}
+
 </style>
 
 
@@ -1500,7 +1647,7 @@ const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -3433,7 +3580,7 @@ function renderQuestionsMini(){
 </div>
 </div>
 
-<button id="slave-exit" class="slave-exit" onclick="exitSlaveMode()" aria-label="Exit live session">×</button>
+<button id="slave-exit" class="slave-exit" onclick="exitSlaveMode()" aria-label="Exit live session">Exit Live ×</button>
 <!-- LIVE POLL OVERLAY -->
 <div class="poll-screen" id="poll-screen">
   <div class="poll-card">
@@ -3513,7 +3660,7 @@ function renderQuestionsMini(){
   }
   function ensureAudienceControls(){
     if(!document.getElementById('slave-exit')){
-      const b=document.createElement('button'); b.id='slave-exit'; b.className='slave-exit'; b.textContent='×'; b.setAttribute('aria-label','Exit live session'); b.onclick=window.exitSlaveMode; document.body.appendChild(b);
+      const b=document.createElement('button'); b.id='slave-exit'; b.className='slave-exit'; b.textContent='Exit Live ×'; b.setAttribute('aria-label','Exit live session'); b.onclick=window.exitSlaveMode; document.body.appendChild(b);
     }
     const btns=document.querySelector('.hub-btns');
     if(btns && !document.getElementById('return-session-btn')){

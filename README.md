@@ -218,3 +218,6 @@ Polls are archived locally in the presenter's browser under `tm_lesson_poll_arch
 
 ### Mobile poll editing
 While the mobile poll editor is open or an input/textarea is focused, keyboard shortcuts are blocked so spaces/arrows do not move slides before the poll is launched.
+
+### v26 Audience Slave Mode Notes
+When the audience/user side enters live slave mode, the slide navigation chrome is hidden so attendees cannot accidentally navigate the lesson. They can exit with the **Exit Live ×** button and return later from the hub using **Return to Session** while the session is live.
