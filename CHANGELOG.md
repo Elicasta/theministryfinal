@@ -59,3 +59,13 @@ Use this version if v18 gets stuck after the Start slide.
 - Added anonymous answer saving on attendee devices through localStorage.
 - Added live poll result percentage overlay for projector/OBS outputs.
 - Poll overlays clear when the presenter advances slides.
+
+
+## v25 Audience Slave Mode + Poll Persistence Polish
+- Added audience slave mode so attendee screens follow the admin-controlled presentation while live.
+- Added top-right X to exit live slave mode and a Return to Session button on the user hub.
+- Added poll display inside the confidence monitor current-slide area.
+- Added mobile Poll live indicator and Kill Poll button.
+- Archived active polls and answers into local lesson storage when replaced, killed, closed, or cleared by slide navigation.
+- Added keyboard shortcut guard so editing a poll question/options does not advance slides.
+- Added optional SQL migration notes for future Supabase poll persistence.

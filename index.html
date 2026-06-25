@@ -1493,14 +1493,14 @@ applyThemeConfig(THEME_CONFIG);
 // =========================================================
 // EDITABLE SECTION: PASSWORDS / SYNC CONFIG
 // =========================================================
-const PASSWORDS = Object.freeze({ attendee: 'ministry2026', admin: 'admin2026' });
+const PASSWORDS = Object.freeze({ attendee: 'ministry2026', admin: 'ministryadmin' });
 const PW_ATTENDEE = PASSWORDS.attendee;
 const PW_ADMIN    = PASSWORDS.admin;
 const CHANNEL_ID  = 'the-ministry-2026';
 
 // ── SUPABASE CONFIG ──
 window.SB_URL = 'https://cgliqvizpcctqhsldixn.supabase.co';
-window.SB_KEY = 'sb_publishable_C0O6QwRy2nJIJLJHCGuXWA_nZfrqTyi'; // paste your anon public key here
+window.SB_KEY = ''; // paste your anon public key here
 
 // =========================================================
 // EDITABLE SECTION: LESSON DATA
@@ -3418,7 +3418,7 @@ function renderQuestionsMini(){
 <div class="mm-main">
 <div class="mm-status"><span class="live-dot"></span><div><div class="mm-type" id="mm-type">Cover</div><div class="mm-title" id="mm-title">The Price of Being Sent</div></div><div class="mm-num" id="mm-num">1/15</div></div>
 <div class="mm-nav"><button class="mm-bigbtn" id="mm-prev-start" onclick="mobilePrevOrStart(this)">Prev</button><button class="mm-bigbtn red" onclick="mobileNext(this)">Next</button></div>
-<div class="mm-actions"><button class="mm-action mm-start-action" onclick="mobileStart(this)">Start</button><button class="mm-action" onclick="mobileOverlay(this)">Overlay</button><button class="mm-action" onclick="mobileClearP1Overlay(this)">X Verse</button><button class="mm-action" onclick="mobilePanicClear(this)">Clear</button><button class="mm-action" onclick="openMobilePollPanel(this)">Poll</button></div>
+<div class="mm-actions"><button class="mm-action mm-start-action" onclick="mobileStart(this)">Start</button><button class="mm-action" onclick="mobileOverlay(this)">Overlay</button><button class="mm-action" onclick="mobileClearP1Overlay(this)">X Verse</button><button class="mm-action" onclick="mobilePanicClear(this)">Clear</button><button class="mm-action" id="mm-poll-btn" onclick="openMobilePollPanel(this)">Poll</button><button class="mm-action mm-kill-poll" id="mm-kill-poll" onclick="mobileKillPoll(this)">Kill Poll</button></div>
 <div class="mm-verses"><div class="mm-v-head"><span>Verses</span><span id="mm-timer">00:00</span></div><div class="mm-v-list" id="mm-verse-list"></div></div>
 </div>
 <div class="mm-poll-panel" id="mm-poll-panel">
@@ -3433,6 +3433,7 @@ function renderQuestionsMini(){
 </div>
 </div>
 
+<button id="slave-exit" class="slave-exit" onclick="exitSlaveMode()" aria-label="Exit live session">×</button>
 <!-- LIVE POLL OVERLAY -->
 <div class="poll-screen" id="poll-screen">
   <div class="poll-card">
@@ -3464,6 +3465,195 @@ function renderQuestionsMini(){
 
 
 
+
+
+<script>
+// =========================================================
+// v25 live slave mode + poll persistence polish
+// Small additive patch on top of stable v24. Does not change routes or core sync.
+// =========================================================
+(function(){
+  const POLL_ARCHIVE_KEY='tm_lesson_poll_archive_v1';
+  const SESSION_OPT_OUT_KEY='tm_user_exited_slave';
+  const SESSION_LIVE_KEY='tm_session_live';
+
+  function gflag(name){try{return !!eval(name);}catch(e){return !!window[name];}}
+  function gnum(name,fallback=0){try{const v=eval(name);return Number.isFinite(Number(v))?Number(v):fallback;}catch(e){return fallback;}}
+  function isOutputScreen(){return !!(gflag('isProjector')||gflag('isScriptureDisplay')||gflag('isObsLower')||gflag('isObsFull')||gflag('isConfidence'));}
+  function isAudienceClient(){return !gflag('isAdmin') && !isOutputScreen() && !document.body.classList.contains('mobile-mode-only');}
+  function getActivePoll(){return window.pollState && window.pollState.active;}
+  function getResponses(id){return (window.pollState && window.pollState.responses && window.pollState.responses[id]) || [];}
+  function loadArchive(){try{return JSON.parse(localStorage.getItem(POLL_ARCHIVE_KEY)||'[]')||[];}catch(e){return []}}
+  function saveArchive(list){try{localStorage.setItem(POLL_ARCHIVE_KEY,JSON.stringify(list.slice(0,120)));}catch(e){}}
+  function archivePoll(reason='saved'){
+    const poll=getActivePoll();
+    if(!poll||!poll.id) return;
+    const responses=getResponses(poll.id).slice();
+    const item={
+      id:poll.id,
+      series:(window.SERIES_CONFIG&&window.SERIES_CONFIG.title)||'THE MINISTRY',
+      lesson:(window.LESSON_DATA&&window.LESSON_DATA.title)||'Lesson 1',
+      question:poll.question,
+      type:poll.type||'choice',
+      options:poll.options||[],
+      responses,
+      savedAnonymous:true,
+      reason,
+      updatedAt:new Date().toISOString()
+    };
+    const old=loadArchive().filter(x=>x.id!==item.id);
+    old.unshift(item);
+    saveArchive(old);
+    window.LESSON_POLL_ARCHIVE=old;
+  }
+  window.archiveActivePoll=archivePoll;
+
+  function refreshReturnButton(){
+    document.body.classList.toggle('session-live', localStorage.getItem(SESSION_LIVE_KEY)==='1' || gflag('presentationStarted'));
+  }
+  function ensureAudienceControls(){
+    if(!document.getElementById('slave-exit')){
+      const b=document.createElement('button'); b.id='slave-exit'; b.className='slave-exit'; b.textContent='×'; b.setAttribute('aria-label','Exit live session'); b.onclick=window.exitSlaveMode; document.body.appendChild(b);
+    }
+    const btns=document.querySelector('.hub-btns');
+    if(btns && !document.getElementById('return-session-btn')){
+      const b=document.createElement('button'); b.id='return-session-btn'; b.className='btn btn-outline return-session-btn'; b.textContent='Return to Session'; b.onclick=window.returnToSession; btns.prepend(b);
+    }
+    refreshReturnButton();
+  }
+  window.enterSlaveMode=function(index){
+    if(!isAudienceClient()) return;
+    localStorage.setItem(SESSION_LIVE_KEY,'1');
+    ensureAudienceControls();
+    if(localStorage.getItem(SESSION_OPT_OUT_KEY)==='1'){refreshReturnButton();return;}
+    ['sc','sh','admin-hub','questionnaire'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('on');});
+    const ssl=document.getElementById('ssl'); if(!ssl) return;
+    if(!document.querySelector('#ss-slides .slide')){
+      buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+      renderDots(LESSON1_SLIDES.length);
+    }
+    ssl.classList.add('on');
+    document.body.classList.add('audience-slave');
+    window._suppressSync=true; goTo(Math.max(0,Number(index)||0)); window._suppressSync=false;
+  };
+  window.exitSlaveMode=function(){
+    localStorage.setItem(SESSION_OPT_OUT_KEY,'1');
+    document.body.classList.remove('audience-slave');
+    const ssl=document.getElementById('ssl'); if(ssl)ssl.classList.remove('on');
+    if(typeof showHub==='function') showHub();
+    refreshReturnButton();
+  };
+  window.returnToSession=function(){
+    localStorage.removeItem(SESSION_OPT_OUT_KEY);
+    window.enterSlaveMode(gnum('curSlide',0));
+  };
+
+  function renderConfidencePoll(){
+    if(!gflag('isConfidence')) return;
+    const poll=getActivePoll(); if(!poll) return;
+    const card=document.querySelector('.conf-current');
+    const ck=document.getElementById('conf-current-kicker');
+    const ct=document.getElementById('conf-current-title');
+    const cr=document.getElementById('conf-current-ref');
+    const votes=getResponses(poll.id);
+    const total=votes.length;
+    const esc=s=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    const tally={}; (poll.options||[]).forEach(o=>tally[String(o).trim()]=0);
+    votes.forEach(v=>{const k=String(v.answer||'').trim();tally[k]=(tally[k]||0)+1;});
+    if(card){card.classList.remove('scripture-active','slide-current');card.classList.add('poll-current');}
+    if(ck) ck.textContent='Live Poll';
+    if(cr) cr.textContent=`${total} answer${total===1?'':'s'} · Anonymous`;
+    if(ct){
+      ct.innerHTML=`<div class="conf-poll-q">${esc(poll.question)}</div><div class="conf-poll-rows">${(poll.options||[]).map(o=>{const k=String(o).trim(),n=tally[k]||0,pct=total?Math.round(n/total*100):0;return `<div class="conf-poll-row"><div class="conf-poll-label">${esc(k)}</div><div class="conf-poll-bar"><div class="conf-poll-fill" style="width:${pct}%"></div></div><div class="conf-poll-pct">${pct}%</div></div>`}).join('')}</div><div class="conf-poll-count">${total} answer${total===1?'':'s'}</div>`;
+    }
+  }
+  window.renderConfidencePoll=renderConfidencePoll;
+
+  function refreshPollIndicators(){
+    const active=!!getActivePoll();
+    const btn=document.getElementById('mm-poll-btn') || Array.from(document.querySelectorAll('#mobile-mode .mm-action')).find(b=>/^poll$/i.test((b.textContent||'').trim()));
+    if(btn){btn.id='mm-poll-btn';btn.classList.toggle('poll-live',active);}
+    const kill=document.getElementById('mm-kill-poll'); if(kill) kill.style.display=active?'block':'none';
+    document.body.classList.toggle('poll-active',active);
+    if(active) renderConfidencePoll();
+    else if(gflag('isConfidence') && typeof updateConfidence==='function') updateConfidence(gnum('curSlide',0));
+  }
+  window.refreshPollIndicators=refreshPollIndicators;
+  window.mobileKillPoll=function(el){ if(typeof mobileFeedback==='function') mobileFeedback('clear',el); archivePoll('killed'); if(typeof closeActivePoll==='function') closeActivePoll(true); refreshPollIndicators(); };
+
+  const oldLaunchPoll=window.launchPoll;
+  window.launchPoll=function(p,broadcast=true){
+    const current=getActivePoll();
+    if(current) archivePoll('replaced');
+    const r=oldLaunchPoll?oldLaunchPoll(p,broadcast):undefined;
+    archivePoll('opened');
+    refreshPollIndicators();
+    return r;
+  };
+  const oldClosePoll=window.closeActivePoll;
+  window.closeActivePoll=function(broadcast=true){
+    archivePoll('closed');
+    const r=oldClosePoll?oldClosePoll(broadcast):undefined;
+    refreshPollIndicators();
+    return r;
+  };
+  const oldAddPollVote=window.addPollVote;
+  window.addPollVote=function(vote){
+    const r=oldAddPollVote?oldAddPollVote(vote):undefined;
+    archivePoll('vote');
+    refreshPollIndicators();
+    return r;
+  };
+  const oldRenderPollResults=window.renderPollResults;
+  window.renderPollResults=function(){
+    const r=oldRenderPollResults?oldRenderPollResults():undefined;
+    refreshPollIndicators();
+    return r;
+  };
+
+  // Do not let keyboard shortcuts fire while editing poll/question text.
+  document.addEventListener('keydown',function(e){
+    const t=e.target;
+    const editable=t && (t.matches && t.matches('input,textarea,select,[contenteditable="true"]'));
+    const pollEditing=!!document.querySelector('#mm-poll-panel.on');
+    if(editable || pollEditing){
+      if([' ','Spacebar','ArrowLeft','ArrowRight','Enter'].includes(e.key)) e.stopPropagation();
+    }
+  },true);
+
+  const oldHandle=window.handleMessage;
+  window.handleMessage=function(msg){
+    if(msg && msg.type==='slide'){
+      localStorage.setItem(SESSION_LIVE_KEY,'1');
+      if(isAudienceClient()) setTimeout(()=>window.enterSlaveMode(msg.slide),0);
+      if(getActivePoll()) archivePoll('slide-cleared');
+    }
+    if(msg && msg.type==='poll_open'){
+      if(getActivePoll() && getActivePoll().id !== (msg.poll&&msg.poll.id)) archivePoll('replaced');
+    }
+    if(msg && msg.type==='poll_close'){archivePoll('remote-closed');}
+    const r=oldHandle?oldHandle(msg):undefined;
+    if(msg && (msg.type==='poll_open'||msg.type==='poll_vote')) archivePoll(msg.type==='poll_vote'?'vote':'opened');
+    if(msg && (msg.type==='poll_open'||msg.type==='poll_vote'||msg.type==='poll_close'||msg.type==='slide')) refreshPollIndicators();
+    return r;
+  };
+
+  const oldUpdateConfidence=window.updateConfidence;
+  window.updateConfidence=function(i){
+    const r=oldUpdateConfidence?oldUpdateConfidence(i):undefined;
+    if(getActivePoll() && gflag('isConfidence')) renderConfidencePoll();
+    return r;
+  };
+
+  const oldShowHub=window.showHub;
+  window.showHub=function(){const r=oldShowHub?oldShowHub():undefined; ensureAudienceControls(); return r;};
+  const oldOpenMobile=window.openMobileMode;
+  window.openMobileMode=function(){const r=oldOpenMobile?oldOpenMobile():undefined; setTimeout(refreshPollIndicators,0); return r;};
+
+  document.addEventListener('DOMContentLoaded',()=>{ensureAudienceControls();refreshPollIndicators();});
+  setTimeout(()=>{ensureAudienceControls();refreshPollIndicators();},500);
+})();
+</script>
 
 </body>
 </html>

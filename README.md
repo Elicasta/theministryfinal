@@ -206,3 +206,15 @@ When a poll is active:
 - `/obsslides` shows full-screen poll results.
 - `/obslowerthirds` shows compact broadcast-style poll results in the lower-third position.
 - Next or Previous clears the active poll.
+
+
+## v25 Notes
+
+### Audience slave mode
+When the admin starts or advances the presentation, attendee/user screens automatically enter a live session view and follow the admin-controlled slide state. Users can press the top-right `X` to leave the live view. The hub shows `Return to Session` while a session is live.
+
+### Poll persistence
+Polls are archived locally in the presenter's browser under `tm_lesson_poll_archive_v1`. This preserves on-the-fly polls and their anonymous answers when a new poll replaces the old one or when a poll is killed/closed. For real cross-device/server persistence, use the optional SQL file in `supabase/polls.sql` as the starting migration.
+
+### Mobile poll editing
+While the mobile poll editor is open or an input/textarea is focused, keyboard shortcuts are blocked so spaces/arrows do not move slides before the poll is launched.
