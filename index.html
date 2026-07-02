@@ -7460,5 +7460,121 @@ body.online-viewer-mode .online-card{padding:13px!important;}
 })();
 </script>
 
+
+<!-- v54: final hotfix for access note, scripture sizing, confidence Spanish, online sync polling -->
+<style id="v54-hotfix-css">
+/* Keep the access-code note from stacking. JS below leaves only one note, CSS hides leftovers. */
+.mo-access-code .access-case-note,
+.mo-access-code .access-case-note-v50,
+.mo-access-code #access-case-note,
+.mo-access-code #access-case-note-v50,
+.mo-access-code #access-case-note-v51{display:none!important;}
+.mo-access-code #access-code-single-note{display:block!important;margin-top:8px;font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:rgba(241,237,228,.72)!important;line-height:1.35;}
+.mo-access-code #access-code-single-note b{color:var(--red)!important;}
+
+/* Revert the P2 /scriptures Spanish display back down from the oversized pass. */
+body.scripture-mode .sp-content{align-items:center!important;justify-content:center!important;text-align:left!important;padding:6vh 8vw!important;overflow:hidden!important;}
+body.scripture-mode .sp-inner{width:min(1320px,84vw)!important;max-width:min(1320px,84vw)!important;margin:0 auto!important;}
+body.scripture-mode .sp-ref-en{font-size:clamp(.92rem,1.1vw,1.25rem)!important;margin-bottom:18px!important;}
+body.scripture-mode .sp-tx-en{font-size:clamp(1.9rem,3vw,3.7rem)!important;line-height:1.18!important;max-width:1240px!important;}
+body.scripture-mode .sp-ref-es{font-size:clamp(.66rem,.82vw,.95rem)!important;margin-top:36px!important;padding-top:26px!important;}
+body.scripture-mode .sp-tx-es{font-size:clamp(1rem,1.45vw,1.7rem)!important;line-height:1.28!important;max-width:1080px!important;opacity:.78!important;}
+
+/* Enlarge ONLY the Spanish line in /confidence. */
+body.confidence-mode .conf-current.scripture-active .conf-es,
+body.confidence-mode .conf-es{display:block!important;margin-top:18px!important;padding-top:16px!important;border-top:1px solid rgba(241,237,228,.16)!important;font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(1.35rem,2vw,2.45rem)!important;line-height:1.22!important;color:rgba(241,237,228,.76)!important;letter-spacing:0!important;}
+</style>
+
+<script id="v54-hotfix-js">
+(function(){
+  const $=id=>document.getElementById(id);
+
+  function fixAccessNoteOnce(){
+    const ac=$('mo-access-code');
+    if(!ac) return;
+    [...ac.querySelectorAll('#access-case-note,#access-case-note-v50,#access-case-note-v51,.access-case-note,.access-case-note-v50,#access-code-single-note')].forEach(n=>n.remove());
+    const note=document.createElement('div');
+    note.id='access-code-single-note';
+    note.innerHTML='* access code is <b>all lowercase</b>';
+    ac.appendChild(note);
+  }
+  window.fixAccessNoteOnceV54=fixAccessNoteOnce;
+
+  // Online pages on different Vercel URLs/origins do not get BroadcastChannel.
+  // Realtime can lag, so online viewer gets a fast REST poll fallback.
+  let v54LastSyncAt='';
+  let v54PollingStarted=false;
+  function normalizePayload(row){
+    if(!row) return null;
+    let payload=row.payload;
+    if(typeof payload==='string'){
+      try{payload=JSON.parse(payload);}catch(e){return null;}
+    }
+    return payload&&payload.type?payload:null;
+  }
+  async function pollLatestCue(){
+    try{
+      if(!(document.body.classList.contains('online-viewer-mode') || (window.onlineViewerState&&window.onlineViewerState.active))) return;
+      if(typeof loadSupabasePublicConfig==='function') await loadSupabasePublicConfig();
+      if(!window.SB_URL||!window.SB_KEY) return;
+      const res=await fetch(window.SB_URL+'/rest/v1/sync_state?id=eq.1&select=payload,updated_at&limit=1',{
+        cache:'no-store',
+        headers:{'apikey':window.SB_KEY,'Authorization':'Bearer '+window.SB_KEY,'Cache-Control':'no-cache'}
+      });
+      if(!res.ok) return;
+      const rows=await res.json();
+      const row=Array.isArray(rows)?rows[0]:null;
+      if(!row||!row.updated_at||row.updated_at===v54LastSyncAt) return;
+      v54LastSyncAt=row.updated_at;
+      const msg=normalizePayload(row);
+      if(!msg) return;
+      // Force online cue changes to happen now. The video may be delayed, but the app UI should not be.
+      if(msg.type==='slide'||msg.type==='scripture') msg.fast=true;
+      if(typeof window.handleOnlineMessage==='function') window.handleOnlineMessage(msg,false);
+      else if(typeof window.handleMessage==='function') window.handleMessage(msg);
+    }catch(e){}
+  }
+  function startOnlineFastPoll(){
+    if(v54PollingStarted) return;
+    v54PollingStarted=true;
+    setInterval(pollLatestCue,350);
+    setTimeout(pollLatestCue,100);
+    setTimeout(pollLatestCue,500);
+  }
+
+  // Remove any stored artificial online cue delay. Keep video itself untouched.
+  const oldApply=window.applyOnlineConfig;
+  if(oldApply && !oldApply.__v54){
+    window.applyOnlineConfig=function(cfg){
+      cfg=cfg||{}; cfg.syncDelaySeconds=0;
+      const r=oldApply.call(this,cfg);
+      try{ if(window.onlineViewerState&&window.onlineViewerState.config) window.onlineViewerState.config.syncDelaySeconds=0; }catch(e){}
+      return r;
+    };
+    window.applyOnlineConfig.__v54=true;
+  }
+  const oldHandle=window.handleOnlineMessage;
+  if(oldHandle && !oldHandle.__v54){
+    window.handleOnlineMessage=function(msg,hydrating){
+      if(msg && (msg.type==='slide'||msg.type==='scripture')) msg.fast=true;
+      try{ if(window.onlineViewerState&&window.onlineViewerState.config) window.onlineViewerState.config.syncDelaySeconds=0; }catch(e){}
+      return oldHandle.call(this,msg,hydrating);
+    };
+    window.handleOnlineMessage.__v54=true;
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    fixAccessNoteOnce();
+    setTimeout(fixAccessNoteOnce,300);
+    setTimeout(fixAccessNoteOnce,1200);
+    if(location.pathname.toLowerCase().includes('online') || location.pathname.toLowerCase().includes('espanol')) startOnlineFastPoll();
+  });
+  setInterval(()=>{
+    fixAccessNoteOnce();
+    if(document.body.classList.contains('online-viewer-mode')) startOnlineFastPoll();
+  },1500);
+})();
+</script>
+
 </body>
 </html>
