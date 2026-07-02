@@ -1,3 +1,10 @@
+## v46 Lesson 3 + Bible Bank
+- Added Lesson 3: The Making of a Minister.
+- Added 15 Lesson 3 slides, presenter notes, reflection questions, poll bank, and verse bank.
+- Added a Bible Bank section in the admin Verse Bank tab with book/chapter switching for the full chapters used in Lesson 3.
+- Enlarged the access code on the attendee login screen.
+- Preserved Lesson 1, Lesson 2, Supabase wiring, poll/question behavior, and all existing output routes.
+
 
 ## v43 Scripture RVR Manual Trigger Fix
 - Fixed manual scripture pushes so `/scriptures` keeps Spanish RVR as the main text and KJV as the smaller supporting text.

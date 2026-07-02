@@ -362,6 +362,23 @@ body.named #user-chip{display:block;}
 .ctrl-ab.danger{border-color:rgba(232,24,13,.25);color:rgba(232,24,13,.55);}
 .ctrl-ab.danger:hover{background:rgba(232,24,13,.07);color:var(--red);}
 
+
+/* v46: login access code + Bible bank polish */
+.mo-access-code{display:none;margin:12px 0 16px;padding:14px 18px;border:1px solid rgba(232,24,13,.38);background:rgba(232,24,13,.08);text-align:center;font-family:var(--fc);text-transform:uppercase;letter-spacing:.16em;color:rgba(241,237,228,.72);font-size:.62rem;font-weight:800;}
+.mo-access-code span{display:block;margin-top:6px;font-size:clamp(1.35rem,4.5vw,2.15rem);letter-spacing:.08em;color:var(--red);font-weight:900;line-height:1;}
+.mo-access-code.on{display:block;}
+.bible-bank-wrap{margin-top:22px;border-top:1px solid var(--ln);padding-top:18px;}
+.bible-bank-tools{display:grid;grid-template-columns:1fr 110px;gap:8px;margin:10px 0 14px;}
+.bible-bank-tools select{width:100%;background:#090909;border:1px solid var(--ln);color:var(--w);font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;border-radius:0;outline:none;}
+.bible-bank-list{display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow:auto;padding-right:4px;}
+.bb-card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);padding:11px 12px;cursor:pointer;transition:all .15s;}
+.bb-card:hover{border-color:rgba(232,24,13,.35);background:rgba(232,24,13,.055);}
+.bb-ref{font-family:var(--fc);font-size:.66rem;font-weight:900;color:var(--red);letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px;}
+.bb-text{font-family:var(--fb);font-size:.76rem;color:rgba(241,237,228,.72);line-height:1.35;}
+.bb-actions{display:flex;gap:6px;margin-top:9px;}
+.bb-actions button{background:transparent;border:1px solid var(--ln);color:var(--mu);font-family:var(--fc);font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;cursor:pointer;}
+.bb-actions button:hover{border-color:rgba(232,24,13,.38);color:var(--red);}
+
 /* PROJECTOR MODES */
 body.projector-mode .ss-hdr,
 body.projector-mode .ss-arr,
@@ -2359,6 +2376,211 @@ const POLL_BANK_L2 = [
 ];
 
 
+
+
+// =========================================================
+// LESSON 3: THE MAKING OF A MINISTER
+// Companion lesson added v46. Lesson 1 and Lesson 2 remain unchanged.
+// =========================================================
+const LESSON3_SLIDES = [
+  { t:'cover', eyebrow:'The Ministry &middot; Companion Lesson', lesson:'Lesson 3', title:'The Making of a Minister', ref:'1 Timothy 4:12-16 · 2 Timothy' },
+  { t:'big', sup:'Big Idea', text:'Paul does not tell Timothy to build a <span class="acc">brand.</span>', ref:'1 Timothy 4:16' },
+  { t:'sc', ref:'1 Timothy 4:16', text:'&ldquo;Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.&rdquo;', tk:'Paul does not separate the man from the message.' },
+  { t:'te', n:'01', hl:'Watch the life that carries the <span class="acc">doctrine.</span>', pts:['Take heed unto thyself.','Take heed unto the doctrine.','The man and the message have to be watched together.','<span class="hi">Truth can be mishandled by a vessel that is out of order.</span>'], ref:'1 Timothy 4:16' },
+  { t:'big', sup:'Preach Line', text:'Paul does not separate the man from the message because the people receive <span class="acc">both.</span>', ref:'1 Timothy 4:16' },
+  { t:'sc', ref:'1 Timothy 4:12', text:'&ldquo;Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.&rdquo;', tk:'The minister must become an example before he becomes only a voice.' },
+  { t:'big', sup:'Preach Line', text:'A minister is not proven by <span class="acc">volume.</span> He is proven by pattern.', ref:'1 Timothy 4:12' },
+  { t:'te', n:'02', hl:'Stir the gift, but keep the vessel <span class="acc">governed.</span>', pts:['A real gift can still be neglected.','A true calling can still be underdeveloped.','The gift being from God does not remove responsibility.','<span class="hi">The gift is entrusted. The vessel must be governed.</span>'], ref:'1 Timothy 4:14-15 · 2 Timothy 1:6' },
+  { t:'sc', ref:'2 Timothy 1:7', text:'&ldquo;For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.&rdquo;', tk:'Power. Love. A sound mind. That is the shape of a safe vessel.' },
+  { t:'sc', ref:'2 Timothy 2:3', text:'&ldquo;Thou therefore endure hardness, as a good soldier of Jesus Christ.&rdquo;', tk:'Hardship must deepen obedience without deforming the spirit.' },
+  { t:'big', sup:'Preach Line', text:'A minister must learn discomfort without letting discomfort <span class="acc">deform</span> him.', ref:'2 Timothy 2:3' },
+  { t:'sc', ref:'2 Timothy 2:15', text:'&ldquo;Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.&rdquo;', tk:'The Word is not material for clever thoughts. It is truth to be handled rightly.' },
+  { t:'sc', ref:'2 Timothy 4:2', text:'&ldquo;Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.&rdquo;', tk:'Preach the Word when it is received and when it is resisted.' },
+  { t:'sc', ref:'2 Timothy 4:7', text:'&ldquo;I have fought a good fight, I have finished my course, I have kept the faith.&rdquo;', tk:'Paul is not only showing Timothy how to start. He is showing him how to finish.' },
+  { t:'final', kicker:'Closing Line', text:'The making of a minister is the making of a <span class="acc">safe vessel</span> for holy work.', sub:'Life. Doctrine. Gift. Endurance. Study. Preaching. Finish.', ref:'2 Timothy 4:5-7' }
+];
+
+const NOTES_L3 = {
+  0:'Opening title. Start the companion lesson here.',
+  1:'Opening big idea. Use after: Paul does not tell Timothy to build a brand.',
+  2:'Read 1 Timothy 4:16. Slow down on “thyself” and “doctrine.”',
+  3:'Point I. The minister must watch the life that carries the doctrine.',
+  4:'Preach line for Point I. Pause after this.',
+  5:'Point II. Use when you read 1 Timothy 4:12 and move from voice to example.',
+  6:'Preach line for example/pattern.',
+  7:'Point III. Gift and discipline. Connect 1 Timothy 4:14-15 and 2 Timothy 1:6.',
+  8:'Read 2 Timothy 1:7. Explain power, love, and sound mind.',
+  9:'Point IV. Read 2 Timothy 2:3. Hardship and soldier language.',
+  10:'Preach line for hardship. Let it land.',
+  11:'Point V. Read 2 Timothy 2:15. Study and rightly divide the Word.',
+  12:'Point VI. Read 2 Timothy 4:2. Preach the Word.',
+  13:'Finish section. Read 2 Timothy 4:7.',
+  14:'Final close. The making of a minister is the making of a safe vessel.'
+};
+
+const SCRIPTURE_MAP_L3 = [
+  {ref_en:'1 Timothy 4:12-16; 2 Timothy 1:6-7; 2 Timothy 2:3-15; 2 Timothy 4:1-7', text_en:'Paul does not tell Timothy to build a brand. He tells him to become faithful.', ref_es:'1 Timoteo 4; 2 Timoteo 1, 2, 4', text_es:'Pablo no le dice a Timoteo que construya una imagen. Le enseña a ser fiel.'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello, pues haciendo esto, te salvarás a ti mismo y a los que te oyeren.'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:12', text_en:'Let no man despise thy youth; but be thou an example of the believers...', ref_es:'1 Timoteo 4:12', text_es:'Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes...'},
+  {ref_en:'1 Timothy 4:12', text_en:'...be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.', ref_es:'1 Timoteo 4:12', text_es:'...sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza.'},
+  {ref_en:'1 Timothy 4:14-15; 2 Timothy 1:6', text_en:'Neglect not the gift that is in thee... Meditate upon these things; give thyself wholly to them...', ref_es:'1 Timoteo 4:14-15; 2 Timoteo 1:6', text_es:'No descuides el don que hay en ti... Ocúpate en estas cosas; permanece en ellas...'},
+  {ref_en:'2 Timothy 1:7', text_en:'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', ref_es:'2 Timoteo 1:7', text_es:'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.'},
+  {ref_en:'2 Timothy 2:3', text_en:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', ref_es:'2 Timoteo 2:3', text_es:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.'},
+  {ref_en:'2 Timothy 2:3', text_en:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', ref_es:'2 Timoteo 2:3', text_es:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.'},
+  {ref_en:'2 Timothy 2:15', text_en:'Study to shew thyself approved unto God... rightly dividing the word of truth.', ref_es:'2 Timoteo 2:15', text_es:'Procura con diligencia presentarte a Dios aprobado... que usa bien la palabra de verdad.'},
+  {ref_en:'2 Timothy 4:2', text_en:'Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.', ref_es:'2 Timoteo 4:2', text_es:'Que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.'},
+  {ref_en:'2 Timothy 4:7', text_en:'I have fought a good fight, I have finished my course, I have kept the faith.', ref_es:'2 Timoteo 4:7', text_es:'He peleado la buena batalla, he acabado la carrera, he guardado la fe.'},
+  {ref_en:'2 Timothy 4:5-7', text_en:'...do the work... make full proof of thy ministry... I have finished my course, I have kept the faith.', ref_es:'2 Timoteo 4:5-7', text_es:'...haz obra... cumple tu ministerio... he acabado la carrera, he guardado la fe.'}
+];
+
+const VERSE_BANK_L3 = [
+  {id:'l3-1tim4-12', ref:'1 Timothy 4:12', kjv:'Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.', rvr:'Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza.', slides:[5,6]},
+  {id:'l3-1tim4-13', ref:'1 Timothy 4:13', kjv:'Till I come, give attendance to reading, to exhortation, to doctrine.', rvr:'Entre tanto que voy, ocúpate en la lectura, la exhortación y la enseñanza.', slides:[5,6]},
+  {id:'l3-1tim4-14', ref:'1 Timothy 4:14', kjv:'Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.', rvr:'No descuides el don que hay en ti, que te fue dado mediante profecía con la imposición de las manos del presbiterio.', slides:[7]},
+  {id:'l3-1tim4-15', ref:'1 Timothy 4:15', kjv:'Meditate upon these things; give thyself wholly to them; that thy profiting may appear to all.', rvr:'Ocúpate en estas cosas; permanece en ellas, para que tu aprovechamiento sea manifiesto a todos.', slides:[7]},
+  {id:'l3-1tim4-16', ref:'1 Timothy 4:16', kjv:'Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.', rvr:'Ten cuidado de ti mismo y de la doctrina; persiste en ello, pues haciendo esto, te salvarás a ti mismo y a los que te oyeren.', slides:[2,3,4]},
+  {id:'l3-2tim1-6', ref:'2 Timothy 1:6', kjv:'Wherefore I put thee in remembrance that thou stir up the gift of God, which is in thee by the putting on of my hands.', rvr:'Por lo cual te aconsejo que avives el fuego del don de Dios que está en ti por la imposición de mis manos.', slides:[7]},
+  {id:'l3-2tim1-7', ref:'2 Timothy 1:7', kjv:'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', rvr:'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.', slides:[8]},
+  {id:'l3-2tim2-3', ref:'2 Timothy 2:3', kjv:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', rvr:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.', slides:[9,10]},
+  {id:'l3-2tim2-15', ref:'2 Timothy 2:15', kjv:'Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.', rvr:'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.', slides:[11]},
+  {id:'l3-2tim4-1', ref:'2 Timothy 4:1', kjv:'I charge thee therefore before God, and the Lord Jesus Christ, who shall judge the quick and the dead at his appearing and his kingdom;', rvr:'Te encarezco delante de Dios y del Señor Jesucristo, que juzgará a los vivos y a los muertos en su manifestación y en su reino;', slides:[12]},
+  {id:'l3-2tim4-2', ref:'2 Timothy 4:2', kjv:'Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.', rvr:'Que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.', slides:[12]},
+  {id:'l3-2tim4-3', ref:'2 Timothy 4:3', kjv:'For the time will come when they will not endure sound doctrine; but after their own lusts shall they heap to themselves teachers, having itching ears;', rvr:'Porque vendrá tiempo cuando no sufrirán la sana doctrina, sino que teniendo comezón de oír, se amontonarán maestros conforme a sus propias concupiscencias;', slides:[12]},
+  {id:'l3-2tim4-4', ref:'2 Timothy 4:4', kjv:'And they shall turn away their ears from the truth, and shall be turned unto fables.', rvr:'Y apartarán de la verdad el oído y se volverán a las fábulas.', slides:[12]},
+  {id:'l3-2tim4-5', ref:'2 Timothy 4:5', kjv:'But watch thou in all things, endure afflictions, do the work of an evangelist, make full proof of thy ministry.', rvr:'Pero tú sé sobrio en todo, soporta las aflicciones, haz obra de evangelista, cumple tu ministerio.', slides:[14]},
+  {id:'l3-2tim4-6', ref:'2 Timothy 4:6', kjv:'For I am now ready to be offered, and the time of my departure is at hand.', rvr:'Porque yo ya estoy para ser sacrificado, y el tiempo de mi partida está cercano.', slides:[13]},
+  {id:'l3-2tim4-7', ref:'2 Timothy 4:7', kjv:'I have fought a good fight, I have finished my course, I have kept the faith.', rvr:'He peleado la buena batalla, he acabado la carrera, he guardado la fe.', slides:[13,14]}
+];
+
+const QUESTIONS_L3 = [
+  {section:'Personal Examination', questions:[
+    {num:'1', text:'Where am I trying to be known instead of trying to be faithful?'},
+    {num:'2', text:'Which is more guarded in my life right now: my doctrine, or my spirit?'},
+    {num:'3', text:'What has ministry pressure exposed in me: pride, fear, anger, insecurity, or ambition?'},
+    {num:'4', text:'Where have I been tempted to handle truth as a weapon instead of a stewardship?'},
+    {num:'5', text:'What does it look like for me to take heed unto thyself this week in practical terms?'}
+  ]},
+  {section:'Doctrine and Example', questions:[
+    {num:'6', text:'Where do my patterns contradict what I say I believe?'},
+    {num:'7', text:'What part of be thou an example is most lacking in me right now: word, conversation, charity, spirit, faith, or purity?'},
+    {num:'8', text:'What would give attendance to reading, exhortation, and doctrine look like in my weekly rhythm?'}
+  ]},
+  {section:'Gift, Hardness, and Finishing', questions:[
+    {num:'9', text:'Am I neglecting the gift, or am I worshiping the gift?'},
+    {num:'10', text:'Where has fear been trying to make me shrink back from obedience?'},
+    {num:'11', text:'What hardship am I enduring right now, and how am I being tempted to become hard in spirit?'},
+    {num:'12', text:'Where do I need to recommit to rightly dividing the word of truth?'},
+    {num:'13', text:'If I measured ministry by finish, what would need to change today?'}
+  ]}
+];
+
+const POLL_BANK_L3 = [
+  {id:'l3-poll-1', question:'Which part of ministry needs the most attention in you right now?', options:['Life','Doctrine','Gift','Endurance','Study'], anonymous:false},
+  {id:'l3-poll-2', question:'What has ministry pressure exposed the most?', options:['Pride','Fear','Anger','Insecurity','Ambition'], anonymous:false},
+  {id:'l3-poll-3', question:'Which phrase hits your current season most?', options:['Watch the life','Stir the gift','Endure hardness','Rightly divide','Finish the course'], anonymous:false}
+];
+
+const BIBLE_BANK_L3 = {
+  books: {
+    '1 Timothy': {
+      '4': [
+        ['1 Timothy 4:1','Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils;'],
+        ['1 Timothy 4:2','Speaking lies in hypocrisy; having their conscience seared with a hot iron;'],
+        ['1 Timothy 4:3','Forbidding to marry, and commanding to abstain from meats, which God hath created to be received with thanksgiving of them which believe and know the truth.'],
+        ['1 Timothy 4:4','For every creature of God is good, and nothing to be refused, if it be received with thanksgiving:'],
+        ['1 Timothy 4:5','For it is sanctified by the word of God and prayer.'],
+        ['1 Timothy 4:6','If thou put the brethren in remembrance of these things, thou shalt be a good minister of Jesus Christ, nourished up in the words of faith and of good doctrine, whereunto thou hast attained.'],
+        ['1 Timothy 4:7','But refuse profane and old wives\' fables, and exercise thyself rather unto godliness.'],
+        ['1 Timothy 4:8','For bodily exercise profiteth little: but godliness is profitable unto all things, having promise of the life that now is, and of that which is to come.'],
+        ['1 Timothy 4:9','This is a faithful saying and worthy of all acceptation.'],
+        ['1 Timothy 4:10','For therefore we both labour and suffer reproach, because we trust in the living God, who is the Saviour of all men, specially of those that believe.'],
+        ['1 Timothy 4:11','These things command and teach.'],
+        ['1 Timothy 4:12','Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.'],
+        ['1 Timothy 4:13','Till I come, give attendance to reading, to exhortation, to doctrine.'],
+        ['1 Timothy 4:14','Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.'],
+        ['1 Timothy 4:15','Meditate upon these things; give thyself wholly to them; that thy profiting may appear to all.'],
+        ['1 Timothy 4:16','Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.']
+      ]
+    },
+    '2 Timothy': {
+      '1': [
+        ['2 Timothy 1:1','Paul, an apostle of Jesus Christ by the will of God, according to the promise of life which is in Christ Jesus,'],
+        ['2 Timothy 1:2','To Timothy, my dearly beloved son: Grace, mercy, and peace, from God the Father and Christ Jesus our Lord.'],
+        ['2 Timothy 1:3','I thank God, whom I serve from my forefathers with pure conscience, that without ceasing I have remembrance of thee in my prayers night and day;'],
+        ['2 Timothy 1:4','Greatly desiring to see thee, being mindful of thy tears, that I may be filled with joy;'],
+        ['2 Timothy 1:5','When I call to remembrance the unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice; and I am persuaded that in thee also.'],
+        ['2 Timothy 1:6','Wherefore I put thee in remembrance that thou stir up the gift of God, which is in thee by the putting on of my hands.'],
+        ['2 Timothy 1:7','For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.'],
+        ['2 Timothy 1:8','Be not thou therefore ashamed of the testimony of our Lord, nor of me his prisoner: but be thou partaker of the afflictions of the gospel according to the power of God;'],
+        ['2 Timothy 1:9','Who hath saved us, and called us with an holy calling, not according to our works, but according to his own purpose and grace, which was given us in Christ Jesus before the world began,'],
+        ['2 Timothy 1:10','But is now made manifest by the appearing of our Saviour Jesus Christ, who hath abolished death, and hath brought life and immortality to light through the gospel:'],
+        ['2 Timothy 1:11','Whereunto I am appointed a preacher, and an apostle, and a teacher of the Gentiles.'],
+        ['2 Timothy 1:12','For the which cause I also suffer these things: nevertheless I am not ashamed: for I know whom I have believed, and am persuaded that he is able to keep that which I have committed unto him against that day.'],
+        ['2 Timothy 1:13','Hold fast the form of sound words, which thou hast heard of me, in faith and love which is in Christ Jesus.'],
+        ['2 Timothy 1:14','That good thing which was committed unto thee keep by the Holy Ghost which dwelleth in us.'],
+        ['2 Timothy 1:15','This thou knowest, that all they which are in Asia be turned away from me; of whom are Phygellus and Hermogenes.'],
+        ['2 Timothy 1:16','The Lord give mercy unto the house of Onesiphorus; for he oft refreshed me, and was not ashamed of my chain:'],
+        ['2 Timothy 1:17','But, when he was in Rome, he sought me out very diligently, and found me.'],
+        ['2 Timothy 1:18','The Lord grant unto him that he may find mercy of the Lord in that day: and in how many things he ministered unto me at Ephesus, thou knowest very well.']
+      ],
+      '2': [
+        ['2 Timothy 2:1','Thou therefore, my son, be strong in the grace that is in Christ Jesus.'],
+        ['2 Timothy 2:2','And the things that thou hast heard of me among many witnesses, the same commit thou to faithful men, who shall be able to teach others also.'],
+        ['2 Timothy 2:3','Thou therefore endure hardness, as a good soldier of Jesus Christ.'],
+        ['2 Timothy 2:4','No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.'],
+        ['2 Timothy 2:5','And if a man also strive for masteries, yet is he not crowned, except he strive lawfully.'],
+        ['2 Timothy 2:6','The husbandman that laboureth must be first partaker of the fruits.'],
+        ['2 Timothy 2:7','Consider what I say; and the Lord give thee understanding in all things.'],
+        ['2 Timothy 2:8','Remember that Jesus Christ of the seed of David was raised from the dead according to my gospel:'],
+        ['2 Timothy 2:9','Wherein I suffer trouble, as an evil doer, even unto bonds; but the word of God is not bound.'],
+        ['2 Timothy 2:10','Therefore I endure all things for the elect\'s sakes, that they may also obtain the salvation which is in Christ Jesus with eternal glory.'],
+        ['2 Timothy 2:11','It is a faithful saying: For if we be dead with him, we shall also live with him:'],
+        ['2 Timothy 2:12','If we suffer, we shall also reign with him: if we deny him, he also will deny us:'],
+        ['2 Timothy 2:13','If we believe not, yet he abideth faithful: he cannot deny himself.'],
+        ['2 Timothy 2:14','Of these things put them in remembrance, charging them before the Lord that they strive not about words to no profit, but to the subverting of the hearers.'],
+        ['2 Timothy 2:15','Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.'],
+        ['2 Timothy 2:16','But shun profane and vain babblings: for they will increase unto more ungodliness.'],
+        ['2 Timothy 2:17','And their word will eat as doth a canker: of whom is Hymenaeus and Philetus;'],
+        ['2 Timothy 2:18','Who concerning the truth have erred, saying that the resurrection is past already; and overthrow the faith of some.'],
+        ['2 Timothy 2:19','Nevertheless the foundation of God standeth sure, having this seal, The Lord knoweth them that are his. And, Let every one that nameth the name of Christ depart from iniquity.'],
+        ['2 Timothy 2:20','But in a great house there are not only vessels of gold and of silver, but also of wood and of earth; and some to honour, and some to dishonour.'],
+        ['2 Timothy 2:21','If a man therefore purge himself from these, he shall be a vessel unto honour, sanctified, and meet for the master\'s use, and prepared unto every good work.'],
+        ['2 Timothy 2:22','Flee also youthful lusts: but follow righteousness, faith, charity, peace, with them that call on the Lord out of a pure heart.'],
+        ['2 Timothy 2:23','But foolish and unlearned questions avoid, knowing that they do gender strifes.'],
+        ['2 Timothy 2:24','And the servant of the Lord must not strive; but be gentle unto all men, apt to teach, patient,'],
+        ['2 Timothy 2:25','In meekness instructing those that oppose themselves; if God peradventure will give them repentance to the acknowledging of the truth;'],
+        ['2 Timothy 2:26','And that they may recover themselves out of the snare of the devil, who are taken captive by him at his will.']
+      ],
+      '4': [
+        ['2 Timothy 4:1','I charge thee therefore before God, and the Lord Jesus Christ, who shall judge the quick and the dead at his appearing and his kingdom;'],
+        ['2 Timothy 4:2','Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.'],
+        ['2 Timothy 4:3','For the time will come when they will not endure sound doctrine; but after their own lusts shall they heap to themselves teachers, having itching ears;'],
+        ['2 Timothy 4:4','And they shall turn away their ears from the truth, and shall be turned unto fables.'],
+        ['2 Timothy 4:5','But watch thou in all things, endure afflictions, do the work of an evangelist, make full proof of thy ministry.'],
+        ['2 Timothy 4:6','For I am now ready to be offered, and the time of my departure is at hand.'],
+        ['2 Timothy 4:7','I have fought a good fight, I have finished my course, I have kept the faith.'],
+        ['2 Timothy 4:8','Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day.'],
+        ['2 Timothy 4:9','Do thy diligence to come shortly unto me:'],
+        ['2 Timothy 4:10','For Demas hath forsaken me, having loved this present world, and is departed unto Thessalonica; Crescens to Galatia, Titus unto Dalmatia.'],
+        ['2 Timothy 4:11','Only Luke is with me. Take Mark, and bring him with thee: for he is profitable to me for the ministry.'],
+        ['2 Timothy 4:12','And Tychicus have I sent to Ephesus.'],
+        ['2 Timothy 4:13','The cloke that I left at Troas with Carpus, when thou comest, bring with thee, and the books, but especially the parchments.'],
+        ['2 Timothy 4:14','Alexander the coppersmith did me much evil: the Lord reward him according to his works:'],
+        ['2 Timothy 4:15','Of whom be thou ware also; for he hath greatly withstood our words.'],
+        ['2 Timothy 4:16','At my first answer no man stood with me, but all men forsook me: I pray God that it may not be laid to their charge.'],
+        ['2 Timothy 4:17','Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known...'],
+        ['2 Timothy 4:18','And the Lord shall deliver me from every evil work, and will preserve me unto his heavenly kingdom...'],
+        ['2 Timothy 4:19','Salute Prisca and Aquila, and the household of Onesiphorus.'],
+        ['2 Timothy 4:20','Erastus abode at Corinth: but Trophimus have I left at Miletum sick.'],
+        ['2 Timothy 4:21','Do thy diligence to come before winter. Eubulus greeteth thee, and Pudens, and Linus, and Claudia, and all the brethren.'],
+        ['2 Timothy 4:22','The Lord Jesus Christ be with thy spirit. Grace be with you. Amen.']
+      ]
+    }
+  }
+};
 const LESSON_LIBRARY = Object.freeze({
   'lesson-1': {
     slug: 'lesson-1',
@@ -2383,10 +2605,24 @@ const LESSON_LIBRARY = Object.freeze({
     verseBank: VERSE_BANK_L2,
     questions: QUESTIONS_L2,
     pollBank: POLL_BANK_L2
+  },
+  'lesson-3': {
+    slug: 'lesson-3',
+    label: 'Lesson 3',
+    title: 'The Making of a Minister',
+    text: '1 Timothy 4:12-16 · 2 Timothy 1, 2, 4',
+    slides: LESSON3_SLIDES,
+    notes: NOTES_L3,
+    scriptureMap: SCRIPTURE_MAP_L3,
+    verseBank: VERSE_BANK_L3,
+    questions: QUESTIONS_L3,
+    pollBank: POLL_BANK_L3,
+    bibleBank: BIBLE_BANK_L3
   }
 });
 function normalizeLessonSlug(raw){
   raw=String(raw||'').toLowerCase().trim();
+  if(raw==='3') return 'lesson-3';
   if(raw==='2') return 'lesson-2';
   if(raw==='1') return 'lesson-1';
   return LESSON_LIBRARY[raw] ? raw : 'lesson-1';
@@ -2440,6 +2676,7 @@ function applySelectedLesson(slug){
   replaceEditableArray(VERSE_BANK, lesson.verseBank || []);
   replaceEditableArray(QUESTIONS, lesson.questions || []);
   if(lesson.pollBank) window.POLL_BANK = JSON.parse(JSON.stringify(lesson.pollBank));
+  window.BIBLE_BANK_CURRENT = lesson.bibleBank || null;
   window.LESSON_SLUG = lesson.slug;
   window.LESSON_DATA = { slug: lesson.slug, label: lesson.label, title: lesson.title, text: lesson.text };
   try{localStorage.setItem('tm_selected_lesson', lesson.slug);}catch(e){}
@@ -2450,7 +2687,7 @@ function applySelectedLesson(slug){
 const HOME_LESSON_META = {
   'lesson-1': {num:'01', label:'Lesson 1', dateShort:'June 18', dateLong:'June 18, 2026', title:'The Price of Being Sent', text:'Matthew 10:1-10', slides:'15 Slides', tagline:'Ministry does not begin with a platform. It begins with a call.', reflectionTitle:'Personal Examination', reflectionMeta:'6 sections · 17 questions', open:true},
   'lesson-2': {num:'02', label:'Lesson 2', dateShort:'June 25', dateLong:'June 25, 2026', title:'The Discipline of the Sent', text:'Matthew 10:11-16', slides:'20 Slides', tagline:'Jesus does not only send disciples. He instructs disciples in how to move.', reflectionTitle:'The Discipline of the Sent', reflectionMeta:'10 reflection questions', open:true},
-  'lesson-3': {num:'03', label:'Lesson 3', dateShort:'July 2', dateLong:'July 2, 2026', title:'How to Do Ministry', text:'Matthew 10:24-33 · 1 & 2 Timothy', slides:'Coming Soon', tagline:'Coming soon.', open:false},
+  'lesson-3': {num:'03', label:'Lesson 3', dateShort:'July 2', dateLong:'July 2, 2026', title:'The Making of a Minister', text:'1 Timothy 4:12-16 · 2 Timothy 1, 2, 4', slides:'15 Slides', tagline:'The making of a minister is the making of a safe vessel for holy work.', reflectionTitle:'The Making of a Minister', reflectionMeta:'13 reflection questions', open:true},
   'lesson-4': {num:'04', label:'Lesson 4', dateShort:'July 9', dateLong:'July 9, 2026', title:'The Reward of the Work', text:'Matthew 10:34-42', slides:'Coming Soon', tagline:'Coming soon.', open:false}
 };
 function updateLandingLessonState(slug){
@@ -2634,6 +2871,7 @@ function showModal(t){
   const isAdm=t==='admin';
   document.getElementById('mo-name').style.display=isAdm?'none':'block';
   document.getElementById('mo-sub').textContent=isAdm?'Enter the admin code.':'Enter your name and the access code.';
+  const ac=document.getElementById('mo-access-code'); if(ac) ac.classList.toggle('on', !isAdm);
   document.getElementById('mo-err').classList.remove('on');
   document.getElementById('mo-pw').value='';
   if(!isAdm)document.getElementById('mo-name').value='';
@@ -2864,6 +3102,8 @@ function buildVerseBank(){
       </div>
     </div>
   `).join('');
+  const hdr=document.getElementById('lesson-verse-bank-title'); if(hdr&&window.LESSON_DATA) hdr.textContent=`${window.LESSON_DATA.label} Verse Bank · KJV/RVR · Tap to push`;
+  try{buildBibleBank();}catch(e){}
 }
 const VB_SPANISH={
   v1:'Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.',
@@ -2887,12 +3127,67 @@ function getVBSpanish(id){
   if(VB_SPANISH[id]) return VB_SPANISH[id];
   const v=(Array.isArray(VERSE_BANK)?VERSE_BANK:[]).find(x=>x.id===id);
   if(!v) return '';
+  if(v.rvr) return v.rvr;
   const map=(Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP:[]).find(x=>(x.ref_en||x.ref)===v.ref || (x.ref_es||'').replace('Mateo','Matthew')===v.ref);
   return map ? (map.text_es||map.rvr||'') : '';
 }
 function markVBPushed(id){
   document.querySelectorAll('.vb-card').forEach(c=>c.classList.remove('pushed'));
   const card=document.getElementById('vbc-'+id);if(card)card.classList.add('pushed');
+}
+
+
+// ── BIBLE BANK ──
+function buildBibleBank(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  if(!bookSel||!chapSel) return;
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  const books=bank&&bank.books?Object.keys(bank.books):[];
+  bookSel.innerHTML=books.length?books.map(b=>`<option value="${b}">${b}</option>`).join(''):'<option>No Bible bank</option>';
+  if(books.length){
+    const current=bookSel.dataset.current && books.includes(bookSel.dataset.current) ? bookSel.dataset.current : books[0];
+    bookSel.value=current;
+    buildBibleBankChapters();
+  }else{
+    chapSel.innerHTML='<option>—</option>';
+    const cards=document.getElementById('bible-bank-cards'); if(cards) cards.innerHTML='<div class="bb-card"><div class="bb-text">No chapter bank for this lesson yet.</div></div>';
+  }
+}
+function buildBibleBankChapters(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  if(!bookSel||!chapSel||!bank||!bank.books) return;
+  const book=bookSel.value;
+  bookSel.dataset.current=book;
+  const chapters=bank.books[book]?Object.keys(bank.books[book]):[];
+  chapSel.innerHTML=chapters.map(c=>`<option value="${c}">${c}</option>`).join('');
+  renderBibleBankChapter();
+}
+function renderBibleBankChapter(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  const cards=document.getElementById('bible-bank-cards');
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  if(!bookSel||!chapSel||!cards||!bank||!bank.books){return;}
+  if(!bank.books[bookSel.value] || !bank.books[bookSel.value][chapSel.value]){
+    buildBibleBankChapters();
+    return;
+  }
+  const verses=bank.books[bookSel.value][chapSel.value] || [];
+  cards.innerHTML=verses.map((row,idx)=>{
+    const ref=row[0], kjv=row[1];
+    const safeRef=String(ref).replace(/'/g,"&#39;");
+    const safeText=String(kjv).replace(/`/g,"'");
+    return `<div class="bb-card"><div class="bb-ref">${safeRef}</div><div class="bb-text">${safeText}</div><div class="bb-actions"><button onclick="event.stopPropagation();pushVerseToP1({ref:'${safeRef}',kjv:\`${safeText}\`})">P1</button><button onclick="event.stopPropagation();pushRawScripture({ref_en:'${safeRef}',text_en:\`${safeText}\`,ref_es:'${safeRef.replace('1 Timothy','1 Timoteo').replace('2 Timothy','2 Timoteo')}',text_es:getRvrForRef('${safeRef}')||\`${safeText}\`})">P2</button></div></div>`;
+  }).join('');
+}
+function getRvrForRef(ref){
+  const v=(Array.isArray(VERSE_BANK)?VERSE_BANK:[]).find(x=>x.ref===ref);
+  if(v && v.rvr) return v.rvr;
+  const m=(Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP:[]).find(x=>(x.ref_en||'')===ref || (x.ref_en||'').includes(ref));
+  return m ? (m.text_es||'') : '';
 }
 
 // ── CONTROL SURFACE ──
@@ -2952,6 +3247,7 @@ function switchTab(name,btn){
   document.querySelectorAll('.ctrl-panel').forEach(p=>p.classList.remove('on'));
   btn.classList.add('on');
   document.getElementById('tab-'+name).classList.add('on');
+  if(name==='verses'){try{buildBibleBank();}catch(e){}}
 }
 
 // ── SCRIPTURE AUTO ──
@@ -3931,7 +4227,7 @@ function renderQuestionsMini(){
 <div class="sc-series">
 <div class="sc-si active">Lesson 1 · June 18</div>
 <div class="sc-si locked">Lesson 2 · June 25</div>
-<div class="sc-si locked">Lesson 3 · July 2</div>
+<div class="sc-si" onclick="selectLesson('lesson-3',true)">Lesson 3 · July 2</div>
 <div class="sc-si locked">Lesson 4 · July 9</div>
 </div>
 <div class="sc-btns">
@@ -3951,6 +4247,7 @@ function renderQuestionsMini(){
 <div class="mo-box">
 <div class="mo-title">THE <span>MINISTRY</span></div>
 <div class="mo-sub" id="mo-sub">Enter your name and the access code.</div>
+<div class="mo-access-code" id="mo-access-code">Access Code<span>ministry2026</span></div>
 <input class="mo-inp" id="mo-name" onkeydown="if(event.key==='Enter')document.getElementById('mo-email').focus()" placeholder="Your name" type="text"/>
 <input class="mo-inp" id="mo-email" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()" placeholder="Your email" type="email" autocomplete="email"/>
 <input class="mo-inp" id="mo-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Access code" type="password"/>
@@ -4139,7 +4436,7 @@ function renderQuestionsMini(){
 <div class="cmd-sec">
 <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">● Auto P2</button>
 <button class="cmd-pill" onclick="openSS()">▶ Present</button>
-<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button>
+<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button><button class="cmd-pill lesson-pill" data-lesson="lesson-3" onclick="adminSelectLesson('lesson-3')">Lesson 3</button>
 <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
 <button class="cmd-pill" onclick="projFS()">⛶ FS</button>
 </div>
@@ -4163,8 +4460,16 @@ function renderQuestionsMini(){
 <!-- Verse bank panel -->
 <div class="ctrl-panel" id="tab-verses">
 <div class="vbank-inner">
-<div class="vbank-header">Matthew 10:1-10 · KJV · Tap to push</div>
+<div class="vbank-header" id="lesson-verse-bank-title">Lesson Verse Bank · KJV/RVR · Tap to push</div>
 <div id="verse-bank-cards"></div>
+<div class="bible-bank-wrap">
+  <div class="vbank-header">Bible Bank · Full Chapters Used</div>
+  <div class="bible-bank-tools">
+    <select id="bb-book" onchange="renderBibleBankChapter()"></select>
+    <select id="bb-chapter" onchange="renderBibleBankChapter()"></select>
+  </div>
+  <div class="bible-bank-list" id="bible-bank-cards"></div>
+</div>
 </div>
 </div>
 <!-- Poll bank panel -->
@@ -5250,6 +5555,7 @@ body.audience-slave .poll-screen *{
     }
     if(name && !isAdm) name.value=localStorage.getItem('tm_name')||name.value||'';
     if(sub) sub.textContent=isAdm?'Enter the admin code.':'Enter your name, email, and the access code.';
+    const ac=$('mo-access-code'); if(ac) ac.classList.toggle('on', !isAdm);
   };
 
   window.checkPw=async function(){

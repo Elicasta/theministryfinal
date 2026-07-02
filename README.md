@@ -7,7 +7,7 @@ It is designed to run multiple outputs from one deployed site:
 | Route | Purpose |
 |---|---|
 | `/projector` | Main big-screen teaching projector |
-| `/scriptures` | Side scripture screens with KJV primary and RVR 1960 underneath |
+| `/scriptures` | Side scripture screens with Spanish RVR primary and KJV underneath |
 | `/confidence` | Speaker confidence monitor with current slide, next main slide, timer, and notes |
 | `/admin` | Desktop presenter/admin controller |
 | `/mobile` | Phone-friendly presenter controller |
@@ -15,6 +15,17 @@ It is designed to run multiple outputs from one deployed site:
 | `/obsslides` | OBS full-slide output |
 
 The current file is intentionally still a single-file app. That keeps deployment simple and makes it safe to duplicate for a new series.
+
+
+## Current lessons
+
+| Lesson | Title | Text | Slides |
+|---|---|---|---:|
+| Lesson 1 | The Price of Being Sent | Matthew 10:1-10 | 15 |
+| Lesson 2 | The Discipline of the Sent | Matthew 10:11-16 | 20 |
+| Lesson 3 | The Making of a Minister | 1 Timothy 4:12-16; 2 Timothy 1, 2, 4 | 15 |
+
+Lesson 3 also includes a Bible Bank in `/admin` under the Verse Bank tab. It lets you switch by book/chapter for the full KJV chapters used in the lesson. Curated lesson verses still include RVR text for the side scripture screen.
 
 ## Safe editing sections
 
