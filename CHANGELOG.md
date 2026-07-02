@@ -203,3 +203,24 @@ Use this version if v18 gets stuck after the Start slide.
 - Fixed online current slide preview to render the main audience slide.
 - Set live service flow to Prayer 7:00 PM, Worship 7:30 PM, Preaching 8:00 PM.
 - Added stream sync delay control. Default is 0 seconds for fastest sync.
+
+## v48 - Spanish participant flow + online viewer polish
+
+- Rebuilt from v47, which was already based on the latest v46 Lesson 3 Bible Bank build.
+- Kept English routes non-destructive.
+- Changed Spanish login behavior:
+  - Español only -> `/Espanol?lesson=current-lesson` participant side with Spanish slides.
+  - Watching online + Español -> `/Espanol?online=1&lesson=current-lesson` Spanish online stream portal.
+  - Watching online only -> `/online?lesson=current-lesson` English online stream portal.
+- Added Spanish slide rendering for Lesson 3 without replacing the English slide data.
+- Added access-code helper note: all lowercase.
+- Tightened questionnaire layout: left aligned, smaller, less vertical spacing.
+- Reworked `/online` layout closer to v37:
+  - live stream first
+  - lower-third/current cue info under stream
+  - current slide under that
+  - response buttons behave like a mobile bottom nav on phones
+- Added Watch Again link behavior for ended/replay stream config.
+- Added mobile Bible Bank panel hooks without replacing the existing mobile poll controls.
+- Preserved date-driven current lesson selection. Future lessons will become default when their lesson data exists and their date arrives.
+- No SQL change from v47.

@@ -380,3 +380,27 @@ Lesson 2 verse bank entries are split verse-by-verse for cleaner mobile control.
 3. Open `/admin`, paste the scheduled YouTube Live URL or iframe into Online Stream, and press Save Stream.
 4. Use `/online` for English online viewers and `/Espanol` for Spanish online viewers.
 5. Use Sync Delay `0` for fastest slide sync. Raise it only when matching livestream latency.
+
+## v48 notes
+
+### Spanish routes
+
+- `/Espanol?lesson=lesson-3` opens the Spanish participant side.
+- `/Espanol?online=1&lesson=lesson-3` opens the Spanish online stream portal.
+- `/online?lesson=lesson-3` opens the English online stream portal.
+
+### Login behavior
+
+- Checking **Watching online** sends the user to `/online`.
+- Checking **Español** only sends the user to `/Espanol`.
+- Checking both sends the user to `/Espanol?online=1`.
+
+### Stream SQL
+
+No new SQL is required for v48. Use the existing v47 stream config table patch if it has not already been run:
+
+`supabase/v47-stream-config-everywhere.sql`
+
+### Replay sync idea
+
+The code now exposes a placeholder replay sync plan, but the real timecode replay feature should be built as its own version. That needs cue logging during live service and replay playback against video seconds.
