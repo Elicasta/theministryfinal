@@ -6948,5 +6948,269 @@ body.mm-show-bank #mobile-mode .mm-bank-full{display:flex!important;}
 })();
 </script>
 
+
+<style id="v50-addressed-items-css">
+/* v50 addressed-items pass */
+#mo-access-code #access-case-note{display:none!important;}
+#mo-access-code .access-case-note-v49 ~ .access-case-note-v49{display:none!important;}
+#mo-access-code .access-case-note-v50{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,237,228,.55);margin-top:7px;line-height:1.25;}
+#mo-access-code .access-case-note-v50 b{color:var(--red);}
+
+/* Admin preview: keep it useful but small and correctly framed. */
+#admin-hub .ctrl-prev-wrap{padding:12px!important;min-height:auto!important;}
+#admin-hub .ctrl-prev-stage{width:100%!important;max-width:380px!important;aspect-ratio:16/9!important;height:auto!important;margin:0 auto!important;overflow:hidden!important;background:#050505!important;}
+#admin-hub #preview-slides{position:absolute!important;inset:0!important;}
+#admin-hub #preview-slides .slide{width:100%!important;height:100%!important;font-size:.17em!important;transform:none!important;}
+#admin-hub #preview-slides .sl-cover,#admin-hub #preview-slides .sl-big,#admin-hub #preview-slides .sl-sc,#admin-hub #preview-slides .sl-te,#admin-hub #preview-slides .sl-names,#admin-hub #preview-slides .sl-final{padding:8em!important;}
+#admin-hub #preview-slides .sl-ct .tt,#admin-hub #preview-slides .sl-ct .tm{font-size:12em!important;}
+#admin-hub #preview-slides .sl-big-text,#admin-hub #preview-slides .sl-ft{font-size:7em!important;}
+#admin-hub #preview-slides .sl-te-h{font-size:4.4em!important;}
+
+/* Make Spanish scripture readable without breaking the current monitor layout. */
+body.scripture-mode #sp-tx-es{font-size:clamp(2.2rem,3.4vw,4.2rem)!important;line-height:1.08!important;opacity:.86!important;}
+body.confidence-mode .conf-es{font-size:clamp(1.55rem,2vw,2.55rem)!important;line-height:1.2!important;margin-top:22px!important;display:block!important;color:rgba(241,237,228,.68)!important;}
+
+/* Online viewer: keep video accessible while the rest scrolls. */
+@media(max-width:899px){
+  body.online-viewer-mode .online-video-card{position:sticky!important;top:76px!important;z-index:60!important;}
+  body.online-viewer-mode .online-video-card:fullscreen{position:fixed!important;inset:0!important;z-index:9999!important;}
+}
+.online-lower-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:18px;}
+.online-lower-kicker{font-family:var(--fc);font-size:.65rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.online-lower-title{font-family:var(--fc);font-size:1.22rem;font-weight:900;line-height:1.2;color:var(--w);}
+.online-lower-ref{font-size:.95rem;line-height:1.45;color:rgba(241,237,228,.62);margin-top:9px;}
+.online-watch-again{display:none;margin-top:14px;border:1px solid rgba(232,24,13,.6);background:rgba(232,24,13,.08);color:var(--w);font-family:var(--fc);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;text-align:center;padding:13px;cursor:pointer;width:100%;}
+.online-watch-again.on{display:block;}
+
+/* Online notes drawer, not dashboard redirect. */
+.online-notes-drawer{position:fixed;left:0;right:0;bottom:0;z-index:20000;background:#0b0b0b;border-top:1px solid rgba(232,24,13,.55);box-shadow:0 -24px 70px rgba(0,0,0,.72);padding:14px 14px calc(14px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .18s ease;}
+.online-notes-drawer.on{transform:translateY(0);}
+.online-notes-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.online-notes-title{font-family:var(--fc);font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--red);}
+.online-notes-close{border:1px solid var(--ln);background:#111;color:var(--w);font-family:var(--fc);font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:9px 10px;}
+.online-notes-ta{width:100%;min-height:190px;background:#111;border:1px solid var(--ln);color:var(--w);font:16px/1.45 var(--fb);padding:12px;resize:vertical;outline:none;}
+.online-notes-help{font-family:var(--fc);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-top:8px;}
+
+/* Bible bank chapter pills: makes 2 Timothy 1/2/4 obvious even if browser select UI is weird. */
+.bb-chapter-pills{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px;}
+.bb-chapter-pill{border:1px solid var(--ln);background:#0d0d0d;color:var(--w);font-family:var(--fc);font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;cursor:pointer;}
+.bb-chapter-pill.on{border-color:rgba(232,24,13,.65);background:rgba(232,24,13,.08);color:var(--red);}
+
+/* Spanish participant/dashboard polish. */
+body.tm-spanish-mode .sc-title .tt::after{content:'';}
+body.tm-spanish-mode .hub-lbl,body.tm-spanish-mode .lc-wk,body.tm-spanish-mode .cd,body.tm-spanish-mode .cn{letter-spacing:.16em;}
+</style>
+
+<script id="v50-addressed-items-js">
+(function(){
+  const $=id=>document.getElementById(id);
+  const route=()=>window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();
+  const qs=()=>new URLSearchParams(window.location.search);
+  const today=()=>{try{return isoLocalDate(new Date());}catch(e){return new Date().toISOString().slice(0,10);}};
+  const wantsOnline=()=>route()==='online'||(route()==='espanol'&&/^(1|true|online)$/i.test(qs().get('online')||qs().get('view')||''));
+  const isSpanish=()=>route()==='espanol'||document.body.classList.contains('tm-spanish-mode')||window.TM_LANG_ES;
+  const strip=html=>{const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||'').replace(/\s+/g,' ').trim();};
+  const setText=(sel,text)=>{const el=document.querySelector(sel); if(el) el.textContent=text;};
+  const setHTML=(sel,html)=>{const el=document.querySelector(sel); if(el) el.innerHTML=html;};
+  const dateActive=slug=>{const meta=(window.HOME_LESSON_META||HOME_LESSON_META||{})[slug]; if(!meta) return false; const map={'lesson-1':'2026-06-18','lesson-2':'2026-06-25','lesson-3':'2026-07-02','lesson-4':'2026-07-09'}; return (map[slug]||'9999-12-31')<=today();};
+  function currentSlug(){try{return requestedLessonSlug();}catch(e){return window.LESSON_SLUG||'lesson-1';}}
+
+  /* One lowercase note only. */
+  function fixAccessCaseNote(){
+    const ac=$('mo-access-code'); if(!ac) return;
+    const old=$('access-case-note'); if(old) old.remove();
+    document.querySelectorAll('#access-case-note-v49').forEach(n=>n.remove());
+    if(!$('access-case-note-v50')){
+      const note=document.createElement('div'); note.id='access-case-note-v50'; note.className='access-case-note-v50'; note.innerHTML='* access code is <b>all lowercase</b>';
+      ac.appendChild(note);
+    }
+  }
+
+  /* Spanish participant page should feel Spanish, not English shell with Spanish slides only. */
+  const ES_META={
+    'lesson-1':{label:'Lección 1',dateShort:'18 de junio',dateLong:'18 de junio, 2026',title:'El Precio de Ser Enviado',text:'Mateo 10:1-10',slides:'15 diapositivas',tagline:'El ministerio no comienza con una plataforma. Comienza con un llamado.',reflectionTitle:'Examen Personal',reflectionMeta:'6 secciones · 17 preguntas'},
+    'lesson-2':{label:'Lección 2',dateShort:'25 de junio',dateLong:'25 de junio, 2026',title:'La Disciplina del Enviado',text:'Mateo 10:11-16',slides:'20 diapositivas',tagline:'Jesús no solo envía discípulos. Los instruye en cómo moverse.',reflectionTitle:'La Disciplina del Enviado',reflectionMeta:'10 preguntas de reflexión'},
+    'lesson-3':{label:'Lección 3',dateShort:'2 de julio',dateLong:'2 de julio, 2026',title:'La Formación de un Ministro',text:'1 Timoteo 4:12-16 · 2 Timoteo 1, 2, 4',slides:'15 diapositivas',tagline:'La formación de un ministro es la formación de un vaso seguro para la obra santa.',reflectionTitle:'La Formación de un Ministro',reflectionMeta:'13 preguntas de reflexión'},
+    'lesson-4':{label:'Lección 4',dateShort:'9 de julio',dateLong:'9 de julio, 2026',title:'La Recompensa de la Obra',text:'Mateo 10:34-42',slides:'Próximamente',tagline:'Próximamente.',reflectionTitle:'Reflexión',reflectionMeta:'Próximamente'}
+  };
+  function translateSpanishParticipant(){
+    if(route()!=='espanol' || wantsOnline()) return;
+    window.TM_LANG_ES=true; document.body.classList.add('tm-spanish-mode');
+    const active=window.LESSON_SLUG||currentSlug(); const meta=ES_META[active]||ES_META['lesson-3'];
+    setHTML('.sc-title','<span class="tt">EL</span><span class="tm">MINISTERIO</span>');
+    setText('.sc-over','LLAMADOS CERCA. ENVIADOS LEJOS.');
+    setText('.sc-sub','UNA SERIE DE MATEO CAPÍTULO 10');
+    setText('.sc-tag',meta.tagline);
+    setText('.sc-enter','ENTRAR A LA SESIÓN');
+    setText('.sc-presenter','PRESENTADOR');
+    document.querySelectorAll('.sc-si').forEach(el=>{
+      const txt=el.textContent||''; const n=(txt.match(/Lesson\s+(\d)/i)||[])[1]; const key=n?'lesson-'+n:null; if(key&&ES_META[key]) el.textContent=`${ES_META[key].label} · ${ES_META[key].dateShort}`;
+    });
+    setHTML('.hub-title','EL <span>MINISTERIO</span>');
+    setText('.hub-k','SERIE DE MATEO 10');
+    setText('.hub-sub','UNA SERIE DE MATEO CAPÍTULO 10');
+    setText('.hub-ref',meta.tagline);
+    const nav=[['#slides','DIAPOSITIVAS'],['#reflect','REFLEXIONAR'],['#ask','PREGUNTAR']];
+    nav.forEach(([href,txt])=>setText(`.hub-nav a[href="${href}"]`,txt));
+    document.querySelectorAll('button').forEach(b=>{
+      const t=(b.textContent||'').trim().toLowerCase();
+      if(t==='open slides →') b.textContent='ABRIR DIAPOSITIVAS →';
+      if(t==='return to session') b.textContent='REGRESAR A LA SESIÓN';
+      if(t==='reflect →') b.textContent='REFLEXIONAR →';
+      if(t==='ask a question') b.textContent='HACER UNA PREGUNTA';
+      if(t==='presenter') b.textContent='PRESENTADOR';
+      if(t==='open') b.textContent='ABRIR';
+      if(t==='live') b.textContent='EN VIVO';
+    });
+    setText('.hub-lbl','PROGRESO DE LA SERIE · CADA JUEVES');
+    document.querySelectorAll('.s-cell').forEach(el=>{
+      const txt=el.textContent||''; const n=(txt.match(/0?(\d)\s+·/)||[])[1]; const key=n?'lesson-'+n:null; if(key&&ES_META[key]){
+        const cd=el.querySelector('.cd'); if(cd) cd.textContent=ES_META[key].dateShort;
+        const body=Array.from(el.childNodes).find(n=>n.nodeType===1&&n.tagName==='DIV'&&!n.classList.contains('cd'));
+        if(body) body.innerHTML=`<span class="cn">${String(n).padStart(2,'0')} ·</span> ${ES_META[key].title}`;
+      }
+    });
+    const cards=document.querySelectorAll('.hub-body > .lcard');
+    if(cards[0]) cards[0].innerHTML=`<div><div class="lc-wk">${meta.label} · ${meta.dateLong}</div><div class="lc-ti">${meta.title}</div><div class="lc-rf">${meta.text} · ${meta.slides}</div></div><div style="display:flex;align-items:center;gap:12px"><div class="lc-bg live">En Vivo</div><div style="color:var(--mu)">→</div></div>`;
+    const q=$('q-hub-card'); if(q){
+      const wk=q.querySelector('.lc-wk'); if(wk) wk.textContent=`Final de ${meta.label}`;
+      const ti=q.querySelector('.lc-ti'); if(ti) ti.textContent=meta.reflectionTitle;
+      const rf=q.querySelector('.lc-rf'); if(rf) rf.textContent=meta.reflectionMeta;
+      const badge=q.querySelector('.lc-bg'); if(badge) badge.textContent=dateActive(active)?'ABRIR':'SE ABRE AL CIERRE';
+    }
+  }
+
+  /* Make lesson access date-driven everywhere and not localStorage-driven. */
+  const oldShowHub=window.showHub;
+  if(oldShowHub && !oldShowHub.__v50){
+    window.showHub=function(){
+      if(!qs().get('lesson')&&!qs().get('l')){try{applySelectedLesson(currentSlug());}catch(e){}}
+      const r=oldShowHub.apply(this,arguments);
+      setTimeout(()=>{installWatchAgainHub(); translateSpanishParticipant(); unlockByDateUI();},30);
+      return r;
+    }; window.showHub.__v50=true;
+  }
+  function unlockByDateUI(){
+    const active=window.LESSON_SLUG||currentSlug();
+    if(dateActive(active)){
+      const badge=$('q-lock-badge'); if(badge){badge.textContent=isSpanish()?'Abrir':'Open';badge.style.color='var(--red)';}
+      const q=$('q-hub-card'); if(q) q.onclick=()=>{try{qUnlocked=true;}catch(e){}; if(typeof openQuestionnaire==='function') openQuestionnaire();};
+    }
+  }
+
+  /* User hub: Watch Again tab/button to online version. */
+  function onlineUrl(){return (isSpanish()?'/Espanol?online=1':'/online')+'?lesson='+encodeURIComponent(window.LESSON_SLUG||currentSlug());}
+  function installWatchAgainHub(){
+    const nav=document.querySelector('.hub-nav');
+    if(nav && !$('watch-again-nav')){
+      const a=document.createElement('a'); a.id='watch-again-nav'; a.href=onlineUrl(); a.textContent=isSpanish()?'VER OTRA VEZ':'WATCH AGAIN'; nav.appendChild(a);
+    }
+    const btns=document.querySelector('.hub-actions')||document.querySelector('.hub-btns');
+    if(btns && !$('watch-again-hub-btn')){
+      const b=document.createElement('button'); b.id='watch-again-hub-btn'; b.className='btn btn-outline'; b.textContent=isSpanish()?'VER OTRA VEZ':'WATCH AGAIN'; b.onclick=()=>{location.href=onlineUrl();}; btns.appendChild(b);
+    }
+  }
+
+  /* Online notes stay in place. */
+  function ensureNotesDrawer(){
+    if($('online-notes-drawer')) return;
+    const d=document.createElement('div'); d.id='online-notes-drawer'; d.className='online-notes-drawer';
+    d.innerHTML='<div class="online-notes-head"><div class="online-notes-title" id="online-notes-title">Notes</div><button class="online-notes-close" id="online-notes-close">Close</button></div><textarea class="online-notes-ta" id="online-notes-ta" placeholder="Write your notes..."></textarea><div class="online-notes-help" id="online-notes-help">Saved on this device.</div>';
+    document.body.appendChild(d);
+    $('online-notes-close').onclick=()=>d.classList.remove('on');
+    const ta=$('online-notes-ta');
+    ta.value=localStorage.getItem('tm_online_notes_'+(window.LESSON_SLUG||currentSlug()))||'';
+    ta.addEventListener('input',()=>localStorage.setItem('tm_online_notes_'+(window.LESSON_SLUG||currentSlug()),ta.value));
+  }
+  window.onlineOpenNotes=function(){
+    ensureNotesDrawer();
+    $('online-notes-title').textContent=isSpanish()?'Notas':'Notes';
+    $('online-notes-close').textContent=isSpanish()?'Cerrar':'Close';
+    $('online-notes-ta').placeholder=isSpanish()?'Escribe tus notas...':'Write your notes...';
+    $('online-notes-help').textContent=isSpanish()?'Guardado en este dispositivo.':'Saved on this device.';
+    $('online-notes-drawer').classList.add('on');
+    setTimeout(()=>$('online-notes-ta').focus(),70);
+  };
+
+  /* Watch again should reuse current embedded player, not open another tab. */
+  function patchWatchAgainInline(){
+    const wa=$('online-watch-again'); if(!wa) return;
+    wa.removeAttribute('target'); wa.removeAttribute('rel');
+    wa.onclick=function(e){
+      e.preventDefault();
+      const frame=$('online-stream-iframe');
+      const card=$('online-video-card');
+      const cfg=(window.onlineViewerState&&window.onlineViewerState.config)||{};
+      if(frame && cfg.embedUrl){
+        const u=String(cfg.embedUrl);
+        frame.src=u+(u.includes('?')?'&':'?')+'autoplay=1';
+      }
+      if(card) card.scrollIntoView({behavior:'smooth',block:'start'});
+      return false;
+    };
+  }
+
+  /* Online sync should use live cue immediately. Ignore stale saved delay for viewer cue sync. */
+  const oldHandleOnline=window.handleOnlineMessage;
+  if(oldHandleOnline && !oldHandleOnline.__v50){
+    window.handleOnlineMessage=function(msg,hydrating){
+      if(msg && (msg.type==='slide'||msg.type==='scripture')) msg.fast=true;
+      if(window.onlineViewerState && window.onlineViewerState.config) window.onlineViewerState.config.syncDelaySeconds=0;
+      const r=oldHandleOnline.call(this,msg,hydrating);
+      setTimeout(()=>{try{patchWatchAgainInline(); if(typeof renderLowerThirdV49==='function') renderLowerThirdV49();}catch(e){}},20);
+      return r;
+    }; window.handleOnlineMessage.__v50=true;
+  }
+
+  /* If saved stream says ended, make Watch Again appear and inline-play. */
+  const onlineRenderInterval=setInterval(()=>{if(document.body.classList.contains('online-viewer-mode')) patchWatchAgainInline();},1000);
+
+  /* Bible bank chapter selector: force 2 Timothy 1,2,4 visible. */
+  const oldRenderBible=window.renderBibleBankChapter;
+  if(oldRenderBible && !oldRenderBible.__v50){
+    window.renderBibleBankChapter=function(){
+      const r=oldRenderBible.apply(this,arguments);
+      setTimeout(addChapterPills,0);
+      return r;
+    }; window.renderBibleBankChapter.__v50=true;
+  }
+  function addChapterPills(){
+    const bookSel=$('bb-book'), chapSel=$('bb-chapter'), tools=document.querySelector('.bible-bank-tools');
+    if(!bookSel||!chapSel||!tools) return;
+    const bank=window.BIBLE_BANK_CURRENT; const chapters=bank&&bank.books&&bank.books[bookSel.value]?Object.keys(bank.books[bookSel.value]):[];
+    let wrap=$('bb-chapter-pills'); if(!wrap){wrap=document.createElement('div');wrap.id='bb-chapter-pills';wrap.className='bb-chapter-pills';tools.insertAdjacentElement('afterend',wrap);}
+    wrap.innerHTML=chapters.map(c=>`<button type="button" class="bb-chapter-pill ${chapSel.value===c?'on':''}" data-ch="${c}">Chapter ${c}</button>`).join('');
+    wrap.querySelectorAll('button').forEach(b=>b.onclick=()=>{chapSel.value=b.dataset.ch; if(oldRenderBible) oldRenderBible(); addChapterPills();});
+  }
+  const oldBuildBibleBank=window.buildBibleBank;
+  if(oldBuildBible && !oldBuildBible.__v50){window.buildBibleBank=function(){const r=oldBuildBible.apply(this,arguments);setTimeout(addChapterPills,20);return r;}; window.buildBibleBank.__v50=true;}
+
+  /* Timer starts when slide 2 is hit for the first time. */
+  window._v50TimerStarted=false;
+  const oldGoTo=window.goTo;
+  if(oldGoTo && !oldGoTo.__v50){
+    window.goTo=function(i){
+      const r=oldGoTo.apply(this,arguments);
+      if(Number(i)===1 && !window._v50TimerStarted){
+        window._v50TimerStarted=true;
+        try{_timerStart=Date.now(); ['cmd-timer','mm-timer','conf-timer'].forEach(id=>{const el=$(id); if(el) el.textContent='00:00';});}catch(e){}
+      }
+      return r;
+    }; window.goTo.__v50=true;
+  }
+
+  /* Keep admin stream sync delay visually at zero unless the operator changes it intentionally. */
+  function forceAdminDelayZero(){const d=$('stream-sync-delay'); if(d && (!d.dataset.touched)){d.value=0; d.oninput=()=>{d.dataset.touched='1';};}}
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    fixAccessCaseNote(); setTimeout(fixAccessCaseNote,300); setTimeout(fixAccessCaseNote,1000);
+    installWatchAgainHub(); unlockByDateUI(); translateSpanishParticipant();
+    setTimeout(()=>{try{buildBibleBank&&buildBibleBank();addChapterPills();}catch(e){}},500);
+    setTimeout(forceAdminDelayZero,900); setInterval(forceAdminDelayZero,2500);
+    if(document.body.classList.contains('online-viewer-mode')||wantsOnline()){setTimeout(()=>{ensureNotesDrawer(); patchWatchAgainInline();},700);}
+  });
+})();
+</script>
+
 </body>
 </html>

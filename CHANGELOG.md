@@ -24,3 +24,16 @@ Missed-items pass on top of v48.
 ## SQL
 
 No new SQL. Use the existing v47 stream-config SQL if it has not already been run.
+
+## v50 Addressed Items Fix
+- Spanish `/Espanol` participant surface now translates the surrounding UI, lesson labels, buttons, current lesson cards, and reflection labels.
+- Online `Notes` now opens an in-page notebook drawer instead of leaving the viewer experience.
+- `Watch Again` now reuses the embedded player area and scrolls back to the video instead of opening a separate tab.
+- Added a `Watch Again` hub button/tab that routes to the online page for the current lesson.
+- Online cue syncing ignores stale stream delay and applies slide/scripture cues immediately.
+- Mobile online video stays sticky while cards scroll below it.
+- Bible Bank now adds explicit chapter pills so 2 Timothy chapters 1, 2, and 4 are visible and selectable.
+- Admin preview is scaled down and framed to match the current slide more cleanly.
+- Removed duplicate lowercase access-code note.
+- Timer resets/starts when slide 2 is hit for the first time.
+- Spanish scripture text in projector/confidence views is larger.
