@@ -2959,7 +2959,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const ssl=document.getElementById('ssl');
     if(ssl){
       ssl.classList.remove('on');
-      buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+      buildSlides(document.getElementById('ss-slides'), LESSON1_SLIDES);
       renderDots(LESSON1_SLIDES.length);
       _suppressSync=true; goTo(0); _suppressSync=false;
     }
@@ -4827,7 +4827,7 @@ function renderQuestionsMini(){
     ['sc','sh','admin-hub','questionnaire'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('on');});
     const ssl=document.getElementById('ssl'); if(!ssl) return;
     if(!document.querySelector('#ss-slides .slide')){
-      buildSlides(document.getElementById('ss-slides'),LESSON1_SLIDES);
+      buildSlides(document.getElementById('ss-slides'), LESSON1_SLIDES);
       renderDots(LESSON1_SLIDES.length);
     }
     ssl.classList.add('on');
@@ -6716,6 +6716,235 @@ body.online-viewer-mode .online-desktop-layout{grid-template-columns:1fr!importa
 
   // Expose a safe manual function for replay sync later. Real timecode logging should be a v49 feature, not rushed.
   window.tmReplaySyncPlan={ready:false,note:'Next step: record slide cues with video seconds while live, then replay /online with a timed cue track.'};
+})();
+</script>
+
+
+<style id="v49-missed-items-css">
+/* v49 missed-items pass: Spanish participant route, mobile bank, online v37 ordering */
+#modal .access-case-note-v49{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,237,228,.55);margin-top:7px;line-height:1.25;}
+#modal .access-case-note-v49 b{color:var(--red);}
+body.tm-spanish-mode #ssl .ss-stage::before{content:'MODO ESPAÑOL';position:absolute;right:18px;bottom:14px;z-index:50;font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.16em;color:rgba(241,237,228,.34);text-transform:uppercase;pointer-events:none;}
+body.online-viewer-mode #online-viewer .online-main-column{display:grid;gap:12px;}
+body.online-viewer-mode #online-lower-card{order:3;}
+body.online-viewer-mode #online-slide-shell{order:4;}
+body.online-viewer-mode #online-respond-shell{order:5;}
+@media(min-width:900px){
+  body.online-viewer-mode #online-respond-shell{position:sticky;top:82px;align-self:start;}
+}
+@media(max-width:899px){
+  body.online-viewer-mode #online-respond-shell{position:fixed!important;left:0;right:0;bottom:0;z-index:95;background:rgba(7,7,7,.97);border-left:0!important;border-right:0!important;border-bottom:0!important;padding:9px 10px calc(10px + env(safe-area-inset-bottom))!important;backdrop-filter:blur(14px);}
+  body.online-viewer-mode #online-respond-shell .online-card-head{display:none!important;}
+  body.online-viewer-mode #online-respond-shell .online-response-grid{grid-template-columns:repeat(4,1fr)!important;gap:7px!important;}
+  body.online-viewer-mode #online-respond-shell .online-response-btn{min-height:42px!important;font-size:.55rem!important;padding:7px 4px!important;}
+  body.online-viewer-mode .online-shell{padding-bottom:90px!important;}
+}
+.mm-bank-switch{border-color:rgba(232,24,13,.55)!important;color:var(--red)!important;background:rgba(232,24,13,.06)!important;}
+.mm-bank-full{display:none;min-height:240px;flex:1 1 auto;border:1px solid var(--ln);background:#0d0d0d;overflow:hidden;flex-direction:column;}
+.mm-bank-full.on{display:flex;}
+.mm-bank-controls{display:grid;grid-template-columns:1fr 92px;gap:8px;padding:10px;border-bottom:1px solid var(--ln);}
+.mm-bank-controls select{min-width:0;background:#090909;border:1px solid var(--ln);color:var(--w);font-family:var(--fc);font-size:.68rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:10px;}
+.mm-bank-list{overflow:auto;padding:10px;display:grid;gap:8px;}
+.mm-bank-card{text-align:left;border:1px solid var(--ln);background:#111;color:var(--w);padding:12px;font-family:var(--fb);}
+.mm-bank-card .ref{font-family:var(--fc);font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:5px;}
+.mm-bank-card .txt{font-family:var(--fp);font-style:italic;font-size:.9rem;line-height:1.32;color:rgba(241,237,228,.72);}
+body.mm-show-bank #mobile-mode .mm-verses{display:none!important;}
+body.mm-show-bank #mobile-mode .mm-bank-full{display:flex!important;}
+</style>
+<script id="v49-missed-items-js">
+(function(){
+  const $=id=>document.getElementById(id);
+  const route=()=>window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();
+  const qs=()=>new URLSearchParams(window.location.search);
+  const isSpanishRoute=()=>route()==='espanol';
+  const wantsOnline=()=>route()==='online'||(isSpanishRoute()&&/^(1|true|online)$/i.test(qs().get('online')||qs().get('view')||''));
+  const currentLesson=()=>{try{return requestedLessonSlug()}catch(e){return window.LESSON_SLUG||'lesson-1'}};
+  function setHTML(id,html){const el=$(id); if(el) el.innerHTML=html;}
+  function setText(sel,text){const el=document.querySelector(sel); if(el) el.textContent=text;}
+  function strip(html){const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||'').replace(/\s+/g,' ').trim();}
+
+  // Lesson date default: keep every route on date-based current lesson unless explicit ?lesson= is present.
+  function forceCurrentLessonIfNoQuery(){
+    const p=qs();
+    if(p.get('lesson')||p.get('l')) return;
+    const slug=currentLesson();
+    if(slug && slug!==window.LESSON_SLUG && typeof applySelectedLesson==='function'){
+      try{applySelectedLesson(slug);}catch(e){}
+    }
+  }
+
+  // Login note and final routing override. This bypasses the earlier v47 wrapper that redirected Spanish too early.
+  function patchLoginFinal(){
+    const ac=$('mo-access-code');
+    if(ac && !$('access-case-note-v49')){
+      const note=document.createElement('div');
+      note.id='access-case-note-v49';
+      note.className='access-case-note-v49';
+      note.innerHTML='* access code is <b>all lowercase</b>';
+      ac.appendChild(note);
+    }
+    if(window.__v49LoginPatched) return;
+    window.__v49LoginPatched=true;
+    window.checkPw=async function(){
+      const err=$('mo-err'); if(err){err.classList.remove('on'); err.textContent='Incorrect code. Try again.';}
+      const pw=String(($('mo-pw')||{}).value||'');
+      const name=String(($('mo-name')||{}).value||'').trim();
+      const emailEl=$('mo-email');
+      const email=String((emailEl||{}).value||'').trim().toLowerCase();
+      const wantsO=!!(($('mo-online')||{}).checked);
+      const wantsEs=!!(($('mo-espanol')||{}).checked);
+      if(pw===window.PW_ADMIN || pw==='ministryadmin'){
+        localStorage.setItem('tm_a','1'); localStorage.setItem('tm_u','1');
+        if(typeof activateAdmin==='function') activateAdmin();
+        if(typeof closeModal==='function') closeModal();
+        return;
+      }
+      if(!(pw===window.PW_ATTENDEE || pw==='ministry2026')){ if(err) err.classList.add('on'); return; }
+      if(!name){ if(err){err.textContent='Enter your name.';err.classList.add('on');} return; }
+      if(emailEl && !/^\S+@\S+\.\S+$/.test(email)){ if(err){err.textContent='Enter a valid email.';err.classList.add('on');} return; }
+      localStorage.setItem('tm_u','1'); localStorage.setItem('tm_name',name); if(email) localStorage.setItem('tm_email',email);
+      if(typeof setUserName==='function') setUserName(name);
+      // Save attendee silently when that helper exists, but do not block routing on it.
+      try{ if(typeof saveAttendee==='function' && email) await saveAttendee(name,email); }catch(e){console.warn('attendee save skipped',e);}
+      const lesson=encodeURIComponent(window.LESSON_SLUG||currentLesson()||'lesson-1');
+      if(wantsEs && wantsO){ window.location.href='/Espanol?online=1&lesson='+lesson; return; }
+      if(wantsEs){ window.location.href='/Espanol?lesson='+lesson; return; }
+      if(wantsO){ window.location.href='/online?lesson='+lesson; return; }
+      if(typeof closeModal==='function') closeModal();
+      if(typeof showHub==='function') showHub();
+    };
+  }
+
+  function activateSpanishParticipant(){
+    if(!isSpanishRoute() || wantsOnline()) return;
+    window.TM_LANG_ES=true;
+    document.body.classList.add('tm-spanish-mode');
+    document.body.classList.remove('online-viewer-mode');
+    const ov=$('online-viewer'); if(ov) ov.classList.remove('on');
+    const ssl=$('ssl'), sh=$('sh'), sc=$('sc');
+    ['admin-hub','questionnaire'].forEach(id=>{const el=$(id); if(el) el.classList.remove('on');});
+    if(sc) sc.classList.remove('on');
+    if(ssl) ssl.classList.remove('on');
+    if(sh) sh.classList.add('on');
+    localStorage.setItem('tm_u','1');
+    translateStaticSpanish();
+    rebuildSpanishSlides();
+  }
+  function translateStaticSpanish(){
+    const title=document.querySelector('.sc-title'); if(title) title.innerHTML='<span class="tt">EL</span><span class="tm">MINISTERIO</span>';
+    setText('.sc-over','LLAMADOS CERCA. ENVIADOS LEJOS.');
+    setText('.sc-sub','UNA SERIE DE MATEO CAPÍTULO 10');
+    setText('.sc-enter','ENTRAR A LA SESIÓN');
+    setText('.sc-presenter','PRESENTADOR');
+    setText('.hub-nav a[href="#slides"]','DIAPOSITIVAS');
+    setText('.hub-nav a[href="#reflect"]','REFLEXIONAR');
+    setText('.hub-nav a[href="#ask"]','PREGUNTAR');
+  }
+  function rebuildSpanishSlides(){
+    try{
+      if(typeof buildSlides==='function'){
+        buildSlides($('ss-slides'), window.LESSON1_SLIDES||LESSON1_SLIDES||[]);
+        if(typeof renderDots==='function') renderDots((window.LESSON1_SLIDES||LESSON1_SLIDES||[]).length);
+        if(typeof goTo==='function') goTo(Math.max(0,Number(window.curSlide||curSlide||0)));
+      }
+    }catch(e){console.warn('Spanish slide rebuild skipped',e);}
+  }
+
+  // Online page ordering: video, lower-third/current cue, current slide, responses. Desktop keeps responses side/sticky.
+  function fixOnlineLayout(){
+    const main=document.querySelector('.online-main-column');
+    const side=document.querySelector('.online-side-column');
+    if(!main||!side) return;
+    let lower=$('online-lower-card');
+    if(!lower){
+      lower=document.createElement('section');
+      lower.id='online-lower-card';
+      lower.className='online-lower-card';
+      lower.innerHTML='<div class="online-lower-kicker" id="online-lower-kicker">On Screen</div><div class="online-lower-title" id="online-lower-title">Waiting for slide cue.</div><div class="online-lower-ref" id="online-lower-ref">The live lower-third information will appear here.</div><a class="online-watch-again" id="online-watch-again" target="_blank" rel="noopener">Watch Again</a>';
+    }
+    const video=$('online-video-card'); if(video && video.parentNode===main && lower.parentNode!==main) video.insertAdjacentElement('afterend',lower);
+    const slideCard=Array.from(document.querySelectorAll('.online-card')).find(c=>c.querySelector('#online-current-slide'));
+    if(slideCard){ slideCard.id='online-slide-shell'; if(slideCard.parentNode!==main) main.insertBefore(slideCard, lower.nextSibling); }
+    const response=Array.from(document.querySelectorAll('.online-card')).find(c=>c.querySelector('#online-respond-label'));
+    if(response){ response.id='online-respond-shell'; if(window.innerWidth>=900 && response.parentNode!==side) side.insertBefore(response, side.firstChild); }
+    renderLowerThirdV49();
+  }
+  function renderLowerThirdV49(){
+    const slides=window.LESSON1_SLIDES||[];
+    const state=window.onlineViewerState||{};
+    const i=Math.max(0,Math.min(Number(state.slide||window.curSlide||0),Math.max(0,slides.length-1)));
+    const s=slides[i]||{};
+    const title=strip(s.hl||s.title||s.text||s.ref||'The Ministry');
+    const ref=strip(s.ref||s.tk||((window.LESSON_DATA||{}).text)||'');
+    setHTML('online-lower-kicker',(window.TM_LANG_ES||isSpanishRoute())?'En Pantalla':'On Screen');
+    setHTML('online-lower-title',title||'The Ministry');
+    setHTML('online-lower-ref',ref||'');
+    const wa=$('online-watch-again');
+    const cfg=(window.onlineViewerState&&window.onlineViewerState.config)||{};
+    const url=String(cfg.embedUrl||'');
+    if(wa && url && /ended|replay/i.test(String(cfg.status||''))){
+      wa.href=url.includes('/embed/')?url.replace('/embed/','/watch?v='):url;
+      wa.textContent=(window.TM_LANG_ES||isSpanishRoute())?'Ver Otra Vez':'Watch Again';
+      wa.classList.add('on');
+    }else if(wa){wa.classList.remove('on');}
+  }
+
+  // Mobile full Bible bank. Kept behind a deliberate BANK button, not near Kill Poll.
+  function installMobileBibleBank(){
+    const actions=document.querySelector('#mobile-mode .mm-actions');
+    const main=document.querySelector('#mobile-mode .mm-main');
+    if(!actions||!main||$('mm-bank-switch')) return;
+    const btn=document.createElement('button');
+    btn.id='mm-bank-switch'; btn.className='mm-action mm-bank-switch'; btn.textContent='Bible Bank';
+    btn.onclick=function(){document.body.classList.toggle('mm-show-bank'); renderMobileBibleBank();};
+    actions.appendChild(btn);
+    const bank=document.createElement('div'); bank.id='mm-bank-full'; bank.className='mm-bank-full';
+    bank.innerHTML='<div class="mm-v-head"><span>Bible Bank</span><button class="mm-action" onclick="document.body.classList.remove(\'mm-show-bank\')">Close</button></div><div class="mm-bank-controls"><select id="mm-bank-book"></select><select id="mm-bank-chapter"></select></div><div class="mm-bank-list" id="mm-bank-list"></div>';
+    main.appendChild(bank);
+    setTimeout(renderMobileBibleBank,50);
+  }
+  window.renderMobileBibleBank=function(){
+    const data=window.BIBLE_BANK_CURRENT||{}; const books=(data.books)||{};
+    const bookSel=$('mm-bank-book'), chSel=$('mm-bank-chapter'), list=$('mm-bank-list');
+    if(!bookSel||!chSel||!list) return;
+    const bookNames=Object.keys(books);
+    if(!bookNames.length){list.innerHTML='<div class="online-empty">No full chapter bank for this lesson.</div>';return;}
+    if(!bookNames.includes(bookSel.value)){bookSel.innerHTML=bookNames.map(b=>`<option>${b}</option>`).join(''); bookSel.value=bookNames[0];}
+    const chapters=Object.keys(books[bookSel.value]||{});
+    if(!chapters.includes(chSel.value)){chSel.innerHTML=chapters.map(c=>`<option>${c}</option>`).join(''); chSel.value=chapters[0];}
+    bookSel.onchange=()=>{chSel.value=''; renderMobileBibleBank();}; chSel.onchange=renderMobileBibleBank;
+    const verses=(books[bookSel.value]&&books[bookSel.value][chSel.value])||[];
+    list.innerHTML=verses.map(([ref,txt])=>`<button class="mm-bank-card" onclick="pushRawScripture({ref_en:'${String(ref).replace(/'/g,"&#39;")}',text_en:\`${String(txt).replace(/`/g,"'")}\`,ref_es:'${String(ref).replace(/'/g,"&#39;")}',text_es:''});mobileFeedback&&mobileFeedback('verse',this)"><div class="ref">${ref}</div><div class="txt">${txt}</div></button>`).join('');
+  };
+  const oldOpenMobile=window.openMobileMode;
+  if(oldOpenMobile){window.openMobileMode=function(){const r=oldOpenMobile.apply(this,arguments);setTimeout(installMobileBibleBank,60);return r;};}
+
+  // Keep online current slide from falling back to the logo when there is no live cue yet.
+  const oldEnter=window.enterOnlineViewer;
+  if(oldEnter && !oldEnter.__v49){
+    const wrapped=function(){
+      forceCurrentLessonIfNoQuery();
+      if(isSpanishRoute() && !wantsOnline()){activateSpanishParticipant(); return;}
+      if(isSpanishRoute()) window.TM_LANG_ES=true;
+      const r=oldEnter.apply(this,arguments);
+      setTimeout(()=>{fixOnlineLayout(); try{if(window.renderOnlineAll) window.renderOnlineAll();}catch(e){} renderLowerThirdV49();},120);
+      return r;
+    };
+    wrapped.__v49=true; window.enterOnlineViewer=wrapped;
+  }
+  const oldHandle=window.handleOnlineMessage;
+  if(oldHandle && !oldHandle.__v49){
+    const wrapped=function(){const r=oldHandle.apply(this,arguments);setTimeout(()=>{fixOnlineLayout();renderLowerThirdV49();},40);return r;};
+    wrapped.__v49=true; window.handleOnlineMessage=wrapped;
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    forceCurrentLessonIfNoQuery();
+    patchLoginFinal(); setTimeout(patchLoginFinal,250); setTimeout(patchLoginFinal,900);
+    installMobileBibleBank();
+    if(isSpanishRoute() && !wantsOnline()) setTimeout(activateSpanishParticipant,80);
+    if(wantsOnline()) setTimeout(fixOnlineLayout,220);
+  });
 })();
 </script>
 

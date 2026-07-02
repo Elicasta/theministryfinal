@@ -1,226 +1,26 @@
-## v46 Lesson 3 + Bible Bank
-- Added Lesson 3: The Making of a Minister.
-- Added 15 Lesson 3 slides, presenter notes, reflection questions, poll bank, and verse bank.
-- Added a Bible Bank section in the admin Verse Bank tab with book/chapter switching for the full chapters used in Lesson 3.
-- Enlarged the access code on the attendee login screen.
-- Preserved Lesson 1, Lesson 2, Supabase wiring, poll/question behavior, and all existing output routes.
+# The Ministry v49
 
+Missed-items pass on top of v48.
 
-## v43 Scripture RVR Manual Trigger Fix
-- Fixed manual scripture pushes so `/scriptures` keeps Spanish RVR as the main text and KJV as the smaller supporting text.
-- Removed duplicate CSS version suffixes from scripture references.
-- No projector, lesson, poll, question, Supabase, or sync behavior changed.
+## Fixed / Added
 
-
-## v42 Individual Lesson 2 Verse Bank
-- Split Lesson 2 mobile/admin verse bank into individual Matthew 10:11, 10:12, 10:13, 10:14, 10:15, and 10:16 entries.
-- Preserved grouped scripture slide rendering and all sync/projector behavior.
-
-# v41 Home Lesson Highlight Fix
-- Home/landing screen now highlights the selected active lesson instead of always highlighting Lesson 1.
-- Hub current lesson card now follows the selected lesson.
-- Lesson selection behavior, slide sync, Supabase, polls, and questions were not changed.
-
-
-## v40 Mobile Lesson Select Fix
-- Fixed lesson selection showing the projector standby screen on mobile/admin/audience routes.
-- Lesson changes still reset projector outputs to standby.
-- No slide, Supabase, poll, question, or visual behavior changes.
-
-## v32 Poll/Attendee Supabase Compatibility
-- Made poll save API independent of `on_conflict` so older Supabase tables work.
-- Made poll archive API use `select=*` and safer ordering.
-- Added `supabase/v32-poll-attendee-patch.sql` for existing projects.
-- Preserved admin tabs, audience lock, and presentation behavior.
-
-
-## v28 User Interaction Lock + Admin Questions Panel
-- Locked audience slave mode so left/right screen taps no longer advance or reverse slides.
-- Kept poll overlays interactive while the live audience view is locked.
-- Added a persistent Live Questions panel back into the admin controls.
-- Questions submitted from the user side now show in the admin questions panel.
-
-
-## v27 Confidence Poll Fit
-- Fitted live poll results inside the confidence monitor current-slide panel.
-- Reduced poll question/results typography so results no longer overflow the confidence box.
-- Preserved projector, scripture, OBS, user slave mode, and mobile controller behavior.
-
-
-## v24 Poll Main Screen Routing
-- Active polls now take over the main projector and OBS full slide outputs.
-- OBS lower thirds now shows active poll results in a lower-third format instead of a full-screen takeover.
-- Poll overlays still clear on Next/Previous.
-
-# Changelog
-
-## v23 Scripture Standby + Poll Scripture Takeover
-- `/scriptures` now stays on the title/series standby screen when the presentation starts.
-- Removed the automatic slide-0 scripture push on Start.
-- `/scriptures` now becomes a full-screen poll results display while a poll is active.
-- Next/Previous/poll close clears the poll takeover state.
-
-## v17 Master Template Cleanup
-
-- Preserved the stable working presentation behavior.
-- Consolidated multiple CSS patch blocks into one ordered style block.
-- Consolidated multiple JavaScript patch blocks into one ordered script block.
-- Added clear editable config sections for series metadata, theme colors, passwords, and lesson data.
-- Added `THEME_CONFIG` and `applyThemeConfig()` so future series can change color schemes from one place.
-- Kept the app single-file for live stability and simple duplication.
-- Removed empty `index.html.tmp`.
-- Added README documentation for routes, editing workflow, ProPresenter, OBS, deployment, and testing.
-
-## Notes
-
-This cleanup intentionally does not add login, database editing, markdown loading, or a drag-and-drop lesson builder. Those should come later after the static live presentation system stays stable.
-
-## v19 Emergency Sync Rollback
-- Rolled back the experimental v18 deck_state sync patch.
-- Restored the stable v17 slide/start behavior.
-- Kept master-template cleanup, README, and CHANGELOG structure.
-- No visual changes.
-- No feature changes.
-
-Use this version if v18 gets stuck after the Start slide.
-
-## v20 Mobile Haptics
-- Added mobile haptic feedback helper using `navigator.vibrate()` where supported.
-- Added haptic feedback to Mobile Mode Start, Previous, Next, Overlay, Clear, and verse push controls.
-- Preserved v19 stable sync behavior and did not change routes, visuals, or data structure.
-
-## v21 Mobile PWA Tap Feedback
-- Kept v19/v20 stable sync behavior unchanged.
-- Kept Android/web vibration support through `navigator.vibrate()`.
-- Added iOS/PWA-safe visual tap feedback for Mobile Mode controls.
-- Added button press compression, quick pulse, status glow, and slide/timer/title bump feedback.
-- Applied feedback to Start, Previous, Next, Overlay, X Verse, Clear, Close, and verse-bank buttons.
-- No route, visual output, projector, scripture, OBS, confidence, or data-structure changes.
-
-## v22 Polls + Scripture Output Adjustments
-- Set OBS lower thirds to green screen by default for chroma key workflows.
-- Changed the scripture side screen so Spanish RVR 1960 is the primary large text and KJV is the smaller supporting text.
-- Added a frontend live poll system using the existing sync channel.
-- Added premade poll bank and custom poll launcher in admin.
-- Added Poll button and poll launcher in Mobile Mode.
-- Added yes/no and multi-choice poll support.
-- Added anonymous answer saving on attendee devices through localStorage.
-- Added live poll result percentage overlay for projector/OBS outputs.
-- Poll overlays clear when the presenter advances slides.
-
-
-## v25 Audience Slave Mode + Poll Persistence Polish
-- Added audience slave mode so attendee screens follow the admin-controlled presentation while live.
-- Added top-right X to exit live slave mode and a Return to Session button on the user hub.
-- Added poll display inside the confidence monitor current-slide area.
-- Added mobile Poll live indicator and Kill Poll button.
-- Archived active polls and answers into local lesson storage when replaced, killed, closed, or cleared by slide navigation.
-- Added keyboard shortcut guard so editing a poll question/options does not advance slides.
-- Added optional SQL migration notes for future Supabase poll persistence.
-
-## v26 Audience Slave Mode Polish
-- Hid slideshow navigation controls while the audience user side is in slave/live-follow mode.
-- Kept a clear Exit Live control at the top right so users can leave slave mode.
-- Kept Return to Session available from the user hub when a live session is active.
-
-## v29 Confidence Restore + SQL Coverage
-- Restored confidence monitor slide formatting after poll state by clearing `poll-current` when normal slide/scripture rendering resumes.
-- Added full Supabase schema migration for attendees, responses, sync state, live questions, polls, and poll votes.
-- Added optional `/api/question-submit` endpoint for persistent live questions when Supabase env vars are configured.
-
-## v30 Live Data Admin Fix
-- Admin questions now fetch from Supabase through `/api/questions-list` instead of only local BroadcastChannel/localStorage.
-- Added `/questions` admin page for submitted questions with Answered/Hidden controls.
-- Added `/polls` admin page with live and answered poll archive.
-- Wired poll creation/archive to `/api/poll-save`.
-- Wired poll votes to `/api/poll-vote-submit`.
-- Added question update API for marking questions answered/hidden/new.
-- Expanded `supabase/schema.sql` with event-mode RLS policies and poll/question tables.
-
-## v31 Admin tabs + attendee check-in fix
-- Moved live questions into an admin tab next to Polls instead of relying on separate raw dashboard pages.
-- Added answered poll results directly inside the Polls admin tab.
-- Kept /questions and /polls routes as optional utility pages, but admin workflow now stays inside /admin.
-- Fixed attendee check-in saving by allowing name-only session access records in api/waitlist.js.
-- Added attendee source/series/lesson fields to Supabase schema and added api/attendees-list.js for checking saved attendees.
-
-## v33 Attendee Identity Patch
-- Required name + email + access code for audience entry.
-- Saved attendee session identity in Supabase.
-- Linked questions and poll votes to attendee/session identity.
-- Added safer poll duplicate handling by session/email hash.
-- Added Supabase patch `supabase/v33-attendee-identity-patch.sql`.
-
-
-## v34 Supabase Realtime Wiring Fix
-- Added `/api/config` so browser outputs can load `SUPABASE_URL` and `SUPABASE_ANON_KEY` from Vercel environment variables.
-- Restored local-first BroadcastChannel behavior so same-machine controls stay snappy.
-- Made Supabase sync fire-and-forget so phone taps do not wait on the network.
-- Added visible connection fallback labels for Local only / Live / Realtime error states.
-- Did not change projector visuals, confidence layout, poll UI, or routes.
-
-## v35 Admin live data display polish
-- Standardized question display names between the sidebar and Questions tab.
-- Added live poll results into the Polls tab, not only the right sidebar.
-- Kept answered poll archive inside the Polls tab.
-- No route, sync, projector, scripture, confidence, or audience behavior changes.
-
-## v36 Anonymous Default Off
-- Changed audience poll anonymous-save checkbox to be off by default.
-- No other behavior changed.
-
-
-
-## v37 Lesson 2 Added
-- Added Lesson 2: The Discipline of the Sent.
-- Kept Lesson 1 intact as the default lesson.
-- Lesson 2 is selectable with `?lesson=lesson-2` or the admin Lesson 2 button.
-- Added Lesson 2 slides, presenter notes, scripture mappings, verse bank, reflection questions, and poll bank.
-- No projector, sync, Supabase, audience, or admin data wiring changes.
-
-## v38 Default Route Lesson Selector
-- Kept Lesson 1 and Lesson 2 in the same app.
-- Admin lesson buttons now control the selected lesson for all permanent output routes.
-- `/projector`, `/scriptures`, `/confidence`, `/mobile`, `/obslowerthirds`, and `/obsslides` can stay unchanged during live setup.
-- Selecting a lesson resets outputs to standby, clears overlays/polls locally, rebuilds slides, verse bank, poll bank, and confidence data.
-- Query params like `?lesson=lesson-2` still work as a testing override.
-
-## v39 Default Route Lesson Sync Fix
-- Lesson selection now travels with slide and scripture commands.
-- Projector/scriptures/confidence can recover even if they missed the original lesson-select broadcast.
-- Selecting Lesson 1 or Lesson 2 still resets to standby, but the next Start/Next command forces every output onto the selected lesson.
-- No visual or Supabase schema changes.
-## v44 Scripture Spanish Text Fix
-- Fixed manual Lesson 2 scripture pushes on `/scriptures` so Mateo/RVR text is actually Spanish in the main large area.
-- Kept KJV as the smaller secondary text.
-- No route, Supabase, poll, question, or lesson sync changes.
-
-
-## v47 online viewer + Spanish route
-- Added /online and /Espanol mobile-first viewer surfaces.
-- Added admin Online Stream panel saving YouTube sources globally and per lesson.
-- Made default lesson selection date-driven instead of stale sequence/localStorage.
-- Fixed online current slide preview to render the main audience slide.
-- Set live service flow to Prayer 7:00 PM, Worship 7:30 PM, Preaching 8:00 PM.
-- Added stream sync delay control. Default is 0 seconds for fastest sync.
-
-## v48 - Spanish participant flow + online viewer polish
-
-- Rebuilt from v47, which was already based on the latest v46 Lesson 3 Bible Bank build.
-- Kept English routes non-destructive.
-- Changed Spanish login behavior:
-  - Español only -> `/Espanol?lesson=current-lesson` participant side with Spanish slides.
-  - Watching online + Español -> `/Espanol?online=1&lesson=current-lesson` Spanish online stream portal.
-  - Watching online only -> `/online?lesson=current-lesson` English online stream portal.
-- Added Spanish slide rendering for Lesson 3 without replacing the English slide data.
-- Added access-code helper note: all lowercase.
-- Tightened questionnaire layout: left aligned, smaller, less vertical spacing.
-- Reworked `/online` layout closer to v37:
-  - live stream first
-  - lower-third/current cue info under stream
+- Fixed Spanish routing behavior:
+  - Español only goes to `/Espanol?lesson=...` as a Spanish participant/slides version.
+  - Watching online + Español goes to `/Espanol?online=1&lesson=...` as the Spanish online viewer.
+  - Watching online only goes to `/online?lesson=...`.
+- Added final login-routing override so older v47/v48 wrappers do not steal the Spanish route.
+- Added access-code note: `* access code is all lowercase`.
+- Strengthened date-based default lesson selection for permanent routes when no `?lesson=` is supplied.
+- Kept `/projector`, `/scriptures`, `/confidence`, `/obslowerthirds`, `/obsslides`, `/mobile` tied to the selected/current lesson instead of requiring query strings.
+- Reworked online layout closer to v37:
+  - video first
+  - lower-third/current cue info under video
   - current slide under that
-  - response buttons behave like a mobile bottom nav on phones
-- Added Watch Again link behavior for ended/replay stream config.
-- Added mobile Bible Bank panel hooks without replacing the existing mobile poll controls.
-- Preserved date-driven current lesson selection. Future lessons will become default when their lesson data exists and their date arrives.
-- No SQL change from v47.
+  - response buttons sticky on desktop / bottom nav on mobile
+- Added mobile Bible Bank behind a deliberate `Bible Bank` button.
+- Bible Bank uses the full chapter bank already present for Lesson 3: 1 Timothy 4, 2 Timothy 1, 2, and 4.
+- Kept replay sync as a planned feature, not rushed into live-safe code.
+
+## SQL
+
+No new SQL. Use the existing v47 stream-config SQL if it has not already been run.
