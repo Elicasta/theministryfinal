@@ -1,9 +1,11 @@
-## v46 Lesson 3 + Bible Bank
-- Added Lesson 3: The Making of a Minister.
-- Added 15 Lesson 3 slides, presenter notes, reflection questions, poll bank, and verse bank.
-- Added a Bible Bank section in the admin Verse Bank tab with book/chapter switching for the full chapters used in Lesson 3.
-- Enlarged the access code on the attendee login screen.
-- Preserved Lesson 1, Lesson 2, Supabase wiring, poll/question behavior, and all existing output routes.
+# v36 Online Viewer Portal
+
+- Added `/online` mobile-first viewer page.
+- Added admin Online Stream panel for scheduled YouTube Live embed/source.
+- Added stream config API at `/api/stream-config`.
+- Added `live_stream_config` SQL patch.
+- Added login checkbox: **Watching online**, redirects to `/online`.
+- Kept existing presentation outputs untouched.
 
 
 ## v43 Scripture RVR Manual Trigger Fix
@@ -194,3 +196,12 @@ Use this version if v18 gets stuck after the Start slide.
 - Fixed manual Lesson 2 scripture pushes on `/scriptures` so Mateo/RVR text is actually Spanish in the main large area.
 - Kept KJV as the smaller secondary text.
 - No route, Supabase, poll, question, or lesson sync changes.
+
+## v37 - Stream config saved everywhere
+
+- Updated `/api/stream-config` so saving the Online Stream source stores it in two places:
+  - `default`: global fallback for every route/device/future lesson.
+  - `series::lesson`: exact lesson memory for the selected lesson.
+- Updated `/online` and admin stream settings to request the current lesson config first, then fall back to the global stream config.
+- Updated the login redirect and admin "Open /online" button to include the selected lesson query when available.
+- Added `supabase/v37-stream-config-everywhere.sql` to remove the old singleton-only stream config limit.
