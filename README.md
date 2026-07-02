@@ -7,15 +7,25 @@ It is designed to run multiple outputs from one deployed site:
 | Route | Purpose |
 |---|---|
 | `/projector` | Main big-screen teaching projector |
-| `/scriptures` | Side scripture screens with KJV primary and RVR 1960 underneath |
+| `/scriptures` | Side scripture screens with Spanish RVR primary and KJV underneath |
 | `/confidence` | Speaker confidence monitor with current slide, next main slide, timer, and notes |
 | `/admin` | Desktop presenter/admin controller |
 | `/mobile` | Phone-friendly presenter controller |
 | `/obslowerthirds` | OBS lower-third output |
 | `/obsslides` | OBS full-slide output |
-| `/online` | Mobile-first online viewer portal with YouTube scheduled live embed, scripture, poll, slide, and response cards |
 
 The current file is intentionally still a single-file app. That keeps deployment simple and makes it safe to duplicate for a new series.
+
+
+## Current lessons
+
+| Lesson | Title | Text | Slides |
+|---|---|---|---:|
+| Lesson 1 | The Price of Being Sent | Matthew 10:1-10 | 15 |
+| Lesson 2 | The Discipline of the Sent | Matthew 10:11-16 | 20 |
+| Lesson 3 | The Making of a Minister | 1 Timothy 4:12-16; 2 Timothy 1, 2, 4 | 15 |
+
+Lesson 3 also includes a Bible Bank in `/admin` under the Verse Bank tab. It lets you switch by book/chapter for the full KJV chapters used in the lesson. Curated lesson verses still include RVR text for the side scripture screen.
 
 ## Safe editing sections
 
@@ -364,51 +374,9 @@ Choose Lesson 1 or Lesson 2 from `/admin`. The selected lesson is broadcast to a
 Lesson 2 verse bank entries are split verse-by-verse for cleaner mobile control.
 
 
-## Online viewer portal
-
-Route:
-
-```txt
-https://your-domain.vercel.app/online
-```
-
-Admin setup:
-
-1. Open `/admin`.
-2. Paste the scheduled YouTube Live URL, embed URL, or iframe into **Online Stream**.
-3. Set status: `Starting Soon`, `Live`, `Ended`, or `Offline`.
-4. Set sync delay in seconds to match YouTube livestream latency.
-5. Press **Save Stream**.
-
-Viewer flow:
-
-- Direct link: `/online`
-- Login modal option: check **Watching online** after entering name, email, and access code. It redirects to `/online`.
-
-SQL:
-
-Run this if the `live_stream_config` table does not exist yet:
-
-```txt
-supabase/v36-online-viewer-live-stream.sql
-```
-
-This patch is additive. It does not change projector, scripture, confidence, admin, mobile, OBS, or existing lesson routes.
-
-### v37 Online Stream Memory
-
-The Online Stream panel saves the YouTube/Vimeo/custom embed source globally and to the current lesson.
-
-Run this Supabase patch after deploying v37:
-
-```sql
--- Supabase SQL Editor
--- file: supabase/v37-stream-config-everywhere.sql
-```
-
-Behavior:
-
-- `/admin` saves the stream source to `live_stream_config.default` and `live_stream_config.the-ministry::lesson-x`.
-- `/online?lesson=lesson-2` loads the lesson-specific stream first.
-- `/online` without a lesson falls back to the global/default stream.
-- This lets returning viewers see the same stream/replay later while future lessons still have a fallback source.
+## v47 online viewer setup
+1. Deploy the app.
+2. Run `supabase/v47-stream-config-everywhere.sql` in Supabase SQL Editor.
+3. Open `/admin`, paste the scheduled YouTube Live URL or iframe into Online Stream, and press Save Stream.
+4. Use `/online` for English online viewers and `/Espanol` for Spanish online viewers.
+5. Use Sync Delay `0` for fastest slide sync. Raise it only when matching livestream latency.

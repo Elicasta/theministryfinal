@@ -362,6 +362,23 @@ body.named #user-chip{display:block;}
 .ctrl-ab.danger{border-color:rgba(232,24,13,.25);color:rgba(232,24,13,.55);}
 .ctrl-ab.danger:hover{background:rgba(232,24,13,.07);color:var(--red);}
 
+
+/* v46: login access code + Bible bank polish */
+.mo-access-code{display:none;margin:12px 0 16px;padding:14px 18px;border:1px solid rgba(232,24,13,.38);background:rgba(232,24,13,.08);text-align:center;font-family:var(--fc);text-transform:uppercase;letter-spacing:.16em;color:rgba(241,237,228,.72);font-size:.62rem;font-weight:800;}
+.mo-access-code span{display:block;margin-top:6px;font-size:clamp(1.35rem,4.5vw,2.15rem);letter-spacing:.08em;color:var(--red);font-weight:900;line-height:1;}
+.mo-access-code.on{display:block;}
+.bible-bank-wrap{margin-top:22px;border-top:1px solid var(--ln);padding-top:18px;}
+.bible-bank-tools{display:grid;grid-template-columns:1fr 110px;gap:8px;margin:10px 0 14px;}
+.bible-bank-tools select{width:100%;background:#090909;border:1px solid var(--ln);color:var(--w);font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;border-radius:0;outline:none;}
+.bible-bank-list{display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow:auto;padding-right:4px;}
+.bb-card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);padding:11px 12px;cursor:pointer;transition:all .15s;}
+.bb-card:hover{border-color:rgba(232,24,13,.35);background:rgba(232,24,13,.055);}
+.bb-ref{font-family:var(--fc);font-size:.66rem;font-weight:900;color:var(--red);letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px;}
+.bb-text{font-family:var(--fb);font-size:.76rem;color:rgba(241,237,228,.72);line-height:1.35;}
+.bb-actions{display:flex;gap:6px;margin-top:9px;}
+.bb-actions button{background:transparent;border:1px solid var(--ln);color:var(--mu);font-family:var(--fc);font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;cursor:pointer;}
+.bb-actions button:hover{border-color:rgba(232,24,13,.38);color:var(--red);}
+
 /* PROJECTOR MODES */
 body.projector-mode .ss-hdr,
 body.projector-mode .ss-arr,
@@ -1558,92 +1575,102 @@ body.confidence-mode .conf-current.poll-current .conf-ref{
 
 
 /* =========================================================
-   v36 Online Viewer Portal
-   Additive only. New /online surface + admin stream settings.
+   v47 Online Viewer + Espanol Surface
+   Additive only. Mobile first. Existing projector/admin routes stay untouched.
 ========================================================= */
-body.online-viewer-mode{background:#050505;color:var(--w);overflow-x:hidden;}
+body.online-viewer-mode{background:#050505;color:var(--w);overflow-x:hidden;min-height:100dvh;}
 body.online-viewer-mode .scr.on:not(#online-viewer){display:none!important;}
 .online-viewer{display:none;min-height:100dvh;background:#050505;color:var(--w);font-family:var(--fb);}
 .online-viewer.on{display:block;}
-.online-shell{width:min(100%,1180px);margin:0 auto;padding:16px 14px 28px;}
-.online-top{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 2px 14px;background:linear-gradient(180deg,#050505 0%,rgba(5,5,5,.92) 76%,rgba(5,5,5,0) 100%);}
+.online-shell{width:min(100%,1180px);margin:0 auto;padding:14px 12px 28px;}
+.online-top{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 14px;background:linear-gradient(180deg,#050505 0%,rgba(5,5,5,.94) 76%,rgba(5,5,5,0) 100%);}
 .online-brand{display:flex;flex-direction:column;gap:2px;min-width:0;}
-.online-brand-main{font-family:var(--fd);font-size:1.52rem;letter-spacing:.07em;text-transform:uppercase;line-height:.95;white-space:nowrap;}
+.online-brand-main{font-family:var(--fd);font-size:1.55rem;letter-spacing:.07em;text-transform:uppercase;line-height:.92;white-space:nowrap;}
 .online-brand-main span{color:var(--red);}
-.online-brand-sub{font-family:var(--fc);font-size:.56rem;font-weight:800;letter-spacing:.23em;text-transform:uppercase;color:var(--mu);}
-.online-menu{width:44px;height:44px;border:1px solid rgba(255,255,255,.13);background:#111;color:var(--w);font-family:var(--fc);font-size:.75rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;display:grid;place-items:center;}
-.online-status-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.online-brand-sub{font-family:var(--fc);font-size:.55rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);}
+.online-top-actions{display:flex;gap:7px;align-items:center;}
+.online-menu{min-width:42px;height:42px;border:1px solid rgba(255,255,255,.13);background:#101010;color:var(--w);font-family:var(--fc);font-size:.68rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;display:grid;place-items:center;padding:0 10px;text-decoration:none;}
+.online-menu.active{border-color:rgba(232,24,13,.55);color:var(--red);}
+.online-desktop-layout{display:grid;grid-template-columns:1fr;gap:12px;}
+.online-main-column,.online-side-column{display:grid;gap:12px;}
+.online-status-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .online-status-left{min-width:0;}
-.online-kicker{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;margin-bottom:4px;}
-.online-dot{width:9px;height:9px;border-radius:999px;background:var(--red);box-shadow:0 0 16px rgba(232,24,13,.6);display:inline-block;}
-.online-service-title{font-family:var(--fc);font-size:.95rem;font-weight:800;letter-spacing:.03em;color:var(--w);}
-.online-service-meta{font-family:var(--fb);font-size:.8rem;color:rgba(241,237,228,.58);margin-top:2px;}
-.online-live-pill{border:1px solid rgba(232,24,13,.55);color:var(--red);padding:8px 10px;font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;}
-.online-video-card{position:relative;border:1px solid rgba(255,255,255,.14);background:#0b0b0b;overflow:hidden;margin-bottom:12px;box-shadow:0 18px 55px rgba(0,0,0,.35);}
+.online-kicker{font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.online-dot{width:9px;height:9px;border-radius:999px;background:var(--red);box-shadow:0 0 16px rgba(232,24,13,.65);display:inline-block;}
+.online-service-title{font-family:var(--fc);font-size:.98rem;font-weight:900;letter-spacing:.03em;color:var(--w);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.online-service-meta{font-family:var(--fb);font-size:.78rem;color:rgba(241,237,228,.58);margin-top:2px;}
+.online-live-pill{border:1px solid rgba(232,24,13,.55);color:var(--red);padding:8px 9px;font-family:var(--fc);font-size:.54rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;}
+.online-video-card{position:relative;border:1px solid rgba(255,255,255,.14);background:#0b0b0b;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.35);}
 .online-video-frame{position:relative;aspect-ratio:16/9;background:radial-gradient(circle at 50% 20%,rgba(232,24,13,.15),transparent 36%),#080808;}
 .online-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;}
 .online-video-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,rgba(232,24,13,.08),rgba(255,255,255,.02));}
 .online-placeholder-title{font-family:var(--fd);font-size:2.2rem;line-height:.9;text-transform:uppercase;letter-spacing:.04em;}
 .online-placeholder-title span{color:var(--red);display:block;}
-.online-placeholder-sub{font-family:var(--fc);font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-top:10px;}
+.online-placeholder-sub{font-family:var(--fc);font-size:.66rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);margin-top:10px;}
 .online-video-ui{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:11px 12px;background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,0));pointer-events:none;}
-.online-video-tag{font-family:var(--fc);font-size:.65rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#fff;display:inline-flex;align-items:center;gap:7px;}
+.online-video-tag{font-family:var(--fc);font-size:.63rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:#fff;display:inline-flex;align-items:center;gap:7px;}
 .online-video-tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red);}
-.online-full-btn{pointer-events:auto;border:1px solid rgba(255,255,255,.24);background:rgba(10,10,10,.8);color:#fff;font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:9px 11px;cursor:pointer;}
-.online-grid{display:grid;grid-template-columns:1fr;gap:12px;}
-.online-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:16px;overflow:hidden;}
+.online-full-btn{pointer-events:auto;border:1px solid rgba(255,255,255,.24);background:rgba(10,10,10,.82);color:#fff;font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;padding:9px 10px;cursor:pointer;}
+.online-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:15px;overflow:hidden;}
 .online-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
-.online-card-title{font-family:var(--fc);font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;}
+.online-card-title{font-family:var(--fc);font-size:.7rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;}
 .online-card-title .ico{font-size:1rem;color:var(--red);}
-.online-chevron{font-size:1.6rem;line-height:1;color:rgba(241,237,228,.38);}
-.online-scripture-ref{font-family:var(--fc);font-size:1.25rem;font-weight:900;letter-spacing:.03em;color:var(--w);margin-bottom:8px;}
-.online-scripture-text{font-size:1rem;line-height:1.5;color:rgba(241,237,228,.82);}
+.online-chevron{font-size:1.45rem;line-height:1;color:rgba(241,237,228,.38);}
+.online-scripture-ref{font-family:var(--fc);font-size:1.22rem;font-weight:900;letter-spacing:.03em;color:var(--w);margin-bottom:8px;}
+.online-scripture-text{font-size:1rem;line-height:1.48;color:rgba(241,237,228,.84);}
 .online-poll-question{font-size:1rem;line-height:1.35;color:var(--w);margin-bottom:13px;}
 .online-poll-options{display:grid;grid-template-columns:1fr;gap:8px;}
-.online-poll-option{border:1px solid rgba(232,24,13,.42);background:rgba(232,24,13,.035);color:var(--w);min-height:46px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--fc);font-size:.9rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;text-align:left;}
+.online-poll-option{border:1px solid rgba(232,24,13,.42);background:rgba(232,24,13,.035);color:var(--w);min-height:46px;padding:10px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--fc);font-size:.88rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;text-align:left;}
 .online-poll-option:active{transform:scale(.985);}
 .online-poll-option.selected{background:var(--red);border-color:var(--red);color:#fff;}
-.online-poll-meta{margin-top:10px;font-family:var(--fc);font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);}
-.online-poll-result-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:9px;font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,237,228,.8);}
+.online-poll-meta{margin-top:10px;font-family:var(--fc);font-size:.6rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);}
+.online-poll-result-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:8px;font-family:var(--fc);font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(241,237,228,.78);}
 .online-poll-bar{grid-column:1/-1;height:7px;background:rgba(255,255,255,.1);overflow:hidden;}
-.online-poll-fill{height:100%;background:var(--red);width:0%;transition:width .25s ease;}
+.online-poll-fill{height:100%;background:var(--red);width:0%;transition:width .18s ease;}
 .online-current-slide{aspect-ratio:16/9;border:1px solid rgba(255,255,255,.1);background:#050505;position:relative;overflow:hidden;margin-top:4px;}
-.online-current-slide .slide{display:flex!important;opacity:1!important;transform:none!important;width:100%!important;height:100%!important;font-size:.28em!important;animation:none!important;}
+.online-current-slide .slide{display:flex!important;opacity:1!important;transform:none!important;width:100%!important;height:100%!important;font-size:.26em!important;animation:none!important;}
+.online-current-slide .sl-cover,.online-current-slide .sl-big,.online-current-slide .sl-sc,.online-current-slide .sl-te,.online-current-slide .sl-names,.online-current-slide .sl-final{padding:8em!important;}
+.online-current-slide .sl-ct .tt,.online-current-slide .sl-ct .tm{font-size:12em!important;}
+.online-current-slide .sl-big-text,.online-current-slide .sl-ft{font-size:6em!important;}
+.online-current-slide .sl-te-h{font-size:4.4em!important;}
+.online-current-slide .sl-sc-tx{font-size:3.3em!important;}
 .online-slide-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;font-family:var(--fd);font-size:2rem;text-transform:uppercase;line-height:.95;}
 .online-slide-fallback span{color:var(--red);display:block;}
 .online-response-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.online-response-btn{border:1px solid rgba(255,255,255,.14);background:#101010;color:var(--w);padding:13px 10px;font-family:var(--fc);font-size:.7rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;text-align:center;min-height:46px;}
+.online-response-btn{border:1px solid rgba(255,255,255,.14);background:#101010;color:var(--w);padding:13px 10px;font-family:var(--fc);font-size:.68rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;text-align:center;min-height:46px;}
 .online-response-btn.primary{border-color:rgba(232,24,13,.6);background:rgba(232,24,13,.08);color:#fff;}
-.online-flow{display:none;}
-.online-footer-note{margin:16px 0 0;text-align:center;font-family:var(--fc);font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);}
-.online-empty{font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);}
-.stream-admin-panel{border:1px solid rgba(232,24,13,.22);background:rgba(232,24,13,.035);padding:12px;margin:12px 0;}
+.online-flow-row{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:8px 0;border-top:1px solid rgba(255,255,255,.08);font-family:var(--fc);font-size:.76rem;font-weight:900;color:rgba(241,237,228,.78);}
+.online-flow-row:first-child{border-top:0;}
+.online-flow-time{color:var(--red);letter-spacing:.08em;}
+.online-footer-note{margin:16px 0 0;text-align:center;font-family:var(--fc);font-size:.6rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);}
+.online-empty{font-family:var(--fc);font-size:.7rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);}
+.stream-admin-panel{border:1px solid rgba(232,24,13,.24);background:rgba(232,24,13,.035);padding:12px;margin:12px 0;}
 .stream-admin-panel input,.stream-admin-panel select,.stream-admin-panel textarea{width:100%;background:#080808;border:1px solid var(--ln);color:var(--w);font-family:var(--fb);font-size:.82rem;padding:10px;margin-top:7px;outline:none;}
-.stream-admin-panel textarea{min-height:76px;resize:vertical;}
+.stream-admin-panel textarea{min-height:78px;resize:vertical;}
 .stream-admin-panel input:focus,.stream-admin-panel select:focus,.stream-admin-panel textarea:focus{border-color:var(--red);}
 .stream-admin-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .stream-admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
-.stream-admin-status{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-top:8px;}
-.mo-online-row{display:none;align-items:center;gap:9px;margin:4px 0 12px;font-family:var(--fc);font-size:.72rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:rgba(241,237,228,.72);}
+.stream-admin-status{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--mu);margin-top:8px;}
+.mo-online-row{display:none;align-items:center;gap:9px;margin:4px 0 12px;font-family:var(--fc);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,237,228,.72);}
 .mo-online-row.on{display:flex;}
 .mo-online-row input{accent-color:var(--red);width:16px;height:16px;}
 body.online-viewer-mode.audience-slave #ssl{display:none!important;}
 body.online-viewer-mode .poll-screen.on{display:none!important;}
 body.online-viewer-mode #slave-exit{display:none!important;}
-@media(min-width:760px){
-  .online-shell{padding:22px 24px 34px;}
-  .online-brand-main{font-size:1.85rem;}
-  .online-desktop-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:18px;align-items:start;}
-  .online-main-column,.online-side-column{display:grid;gap:14px;}
-  .online-video-card{margin-bottom:0;}
+@media(min-width:820px){
+  .online-shell{padding:22px 24px 36px;}
+  .online-brand-main{font-size:1.9rem;}
+  .online-desktop-layout{grid-template-columns:minmax(0,1.32fr) minmax(330px,.68fr);gap:18px;align-items:start;}
+  .online-main-column,.online-side-column{gap:14px;}
   .online-poll-options{grid-template-columns:1fr 1fr;}
   .online-response-grid{grid-template-columns:repeat(4,1fr);}
-  .online-flow{display:block;}
-  .online-flow-row{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.08);font-family:var(--fc);font-size:.78rem;font-weight:800;color:rgba(241,237,228,.78);}
-  .online-flow-row:first-child{border-top:0;}
-  .online-flow-time{color:var(--red);letter-spacing:.08em;}
+  .online-flow-row{grid-template-columns:86px 1fr;font-size:.78rem;}
 }
-@media(min-width:1080px){.online-current-slide .slide{font-size:.36em!important;}.online-shell{padding-top:26px;}}
+@media(max-width:380px){
+  .online-brand-main{font-size:1.34rem;}
+  .online-menu{height:38px;min-width:38px;font-size:.58rem;padding:0 8px;}
+  .online-response-grid{grid-template-columns:1fr;}
+}
 
 </style>
 
@@ -1681,6 +1708,7 @@ body.online-viewer-mode #slave-exit{display:none!important;}
 // Change this block when duplicating the template for a new series.
 // =========================================================
 const SERIES_CONFIG = Object.freeze({
+  slug: 'the-ministry',
   title: 'THE MINISTRY',
   subtitle: 'Matthew Chapter 10 Series',
   lessonTitle: 'The Price of Being Sent',
@@ -2449,6 +2477,211 @@ const POLL_BANK_L2 = [
 ];
 
 
+
+
+// =========================================================
+// LESSON 3: THE MAKING OF A MINISTER
+// Companion lesson added v46. Lesson 1 and Lesson 2 remain unchanged.
+// =========================================================
+const LESSON3_SLIDES = [
+  { t:'cover', eyebrow:'The Ministry &middot; Companion Lesson', lesson:'Lesson 3', title:'The Making of a Minister', ref:'1 Timothy 4:12-16 · 2 Timothy' },
+  { t:'big', sup:'Big Idea', text:'Paul does not tell Timothy to build a <span class="acc">brand.</span>', ref:'1 Timothy 4:16' },
+  { t:'sc', ref:'1 Timothy 4:16', text:'&ldquo;Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.&rdquo;', tk:'Paul does not separate the man from the message.' },
+  { t:'te', n:'01', hl:'Watch the life that carries the <span class="acc">doctrine.</span>', pts:['Take heed unto thyself.','Take heed unto the doctrine.','The man and the message have to be watched together.','<span class="hi">Truth can be mishandled by a vessel that is out of order.</span>'], ref:'1 Timothy 4:16' },
+  { t:'big', sup:'Preach Line', text:'Paul does not separate the man from the message because the people receive <span class="acc">both.</span>', ref:'1 Timothy 4:16' },
+  { t:'sc', ref:'1 Timothy 4:12', text:'&ldquo;Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.&rdquo;', tk:'The minister must become an example before he becomes only a voice.' },
+  { t:'big', sup:'Preach Line', text:'A minister is not proven by <span class="acc">volume.</span> He is proven by pattern.', ref:'1 Timothy 4:12' },
+  { t:'te', n:'02', hl:'Stir the gift, but keep the vessel <span class="acc">governed.</span>', pts:['A real gift can still be neglected.','A true calling can still be underdeveloped.','The gift being from God does not remove responsibility.','<span class="hi">The gift is entrusted. The vessel must be governed.</span>'], ref:'1 Timothy 4:14-15 · 2 Timothy 1:6' },
+  { t:'sc', ref:'2 Timothy 1:7', text:'&ldquo;For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.&rdquo;', tk:'Power. Love. A sound mind. That is the shape of a safe vessel.' },
+  { t:'sc', ref:'2 Timothy 2:3', text:'&ldquo;Thou therefore endure hardness, as a good soldier of Jesus Christ.&rdquo;', tk:'Hardship must deepen obedience without deforming the spirit.' },
+  { t:'big', sup:'Preach Line', text:'A minister must learn discomfort without letting discomfort <span class="acc">deform</span> him.', ref:'2 Timothy 2:3' },
+  { t:'sc', ref:'2 Timothy 2:15', text:'&ldquo;Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.&rdquo;', tk:'The Word is not material for clever thoughts. It is truth to be handled rightly.' },
+  { t:'sc', ref:'2 Timothy 4:2', text:'&ldquo;Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.&rdquo;', tk:'Preach the Word when it is received and when it is resisted.' },
+  { t:'sc', ref:'2 Timothy 4:7', text:'&ldquo;I have fought a good fight, I have finished my course, I have kept the faith.&rdquo;', tk:'Paul is not only showing Timothy how to start. He is showing him how to finish.' },
+  { t:'final', kicker:'Closing Line', text:'The making of a minister is the making of a <span class="acc">safe vessel</span> for holy work.', sub:'Life. Doctrine. Gift. Endurance. Study. Preaching. Finish.', ref:'2 Timothy 4:5-7' }
+];
+
+const NOTES_L3 = {
+  0:'Opening title. Start the companion lesson here.',
+  1:'Opening big idea. Use after: Paul does not tell Timothy to build a brand.',
+  2:'Read 1 Timothy 4:16. Slow down on “thyself” and “doctrine.”',
+  3:'Point I. The minister must watch the life that carries the doctrine.',
+  4:'Preach line for Point I. Pause after this.',
+  5:'Point II. Use when you read 1 Timothy 4:12 and move from voice to example.',
+  6:'Preach line for example/pattern.',
+  7:'Point III. Gift and discipline. Connect 1 Timothy 4:14-15 and 2 Timothy 1:6.',
+  8:'Read 2 Timothy 1:7. Explain power, love, and sound mind.',
+  9:'Point IV. Read 2 Timothy 2:3. Hardship and soldier language.',
+  10:'Preach line for hardship. Let it land.',
+  11:'Point V. Read 2 Timothy 2:15. Study and rightly divide the Word.',
+  12:'Point VI. Read 2 Timothy 4:2. Preach the Word.',
+  13:'Finish section. Read 2 Timothy 4:7.',
+  14:'Final close. The making of a minister is the making of a safe vessel.'
+};
+
+const SCRIPTURE_MAP_L3 = [
+  {ref_en:'1 Timothy 4:12-16; 2 Timothy 1:6-7; 2 Timothy 2:3-15; 2 Timothy 4:1-7', text_en:'Paul does not tell Timothy to build a brand. He tells him to become faithful.', ref_es:'1 Timoteo 4; 2 Timoteo 1, 2, 4', text_es:'Pablo no le dice a Timoteo que construya una imagen. Le enseña a ser fiel.'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello, pues haciendo esto, te salvarás a ti mismo y a los que te oyeren.'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:16', text_en:'Take heed unto thyself, and unto the doctrine; continue in them...', ref_es:'1 Timoteo 4:16', text_es:'Ten cuidado de ti mismo y de la doctrina; persiste en ello...'},
+  {ref_en:'1 Timothy 4:12', text_en:'Let no man despise thy youth; but be thou an example of the believers...', ref_es:'1 Timoteo 4:12', text_es:'Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes...'},
+  {ref_en:'1 Timothy 4:12', text_en:'...be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.', ref_es:'1 Timoteo 4:12', text_es:'...sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza.'},
+  {ref_en:'1 Timothy 4:14-15; 2 Timothy 1:6', text_en:'Neglect not the gift that is in thee... Meditate upon these things; give thyself wholly to them...', ref_es:'1 Timoteo 4:14-15; 2 Timoteo 1:6', text_es:'No descuides el don que hay en ti... Ocúpate en estas cosas; permanece en ellas...'},
+  {ref_en:'2 Timothy 1:7', text_en:'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', ref_es:'2 Timoteo 1:7', text_es:'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.'},
+  {ref_en:'2 Timothy 2:3', text_en:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', ref_es:'2 Timoteo 2:3', text_es:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.'},
+  {ref_en:'2 Timothy 2:3', text_en:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', ref_es:'2 Timoteo 2:3', text_es:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.'},
+  {ref_en:'2 Timothy 2:15', text_en:'Study to shew thyself approved unto God... rightly dividing the word of truth.', ref_es:'2 Timoteo 2:15', text_es:'Procura con diligencia presentarte a Dios aprobado... que usa bien la palabra de verdad.'},
+  {ref_en:'2 Timothy 4:2', text_en:'Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.', ref_es:'2 Timoteo 4:2', text_es:'Que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.'},
+  {ref_en:'2 Timothy 4:7', text_en:'I have fought a good fight, I have finished my course, I have kept the faith.', ref_es:'2 Timoteo 4:7', text_es:'He peleado la buena batalla, he acabado la carrera, he guardado la fe.'},
+  {ref_en:'2 Timothy 4:5-7', text_en:'...do the work... make full proof of thy ministry... I have finished my course, I have kept the faith.', ref_es:'2 Timoteo 4:5-7', text_es:'...haz obra... cumple tu ministerio... he acabado la carrera, he guardado la fe.'}
+];
+
+const VERSE_BANK_L3 = [
+  {id:'l3-1tim4-12', ref:'1 Timothy 4:12', kjv:'Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.', rvr:'Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza.', slides:[5,6]},
+  {id:'l3-1tim4-13', ref:'1 Timothy 4:13', kjv:'Till I come, give attendance to reading, to exhortation, to doctrine.', rvr:'Entre tanto que voy, ocúpate en la lectura, la exhortación y la enseñanza.', slides:[5,6]},
+  {id:'l3-1tim4-14', ref:'1 Timothy 4:14', kjv:'Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.', rvr:'No descuides el don que hay en ti, que te fue dado mediante profecía con la imposición de las manos del presbiterio.', slides:[7]},
+  {id:'l3-1tim4-15', ref:'1 Timothy 4:15', kjv:'Meditate upon these things; give thyself wholly to them; that thy profiting may appear to all.', rvr:'Ocúpate en estas cosas; permanece en ellas, para que tu aprovechamiento sea manifiesto a todos.', slides:[7]},
+  {id:'l3-1tim4-16', ref:'1 Timothy 4:16', kjv:'Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.', rvr:'Ten cuidado de ti mismo y de la doctrina; persiste en ello, pues haciendo esto, te salvarás a ti mismo y a los que te oyeren.', slides:[2,3,4]},
+  {id:'l3-2tim1-6', ref:'2 Timothy 1:6', kjv:'Wherefore I put thee in remembrance that thou stir up the gift of God, which is in thee by the putting on of my hands.', rvr:'Por lo cual te aconsejo que avives el fuego del don de Dios que está en ti por la imposición de mis manos.', slides:[7]},
+  {id:'l3-2tim1-7', ref:'2 Timothy 1:7', kjv:'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', rvr:'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.', slides:[8]},
+  {id:'l3-2tim2-3', ref:'2 Timothy 2:3', kjv:'Thou therefore endure hardness, as a good soldier of Jesus Christ.', rvr:'Tú, pues, sufre penalidades como buen soldado de Jesucristo.', slides:[9,10]},
+  {id:'l3-2tim2-15', ref:'2 Timothy 2:15', kjv:'Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.', rvr:'Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad.', slides:[11]},
+  {id:'l3-2tim4-1', ref:'2 Timothy 4:1', kjv:'I charge thee therefore before God, and the Lord Jesus Christ, who shall judge the quick and the dead at his appearing and his kingdom;', rvr:'Te encarezco delante de Dios y del Señor Jesucristo, que juzgará a los vivos y a los muertos en su manifestación y en su reino;', slides:[12]},
+  {id:'l3-2tim4-2', ref:'2 Timothy 4:2', kjv:'Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.', rvr:'Que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.', slides:[12]},
+  {id:'l3-2tim4-3', ref:'2 Timothy 4:3', kjv:'For the time will come when they will not endure sound doctrine; but after their own lusts shall they heap to themselves teachers, having itching ears;', rvr:'Porque vendrá tiempo cuando no sufrirán la sana doctrina, sino que teniendo comezón de oír, se amontonarán maestros conforme a sus propias concupiscencias;', slides:[12]},
+  {id:'l3-2tim4-4', ref:'2 Timothy 4:4', kjv:'And they shall turn away their ears from the truth, and shall be turned unto fables.', rvr:'Y apartarán de la verdad el oído y se volverán a las fábulas.', slides:[12]},
+  {id:'l3-2tim4-5', ref:'2 Timothy 4:5', kjv:'But watch thou in all things, endure afflictions, do the work of an evangelist, make full proof of thy ministry.', rvr:'Pero tú sé sobrio en todo, soporta las aflicciones, haz obra de evangelista, cumple tu ministerio.', slides:[14]},
+  {id:'l3-2tim4-6', ref:'2 Timothy 4:6', kjv:'For I am now ready to be offered, and the time of my departure is at hand.', rvr:'Porque yo ya estoy para ser sacrificado, y el tiempo de mi partida está cercano.', slides:[13]},
+  {id:'l3-2tim4-7', ref:'2 Timothy 4:7', kjv:'I have fought a good fight, I have finished my course, I have kept the faith.', rvr:'He peleado la buena batalla, he acabado la carrera, he guardado la fe.', slides:[13,14]}
+];
+
+const QUESTIONS_L3 = [
+  {section:'Personal Examination', questions:[
+    {num:'1', text:'Where am I trying to be known instead of trying to be faithful?'},
+    {num:'2', text:'Which is more guarded in my life right now: my doctrine, or my spirit?'},
+    {num:'3', text:'What has ministry pressure exposed in me: pride, fear, anger, insecurity, or ambition?'},
+    {num:'4', text:'Where have I been tempted to handle truth as a weapon instead of a stewardship?'},
+    {num:'5', text:'What does it look like for me to take heed unto thyself this week in practical terms?'}
+  ]},
+  {section:'Doctrine and Example', questions:[
+    {num:'6', text:'Where do my patterns contradict what I say I believe?'},
+    {num:'7', text:'What part of be thou an example is most lacking in me right now: word, conversation, charity, spirit, faith, or purity?'},
+    {num:'8', text:'What would give attendance to reading, exhortation, and doctrine look like in my weekly rhythm?'}
+  ]},
+  {section:'Gift, Hardness, and Finishing', questions:[
+    {num:'9', text:'Am I neglecting the gift, or am I worshiping the gift?'},
+    {num:'10', text:'Where has fear been trying to make me shrink back from obedience?'},
+    {num:'11', text:'What hardship am I enduring right now, and how am I being tempted to become hard in spirit?'},
+    {num:'12', text:'Where do I need to recommit to rightly dividing the word of truth?'},
+    {num:'13', text:'If I measured ministry by finish, what would need to change today?'}
+  ]}
+];
+
+const POLL_BANK_L3 = [
+  {id:'l3-poll-1', question:'Which part of ministry needs the most attention in you right now?', options:['Life','Doctrine','Gift','Endurance','Study'], anonymous:false},
+  {id:'l3-poll-2', question:'What has ministry pressure exposed the most?', options:['Pride','Fear','Anger','Insecurity','Ambition'], anonymous:false},
+  {id:'l3-poll-3', question:'Which phrase hits your current season most?', options:['Watch the life','Stir the gift','Endure hardness','Rightly divide','Finish the course'], anonymous:false}
+];
+
+const BIBLE_BANK_L3 = {
+  books: {
+    '1 Timothy': {
+      '4': [
+        ['1 Timothy 4:1','Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils;'],
+        ['1 Timothy 4:2','Speaking lies in hypocrisy; having their conscience seared with a hot iron;'],
+        ['1 Timothy 4:3','Forbidding to marry, and commanding to abstain from meats, which God hath created to be received with thanksgiving of them which believe and know the truth.'],
+        ['1 Timothy 4:4','For every creature of God is good, and nothing to be refused, if it be received with thanksgiving:'],
+        ['1 Timothy 4:5','For it is sanctified by the word of God and prayer.'],
+        ['1 Timothy 4:6','If thou put the brethren in remembrance of these things, thou shalt be a good minister of Jesus Christ, nourished up in the words of faith and of good doctrine, whereunto thou hast attained.'],
+        ['1 Timothy 4:7','But refuse profane and old wives\' fables, and exercise thyself rather unto godliness.'],
+        ['1 Timothy 4:8','For bodily exercise profiteth little: but godliness is profitable unto all things, having promise of the life that now is, and of that which is to come.'],
+        ['1 Timothy 4:9','This is a faithful saying and worthy of all acceptation.'],
+        ['1 Timothy 4:10','For therefore we both labour and suffer reproach, because we trust in the living God, who is the Saviour of all men, specially of those that believe.'],
+        ['1 Timothy 4:11','These things command and teach.'],
+        ['1 Timothy 4:12','Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.'],
+        ['1 Timothy 4:13','Till I come, give attendance to reading, to exhortation, to doctrine.'],
+        ['1 Timothy 4:14','Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.'],
+        ['1 Timothy 4:15','Meditate upon these things; give thyself wholly to them; that thy profiting may appear to all.'],
+        ['1 Timothy 4:16','Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.']
+      ]
+    },
+    '2 Timothy': {
+      '1': [
+        ['2 Timothy 1:1','Paul, an apostle of Jesus Christ by the will of God, according to the promise of life which is in Christ Jesus,'],
+        ['2 Timothy 1:2','To Timothy, my dearly beloved son: Grace, mercy, and peace, from God the Father and Christ Jesus our Lord.'],
+        ['2 Timothy 1:3','I thank God, whom I serve from my forefathers with pure conscience, that without ceasing I have remembrance of thee in my prayers night and day;'],
+        ['2 Timothy 1:4','Greatly desiring to see thee, being mindful of thy tears, that I may be filled with joy;'],
+        ['2 Timothy 1:5','When I call to remembrance the unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice; and I am persuaded that in thee also.'],
+        ['2 Timothy 1:6','Wherefore I put thee in remembrance that thou stir up the gift of God, which is in thee by the putting on of my hands.'],
+        ['2 Timothy 1:7','For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.'],
+        ['2 Timothy 1:8','Be not thou therefore ashamed of the testimony of our Lord, nor of me his prisoner: but be thou partaker of the afflictions of the gospel according to the power of God;'],
+        ['2 Timothy 1:9','Who hath saved us, and called us with an holy calling, not according to our works, but according to his own purpose and grace, which was given us in Christ Jesus before the world began,'],
+        ['2 Timothy 1:10','But is now made manifest by the appearing of our Saviour Jesus Christ, who hath abolished death, and hath brought life and immortality to light through the gospel:'],
+        ['2 Timothy 1:11','Whereunto I am appointed a preacher, and an apostle, and a teacher of the Gentiles.'],
+        ['2 Timothy 1:12','For the which cause I also suffer these things: nevertheless I am not ashamed: for I know whom I have believed, and am persuaded that he is able to keep that which I have committed unto him against that day.'],
+        ['2 Timothy 1:13','Hold fast the form of sound words, which thou hast heard of me, in faith and love which is in Christ Jesus.'],
+        ['2 Timothy 1:14','That good thing which was committed unto thee keep by the Holy Ghost which dwelleth in us.'],
+        ['2 Timothy 1:15','This thou knowest, that all they which are in Asia be turned away from me; of whom are Phygellus and Hermogenes.'],
+        ['2 Timothy 1:16','The Lord give mercy unto the house of Onesiphorus; for he oft refreshed me, and was not ashamed of my chain:'],
+        ['2 Timothy 1:17','But, when he was in Rome, he sought me out very diligently, and found me.'],
+        ['2 Timothy 1:18','The Lord grant unto him that he may find mercy of the Lord in that day: and in how many things he ministered unto me at Ephesus, thou knowest very well.']
+      ],
+      '2': [
+        ['2 Timothy 2:1','Thou therefore, my son, be strong in the grace that is in Christ Jesus.'],
+        ['2 Timothy 2:2','And the things that thou hast heard of me among many witnesses, the same commit thou to faithful men, who shall be able to teach others also.'],
+        ['2 Timothy 2:3','Thou therefore endure hardness, as a good soldier of Jesus Christ.'],
+        ['2 Timothy 2:4','No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.'],
+        ['2 Timothy 2:5','And if a man also strive for masteries, yet is he not crowned, except he strive lawfully.'],
+        ['2 Timothy 2:6','The husbandman that laboureth must be first partaker of the fruits.'],
+        ['2 Timothy 2:7','Consider what I say; and the Lord give thee understanding in all things.'],
+        ['2 Timothy 2:8','Remember that Jesus Christ of the seed of David was raised from the dead according to my gospel:'],
+        ['2 Timothy 2:9','Wherein I suffer trouble, as an evil doer, even unto bonds; but the word of God is not bound.'],
+        ['2 Timothy 2:10','Therefore I endure all things for the elect\'s sakes, that they may also obtain the salvation which is in Christ Jesus with eternal glory.'],
+        ['2 Timothy 2:11','It is a faithful saying: For if we be dead with him, we shall also live with him:'],
+        ['2 Timothy 2:12','If we suffer, we shall also reign with him: if we deny him, he also will deny us:'],
+        ['2 Timothy 2:13','If we believe not, yet he abideth faithful: he cannot deny himself.'],
+        ['2 Timothy 2:14','Of these things put them in remembrance, charging them before the Lord that they strive not about words to no profit, but to the subverting of the hearers.'],
+        ['2 Timothy 2:15','Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.'],
+        ['2 Timothy 2:16','But shun profane and vain babblings: for they will increase unto more ungodliness.'],
+        ['2 Timothy 2:17','And their word will eat as doth a canker: of whom is Hymenaeus and Philetus;'],
+        ['2 Timothy 2:18','Who concerning the truth have erred, saying that the resurrection is past already; and overthrow the faith of some.'],
+        ['2 Timothy 2:19','Nevertheless the foundation of God standeth sure, having this seal, The Lord knoweth them that are his. And, Let every one that nameth the name of Christ depart from iniquity.'],
+        ['2 Timothy 2:20','But in a great house there are not only vessels of gold and of silver, but also of wood and of earth; and some to honour, and some to dishonour.'],
+        ['2 Timothy 2:21','If a man therefore purge himself from these, he shall be a vessel unto honour, sanctified, and meet for the master\'s use, and prepared unto every good work.'],
+        ['2 Timothy 2:22','Flee also youthful lusts: but follow righteousness, faith, charity, peace, with them that call on the Lord out of a pure heart.'],
+        ['2 Timothy 2:23','But foolish and unlearned questions avoid, knowing that they do gender strifes.'],
+        ['2 Timothy 2:24','And the servant of the Lord must not strive; but be gentle unto all men, apt to teach, patient,'],
+        ['2 Timothy 2:25','In meekness instructing those that oppose themselves; if God peradventure will give them repentance to the acknowledging of the truth;'],
+        ['2 Timothy 2:26','And that they may recover themselves out of the snare of the devil, who are taken captive by him at his will.']
+      ],
+      '4': [
+        ['2 Timothy 4:1','I charge thee therefore before God, and the Lord Jesus Christ, who shall judge the quick and the dead at his appearing and his kingdom;'],
+        ['2 Timothy 4:2','Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.'],
+        ['2 Timothy 4:3','For the time will come when they will not endure sound doctrine; but after their own lusts shall they heap to themselves teachers, having itching ears;'],
+        ['2 Timothy 4:4','And they shall turn away their ears from the truth, and shall be turned unto fables.'],
+        ['2 Timothy 4:5','But watch thou in all things, endure afflictions, do the work of an evangelist, make full proof of thy ministry.'],
+        ['2 Timothy 4:6','For I am now ready to be offered, and the time of my departure is at hand.'],
+        ['2 Timothy 4:7','I have fought a good fight, I have finished my course, I have kept the faith.'],
+        ['2 Timothy 4:8','Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day.'],
+        ['2 Timothy 4:9','Do thy diligence to come shortly unto me:'],
+        ['2 Timothy 4:10','For Demas hath forsaken me, having loved this present world, and is departed unto Thessalonica; Crescens to Galatia, Titus unto Dalmatia.'],
+        ['2 Timothy 4:11','Only Luke is with me. Take Mark, and bring him with thee: for he is profitable to me for the ministry.'],
+        ['2 Timothy 4:12','And Tychicus have I sent to Ephesus.'],
+        ['2 Timothy 4:13','The cloke that I left at Troas with Carpus, when thou comest, bring with thee, and the books, but especially the parchments.'],
+        ['2 Timothy 4:14','Alexander the coppersmith did me much evil: the Lord reward him according to his works:'],
+        ['2 Timothy 4:15','Of whom be thou ware also; for he hath greatly withstood our words.'],
+        ['2 Timothy 4:16','At my first answer no man stood with me, but all men forsook me: I pray God that it may not be laid to their charge.'],
+        ['2 Timothy 4:17','Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known...'],
+        ['2 Timothy 4:18','And the Lord shall deliver me from every evil work, and will preserve me unto his heavenly kingdom...'],
+        ['2 Timothy 4:19','Salute Prisca and Aquila, and the household of Onesiphorus.'],
+        ['2 Timothy 4:20','Erastus abode at Corinth: but Trophimus have I left at Miletum sick.'],
+        ['2 Timothy 4:21','Do thy diligence to come before winter. Eubulus greeteth thee, and Pudens, and Linus, and Claudia, and all the brethren.'],
+        ['2 Timothy 4:22','The Lord Jesus Christ be with thy spirit. Grace be with you. Amen.']
+      ]
+    }
+  }
+};
 const LESSON_LIBRARY = Object.freeze({
   'lesson-1': {
     slug: 'lesson-1',
@@ -2473,23 +2706,56 @@ const LESSON_LIBRARY = Object.freeze({
     verseBank: VERSE_BANK_L2,
     questions: QUESTIONS_L2,
     pollBank: POLL_BANK_L2
+  },
+  'lesson-3': {
+    slug: 'lesson-3',
+    label: 'Lesson 3',
+    title: 'The Making of a Minister',
+    text: '1 Timothy 4:12-16 · 2 Timothy 1, 2, 4',
+    slides: LESSON3_SLIDES,
+    notes: NOTES_L3,
+    scriptureMap: SCRIPTURE_MAP_L3,
+    verseBank: VERSE_BANK_L3,
+    questions: QUESTIONS_L3,
+    pollBank: POLL_BANK_L3,
+    bibleBank: BIBLE_BANK_L3
   }
 });
 function normalizeLessonSlug(raw){
   raw=String(raw||'').toLowerCase().trim();
+  if(raw==='3') return 'lesson-3';
   if(raw==='2') return 'lesson-2';
   if(raw==='1') return 'lesson-1';
   return LESSON_LIBRARY[raw] ? raw : 'lesson-1';
+}
+const LESSON_DATE_RULES = Object.freeze([
+  {slug:'lesson-1', date:'2026-06-18', open:true},
+  {slug:'lesson-2', date:'2026-06-25', open:true},
+  {slug:'lesson-3', date:'2026-07-02', open:true},
+  {slug:'lesson-4', date:'2026-07-09', open:false}
+]);
+function isoLocalDate(d=new Date()){
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,'0');
+  const day=String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+function dateBasedLessonSlug(dateValue){
+  const today=String(dateValue||isoLocalDate());
+  const eligible=LESSON_DATE_RULES
+    .filter(x=>x.open && LESSON_LIBRARY[x.slug] && x.date<=today)
+    .sort((a,b)=>a.date.localeCompare(b.date));
+  if(eligible.length) return eligible[eligible.length-1].slug;
+  const first=LESSON_DATE_RULES.find(x=>x.open && LESSON_LIBRARY[x.slug]);
+  return first ? first.slug : 'lesson-1';
 }
 function requestedLessonSlug(){
   const p=new URLSearchParams(window.location.search);
   const fromUrl=p.get('lesson')||p.get('l');
   if(fromUrl) return normalizeLessonSlug(fromUrl);
-  try{
-    const saved=localStorage.getItem('tm_selected_lesson');
-    if(saved) return normalizeLessonSlug(saved);
-  }catch(e){}
-  return 'lesson-1';
+  // Default lesson is date-driven so the highlighted/open lesson follows the calendar,
+  // not whatever older sequence was saved in localStorage. Use ?lesson=lesson-1 for testing old lessons.
+  return normalizeLessonSlug(dateBasedLessonSlug());
 }
 function replaceEditableArray(target, source){
   target.splice(0, target.length, ...source);
@@ -2530,6 +2796,7 @@ function applySelectedLesson(slug){
   replaceEditableArray(VERSE_BANK, lesson.verseBank || []);
   replaceEditableArray(QUESTIONS, lesson.questions || []);
   if(lesson.pollBank) window.POLL_BANK = JSON.parse(JSON.stringify(lesson.pollBank));
+  window.BIBLE_BANK_CURRENT = lesson.bibleBank || null;
   window.LESSON_SLUG = lesson.slug;
   window.LESSON_DATA = { slug: lesson.slug, label: lesson.label, title: lesson.title, text: lesson.text };
   try{localStorage.setItem('tm_selected_lesson', lesson.slug);}catch(e){}
@@ -2540,7 +2807,7 @@ function applySelectedLesson(slug){
 const HOME_LESSON_META = {
   'lesson-1': {num:'01', label:'Lesson 1', dateShort:'June 18', dateLong:'June 18, 2026', title:'The Price of Being Sent', text:'Matthew 10:1-10', slides:'15 Slides', tagline:'Ministry does not begin with a platform. It begins with a call.', reflectionTitle:'Personal Examination', reflectionMeta:'6 sections · 17 questions', open:true},
   'lesson-2': {num:'02', label:'Lesson 2', dateShort:'June 25', dateLong:'June 25, 2026', title:'The Discipline of the Sent', text:'Matthew 10:11-16', slides:'20 Slides', tagline:'Jesus does not only send disciples. He instructs disciples in how to move.', reflectionTitle:'The Discipline of the Sent', reflectionMeta:'10 reflection questions', open:true},
-  'lesson-3': {num:'03', label:'Lesson 3', dateShort:'July 2', dateLong:'July 2, 2026', title:'How to Do Ministry', text:'Matthew 10:24-33 · 1 & 2 Timothy', slides:'Coming Soon', tagline:'Coming soon.', open:false},
+  'lesson-3': {num:'03', label:'Lesson 3', dateShort:'July 2', dateLong:'July 2, 2026', title:'The Making of a Minister', text:'1 Timothy 4:12-16 · 2 Timothy 1, 2, 4', slides:'15 Slides', tagline:'The making of a minister is the making of a safe vessel for holy work.', reflectionTitle:'The Making of a Minister', reflectionMeta:'13 reflection questions', open:true},
   'lesson-4': {num:'04', label:'Lesson 4', dateShort:'July 9', dateLong:'July 9, 2026', title:'The Reward of the Work', text:'Matthew 10:34-42', slides:'Coming Soon', tagline:'Coming soon.', open:false}
 };
 function updateLandingLessonState(slug){
@@ -2724,6 +2991,7 @@ function showModal(t){
   const isAdm=t==='admin';
   document.getElementById('mo-name').style.display=isAdm?'none':'block';
   document.getElementById('mo-sub').textContent=isAdm?'Enter the admin code.':'Enter your name and the access code.';
+  const ac=document.getElementById('mo-access-code'); if(ac) ac.classList.toggle('on', !isAdm);
   document.getElementById('mo-err').classList.remove('on');
   document.getElementById('mo-pw').value='';
   if(!isAdm)document.getElementById('mo-name').value='';
@@ -2954,6 +3222,8 @@ function buildVerseBank(){
       </div>
     </div>
   `).join('');
+  const hdr=document.getElementById('lesson-verse-bank-title'); if(hdr&&window.LESSON_DATA) hdr.textContent=`${window.LESSON_DATA.label} Verse Bank · KJV/RVR · Tap to push`;
+  try{buildBibleBank();}catch(e){}
 }
 const VB_SPANISH={
   v1:'Entonces llamando a sus doce discípulos, les dio autoridad sobre los espíritus inmundos, para que los echasen fuera, y para sanar toda enfermedad y toda dolencia.',
@@ -2977,12 +3247,67 @@ function getVBSpanish(id){
   if(VB_SPANISH[id]) return VB_SPANISH[id];
   const v=(Array.isArray(VERSE_BANK)?VERSE_BANK:[]).find(x=>x.id===id);
   if(!v) return '';
+  if(v.rvr) return v.rvr;
   const map=(Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP:[]).find(x=>(x.ref_en||x.ref)===v.ref || (x.ref_es||'').replace('Mateo','Matthew')===v.ref);
   return map ? (map.text_es||map.rvr||'') : '';
 }
 function markVBPushed(id){
   document.querySelectorAll('.vb-card').forEach(c=>c.classList.remove('pushed'));
   const card=document.getElementById('vbc-'+id);if(card)card.classList.add('pushed');
+}
+
+
+// ── BIBLE BANK ──
+function buildBibleBank(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  if(!bookSel||!chapSel) return;
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  const books=bank&&bank.books?Object.keys(bank.books):[];
+  bookSel.innerHTML=books.length?books.map(b=>`<option value="${b}">${b}</option>`).join(''):'<option>No Bible bank</option>';
+  if(books.length){
+    const current=bookSel.dataset.current && books.includes(bookSel.dataset.current) ? bookSel.dataset.current : books[0];
+    bookSel.value=current;
+    buildBibleBankChapters();
+  }else{
+    chapSel.innerHTML='<option>—</option>';
+    const cards=document.getElementById('bible-bank-cards'); if(cards) cards.innerHTML='<div class="bb-card"><div class="bb-text">No chapter bank for this lesson yet.</div></div>';
+  }
+}
+function buildBibleBankChapters(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  if(!bookSel||!chapSel||!bank||!bank.books) return;
+  const book=bookSel.value;
+  bookSel.dataset.current=book;
+  const chapters=bank.books[book]?Object.keys(bank.books[book]):[];
+  chapSel.innerHTML=chapters.map(c=>`<option value="${c}">${c}</option>`).join('');
+  renderBibleBankChapter();
+}
+function renderBibleBankChapter(){
+  const bookSel=document.getElementById('bb-book');
+  const chapSel=document.getElementById('bb-chapter');
+  const cards=document.getElementById('bible-bank-cards');
+  const bank=window.BIBLE_BANK_CURRENT || null;
+  if(!bookSel||!chapSel||!cards||!bank||!bank.books){return;}
+  if(!bank.books[bookSel.value] || !bank.books[bookSel.value][chapSel.value]){
+    buildBibleBankChapters();
+    return;
+  }
+  const verses=bank.books[bookSel.value][chapSel.value] || [];
+  cards.innerHTML=verses.map((row,idx)=>{
+    const ref=row[0], kjv=row[1];
+    const safeRef=String(ref).replace(/'/g,"&#39;");
+    const safeText=String(kjv).replace(/`/g,"'");
+    return `<div class="bb-card"><div class="bb-ref">${safeRef}</div><div class="bb-text">${safeText}</div><div class="bb-actions"><button onclick="event.stopPropagation();pushVerseToP1({ref:'${safeRef}',kjv:\`${safeText}\`})">P1</button><button onclick="event.stopPropagation();pushRawScripture({ref_en:'${safeRef}',text_en:\`${safeText}\`,ref_es:'${safeRef.replace('1 Timothy','1 Timoteo').replace('2 Timothy','2 Timoteo')}',text_es:getRvrForRef('${safeRef}')||\`${safeText}\`})">P2</button></div></div>`;
+  }).join('');
+}
+function getRvrForRef(ref){
+  const v=(Array.isArray(VERSE_BANK)?VERSE_BANK:[]).find(x=>x.ref===ref);
+  if(v && v.rvr) return v.rvr;
+  const m=(Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP:[]).find(x=>(x.ref_en||'')===ref || (x.ref_en||'').includes(ref));
+  return m ? (m.text_es||'') : '';
 }
 
 // ── CONTROL SURFACE ──
@@ -3042,6 +3367,7 @@ function switchTab(name,btn){
   document.querySelectorAll('.ctrl-panel').forEach(p=>p.classList.remove('on'));
   btn.classList.add('on');
   document.getElementById('tab-'+name).classList.add('on');
+  if(name==='verses'){try{buildBibleBank();}catch(e){}}
 }
 
 // ── SCRIPTURE AUTO ──
@@ -4021,7 +4347,7 @@ function renderQuestionsMini(){
 <div class="sc-series">
 <div class="sc-si active">Lesson 1 · June 18</div>
 <div class="sc-si locked">Lesson 2 · June 25</div>
-<div class="sc-si locked">Lesson 3 · July 2</div>
+<div class="sc-si" onclick="selectLesson('lesson-3',true)">Lesson 3 · July 2</div>
 <div class="sc-si locked">Lesson 4 · July 9</div>
 </div>
 <div class="sc-btns">
@@ -4041,6 +4367,7 @@ function renderQuestionsMini(){
 <div class="mo-box">
 <div class="mo-title">THE <span>MINISTRY</span></div>
 <div class="mo-sub" id="mo-sub">Enter your name and the access code.</div>
+<div class="mo-access-code" id="mo-access-code">Access Code<span>ministry2026</span></div>
 <input class="mo-inp" id="mo-name" onkeydown="if(event.key==='Enter')document.getElementById('mo-email').focus()" placeholder="Your name" type="text"/>
 <input class="mo-inp" id="mo-email" onkeydown="if(event.key==='Enter')document.getElementById('mo-pw').focus()" placeholder="Your email" type="email" autocomplete="email"/>
 <input class="mo-inp" id="mo-pw" onkeydown="if(event.key==='Enter')checkPw()" placeholder="Access code" type="password"/>
@@ -4229,7 +4556,7 @@ function renderQuestionsMini(){
 <div class="cmd-sec">
 <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">● Auto P2</button>
 <button class="cmd-pill" onclick="openSS()">▶ Present</button>
-<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button>
+<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button><button class="cmd-pill lesson-pill" data-lesson="lesson-3" onclick="adminSelectLesson('lesson-3')">Lesson 3</button>
 <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
 <button class="cmd-pill" onclick="projFS()">⛶ FS</button>
 </div>
@@ -4253,8 +4580,16 @@ function renderQuestionsMini(){
 <!-- Verse bank panel -->
 <div class="ctrl-panel" id="tab-verses">
 <div class="vbank-inner">
-<div class="vbank-header">Matthew 10:1-10 · KJV · Tap to push</div>
+<div class="vbank-header" id="lesson-verse-bank-title">Lesson Verse Bank · KJV/RVR · Tap to push</div>
 <div id="verse-bank-cards"></div>
+<div class="bible-bank-wrap">
+  <div class="vbank-header">Bible Bank · Full Chapters Used</div>
+  <div class="bible-bank-tools">
+    <select id="bb-book" onchange="renderBibleBankChapter()"></select>
+    <select id="bb-chapter" onchange="renderBibleBankChapter()"></select>
+  </div>
+  <div class="bible-bank-list" id="bible-bank-cards"></div>
+</div>
 </div>
 </div>
 <!-- Poll bank panel -->
@@ -5340,6 +5675,7 @@ body.audience-slave .poll-screen *{
     }
     if(name && !isAdm) name.value=localStorage.getItem('tm_name')||name.value||'';
     if(sub) sub.textContent=isAdm?'Enter the admin code.':'Enter your name, email, and the access code.';
+    const ac=$('mo-access-code'); if(ac) ac.classList.toggle('on', !isAdm);
   };
 
   window.checkPw=async function(){
@@ -5632,15 +5968,19 @@ body.audience-slave .poll-screen *{
 
 
 
-<!-- ONLINE VIEWER PORTAL — /online -->
+<!-- ONLINE VIEWER PORTAL v47: /online and /Espanol -->
 <div class="online-viewer" id="online-viewer" aria-label="The Ministry online viewer">
   <div class="online-shell">
     <header class="online-top">
       <div class="online-brand">
-        <div class="online-brand-main">THE <span>MINISTRY</span></div>
-        <div class="online-brand-sub">A Matthew Chapter 10 Series</div>
+        <div class="online-brand-main" id="online-brand-main">THE <span>MINISTRY</span></div>
+        <div class="online-brand-sub" id="online-brand-sub">A Matthew Chapter 10 Series</div>
       </div>
-      <button class="online-menu" onclick="location.href='/'" aria-label="Back to session home">Home</button>
+      <div class="online-top-actions">
+        <a class="online-menu" id="online-lang-en" href="/online">EN</a>
+        <a class="online-menu" id="online-lang-es" href="/Espanol">ES</a>
+        <button class="online-menu" onclick="location.href='/'" aria-label="Back to session home" id="online-home-btn">Home</button>
+      </div>
     </header>
 
     <main class="online-desktop-layout">
@@ -5649,7 +5989,7 @@ body.audience-slave .poll-screen *{
           <div class="online-status-left">
             <div class="online-kicker"><span class="online-dot"></span><span id="online-status-label">Starting Soon</span></div>
             <div class="online-service-title" id="online-title">The Ministry Live</div>
-            <div class="online-service-meta" id="online-service-meta">Sunday Service · Online Portal</div>
+            <div class="online-service-meta" id="online-service-meta">Prayer 7:00 PM · Worship 7:30 PM · Preaching 8:00 PM</div>
           </div>
           <div class="online-live-pill" id="online-provider-label">YouTube</div>
         </div>
@@ -5658,95 +5998,108 @@ body.audience-slave .poll-screen *{
           <div class="online-video-frame" id="online-video-frame">
             <div class="online-video-placeholder" id="online-video-placeholder">
               <div>
-                <div class="online-placeholder-title">Starting <span>Soon</span></div>
-                <div class="online-placeholder-sub">The video source will appear here.</div>
+                <div class="online-placeholder-title" id="online-placeholder-title">Starting <span>Soon</span></div>
+                <div class="online-placeholder-sub" id="online-placeholder-sub">The video source will appear here.</div>
               </div>
             </div>
           </div>
           <div class="online-video-ui">
             <div class="online-video-tag" id="online-video-tag">Live Stream</div>
-            <button class="online-full-btn" onclick="onlineRequestFullscreen()">Fullscreen</button>
-          </div>
-        </section>
-
-        <section class="online-card">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">▌</span> Current Slide</div><div class="online-chevron">›</div></div>
-          <div class="online-current-slide" id="online-current-slide"><div class="online-slide-fallback">THE <span>MINISTRY</span></div></div>
-        </section>
-
-        <section class="online-card">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">✚</span> Respond</div></div>
-          <div class="online-response-grid">
-            <button class="online-response-btn primary" onclick="openAskDrawer()">Ask Question</button>
-            <button class="online-response-btn" onclick="onlineResponse('prayer')">Prayer</button>
-            <button class="online-response-btn" onclick="onlineResponse('bible-study')">Bible Study</button>
-            <button class="online-response-btn" onclick="onlineOpenNotes()">Notes</button>
+            <button class="online-full-btn" onclick="onlineRequestFullscreen()" id="online-full-btn">Fullscreen</button>
           </div>
         </section>
       </section>
 
       <aside class="online-side-column">
         <section class="online-card" id="online-scripture-card">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">▯</span> Current Scripture</div><div class="online-chevron">›</div></div>
+          <div class="online-card-head"><div class="online-card-title"><span class="ico">▯</span> <span id="online-scripture-label">Current Scripture</span></div><div class="online-chevron">›</div></div>
           <div class="online-scripture-ref" id="online-scripture-ref">Matthew 10:1</div>
           <div class="online-scripture-text" id="online-scripture-text">Waiting for the next scripture cue.</div>
         </section>
 
         <section class="online-card" id="online-poll-card">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">▥</span> Live Poll</div></div>
+          <div class="online-card-head"><div class="online-card-title"><span class="ico">▥</span> <span id="online-poll-label">Live Poll</span></div></div>
           <div id="online-poll-content"><div class="online-empty">No active poll yet.</div></div>
         </section>
 
+        <section class="online-card">
+          <div class="online-card-head"><div class="online-card-title"><span class="ico">▌</span> <span id="online-slide-label">Current Slide</span></div><div class="online-chevron">›</div></div>
+          <div class="online-current-slide" id="online-current-slide"><div class="online-slide-fallback">THE <span>MINISTRY</span></div></div>
+        </section>
+
+        <section class="online-card">
+          <div class="online-card-head"><div class="online-card-title"><span class="ico">✚</span> <span id="online-respond-label">Respond</span></div></div>
+          <div class="online-response-grid">
+            <button class="online-response-btn primary" onclick="openAskDrawer()" id="online-ask-btn">Ask Question</button>
+            <button class="online-response-btn" onclick="onlineResponse('prayer')" id="online-prayer-btn">Prayer</button>
+            <button class="online-response-btn" onclick="onlineResponse('bible-study')" id="online-study-btn">Bible Study</button>
+            <button class="online-response-btn" onclick="onlineOpenNotes()" id="online-notes-btn">Notes</button>
+          </div>
+        </section>
+
         <section class="online-card online-flow">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">•</span> Service Flow</div></div>
-          <div class="online-flow-row"><div class="online-flow-time">10:00 AM</div><div>Worship</div></div>
-          <div class="online-flow-row"><div class="online-flow-time">10:30 AM</div><div>The Ministry Teaching</div></div>
-          <div class="online-flow-row"><div class="online-flow-time">11:15 AM</div><div>Altar Call</div></div>
-          <div class="online-flow-row"><div class="online-flow-time">11:30 AM</div><div>Prayer / Ministry</div></div>
+          <div class="online-card-head"><div class="online-card-title"><span class="ico">•</span> <span id="online-flow-label">Service Flow</span></div></div>
+          <div class="online-flow-row"><div class="online-flow-time">7:00 PM</div><div id="online-flow-prayer">Prayer</div></div>
+          <div class="online-flow-row"><div class="online-flow-time">7:30 PM</div><div id="online-flow-worship">Worship</div></div>
+          <div class="online-flow-row"><div class="online-flow-time">8:00 PM</div><div id="online-flow-preaching">Preaching</div></div>
+          <div class="online-flow-row"><div class="online-flow-time">After</div><div id="online-flow-response">Prayer / Response</div></div>
         </section>
       </aside>
     </main>
 
-    <div class="online-footer-note">theministry.vercel.app/online</div>
+    <div class="online-footer-note" id="online-footer-note">theministry.vercel.app/online</div>
   </div>
 </div>
 
 
-
 <script>
 /* =========================================================
-   v36 Online Viewer Portal
-   - /online route
-   - Admin YouTube embed setting
-   - Mobile-first public viewer surface
-   - Additive patch only; existing presentation routes are untouched.
+   v47 Online Viewer + Espanol + Date Lesson + Speed Patch
+   - Adds /online and /Espanol without touching projector, scriptures, OBS, confidence, mobile, or admin core.
+   - Stream source saves globally and per lesson through /api/stream-config.
+   - Online current slide renders the same main slide the audience sees.
 ========================================================= */
 (function(){
-  const ONLINE_ROUTE='online';
-  const STREAM_KEY='tm_online_stream_config_v1';
+  const ONLINE_ROUTES=['online','espanol'];
+  const STREAM_KEY='tm_online_stream_config_v47';
   const DEFAULT_STREAM={
     status:'starting-soon',
     provider:'youtube',
     embedUrl:'',
     title:'The Ministry Live',
-    serviceLabel:'Sunday Service · Online Portal',
-    syncDelaySeconds:10,
+    serviceLabel:'Prayer 7:00 PM · Worship 7:30 PM · Preaching 8:00 PM',
+    syncDelaySeconds:0,
     updatedAt:null
   };
-  const online={active:false,config:{...DEFAULT_STREAM},slide:0,scripture:null,poll:null,votes:{},selected:{}};
+  const online={active:false,lang:'en',config:{...DEFAULT_STREAM},slide:(typeof curSlide==='number'?curSlide:0),scripture:null,poll:null,votes:{},selected:{},lastSlideAt:0,lastMsgAt:0};
   window.onlineViewerState=online;
 
   function $(id){return document.getElementById(id);} 
   function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
   function stripHtml(html){const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();}
-  function isOnlinePath(){return window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase()===ONLINE_ROUTE;}
+  function routeName(){return window.location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();}
+  function isOnlinePath(){return ONLINE_ROUTES.includes(routeName());}
+  function isSpanish(){return routeName()==='espanol' || online.lang==='es';}
   function saveLocalConfig(cfg){try{localStorage.setItem(STREAM_KEY,JSON.stringify(cfg));}catch(e){}}
   function loadLocalConfig(){try{return {...DEFAULT_STREAM,...(JSON.parse(localStorage.getItem(STREAM_KEY)||'{}')||{})};}catch(e){return {...DEFAULT_STREAM};}}
   function currentSeriesSlug(){return ((window.SERIES_CONFIG&&window.SERIES_CONFIG.slug)||window.SERIES_SLUG||'the-ministry').toString().trim()||'the-ministry';}
-  function currentLessonSlug(){
-    try{return normalizeLessonSlug(window.LESSON_SLUG || requestedLessonSlug() || 'lesson-1');}catch(e){return (window.LESSON_SLUG||'lesson-1').toString().trim()||'lesson-1';}
-  }
+  function currentLessonSlug(){try{return normalizeLessonSlug(window.LESSON_SLUG || requestedLessonSlug() || 'lesson-1');}catch(e){return (window.LESSON_SLUG||'lesson-1').toString().trim()||'lesson-1';}}
   function streamConfigApiUrl(){return `/api/stream-config?series_slug=${encodeURIComponent(currentSeriesSlug())}&lesson_slug=${encodeURIComponent(currentLessonSlug())}`;}
+  function localized(en,es){return isSpanish()?es:en;}
+
+  // Cover slide fix. Older lessons used a hardcoded June 18 cover renderer. This keeps the same slide design but uses current lesson metadata.
+  const previousRenderSlide=window.renderSlide;
+  window.renderSlide=function(s,i){
+    if(s && s.t==='cover'){
+      const meta=(typeof HOME_LESSON_META!=='undefined' && HOME_LESSON_META[window.LESSON_SLUG]) || {};
+      const title=s.title || (window.LESSON_DATA&&window.LESSON_DATA.title) || 'The Ministry';
+      const ref=s.ref || (window.LESSON_DATA&&window.LESSON_DATA.text) || 'Matthew 10 Series';
+      const date=meta.dateLong || '';
+      const d=`data-i="${i}"`;
+      return `<div class="slide sl-cover"${d}><div class="sl-cover-bg"></div><div class="sl-cover-ov"></div><div class="sl-cover-body"><div class="sl-cey">${s.eyebrow||'The Ministry'}</div><div class="sl-ct"><span class="tt">THE</span><span class="tm">MINISTRY</span></div><div class="sl-cln">${s.lesson||((window.LESSON_DATA&&window.LESSON_DATA.label)||'Lesson')}</div><div class="sl-cnm">${title}</div><div class="sl-crf">${ref}</div><div class="sl-cft"><div class="sl-cm"><div class="sl-cml">Presenter</div><div class="sl-cmv">Elder Eli Castaneda</div></div>${date?`<div class="sl-cm"><div class="sl-cml">Date</div><div class="sl-cmv">${date}</div></div>`:''}<div class="sl-cm"><div class="sl-cml">Text</div><div class="sl-cmv">${ref}</div></div></div></div></div>`;
+    }
+    return previousRenderSlide?previousRenderSlide(s,i):'';
+  };
 
   function normalizeEmbed(input){
     let raw=String(input||'').trim();
@@ -5776,7 +6129,38 @@ body.audience-slave .poll-screen *{
   window.normalizeStreamEmbedUrl=normalizeEmbed;
 
   function statusLabel(status){
-    return ({offline:'Offline',starting:'Starting Soon','starting-soon':'Starting Soon',live:'Live Now',ended:'Ended'})[String(status||'').toLowerCase()] || 'Starting Soon';
+    const en={offline:'Offline',starting:'Starting Soon','starting-soon':'Starting Soon',live:'Live Now',ended:'Ended'};
+    const es={offline:'Desconectado',starting:'Comenzando Pronto','starting-soon':'Comenzando Pronto',live:'En Vivo',ended:'Finalizado'};
+    const v=String(status||'').toLowerCase();
+    return (isSpanish()?es:en)[v] || localized('Starting Soon','Comenzando Pronto');
+  }
+  function applyOnlineLanguage(){
+    const es=isSpanish();
+    const set=(id,val)=>{const el=$(id); if(el) el.textContent=val;};
+    set('online-brand-main', es?'EL MINISTERIO':'THE MINISTRY');
+    const brand=$('online-brand-main'); if(brand && !es) brand.innerHTML='THE <span>MINISTRY</span>'; if(brand && es) brand.innerHTML='EL <span>MINISTERIO</span>';
+    set('online-brand-sub', es?'Una serie de Mateo capítulo 10':'A Matthew Chapter 10 Series');
+    set('online-home-btn', es?'Inicio':'Home');
+    set('online-scripture-label', es?'Escritura Actual':'Current Scripture');
+    set('online-poll-label', es?'Encuesta en Vivo':'Live Poll');
+    set('online-slide-label', es?'Diapositiva Actual':'Current Slide');
+    set('online-respond-label', es?'Responder':'Respond');
+    set('online-ask-btn', es?'Pregunta':'Ask Question');
+    set('online-prayer-btn', es?'Oración':'Prayer');
+    set('online-study-btn', es?'Estudio Bíblico':'Bible Study');
+    set('online-notes-btn', es?'Notas':'Notes');
+    set('online-flow-label', es?'Orden del Servicio':'Service Flow');
+    set('online-flow-prayer', es?'Oración':'Prayer');
+    set('online-flow-worship', es?'Alabanza':'Worship');
+    set('online-flow-preaching', es?'Predicación':'Preaching');
+    set('online-flow-response', es?'Oración / Respuesta':'Prayer / Response');
+    set('online-full-btn', es?'Pantalla Completa':'Fullscreen');
+    set('online-placeholder-sub', es?'La transmisión aparecerá aquí.':'The video source will appear here.');
+    const ph=$('online-placeholder-title'); if(ph) ph.innerHTML=es?'Comenzando <span>Pronto</span>':'Starting <span>Soon</span>';
+    const footer=$('online-footer-note'); if(footer) footer.textContent=es?'theministry.vercel.app/Espanol':'theministry.vercel.app/online';
+    const enBtn=$('online-lang-en'), esBtn=$('online-lang-es');
+    if(enBtn) enBtn.classList.toggle('active',!es);
+    if(esBtn) esBtn.classList.toggle('active',es);
   }
   function applyOnlineConfig(cfg){
     online.config={...DEFAULT_STREAM,...loadLocalConfig(),...(cfg||{})};
@@ -5784,26 +6168,31 @@ body.audience-slave .poll-screen *{
     renderOnlineConfig();
   }
   function renderOnlineConfig(){
+    applyOnlineLanguage();
     const c=online.config||DEFAULT_STREAM;
     const status=statusLabel(c.status);
     const st=$('online-status-label'); if(st) st.textContent=status;
-    const title=$('online-title'); if(title) title.textContent=c.title||'The Ministry Live';
-    const meta=$('online-service-meta'); if(meta) meta.textContent=c.serviceLabel||'Sunday Service · Online Portal';
+    const title=$('online-title'); if(title) title.textContent=isSpanish()?(c.title||'El Ministerio En Vivo'):(c.title||'The Ministry Live');
+    const meta=$('online-service-meta'); if(meta) meta.textContent=c.serviceLabel||DEFAULT_STREAM.serviceLabel;
     const provider=$('online-provider-label'); if(provider) provider.textContent=(c.provider||'youtube').toUpperCase();
-    const tag=$('online-video-tag'); if(tag) tag.textContent=status==='Live Now'?'Live Stream':status;
+    const tag=$('online-video-tag'); if(tag) tag.textContent=String(c.status).toLowerCase()==='live'?localized('Live Stream','Transmisión en Vivo'):status;
     const frame=$('online-video-frame'); if(!frame) return;
     const src=normalizeEmbed(c.embedUrl);
-    const old=$('online-stream-iframe'); if(old) old.remove();
+    const old=$('online-stream-iframe'); if(old && old.dataset.src!==src) old.remove();
     const ph=$('online-video-placeholder');
     if(src){
       if(ph) ph.style.display='none';
-      const iframe=document.createElement('iframe');
-      iframe.id='online-stream-iframe';
-      iframe.src=src;
-      iframe.title='The Ministry live stream';
-      iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.allowFullscreen=true;
-      frame.appendChild(iframe);
+      if(!$('online-stream-iframe')){
+        const iframe=document.createElement('iframe');
+        iframe.id='online-stream-iframe';
+        iframe.dataset.src=src;
+        iframe.src=src;
+        iframe.title='The Ministry live stream';
+        iframe.loading='eager';
+        iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen=true;
+        frame.appendChild(iframe);
+      }
     }else if(ph){
       ph.style.display='flex';
     }
@@ -5820,8 +6209,9 @@ body.audience-slave .poll-screen *{
   }
   function renderOnlineSlide(){
     const box=$('online-current-slide'); if(!box) return;
-    const slides=window.LESSON1_SLIDES||[];
-    const i=Math.max(0,Math.min(Number(online.slide)||0,Math.max(0,slides.length-1)));
+    const slides=(typeof LESSON1_SLIDES!=='undefined'?LESSON1_SLIDES:(window.LESSON1_SLIDES||[]));
+    const max=Math.max(0,slides.length-1);
+    const i=Math.max(0,Math.min(Number(online.slide)||0,max));
     const s=slides[i];
     try{
       if(typeof window.renderSlide==='function' && s){
@@ -5829,30 +6219,31 @@ body.audience-slave .poll-screen *{
         const sl=box.querySelector('.slide'); if(sl) sl.classList.add('on');
         return;
       }
-    }catch(e){}
+    }catch(e){console.warn('online slide render failed',e);}
     const lbl=slideLabel(s);
     box.innerHTML=`<div class="online-slide-fallback">${esc(lbl.title).replace(/MINISTRY/gi,'<span>MINISTRY</span>')}</div>`;
   }
   function normalizeScripture(sc){
     if(!sc) return null;
-    return {
-      ref:sc.ref_en||sc.ref||sc.ref_es||'',
-      text:sc.text_en||sc.kjv||sc.text||sc.text_es||sc.rvr||''
-    };
+    if(isSpanish()){
+      return {ref:sc.ref_es||String(sc.ref_en||sc.ref||'').replace(/Matthew/g,'Mateo').replace(/Timothy/g,'Timoteo'), text:sc.text_es||sc.rvr||sc.text_en||sc.kjv||sc.text||''};
+    }
+    return {ref:sc.ref_en||sc.ref||sc.ref_es||'', text:sc.text_en||sc.kjv||sc.text||sc.text_es||sc.rvr||''};
   }
   function renderOnlineScripture(){
-    const slideSc=(window.SCRIPTURE_MAP||[])[online.slide];
+    const maps=(typeof SCRIPTURE_MAP!=='undefined'?SCRIPTURE_MAP:(window.SCRIPTURE_MAP||[]));
+    const slideSc=maps[online.slide];
     const sc=normalizeScripture(online.scripture)||normalizeScripture(slideSc);
     const ref=$('online-scripture-ref');
     const tx=$('online-scripture-text');
-    if(ref) ref.textContent=(sc&&sc.ref)||'Matthew 10:1';
-    if(tx) tx.textContent=(sc&&stripHtml(sc.text))||'Waiting for the next scripture cue.';
+    if(ref) ref.textContent=(sc&&sc.ref)||localized('Matthew 10:1','Mateo 10:1');
+    if(tx) tx.textContent=(sc&&stripHtml(sc.text))||localized('Waiting for the next scripture cue.','Esperando la próxima escritura.');
   }
   function pollVotes(id){return (online.votes&&online.votes[id]) || ((window.pollState&&window.pollState.responses&&window.pollState.responses[id])||[]);}
   function renderOnlinePoll(){
     const box=$('online-poll-content'); if(!box) return;
     const poll=online.poll || (window.pollState&&window.pollState.active);
-    if(!poll){ box.innerHTML='<div class="online-empty">No active poll yet.</div>'; return; }
+    if(!poll){ box.innerHTML=`<div class="online-empty">${localized('No active poll yet.','No hay encuesta activa.')}</div>`; return; }
     const votes=pollVotes(poll.id);
     const total=votes.length;
     const tally={}; (poll.options||[]).forEach(o=>tally[String(o).trim()]=0);
@@ -5861,7 +6252,7 @@ body.audience-slave .poll-screen *{
     box.innerHTML=`<div class="online-poll-question">${esc(poll.question)}</div><div class="online-poll-options">${(poll.options||[]).map(o=>{
       const k=String(o).trim(); const n=tally[k]||0; const pct=total?Math.round((n/total)*100):0;
       return `<button class="online-poll-option ${selected===k?'selected':''}" onclick="onlineVote('${esc(k)}')"><span>${esc(k)}</span><span>${selected===k?'✓':(total?pct+'%':'')}</span></button><div class="online-poll-result-row"><div>${esc(k)}</div><div>${pct}%</div><div class="online-poll-bar"><div class="online-poll-fill" style="width:${pct}%"></div></div></div>`;
-    }).join('')}</div><div class="online-poll-meta">${total} vote${total===1?'':'s'}${selected?' · Your answer is saved.':''}</div>`;
+    }).join('')}</div><div class="online-poll-meta">${total} ${localized(total===1?'vote':'votes',total===1?'voto':'votos')}${selected?localized(' · Your answer is saved.',' · Tu respuesta fue guardada.'):''}</div>`;
   }
   window.onlineVote=function(answer){
     const poll=online.poll || (window.pollState&&window.pollState.active); if(!poll||!answer) return;
@@ -5873,7 +6264,7 @@ body.audience-slave .poll-screen *{
     if(existing>=0) online.votes[poll.id][existing]=vote; else online.votes[poll.id].push(vote);
     try{ if(typeof window.addPollVote==='function') window.addPollVote(vote); }catch(e){}
     try{fetch('/api/poll-vote-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({vote,question:poll.question,series_slug:'the-ministry',lesson_slug:(window.LESSON_SLUG||'lesson-1')})}).catch(()=>{});}catch(e){}
-    try{ if(typeof window.sbSend==='function') window.sbSend({type:'poll_vote',vote,ts:Date.now()}); }catch(e){}
+    try{ if(typeof window.sbSend==='function') window.sbSend({type:'poll_vote',vote,ts:Date.now(),sent_at:Date.now()}); }catch(e){}
     renderOnlinePoll();
   };
   function renderOnlineAll(){renderOnlineConfig();renderOnlineSlide();renderOnlineScripture();renderOnlinePoll();}
@@ -5895,20 +6286,33 @@ body.audience-slave .poll-screen *{
       });
     }catch(e){console.warn('online stream config fetch failed',e);}
   }
+  async function hydrateCurrentSyncState(){
+    try{
+      await loadSupabasePublicConfig();
+      if(!window.SB_URL||!window.SB_KEY) return;
+      const r=await fetch(window.SB_URL+'/rest/v1/sync_state?id=eq.1&select=payload,updated_at&limit=1',{headers:{apikey:window.SB_KEY,Authorization:'Bearer '+window.SB_KEY},cache:'no-store'});
+      if(!r.ok) return;
+      const rows=await r.json();
+      const row=Array.isArray(rows)?rows[0]:null;
+      if(!row||!row.payload) return;
+      const msg=typeof row.payload==='string'?JSON.parse(row.payload):row.payload;
+      if(msg&&msg.type) handleOnlineMessage(msg,true);
+    }catch(e){console.warn('online state hydrate failed',e);}
+  }
   async function saveStreamConfigFromAdmin(){
     const embed=normalizeEmbed(($('stream-embed-url')||{}).value||'');
     const status=(($('stream-status')||{}).value||'starting-soon');
-    const delay=Math.max(0,Number((($('stream-sync-delay')||{}).value||10))||0);
+    const delay=Math.max(0,Number((($('stream-sync-delay')||{}).value||0))||0);
     const title=(($('stream-title')||{}).value||'The Ministry Live').trim();
-    const serviceLabel=(($('stream-service-label')||{}).value||'Sunday Service · Online Portal').trim();
+    const serviceLabel=(($('stream-service-label')||{}).value||DEFAULT_STREAM.serviceLabel).trim();
     const provider=(embed.includes('youtube')?'youtube':'custom');
     const cfg={series_slug:currentSeriesSlug(),lesson_slug:currentLessonSlug(),status,provider,embedUrl:embed,title,serviceLabel,syncDelaySeconds:delay,updatedAt:new Date().toISOString()};
     applyOnlineConfig(cfg);
     const msg=$('stream-admin-status'); if(msg) msg.textContent='Saving stream source...';
     try{
-      await fetch(streamConfigApiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)}).catch(()=>{});
-      if(typeof window.sbSend==='function') window.sbSend({type:'stream_config',config:cfg,ts:Date.now()});
-      if(msg) msg.textContent='Saved everywhere: global fallback + current lesson.';
+      const r=await fetch(streamConfigApiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)}).catch(()=>null);
+      if(typeof window.sbSend==='function') window.sbSend({type:'stream_config',config:cfg,ts:Date.now(),sent_at:Date.now()});
+      if(msg) msg.textContent=(r&&r.ok)?'Saved everywhere: global fallback + current lesson.':'Saved locally. API save did not confirm.';
     }catch(e){ if(msg) msg.textContent='Saved locally. API save failed.'; console.warn(e); }
   }
   window.saveStreamConfigFromAdmin=saveStreamConfigFromAdmin;
@@ -5924,46 +6328,57 @@ body.audience-slave .poll-screen *{
       <textarea id="stream-embed-url" placeholder="Paste YouTube scheduled live URL, embed URL, or iframe code">${esc(cfg.embedUrl||'')}</textarea>
       <div class="stream-admin-row">
         <select id="stream-status"><option value="offline">Offline</option><option value="starting-soon">Starting Soon</option><option value="live">Live</option><option value="ended">Ended</option></select>
-        <input id="stream-sync-delay" type="number" min="0" step="1" value="${Number(cfg.syncDelaySeconds)||10}" placeholder="Delay seconds" />
+        <input id="stream-sync-delay" type="number" min="0" step="1" value="${Number(cfg.syncDelaySeconds)||0}" placeholder="Delay seconds" />
       </div>
       <input id="stream-title" value="${esc(cfg.title||'The Ministry Live')}" placeholder="Stream title" />
-      <input id="stream-service-label" value="${esc(cfg.serviceLabel||'Sunday Service · Online Portal')}" placeholder="Service label" />
-      <div class="stream-admin-actions"><button class="ctrl-ab red-btn" onclick="saveStreamConfigFromAdmin()">Save Stream</button><button class="ctrl-ab" onclick="window.open('/online?lesson='+encodeURIComponent((window.LESSON_SLUG||'lesson-1')),'_blank')">Open /online</button></div>
-      <div class="stream-admin-status" id="stream-admin-status">Paste scheduled YouTube live source here.</div>`;
+      <input id="stream-service-label" value="${esc(cfg.serviceLabel||DEFAULT_STREAM.serviceLabel)}" placeholder="Service label" />
+      <div class="stream-admin-actions"><button class="ctrl-ab red-btn" onclick="saveStreamConfigFromAdmin()">Save Stream</button><button class="ctrl-ab" onclick="window.open('/online?lesson='+encodeURIComponent((window.LESSON_SLUG||'lesson-1')),'_blank')">Open /online</button><button class="ctrl-ab" onclick="window.open('/Espanol?lesson='+encodeURIComponent((window.LESSON_SLUG||'lesson-1')),'_blank')">Open /Espanol</button></div>
+      <div class="stream-admin-status" id="stream-admin-status">Scheduled YouTube live source saves globally and to this lesson. Set delay to 0 for fastest sync.</div>`;
     right.insertBefore(panel,right.firstChild);
     const st=$('stream-status'); if(st) st.value=cfg.status||'starting-soon';
     fetchOnlineConfig().then(()=>{
       const fresh=loadLocalConfig();
       if($('stream-embed-url')) $('stream-embed-url').value=fresh.embedUrl||'';
       if($('stream-status')) $('stream-status').value=fresh.status||'starting-soon';
-      if($('stream-sync-delay')) $('stream-sync-delay').value=Number(fresh.syncDelaySeconds)||10;
+      if($('stream-sync-delay')) $('stream-sync-delay').value=Number(fresh.syncDelaySeconds)||0;
       if($('stream-title')) $('stream-title').value=fresh.title||'The Ministry Live';
-      if($('stream-service-label')) $('stream-service-label').value=fresh.serviceLabel||'Sunday Service · Online Portal';
+      if($('stream-service-label')) $('stream-service-label').value=fresh.serviceLabel||DEFAULT_STREAM.serviceLabel;
     });
   }
 
-  function ensureOnlineCheckbox(){
-    const modalBox=document.querySelector('#modal .mo-box'); if(!modalBox || $('mo-online-row')) return;
-    const row=document.createElement('label'); row.id='mo-online-row'; row.className='mo-online-row';
-    row.innerHTML='<input id="mo-online" type="checkbox" /> Watching online';
-    const err=$('mo-err'); if(err) err.parentNode.insertBefore(row,err); else modalBox.appendChild(row);
+  function ensureOnlineLoginOptions(){
+    const modalBox=document.querySelector('#modal .mo-box'); if(!modalBox) return;
+    if(!$('mo-online-row')){
+      const row=document.createElement('label'); row.id='mo-online-row'; row.className='mo-online-row';
+      row.innerHTML='<input id="mo-online" type="checkbox" /> Watching online';
+      const err=$('mo-err'); if(err) err.parentNode.insertBefore(row,err); else modalBox.appendChild(row);
+    }
+    if(!$('mo-espanol-row')){
+      const row=document.createElement('label'); row.id='mo-espanol-row'; row.className='mo-online-row';
+      row.innerHTML='<input id="mo-espanol" type="checkbox" /> Español';
+      const err=$('mo-err'); if(err) err.parentNode.insertBefore(row,err); else modalBox.appendChild(row);
+    }
   }
   const oldShowModal=window.showModal;
   window.showModal=function(t){
     if(oldShowModal) oldShowModal(t);
-    ensureOnlineCheckbox();
-    const row=$('mo-online-row'); if(row) row.classList.toggle('on',t!=='admin');
+    ensureOnlineLoginOptions();
+    const show=t!=='admin';
+    const onlineRow=$('mo-online-row'), esRow=$('mo-espanol-row');
+    if(onlineRow) onlineRow.classList.toggle('on',show);
+    if(esRow) esRow.classList.toggle('on',show);
   };
   const oldCheckPw=window.checkPw;
   window.checkPw=async function(){
     const wantsOnline=!!(($('mo-online')||{}).checked);
-    const before=localStorage.getItem('tm_u');
+    const wantsSpanish=!!(($('mo-espanol')||{}).checked);
     const r=oldCheckPw?await oldCheckPw():undefined;
     const err=$('mo-err');
     const ok=localStorage.getItem('tm_u')==='1' && !(err&&err.classList.contains('on'));
-    if(wantsOnline && ok){
+    if(ok && (wantsOnline || wantsSpanish)){
       localStorage.setItem('tm_online_viewer','1');
-      window.location.href='/online?lesson='+encodeURIComponent((window.LESSON_SLUG||'lesson-1'));
+      const path=wantsSpanish?'/Espanol':'/online';
+      window.location.href=path+'?lesson='+encodeURIComponent((window.LESSON_SLUG||'lesson-1'));
       return;
     }
     return r;
@@ -5971,29 +6386,51 @@ body.audience-slave .poll-screen *{
 
   function enterOnline(){
     online.active=true;
+    online.lang=routeName()==='espanol'?'es':'en';
+    online.slide=(typeof curSlide==='number'?curSlide:0);
     document.body.classList.add('online-viewer-mode');
     document.body.classList.remove('audience-slave');
     ['sc','sh','ssl','admin-hub','questionnaire'].forEach(id=>{const el=$(id); if(el) el.classList.remove('on');});
     const el=$('online-viewer'); if(el) el.classList.add('on');
     try{ if(typeof window.initBC==='function') window.initBC(); }catch(e){}
-    fetchOnlineConfig();
+    fetchOnlineConfig().then(()=>hydrateCurrentSyncState());
     renderOnlineAll();
   }
   window.enterOnlineViewer=enterOnline;
 
-  function handleOnlineMessage(msg){
+  function messageTime(msg){return Number(msg.sent_at||msg.ts||0)||Date.now();}
+  function applyLessonFromMessage(msg){
+    if(msg&&msg.lesson && msg.lesson!==window.LESSON_SLUG){
+      try{applyIncomingLesson(msg.lesson,Number.isFinite(+msg.slide)?+msg.slide:online.slide);}catch(e){}
+    }
+  }
+  function delayFor(msg,hydrating){
+    if(hydrating) return 0;
+    if(msg && msg.fast) return 0;
+    return Math.max(0,Number((online.config||{}).syncDelaySeconds)||0)*1000;
+  }
+  function handleOnlineMessage(msg,hydrating=false){
     if(!msg||!msg.type) return false;
+    applyLessonFromMessage(msg);
+    if(msg.type==='lesson_select'){
+      try{selectLesson(msg.lesson||'lesson-1',false);}catch(e){}
+      online.slide=Math.max(0,Number(msg.slide)||0);
+      online.scripture=null; renderOnlineSlide(); renderOnlineScripture(); return true;
+    }
     if(msg.type==='stream_config'){
       applyOnlineConfig(msg.config||{}); return true;
     }
     if(msg.type==='slide'){
-      const delay=Math.max(0,Number((online.config||{}).syncDelaySeconds)||0)*1000;
-      setTimeout(()=>{online.slide=Math.max(0,Number(msg.slide)||0); online.scripture=null; renderOnlineSlide(); renderOnlineScripture();},delay);
+      const t=messageTime(msg);
+      if(t<online.lastSlideAt) return true;
+      online.lastSlideAt=t;
+      const wait=delayFor(msg,hydrating);
+      setTimeout(()=>{online.slide=Math.max(0,Number(msg.slide)||0); online.scripture=null; renderOnlineSlide(); renderOnlineScripture();},wait);
       return true;
     }
     if(msg.type==='scripture'){
-      const delay=Math.max(0,Number((online.config||{}).syncDelaySeconds)||0)*1000;
-      setTimeout(()=>{online.scripture=msg.scripture||null; renderOnlineScripture();},delay);
+      const wait=delayFor(msg,hydrating);
+      setTimeout(()=>{online.scripture=msg.scripture||null; renderOnlineScripture();},wait);
       return true;
     }
     if(msg.type==='scripture_clear'){
@@ -6020,6 +6457,7 @@ body.audience-slave .poll-screen *{
     }
     return false;
   }
+  window.handleOnlineMessage=handleOnlineMessage;
 
   const oldHandleMessage=window.handleMessage;
   window.handleMessage=function(msg){
@@ -6034,7 +6472,7 @@ body.audience-slave .poll-screen *{
     try{ if(el && el.requestFullscreen) el.requestFullscreen(); }catch(e){}
   };
   window.onlineResponse=function(type){
-    const label=type==='prayer'?'Prayer request':type==='bible-study'?'Bible study request':'Response';
+    const label=type==='prayer'?localized('Prayer request','Petición de oración'):type==='bible-study'?localized('Bible study request','Solicitud de estudio bíblico'):localized('Response','Respuesta');
     const ta=$('ask-ta'); if(ta) ta.value=`${label}: `;
     if(typeof window.openAskDrawer==='function') window.openAskDrawer();
   };
@@ -6048,7 +6486,7 @@ body.audience-slave .poll-screen *{
   if(oldShowAdmin){window.showAdminHub=function(){const r=oldShowAdmin.apply(this,arguments);setTimeout(ensureStreamAdminPanel,0);return r;};}
 
   document.addEventListener('DOMContentLoaded',()=>{
-    ensureOnlineCheckbox();
+    ensureOnlineLoginOptions();
     if(isOnlinePath()) setTimeout(enterOnline,0);
     setTimeout(ensureStreamAdminPanel,700);
   });
