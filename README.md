@@ -1,28 +1,24 @@
-# The Ministry v49
+# The Ministry v52
 
-Deploy this build over v48.
+Deploy this build over v51.
 
-## Routes
+## Targeted fix
 
-- `/` current lesson landing
-- `/projector` current lesson projector
-- `/scriptures` Spanish/English scripture display
-- `/obslowerthirds` OBS lower thirds
-- `/obsslides` OBS slides
-- `/confidence` confidence monitor
-- `/mobile` mobile presenter controls
-- `/online` English online viewer
-- `/Espanol` Spanish participant/slides viewer
-- `/Espanol?online=1` Spanish online viewer
+This build only changes the scripture display sizing behavior:
 
-## Login routing
-
-- Watching online only → `/online?lesson=current`
-- Español only → `/Espanol?lesson=current`
-- Watching online + Español → `/Espanol?online=1&lesson=current`
+- `/scriptures` / P2 scripture display is reverted to the prior larger layout.
+- `/confidence` keeps the same format, but the Spanish scripture translation is larger and easier to read.
 
 ## SQL
 
-No new SQL was added in v49. If the stream-config table has not been created yet, run:
+No new SQL.
 
-`supabase/v47-stream-config-everywhere.sql`
+Use the existing stream config patch only if it has not already been run:
+
+```txt
+supabase/v47-stream-config-everywhere.sql
+```
+
+
+### v53 mobile Bible Bank fix
+From mobile presenter mode, Bible Bank verses now use the same Push to Screens behavior as desktop: main projector overlay + scripture screen + confidence/current scripture.

@@ -1672,6 +1672,19 @@ body.online-viewer-mode #slave-exit{display:none!important;}
   .online-response-grid{grid-template-columns:1fr;}
 }
 
+
+/* =========================================================
+   V52 targeted fix: restore P2 scripture size, enlarge ONLY confidence Spanish line
+   ========================================================= */
+body.scripture-mode .sp-content{align-items:center!important;justify-content:center!important;text-align:left!important;padding:7vh 9vw!important;background:#000!important}
+body.scripture-mode .sp-inner{width:min(1420px,84vw)!important;max-width:min(1420px,84vw)!important;margin:0 auto!important}
+body.scripture-mode .sp-mk{width:4px!important;height:96px!important;background:var(--red)!important;position:absolute!important;left:calc(50% - min(710px,42vw) - 34px)!important;top:24.5vh!important;margin:0!important}
+body.scripture-mode .sp-ref-en{font-family:var(--fc)!important;font-size:clamp(1.15rem,1.45vw,1.65rem)!important;font-weight:800!important;letter-spacing:.32em!important;text-transform:uppercase!important;color:var(--red)!important;margin:0 0 22px 0!important}
+body.scripture-mode .sp-tx-en{font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(2.25rem,3.65vw,4.8rem)!important;line-height:1.22!important;color:var(--w)!important;border:0!important;padding:0!important;margin:0!important;max-width:1320px!important}
+body.scripture-mode .sp-ref-es{display:block!important;font-family:var(--fc)!important;font-size:clamp(.82rem,1vw,1.1rem)!important;font-weight:800!important;letter-spacing:.32em!important;text-transform:uppercase!important;color:var(--red)!important;margin-top:54px!important;padding-top:34px!important;border-top:1px solid rgba(241,237,228,.22)!important}
+body.scripture-mode .sp-tx-es{display:block!important;font-family:var(--fp)!important;font-style:italic!important;font-size:clamp(1.45rem,2.1vw,2.65rem)!important;line-height:1.28!important;color:rgba(241,237,228,.72)!important;margin-top:14px!important;max-width:1160px!important}
+body.scripture-mode .sp-corner{left:50%!important;right:auto!important;transform:translateX(-50%)!important;bottom:34px!important;color:rgba(241,237,228,.28)!important}
+.conf-current.scripture-active .conf-es{font-size:clamp(1.35rem,2.25vw,2.85rem)!important;line-height:1.22!important;color:rgba(241,237,228,.76)!important}
 </style>
 
 
@@ -7209,6 +7222,241 @@ body.tm-spanish-mode .hub-lbl,body.tm-spanish-mode .lc-wk,body.tm-spanish-mode .
     setTimeout(forceAdminDelayZero,900); setInterval(forceAdminDelayZero,2500);
     if(document.body.classList.contains('online-viewer-mode')||wantsOnline()){setTimeout(()=>{ensureNotesDrawer(); patchWatchAgainInline();},700);}
   });
+})();
+</script>
+
+
+<style id="v51-online-polish-css">
+/* v51 focused fixes */
+#watch-again-nav{display:none!important;}
+.online-lower-card{padding:12px 14px!important;}
+.online-lower-obs{border:1px solid rgba(255,255,255,.12);background:rgba(5,5,5,.86);border-bottom:4px solid var(--red);padding:14px 16px;box-shadow:0 14px 34px rgba(0,0,0,.28);}
+.online-lower-obs-series{font-family:var(--fc);font-size:.58rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:5px;}
+.online-lower-obs-ref{font-family:var(--fc);font-size:.76rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:rgba(241,237,228,.64);margin-bottom:5px;}
+.online-lower-obs-text{font-family:var(--fc);font-size:clamp(1rem,2.1vw,1.45rem);font-weight:900;letter-spacing:.02em;text-transform:uppercase;line-height:1.05;color:var(--w);}
+.online-lower-obs-summary{font-family:var(--fb);font-size:.82rem;line-height:1.32;color:rgba(241,237,228,.62);margin-top:8px;}
+.online-current-slide{display:none!important;}
+.online-points-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#0a0a0a 100%);padding:14px 15px;display:none;}
+.online-points-card.on{display:block;}
+.online-points-title{font-family:var(--fc);font-size:.62rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--red);margin-bottom:9px;}
+.online-points-list{margin:0;padding-left:18px;color:rgba(241,237,228,.78);font-size:.92rem;line-height:1.42;}
+.online-points-list li{margin:4px 0;}
+body.online-viewer-mode .online-desktop-layout{grid-template-columns:minmax(0,1fr) minmax(290px,360px)!important;gap:16px!important;}
+body.online-viewer-mode .online-side-column{gap:10px!important;}
+body.online-viewer-mode .online-card{padding:13px!important;}
+@media(max-width:760px){
+  body.online-viewer-mode .online-video-card{position:sticky;top:74px;z-index:25;}
+  .online-lower-obs{padding:12px;}
+  .online-response-grid{grid-template-columns:repeat(4,1fr)!important;gap:6px!important;}
+  .online-response-btn{font-size:.56rem!important;padding:9px 5px!important;min-height:42px!important;}
+}
+</style>
+<script id="v51-missed-polish-js">
+(function(){
+  const $=id=>document.getElementById(id);
+  const route=()=>location.pathname.replace(/^\/+|\/+$/g,'').toLowerCase();
+  const qs=()=>new URLSearchParams(location.search);
+  const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const strip=html=>{const d=document.createElement('div');d.innerHTML=String(html||'');return (d.textContent||'').replace(/\s+/g,' ').trim();};
+  const lesson=()=>{try{return normalizeLessonSlug(window.LESSON_SLUG||requestedLessonSlug()||'lesson-1');}catch(e){return window.LESSON_SLUG||'lesson-1';}};
+  const isES=()=>route()==='espanol'||window.TM_LANG_ES||document.body.classList.contains('tm-spanish-mode');
+  const isOnline=()=>route()==='online'||(route()==='espanol'&&/^(1|true|online)$/i.test(qs().get('online')||qs().get('view')||''));
+  function onlineURL(lang){
+    const l=encodeURIComponent(lesson());
+    return lang==='es'?`/Espanol?online=1&lesson=${l}`:`/online?lesson=${l}`;
+  }
+  window.tmOnlineUrlV51=onlineURL;
+
+  /* 1) Verse bank + Bible bank: one push updates P1 overlay and P2/scripture outputs. */
+  function spanishRef(ref){return String(ref||'').replace(/1 Timothy/g,'1 Timoteo').replace(/2 Timothy/g,'2 Timoteo').replace(/Matthew/g,'Mateo');}
+  window.pushVerseEverywhere=function(v){
+    const ref=v.ref||v.ref_en||'';
+    const kjv=v.kjv||v.text_en||v.text||'';
+    const es=v.text_es||v.rvr||(typeof getRvrForRef==='function'?getRvrForRef(ref):'')||kjv;
+    try{pushVerseToP1({ref:ref,kjv:kjv});}catch(e){}
+    try{pushRawScripture({ref_en:ref,text_en:kjv,ref_es:spanishRef(ref),text_es:es});}catch(e){}
+    try{if(typeof renderConfidenceScripture==='function') renderConfidenceScripture({ref_en:ref,text_en:kjv,ref_es:spanishRef(ref),text_es:es},'Active Scripture');}catch(e){}
+  };
+  function rebuildVerseButtons(){
+    const wrap=$('verse-bank-cards');
+    if(wrap && Array.isArray(window.VERSE_BANK||VERSE_BANK)){
+      const bank=window.VERSE_BANK||VERSE_BANK;
+      wrap.innerHTML=bank.map(v=>`<div class="vb-card" id="vbc-${esc(v.id)}"><div class="vb-ref">${esc(v.ref)}</div><div class="vb-text">${esc(v.kjv)}</div><div class="vb-actions"><button class="vb-btn p1" onclick="event.stopPropagation();pushVerseEverywhere({ref:'${esc(v.ref)}',kjv:\`${String(v.kjv||'').replace(/`/g,"'")}\`,text_es:getVBSpanish('${esc(v.id)}')});markVBPushed('${esc(v.id)}')">Push to Screens</button><button class="vb-btn p2" onclick="event.stopPropagation();pushRawScripture({ref_en:'${esc(v.ref)}',text_en:\`${String(v.kjv||'').replace(/`/g,"'")}\`,ref_es:'${esc(spanishRef(v.ref))}',text_es:getVBSpanish('${esc(v.id)}')});markVBPushed('${esc(v.id)}')">P2 Only</button></div></div>`).join('');
+    }
+  }
+  const oldBuildVB=window.buildVerseBank;
+  if(oldBuildVB&&!oldBuildVB.__v51){window.buildVerseBank=function(){const r=oldBuildVB.apply(this,arguments);setTimeout(rebuildVerseButtons,0);return r;};window.buildVerseBank.__v51=true;}
+  const oldRenderBB=window.renderBibleBankChapter;
+  if(oldRenderBB&&!oldRenderBB.__v51){window.renderBibleBankChapter=function(){const r=oldRenderBB.apply(this,arguments);setTimeout(()=>{
+    document.querySelectorAll('#bible-bank-cards .bb-card').forEach(card=>{
+      const ref=(card.querySelector('.bb-ref')||{}).textContent||'';
+      const txt=(card.querySelector('.bb-text')||{}).textContent||'';
+      const actions=card.querySelector('.bb-actions');
+      if(actions) actions.innerHTML=`<button onclick="event.stopPropagation();pushVerseEverywhere({ref:'${esc(ref)}',kjv:\`${String(txt).replace(/`/g,"'")}\`})">Push to Screens</button><button onclick="event.stopPropagation();pushRawScripture({ref_en:'${esc(ref)}',text_en:\`${String(txt).replace(/`/g,"'")}\`,ref_es:'${esc(spanishRef(ref))}',text_es:getRvrForRef('${esc(ref)}')||\`${String(txt).replace(/`/g,"'")}\`})">P2 Only</button>`;
+    });
+  },0);return r;};window.renderBibleBankChapter.__v51=true;}
+
+  /* 2) User lesson cards should select the lesson, not launch slideshow. */
+  function showLessonDashboard(slug){
+    try{applySelectedLesson(slug); updateLandingLessonState(slug);}catch(e){}
+    try{document.querySelectorAll('.scr').forEach(x=>x.classList.remove('on')); const hub=$('sh'); if(hub) hub.classList.add('on');}catch(e){}
+  }
+  window.tmShowLessonDashboard=showLessonDashboard;
+  const oldUpdate=window.updateLandingLessonState;
+  if(oldUpdate&&!oldUpdate.__v51){window.updateLandingLessonState=function(slug){const r=oldUpdate.apply(this,arguments);setTimeout(()=>{
+    document.querySelectorAll('.series-row .s-cell').forEach(cell=>{
+      const n=((cell.textContent||'').match(/0?([1-4])\s+·/)||[])[1];
+      if(n && !cell.classList.contains('locked')) cell.onclick=()=>showLessonDashboard('lesson-'+n);
+    });
+    const current=document.querySelector('.hub-body > .lcard:not(.locked)');
+    if(current) current.onclick=()=>showLessonDashboard(window.LESSON_SLUG||slug||lesson());
+    const top=$('watch-again-nav'); if(top) top.remove();
+    const hub=$('watch-again-hub-btn'); if(hub) hub.onclick=()=>{location.href=onlineURL(isES()?'es':'en');};
+  },0);return r;};window.updateLandingLessonState.__v51=true;}
+
+  /* 3) Online language routing: ES in online mode goes to Spanish online, not Spanish dashboard. */
+  function patchOnlineLangLinks(){
+    const en=$('online-lang-en'), es=$('online-lang-es');
+    if(en){en.href=onlineURL('en'); en.onclick=e=>{e.preventDefault(); location.href=onlineURL('en');};}
+    if(es){es.href=onlineURL('es'); es.onclick=e=>{e.preventDefault(); location.href=onlineURL('es');};}
+  }
+
+  /* 4) Replace online current slide/on-screen with compact OBS-lower-third style + optional expanded points. */
+  function slideInfo(){
+    const slides=(window.LESSON1_SLIDES||LESSON1_SLIDES||[]);
+    const idx=(window.onlineViewerState&&Number.isFinite(+window.onlineViewerState.slide))?+window.onlineViewerState.slide:(typeof curSlide==='number'?curSlide:0);
+    const s=slides[Math.max(0,Math.min(idx,slides.length-1))]||{};
+    let title='The Ministry', ref=(window.LESSON_DATA&&window.LESSON_DATA.text)||'Matthew 10', summary='';
+    if(typeof slidePlainTitle==='function'){
+      const p=slidePlainTitle(idx)||{}; title=p.title||title; ref=p.ref||ref; summary=p.summary||'';
+    }else{
+      title=strip(s.hl||s.text||s.title||title); ref=s.ref||ref; summary=(s.pts||[]).join(' ');
+    }
+    return {s,idx,title,ref,summary};
+  }
+  function ensurePointsCard(){
+    if($('online-points-card')) return $('online-points-card');
+    const card=document.createElement('section'); card.id='online-points-card'; card.className='online-points-card';
+    card.innerHTML='<div class="online-points-title" id="online-points-title">Expanded Points</div><ul class="online-points-list" id="online-points-list"></ul>';
+    const lower=$('online-lower-card');
+    if(lower) lower.insertAdjacentElement('afterend',card);
+    else ($('online-video-card')||$('online-viewer')).insertAdjacentElement('afterend',card);
+    return card;
+  }
+  function renderOnlineOBSCard(){
+    if(!document.body.classList.contains('online-viewer-mode')&&!isOnline()) return;
+    const info=slideInfo();
+    let lower=$('online-lower-card');
+    if(!lower){lower=document.createElement('section'); lower.id='online-lower-card'; lower.className='online-lower-card'; ($('online-video-card')||$('online-viewer')).insertAdjacentElement('afterend',lower);}
+    lower.innerHTML=`<div class="online-lower-obs"><div class="online-lower-obs-series">${esc(isES()?'El Ministerio · Mateo 10':'The Ministry · Matthew 10')}</div><div class="online-lower-obs-ref">${esc(info.ref||'')}</div><div class="online-lower-obs-text">${esc(info.title||'The Ministry')}</div>${info.summary?`<div class="online-lower-obs-summary">${esc(info.summary)}</div>`:''}<a class="online-watch-again" id="online-watch-again">${esc(isES()?'Ver otra vez':'Watch Again')}</a></div>`;
+    const card=ensurePointsCard();
+    const pts=Array.isArray(info.s.pts)?info.s.pts.map(strip).filter(Boolean):[];
+    const list=$('online-points-list'); const title=$('online-points-title');
+    if(title) title.textContent=isES()?'Puntos ampliados':'Expanded Points';
+    if(pts.length){card.classList.add('on'); if(list) list.innerHTML=pts.map(p=>`<li>${esc(p)}</li>`).join('');}
+    else{card.classList.remove('on'); if(list) list.innerHTML='';}
+    patchWatchAgain();
+  }
+  function patchWatchAgain(){
+    const wa=$('online-watch-again'); if(!wa) return;
+    wa.href='#'; wa.removeAttribute('target'); wa.style.color='';
+    const cfg=(window.onlineViewerState&&window.onlineViewerState.config)||{};
+    const status=String(cfg.status||'').toLowerCase();
+    wa.classList.toggle('on',status==='ended'||status==='replay');
+    wa.textContent=isES()?'Ver otra vez':'Watch Again';
+    wa.onclick=e=>{e.preventDefault(); const frame=$('online-video-frame'); if(frame){frame.scrollIntoView({behavior:'smooth',block:'start'}); const iframe=$('online-stream-iframe'); if(iframe&&iframe.src){const src=iframe.src; iframe.src='about:blank'; setTimeout(()=>iframe.src=src,60);}}};
+  }
+  const oldROS=window.renderOnlineSlide;
+  if(oldROS&&!oldROS.__v51){window.renderOnlineSlide=function(){const r=oldROS.apply(this,arguments);setTimeout(renderOnlineOBSCard,0);return r;};window.renderOnlineSlide.__v51=true;}
+  const oldROA=window.renderOnlineAll;
+  if(oldROA&&!oldROA.__v51){window.renderOnlineAll=function(){const r=oldROA.apply(this,arguments);setTimeout(()=>{patchOnlineLangLinks();renderOnlineOBSCard();},0);return r;};window.renderOnlineAll.__v51=true;}
+  const oldHOM=window.handleOnlineMessage;
+  if(oldHOM&&!oldHOM.__v51){window.handleOnlineMessage=function(msg,hydrating){const r=oldHOM.apply(this,arguments);setTimeout(()=>{patchOnlineLangLinks();renderOnlineOBSCard();},25);return r;};window.handleOnlineMessage.__v51=true;}
+
+  /* 5) Keep login note single. */
+  function dedupeLowercaseNote(){
+    const notes=[...document.querySelectorAll('#access-case-note-v50,.access-case-note-v50,#access-case-note-v51')];
+    notes.forEach((n,i)=>{if(i>0)n.remove();});
+    const ac=$('mo-access-code');
+    if(ac && !document.querySelector('#access-case-note-v50,.access-case-note-v51')){const n=document.createElement('div');n.id='access-case-note-v51';n.className='access-case-note-v50';n.innerHTML='* access code is <b>all lowercase</b>';ac.appendChild(n);}
+  }
+
+  function boot(){
+    try{rebuildVerseButtons(); if(window.renderBibleBankChapter) window.renderBibleBankChapter();}catch(e){}
+    patchOnlineLangLinks(); renderOnlineOBSCard(); dedupeLowercaseNote();
+    const top=$('watch-again-nav'); if(top) top.remove();
+  }
+  document.addEventListener('DOMContentLoaded',()=>{setTimeout(boot,250);setTimeout(boot,1100);});
+  setInterval(()=>{if(isOnline()) {patchOnlineLangLinks(); renderOnlineOBSCard();} dedupeLowercaseNote();},1200);
+})();
+</script>
+
+
+<script id="v53-mobile-bible-bank-projector-fix">
+(function(){
+  const escForAttr=s=>String(s||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const escForTpl=s=>String(s||'').replace(/`/g,"'").replace(/\/g,'\\');
+  function spanishRef(ref){return String(ref||'').replace(/1 Timothy/g,'1 Timoteo').replace(/2 Timothy/g,'2 Timoteo').replace(/Matthew/g,'Mateo');}
+
+  // Mobile verse-bank rows and mobile full Bible Bank must behave like desktop Push to Screens.
+  // That means: P1/main projector overlay + P2 scripture screen + confidence/current scripture.
+  function pushEverywhereMobile(ref, text, spanishText){
+    if(typeof window.pushVerseEverywhere==='function'){
+      window.pushVerseEverywhere({ref:ref,kjv:text,text_es:spanishText||''});
+      return;
+    }
+    try{ if(typeof pushVerseToP1==='function') pushVerseToP1({ref:ref,kjv:text}); }catch(e){}
+    try{ if(typeof pushRawScripture==='function') pushRawScripture({ref_en:ref,text_en:text,ref_es:spanishRef(ref),text_es:spanishText||text}); }catch(e){}
+    try{ if(typeof renderConfidenceScripture==='function') renderConfidenceScripture({ref_en:ref,text_en:text,ref_es:spanishRef(ref),text_es:spanishText||text},'Active Scripture'); }catch(e){}
+  }
+  window.pushEverywhereMobile=pushEverywhereMobile;
+
+  const oldPush=window.pushVerseFromMobile;
+  window.pushVerseFromMobile=function(id,el=null){
+    try{ if(typeof mobileFeedback==='function') mobileFeedback('verse',el); }catch(e){}
+    const bank=window.VERSE_BANK||[];
+    const v=bank.find(x=>x.id===id);
+    if(!v){ try{ if(typeof mobileFeedback==='function') mobileFeedback('error',el); }catch(e){} return; }
+    const es=(typeof getVBSpanish==='function'?getVBSpanish(v.id):'')||'';
+    pushEverywhereMobile(v.ref,v.kjv,es);
+  };
+
+  window.renderMobileBibleBank=function(){
+    const data=window.BIBLE_BANK_CURRENT||{};
+    const books=data.books||{};
+    const bookSel=document.getElementById('mm-bank-book');
+    const chSel=document.getElementById('mm-bank-chapter');
+    const list=document.getElementById('mm-bank-list');
+    if(!bookSel||!chSel||!list) return;
+    const bookNames=Object.keys(books);
+    if(!bookNames.length){
+      list.innerHTML='<div class="online-empty">No full chapter bank for this lesson.</div>';
+      return;
+    }
+    if(!bookNames.includes(bookSel.value)){
+      bookSel.innerHTML=bookNames.map(b=>`<option>${b}</option>`).join('');
+      bookSel.value=bookNames[0];
+    }
+    const chapters=Object.keys(books[bookSel.value]||{});
+    if(!chapters.includes(chSel.value)){
+      chSel.innerHTML=chapters.map(c=>`<option>${c}</option>`).join('');
+      chSel.value=chapters[0];
+    }
+    bookSel.onchange=()=>{chSel.value=''; window.renderMobileBibleBank();};
+    chSel.onchange=window.renderMobileBibleBank;
+    const verses=(books[bookSel.value]&&books[bookSel.value][chSel.value])||[];
+    list.innerHTML=verses.map(([ref,txt])=>{
+      const r=escForAttr(ref);
+      const t=escForTpl(txt);
+      const es=`${escForTpl((typeof getRvrForRef==='function'?getRvrForRef(ref):'')||'')}`;
+      return `<button class="mm-bank-card" onclick="pushEverywhereMobile('${r}',\`${t}\`,\`${es}\`); if(window.mobileFeedback) mobileFeedback('verse',this)"><div class="ref">${escForAttr(ref)}</div><div class="txt">${escForAttr(txt)}</div><div class="mm-bank-push-note">Pushes to main projector + scripture screens</div></button>`;
+    }).join('');
+  };
+
+  function rerenderIfMobileBankOpen(){
+    if(document.body.classList.contains('mm-show-bank')) window.renderMobileBibleBank();
+  }
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(rerenderIfMobileBankOpen,500));
 })();
 </script>
 
