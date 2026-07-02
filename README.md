@@ -1,9 +1,7 @@
-# The Ministry v54
+# The Ministry v56
 
-Deploy this over v53. No SQL changes.
+Deploy over v55. No SQL changes.
 
 Test:
-- Login modal should show one lowercase note.
-- /scriptures should be back to normal sizing.
-- /confidence should have a larger Spanish scripture line.
-- /online should update slides/scripture quickly from admin/mobile cues.
+- `/scriptures`: bottom English/KJV secondary line should be smaller.
+- `/mobile`: tap a regular Verse Bank verse. It should push to `/projector`, `/scriptures`, and `/confidence`.

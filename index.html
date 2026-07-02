@@ -4347,6 +4347,15 @@ function renderQuestionsMini(){
 })();
 </script>
 
+
+<style id="v55-scripture-secondary-size-hotfix">
+/* v55: keep /scriptures layout intact, only reduce the bottom secondary scripture line. */
+body.scripture-mode #sp-tx-es{
+  font-size:clamp(.82rem,1.18vw,1.42rem)!important;
+  line-height:1.24!important;
+  opacity:.70!important;
+}
+</style>
 </head>
 <body><!-- MASTER TEMPLATE BODY: screen containers below. Public behavior preserved. -->
 <!-- LANDING -->
@@ -7395,7 +7404,7 @@ body.online-viewer-mode .online-card{padding:13px!important;}
 <script id="v53-mobile-bible-bank-projector-fix">
 (function(){
   const escForAttr=s=>String(s||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const escForTpl=s=>String(s||'').replace(/`/g,"'").replace(/\/g,'\\');
+  const escForTpl=s=>String(s||'').replace(/`/g,"'").replace(/\\/g,'\\\\');
   function spanishRef(ref){return String(ref||'').replace(/1 Timothy/g,'1 Timoteo').replace(/2 Timothy/g,'2 Timoteo').replace(/Matthew/g,'Mateo');}
 
   // Mobile verse-bank rows and mobile full Bible Bank must behave like desktop Push to Screens.
@@ -7573,6 +7582,66 @@ body.confidence-mode .conf-es{display:block!important;margin-top:18px!important;
     fixAccessNoteOnce();
     if(document.body.classList.contains('online-viewer-mode')) startOnlineFastPoll();
   },1500);
+})();
+</script>
+
+
+
+<!-- v56: tiny hotfix only: /scriptures secondary text size + mobile verse-bank push -->
+<style id="v56-scripture-bottom-size-only">
+/* /scriptures only: keep Spanish primary as-is, shrink the bottom English/KJV secondary line. */
+body.scripture-mode #sp-tx-es{
+  font-size:clamp(.9rem,1.35vw,1.55rem)!important;
+  line-height:1.32!important;
+  opacity:.72!important;
+  max-width:1080px!important;
+}
+body.scripture-mode #sp-ref-es{
+  font-size:clamp(.58rem,.78vw,.9rem)!important;
+  margin-top:26px!important;
+  padding-top:20px!important;
+}
+</style>
+<script id="v56-mobile-verse-bank-push-hotfix">
+(function(){
+  function spanishRef(ref){return String(ref||'').replace(/1 Timothy/g,'1 Timoteo').replace(/2 Timothy/g,'2 Timoteo').replace(/Matthew/g,'Mateo');}
+  function getEsForVerse(v){try{return (typeof getVBSpanish==='function'&&v&&v.id)?getVBSpanish(v.id):'';}catch(e){return '';}}
+  function sendP1(ref,text){
+    try{ if(typeof pushVerseToP1==='function') pushVerseToP1({ref:ref,kjv:text}); }catch(e){}
+    // Force a network/local message even if the overlay was already open.
+    try{ if(typeof sbSend==='function') sbSend({type:'p1_overlay_show',ref:ref,kjv:text,lesson:(window.LESSON_SLUG||'lesson-1'),ts:Date.now()}); }catch(e){}
+  }
+  function sendP2(ref,text,es){
+    const payload={ref_en:ref,text_en:text,ref_es:spanishRef(ref),text_es:es||text};
+    try{ if(typeof pushRawScripture==='function') pushRawScripture(payload); }catch(e){
+      try{ if(typeof sbSend==='function') sbSend({type:'scripture',scripture:payload,lesson:(window.LESSON_SLUG||'lesson-1'),ts:Date.now()}); }catch(_){}
+    }
+    try{ if(typeof sbSend==='function') sbSend({type:'scripture',scripture:payload,lesson:(window.LESSON_SLUG||'lesson-1'),ts:Date.now()}); }catch(e){}
+  }
+  window.pushEverywhereMobile=function(ref,text,spanishText){
+    ref=String(ref||''); text=String(text||''); spanishText=String(spanishText||'');
+    sendP1(ref,text);
+    sendP2(ref,text,spanishText);
+    try{ if(typeof renderConfidenceScripture==='function') renderConfidenceScripture({ref_en:ref,text_en:text,ref_es:spanishRef(ref),text_es:spanishText||text},'Active Scripture'); }catch(e){}
+  };
+  window.pushVerseFromMobile=function(id,el){
+    try{ if(typeof mobileFeedback==='function') mobileFeedback('verse',el); }catch(e){}
+    const bank=window.VERSE_BANK||[];
+    const v=bank.find(x=>x.id===id);
+    if(!v){try{ if(typeof mobileFeedback==='function') mobileFeedback('error',el); }catch(e){} return;}
+    window.pushEverywhereMobile(v.ref,v.kjv,getEsForVerse(v));
+  };
+  function patchMobileRows(){
+    const wrap=document.getElementById('mm-verse-list');
+    if(!wrap || !Array.isArray(window.VERSE_BANK)) return;
+    wrap.innerHTML=window.VERSE_BANK.map(v=>`<button class="mm-v-btn" onclick="pushVerseFromMobile('${String(v.id).replace(/'/g,'&#39;')}',this)"><div class="mm-v-ref">${String(v.ref||'')}</div><div class="mm-v-tx">${String(v.kjv||'')}</div></button>`).join('');
+  }
+  const oldBuild=window.buildMobileVerseList;
+  if(oldBuild && !oldBuild.__v56){
+    window.buildMobileVerseList=function(){const r=oldBuild.apply(this,arguments);setTimeout(patchMobileRows,0);return r;};
+    window.buildMobileVerseList.__v56=true;
+  }
+  document.addEventListener('DOMContentLoaded',()=>{setTimeout(patchMobileRows,300);setTimeout(patchMobileRows,1200);});
 })();
 </script>
 

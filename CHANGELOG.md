@@ -1,6 +1,5 @@
-# v54 hotfix
+# v56 Scripture + Mobile Verse Bank Hotfix
 
-- Removed duplicate access-code lowercase notes so it appears once.
-- Reverted /scriptures Spanish text sizing back down.
-- Enlarged only the Spanish scripture line on /confidence.
-- Added fast online viewer sync polling fallback so /online and /Espanol?online=1 do not lag when BroadcastChannel cannot cross deployment URLs.
+- Shrinks only the bottom secondary scripture line on `/scriptures`.
+- Fixes the mobile Verse Bank push path so it broadcasts to main projector/P1 and scripture/P2 like the full Bible Bank.
+- Leaves all other v55/v54 behavior untouched.
