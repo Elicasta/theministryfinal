@@ -104,17 +104,22 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     const lessonRead = await readRow(SB_URL, SB_KEY, requestedLessonId);
-    if (lessonRead.ok && lessonRead.row) {
-      return res.status(200).json({ ok: true, saved: true, source: 'lesson', config: rowToConfig(lessonRead.row, 'lesson') });
-    }
-
     const defaultRead = await readRow(SB_URL, SB_KEY, 'default');
-    if (!defaultRead.ok) {
-      return res.status(200).json({ ok: true, saved: false, source: 'fallback', config: defaultConfig({ series_slug: requestedSeries, lesson_slug: requestedLesson }), warning: defaultRead.warning || lessonRead.warning });
-    }
 
-    const config = rowToConfig(defaultRead.row, 'global') || defaultConfig({ series_slug: requestedSeries, lesson_slug: requestedLesson });
-    return res.status(200).json({ ok: true, saved: !!defaultRead.row, source: defaultRead.row ? 'global' : 'fallback', config });
+    const lessonConfig = lessonRead.ok && lessonRead.row ? rowToConfig(lessonRead.row, 'lesson') : null;
+    const globalConfig = defaultRead.ok && defaultRead.row ? rowToConfig(defaultRead.row, 'global') : null;
+    const config = lessonConfig || globalConfig || defaultConfig({ series_slug: requestedSeries, lesson_slug: requestedLesson, id: requestedLessonId, scope: 'lesson' });
+
+    return res.status(200).json({
+      ok: true,
+      saved: !!(lessonConfig || globalConfig),
+      source: lessonConfig ? 'lesson' : (globalConfig ? 'global' : 'fallback'),
+      requested_id: requestedLessonId,
+      config,
+      lesson_config: lessonConfig,
+      global_config: globalConfig,
+      warning: (!lessonRead.ok || !defaultRead.ok) ? (lessonRead.warning || defaultRead.warning || null) : null
+    });
   }
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -137,30 +142,33 @@ export default async function handler(req, res) {
     updated_at: new Date().toISOString()
   };
 
-  // Save twice on purpose:
-  // 1. default = global fallback for every route/device/future lesson.
-  // 2. series::lesson = exact lesson memory for replay/history.
-  const globalPayload = { ...basePayload, id: 'default' };
+  // v57: save the stream to the current lesson by default.
+  // Global fallback is optional so switching Lesson 2 / 3 / 4 shows each lesson's own saved YouTube link.
+  const saveGlobal = body.save_global === true || body.saveGlobal === true || body.scope === 'global_and_lesson';
   const lessonPayload = { ...basePayload, id: lessonId };
-
-  const globalWrite = await upsertRow(SB_URL, SB_KEY, globalPayload);
-  if (!globalWrite.ok) {
-    return res.status(500).json({ error: 'Global stream config save failed', details: globalWrite.text, payload_keys: Object.keys(globalPayload) });
+  const lessonWrite = await upsertRow(SB_URL, SB_KEY, lessonPayload);
+  if (!lessonWrite.ok) {
+    return res.status(500).json({ error: 'Lesson stream config save failed', details: lessonWrite.text, payload_keys: Object.keys(lessonPayload) });
   }
 
-  const lessonWrite = await upsertRow(SB_URL, SB_KEY, lessonPayload);
-  const globalRows = Array.isArray(globalWrite.json) ? globalWrite.json : [];
+  let globalWrite = null;
+  if (saveGlobal) {
+    const globalPayload = { ...basePayload, id: 'default' };
+    globalWrite = await upsertRow(SB_URL, SB_KEY, globalPayload);
+  }
+
   const lessonRows = Array.isArray(lessonWrite.json) ? lessonWrite.json : [];
-  const savedConfig = rowToConfig(lessonRows[0], 'lesson') || rowToConfig(globalRows[0], 'global') || lessonPayload;
+  const savedConfig = rowToConfig(lessonRows[0], 'lesson') || lessonPayload;
 
   return res.status(200).json({
     ok: true,
     saved: true,
-    saved_global: true,
-    saved_lesson: lessonWrite.ok,
-    source: lessonWrite.ok ? 'lesson' : 'global',
-    warning: lessonWrite.ok ? null : 'Saved globally, but lesson-specific save failed. Run supabase/v37-stream-config-everywhere.sql to enable lesson memory.',
-    details: lessonWrite.ok ? null : lessonWrite.text,
+    saved_global: !!(globalWrite && globalWrite.ok),
+    saved_lesson: true,
+    source: 'lesson',
+    lesson_id: lessonId,
+    warning: globalWrite && !globalWrite.ok ? 'Saved to lesson, but global fallback save failed.' : null,
+    details: globalWrite && !globalWrite.ok ? globalWrite.text : null,
     config: savedConfig
   });
 }
