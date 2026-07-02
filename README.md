@@ -1,18 +1,16 @@
-# The Ministry v56
+# The Ministry v58
 
-Deploy over v55. No SQL changes.
+Mobile online viewer layout hotfix.
 
-Test:
-- `/scriptures`: bottom English/KJV secondary line should be smaller.
-- `/mobile`: tap a regular Verse Bank verse. It should push to `/projector`, `/scriptures`, and `/confidence`.
+## Test
 
-## v57 stream behavior
+Deploy and open:
 
-The Online Stream admin panel is now lesson-specific.
+- `/online` on iPhone
+- `/Espanol?online=1` on iPhone
 
-- Save Stream saves to the currently selected lesson.
-- Check "Also update global fallback" only when you intentionally want the same stream to become the default fallback.
-- Switching lesson buttons in Admin reloads the saved YouTube link for that lesson.
-- `/online?lesson=lesson-2` reads Lesson 2 first, then falls back to global only if Lesson 2 has no saved stream.
+The live/video card should stay in normal page flow. The response buttons stay fixed at the bottom.
 
-No new SQL is required if `supabase/v47-stream-config-everywhere.sql` has already been run.
+## SQL
+
+No new SQL. Use `supabase/v47-stream-config-everywhere.sql` only if stream records have not already been installed.

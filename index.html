@@ -7685,5 +7685,140 @@ body.scripture-mode #sp-ref-es{
 })();
 </script>
 
+<!-- v58: mobile online layout hotfix. Keep online cards in normal document flow on phones. -->
+<style id="v58-mobile-online-layout-hotfix">
+@media(max-width:899px){
+  body.online-viewer-mode{
+    overflow-x:hidden!important;
+    background:#050505!important;
+  }
+  body.online-viewer-mode .online-shell{
+    width:100%!important;
+    max-width:100%!important;
+    padding:10px 10px calc(94px + env(safe-area-inset-bottom))!important;
+    box-sizing:border-box!important;
+  }
+  body.online-viewer-mode .online-top{
+    position:relative!important;
+    top:auto!important;
+    z-index:5!important;
+    padding:8px 0 12px!important;
+    background:#050505!important;
+  }
+  body.online-viewer-mode .online-brand-main{font-size:1.38rem!important;line-height:.94!important;}
+  body.online-viewer-mode .online-brand-sub{font-size:.5rem!important;letter-spacing:.17em!important;}
+  body.online-viewer-mode .online-top-actions{gap:6px!important;flex-shrink:0!important;}
+  body.online-viewer-mode .online-menu{height:38px!important;min-width:38px!important;padding:0 8px!important;font-size:.55rem!important;}
+
+  body.online-viewer-mode .online-desktop-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+  }
+  body.online-viewer-mode .online-main-column,
+  body.online-viewer-mode .online-side-column{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+    position:static!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    transform:none!important;
+  }
+  body.online-viewer-mode .online-status-card,
+  body.online-viewer-mode .online-video-card,
+  body.online-viewer-mode .online-card,
+  body.online-viewer-mode .online-lower-card,
+  body.online-viewer-mode .online-points-card{
+    position:relative!important;
+    top:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    left:auto!important;
+    z-index:1!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    transform:none!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  body.online-viewer-mode .online-status-card{
+    padding:12px!important;
+    align-items:flex-start!important;
+  }
+  body.online-viewer-mode .online-service-title{font-size:.92rem!important;}
+  body.online-viewer-mode .online-service-meta{font-size:.76rem!important;line-height:1.25!important;}
+  body.online-viewer-mode .online-live-pill{font-size:.5rem!important;padding:7px 8px!important;}
+
+  /* The old sticky video is what made cards slide underneath each other on iPhone. */
+  body.online-viewer-mode .online-video-card{
+    position:relative!important;
+    top:auto!important;
+    z-index:2!important;
+    overflow:hidden!important;
+    box-shadow:none!important;
+  }
+  body.online-viewer-mode .online-video-frame{
+    aspect-ratio:16/9!important;
+    width:100%!important;
+    min-height:0!important;
+  }
+  body.online-viewer-mode .online-placeholder-title{font-size:1.65rem!important;}
+  body.online-viewer-mode .online-placeholder-sub{font-size:.55rem!important;line-height:1.25!important;}
+  body.online-viewer-mode .online-video-ui{padding:8px 9px!important;}
+  body.online-viewer-mode .online-full-btn{font-size:.5rem!important;padding:7px 8px!important;}
+
+  body.online-viewer-mode .online-card{padding:12px!important;}
+  body.online-viewer-mode .online-card-head{margin-bottom:9px!important;}
+  body.online-viewer-mode .online-card-title{font-size:.62rem!important;letter-spacing:.14em!important;}
+  body.online-viewer-mode .online-scripture-ref{font-size:1.02rem!important;line-height:1.18!important;margin-bottom:7px!important;}
+  body.online-viewer-mode .online-scripture-text{font-size:.91rem!important;line-height:1.38!important;}
+  body.online-viewer-mode .online-lower-card{padding:0!important;border:0!important;background:transparent!important;}
+  body.online-viewer-mode .online-lower-obs{padding:12px!important;}
+  body.online-viewer-mode .online-lower-obs-text{font-size:1rem!important;line-height:1.08!important;}
+  body.online-viewer-mode .online-lower-obs-summary{font-size:.78rem!important;}
+  body.online-viewer-mode .online-points-card{padding:12px!important;}
+  body.online-viewer-mode .online-flow-row{grid-template-columns:78px 1fr!important;font-size:.72rem!important;padding:7px 0!important;}
+  body.online-viewer-mode .online-footer-note{margin:10px 0 0!important;font-size:.54rem!important;}
+
+  body.online-viewer-mode #online-respond-shell{
+    position:fixed!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    top:auto!important;
+    z-index:100!important;
+    width:100%!important;
+    max-width:100%!important;
+    border-left:0!important;
+    border-right:0!important;
+    border-bottom:0!important;
+    padding:9px 10px calc(9px + env(safe-area-inset-bottom))!important;
+    background:rgba(7,7,7,.98)!important;
+    backdrop-filter:blur(14px)!important;
+    box-shadow:0 -16px 45px rgba(0,0,0,.65)!important;
+  }
+  body.online-viewer-mode #online-respond-shell .online-card-head{display:none!important;}
+  body.online-viewer-mode #online-respond-shell .online-response-grid{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  body.online-viewer-mode #online-respond-shell .online-response-btn{
+    min-height:42px!important;
+    padding:8px 4px!important;
+    font-size:.52rem!important;
+    line-height:1.05!important;
+    letter-spacing:.06em!important;
+  }
+}
+</style>
+
 </body>
 </html>
