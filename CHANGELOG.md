@@ -6,3 +6,8 @@
 - Patched mobile verse bank and mobile full Bible Bank pushes so they no longer depend on a missing `window.VERSE_BANK` value.
 - Replaced the online audience slideshow card with an audience notes section showing current slide points plus a saved notes textarea.
 - Added `/api/notes-save` and `supabase/v59-audience-notes.sql` for per-attendee/session note storage.
+
+## v60 - Point-forward lesson slides
+- Reworked Lesson 4 slideshow from scripture-heavy to point-forward teaching slides.
+- Kept core scripture slides for Matthew 10:16, Matthew 10:19-20, Matthew 10:22, and Matthew 10:28.
+- Preserved verse push reliability patch and audience saved notes system from v59.
