@@ -2751,7 +2751,7 @@ const LESSON_DATE_RULES = Object.freeze([
   {slug:'lesson-1', date:'2026-06-18', open:true},
   {slug:'lesson-2', date:'2026-06-25', open:true},
   {slug:'lesson-3', date:'2026-07-02', open:true},
-  {slug:'lesson-4', date:'2026-07-09', open:false}
+  {slug:'lesson-4', date:'2026-07-09', open:true}
 ]);
 function isoLocalDate(d=new Date()){
   const y=d.getFullYear();
@@ -2827,7 +2827,7 @@ const HOME_LESSON_META = {
   'lesson-1': {num:'01', label:'Lesson 1', dateShort:'June 18', dateLong:'June 18, 2026', title:'The Price of Being Sent', text:'Matthew 10:1-10', slides:'15 Slides', tagline:'Ministry does not begin with a platform. It begins with a call.', reflectionTitle:'Personal Examination', reflectionMeta:'6 sections · 17 questions', open:true},
   'lesson-2': {num:'02', label:'Lesson 2', dateShort:'June 25', dateLong:'June 25, 2026', title:'The Discipline of the Sent', text:'Matthew 10:11-16', slides:'20 Slides', tagline:'Jesus does not only send disciples. He instructs disciples in how to move.', reflectionTitle:'The Discipline of the Sent', reflectionMeta:'10 reflection questions', open:true},
   'lesson-3': {num:'03', label:'Lesson 3', dateShort:'July 2', dateLong:'July 2, 2026', title:'The Making of a Minister', text:'1 Timothy 4:12-16 · 2 Timothy 1, 2, 4', slides:'15 Slides', tagline:'The making of a minister is the making of a safe vessel for holy work.', reflectionTitle:'The Making of a Minister', reflectionMeta:'13 reflection questions', open:true},
-  'lesson-4': {num:'04', label:'Lesson 4', dateShort:'July 9', dateLong:'July 9, 2026', title:'The Reward of the Work', text:'Matthew 10:34-42', slides:'Coming Soon', tagline:'Coming soon.', open:false}
+  'lesson-4': {num:'04', label:'Lesson 4', dateShort:'July 9', dateLong:'July 9, 2026', title:'What It Takes to Make It', text:'Matthew 10:16-28', slides:'20 Slides', tagline:'Ministry has a cost. He that endureth to the end shall be saved.', reflectionTitle:'What It Takes to Make It', reflectionMeta:'4 sections · 15 reflection questions', open:true}
 };
 function updateLandingLessonState(slug){
   const active=normalizeLessonSlug(slug || window.LESSON_SLUG || requestedLessonSlug());
@@ -4585,7 +4585,7 @@ body.scripture-mode #sp-tx-es{
 <div class="cmd-sec">
 <button class="cmd-pill on" id="cmd-auto" onclick="toggleScAuto()">● Auto P2</button>
 <button class="cmd-pill" onclick="openSS()">▶ Present</button>
-<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button><button class="cmd-pill lesson-pill" data-lesson="lesson-3" onclick="adminSelectLesson('lesson-3')">Lesson 3</button>
+<button class="cmd-pill" onclick="openMobileMode()">Mobile Mode</button><button class="cmd-pill" onclick="switchTab('polls',document.querySelector('.ctrl-tab[onclick*=polls]'));renderPollBank();">Polls</button><button class="cmd-pill lesson-pill" data-lesson="lesson-1" onclick="adminSelectLesson('lesson-1')">Lesson 1</button><button class="cmd-pill lesson-pill" data-lesson="lesson-2" onclick="adminSelectLesson('lesson-2')">Lesson 2</button><button class="cmd-pill lesson-pill" data-lesson="lesson-3" onclick="adminSelectLesson('lesson-3')">Lesson 3</button><button class="cmd-pill lesson-pill" data-lesson="lesson-4" onclick="adminSelectLesson('lesson-4')">Lesson 4</button>
 <button class="cmd-pill" onclick="requestAuxFullscreen()">All FS</button>
 <button class="cmd-pill" onclick="projFS()">⛶ FS</button>
 </div>
@@ -6051,9 +6051,18 @@ body.audience-slave .poll-screen *{
           <div id="online-poll-content"><div class="online-empty">No active poll yet.</div></div>
         </section>
 
-        <section class="online-card">
-          <div class="online-card-head"><div class="online-card-title"><span class="ico">▌</span> <span id="online-slide-label">Current Slide</span></div><div class="online-chevron">›</div></div>
-          <div class="online-current-slide" id="online-current-slide"><div class="online-slide-fallback">THE <span>MINISTRY</span></div></div>
+        <section class="online-card online-audience-notes-card" id="online-audience-notes-card">
+          <div class="online-card-head">
+            <div class="online-card-title"><span class="ico">✎</span> <span id="online-audience-notes-title">Teaching Notes</span></div>
+            <div class="online-chevron">›</div>
+          </div>
+          <div class="online-audience-notes-kicker" id="online-audience-notes-kicker">Waiting for the current teaching point.</div>
+          <ul class="online-audience-points" id="online-audience-points">
+            <li>The main teaching points will appear here during the lesson.</li>
+          </ul>
+          <label class="online-audience-label" for="online-audience-notes-ta" id="online-audience-label">Your Notes</label>
+          <textarea class="online-audience-notes-ta" id="online-audience-notes-ta" placeholder="Write your notes here..."></textarea>
+          <div class="online-audience-notes-save" id="online-audience-notes-save">Saved on this device. Saving to your account when available.</div>
         </section>
 
         <section class="online-card">
@@ -7093,7 +7102,7 @@ body.tm-spanish-mode .hub-lbl,body.tm-spanish-mode .lc-wk,body.tm-spanish-mode .
     'lesson-1':{label:'Lección 1',dateShort:'18 de junio',dateLong:'18 de junio, 2026',title:'El Precio de Ser Enviado',text:'Mateo 10:1-10',slides:'15 diapositivas',tagline:'El ministerio no comienza con una plataforma. Comienza con un llamado.',reflectionTitle:'Examen Personal',reflectionMeta:'6 secciones · 17 preguntas'},
     'lesson-2':{label:'Lección 2',dateShort:'25 de junio',dateLong:'25 de junio, 2026',title:'La Disciplina del Enviado',text:'Mateo 10:11-16',slides:'20 diapositivas',tagline:'Jesús no solo envía discípulos. Los instruye en cómo moverse.',reflectionTitle:'La Disciplina del Enviado',reflectionMeta:'10 preguntas de reflexión'},
     'lesson-3':{label:'Lección 3',dateShort:'2 de julio',dateLong:'2 de julio, 2026',title:'La Formación de un Ministro',text:'1 Timoteo 4:12-16 · 2 Timoteo 1, 2, 4',slides:'15 diapositivas',tagline:'La formación de un ministro es la formación de un vaso seguro para la obra santa.',reflectionTitle:'La Formación de un Ministro',reflectionMeta:'13 preguntas de reflexión'},
-    'lesson-4':{label:'Lección 4',dateShort:'9 de julio',dateLong:'9 de julio, 2026',title:'La Recompensa de la Obra',text:'Mateo 10:34-42',slides:'Próximamente',tagline:'Próximamente.',reflectionTitle:'Reflexión',reflectionMeta:'Próximamente'}
+    'lesson-4':{label:'Lección 4',dateShort:'9 de julio',dateLong:'9 de julio, 2026',title:'Lo Que Se Necesita Para Llegar',text:'Mateo 10:16-28',slides:'20 Diapositivas',tagline:'El ministerio tiene un costo. El que persevere hasta el fin será salvo.',reflectionTitle:'Lo Que Se Necesita Para Llegar',reflectionMeta:'4 secciones · 15 preguntas'}
   };
   function translateSpanishParticipant(){
     if(route()!=='espanol' || wantsOnline()) return;
@@ -7819,19 +7828,23 @@ body.scripture-mode #sp-ref-es{
   }
 }
 </style>
-<!-- v60: Lesson 4 point-forward slides; verse reliability and audience saved notes retained -->
+<!-- v61: Audience notes card replaces online slide preview; v60 point-forward slides retained -->
 <style id="v60-audience-notes-css">
 body.online-viewer-mode #online-slide-shell,body.online-viewer-mode #online-points-card{display:none!important;}
-.online-audience-notes-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#090909 100%);padding:15px;display:none;}
-body.online-viewer-mode .online-audience-notes-card{display:block;}
+body.online-viewer-mode #online-current-slide{display:none!important;}
+.online-audience-notes-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#090909 100%);padding:15px;display:block!important;}
+body:not(.online-viewer-mode) #online-audience-notes-card{display:none!important;}
+body.online-viewer-mode #online-audience-notes-card{display:block!important;order:3;}
 .online-audience-notes-title{font-family:var(--fc);font-size:.62rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
-.online-audience-notes-kicker{font-family:var(--fp);font-style:italic;color:rgba(241,237,228,.55);font-size:.86rem;line-height:1.35;margin-bottom:12px;}
-.online-audience-points{margin:0 0 12px 0;padding-left:18px;color:rgba(241,237,228,.78);font-size:.9rem;line-height:1.38;}
-.online-audience-points li{margin:4px 0;}
-.online-audience-notes-ta{width:100%;min-height:160px;resize:vertical;background:#0b0b0b;border:1px solid rgba(241,237,228,.14);color:var(--w);font-family:var(--fb);font-size:16px;line-height:1.45;padding:12px;outline:none;}
-.online-audience-notes-ta:focus{border-color:rgba(232,24,13,.55);}
+.online-audience-notes-kicker{font-family:var(--fp);font-style:italic;color:rgba(241,237,228,.62);font-size:.9rem;line-height:1.35;margin:2px 0 12px;}
+.online-audience-points{margin:0 0 12px 0;padding-left:18px;color:rgba(241,237,228,.84);font-size:.92rem;line-height:1.42;}
+.online-audience-points li{margin:5px 0;}
+.online-audience-label{display:block;font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:10px 0 7px;}
+.online-audience-notes-ta{width:100%;min-height:190px;resize:vertical;background:#0b0b0b;border:1px solid rgba(241,237,228,.16);color:var(--w);font-family:var(--fb);font-size:16px;line-height:1.45;padding:12px;outline:none;border-radius:0;}
+.online-audience-notes-ta:focus{border-color:rgba(232,24,13,.65);box-shadow:0 0 0 1px rgba(232,24,13,.2);}
 .online-audience-notes-save{font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:rgba(241,237,228,.5);margin-top:8px;}
 .online-audience-notes-save.saved{color:#34c759;}
+@media(max-width:760px){body.online-viewer-mode #online-audience-notes-card{margin-bottom:88px}.online-audience-notes-ta{min-height:165px;}}
 </style>
 <script id="v60-lesson4-verse-notes-js">
 (function(){
@@ -8465,18 +8478,25 @@ const POLL_BANK_L4 = [
   }
   function ensureAudienceNotesCard(){
     let card=document.getElementById('online-audience-notes-card');
-    if(card) return card;
-    card=document.createElement('section'); card.id='online-audience-notes-card'; card.className='online-audience-notes-card';
-    card.innerHTML='<div class="online-audience-notes-title" id="online-audience-notes-title">Audience Notes</div><div class="online-audience-notes-kicker" id="online-audience-notes-kicker"></div><ul class="online-audience-points" id="online-audience-points"></ul><textarea class="online-audience-notes-ta" id="online-audience-notes-ta" placeholder="Write your notes here..."></textarea><div class="online-audience-notes-save" id="online-audience-notes-save">Saved to your account on this device.</div>';
-    const lower=document.getElementById('online-lower-card')||document.getElementById('online-video-card')||document.getElementById('online-viewer');
-    if(lower) lower.insertAdjacentElement('afterend',card);
+    if(!card){
+      card=document.createElement('section');
+      card.id='online-audience-notes-card';
+      card.className='online-card online-audience-notes-card';
+      card.innerHTML='<div class="online-card-head"><div class="online-card-title"><span class="ico">✎</span> <span id="online-audience-notes-title">Teaching Notes</span></div><div class="online-chevron">›</div></div><div class="online-audience-notes-kicker" id="online-audience-notes-kicker">Waiting for the current teaching point.</div><ul class="online-audience-points" id="online-audience-points"><li>The main teaching points will appear here during the lesson.</li></ul><label class="online-audience-label" for="online-audience-notes-ta" id="online-audience-label">Your Notes</label><textarea class="online-audience-notes-ta" id="online-audience-notes-ta" placeholder="Write your notes here..."></textarea><div class="online-audience-notes-save" id="online-audience-notes-save">Saved on this device. Saving to your account when available.</div>';
+      const lower=document.getElementById('online-lower-card')||document.getElementById('online-video-card')||document.getElementById('online-viewer');
+      if(lower) lower.insertAdjacentElement('afterend',card);
+    }
     const ta=card.querySelector('#online-audience-notes-ta');
-    let timer=null;
-    ta.addEventListener('input',()=>{
-      localStorage.setItem(noteKey(),ta.value);
-      const status=document.getElementById('online-audience-notes-save'); if(status){status.textContent='Saving...';status.classList.remove('saved');}
-      clearTimeout(timer); timer=setTimeout(saveAudienceNotesRemote,650);
-    });
+    if(ta && !ta.dataset.v61Bound){
+      ta.dataset.v61Bound='1';
+      let timer=null;
+      ta.addEventListener('input',()=>{
+        localStorage.setItem(noteKey(),ta.value);
+        const status=document.getElementById('online-audience-notes-save');
+        if(status){status.textContent='Saving...';status.classList.remove('saved');}
+        clearTimeout(timer); timer=setTimeout(saveAudienceNotesRemote,650);
+      });
+    }
     return card;
   }
   async function saveAudienceNotesRemote(){
@@ -8488,13 +8508,28 @@ const POLL_BANK_L4 = [
     const status=document.getElementById('online-audience-notes-save'); if(status){status.textContent='Saved to your account.';status.classList.add('saved');}
   }
   function renderAudienceNotes(){
-    if(!document.body.classList.contains('online-viewer-mode') && !/\/online|\/Espanol/i.test(location.pathname)) return;
+    if(!document.body.classList.contains('online-viewer-mode') && !/\/(online|Espanol)/i.test(location.pathname)) return;
     const card=ensureAudienceNotesCard();
     const info=slideInfoForNotes();
-    const title=document.getElementById('online-audience-notes-title'); if(title) title.textContent='Audience Notes';
+    const es=/\/Espanol/i.test(location.pathname)||window.TM_LANG_ES;
+    const title=document.getElementById('online-audience-notes-title'); if(title) title.textContent=es?'Notas de Enseñanza':'Teaching Notes';
+    const label=document.getElementById('online-audience-label'); if(label) label.textContent=es?'Tus Notas':'Your Notes';
     const kicker=document.getElementById('online-audience-notes-kicker'); if(kicker) kicker.textContent=`${info.ref} · ${info.title}`;
-    const pts=document.getElementById('online-audience-points'); if(pts) pts.innerHTML=(info.pts.length?info.pts:[info.title]).map(p=>`<li>${String(p).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</li>`).join('');
-    const ta=document.getElementById('online-audience-notes-ta'); if(ta && ta.dataset.key!==noteKey()){ta.dataset.key=noteKey(); ta.value=localStorage.getItem(noteKey())||'';}
+    const pts=document.getElementById('online-audience-points');
+    const pointList=info.pts.length?info.pts:[info.title];
+    if(pts) pts.innerHTML=pointList.map(p=>`<li>${String(p).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</li>`).join('');
+    const ta=document.getElementById('online-audience-notes-ta');
+    if(ta){
+      ta.placeholder=es?'Escribe tus notas aquí...':'Write your notes here...';
+      if(ta.dataset.key!==noteKey()){
+        ta.dataset.key=noteKey();
+        ta.value=localStorage.getItem(noteKey())||'';
+      }
+    }
+    const save=document.getElementById('online-audience-notes-save');
+    if(save && !save.classList.contains('saved') && save.textContent.trim()==='') save.textContent=es?'Guardado en este dispositivo. Se guarda en tu cuenta cuando esté disponible.':'Saved on this device. Saving to your account when available.';
+    // Hard-hide the old slide preview if any older layout code reinserted it.
+    const oldSlideCard=document.getElementById('online-slide-shell'); if(oldSlideCard) oldSlideCard.style.display='none';
   }
   const oldRenderOnlineAll=window.renderOnlineAll;
   if(oldRenderOnlineAll&&!oldRenderOnlineAll.__v59){window.renderOnlineAll=function(){const r=oldRenderOnlineAll.apply(this,arguments);setTimeout(renderAudienceNotes,0);return r;};window.renderOnlineAll.__v59=true;}
@@ -8539,6 +8574,52 @@ const POLL_BANK_L4 = [
   }
   document.addEventListener('DOMContentLoaded',()=>{setTimeout(loadRemoteNotesOnce,900);setTimeout(loadRemoteNotesOnce,2500);});
   setInterval(loadRemoteNotesOnce,2500);
+})();
+</script>
+
+
+<script id="v62-admin-lesson-4-button-patch">
+(function(){
+  function ensureLesson4AdminButton(){
+    var bar=document.querySelector('#admin-hub .cmd-bar')||document.getElementById('admin-hub');
+    if(!bar) return;
+    var existing=bar.querySelector('.lesson-pill[data-lesson="lesson-4"]');
+    if(!existing){
+      var lesson3=bar.querySelector('.lesson-pill[data-lesson="lesson-3"]');
+      var btn=document.createElement('button');
+      btn.className='cmd-pill lesson-pill';
+      btn.dataset.lesson='lesson-4';
+      btn.type='button';
+      btn.textContent='Lesson 4';
+      btn.onclick=function(){ if(typeof adminSelectLesson==='function') adminSelectLesson('lesson-4'); };
+      if(lesson3) lesson3.insertAdjacentElement('afterend',btn);
+      else {
+        var pollBtn=[].slice.call(bar.querySelectorAll('.cmd-pill')).find(function(b){return /Polls/i.test(b.textContent||'');});
+        if(pollBtn) pollBtn.insertAdjacentElement('afterend',btn); else bar.appendChild(btn);
+      }
+    }
+    var active=(window.LESSON_SLUG||'lesson-4');
+    [].slice.call(bar.querySelectorAll('.lesson-pill')).forEach(function(btn){
+      btn.classList.toggle('on', btn.dataset.lesson===active);
+    });
+  }
+  try{
+    if(typeof adminSelectLesson==='function' && !adminSelectLesson.__v62Lesson4){
+      var prev=adminSelectLesson;
+      adminSelectLesson=function(slug){
+        var r=prev.apply(this,arguments);
+        setTimeout(ensureLesson4AdminButton,30);
+        return r;
+      };
+      adminSelectLesson.__v62Lesson4=true;
+    }
+  }catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    ensureLesson4AdminButton();
+    setTimeout(ensureLesson4AdminButton,350);
+    setTimeout(ensureLesson4AdminButton,1400);
+  });
+  setInterval(ensureLesson4AdminButton,2500);
 })();
 </script>
 
