@@ -7819,6 +7819,628 @@ body.scripture-mode #sp-ref-es{
   }
 }
 </style>
+<!-- v59: Lesson 4, verse reliability, audience saved notes -->
+<style id="v59-audience-notes-css">
+body.online-viewer-mode #online-slide-shell,body.online-viewer-mode #online-points-card{display:none!important;}
+.online-audience-notes-card{border:1px solid var(--ln);background:linear-gradient(145deg,#111 0%,#090909 100%);padding:15px;display:none;}
+body.online-viewer-mode .online-audience-notes-card{display:block;}
+.online-audience-notes-title{font-family:var(--fc);font-size:.62rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.online-audience-notes-kicker{font-family:var(--fp);font-style:italic;color:rgba(241,237,228,.55);font-size:.86rem;line-height:1.35;margin-bottom:12px;}
+.online-audience-points{margin:0 0 12px 0;padding-left:18px;color:rgba(241,237,228,.78);font-size:.9rem;line-height:1.38;}
+.online-audience-points li{margin:4px 0;}
+.online-audience-notes-ta{width:100%;min-height:160px;resize:vertical;background:#0b0b0b;border:1px solid rgba(241,237,228,.14);color:var(--w);font-family:var(--fb);font-size:16px;line-height:1.45;padding:12px;outline:none;}
+.online-audience-notes-ta:focus{border-color:rgba(232,24,13,.55);}
+.online-audience-notes-save{font-family:var(--fc);font-size:.56rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:rgba(241,237,228,.5);margin-top:8px;}
+.online-audience-notes-save.saved{color:#34c759;}
+</style>
+<script id="v59-lesson4-verse-notes-js">
+(function(){
+const LESSON4_SLIDES = [
+  {
+    "t": "cover",
+    "eyebrow": "The Ministry · Matthew 10",
+    "lesson": "Lesson 4",
+    "title": "What It Takes to Make It",
+    "ref": "Matthew 10:16-28"
+  },
+  {
+    "t": "big",
+    "sup": "Big Idea",
+    "text": "To make it in ministry, you have to endure with a <span class=\"acc\">clean spirit.</span>",
+    "ref": "Matthew 10:16-28"
+  },
+  {
+    "t": "te",
+    "n": "01",
+    "hl": "The <span class=\"acc\">thread</span> we are following.",
+    "pts": [
+      "Sheep among wolves (16-18)",
+      "A surrendered mouth (19-20)",
+      "Betrayal can be part of the cost (21)",
+      "Endure to the end (22-25)",
+      "Fear God, not man (26-28)"
+    ],
+    "ref": "Matthew 10:16-28"
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:16",
+    "text": "“Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.”",
+    "tk": "Be wise, but stay clean."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:17-18",
+    "text": "“But beware of men: for they will deliver you up to the councils… And ye shall be brought before governors and kings for my sake…”",
+    "tk": "You will be tested in every arena."
+  },
+  {
+    "t": "te",
+    "n": "02",
+    "hl": "Wisdom without <span class=\"acc\">corruption.</span>",
+    "pts": [
+      "Ministry requires awareness, discernment, and caution.",
+      "Jesus sends sheep into wolves, not comfort.",
+      "Do not become a wolf because wolves surround you.",
+      "Be wise, but stay clean."
+    ],
+    "ref": "Matthew 10:16-18"
+  },
+  {
+    "t": "big",
+    "sup": "Major Insight",
+    "text": "Pressure can be <span class=\"acc\">positioning.</span>",
+    "ref": "Matthew 10:18"
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:19-20",
+    "text": "“But when they deliver you up, take no thought how or what ye shall speak… For it is not ye that speak, but the Spirit of your Father which speaketh in you.”",
+    "tk": "God fills the mouth of a surrendered vessel."
+  },
+  {
+    "t": "big",
+    "sup": "Prayer Cue",
+    "text": "God, let my mouth be a vessel ready to speak <span class=\"acc\">Your words.</span>",
+    "ref": "Matthew 10:19-20"
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:21",
+    "text": "“And the brother shall deliver up the brother to death, and the father the child…”",
+    "tk": "Betrayal does not cancel obedience."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:22",
+    "text": "“And ye shall be hated of all men for my name’s sake: but he that endureth to the end shall be saved.”",
+    "tk": "Endurance is the proof, not the start."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:23",
+    "text": "“But when they persecute you in this city, flee ye into another…”",
+    "tk": "Rejection does not cancel assignment. Keep moving."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:24-25",
+    "text": "“The disciple is not above his master… If they have called the master of the house Beelzebub, how much more shall they call them of his household?”",
+    "tk": "Do not follow a rejected Christ and expect universal acceptance."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:26-27",
+    "text": "“Fear them not therefore… What I tell you in darkness, that speak ye in light…”",
+    "tk": "Private revelation must become public declaration."
+  },
+  {
+    "t": "sc",
+    "ref": "Matthew 10:28",
+    "text": "“And fear not them which kill the body… but rather fear him which is able to destroy both soul and body in hell.”",
+    "tk": "Fear God, not man."
+  },
+  {
+    "t": "final",
+    "kicker": "Closing Thread",
+    "text": "Wisdom. Surrendered mouth. Endurance. Movement. <span class=\"acc\">Fear of God.</span>",
+    "sub": "Ministry has a cost. But he that endureth to the end shall be saved.",
+    "ref": "Matthew 10:16-28"
+  }
+];
+const NOTES_L4 = {
+  "0": "Set the frame: What It Takes to Make It. Keep it direct. This is about ministry cost and endurance.",
+  "1": "Big idea for the whole lesson. Clean spirit is the center.",
+  "2": "Walk the thread so people know where the lesson is going.",
+  "3": "Slow down on sheep, wolves, serpents, and doves. This is posture.",
+  "4": "Councils, synagogues, governors, and kings. The testing field is broad.",
+  "5": "Main correction: opposition cannot make us bitter, aggressive, or destructive.",
+  "6": "Pressure is not always punishment. Sometimes God is setting the field.",
+  "7": "Clarify: this does not cancel study or preparation. It corrects panic.",
+  "8": "Make this a prayer moment. Ear tuned in private, mouth surrendered in public.",
+  "9": "Do not overdramatize. Betrayal is real, but obedience stays intact.",
+  "10": "Press endurance. Starting is not the proof. Continuing is.",
+  "11": "Movement after rejection. Do not let one closed door become disobedience.",
+  "12": "Expectation reset. If they resisted Jesus, they will resist His household.",
+  "13": "Private revelation is not meant to die in private.",
+  "14": "Land fear of God as the stronger fear.",
+  "15": "Close with the thread recap and pray for clean endurance."
+};
+const SCRIPTURE_MAP_L4 = [
+  {
+    "ref_en": "Matthew 10:16",
+    "text_en": "\"Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.\"",
+    "ref_es": "Mateo 10:16",
+    "text_es": "\"He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.\""
+  },
+  {
+    "ref_en": "Matthew 10:16",
+    "text_en": "\"Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.\"",
+    "ref_es": "Mateo 10:16",
+    "text_es": "\"He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.\""
+  },
+  {
+    "ref_en": "Matthew 10:16",
+    "text_en": "\"Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.\"",
+    "ref_es": "Mateo 10:16",
+    "text_es": "\"He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.\""
+  },
+  {
+    "ref_en": "Matthew 10:16",
+    "text_en": "\"Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.\"",
+    "ref_es": "Mateo 10:16",
+    "text_es": "\"He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.\""
+  },
+  {
+    "ref_en": "Matthew 10:17-18",
+    "text_en": "\"But beware of men: for they will deliver you up to the councils, and they will scourge you in their synagogues; And ye shall be brought before governors and kings for my sake, for a testimony against them and the Gentiles.\"",
+    "ref_es": "Mateo 10:17-18",
+    "text_es": "\"Y guardaos de los hombres, porque os entregarán a los concilios, y en sus sinagogas os azotarán; y aun ante gobernadores y reyes seréis llevados por causa de mí, para testimonio a ellos y a los gentiles.\""
+  },
+  {
+    "ref_en": "Matthew 10:16",
+    "text_en": "\"Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.\"",
+    "ref_es": "Mateo 10:16",
+    "text_es": "\"He aquí, yo os envío como a ovejas en medio de lobos; sed, pues, prudentes como serpientes, y sencillos como palomas.\""
+  },
+  {
+    "ref_en": "Matthew 10:17-18",
+    "text_en": "\"But beware of men: for they will deliver you up to the councils, and they will scourge you in their synagogues; And ye shall be brought before governors and kings for my sake, for a testimony against them and the Gentiles.\"",
+    "ref_es": "Mateo 10:17-18",
+    "text_es": "\"Y guardaos de los hombres, porque os entregarán a los concilios, y en sus sinagogas os azotarán; y aun ante gobernadores y reyes seréis llevados por causa de mí, para testimonio a ellos y a los gentiles.\""
+  },
+  {
+    "ref_en": "Matthew 10:19-20",
+    "text_en": "\"But when they deliver you up, take no thought how or what ye shall speak: for it shall be given you in that same hour what ye shall speak. For it is not ye that speak, but the Spirit of your Father which speaketh in you.\"",
+    "ref_es": "Mateo 10:19-20",
+    "text_es": "\"Mas cuando os entreguen, no os preocupéis por cómo o qué hablaréis; porque en aquella hora os será dado lo que habéis de hablar. Porque no sois vosotros los que habláis, sino el Espíritu de vuestro Padre que habla en vosotros.\""
+  },
+  {
+    "ref_en": "Matthew 10:19-20",
+    "text_en": "\"But when they deliver you up, take no thought how or what ye shall speak: for it shall be given you in that same hour what ye shall speak. For it is not ye that speak, but the Spirit of your Father which speaketh in you.\"",
+    "ref_es": "Mateo 10:19-20",
+    "text_es": "\"Mas cuando os entreguen, no os preocupéis por cómo o qué hablaréis; porque en aquella hora os será dado lo que habéis de hablar. Porque no sois vosotros los que habláis, sino el Espíritu de vuestro Padre que habla en vosotros.\""
+  },
+  {
+    "ref_en": "Matthew 10:21",
+    "text_en": "\"And the brother shall deliver up the brother to death, and the father the child: and the children shall rise up against their parents, and cause them to be put to death.\"",
+    "ref_es": "Mateo 10:21",
+    "text_es": "\"El hermano entregará a la muerte al hermano, y el padre al hijo; y los hijos se levantarán contra los padres, y los harán morir.\""
+  },
+  {
+    "ref_en": "Matthew 10:22",
+    "text_en": "\"And ye shall be hated of all men for my name’s sake: but he that endureth to the end shall be saved.\"",
+    "ref_es": "Mateo 10:22",
+    "text_es": "\"Y seréis aborrecidos de todos por causa de mi nombre; mas el que persevere hasta el fin, éste será salvo.\""
+  },
+  {
+    "ref_en": "Matthew 10:23",
+    "text_en": "\"But when they persecute you in this city, flee ye into another.\"",
+    "ref_es": "Mateo 10:23",
+    "text_es": "\"Cuando os persigan en esta ciudad, huid a la otra.\""
+  },
+  {
+    "ref_en": "Matthew 10:24-25",
+    "text_en": "\"The disciple is not above his master, nor the servant above his lord. It is enough for the disciple that he be as his master, and the servant as his lord.\"",
+    "ref_es": "Mateo 10:24-25",
+    "text_es": "\"El discípulo no es más que su maestro, ni el siervo más que su señor. Bástale al discípulo ser como su maestro, y al siervo como su señor.\""
+  },
+  {
+    "ref_en": "Matthew 10:26-27",
+    "text_en": "\"Fear them not therefore: for there is nothing covered, that shall not be revealed; and hid, that shall not be known. What I tell you in darkness, that speak ye in light.\"",
+    "ref_es": "Mateo 10:26-27",
+    "text_es": "\"Así que, no los temáis; porque nada hay encubierto, que no haya de ser manifestado; ni oculto, que no haya de saberse. Lo que os digo en tinieblas, decidlo en la luz.\""
+  },
+  {
+    "ref_en": "Matthew 10:28",
+    "text_en": "\"And fear not them which kill the body, but are not able to kill the soul: but rather fear Him which is able to destroy both soul and body in hell.\"",
+    "ref_es": "Mateo 10:28",
+    "text_es": "\"Y no temáis a los que matan el cuerpo, mas el alma no pueden matar; temed más bien a aquel que puede destruir el alma y el cuerpo en el infierno.\""
+  },
+  {
+    "ref_en": "Matthew 10:22",
+    "text_en": "\"And ye shall be hated of all men for my name’s sake: but he that endureth to the end shall be saved.\"",
+    "ref_es": "Mateo 10:22",
+    "text_es": "\"Y seréis aborrecidos de todos por causa de mi nombre; mas el que persevere hasta el fin, éste será salvo.\""
+  }
+];
+const VERSE_BANK_L4 = [
+  {
+    "id": "l4v16",
+    "ref": "Matthew 10:16",
+    "kjv": "Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.",
+    "slides": []
+  },
+  {
+    "id": "l4v17",
+    "ref": "Matthew 10:17",
+    "kjv": "But beware of men: for they will deliver you up to the councils, and they will scourge you in their synagogues;",
+    "slides": []
+  },
+  {
+    "id": "l4v18",
+    "ref": "Matthew 10:18",
+    "kjv": "And ye shall be brought before governors and kings for my sake, for a testimony against them and the Gentiles.",
+    "slides": []
+  },
+  {
+    "id": "l4v19",
+    "ref": "Matthew 10:19",
+    "kjv": "But when they deliver you up, take no thought how or what ye shall speak: for it shall be given you in that same hour what ye shall speak.",
+    "slides": []
+  },
+  {
+    "id": "l4v20",
+    "ref": "Matthew 10:20",
+    "kjv": "For it is not ye that speak, but the Spirit of your Father which speaketh in you.",
+    "slides": []
+  },
+  {
+    "id": "l4v21",
+    "ref": "Matthew 10:21",
+    "kjv": "And the brother shall deliver up the brother to death, and the father the child: and the children shall rise up against their parents, and cause them to be put to death.",
+    "slides": []
+  },
+  {
+    "id": "l4v22",
+    "ref": "Matthew 10:22",
+    "kjv": "And ye shall be hated of all men for my name’s sake: but he that endureth to the end shall be saved.",
+    "slides": []
+  },
+  {
+    "id": "l4v23",
+    "ref": "Matthew 10:23",
+    "kjv": "But when they persecute you in this city, flee ye into another.",
+    "slides": []
+  },
+  {
+    "id": "l4v24",
+    "ref": "Matthew 10:24",
+    "kjv": "The disciple is not above his master, nor the servant above his lord.",
+    "slides": []
+  },
+  {
+    "id": "l4v25",
+    "ref": "Matthew 10:25",
+    "kjv": "It is enough for the disciple that he be as his master, and the servant as his lord. If they have called the master of the house Beelzebub, how much more shall they call them of his household?",
+    "slides": []
+  },
+  {
+    "id": "l4v26",
+    "ref": "Matthew 10:26",
+    "kjv": "Fear them not therefore: for there is nothing covered, that shall not be revealed; and hid, that shall not be known.",
+    "slides": []
+  },
+  {
+    "id": "l4v27",
+    "ref": "Matthew 10:27",
+    "kjv": "What I tell you in darkness, that speak ye in light: and what ye hear in the ear, that preach ye upon the housetops.",
+    "slides": []
+  },
+  {
+    "id": "l4v28",
+    "ref": "Matthew 10:28",
+    "kjv": "And fear not them which kill the body, but are not able to kill the soul: but rather fear Him which is able to destroy both soul and body in hell.",
+    "slides": []
+  }
+];
+const QUESTIONS_L4 = [
+  {
+    "section": "Follow the Thread",
+    "questions": [
+      {
+        "num": "1",
+        "text": "Where do I feel like I am “sheep among wolves” right now?"
+      },
+      {
+        "num": "2",
+        "text": "What does “wise as serpents, harmless as doves” correct in my current posture?"
+      },
+      {
+        "num": "3",
+        "text": "Where has pressure been positioning me, not punishing me?"
+      },
+      {
+        "num": "4",
+        "text": "What arena feels most intense right now: church pressure, public pressure, relational pressure, or internal pressure?"
+      }
+    ]
+  },
+  {
+    "section": "Mouth and Hearing",
+    "questions": [
+      {
+        "num": "1",
+        "text": "What would it look like to keep my ear tuned to God in private this week?"
+      },
+      {
+        "num": "2",
+        "text": "When I feel delivered up into pressure, what fear rises first: man, losing reputation, losing comfort, or losing control?"
+      },
+      {
+        "num": "3",
+        "text": "What would a surrendered mouth sound like in my next hard conversation?"
+      },
+      {
+        "num": "4",
+        "text": "What preparation do I need to do faithfully, without trusting preparation more than the Spirit?"
+      }
+    ]
+  },
+  {
+    "section": "Relationships and Endurance",
+    "questions": [
+      {
+        "num": "1",
+        "text": "Where have I been tempted to quit because loyalty failed?"
+      },
+      {
+        "num": "2",
+        "text": "What does endurance look like for me right now: not hype, not emotion, continued obedience?"
+      },
+      {
+        "num": "3",
+        "text": "Where do I need to move instead of sitting in discouragement?"
+      },
+      {
+        "num": "4",
+        "text": "How do I need to reset my expectations so offense does not take root?"
+      }
+    ]
+  },
+  {
+    "section": "Fear of God",
+    "questions": [
+      {
+        "num": "1",
+        "text": "What am I trying to prove to people that I should leave with God?"
+      },
+      {
+        "num": "2",
+        "text": "What does fearing God look like in a practical decision I have to make this week?"
+      },
+      {
+        "num": "3",
+        "text": "What is one concrete step I will take to endure without becoming corrupted?"
+      }
+    ]
+  }
+];
+const POLL_BANK_L4 = [
+  {
+    "id": "l4-poll-1",
+    "question": "Which part of ministry pressure feels most real right now?",
+    "options": [
+      "Religious/church pressure",
+      "Public pressure",
+      "Relational pressure",
+      "Internal pressure"
+    ],
+    "anonymous": false
+  },
+  {
+    "id": "l4-poll-2",
+    "question": "What is harder for you right now?",
+    "options": [
+      "Being wise",
+      "Staying harmless",
+      "Surrendering your mouth",
+      "Enduring to the end"
+    ],
+    "anonymous": false
+  },
+  {
+    "id": "l4-poll-3",
+    "question": "What fear tries to govern your obedience most?",
+    "options": [
+      "Fear of man",
+      "Fear of loss",
+      "Fear of conflict",
+      "Fear of being misunderstood"
+    ],
+    "anonymous": false
+  },
+  {
+    "id": "l4-poll-4",
+    "question": "Which line do you need to carry this week?",
+    "options": [
+      "Be wise, but stay clean",
+      "Pressure can be positioning",
+      "Betrayal does not cancel obedience",
+      "Rejection does not cancel assignment"
+    ],
+    "anonymous": false
+  },
+  {
+    "id": "l4-poll-5",
+    "question": "Will you take one concrete step to endure without becoming corrupted this week?",
+    "options": [
+      "Yes",
+      "I need prayer",
+      "I need counsel"
+    ],
+    "anonymous": false
+  }
+];
+
+  const LESSON4_PAYLOAD={slug:'lesson-4',label:'Lesson 4',title:'What It Takes to Make It',text:'Matthew 10:16-28',slides:LESSON4_SLIDES,notes:NOTES_L4,scriptureMap:SCRIPTURE_MAP_L4,verseBank:VERSE_BANK_L4,questions:QUESTIONS_L4,pollBank:POLL_BANK_L4};
+  function exposeLessonGlobals(){
+    try{window.LESSON1_SLIDES=LESSON1_SLIDES;}catch(e){}
+    try{window.VERSE_BANK=VERSE_BANK;}catch(e){}
+    try{window.SCRIPTURE_MAP=SCRIPTURE_MAP;}catch(e){}
+    try{window.NOTES_L1=NOTES_L1;}catch(e){}
+    try{window.QUESTIONS=QUESTIONS;}catch(e){}
+  }
+  try{
+    if(typeof HOME_LESSON_META!=='undefined'){
+      HOME_LESSON_META['lesson-4']={num:'04',label:'Lesson 4',dateShort:'July 9',dateLong:'July 9, 2026',title:'What It Takes to Make It',text:'Matthew 10:16-28',slides:'16 Slides',tagline:'Ministry has a cost. He that endureth to the end shall be saved.',reflectionTitle:'What It Takes to Make It',reflectionMeta:'4 sections · 15 reflection questions',open:true};
+    }
+  }catch(e){}
+  try{
+    const prevNormalize=normalizeLessonSlug;
+    normalizeLessonSlug=function(raw){raw=String(raw||'').toLowerCase().trim(); if(raw==='4'||raw==='lesson-4') return 'lesson-4'; return prevNormalize(raw);};
+  }catch(e){}
+  try{
+    const prevPayload=lessonPayload;
+    lessonPayload=function(slug){const key=normalizeLessonSlug(slug); return key==='lesson-4'?LESSON4_PAYLOAD:prevPayload(key);};
+  }catch(e){}
+  try{
+    const prevDateBased=dateBasedLessonSlug;
+    dateBasedLessonSlug=function(dateValue){const today=String(dateValue||isoLocalDate()); if(today>='2026-07-09') return 'lesson-4'; return prevDateBased(dateValue);};
+  }catch(e){}
+  try{
+    const prevApply=applySelectedLesson;
+    applySelectedLesson=function(slug){const lesson=prevApply(slug); exposeLessonGlobals(); return lesson;};
+  }catch(e){}
+  exposeLessonGlobals();
+
+  function spanishRef(ref){return String(ref||'').replace(/1 Timothy/g,'1 Timoteo').replace(/2 Timothy/g,'2 Timoteo').replace(/Matthew/g,'Mateo');}
+  function safeText(s){return String(s||'').replace(/&ldquo;|&rdquo;/g,'"').replace(/<[^>]*>/g,'').trim();}
+  window.pushVerseEverywhere=function(v){
+    const ref=v.ref||v.ref_en||'';
+    const kjv=safeText(v.kjv||v.text_en||v.text||'');
+    const es=v.text_es||v.rvr||(typeof getRvrForRef==='function'?getRvrForRef(ref):'')||'';
+    try{ if(typeof pushVerseToP1==='function') pushVerseToP1({ref:ref,kjv:kjv}); }catch(e){}
+    try{ if(typeof sbSend==='function') sbSend({type:'p1_overlay_show',ref:ref,kjv:kjv,lesson:(window.LESSON_SLUG||'lesson-4'),ts:Date.now()}); }catch(e){}
+    const payload={ref_en:ref,text_en:kjv,ref_es:spanishRef(ref),text_es:es||kjv};
+    try{ if(typeof pushRawScripture==='function') pushRawScripture(payload); }catch(e){}
+    try{ if(typeof sbSend==='function') sbSend({type:'scripture',scripture:payload,lesson:(window.LESSON_SLUG||'lesson-4'),ts:Date.now()}); }catch(e){}
+    try{ if(typeof renderConfidenceScripture==='function') renderConfidenceScripture(payload,'Active Scripture'); }catch(e){}
+  };
+  window.pushEverywhereMobile=function(ref,text,spanishText){window.pushVerseEverywhere({ref:ref,kjv:text,text_es:spanishText||''});};
+  window.pushVerseFromMobile=function(id,el){
+    try{ if(typeof mobileFeedback==='function') mobileFeedback('verse',el); }catch(e){}
+    const bank=(window.VERSE_BANK||[]);
+    const v=bank.find(x=>x.id===id);
+    if(!v){try{ if(typeof mobileFeedback==='function') mobileFeedback('error',el); }catch(e){} return;}
+    let es=''; try{es=(typeof getVBSpanish==='function'?getVBSpanish(v.id):'')||'';}catch(e){}
+    window.pushVerseEverywhere({ref:v.ref,kjv:v.kjv,text_es:es});
+  };
+  function patchVerseButtons(){
+    exposeLessonGlobals();
+    const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const bank=window.VERSE_BANK||[];
+    const wrap=document.getElementById('verse-bank-cards');
+    if(wrap&&bank.length){wrap.innerHTML=bank.map(v=>`<div class="vb-card" id="vbc-${esc(v.id)}"><div class="vb-ref">${esc(v.ref)}</div><div class="vb-text">${esc(v.kjv)}</div><div class="vb-actions"><button class="vb-btn p1" onclick="event.stopPropagation();pushVerseEverywhere({ref:'${esc(v.ref)}',kjv:\`${String(v.kjv||'').replace(/`/g,"'")}\`,text_es:getVBSpanish('${esc(v.id)}')});markVBPushed('${esc(v.id)}')">Push to Screens</button><button class="vb-btn p2" onclick="event.stopPropagation();pushRawScripture({ref_en:'${esc(v.ref)}',text_en:\`${String(v.kjv||'').replace(/`/g,"'")}\`,ref_es:'${esc(spanishRef(v.ref))}',text_es:getVBSpanish('${esc(v.id)}')});markVBPushed('${esc(v.id)}')">P2 Only</button></div></div>`).join('');}
+    const mw=document.getElementById('mm-verse-list');
+    if(mw&&bank.length){mw.innerHTML=bank.map(v=>`<button class="mm-v-btn" onclick="pushVerseFromMobile('${esc(v.id)}',this)"><div class="mm-v-ref">${esc(v.ref)}</div><div class="mm-v-tx">${esc(v.kjv)}</div></button>`).join('');}
+  }
+  const oldBuildVerseBank=window.buildVerseBank;
+  if(oldBuildVerseBank&&!oldBuildVerseBank.__v59){window.buildVerseBank=function(){const r=oldBuildVerseBank.apply(this,arguments);setTimeout(patchVerseButtons,0);return r;};window.buildVerseBank.__v59=true;}
+  const oldBuildMobileVerseList=window.buildMobileVerseList;
+  if(oldBuildMobileVerseList&&!oldBuildMobileVerseList.__v59){window.buildMobileVerseList=function(){const r=oldBuildMobileVerseList.apply(this,arguments);setTimeout(patchVerseButtons,0);return r;};window.buildMobileVerseList.__v59=true;}
+
+  function currentIdentityKey(){
+    let ctx={}; try{ctx=typeof getAttendeeContext==='function'?getAttendeeContext():{};}catch(e){}
+    return [window.LESSON_SLUG||'lesson-4',ctx.attendee_id||ctx.email_hash||ctx.session_id||localStorage.getItem('tm_name')||'guest'].join('::');
+  }
+  function noteKey(){return 'tm_audience_notes_'+currentIdentityKey();}
+  function slideInfoForNotes(){
+    const slides=window.LESSON1_SLIDES||LESSON1_SLIDES||[];
+    const idx=(window.onlineViewerState&&Number.isFinite(+window.onlineViewerState.slide))?+window.onlineViewerState.slide:(typeof curSlide==='number'?curSlide:0);
+    const s=slides[Math.max(0,Math.min(idx,slides.length-1))]||{};
+    const title=(typeof slidePlainTitle==='function'?(slidePlainTitle(idx)||{}).title:'')||String(s.hl||s.title||s.text||'Current Point').replace(/<[^>]+>/g,'');
+    const pts=Array.isArray(s.pts)?s.pts.map(p=>String(p).replace(/<[^>]+>/g,'').replace(/&rarr;/g,'→')).filter(Boolean):[];
+    return {idx,s,title,pts,ref:s.ref||((window.LESSON_DATA||{}).text)||'Matthew 10'};
+  }
+  function ensureAudienceNotesCard(){
+    let card=document.getElementById('online-audience-notes-card');
+    if(card) return card;
+    card=document.createElement('section'); card.id='online-audience-notes-card'; card.className='online-audience-notes-card';
+    card.innerHTML='<div class="online-audience-notes-title" id="online-audience-notes-title">Audience Notes</div><div class="online-audience-notes-kicker" id="online-audience-notes-kicker"></div><ul class="online-audience-points" id="online-audience-points"></ul><textarea class="online-audience-notes-ta" id="online-audience-notes-ta" placeholder="Write your notes here..."></textarea><div class="online-audience-notes-save" id="online-audience-notes-save">Saved to your account on this device.</div>';
+    const lower=document.getElementById('online-lower-card')||document.getElementById('online-video-card')||document.getElementById('online-viewer');
+    if(lower) lower.insertAdjacentElement('afterend',card);
+    const ta=card.querySelector('#online-audience-notes-ta');
+    let timer=null;
+    ta.addEventListener('input',()=>{
+      localStorage.setItem(noteKey(),ta.value);
+      const status=document.getElementById('online-audience-notes-save'); if(status){status.textContent='Saving...';status.classList.remove('saved');}
+      clearTimeout(timer); timer=setTimeout(saveAudienceNotesRemote,650);
+    });
+    return card;
+  }
+  async function saveAudienceNotesRemote(){
+    const ta=document.getElementById('online-audience-notes-ta'); if(!ta) return;
+    const info=slideInfoForNotes();
+    let ctx={}; try{ctx=typeof getAttendeeContext==='function'?getAttendeeContext():{};}catch(e){}
+    const payload={series_slug:'the-ministry',lesson_slug:window.LESSON_SLUG||'lesson-4',slide_index:info.idx,slide_title:info.title,notes:ta.value,name:ctx.name||localStorage.getItem('tm_name')||'Anonymous',email_hash:ctx.email_hash||'',session_id:ctx.session_id||'',attendee_id:ctx.attendee_id||''};
+    try{await fetch('/api/notes-save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});}catch(e){}
+    const status=document.getElementById('online-audience-notes-save'); if(status){status.textContent='Saved to your account.';status.classList.add('saved');}
+  }
+  function renderAudienceNotes(){
+    if(!document.body.classList.contains('online-viewer-mode') && !/\/online|\/Espanol/i.test(location.pathname)) return;
+    const card=ensureAudienceNotesCard();
+    const info=slideInfoForNotes();
+    const title=document.getElementById('online-audience-notes-title'); if(title) title.textContent='Audience Notes';
+    const kicker=document.getElementById('online-audience-notes-kicker'); if(kicker) kicker.textContent=`${info.ref} · ${info.title}`;
+    const pts=document.getElementById('online-audience-points'); if(pts) pts.innerHTML=(info.pts.length?info.pts:[info.title]).map(p=>`<li>${String(p).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</li>`).join('');
+    const ta=document.getElementById('online-audience-notes-ta'); if(ta && ta.dataset.key!==noteKey()){ta.dataset.key=noteKey(); ta.value=localStorage.getItem(noteKey())||'';}
+  }
+  const oldRenderOnlineAll=window.renderOnlineAll;
+  if(oldRenderOnlineAll&&!oldRenderOnlineAll.__v59){window.renderOnlineAll=function(){const r=oldRenderOnlineAll.apply(this,arguments);setTimeout(renderAudienceNotes,0);return r;};window.renderOnlineAll.__v59=true;}
+  const oldRenderOnlineSlide=window.renderOnlineSlide;
+  if(oldRenderOnlineSlide&&!oldRenderOnlineSlide.__v59){window.renderOnlineSlide=function(){const r=oldRenderOnlineSlide.apply(this,arguments);setTimeout(renderAudienceNotes,0);return r;};window.renderOnlineSlide.__v59=true;}
+  const oldHandleOnlineMessage=window.handleOnlineMessage;
+  if(oldHandleOnlineMessage&&!oldHandleOnlineMessage.__v59){window.handleOnlineMessage=function(msg,hydrating){const r=oldHandleOnlineMessage.apply(this,arguments);setTimeout(renderAudienceNotes,30);return r;};window.handleOnlineMessage.__v59=true;}
+  document.addEventListener('DOMContentLoaded',()=>{try{if((window.LESSON_SLUG||requestedLessonSlug())==='lesson-4') selectLesson('lesson-4',false);}catch(e){} setTimeout(()=>{patchVerseButtons();renderAudienceNotes();try{updateLandingLessonState(window.LESSON_SLUG||'lesson-4');}catch(e){}},350); setTimeout(()=>{patchVerseButtons();renderAudienceNotes();},1400);});
+  setInterval(()=>{patchVerseButtons();renderAudienceNotes();},2000);
+})();
+
+</script>
+
+<script id="v60-audience-notes-remote-load">
+(function(){
+  const qs=()=>{try{return new URLSearchParams(location.search)}catch(e){return new URLSearchParams()}};
+  function isOnline(){return /\/(online|Espanol)\b/i.test(location.pathname);}
+  function ctx(){try{return typeof getAttendeeContext==='function'?getAttendeeContext():{};}catch(e){return {};}}
+  function lesson(){return window.LESSON_SLUG||qs().get('lesson')||'lesson-4';}
+  function localKey(){const c=ctx();return ['tm_audience_notes',lesson(),c.attendee_id||c.email_hash||c.session_id||localStorage.getItem('tm_name')||'guest'].join('::');}
+  let loadedKey='';
+  async function loadRemoteNotesOnce(){
+    if(!isOnline()) return;
+    const ta=document.getElementById('online-audience-notes-ta'); if(!ta) return;
+    const key=localKey();
+    if(loadedKey===key) return;
+    loadedKey=key;
+    if(ta.value.trim()) return;
+    const c=ctx();
+    const params=new URLSearchParams({series_slug:'the-ministry',lesson_slug:lesson()});
+    if(c.attendee_id) params.set('attendee_id',c.attendee_id);
+    if(c.session_id) params.set('session_id',c.session_id);
+    if(c.email_hash) params.set('email_hash',c.email_hash);
+    if(!c.attendee_id&&!c.session_id&&!c.email_hash) return;
+    try{
+      const r=await fetch('/api/notes-list?'+params.toString(),{cache:'no-store'});
+      if(!r.ok) return;
+      const data=await r.json();
+      const note=data&&Array.isArray(data.notes)&&data.notes[0]&&data.notes[0].notes;
+      if(note && !ta.value.trim()){ta.value=note; localStorage.setItem(key,note);}
+    }catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',()=>{setTimeout(loadRemoteNotesOnce,900);setTimeout(loadRemoteNotesOnce,2500);});
+  setInterval(loadRemoteNotesOnce,2500);
+})();
+</script>
 
 </body>
 </html>
