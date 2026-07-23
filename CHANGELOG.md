@@ -32,3 +32,9 @@
 - Added Spanish audience slide translations and RVR 1960 verse text for Matthew 10:29-42.
 - Added Lesson 5 to admin and date-based lesson selection.
 - Preserved prior routes, sync, audience notes, polls, questions, and projector behavior.
+
+## v62 - Lesson 5 scripture language fix
+- Fixed Lesson 5 scripture-screen payloads so the main text is RVR Spanish.
+- Kept KJV English as the secondary text underneath.
+- Point slides now send the actual referenced Bible passage instead of repeating the English point text with a Spanish reference.
+- No other routes, lessons, polls, notes, or sync behavior changed.

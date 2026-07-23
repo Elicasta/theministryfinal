@@ -8664,7 +8664,22 @@ const L5_KJV={
 29:'Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father.',30:'But the very hairs of your head are all numbered.',31:'Fear ye not therefore, ye are of more value than many sparrows.',32:'Whosoever therefore shall confess me before men, him will I confess also before my Father which is in heaven.',33:'But whosoever shall deny me before men, him will I also deny before my Father which is in heaven.',34:'Think not that I am come to send peace on earth: I came not to send peace, but a sword.',35:'For I am come to set a man at variance against his father, and the daughter against her mother, and the daughter in law against her mother in law.',36:"And a man's foes shall be they of his own household.",37:'He that loveth father or mother more than me is not worthy of me: and he that loveth son or daughter more than me is not worthy of me.',38:'And he that taketh not his cross, and followeth after me, is not worthy of me.',39:'He that findeth his life shall lose it: and he that loseth his life for my sake shall find it.',40:'He that receiveth you receiveth me, and he that receiveth me receiveth him that sent me.',41:"He that receiveth a prophet in the name of a prophet shall receive a prophet's reward; and he that receiveth a righteous man in the name of a righteous man shall receive a righteous man's reward.",42:'And whosoever shall give to drink unto one of these little ones a cup of cold water only in the name of a disciple, verily I say unto you, he shall in no wise lose his reward.'
 };
 const L5_VERSES=Object.keys(L5_KJV).map(n=>({id:'l5v'+n,ref:'Matthew 10:'+n,kjv:L5_KJV[n],rvr:L5_RVR[n],ref_es:'Mateo 10:'+n,text_es:L5_RVR[n],slides:[]}));
-const L5_MAP=L5_SLIDES.map(s=>({ref_en:s.ref||'Matthew 10:29-42',text_en:String(s.text||s.hl||s.title||'').replace(/<[^>]+>/g,'').replace(/&ldquo;|&rdquo;/g,'"'),ref_es:String(s.ref||'Matthew 10:29-42').replace(/Matthew/g,'Mateo'),text_es:''}));
+function l5ScripturePayload(ref){
+  const raw=String(ref||'Matthew 10:29-42');
+  const match=raw.match(/Matthew\s+10:(\d+)(?:-(\d+))?/i);
+  const start=match?Number(match[1]):29;
+  const end=match&&match[2]?Number(match[2]):start;
+  const kjv=[];
+  const rvr=[];
+  for(let n=start;n<=end;n++){
+    if(L5_KJV[n])kjv.push(L5_KJV[n]);
+    if(L5_RVR[n])rvr.push(L5_RVR[n]);
+  }
+  const refEn=`Matthew 10:${start}${end!==start?'-'+end:''}`;
+  const refEs=`Mateo 10:${start}${end!==start?'-'+end:''}`;
+  return {ref_en:refEn,text_en:kjv.join(' '),ref_es:refEs,text_es:rvr.join(' '),kjv:kjv.join(' '),rvr:rvr.join(' ')};
+}
+const L5_MAP=L5_SLIDES.map(s=>l5ScripturePayload(s.ref));
 const L5_Q=[
 'Where do I live like God is unaware of me?','What fear has been driving my decisions lately?','What does my conduct confess when nobody is watching?','Where have I been tempted to keep quiet about Jesus to protect comfort or approval?','Where has following Jesus created tension?','What would it look like to respond like Christ in that tension?','What cross am I avoiding?','What is one specific surrender God has been asking of me?','What cup of cold water act can I do this week?','Who can I support, encourage, or strengthen in the work?'
 ].map((q,i)=>({id:'l5q'+(i+1),text:q,question:q}));
