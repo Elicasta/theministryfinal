@@ -3405,7 +3405,20 @@ function clearP2(){
   flashP2('Cleared');
 }
 function broadcastScripture(idx){
-  const sc=SCRIPTURE_MAP[idx];if(!sc)return;
+  // Only actual scripture slides may drive the dedicated scripture output.
+  // Every non-scripture slide clears P2 so a previous verse or broad lesson range cannot remain onscreen.
+  const slide=Array.isArray(LESSON1_SLIDES)?LESSON1_SLIDES[idx]:null;
+  if(!slide || slide.t!=='sc'){
+    sbSend({type:'scripture_clear',lesson:(window.LESSON_SLUG||'lesson-1')});
+    flashP2('Cleared');
+    return;
+  }
+  const sc=Array.isArray(SCRIPTURE_MAP)?SCRIPTURE_MAP[idx]:null;
+  if(!sc){
+    sbSend({type:'scripture_clear',lesson:(window.LESSON_SLUG||'lesson-1')});
+    flashP2('Cleared');
+    return;
+  }
   pushRawScripture(sc);
 }
 function pushRawScripture(sc){
@@ -8679,7 +8692,9 @@ function l5ScripturePayload(ref){
   const refEs=`Mateo 10:${start}${end!==start?'-'+end:''}`;
   return {ref_en:refEn,text_en:kjv.join(' '),ref_es:refEs,text_es:rvr.join(' '),kjv:kjv.join(' '),rvr:rvr.join(' ')};
 }
-const L5_MAP=L5_SLIDES.map(s=>l5ScripturePayload(s.ref));
+// Only actual scripture slides should drive the dedicated scripture screen.
+// Point, setup, and closing slides must not send an entire reference range.
+const L5_MAP=L5_SLIDES.map(s=>s.t==='sc'?l5ScripturePayload(s.ref):null);
 const L5_Q=[
 'Where do I live like God is unaware of me?','What fear has been driving my decisions lately?','What does my conduct confess when nobody is watching?','Where have I been tempted to keep quiet about Jesus to protect comfort or approval?','Where has following Jesus created tension?','What would it look like to respond like Christ in that tension?','What cross am I avoiding?','What is one specific surrender God has been asking of me?','What cup of cold water act can I do this week?','Who can I support, encourage, or strengthen in the work?'
 ].map((q,i)=>({id:'l5q'+(i+1),text:q,question:q}));
@@ -8704,6 +8719,7 @@ const L5_ES=[
 {t:'te',n:'05',hl:'Nada hecho para Jesús pasa <span class="acc">desapercibido.</span>',pts:['Recibe y apoya a quienes Jesús envía.','Honra la justicia.','Fortalece a alguien que hace la obra.','Ningún acto sincero de servicio es demasiado pequeño para Dios.'],ref:'Mateo 10:40-42'},
 {t:'final',kicker:'Línea Final',text:'Sirve con valor. Eres conocido, y <span class="acc">Dios lleva la cuenta.</span>',sub:'El Valor. La Confesión. La Oposición. El Sacrificio. La Recompensa.',ref:'Mateo 10:29-42'}
 ];
+
 const PAYLOAD={slug:'lesson-5',label:'Lesson 5',title:'Matthew 10: The Five Outcomes of Ministry',text:'Matthew 10:29-42',slides:L5_SLIDES,notes:L5_NOTES,scriptureMap:L5_MAP,verseBank:L5_VERSES,questions:L5_Q,pollBank:L5_POLLS};
 try{HOME_LESSON_META['lesson-5']={num:'05',label:'Lesson 5',dateShort:'July 16',dateLong:'July 16, 2026',title:'The Five Outcomes of Ministry',text:'Matthew 10:29-42',slides:'14 Slides',tagline:'Every action has a reaction.',reflectionTitle:'The Five Outcomes of Ministry',reflectionMeta:'10 reflection questions',open:true};}catch(e){}
 try{const p=normalizeLessonSlug;normalizeLessonSlug=function(r){r=String(r||'').toLowerCase().trim();if(r==='5'||r==='lesson-5')return 'lesson-5';return p(r);};}catch(e){}

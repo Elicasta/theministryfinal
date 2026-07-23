@@ -1,3 +1,9 @@
+## v64 - All-slide scripture output guard
+- Applied the scripture-screen guard to every lesson and every slide.
+- Only slides with type `sc` can send content to `/scriptures`.
+- Cover, point, setup, question, poll, and closing slides now clear `/scriptures` instead of sending a broad passage or leaving the previous verse onscreen.
+- No other presentation, audience, poll, notes, route, or Supabase behavior changed.
+
 
 ## v61 - Audience Notes UI visible fix
 
@@ -38,3 +44,9 @@
 - Kept KJV English as the secondary text underneath.
 - Point slides now send the actual referenced Bible passage instead of repeating the English point text with a Spanish reference.
 - No other routes, lessons, polls, notes, or sync behavior changed.
+
+## v63 - Lesson 5 scripture-slide-only fix
+- Lesson 5 now sends scripture to `/scriptures` only on actual scripture slides.
+- Setup, point, question, and closing slides no longer generate the full Matthew 10:29-42 passage.
+- Auto P2 clears the scripture output on Lesson 5 non-scripture slides.
+- No other lesson, route, UI, poll, notes, or sync behavior changed.
