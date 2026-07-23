@@ -25,3 +25,10 @@
 - Added the missing Lesson 4 button to the presenter/admin command bar.
 - Marked Lesson 4 open in base lesson metadata so admin/home routes do not treat it as locked.
 - Added a small runtime guard that reinserts the Lesson 4 admin button if older layout code redraws the command bar.
+
+## v61 - Final Lesson 5
+- Added Lesson 5: Matthew 10: The Five Outcomes of Ministry.
+- Added 14 slides, 3 polls, 10 reflection questions, presenter notes, and verse bank for Matthew 10:29-42.
+- Added Spanish audience slide translations and RVR 1960 verse text for Matthew 10:29-42.
+- Added Lesson 5 to admin and date-based lesson selection.
+- Preserved prior routes, sync, audience notes, polls, questions, and projector behavior.
