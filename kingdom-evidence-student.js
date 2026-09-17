@@ -1,4 +1,4 @@
-const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL='kingdom-evidence-chapter-11-v1',SERIES='kingdom-evidence',LESSON='chapter-11-king-confronts-expectations',SYNC_ID=111;
+const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL='kingdom-evidence-chapter-11-v1',SERIES='kingdom-evidence',LESSON='chapter-11-king-confronts-expectations',SYNC_ID=1;
 const {SLIDES:RAW_SLIDES,POLLS,PROMPTS}=window.KE11_EVIDENCE;
 function studentify(s){let o={kicker:s.kicker||'',title:s.title||s.ref||s.kicker||'Kingdom Evidence',ref:s.ref||'',sub:s.sub||'',body:'',points:[]};if(s.type==='verse')o.body=s.text||'';else if(s.type==='contrast')o.points=[s.left||'',s.right||''];else if(s.type==='points'||s.type==='illustration')o.points=s.points||[];else if(s.type==='steps')o.points=s.steps||[];else if(s.type==='check')o.points=(s.items||[]).map(x=>x[0]+': '+x[1]);else if(s.type==='levels')o.points=(s.levels||[]).map(x=>x[1]+' — '+x[2]);else if(s.type==='columns')o.points=[(s.leftTitle||'')+': '+(s.left||[]).join(', '),(s.rightTitle||'')+': '+(s.right||[]).join(', ')];else o.body=s.sub||'';return o}
 const SLIDES=RAW_SLIDES.map(studentify);
