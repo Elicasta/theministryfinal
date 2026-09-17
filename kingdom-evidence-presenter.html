@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Kingdom Evidence · Presenter Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kp-alignment.css">
+<link rel="stylesheet" href="/kingdom-evidence.css">
+<link rel="stylesheet" href="/kingdom-evidence-presenter.css">
+</head>
+<body class="presenter-body">
+<header class="presenter-top">
+  <div>
+    <div class="presenter-brand">KINGDOM <b>EVIDENCE</b></div>
+    <div class="presenter-subtitle">Chapter 11 · The King Confronts Expectations</div>
+  </div>
+  <div class="presenter-top-right">
+    <div class="presenter-live"><span id="presenter-dot" class="dot"></span><span id="presenter-sync">Connecting</span></div>
+    <div id="presenter-timer" class="presenter-timer">00:00</div>
+  </div>
+</header>
+
+<main class="presenter-shell">
+  <article id="manuscript" class="manuscript">
+    <div class="loading-card">Loading presenter notes…</div>
+  </article>
+
+  <aside class="presenter-rail">
+    <section class="rail-card live-card">
+      <div class="rail-ey">Live Output</div>
+      <div id="live-slide-num" class="live-slide-num">STANDBY</div>
+      <div id="live-slide-title" class="live-slide-title">The King Confronts Expectations</div>
+      <div id="live-slide-meta" class="live-slide-meta">Matthew 11:1–19</div>
+      <div class="rail-next"><span>Next</span><strong id="live-next-title">Slide 1</strong></div>
+      <div class="rail-controls">
+        <button id="prev-btn" class="pbtn" type="button">← Prev</button>
+        <button id="next-btn" class="pbtn primary" type="button">Start</button>
+        <button id="black-btn" class="pbtn" type="button">Black</button>
+        <button id="clear-btn" class="pbtn" type="button">Clear</button>
+      </div>
+    </section>
+
+    <details class="rail-card" open>
+      <summary>Polls <span id="poll-total" class="rail-badge">0</span></summary>
+      <div id="rail-polls" class="rail-detail-body"></div>
+    </details>
+
+    <details class="rail-card">
+      <summary>Scripture Bank</summary>
+      <div class="rail-detail-body">
+        <input id="scripture-search" class="presenter-input" type="search" placeholder="Search reference or words">
+        <div id="scripture-results" class="scripture-results"></div>
+      </div>
+    </details>
+
+    <details class="rail-card">
+      <summary>Anonymous Questions <span id="question-total" class="rail-badge">0</span></summary>
+      <div id="rail-questions" class="rail-detail-body"></div>
+    </details>
+
+    <section class="rail-card text-tools">
+      <div class="rail-ey">Reading Size</div>
+      <div class="text-size-row">
+        <button id="text-smaller" class="pbtn" type="button">A−</button>
+        <button id="text-reset" class="pbtn" type="button">Reset</button>
+        <button id="text-larger" class="pbtn" type="button">A+</button>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<script src="/kingdom-evidence-data.js"></script>
+<script src="/kingdom-evidence-manuscript.js"></script>
+<script src="/kingdom-evidence-presenter.js"></script>
+</body>
+</html>
