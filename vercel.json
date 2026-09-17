@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/obs16.9", "destination": "/obs-overlay.html" },
     { "source": "/obs9.16", "destination": "/obs-overlay.html" },
+    { "source": "/evidence/presenter", "destination": "/kingdom-evidence-presenter.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
