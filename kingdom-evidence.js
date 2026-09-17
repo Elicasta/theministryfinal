@@ -5,7 +5,7 @@ const {SLIDES,VERSES,POLLS}=window.KE11_EVIDENCE;
 const SESSION_TTL=4*60*60*1000;
 let state={room:ROOM,started:false,slide:0,overlay:null,black:false,activePoll:null,activeQuestion:null,startedAt:null,timerStoppedAt:null,session:'ke11_'+Date.now().toString(36),seq:0,ts:Date.now()};
 let bc=null,sbUrl='',sbKey='',sbClient=null,sbChannel=null,writeChain=Promise.resolve(),lastSeq=0,lastSession='',lastTs=0,questions=[],votes=[];
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function fmt(s){return esc(s).replace(/\n/g,'<br>')}
 function titleOf(s){return s.title||s.ref||s.text||s.kicker||'Slide'}
 function qr(url){return 'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='+encodeURIComponent(url)}
@@ -65,9 +65,9 @@ function setStatus(ok,label){const d=document.getElementById('r-dot');if(!d)retu
 async function readLatest(){if(!sbUrl||!sbKey)return;try{const r=await fetch(sbUrl+`/rest/v1/sync_state?id=eq.${SYNC_ID}&select=payload`,{headers:{apikey:sbKey,Authorization:'Bearer '+sbKey},cache:'no-store'}),rows=await r.json(),raw=rows?.[0]?.payload,msg=typeof raw==='string'?JSON.parse(raw):raw;if(msg?.type==='kingdom_evidence_11_state'&&msg.room===ROOM&&Date.now()-(msg.state?.ts||0)<SESSION_TTL)handle(msg)}catch(e){}}
 async function initNetwork(){try{const r=await fetch('/api/config',{cache:'no-store'}),c=await r.json();sbUrl=c.supabaseUrl||'';sbKey=c.supabaseAnonKey||''}catch(e){}if(!sbUrl||!sbKey){setStatus(false,'Local only');return}await readLatest();const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=()=>{try{sbClient=window.supabase.createClient(sbUrl,sbKey);sbChannel=sbClient.channel('kingdom-evidence-11-room').on('postgres_changes',{event:'*',schema:'public',table:'sync_state',filter:`id=eq.${SYNC_ID}`},p=>{try{const raw=p.new?.payload,msg=typeof raw==='string'?JSON.parse(raw):raw;handle(msg)}catch(e){}}).subscribe(x=>{if(x==='SUBSCRIBED')setStatus(true,'Live sync')})}catch(e){}};document.head.appendChild(sc);setInterval(readLatest,3000)}
 function goTo(i){const target=Math.max(0,Math.min(i,SLIDES.length-1)),now=Date.now(),wasStarted=state.started;if(!wasStarted){state.started=true;state.startedAt=now;state.timerStoppedAt=null}else if(state.timerStoppedAt&&target<SLIDES.length-1){state.startedAt=Number(state.startedAt||now)+(now-state.timerStoppedAt);state.timerStoppedAt=null}state.slide=target;if(target===SLIDES.length-1&&state.startedAt&&!state.timerStoppedAt)state.timerStoppedAt=now;state.black=false;clearModes();send()}
-function resetLesson(){state.started=false;state.slide=0;state.overlay=null;state.black=false;state.activePoll=null;state.activeQuestion=null;state.startedAt=null;state.timerStoppedAt=null;state.startedAt=null;state.session='ke11_'+Date.now().toString(36);send()}
+function resetLesson(){state.started=false;state.slide=0;state.overlay=null;state.black=false;state.activePoll=null;state.activeQuestion=null;state.startedAt=null;state.timerStoppedAt=null;state.session='ke11_'+Date.now().toString(36);send()}
 function nextSlide(){if(state.overlay||state.activePoll||state.activeQuestion){clearTakeover();return}if(!state.started){goTo(0);return}if(state.slide<SLIDES.length-1){goTo(state.slide+1);return}resetLesson()}
-function prevSlide(){if(state.overlay||state.activePoll||state.activeQuestion){clearTakeover();return}if(!state.started)return;if(state.slide>0)goTo(state.slide-1)}
+function prevSlide(){if(state.overlay||state.activePoll||state.activeQuestion){clearTakeover();return}if(!state.started)return;if(state.slide===0){resetLesson();return}goTo(state.slide-1)}
 function toggleBlack(){state.black=!state.black;if(state.black)clearModes();send()}
 function clearTakeover(){clearModes();state.black=false;send()}
 function pushVerse(i){const v=VERSES[i];state.overlay={ref:v.ref,text:v.text};state.black=false;state.activePoll=null;state.activeQuestion=null;send()}
