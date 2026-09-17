@@ -1,4 +1,4 @@
-const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL='kingdom-evidence-chapter-11-v1',SERIES='kingdom-evidence',LESSON='chapter-11-king-confronts-expectations',SYNC_ID=111;
+const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL='kingdom-evidence-chapter-11-v1',SERIES='kingdom-evidence',LESSON='chapter-11-king-confronts-expectations',SYNC_ID=1;
 const STUDENT_URL=location.origin+'/evidence/',GUIDE_URL='https://apostolicguide.com/';
 const view=(new URLSearchParams(location.search).get('view')||'remote').toLowerCase();
 const {SLIDES,VERSES,POLLS}=window.KE11_EVIDENCE;
