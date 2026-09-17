@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Kingdom Evidence · Chapter 11 Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/alignment-student.css">
+<style>
+:root{--bg:#04101d;--panel:#081a2d;--panel2:#0d2742;--ink:#f7fbff;--muted:#8faecc;--line:#21486d;--gold:#61c7ff;--sage:#b9e6ff}
+body{background:radial-gradient(circle at 85% 0,rgba(97,199,255,.14),transparent 30%),linear-gradient(180deg,#04101d,#07182a)}
+.gate{background:radial-gradient(circle at 70% 15%,rgba(97,199,255,.18),transparent 32%),#03101d}
+.card{background:linear-gradient(180deg,rgba(8,26,45,.97),rgba(7,22,38,.97));border-color:#21486d}
+.btn.primary{background:linear-gradient(135deg,#8ad9ff,#54bfff);border-color:#79d1ff;color:#03213a}
+.choice.selected{border-color:#61c7ff!important;background:rgba(97,199,255,.14)!important}
+.bar span{background:linear-gradient(90deg,#7fd7ff,#4dbbff)!important}
+</style>
+</head>
+<body>
+<div id="gate" class="gate">
+  <div class="gate-box">
+    <div class="ey">Kingdom Evidence · Chapter 11</div>
+    <div class="gate-title">THE KING CONFRONTS <b>EXPECTATIONS</b></div>
+    <div class="gate-copy">Follow Matthew 11:1–19 live, answer reflection prompts and polls, and ask an anonymous question at any point.</div>
+    <div class="ey">Email</div>
+    <input id="email" class="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+    <button class="btn primary" style="width:100%;margin-top:9px" onclick="enter()">Enter Lesson</button>
+    <div id="gate-err" class="err hidden"></div>
+    <div class="small">Email identifies your saved reflection responses. Anonymous questions are submitted without your email attached.</div>
+  </div>
+</div>
+
+<header class="top">
+  <div class="brand">KINGDOM <b>EVIDENCE</b></div>
+  <div class="live"><span id="dot" class="dot"></span><span id="sync">Connecting</span></div>
+</header>
+
+<main class="shell">
+<section class="card">
+  <div id="live-k" class="ey">Waiting for lesson</div>
+  <div id="live-title" class="title">The King Confronts Expectations</div>
+  <div id="live-sub" class="sub">Matthew 11:1–19</div>
+  <div id="live-ref" class="ref">KJV</div>
+  <div id="live-body" class="body">Jesus does not change to fit people’s expectations. People must decide what they will do with the revelation they have received.</div>
+  <ul id="live-points" class="points hidden"></ul>
+</section>
+
+<section id="poll-zone"></section>
+<section id="prompt-zone"></section>
+
+<section class="card">
+  <div class="progress">
+    <div><div class="ey">Reflection Progress</div><div>Saved responses</div></div>
+    <strong id="prog">0/5</strong>
+  </div>
+  <div class="bar"><span id="progbar" style="width:0"></span></div>
+</section>
+
+<section class="card ask">
+  <div class="ey">Anonymous Ask a Question</div>
+  <div class="prompt-q">Have a question about John, expectations, evidence, or the passage?</div>
+  <div class="hint">Send it anonymously. The presenter can display it on the main screen.</div>
+  <textarea id="ask" class="ta" placeholder="Type your question..."></textarea>
+  <div class="actions"><button class="btn" onclick="askQuestion()">Send anonymously</button><span id="ask-state" class="state"></span></div>
+  <div class="privacy">The question request contains no student email.</div>
+</section>
+
+<div class="footer">Kingdom Evidence · Chapter 11 · Matthew 11:1–19</div>
+</main>
+
+<script src="/kingdom-evidence-data.js"></script>
+<script src="/kingdom-evidence-student.js"></script>
+</body>
+</html>
