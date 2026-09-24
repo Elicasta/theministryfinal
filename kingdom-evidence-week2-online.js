@@ -1,6 +1,6 @@
 (()=>{
 const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL=ROOM,SYNC_ID=1,TYPE='kingdom_evidence_11_state',D={week1:window.KE11_EVIDENCE,week2:window.KE11_WEEK2};
-let state={room:ROOM,section:'week2',started:false,slide:0,activePoll:null,overlay:null},sbUrl='',sbKey='',lastTs=0,bc=null;
+let state={room:ROOM,section:'week2',started:false,slide:0,activePoll:null,overlay:null},sbUrl='',sbKey='',sbClient=null,rtChannel=null,lastTs=0,bc=null;
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),deck=sec=>D[sec||state.section]||D.week2;
 function studentify(s){let o={kicker:s.kicker||'',title:s.title||s.ref||s.kicker||'Kingdom Evidence',ref:s.ref||'',sub:s.sub||'',body:'',points:[]};if(s.type==='verse')o.body=s.text||'';else if(s.type==='contrast')o.points=[s.left||'',s.right||''];else if(s.type==='points'||s.type==='illustration')o.points=s.points||[];else if(s.type==='steps')o.points=s.steps||[];else if(s.type==='check')o.points=(s.items||[]).map(x=>x[0]+': '+x[1]);else if(s.type==='columns')o.points=[(s.leftTitle||'')+': '+(s.left||[]).join(', '),(s.rightTitle||'')+': '+(s.right||[]).join(', ')];else o.body=s.sub||'';return o}
 function render(){const sec=state.section||'week2',ss=deck(sec).SLIDES.map(studentify),i=state.started?Math.max(0,Math.min(Number(state.slide)||0,ss.length-1)):0,s=ss[i]||ss[0];$('live-k').textContent=state.started?(sec==='week1'?'Week 1 · Matthew 11:1–19':'Week 2 · Matthew 11:20–30'):'Waiting for lesson';if(state.overlay){$('live-title').textContent=state.overlay.ref;$('live-ref').textContent='Scripture';$('live-sub').textContent=state.overlay.text;$('live-points').innerHTML=''}else{$('live-title').textContent=s.title;$('live-ref').textContent=s.ref||'';$('live-sub').textContent=s.body||s.sub||'';$('live-points').innerHTML=(s.points||[]).map(x=>'<li>'+esc(x)+'</li>').join('')}const z=$('poll-zone');if(state.activePoll?.id){const p=[...D.week1.POLLS,...D.week2.POLLS].find(x=>x.id===state.activePoll.id);if(p){if(state.activePoll.mode==='results'){const c=state.activePoll.results||{},t=state.activePoll.total||0;z.innerHTML='<div class="poll"><div class="ey">Live Results · '+t+' responses</div><strong>'+esc(p.question)+'</strong>'+p.options.map(o=>'<div class="poll-option">'+esc(o)+' · '+(c[o]||0)+'</div>').join('')+'</div>'}else z.innerHTML='<div class="poll"><div class="ey">Live Poll</div><strong>'+esc(p.question)+'</strong>'+p.options.map(o=>'<div class="poll-option">'+esc(o)+'</div>').join('')+'</div>';return}}z.innerHTML=''}
@@ -8,6 +8,21 @@ function handle(m){if(m?.type!==TYPE||m.room!==ROOM||!m.state)return;const ts=Nu
 async function readLatest(){if(!sbUrl||!sbKey)return;try{const r=await fetch(sbUrl+'/rest/v1/sync_state?id=eq.'+SYNC_ID+'&select=payload',{headers:{apikey:sbKey,Authorization:'Bearer '+sbKey},cache:'no-store'}),rows=await r.json(),raw=rows?.[0]?.payload,m=typeof raw==='string'?JSON.parse(raw):raw;if(m?.type===TYPE&&m.room===ROOM&&Date.now()-(m.state?.ts||0)<14400000){handle(m);$('sync').textContent='Following live'}}catch(e){}}
 function embed(raw){raw=String(raw||'').trim();if(!raw)return'';try{const u=new URL(raw,location.origin),h=u.hostname.replace(/^www\./,'').toLowerCase();if(h==='youtu.be'){const id=u.pathname.split('/').filter(Boolean)[0];return id?'https://www.youtube.com/embed/'+id:''}if(h.includes('youtube.com')){if(u.pathname.startsWith('/embed/'))return'https://www.youtube.com'+u.pathname+u.search;if(u.pathname.startsWith('/live/')){const id=u.pathname.split('/').filter(Boolean)[1];return id?'https://www.youtube.com/embed/'+id:''}const id=u.searchParams.get('v');if(id)return'https://www.youtube.com/embed/'+id}return u.href}catch(e){return raw}}
 async function loadStream(){try{const r=await fetch('/api/stream-config?series_slug=kingdom-evidence&lesson_slug=chapter-11-week-2-what-will-you-do',{cache:'no-store'}),d=await r.json(),c=d.lesson_config||{},src=embed(c.embed_url),frame=$('video-frame');$('video-status').textContent=(c.status||'starting-soon').replace(/-/g,' ').toUpperCase();$('video-title').textContent=c.title||'Kingdom Evidence · Week 2';if(src)frame.innerHTML='<iframe src="'+esc(src)+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Kingdom Evidence Week 2"></iframe>';else frame.innerHTML='<div class="placeholder"><strong>'+(c.status==='offline'?'OFFLINE':'STARTING SOON')+'</strong><span>The YouTube stream will appear here.</span></div>'}catch(e){}}
-async function init(){try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}try{const r=await fetch('/api/config',{cache:'no-store'}),c=await r.json();sbUrl=c.supabaseUrl||'';sbKey=c.supabaseAnonKey||''}catch(e){}render();await readLatest();await loadStream();setInterval(readLatest,3000);setInterval(loadStream,12000)}
+async function init(){
+ try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}
+ try{const r=await fetch('/api/config',{cache:'no-store'}),c=await r.json();sbUrl=c.supabaseUrl||'';sbKey=c.supabaseAnonKey||''}catch(e){}
+ render();await readLatest();await loadStream();
+ if(sbUrl&&sbKey){
+   const startRealtime=()=>{try{
+     sbClient=window.supabase.createClient(sbUrl,sbKey,{realtime:{params:{eventsPerSecond:20}}});
+     rtChannel=sbClient.channel('kingdom-evidence-11-live')
+      .on('broadcast',{event:'state'},({payload})=>{handle(payload);$('sync').textContent='Following live'})
+      .on('postgres_changes',{event:'*',schema:'public',table:'sync_state',filter:'id=eq.'+SYNC_ID},p=>{try{const raw=p.new?.payload,m=typeof raw==='string'?JSON.parse(raw):raw;handle(m)}catch(e){}})
+      .subscribe(s=>{if(s==='SUBSCRIBED')$('sync').textContent='Following live'});
+   }catch(e){}};
+   if(window.supabase)startRealtime();else{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=startRealtime;document.head.appendChild(sc)}
+ }
+ setInterval(readLatest,5000);setInterval(loadStream,12000);
+}
 init();
 })();

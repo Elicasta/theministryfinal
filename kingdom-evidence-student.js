@@ -1,6 +1,6 @@
 const ROOM='kingdom-evidence-chapter-11-v1',CHANNEL=ROOM,SERIES='kingdom-evidence',LESSON='chapter-11-king-confronts-expectations',SYNC_ID=1,D={week1:window.KE11_EVIDENCE,week2:window.KE11_WEEK2};
 let email='',sessionId=localStorage.getItem('ke11_student_session')||('ke11_'+(crypto.randomUUID?crypto.randomUUID():Date.now()+Math.random().toString(16).slice(2)));localStorage.setItem('ke11_student_session',sessionId);
-let state={room:ROOM,section:'week1',started:false,slide:0,activePoll:null},bc=null,sbUrl='',sbKey='',lastTs=0;
+let state={room:ROOM,section:'week1',started:false,slide:0,activePoll:null},bc=null,sbUrl='',sbKey='',sbClient=null,rtChannel=null,lastTs=0;
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),valid=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim());
 const deck=sec=>D[sec||state.section]||D.week1,slides=sec=>deck(sec).SLIDES,polls=sec=>deck(sec).POLLS,prompts=sec=>deck(sec).PROMPTS||[];
 const allPrompts=()=>[...prompts('week1').map(p=>({...p,_sec:'week1'})),...prompts('week2').map(p=>({...p,_sec:'week2'}))];
@@ -19,7 +19,20 @@ async function enter(){const v=String($('email').value||'').trim().toLowerCase()
 async function askQuestion(){const ta=$('ask'),st=$('ask-state'),text=String(ta.value||'').trim();if(!text){st.textContent='Type a question first';return}st.textContent='Sending…';try{const r=await fetch('/api/question-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'ke11_q_'+Date.now()+'_'+Math.random().toString(16).slice(2),text,series_slug:SERIES,lesson_slug:LESSON,name:'Anonymous',anonymous:true})});if(!r.ok)throw new Error();ta.value='';st.textContent='Sent anonymously';st.classList.add('ok');setTimeout(()=>st.textContent='',2200)}catch(e){st.textContent='Could not send'}}
 function handle(msg){if(msg?.type!=='kingdom_evidence_11_state'||msg.room!==ROOM||!msg.state)return;const ts=Number(msg.state.ts)||0;if(ts&&lastTs&&ts<lastTs)return;lastTs=Math.max(lastTs,ts);state={...state,...msg.state,section:msg.state.section||'week1'};render()}
 async function readLatest(){if(!sbUrl||!sbKey)return;try{const r=await fetch(sbUrl+'/rest/v1/sync_state?id=eq.'+SYNC_ID+'&select=payload',{headers:{apikey:sbKey,Authorization:'Bearer '+sbKey},cache:'no-store'}),rows=await r.json(),raw=rows?.[0]?.payload,msg=typeof raw==='string'?JSON.parse(raw):raw;if(msg?.type==='kingdom_evidence_11_state'&&msg.room===ROOM&&Date.now()-(msg.state?.ts||0)<14400000){handle(msg);$('dot').classList.add('on');$('sync').textContent='Following live'}}catch(e){}}
-async function initNet(){try{const r=await fetch('/api/config',{cache:'no-store'}),c=await r.json();sbUrl=c.supabaseUrl||'';sbKey=c.supabaseAnonKey||''}catch(e){}if(!sbUrl){$('sync').textContent='Local only';return}await readLatest();setInterval(readLatest,3000)}
+async function initNet(){
+ try{const r=await fetch('/api/config',{cache:'no-store'}),c=await r.json();sbUrl=c.supabaseUrl||'';sbKey=c.supabaseAnonKey||''}catch(e){}
+ if(!sbUrl||!sbKey){$('sync').textContent='Local only';return}
+ await readLatest();
+ const startRealtime=()=>{try{
+   sbClient=window.supabase.createClient(sbUrl,sbKey,{realtime:{params:{eventsPerSecond:20}}});
+   rtChannel=sbClient.channel('kingdom-evidence-11-live')
+    .on('broadcast',{event:'state'},({payload})=>{handle(payload);$('dot').classList.add('on');$('sync').textContent='Live'})
+    .on('postgres_changes',{event:'*',schema:'public',table:'sync_state',filter:'id=eq.'+SYNC_ID},p=>{try{const raw=p.new?.payload,m=typeof raw==='string'?JSON.parse(raw):raw;handle(m)}catch(e){}})
+    .subscribe(s=>{if(s==='SUBSCRIBED'){$('dot').classList.add('on');$('sync').textContent='Live'}});
+ }catch(e){}};
+ if(window.supabase)startRealtime();else{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=startRealtime;document.head.appendChild(sc)}
+ setInterval(readLatest,5000);
+}
 function bind(){document.addEventListener('input',e=>{const ta=e.target.closest('[data-prompt]');if(ta)draft(ta.dataset.sec,ta.dataset.prompt,ta.value)});document.addEventListener('click',e=>{const s=e.target.closest('[data-save-id]');if(s){save(s.dataset.saveSec,s.dataset.saveId);return}const v=e.target.closest('[data-vote-id]');if(v){vote(v.dataset.voteId,v.dataset.voteAnswer)}})}
 function init(){const saved=localStorage.getItem('ke11_student_email')||'';if(valid(saved)){email=saved;$('email').value=saved;$('gate').classList.add('hidden');fetch('/api/evidence-participation',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'checkin',email,session_id:sessionId})}).catch(()=>{})}try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}bind();render();initNet()}
 init();
