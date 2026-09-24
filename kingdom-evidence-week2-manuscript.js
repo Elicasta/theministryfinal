@@ -1,325 +1,297 @@
 window.KE11_WEEK2_MANUSCRIPT=[
   {
     "slide": 0,
-    "title": "WHAT WILL YOU DO WITH WHAT YOU HAVE SEEN?",
+    "title": "Greater Revelation, Greater Responsibility",
     "refs": [],
     "polls": [],
-    "html": "<p>The first half of Matthew 11 dealt with expectation. John knew who Jesus was, but what Jesus was doing did not completely match what John expected. Jesus pointed him back to the evidence. Week 2 moves from rejection into accountability: What did you do with what you were shown?</p>"
+    "html": "<p><strong>Text: Matthew 11:20–30 (KJV)</strong></p><p>Week 2 moves from the question of reception to the responsibility created by revelation. The central principle is simple: <strong>greater revelation creates greater responsibility.</strong></p>"
   },
   {
     "slide": 1,
-    "title": "GREATER REVELATION CREATES GREATER RESPONSIBILITY.",
+    "title": "Passage Outline",
     "refs": [],
     "polls": [],
-    "html": "<p>Greater revelation creates greater responsibility. Revelation is a privilege, but every privilege carries responsibility. Once I know, I have to decide what I am going to do with what I know.</p>"
+    "html": "<p>Matthew 11:20–30 moves through four major sections:</p><ol><li>Jesus rebukes the cities that did not repent (vv. 20–24).</li><li>Jesus explains how revelation is received (vv. 25–26).</li><li>Jesus reveals the relationship between the Father and the Son (v. 27).</li><li>Jesus invites the weary to Himself (vv. 28–30).</li></ol>"
   },
   {
     "slide": 2,
-    "title": "FROM QUESTIONING TO REST",
+    "title": "Connection to Part One",
     "refs": [],
     "polls": [],
-    "html": "<p>Matthew 11 moves through Questioning, Offense, Rejection, Accountability, Revelation, and Rest. Week 1 dealt with expectations. Week 2 deals with response.</p>"
+    "html": "<p>Matthew 11:1–19 focused on reception. John struggled because the works of Christ did not fully match his expectations. Jesus pointed John back to the evidence of His ministry and to Scripture. The generation rejected both John and Jesus.</p><p>The problem was not lack of evidence. It was unwillingness to receive what God was revealing.</p><p>Now the passage moves: <strong>revelation received → revelation rejected → accountability increases → the humble receive → Jesus reveals the Father → Jesus invites the weary to come.</strong></p>"
   },
   {
     "slide": 3,
-    "title": "WHAT DID YOU DO WITH WHAT YOU WERE SHOWN?",
+    "title": "The Central Question",
     "refs": [],
     "polls": [],
-    "html": "<p>The evidence has already been given. The issue is no longer whether Jesus has revealed enough. The question is what people do with what they have seen.</p>"
+    "html": "<p>The central question is not whether God has revealed enough. The question is: <strong>What will people do with the revelation they have received?</strong></p><p>The cities had seen mighty works. The wise had heard the teaching. Jesus had revealed the Father. The invitation was open. The responsibility was now theirs.</p>"
   },
   {
     "slide": 4,
-    "title": "Matthew 11:20",
+    "title": "Jesus Rebukes the Cities",
     "refs": [
       "Matthew 11:20"
     ],
     "polls": [],
-    "html": "<p>Jesus rebukes these cities because most of His mighty works were done there and they still did not repent. They had seen, heard, and experienced—and remained unchanged.</p>"
+    "html": "<p>Matthew gives the reason for Jesus’ rebuke: these cities experienced most of His mighty works, yet <strong>“they repented not.”</strong></p><p>They had seen what Jesus was doing, heard His teaching, and witnessed the works of the Kingdom. Exposure did not automatically produce repentance.</p>"
   },
   {
     "slide": 5,
-    "title": "YOU CAN SIT AROUND TRUTH AND REMAIN UNCHANGED.",
+    "title": "Revelation Requires Response",
     "refs": [],
     "polls": [],
-    "html": "<p>Matthew 11 destroys the idea that enough evidence automatically produces faith. You can sit around truth and remain unchanged. Exposure is not transformation.</p>"
+    "html": "<p>The purpose of revelation is not merely observation. God reveals truth in order to call people to respond.</p><p>The cities received teaching, miracles, access, evidence, and opportunity. The proper response was repentance—a change of mind, direction, and allegiance.</p><p><strong>Principle:</strong> The more clearly truth is revealed, the more seriously people are accountable for what they do with it.</p>"
   },
   {
     "slide": 6,
-    "title": "REVELATION WAS SUPPOSED TO PRODUCE REPENTANCE.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>The response revelation was supposed to produce was repentance. God can show you something without forcing you to surrender to it.</p>"
-  },
-  {
-    "slide": 7,
-    "title": "Matthew 11:21–22",
+    "title": "Chorazin and Bethsaida",
     "refs": [
       "Matthew 11:21",
       "Matthew 11:22"
     ],
     "polls": [],
-    "html": "<p>Chorazin and Bethsaida received unusual access. Jesus compares them to Tyre and Sidon and says that if those cities had seen the same works, they would have repented. Revelation without response is serious.</p>"
+    "html": "<p>Jesus compares Chorazin and Bethsaida with Tyre and Sidon. The comparison is severe. The issue is not simply how sinful the cities were; it is how much light they had received.</p><p>Jesus says that if Tyre and Sidon had received the same revelation, they would have repented.</p>"
   },
   {
-    "slide": 8,
-    "title": "THE MORE GOD REVEALS, THE MORE RESPONSIBLE WE BECOME.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Knowledge creates responsibility. Access creates responsibility. Opportunity creates responsibility. Greater revelation is not only greater blessing; it is greater accountability.</p>"
-  },
-  {
-    "slide": 9,
-    "title": "WHAT HAS THE TRUTH I HEARD PRODUCED IN ME?",
-    "refs": [],
-    "polls": [],
-    "html": "<p>The question is not simply how much truth have I heard. What has the truth I heard produced in me? Familiarity can coexist with resistance.</p>"
-  },
-  {
-    "slide": 10,
-    "title": "FAMILIARITY CAN MAKE HOLY THINGS FEEL ORDINARY.",
+    "slide": 7,
+    "title": "Accountability Follows Privilege",
     "refs": [],
     "polls": [
       "familiarity-check"
     ],
-    "html": "<p>Repeated exposure can make holy things feel ordinary. Knowing the language of truth is not the same as obeying truth.</p>"
+    "html": "<p>Chorazin and Bethsaida had greater privilege because they had greater access to Christ. But greater privilege also created greater accountability.</p><p>The question is not merely, “How much truth have I heard?” It is, <strong>“How have I responded to the truth I have heard?”</strong></p><p>Knowledge without response can become dangerous. Repeated exposure can create familiarity without obedience.</p>"
   },
   {
-    "slide": 11,
-    "title": "Matthew 11:23–24",
+    "slide": 8,
+    "title": "Capernaum",
     "refs": [
       "Matthew 11:23",
       "Matthew 11:24"
     ],
     "polls": [],
-    "html": "<p>Capernaum had become a major center of Jesus’ ministry. They received more light, so their accountability was greater.</p>"
+    "html": "<p>Capernaum received extraordinary access to Jesus’ Galilean ministry: teaching, healings, deliverance, and His authority.</p><p>Jesus compares Capernaum with Sodom. That would have been shocking. Yet He says Capernaum faces greater accountability because it received greater revelation.</p>"
   },
   {
-    "slide": 12,
-    "title": "JUDGMENT IS CONNECTED TO REVELATION.",
+    "slide": 9,
+    "title": "The Measure of Accountability",
     "refs": [],
     "polls": [],
-    "html": "<p>Jesus says it will be more tolerable for some than others. Accountability is connected to the revelation, opportunity, and light received.</p>"
+    "html": "<p>Judgment is not measured only by visible wickedness. It is also measured by response to revelation.</p><p>Jesus changes our comparison. The question is not, “Am I better than someone else?” The question is, <strong>“Am I responding faithfully to what God has shown me?”</strong></p>"
   },
   {
-    "slide": 13,
-    "title": "AM I LIVING ACCORDING TO THE LIGHT I HAVE RECEIVED?",
+    "slide": 10,
+    "title": "Miracles and Repentance",
     "refs": [],
     "polls": [],
-    "html": "<p>Do not measure yourself against people with less exposure. Ask whether you are living according to the light you have received.</p>"
+    "html": "<p>Mighty works did not guarantee repentance. A miracle can produce amazement without producing obedience. An experience can produce emotion without producing transformation.</p><p>The works testified to the arrival of the Kingdom and called the hearers to respond.</p>"
   },
   {
-    "slide": 14,
-    "title": "MIRACLES ARE NOT THE SAME AS REPENTANCE.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Mighty works did not automatically create repentance. A bigger demonstration is not always the answer to unbelief.</p>"
-  },
-  {
-    "slide": 15,
+    "slide": 11,
     "title": "Two Very Different Responses",
     "refs": [],
     "polls": [],
-    "html": "<p>A miracle can make somebody say “Wow.” Repentance says “Change me.” Admiration is not surrender.</p>"
+    "html": "<p>There is a difference between saying, <strong>“That was powerful,”</strong> and saying, <strong>“I must change.”</strong></p><p>A miracle may make somebody say “Wow.” Repentance says, “Change me.” Admiration is not surrender.</p>"
   },
   {
-    "slide": 16,
-    "title": "GOD REVEALS HIMSELF SO THAT WE WILL RESPOND.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>God reveals Himself so that we will respond: faith, repentance, obedience, surrender, worship, and transformation.</p>"
-  },
-  {
-    "slide": 17,
-    "title": "Matthew 11:25–26",
+    "slide": 12,
+    "title": "Revelation and Humility",
     "refs": [
       "Matthew 11:25",
       "Matthew 11:26"
     ],
     "polls": [],
-    "html": "<p>Jesus moves from judgment to prayer. The issue is not intelligence versus ignorance; it is self-sufficiency versus receptivity.</p>"
+    "html": "<p>Jesus shifts from addressing the cities to addressing the Father. He contrasts the wise and prudent with babes.</p><p>The contrast is not intelligence versus ignorance. It is self-sufficiency versus receptivity.</p>"
   },
   {
-    "slide": 18,
-    "title": "REVELATION IS RECEIVED BY HUMILITY.",
+    "slide": 13,
+    "title": "Pride Can Block Reception",
     "refs": [],
     "polls": [],
-    "html": "<p>Pride makes a person unteachable. An unteachable person can sit directly in front of revelation and still miss it.</p>"
+    "html": "<p>Pride does not only appear as arrogance. Pride can appear as <strong>unteachability.</strong></p><p>A person becomes spiritually dangerous when they can no longer be corrected by Scripture.</p><p>The proper posture is: “Teach me. Correct me. Show me. If my understanding is incomplete, change it.”</p>"
   },
   {
-    "slide": 19,
-    "title": "Wise and Prudent / Babes",
+    "slide": 14,
+    "title": "Revealed Unto Babes",
     "refs": [],
     "polls": [],
-    "html": "<p>The wise and prudent are self-sufficient; the babes are receptive. The contrast is posture, not IQ.</p>"
+    "html": "<p>“Babes” emphasizes dependence and receptivity. Jesus is not praising immaturity. He is showing that revelation is received rather than mastered by status or intellectual achievement.</p><p>The receptive allow God to define reality rather than demanding that God conform to their expectations.</p>"
   },
   {
-    "slide": 20,
-    "title": "WHO REMAINS TEACHABLE?",
+    "slide": 15,
+    "title": "A Teachable Prayer",
     "refs": [],
     "polls": [],
-    "html": "<p>John had expectations but remained teachable. The cities had evidence but did not repent. The generation had John and Jesus but criticized both.</p>"
+    "html": "<p><strong>“God, if You show me, I will follow.”</strong></p><p>Not: make this fit what I already believe. Not: confirm what I expected. The posture revelation requires is willingness to be taught and changed.</p>"
   },
   {
-    "slide": 21,
-    "title": "“GOD, IF YOU SHOW ME, I WILL FOLLOW.”",
-    "refs": [],
-    "polls": [],
-    "html": "<p>The posture revelation requires is: God, if You show me, I will follow.</p>"
-  },
-  {
-    "slide": 22,
-    "title": "Matthew 11:27",
+    "slide": 16,
+    "title": "The Father Revealed Through the Son",
     "refs": [
       "Matthew 11:27"
     ],
     "polls": [],
-    "html": "<p>Matthew 11:27 centers knowing God on Jesus. The Father is made known through the Son.</p>"
+    "html": "<p>Matthew 11:27 stands at the center of the second half of the chapter. Jesus makes three claims: all things are delivered to Him by the Father; the Father uniquely knows the Son; and the Son uniquely reveals the Father.</p><p>The knowledge of God is therefore centered in Christ.</p>"
   },
   {
-    "slide": 23,
-    "title": "THE INVISIBLE GOD IS MADE KNOWN IN JESUS CHRIST.",
+    "slide": 17,
+    "title": "The Son Makes God Known",
     "refs": [
       "John 1:18",
       "Colossians 1:15",
       "2 Corinthians 4:6"
     ],
     "polls": [],
-    "html": "<p>John 1:18, Colossians 1:15, and 2 Corinthians 4:6 all reinforce that the invisible God is made known in Jesus Christ.</p>"
+    "html": "<p>The same truth appears elsewhere: John 1:18, Colossians 1:15, and 2 Corinthians 4:6.</p><p>Jesus makes the invisible God known. To see the character, compassion, authority, holiness, and purpose of God revealed in human life, look to Jesus Christ.</p>"
   },
   {
-    "slide": 24,
-    "title": "JESUS DOES NOT MERELY GIVE REVELATION. JESUS IS THE REVELATION.",
+    "slide": 18,
+    "title": "Jesus Is the Revelation",
     "refs": [],
     "polls": [],
-    "html": "<p>Jesus does not merely give revelation. Jesus is the revelation. Rejecting Him is heavier than rejecting a sermon.</p>"
+    "html": "<p>Jesus does not merely bring revelation. <strong>Jesus is the revelation of God to humanity.</strong></p><p>This makes the earlier rejection more serious. The cities were not merely rejecting miracles, and the generation was not merely rejecting teaching. They were rejecting the revelation of God that had come among them in Christ.</p>"
   },
   {
-    "slide": 25,
-    "title": "Matthew 11:28",
+    "slide": 19,
+    "title": "The Chapter Turns Toward Invitation",
+    "refs": [],
+    "polls": [],
+    "html": "<p>After speaking about judgment, accountability, and revelation, Jesus gives an invitation.</p><p>He does not end with condemnation. He calls people to Himself.</p>"
+  },
+  {
+    "slide": 20,
+    "title": "Come Unto Me",
     "refs": [
       "Matthew 11:28"
     ],
     "polls": [],
-    "html": "<p>After judgment and accountability, Jesus says: Come unto me. The invitation is deeply personal.</p>"
+    "html": "<p>The invitation is direct: <strong>“Come unto me.”</strong></p><p>Jesus does not first invite the weary to a system, ritual, or institution. He invites them to Himself. The people are laboring, heavy laden, burdened, and weary—and He promises rest.</p>"
   },
   {
-    "slide": 26,
-    "title": "MATTHEW 11 BEGINS WITH TENSION. IT ENDS WITH REST.",
+    "slide": 21,
+    "title": "The Movement of the Chapter",
     "refs": [],
     "polls": [],
-    "html": "<p>Matthew 11 begins with tension and ends with rest. Rest comes after coming to Christ.</p>"
+    "html": "<p>The chapter began with John in prison asking a question. It ends with Jesus offering rest.</p><p><strong>Questioning → Offense → Rejection → Accountability → Revelation → Rest.</strong></p><p>The answer to the tension is not that every circumstance is immediately changed. The answer is that Christ invites people to come to Him.</p>"
   },
   {
-    "slide": 27,
-    "title": "Matthew 11:29",
+    "slide": 22,
+    "title": "Rest Is Found in Christ",
+    "refs": [],
+    "polls": [],
+    "html": "<p>Jesus does not say: understand everything first, fix yourself first, resolve every question first, or carry the burden until you become stronger.</p><p>He says, <strong>“Come unto me.”</strong></p><p>Sometimes the answer to confusion is not more information. Sometimes it is deeper trust in the One who has already revealed Himself.</p>"
+  },
+  {
+    "slide": 23,
+    "title": "Take My Yoke",
     "refs": [
       "Matthew 11:29"
     ],
     "polls": [],
-    "html": "<p>Jesus does not promise a life without a yoke. He promises His yoke. Christian rest is not irresponsibility; it is life under the right Master.</p>"
+    "html": "<p>Jesus promises rest, but immediately introduces a yoke. The rest He offers is not freedom from all responsibility.</p><p>A yoke represented submission, labor, and relationship to a master. Jesus does not promise a life without a yoke. He promises <strong>His yoke.</strong></p>"
   },
   {
-    "slide": 28,
-    "title": "EVERYBODY IS CARRYING SOMETHING.",
+    "slide": 24,
+    "title": "Different Yokes",
     "refs": [],
     "polls": [
       "yoke-check"
     ],
-    "html": "<p>Everybody is carrying something: approval, performance, comparison, shame, control, expectations. The question is whose yoke you are under.</p>"
+    "html": "<p>People can live under burdens Christ did not place upon them: approval, comparison, self-imposed expectations, control of outcomes, guilt already forgiven, and responsibility for things God never assigned.</p><p>Before assuming every burden is from God, ask: <strong>Did Christ actually give me this to carry?</strong></p>"
+  },
+  {
+    "slide": 25,
+    "title": "Come. Take. Learn.",
+    "refs": [],
+    "polls": [],
+    "html": "<p>Notice the order of discipleship: <strong>Come. Take. Learn.</strong></p><p>The Christian life is not merely believing something about Jesus. It is learning Jesus.</p>"
+  },
+  {
+    "slide": 26,
+    "title": "Learn of Me",
+    "refs": [],
+    "polls": [],
+    "html": "<p>The disciple learns His character, priorities, ways, commands, pace, values, and understanding of the Kingdom.</p><p>This directly connects to expectation. The answer is not for Jesus to change. The disciple must learn Him.</p><p><strong>You do not disciple Jesus. Jesus disciples you.</strong></p>"
+  },
+  {
+    "slide": 27,
+    "title": "Meek and Lowly in Heart",
+    "refs": [],
+    "polls": [],
+    "html": "<p>Jesus describes Himself as meek and lowly in heart. Meekness does not mean weakness.</p><p>The same Jesus who rebuked cities and spoke of judgment is approachable enough to invite the weary near. His authority and gentleness are not opposites.</p>"
+  },
+  {
+    "slide": 28,
+    "title": "Rest Unto Your Souls",
+    "refs": [],
+    "polls": [],
+    "html": "<p>Soul rest is deeper than physical rest. A person can stop working while remaining burdened internally.</p><p>It includes rest from self-justification, fear of outcomes, constant performance, approval, carrying tomorrow before it arrives, and the need to understand everything before trusting God.</p>"
   },
   {
     "slide": 29,
-    "title": "COME. TAKE. LEARN.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Notice the order: Come. Take. Learn. The Christian life is learning Jesus and allowing Him to correct your expectations.</p>"
-  },
-  {
-    "slide": 30,
-    "title": "YOU DO NOT DISCIPLE JESUS. JESUS DISCIPLES YOU.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>You do not disciple Jesus. Jesus disciples you. He is not becoming like us; we are becoming like Him.</p>"
-  },
-  {
-    "slide": 31,
-    "title": "“I AM MEEK AND LOWLY IN HEART.”",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Jesus is meek and lowly in heart. Meekness is not weakness. The King with all authority is approachable enough to say: Come.</p>"
-  },
-  {
-    "slide": 32,
-    "title": "YOU CAN STOP MOVING AND STILL BE EXHAUSTED INSIDE.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Soul rest is deeper than sleep. It is the rest of no longer fighting for control, carrying your whole future, or trying to justify yourself.</p>"
-  },
-  {
-    "slide": 33,
-    "title": "Matthew 11:30",
+    "title": "My Yoke Is Easy",
     "refs": [
       "Matthew 11:30"
     ],
     "polls": [],
-    "html": "<p>His burden is light. There is still obedience, sacrifice, a cross, and discipleship—but there is a difference between sacrifice with Jesus and striving without Jesus.</p>"
+    "html": "<p>Jesus does not say there is no burden. He says His burden is light.</p><p>Following Christ still includes obedience, sacrifice, and responsibility. But there is a difference between carrying what Christ assigns and carrying burdens produced by fear, pride, or self-will.</p>"
+  },
+  {
+    "slide": 30,
+    "title": "Did Christ Actually Give Me This?",
+    "refs": [],
+    "polls": [],
+    "html": "<p>There is grace for what God calls us to carry. There may be exhaustion when we insist on carrying what He never assigned.</p><p>So ask: <strong>Is the weight I am carrying actually the yoke of Christ?</strong></p>"
+  },
+  {
+    "slide": 31,
+    "title": "The Argument of Matthew 11",
+    "refs": [],
+    "polls": [],
+    "html": "<p>Matthew 11 forms one continuous argument: John struggles because Jesus does not fully match his expectations; Jesus points him to evidence and Scripture; the generation rejects John and Jesus; the cities receive mighty works but refuse repentance; revelation is received by the humble; the Father is revealed through the Son; and the weary are invited to come and learn Christ.</p>"
+  },
+  {
+    "slide": 32,
+    "title": "Greater Revelation Requires Greater Response",
+    "refs": [],
+    "polls": [],
+    "html": "<p>The cities’ problem was not ignorance. It was failure to respond.</p><p>It is possible to hear without responding, learn without obeying, know without changing, and become familiar without becoming transformed.</p><p>Repeated exposure to truth must not replace response to truth.</p>"
+  },
+  {
+    "slide": 33,
+    "title": "Familiarity and Hardness",
+    "refs": [],
+    "polls": [],
+    "html": "<p>The danger of familiarity is that repeated exposure can make holy things feel ordinary. Hearing no longer produces movement.</p><p>Do not continually ask God for new revelation while ignoring what He has already revealed.</p><p>Ask: <strong>What have I done with what He already showed me?</strong></p>"
   },
   {
     "slide": 34,
-    "title": "DID JESUS ACTUALLY GIVE ME THIS?",
+    "title": "Passage Summary",
     "refs": [],
     "polls": [],
-    "html": "<p>Some burdens crushing us may be things Jesus never gave us. Stop long enough to ask: Did Jesus actually give me this?</p>"
+    "html": "<p>Matthew 11:20–30 moves from judgment to invitation.</p><ol><li>vv. 20–24: cities see mighty works but do not repent.</li><li>vv. 25–26: revelation is received by the humble.</li><li>v. 27: the Father is revealed through the Son.</li><li>vv. 28–30: the weary are invited to come, take His yoke, learn Him, and find rest.</li></ol>"
   },
   {
     "slide": 35,
-    "title": "THE ANSWER KEEPS COMING BACK TO JESUS.",
+    "title": "Kingdom Principle",
     "refs": [],
     "polls": [],
-    "html": "<p>The whole chapter keeps coming back to Jesus. When expectations fail, when you do not understand, when revelation exposes you, when you are exhausted—come to Jesus.</p>"
+    "html": "<p><strong>Greater revelation creates greater responsibility.</strong></p><p>God does not reveal truth merely so people can collect information. Truth calls for response.</p><p>The proper response to Christ is not simply, “I understand.” It is, <strong>“I will follow.”</strong></p>"
   },
   {
     "slide": 36,
-    "title": "NEVER LET REPEATED EXPOSURE TO HOLY THINGS MAKE HOLY THINGS FEEL COMMON.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Never let repeated exposure to holy things make holy things feel common. Familiarity can create the illusion that knowing is the same as obeying.</p>"
-  },
-  {
-    "slide": 37,
-    "title": "WHAT ARE YOU DOING WITH WHAT GOD HAS ALREADY SHOWN YOU?",
+    "title": "Closing Thought",
     "refs": [],
     "polls": [
       "response-now"
     ],
-    "html": "<p>What are you doing with what God has already shown you? Delayed obedience trains the heart to hear without moving.</p>"
+    "html": "<p>Matthew 11 begins with a man asking whether Jesus is truly the One who should come. It ends with Jesus saying: <strong>“Come unto me.”</strong></p><p>The answer to unmet expectations is not to force Christ into the shape of our assumptions. Receive what He has revealed, learn who He truly is, and follow Him.</p><p><strong>Do not ask God for more revelation while refusing to respond to what He has already shown you.</strong></p>"
   },
   {
-    "slide": 38,
-    "title": "GREATER REVELATION CREATES GREATER RESPONSIBILITY.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Greater revelation creates greater responsibility. Truth is not given so I can say “I know.” Truth is given so I can say “Yes.”</p>"
-  },
-  {
-    "slide": 39,
-    "title": "MATTHEW 11 BEGINS WITH A PRISON. IT ENDS WITH REST.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>Matthew 11 begins with a prison and ends with rest. The answer is not to demand that Jesus become who you expected. Discover who He is, then come to Him.</p>"
-  },
-  {
-    "slide": 40,
-    "title": "GOD DOES NOT OWE ME THE VERSION OF THE FUTURE I IMAGINED.",
-    "refs": [],
-    "polls": [],
-    "html": "<p>God does not owe me the version of the future I imagined. He has already given me something greater: the revelation of Himself.</p>"
-  },
-  {
-    "slide": 41,
+    "slide": 37,
     "title": "Closing Reflection",
     "refs": [],
     "polls": [],
-    "html": "<p>The goal of revelation is not merely that we know more about Jesus. The goal is that we come closer to Jesus.</p>"
+    "html": "<p><strong>Observing the Text:</strong> Why does Jesus rebuke Chorazin, Bethsaida, and Capernaum? What had they received? Who receives what is hidden from the wise and prudent? What does Jesus say about the Father and the Son? What commands appear in vv. 28–29?</p><p><strong>Interpreting the Text:</strong> Why does greater revelation create greater accountability? What is the difference between witnessing a miracle and responding in repentance? Why does Jesus promise rest while also giving a yoke?</p><p><strong>Applying the Text:</strong> What truth has God already shown me that requires response? Where has familiarity dulled obedience? Am I carrying burdens Christ gave me? What expectation needs to be corrected? What would it look like to respond to “Come unto me” this week?</p>"
   }
 ];
