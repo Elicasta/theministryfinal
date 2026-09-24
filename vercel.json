@@ -1,8 +1,24 @@
 {
   "rewrites": [
-    { "source": "/obs16.9", "destination": "/obs-overlay.html" },
-    { "source": "/obs9.16", "destination": "/obs-overlay.html" },
-    { "source": "/evidence/presenter", "destination": "/kingdom-evidence-presenter.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/obs16.9",
+      "destination": "/obs-overlay.html"
+    },
+    {
+      "source": "/obs9.16",
+      "destination": "/obs-overlay.html"
+    },
+    {
+      "source": "/evidence/presenter",
+      "destination": "/kingdom-evidence-presenter.html"
+    },
+    {
+      "source": "/evidence/week2/online",
+      "destination": "/kingdom-evidence-week2-online.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

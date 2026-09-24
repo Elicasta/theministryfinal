@@ -49,6 +49,27 @@
       <div id="rail-polls" class="rail-detail-body"></div>
     </details>
 
+    <details class="rail-card" open>
+      <summary>Week 2 Online Stream</summary>
+      <div class="rail-detail-body">
+        <input id="stream-url" class="presenter-input" type="url" inputmode="url" placeholder="Paste YouTube scheduled/live URL">
+        <div style="height:8px"></div>
+        <input id="stream-title" class="presenter-input" type="text" placeholder="Stream title" value="Kingdom Evidence · Week 2">
+        <div style="height:8px"></div>
+        <select id="stream-status" class="presenter-input">
+          <option value="starting-soon">Starting Soon</option>
+          <option value="live">Live</option>
+          <option value="ended">Ended / Replay</option>
+          <option value="offline">Offline</option>
+        </select>
+        <div class="poll-admin-actions" style="margin-top:9px">
+          <button id="stream-save" type="button" class="primary">Save Stream</button>
+          <a class="pbtn" href="/evidence/week2/online" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center">Open Online</a>
+        </div>
+        <div id="stream-state" class="live-slide-meta" style="margin-top:8px">Loading saved stream…</div>
+      </div>
+    </details>
+
     <details class="rail-card">
       <summary>Scripture Bank</summary>
       <div class="rail-detail-body">
