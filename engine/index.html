@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>The Ministry · Unified Teaching Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kp-alignment.css">
+<link id="lesson-theme-css" rel="stylesheet">
+<link rel="stylesheet" href="/engine/engine.css">
+</head>
+<body>
+<div id="remote" class="remote hidden">
+  <header class="top">
+    <div class="brand">THE <b>MINISTRY</b> · ENGINE</div>
+    <div class="sync"><span id="r-dot" class="dot"></span><span id="r-sync">Connecting</span></div>
+  </header>
+  <main class="remote-body engine-remote">
+    <section class="engine-toolbar card">
+      <div>
+        <div class="ey">Active Lesson</div>
+        <select id="lesson-select" class="engine-select"></select>
+      </div>
+      <div>
+        <div class="ey">Output Language</div>
+        <div class="language-row">
+          <button class="btn small lang-btn on" data-lang="en">English</button>
+          <button class="btn small lang-btn" data-lang="es">Español</button>
+          <button class="btn small lang-btn" data-lang="bilingual">Bilingual</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card cue">
+      <div class="ey">Current Projector Cue</div>
+      <div class="cue-head"><div><div id="cue-title" class="cue-title">Standby</div><div id="cue-type" class="cue-type">Unified output</div></div><div id="cue-num" class="cue-num">00</div></div>
+      <div id="cue-notes" class="notes">Choose a lesson and press Start.</div>
+      <div id="next-cue" class="next-cue"><strong>Next</strong>Cover</div>
+    </section>
+
+    <div class="controls">
+      <button class="btn" id="prev-btn">← Prev</button>
+      <button class="btn primary" id="next-btn">Start</button>
+      <button class="btn" id="black-btn">Black Screen</button>
+      <button class="btn danger" id="clear-btn">Clear Takeover</button>
+    </div>
+
+    <div class="outputs">
+      <a class="out-link" href="/projector" target="_blank">Projector</a>
+      <a class="out-link" href="/scriptures" target="_blank">Scriptures</a>
+      <a class="out-link" href="/confidence" target="_blank">Confidence</a>
+      <a class="out-link" href="/obsslides" target="_blank">OBS Slides</a>
+      <a class="out-link" href="/obslowerthirds" target="_blank">OBS Lower</a>
+      <a class="out-link" href="/class" target="_blank">Class Portal</a>
+    </div>
+
+    <details class="panel" open><summary>Slides</summary><div id="slide-list" class="panel-body"></div></details>
+    <details class="panel"><summary>Scripture Bank</summary><div id="verse-list" class="panel-body"></div></details>
+    <details class="panel"><summary><span>Polls</span><span id="poll-badge" class="badge">0</span></summary><div id="poll-list" class="panel-body"></div></details>
+    <details class="panel"><summary><span>Anonymous Questions</span><span id="q-badge" class="badge">0</span></summary><div class="panel-body"><div id="q-list"></div><div class="panel-tools"><button class="btn small" id="refresh-audience">Refresh</button></div></div></details>
+  </main>
+</div>
+
+<div id="presenter" class="presenter-shell hidden">
+  <header class="presenter-top">
+    <div><div class="presenter-brand">THE MINISTRY · PRESENTER</div><div id="presenter-lesson" class="presenter-lesson"></div></div>
+    <div class="presenter-actions"><a href="/live">Live Control</a><a href="/lessons">Library</a></div>
+  </header>
+  <main id="manuscript" class="manuscript"></main>
+</div>
+
+<div id="projector" class="output hidden">
+  <div id="p-stage" class="stage"><div id="p-inner" class="stage-inner"></div></div>
+  <div id="p-take" class="takeover hidden"><div id="p-take-inner" class="take-inner"></div></div>
+  <div id="p-black" class="black hidden"></div>
+</div>
+
+<div id="confidence" class="confidence hidden">
+  <div class="conf-top"><div class="conf-brand">THE MINISTRY</div><div class="sync"><span class="dot live"></span><span id="conf-status">CONFIDENCE</span></div></div>
+  <div class="conf-main">
+    <div class="conf-card conf-current"><div id="conf-k" class="conf-k">Current</div><div id="conf-title" class="conf-title">Standby</div><div id="conf-ref" class="conf-ref"></div></div>
+    <div class="conf-side"><div class="conf-card conf-timer"><div class="conf-k">Session Time</div><div id="conf-time" class="conf-time">00:00</div></div><div class="conf-card conf-next"><div class="conf-k">Next</div><div id="conf-next" class="conf-next-title">Cover</div></div></div>
+  </div>
+  <div class="conf-notes"><div class="conf-k">Presenter Notes</div><div id="conf-notes" class="conf-notes-text">Standby.</div></div>
+</div>
+
+<div id="scriptures" class="scripture-screen hidden">
+  <div id="scripture-content" class="scripture-inner wait"><div class="p-kicker">The Ministry · Scripture Output</div><div class="p-title">WAITING FOR SCRIPTURE</div><p>Push a verse from the live controller.</p></div>
+</div>
+
+<div id="obsslides" class="obs-slide hidden"><div id="obs-slide-inner" class="stage-inner"></div></div>
+<div id="obslowerthirds" class="obs-lower hidden"><div id="lower-box" class="lower-box hidden"><div id="lower-series" class="lower-series">The Ministry</div><div id="lower-title" class="lower-title"></div><div id="lower-sub" class="lower-sub"></div></div></div>
+
+<div id="class-portal" class="class-shell hidden">
+  <div id="class-gate" class="class-gate">
+    <div class="class-gate-card"><div class="ey">Live Class</div><h1 id="class-gate-title">Join Lesson</h1><p>Follow the lesson live, answer polls, and ask anonymous questions.</p><input id="class-email" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn primary full" id="class-enter">Enter Lesson</button><div id="class-gate-error" class="class-state"></div></div>
+  </div>
+  <header class="class-top"><div><div class="class-brand">THE MINISTRY</div><div id="class-series" class="class-meta"></div></div><div class="sync"><span id="class-dot" class="dot"></span><span id="class-sync">Connecting</span></div></header>
+  <main class="class-main">
+    <section class="class-card"><div id="class-kicker" class="ey">Waiting for lesson</div><h2 id="class-title">Standby</h2><div id="class-ref" class="class-ref"></div><div id="class-body" class="class-body"></div><ul id="class-points" class="class-points"></ul></section>
+    <div id="class-poll"></div>
+    <section class="class-card"><div class="ey">Anonymous Question</div><textarea id="class-question" placeholder="Ask something from the lesson…"></textarea><button class="btn" id="class-question-send">Send Question</button><div id="class-question-state" class="class-state"></div></section>
+  </main>
+</div>
+
+<script src="/engine/lesson-loader.js"></script>
+<script src="/engine/engine.js"></script>
+</body>
+</html>

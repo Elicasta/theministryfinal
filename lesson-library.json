@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-09-25",
   "latest": "kingdom-evidence-11-part-2",
   "rules": {
@@ -8,7 +8,8 @@
       "presentation",
       "manuscript"
     ],
-    "note": "Known-good teaching builds are indexed, not rewritten. Future lesson work should add or revise content through the library contract."
+    "note": "Known-good teaching builds are indexed, not rewritten. Future lesson work should add or revise content through the library contract.",
+    "canonicalEngine": "ministry-unified-v2"
   },
   "lessons": [
     {
@@ -21,11 +22,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/?lesson=lesson-1",
-        "projector": "/projector?lesson=lesson-1",
-        "manuscript": "/lessons/manuscript?id=ministry-lesson-1"
+        "presentation": "/live?lesson=ministry-lesson-1",
+        "projector": "/projector?lesson=ministry-lesson-1",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-1",
+        "student": "/class?lesson=ministry-lesson-1",
+        "legacyPresentation": "/?lesson=lesson-1",
+        "legacyProjector": "/projector?lesson=lesson-1",
+        "legacyStudent": null
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "ministry-lesson-2",
@@ -37,11 +43,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/?lesson=lesson-2",
-        "projector": "/projector?lesson=lesson-2",
-        "manuscript": "/lessons/manuscript?id=ministry-lesson-2"
+        "presentation": "/live?lesson=ministry-lesson-2",
+        "projector": "/projector?lesson=ministry-lesson-2",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-2",
+        "student": "/class?lesson=ministry-lesson-2",
+        "legacyPresentation": "/?lesson=lesson-2",
+        "legacyProjector": "/projector?lesson=lesson-2",
+        "legacyStudent": null
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "ministry-lesson-3",
@@ -53,11 +64,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/?lesson=lesson-3",
-        "projector": "/projector?lesson=lesson-3",
-        "manuscript": "/lessons/manuscript?id=ministry-lesson-3"
+        "presentation": "/live?lesson=ministry-lesson-3",
+        "projector": "/projector?lesson=ministry-lesson-3",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-3",
+        "student": "/class?lesson=ministry-lesson-3",
+        "legacyPresentation": "/?lesson=lesson-3",
+        "legacyProjector": "/projector?lesson=lesson-3",
+        "legacyStudent": null
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "ministry-lesson-4",
@@ -69,11 +85,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/?lesson=lesson-4",
-        "projector": "/projector?lesson=lesson-4",
-        "manuscript": "/lessons/manuscript?id=ministry-lesson-4"
+        "presentation": "/live?lesson=ministry-lesson-4",
+        "projector": "/projector?lesson=ministry-lesson-4",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-4",
+        "student": "/class?lesson=ministry-lesson-4",
+        "legacyPresentation": "/?lesson=lesson-4",
+        "legacyProjector": "/projector?lesson=lesson-4",
+        "legacyStudent": null
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "living-with-purpose",
@@ -85,12 +106,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/living-with-purpose.html",
-        "projector": "/living-with-purpose.html?view=projector",
+        "presentation": "/live?lesson=living-with-purpose",
+        "projector": "/projector?lesson=living-with-purpose",
         "manuscript": "/lessons/manuscript?id=living-with-purpose",
-        "student": "/purpose"
+        "student": "/class?lesson=living-with-purpose",
+        "legacyPresentation": "/living-with-purpose.html",
+        "legacyProjector": "/living-with-purpose.html?view=projector",
+        "legacyStudent": "/purpose"
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "kingdom-principles-alignment",
@@ -102,12 +127,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/kingdom-alignment.html",
-        "projector": "/kingdom-alignment.html?view=projector",
+        "presentation": "/live?lesson=kingdom-principles-alignment",
+        "projector": "/projector?lesson=kingdom-principles-alignment",
         "manuscript": "/lessons/manuscript?id=kingdom-principles-alignment",
-        "student": "/alignment"
+        "student": "/class?lesson=kingdom-principles-alignment",
+        "legacyPresentation": "/kingdom-alignment.html",
+        "legacyProjector": "/kingdom-alignment.html?view=projector",
+        "legacyStudent": "/alignment"
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "kingdom-principles-provision",
@@ -119,12 +148,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/kingdom-provision.html",
-        "projector": "/kingdom-provision.html?view=projector",
+        "presentation": "/live?lesson=kingdom-principles-provision",
+        "projector": "/projector?lesson=kingdom-principles-provision",
         "manuscript": "/lessons/manuscript?id=kingdom-principles-provision",
-        "student": "/provision"
+        "student": "/class?lesson=kingdom-principles-provision",
+        "legacyPresentation": "/kingdom-provision.html",
+        "legacyProjector": "/kingdom-provision.html?view=projector",
+        "legacyStudent": "/provision"
       },
-      "manuscriptType": "archive"
+      "manuscriptType": "archive",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "kingdom-evidence-11-part-1",
@@ -136,12 +169,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/kingdom-evidence.html",
-        "projector": "/kingdom-evidence.html?view=projector",
+        "presentation": "/live?lesson=kingdom-evidence-11-part-1",
+        "projector": "/projector?lesson=kingdom-evidence-11-part-1",
         "manuscript": "/lessons/manuscript?id=kingdom-evidence-11-part-1",
-        "student": "/evidence"
+        "student": "/class?lesson=kingdom-evidence-11-part-1",
+        "legacyPresentation": "/kingdom-evidence.html",
+        "legacyProjector": "/kingdom-evidence.html?view=projector",
+        "legacyStudent": "/evidence"
       },
-      "manuscriptType": "chapter11"
+      "manuscriptType": "chapter11",
+      "engine": "ministry-unified-v2"
     },
     {
       "id": "kingdom-evidence-11-part-2",
@@ -153,12 +190,16 @@
       "status": "stable",
       "knownGood": true,
       "artifacts": {
-        "presentation": "/kingdom-evidence.html",
-        "projector": "/kingdom-evidence.html?view=projector",
+        "presentation": "/live?lesson=kingdom-evidence-11-part-2",
+        "projector": "/projector?lesson=kingdom-evidence-11-part-2",
         "manuscript": "/lessons/manuscript?id=kingdom-evidence-11-part-2",
-        "student": "/evidence"
+        "student": "/class?lesson=kingdom-evidence-11-part-2",
+        "legacyPresentation": "/kingdom-evidence.html",
+        "legacyProjector": "/kingdom-evidence.html?view=projector",
+        "legacyStudent": "/evidence"
       },
-      "manuscriptType": "chapter11"
+      "manuscriptType": "chapter11",
+      "engine": "ministry-unified-v2"
     }
   ]
 }

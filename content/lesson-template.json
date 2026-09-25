@@ -1,0 +1,101 @@
+{
+  "id": "series-passage-part-1",
+  "slug": "series-passage-part-1",
+  "series": "Series Name",
+  "seriesSlug": "series-name",
+  "sequence": "Part 1",
+  "title": "Lesson Title",
+  "scripture": "Matthew 12:1–14",
+  "taughtAt": null,
+  "theme": "evidence",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Series Name · Part 1",
+      "title": "Lesson Title",
+      "sub": "Lesson subtitle",
+      "ref": "Matthew 12:1–14",
+      "notes": "Opening note.",
+      "es": {
+        "kicker": "Nombre de la Serie · Parte 1",
+        "title": "Título de la Lección",
+        "sub": "Subtítulo",
+        "ref": "Mateo 12:1–14"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "Anchor Text",
+      "ref": "Matthew 12:1",
+      "text": "KJV text goes here.",
+      "notes": "Read slowly.",
+      "es": {
+        "kicker": "Texto Principal",
+        "ref": "Mateo 12:1",
+        "text": "Attach the approved Spanish Scripture text here."
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "Point One",
+      "title": "Teaching point",
+      "points": [
+        "First movement",
+        "Second movement"
+      ],
+      "notes": "Presenter note.",
+      "es": {
+        "kicker": "Punto Uno",
+        "title": "Punto de enseñanza",
+        "points": [
+          "Primer movimiento",
+          "Segundo movimiento"
+        ]
+      }
+    }
+  ],
+  "verses": [
+    {
+      "ref": "Matthew 12:1",
+      "text": "KJV text goes here.",
+      "ref_en": "Matthew 12:1",
+      "text_en": "KJV text goes here.",
+      "ref_es": "Mateo 12:1",
+      "text_es": "Attach approved Spanish Scripture text here."
+    }
+  ],
+  "polls": [
+    {
+      "id": "series-passage-response",
+      "cue": "Response",
+      "question": "What response does this text require?",
+      "options": [
+        "Trust",
+        "Obey",
+        "Repent",
+        "Wait"
+      ],
+      "es": {
+        "question": "¿Qué respuesta requiere este texto?",
+        "options": [
+          "Confiar",
+          "Obedecer",
+          "Arrepentirse",
+          "Esperar"
+        ]
+      }
+    }
+  ],
+  "prompts": [],
+  "manuscript": [
+    {
+      "slide": 0,
+      "title": "Lesson Title",
+      "refs": [],
+      "html": "<p>Full manuscript content can live here.</p>"
+    }
+  ],
+  "translations": {
+    "es": {}
+  }
+}
