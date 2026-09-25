@@ -11,7 +11,7 @@ const qr=u=>'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='+enc
 const path=location.pathname.toLowerCase().replace(/\/+$/,'')||'/';
 const queryView=(new URLSearchParams(location.search).get('view')||'').toLowerCase();
 const pathView={
-  '/live':'remote','/teach':'remote','/projector':'projector','/scriptures':'scriptures','/scripture':'scriptures',
+  '/live':'remote','/teach':'remote','/admin':'remote','/remote':'remote','/mobile':'presenter','/projector':'projector','/scriptures':'scriptures','/scripture':'scriptures',
   '/confidence':'confidence','/obsslides':'obsslides','/obslowerthirds':'obslowerthirds','/class':'class','/presenter':'presenter'
 }[path];
 const view=queryView||pathView||'remote';
