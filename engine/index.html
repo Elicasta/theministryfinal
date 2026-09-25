@@ -22,12 +22,8 @@
         <select id="lesson-select" class="engine-select"></select>
       </div>
       <div>
-        <div class="ey">Output Language</div>
-        <div class="language-row">
-          <button class="btn small lang-btn on" data-lang="en">English</button>
-          <button class="btn small lang-btn" data-lang="es">Español</button>
-          <button class="btn small lang-btn" data-lang="bilingual">Bilingual</button>
-        </div>
+        <div class="ey">Scripture TV</div>
+        <div id="scripture-tv-state" class="scripture-tv-state"><strong>Persistent</strong> · Spanish RVR / English KJV</div>
       </div>
     </section>
 
@@ -43,6 +39,7 @@
       <button class="btn primary" id="next-btn">Start</button>
       <button class="btn" id="black-btn">Black Screen</button>
       <button class="btn danger" id="clear-btn">Clear Takeover</button>
+      <button class="btn full" id="clear-scripture-btn">Clear Scripture TV</button>
     </div>
 
     <div class="outputs">
@@ -85,7 +82,10 @@
 </div>
 
 <div id="scriptures" class="scripture-screen hidden">
-  <div id="scripture-content" class="scripture-inner wait"><div class="p-kicker">The Ministry · Scripture Output</div><div class="p-title">WAITING FOR SCRIPTURE</div><p>Push a verse from the live controller.</p></div>
+  <div id="scripture-content" class="scripture-inner wait">
+    <div class="scripture-wait-title">WAITING FOR SCRIPTURE</div>
+    <div class="scripture-wait-sub">The last Scripture stays here until another Scripture is received.</div>
+  </div>
 </div>
 
 <div id="obsslides" class="obs-slide hidden"><div id="obs-slide-inner" class="stage-inner"></div></div>
