@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
   const SB_URL = process.env.SUPABASE_URL;
   const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
-  if (!SB_URL || !SB_KEY) return res.status(200).json({ ok: true, saved: false, reason: 'Supabase env not configured' });
+  if (!SB_URL || !SB_KEY) return res.status(503).json({ ok: false, saved: false, error: 'Poll storage is not configured' });
 
   const body = req.body || {};
   const vote = body.vote || body;
