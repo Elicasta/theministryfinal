@@ -75,6 +75,30 @@
     };
   }
 
+  async function loadNativeJson(id,meta){
+    const source=meta.engineSource;
+    const raw=await fetch(source,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Native lesson source unavailable: '+source);return r.json()});
+    return {
+      ...raw,
+      id:raw.id||id,
+      slug:raw.slug||lessonSlug(id),
+      seriesSlug:raw.seriesSlug||lessonSlug(raw.series||meta.series),
+      series:raw.series||meta.series,
+      sequence:raw.sequence||meta.sequence,
+      title:raw.title||meta.title,
+      scripture:raw.scripture||meta.scripture,
+      taughtAt:raw.taughtAt||meta.taughtAt,
+      theme:raw.theme||'default',
+      native:true,
+      slides:(raw.slides||[]).map(normalizeSlide),
+      verses:raw.verses||[],
+      polls:raw.polls||[],
+      prompts:raw.prompts||[],
+      manuscript:raw.manuscript||[],
+      translations:raw.translations||{es:null}
+    };
+  }
+
   async function loadArchive(id,meta){
     const a=await archive(), entry=a.lessons?.[id];
     if(!entry) throw new Error('Archived lesson data unavailable');
@@ -95,7 +119,7 @@
     if(cache.has(chosen)) return cache.get(chosen);
     const meta=lib.lessons.find(x=>x.id===chosen);
     if(!meta) throw new Error('Lesson not found: '+chosen);
-    const lesson=meta.manuscriptType==='chapter11'?await loadChapter11(chosen,meta):await loadArchive(chosen,meta);
+    const lesson=meta.engineSource?await loadNativeJson(chosen,meta):(meta.manuscriptType==='chapter11'?await loadChapter11(chosen,meta):await loadArchive(chosen,meta));
     cache.set(chosen,lesson);
     return lesson;
   }
