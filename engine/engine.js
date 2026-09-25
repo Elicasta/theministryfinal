@@ -92,16 +92,13 @@ function scriptureForSlide(index){
 function scriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
   const hasEs=!!sc.text_es;
-  const spanishRef=sc.ref_es||sc.ref_en;
-  return '<div class="scripture-primary">'+
-      '<div class="scripture-ref">'+esc(spanishRef)+(hasEs?' · RVR 1960':'')+'</div>'+
-      '<div class="scripture-text">'+esc(hasEs?sc.text_es:sc.text_en)+'</div>'+
-    '</div>'+
-    '<div class="scripture-secondary">'+
-      '<div class="scripture-ref">'+esc(sc.ref_en)+(sc.text_en?' · KJV':'')+'</div>'+
-      '<div class="scripture-text">'+esc(sc.text_en)+'</div>'+
-    '</div>'+
-    (!hasEs?'<div class="scripture-missing">Spanish RVR text has not been attached to this Scripture yet.</div>':'');
+  const primary=hasEs
+    ? '<div class="scripture-primary"><div class="scripture-ref">'+esc(sc.ref_es||sc.ref_en)+' · RVR 1960</div><div class="scripture-text">'+esc(sc.text_es)+'</div></div>'
+    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">SPANISH · RVR 1960</div><div class="scripture-missing">Spanish text is not attached for '+esc(sc.ref_en)+'.</div></div>';
+  const secondary=sc.text_en
+    ? '<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text">'+esc(sc.text_en)+'</div></div>'
+    : '';
+  return primary+secondary;
 }
 function projectorScriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
