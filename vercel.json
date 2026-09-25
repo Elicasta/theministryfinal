@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/remote",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/mobile",
+      "destination": "/engine/index.html"
+    },
+    {
       "source": "/live",
       "destination": "/engine/index.html"
     },
