@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - "hardening/**"
+      - "feature/**"
 
 jobs:
   verify:
