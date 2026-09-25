@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-25",
+  "latest": "kingdom-evidence-11-part-2",
+  "rules": {
+    "stableBuildsAreImmutable": true,
+    "requiredArtifacts": [
+      "presentation",
+      "manuscript"
+    ],
+    "note": "Known-good teaching builds are indexed, not rewritten. Future lesson work should add or revise content through the library contract."
+  },
+  "lessons": [
+    {
+      "id": "ministry-lesson-1",
+      "series": "The Ministry",
+      "sequence": "Lesson 1",
+      "title": "The Price of Being Sent",
+      "scripture": "Matthew 10:1–10",
+      "taughtAt": "2026-06-18",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/?lesson=lesson-1",
+        "projector": "/projector?lesson=lesson-1",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-1"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "ministry-lesson-2",
+      "series": "The Ministry",
+      "sequence": "Lesson 2",
+      "title": "The Discipline of the Sent",
+      "scripture": "Matthew 10:11–16",
+      "taughtAt": "2026-06-25",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/?lesson=lesson-2",
+        "projector": "/projector?lesson=lesson-2",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-2"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "ministry-lesson-3",
+      "series": "The Ministry",
+      "sequence": "Lesson 3",
+      "title": "The Making of a Minister",
+      "scripture": "1 Timothy 4:12–16 · 2 Timothy 1, 2, 4",
+      "taughtAt": "2026-07-02",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/?lesson=lesson-3",
+        "projector": "/projector?lesson=lesson-3",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-3"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "ministry-lesson-4",
+      "series": "The Ministry",
+      "sequence": "Lesson 4",
+      "title": "What It Takes to Make It",
+      "scripture": "Matthew 10:16–28",
+      "taughtAt": "2026-07-09",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/?lesson=lesson-4",
+        "projector": "/projector?lesson=lesson-4",
+        "manuscript": "/lessons/manuscript?id=ministry-lesson-4"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "living-with-purpose",
+      "series": "Living With Purpose",
+      "sequence": "Standalone",
+      "title": "Living With Purpose",
+      "scripture": "Matthew 6:33",
+      "taughtAt": "2026-08-22",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/living-with-purpose.html",
+        "projector": "/living-with-purpose.html?view=projector",
+        "manuscript": "/lessons/manuscript?id=living-with-purpose",
+        "student": "/purpose"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "kingdom-principles-alignment",
+      "series": "Kingdom Principles",
+      "sequence": "Week 4",
+      "title": "The Principle of Alignment",
+      "scripture": "Matthew 8:5–13",
+      "taughtAt": "2026-08-27",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/kingdom-alignment.html",
+        "projector": "/kingdom-alignment.html?view=projector",
+        "manuscript": "/lessons/manuscript?id=kingdom-principles-alignment",
+        "student": "/alignment"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "kingdom-principles-provision",
+      "series": "Kingdom Principles",
+      "sequence": "Week 5",
+      "title": "The Principle of Provision",
+      "scripture": "Matthew 6:25–32",
+      "taughtAt": "2026-09-03",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/kingdom-provision.html",
+        "projector": "/kingdom-provision.html?view=projector",
+        "manuscript": "/lessons/manuscript?id=kingdom-principles-provision",
+        "student": "/provision"
+      },
+      "manuscriptType": "archive"
+    },
+    {
+      "id": "kingdom-evidence-11-part-1",
+      "series": "Kingdom Evidence",
+      "sequence": "Matthew 11 · Part 1",
+      "title": "The King Confronts Expectations",
+      "scripture": "Matthew 11:1–19",
+      "taughtAt": "2026-09-17",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/kingdom-evidence.html",
+        "projector": "/kingdom-evidence.html?view=projector",
+        "manuscript": "/lessons/manuscript?id=kingdom-evidence-11-part-1",
+        "student": "/evidence"
+      },
+      "manuscriptType": "chapter11"
+    },
+    {
+      "id": "kingdom-evidence-11-part-2",
+      "series": "Kingdom Evidence",
+      "sequence": "Matthew 11 · Part 2",
+      "title": "Greater Revelation, Greater Responsibility",
+      "scripture": "Matthew 11:20–30",
+      "taughtAt": "2026-09-24",
+      "status": "stable",
+      "knownGood": true,
+      "artifacts": {
+        "presentation": "/kingdom-evidence.html",
+        "projector": "/kingdom-evidence.html?view=projector",
+        "manuscript": "/lessons/manuscript?id=kingdom-evidence-11-part-2",
+        "student": "/evidence"
+      },
+      "manuscriptType": "chapter11"
+    }
+  ]
+}
