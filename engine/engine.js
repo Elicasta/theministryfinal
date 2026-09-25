@@ -92,7 +92,7 @@ function takeover(){
     const raw=poll(state.activePoll.id), p=localizedPoll(raw); if(!p)return '';
     if(state.activePoll.mode==='question')return '<div class="take-k">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>'<div class="step"><div class="step-n">'+String.fromCharCode(65+i)+'</div><div class="step-t">'+esc(o)+'</div></div>').join('')+'</div>';
     const c=state.activePoll.results||{},t=state.activePoll.total||0;
-    return '<div class="take-k">'+esc(langText('Live Results','Resultados'))+' · '+t+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map(o=>{const n=c[o]||0,pc=t?Math.round(n/t*100):0;return '<div class="poll-option"><div class="poll-label">'+esc(o)+'</div><div class="poll-bar"><div class="poll-fill" style="width:'+pc+'%"></div></div><div class="poll-pct">'+pc+'%</div></div>'}).join('')+'</div>';
+    return '<div class="take-k">'+esc(langText('Live Results','Resultados'))+' · '+t+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o,n=c[canonical]||0,pc=t?Math.round(n/t*100):0;return '<div class="poll-option"><div class="poll-label">'+esc(o)+'</div><div class="poll-bar"><div class="poll-fill" style="width:'+pc+'%"></div></div><div class="poll-pct">'+pc+'%</div></div>'}).join('')+'</div>';
   }
   return '';
 }
@@ -349,10 +349,10 @@ function renderClass(){
 function renderClassPoll(){
   const host=$('class-poll');if(!host)return;
   if(!state.activePoll?.id||state.activePoll.mode!=='question'){host.innerHTML='';return}
-  const p=localizedPoll(poll(state.activePoll.id));if(!p){host.innerHTML='';return}
+  const raw=poll(state.activePoll.id),p=localizedPoll(raw);if(!p||!raw){host.innerHTML='';return}
   const saved=localStorage.getItem('ministry_vote_'+lesson.id+'_'+p.id)||'';
-  host.innerHTML='<section class="class-card"><div class="ey">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="class-poll-q">'+esc(p.question)+'</div>'+(p.options||[]).map(o=>'<button class="class-choice '+(saved===o?'selected':'')+'" data-class-vote="'+esc(o)+'">'+esc(o)+'</button>').join('')+'<div id="class-poll-state" class="class-state">'+(saved?langText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.'):langText('Choose one answer.','Escoge una respuesta.'))+'</div></section>';
-  host.querySelectorAll('[data-class-vote]').forEach(b=>b.onclick=()=>submitVote(p,b.dataset.classVote));
+  host.innerHTML='<section class="class-card"><div class="ey">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="class-poll-q">'+esc(p.question)+'</div>'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o;return '<button class="class-choice '+(saved===canonical?'selected':'')+'" data-class-vote-index="'+i+'">'+esc(o)+'</button>'}).join('')+'<div id="class-poll-state" class="class-state">'+(saved?langText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.'):langText('Choose one answer.','Escoge una respuesta.'))+'</div></section>';
+  host.querySelectorAll('[data-class-vote-index]').forEach(b=>{const i=Number(b.dataset.classVoteIndex),canonical=(raw.options||[])[i];b.onclick=()=>submitVote(raw,canonical)});
 }
 async function submitVote(p,answer){
   if(!classEmail)return;
