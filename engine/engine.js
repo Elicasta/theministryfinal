@@ -105,7 +105,7 @@ function scriptureHtml(v){
 }
 function projectorScriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
-  return '<div class="scripture-ref">'+esc(sc.ref_en)+'</div><div class="scripture-text">'+esc(sc.text_en)+'</div>';
+  return '<div class="take-ref">'+esc(sc.ref_en)+'</div><div class="take-text">'+esc(sc.text_en)+'</div>';
 }
 
 function takeover(){
