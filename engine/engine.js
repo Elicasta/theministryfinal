@@ -22,7 +22,7 @@ let classSession=localStorage.getItem('ministry_class_session')||('class_'+(cryp
 localStorage.setItem('ministry_class_session',classSession);
 
 let state={
-  room:ROOM,type:TYPE,lessonId:null,started:false,slide:0,overlay:null,black:false,activePoll:null,activeQuestion:null,
+  room:ROOM,type:TYPE,lessonId:null,started:false,slide:0,overlay:null,scriptureOutput:null,black:false,activePoll:null,activeQuestion:null,
   startedAt:null,timerStoppedAt:null,language:'en',seq:0,ts:Date.now()
 };
 
@@ -71,22 +71,42 @@ function slideHtml(raw,withQr=true){
   return k+'<div class="p-title med">'+esc(clean(titleOf(s)))+'</div>'+sub+missing;
 }
 
+function normalizeScripture(v){
+  if(!v)return null;
+  return {
+    ref_en:v.ref_en||v.ref||'',
+    text_en:v.text_en||v.text||v.kjv||'',
+    ref_es:v.ref_es||'',
+    text_es:v.text_es||v.rvr||''
+  };
+}
+function scriptureForSlide(index){
+  const s=slides()[index];
+  if(!s || s.type!=='verse') return null;
+  const preserved=lesson?.slideScriptures?.[index];
+  if(preserved && (preserved.text_en||preserved.text)) return normalizeScripture(preserved);
+  const match=verses().find(v=>String(v.ref_en||v.ref||'').trim()===String(s.ref||'').trim());
+  if(match) return normalizeScripture(match);
+  return normalizeScripture({ref_en:s.ref||'',text_en:s.text||'',ref_es:s.ref_es||'',text_es:s.text_es||''});
+}
 function scriptureHtml(v){
-  if(!v)return '';
-  const enRef=v.ref_en||v.ref||'', en=v.text_en||v.text||'';
-  const esRef=v.ref_es||'', es=v.text_es||'';
-  if(state.language==='en') return '<div class="scripture-ref">'+esc(enRef)+'</div><div class="scripture-text">'+esc(en)+'</div>';
-  if(state.language==='es'){
-    return '<div class="scripture-ref">'+esc(esRef||enRef)+'</div><div class="scripture-text">'+esc(es||en)+'</div>'+(!es?'<div class="scripture-missing">Spanish Scripture text has not been attached to this lesson yet.</div>':'');
-  }
-  const primaryRef=es?esRef:enRef, primary=es||en;
-  return '<div class="scripture-ref">'+esc(primaryRef)+'</div><div class="scripture-text">'+esc(primary)+'</div>'+
-    (en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(enRef)+' · KJV</div><div class="scripture-text">'+esc(en)+'</div></div>':'')+
-    (!es?'<div class="scripture-missing">Spanish Scripture text has not been attached to this lesson yet.</div>':'');
+  const sc=normalizeScripture(v); if(!sc)return '';
+  const hasEs=!!sc.text_es;
+  const primary=hasEs
+    ? '<div class="scripture-primary"><div class="scripture-ref">'+esc(sc.ref_es||sc.ref_en)+' · RVR 1960</div><div class="scripture-text">'+esc(sc.text_es)+'</div></div>'
+    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">SPANISH · RVR 1960</div><div class="scripture-missing">Spanish text is not attached for '+esc(sc.ref_en)+'.</div></div>';
+  const secondary=sc.text_en
+    ? '<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text">'+esc(sc.text_en)+'</div></div>'
+    : '';
+  return primary+secondary;
+}
+function projectorScriptureHtml(v){
+  const sc=normalizeScripture(v); if(!sc)return '';
+  return '<div class="take-ref">'+esc(sc.ref_en)+'</div><div class="take-text">'+esc(sc.text_en)+'</div>';
 }
 
 function takeover(){
-  if(state.overlay)return scriptureHtml(state.overlay);
+  if(state.overlay)return projectorScriptureHtml(state.overlay);
   if(state.activeQuestion)return '<div class="take-k">'+esc(langText('Anonymous Question','Pregunta Anónima'))+'</div><div class="take-q">'+esc(state.activeQuestion.text)+'</div>';
   if(state.activePoll){
     const raw=poll(state.activePoll.id), p=localizedPoll(raw); if(!p)return '';
@@ -103,7 +123,7 @@ async function loadLesson(id,{broadcast=false,reset=false}={}){
   lesson=next; state.lessonId=next.id; theme();
   try{localStorage.setItem('ministry_engine_lesson',next.id)}catch(e){}
   document.title=next.title+' · The Ministry';
-  if(reset){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null}
+  if(reset){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.scriptureOutput=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null}
   buildForView();
   render();
   if(broadcast)send();
@@ -140,9 +160,8 @@ function buildRemote(){
     sel.innerHTML=library.lessons.map(x=>'<option value="'+esc(x.id)+'" '+(x.id===lesson.id?'selected':'')+'>'+esc(x.series+' · '+x.sequence+' · '+x.title)+'</option>').join('');
   }
   const list=$('slide-list'); if(list)list.innerHTML=slides().map((s,i)=>'<button class="slide-item" data-slide="'+i+'"><span class="si-n">'+String(i+1).padStart(2,'0')+'</span><span><span class="si-k">'+esc(s.type||'slide')+'</span><span class="si-t">'+esc(clean(titleOf(s)))+'</span></span></button>').join('');
-  const vb=$('verse-list'); if(vb)vb.innerHTML=verses().length?verses().map((v,i)=>'<div class="verse-row"><div><div class="v-ref">'+esc(v.ref||v.ref_en||'')+'</div><div class="v-text">'+esc(v.text||v.text_en||'')+'</div></div><button class="btn small" data-verse="'+i+'">Push</button></div>').join(''):'<div class="qa-item"><p>No separate Scripture bank is attached to this archived lesson yet.</p></div>';
+  const vb=$('verse-list'); if(vb)vb.innerHTML=verses().length?verses().map((v,i)=>'<div class="verse-row"><div><div class="v-ref">'+esc(v.ref||v.ref_en||'')+'</div><div class="v-text">'+esc(v.text||v.text_en||'')+'</div></div><div class="verse-actions"><button class="btn small" data-verse="'+i+'">Push Everywhere</button><button class="btn small" data-verse-tv="'+i+'">TV Only</button></div></div>').join(''):'<div class="qa-item"><p>No separate Scripture bank is attached to this archived lesson yet.</p></div>';
   renderPollAdmin();
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.dataset.lang===state.language));
 }
 
 function buildPresenter(){
@@ -175,7 +194,11 @@ function render(){
     box.classList.toggle('hidden',!d);if(d){$('lower-series').textContent=lesson.series+' · '+lesson.sequence;$('lower-title').textContent=d.title;$('lower-sub').textContent=d.sub}
   }
   if(view==='scriptures'){
-    const c=$('scripture-content');c.innerHTML=state.overlay?scriptureHtml(state.overlay):'<div class="p-kicker">'+esc(lesson.series)+' · Scripture Output</div><div class="p-title">WAITING FOR SCRIPTURE</div><p>Push a verse from the live controller.</p>';
+    const c=$('scripture-content');
+    c.classList.toggle('wait',!state.scriptureOutput);
+    c.innerHTML=state.scriptureOutput
+      ? scriptureHtml(state.scriptureOutput)
+      : '<div class="scripture-wait-title">WAITING FOR SCRIPTURE</div><div class="scripture-wait-sub">The last Scripture stays here until another Scripture is received.</div>';
   }
   if(view==='confidence')renderConfidence();
   if(view==='remote')renderRemoteCue();
@@ -192,8 +215,13 @@ function renderRemoteCue(){
   if($('next-cue'))$('next-cue').innerHTML='<strong>Next</strong>'+esc(next?clean(titleOf(next)):'End');
   if($('next-btn'))$('next-btn').textContent=!state.started?'Start':state.slide>=ss.length-1?'End':'Next →';
   if($('black-btn'))$('black-btn').classList.toggle('on',state.black);
+  if($('scripture-tv-state')){
+    const sc=normalizeScripture(state.scriptureOutput);
+    $('scripture-tv-state').innerHTML=sc
+      ? '<strong>'+esc(sc.ref_es||sc.ref_en)+'</strong> · persistent on side TV'
+      : '<strong>Standby</strong> · Spanish RVR / English KJV';
+  }
   document.querySelectorAll('[data-slide]').forEach(b=>b.classList.toggle('on',state.started&&Number(b.dataset.slide)===state.slide));
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.dataset.lang===state.language));
 }
 
 function renderPresenterLive(){
@@ -222,6 +250,8 @@ function go(i){
   const ss=slides();if(!ss.length)return;const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
   if(!state.started){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
+  const autoScripture=scriptureForSlide(t);
+  if(autoScripture) state.scriptureOutput=autoScripture;
   if(t===ss.length-1)state.timerStoppedAt=null;
   send();render();
 }
@@ -229,8 +259,10 @@ function next(){if(state.overlay||state.activePoll||state.activeQuestion)return 
 function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
 function reset(){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;send();render()}
 function clearTakeover(){state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
+function clearScriptureOutput(){state.scriptureOutput=null;send();render()}
 function toggleBlack(){state.black=!state.black;send();render()}
-function pushVerse(i){const v=verses()[i];if(!v)return;state.overlay={...v};state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
+function pushVerse(i){const v=verses()[i];if(!v)return;const sc=normalizeScripture(v);state.overlay=sc;state.scriptureOutput=sc;state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
+function pushVerseTV(i){const v=verses()[i];if(!v)return;state.scriptureOutput=normalizeScripture(v);send();render()}
 function setLanguage(lang){if(!['en','es','bilingual'].includes(lang))return;state.language=lang;send();render()}
 
 async function persistPollDefinition(p,status='live'){
@@ -265,11 +297,11 @@ async function loadAudienceData(){
 function bind(){
   if(view==='remote'){
     $('lesson-select')?.addEventListener('change',e=>loadLesson(e.target.value,{broadcast:true,reset:true}));
-    $('prev-btn')?.addEventListener('click',prev);$('next-btn')?.addEventListener('click',next);$('black-btn')?.addEventListener('click',toggleBlack);$('clear-btn')?.addEventListener('click',clearTakeover);$('refresh-audience')?.addEventListener('click',loadAudienceData);
+    $('prev-btn')?.addEventListener('click',prev);$('next-btn')?.addEventListener('click',next);$('black-btn')?.addEventListener('click',toggleBlack);$('clear-btn')?.addEventListener('click',clearTakeover);$('clear-scripture-btn')?.addEventListener('click',clearScriptureOutput);$('refresh-audience')?.addEventListener('click',loadAudienceData);
     document.addEventListener('click',e=>{
       const s=e.target.closest('[data-slide]');if(s)return go(Number(s.dataset.slide));
       const v=e.target.closest('[data-verse]');if(v)return pushVerse(Number(v.dataset.verse));
-      const l=e.target.closest('[data-lang]');if(l)return setLanguage(l.dataset.lang);
+      const tv=e.target.closest('[data-verse-tv]');if(tv)return pushVerseTV(Number(tv.dataset.verseTv));
       const pl=e.target.closest('[data-poll-launch]');if(pl)return launchPoll(pl.dataset.pollLaunch);
       const pr=e.target.closest('[data-poll-results]');if(pr)return showPollResults(pr.dataset.pollResults);
       const pc=e.target.closest('[data-poll-close]');if(pc)return closePoll(pc.dataset.pollClose);
@@ -314,6 +346,10 @@ async function handle(msg){
   const nextLesson=incoming.lessonId||state.lessonId;
   state={...state,...incoming,type:TYPE,room:ROOM};
   if(nextLesson&&nextLesson!==lesson?.id)await loadLesson(nextLesson);
+  if(state.started && !state.scriptureOutput){
+    const recovered=scriptureForSlide(state.slide);
+    if(recovered) state.scriptureOutput=recovered;
+  }
   render();
 }
 function send(){
