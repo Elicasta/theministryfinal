@@ -51,7 +51,7 @@ if(!unifiedEngine.includes('if(autoScripture) state.scriptureOutput=autoScriptur
 if(!unifiedEngine.includes("c.innerHTML=state.scriptureOutput"))fail('Scripture route is not bound to persistent Scripture TV state');
 if(!unifiedEngine.includes('function clearScriptureOutput()'))fail('explicit Scripture TV clear missing');
 if(!unifiedEngine.includes('function pushVerseTV(i)'))fail('Scripture TV-only push missing');
-if(!unifiedEngine.includes("return '<div class=\"take-ref\"'"))fail('main projector Scripture takeover styling changed');
+if(!unifiedEngine.includes('class="take-ref">')||!unifiedEngine.includes('class="take-text">'))fail('main projector Scripture takeover styling changed');
 const engineHtml=fs.readFileSync('engine/index.html','utf8');
 if(!engineHtml.includes('Clear Scripture TV'))fail('Scripture TV clear control missing');
 if(engineHtml.includes('Output Language'))fail('global output language controls should not drive projector slides');
