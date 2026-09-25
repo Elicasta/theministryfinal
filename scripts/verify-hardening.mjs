@@ -23,7 +23,7 @@ const routes=new Map((vercel.rewrites||[]).map(x=>[x.source,x.destination]));
 if(routes.get('/lessons')!=='/library/index.html')fail('/lessons route missing');
 if(routes.get('/lessons/manuscript')!=='/library/manuscript.html')fail('/lessons/manuscript route missing');
 
-for(const route of ['/live','/projector','/scriptures','/confidence','/obsslides','/obslowerthirds','/class','/presenter']){
+for(const route of ['/live','/admin','/remote','/mobile','/projector','/scriptures','/confidence','/obsslides','/obslowerthirds','/class','/presenter']){
   if(routes.get(route)!=='/engine/index.html')fail('unified engine route missing: '+route);
 }
 for(const lesson of lib.lessons){
