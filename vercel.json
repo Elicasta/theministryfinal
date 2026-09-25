@@ -1,6 +1,46 @@
 {
   "rewrites": [
     {
+      "source": "/live",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/teach",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/projector",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/scriptures",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/scripture",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/confidence",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/obsslides",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/obslowerthirds",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/class",
+      "destination": "/engine/index.html"
+    },
+    {
+      "source": "/presenter",
+      "destination": "/engine/index.html"
+    },
+    {
       "source": "/lessons",
       "destination": "/library/index.html"
     },
