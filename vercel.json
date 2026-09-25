@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/lessons",
+      "destination": "/library/index.html"
+    },
+    {
+      "source": "/lessons/manuscript",
+      "destination": "/library/manuscript.html"
+    },
+    {
       "source": "/obs16.9",
       "destination": "/obs-overlay.html"
     },
