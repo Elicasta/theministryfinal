@@ -2,6 +2,7 @@
   const cache = new Map();
   let libraryCache = null;
   let archiveCache = null;
+  let scriptureArchiveCache = null;
 
   const loadScript = src => new Promise((resolve,reject)=>{
     if(document.querySelector('script[data-engine-src="'+src+'"]')) return resolve();
@@ -45,6 +46,12 @@
     return archiveCache;
   }
 
+  async function scriptureArchive(){
+    if(scriptureArchiveCache) return scriptureArchiveCache;
+    scriptureArchiveCache=await fetch('/library/scripture-archive.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Scripture archive unavailable');return r.json()});
+    return scriptureArchiveCache;
+  }
+
   async function loadChapter11(id,meta){
     await Promise.all([
       loadScript('/kingdom-evidence-data.js'),
@@ -68,6 +75,11 @@
       native:true,
       slides:(deck.SLIDES||[]).map(normalizeSlide),
       verses:(deck.VERSES||[]).map(v=>({ref:v.ref,text:v.text,text_en:v.text,ref_en:v.ref,text_es:v.text_es||'',ref_es:v.ref_es||''})),
+      slideScriptures:(deck.SLIDES||[]).map(raw=>{
+        if(raw?.type!=='verse') return null;
+        const match=(deck.VERSES||[]).find(v=>String(v.ref||'').trim()===String(raw.ref||'').trim());
+        return match?{ref_en:match.ref,text_en:match.text,ref_es:match.ref_es||'',text_es:match.text_es||''}:{ref_en:raw.ref||'',text_en:raw.text||'',ref_es:raw.ref_es||'',text_es:raw.text_es||''};
+      }),
       polls:(deck.POLLS||[]).map(p=>({...p,id:String(p.id)})),
       prompts:deck.PROMPTS||[],
       manuscript,
@@ -92,6 +104,7 @@
       native:true,
       slides:(raw.slides||[]).map(normalizeSlide),
       verses:raw.verses||[],
+      slideScriptures:raw.slideScriptures||[],
       polls:raw.polls||[],
       prompts:raw.prompts||[],
       manuscript:raw.manuscript||[],
@@ -104,10 +117,21 @@
     if(!entry) throw new Error('Archived lesson data unavailable');
     const theme=meta.series==='The Ministry'?'ministry':meta.series==='Kingdom Principles'?'principles':meta.series==='Living With Purpose'?'purpose':'default';
     const slides=(entry.slides||[]).map(normalizeSlide);
-    const verses=slides.filter(s=>s.type==='verse'&&s.ref&&s.text).map(s=>({ref:s.ref,text:s.text,text_en:s.text,ref_en:s.ref,text_es:s.text_es||'',ref_es:s.ref_es||''}));
+
+    let preserved=null;
+    try{
+      const sa=await scriptureArchive();
+      preserved=sa.lessons?.[id]||null;
+    }catch(e){}
+
+    const verses=preserved?.verseBank?.length
+      ? preserved.verseBank.map(v=>({ref:v.ref_en,text:v.text_en,ref_en:v.ref_en,text_en:v.text_en,ref_es:v.ref_es||'',text_es:v.text_es||''}))
+      : slides.filter(s=>s.type==='verse'&&s.ref&&s.text).map(s=>({ref:s.ref,text:s.text,text_en:s.text,ref_en:s.ref,text_es:s.text_es||'',ref_es:s.ref_es||''}));
+
     return {
       id,slug:lessonSlug(id),seriesSlug:lessonSlug(meta.series),series:meta.series,sequence:meta.sequence,title:meta.title,
       scripture:meta.scripture,taughtAt:meta.taughtAt,theme,native:false,slides,verses,polls:[],prompts:[],
+      slideScriptures:preserved?.scriptureMap||[],
       manuscript:slides.map(s=>({title:s.title,html:s.sub?'<p>'+s.sub+'</p>':'',refs:s.ref?[s.ref]:[],notes:s.notes||''})),
       translations:{es:null}
     };
