@@ -31,7 +31,7 @@ function slides(){return lesson?.slides||[]}
 function verses(){return lesson?.verses||[]}
 function polls(){return lesson?.polls||[]}
 function poll(id){return polls().find(p=>String(p.id)===String(id))}
-function theme(){document.body.dataset.theme=lesson?.theme||'default'}
+function theme(){document.body.dataset.theme=lesson?.theme||'default';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
 function hasSpanishSlide(s){
