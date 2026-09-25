@@ -37,6 +37,27 @@ for(const file of ['engine/lesson-loader.js','engine/engine.js']){
   const src=fs.readFileSync(file,'utf8');
   try{new Function(src)}catch(e){fail(file+' syntax error: '+e.message)}
 }
+
+const scriptureArchive=readJson('library/scripture-archive.json');
+for(const id of ['ministry-lesson-1','ministry-lesson-2','ministry-lesson-3','ministry-lesson-4']){
+  const item=scriptureArchive.lessons?.[id];
+  if(!item)fail('bilingual Scripture archive missing: '+id);
+  if(!Array.isArray(item.scriptureMap)||!item.scriptureMap.length)fail('slide Scripture map missing: '+id);
+  if(item.scriptureMap.some(x=>!x?.text_en||!x?.text_es))fail('slide Scripture map is not bilingual: '+id);
+}
+const unifiedEngine=fs.readFileSync('engine/engine.js','utf8');
+if(!unifiedEngine.includes('scriptureOutput:null'))fail('persistent Scripture TV state missing');
+if(!unifiedEngine.includes('if(autoScripture) state.scriptureOutput=autoScripture'))fail('Scripture slides do not auto-follow to side TV');
+if(!unifiedEngine.includes("c.innerHTML=state.scriptureOutput"))fail('Scripture route is not bound to persistent Scripture TV state');
+if(!unifiedEngine.includes('function clearScriptureOutput()'))fail('explicit Scripture TV clear missing');
+if(!unifiedEngine.includes('function pushVerseTV(i)'))fail('Scripture TV-only push missing');
+if(!unifiedEngine.includes("return '<div class=\"take-ref\"'"))fail('main projector Scripture takeover styling changed');
+const engineHtml=fs.readFileSync('engine/index.html','utf8');
+if(!engineHtml.includes('Clear Scripture TV'))fail('Scripture TV clear control missing');
+if(engineHtml.includes('Output Language'))fail('global output language controls should not drive projector slides');
+const engineCss=fs.readFileSync('engine/engine.css','utf8');
+if(!engineCss.includes('.scripture-screen .scripture-primary'))fail('side-TV Scripture styles are not scoped');
+if(!engineCss.includes('background:#000!important'))fail('side-TV black Scripture background missing');
 const engine=fs.readFileSync('engine/engine.js','utf8');
 if(!engine.includes("TYPE='ministry_unified_state'"))fail('unified state contract missing');
 if(!engine.includes("language:'en'"))fail('language state missing');
