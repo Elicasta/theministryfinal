@@ -1,0 +1,1827 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-25",
+  "lessons": {
+    "ministry-lesson-1": {
+      "slides": [
+        {
+          "t": "cover",
+          "eyebrow": "The Ministry &middot; Matthew 10",
+          "lesson": "Lesson 1",
+          "title": "The Price of Being Sent",
+          "ref": "Matthew 10:1-10",
+          "speakerNote": "Cover slide. Let it breathe. No rush."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:1",
+          "text": "&ldquo;And when he had called unto him his twelve disciples, he gave them power against unclean spirits, to cast them out, and to heal all manner of sickness.&rdquo;",
+          "tk": "Called first. Empowered second. Sent third. That order is everything.",
+          "speakerNote": "Read slowly. Do not rush the text."
+        },
+        {
+          "t": "te",
+          "n": "01",
+          "hl": "The order <span class=\"acc\">matters.</span>",
+          "pts": [
+            "Jesus did not start with sending. He started with calling.",
+            "Called unto Him &rarr; Given power &rarr; Then sent out.",
+            "Ministry does not begin with going. It begins with <span class=\"hi\">coming near.</span>",
+            "Misunderstand the order, and you will chase activity and call it ministry."
+          ],
+          "ref": "Matthew 10:1",
+          "speakerNote": "This is the diagnostic. Called → Empowered → Sent. The order is the whole point."
+        },
+        {
+          "t": "big",
+          "sup": "The First Price",
+          "text": "Activity by itself is not <span class=\"acc\">ministry.</span>",
+          "ref": null,
+          "speakerNote": "Big statement. Pause after. Let it land."
+        },
+        {
+          "t": "te",
+          "n": "02",
+          "hl": "<span class=\"acc\">Called</span> before sent.",
+          "pts": [
+            "You can be active and not be sent.",
+            "You can be useful and not be formed.",
+            "You can be gifted and not be submitted.",
+            "<span class=\"hi\">You can be around the work of God and still avoid the God of the work.</span>"
+          ],
+          "ref": "Matthew 10:1",
+          "speakerNote": "Four bullets = four ways people get it wrong."
+        },
+        {
+          "t": "big",
+          "sup": "Ministry Principle",
+          "text": "The call inward protects the <span class=\"acc\">work</span> outward.",
+          "ref": null,
+          "speakerNote": "Big statement. This is the core protective principle."
+        },
+        {
+          "t": "te",
+          "n": "03",
+          "hl": "The first price is <span class=\"acc\">surrender.</span>",
+          "pts": [
+            "Being called close is not just for blessing. It is for correction.",
+            "Jesus calls close enough to expose what is hiding under the work.",
+            "Before anyone rejects you, Jesus has to claim you.",
+            "<span class=\"hi\">Ministry is not just doing something for God. It is being brought under the government of God.</span>"
+          ],
+          "ref": "Matthew 10:1",
+          "speakerNote": "This is where ministry gets expensive. Spend time here."
+        },
+        {
+          "t": "te",
+          "n": "04",
+          "hl": "<span class=\"acc\">Disciple</span> before apostle.",
+          "pts": [
+            "Verse 1 calls them disciples. Verse 2 calls them apostles.",
+            "Learner before messenger. Formation before function.",
+            "Jesus does not send strangers. He sends disciples.",
+            "<span class=\"hi\">Authority in the hands of an unformed person is dangerous.</span>"
+          ],
+          "ref": "Matthew 10:1-2",
+          "speakerNote": "Disciple → Apostle transition. Very important."
+        },
+        {
+          "t": "big",
+          "sup": "Key Line",
+          "text": "Authority in the hands of an unformed person is <span class=\"acc\">dangerous.</span>",
+          "ref": null,
+          "speakerNote": "Let this one breathe. Big text. Sit in the silence."
+        },
+        {
+          "t": "te",
+          "n": "05",
+          "hl": "Delegated authority. Not <span class=\"acc\">owned.</span>",
+          "pts": [
+            "Jesus gave them power. They did not generate it.",
+            "They did not manufacture it. They did not earn it.",
+            "The minister is never the source. The minister is a vessel.",
+            "<span class=\"hi\">The moment you act like you are the source, the work is already polluted.</span>"
+          ],
+          "ref": "Matthew 10:1",
+          "speakerNote": "Kill the possessives. Not my ministry. Not my calling."
+        },
+        {
+          "t": "names",
+          "hl": "Jesus sends people, <span class=\"acc\">not ideas.</span>",
+          "sub": "The names carry weight &middot; Matthew 10:2-4",
+          "people": [
+            {
+              "name": "Peter",
+              "note": "Denial and restoration. Grace transforms the one who failed."
+            },
+            {
+              "name": "James",
+              "note": "Closeness does not exempt from suffering."
+            },
+            {
+              "name": "John",
+              "note": "Endurance and exile. Long faithfulness."
+            },
+            {
+              "name": "Matthew",
+              "note": "A publican called into kingdom witness."
+            },
+            {
+              "name": "Thomas",
+              "note": "Wrestling can become confession."
+            },
+            {
+              "name": "Judas",
+              "note": "Proximity is not surrender."
+            }
+          ],
+          "speakerNote": "Walk through the names slowly. Each one is a different story."
+        },
+        {
+          "t": "big",
+          "sup": "Warning",
+          "text": "Proximity is not <span class=\"acc\">surrender.</span>",
+          "ref": "Matthew 10:4",
+          "speakerNote": "Judas lands hardest. Pause after this one."
+        },
+        {
+          "t": "te",
+          "n": "06",
+          "hl": "Sent under <span class=\"acc\">command.</span>",
+          "pts": [
+            "He commanded them. They did not send themselves.",
+            "Ambition moves for opportunity. Calling moves under command.",
+            "Ministry built only on feeling quits when feeling lowers.",
+            "<span class=\"hi\">Compassion sees need. Obedience discerns sending.</span>"
+          ],
+          "ref": "Matthew 10:5-6",
+          "speakerNote": "Command vs. inspiration. Ministry under obedience."
+        },
+        {
+          "t": "te",
+          "n": "07",
+          "hl": "Boundaries of <span class=\"acc\">assignment.</span>",
+          "pts": [
+            "Not every need is your assignment.",
+            "Not every open door is obedience.",
+            "Not every burden means God told you to carry it.",
+            "<span class=\"hi\">The Kingdom does not decorate life. The Kingdom governs life.</span>"
+          ],
+          "ref": "Matthew 10:5-10",
+          "speakerNote": "Boundaries are not lack of compassion. They are divine sequence."
+        },
+        {
+          "t": "final",
+          "kicker": "The Closing Line",
+          "text": "Jesus calls unto Himself those He intends to <span class=\"acc\">send.</span>",
+          "sub": "Ministry begins with nearness. The call inward is the first movement.",
+          "ref": "Matthew 10:1",
+          "speakerNote": "Final slide. Close in prayer after this."
+        }
+      ]
+    },
+    "ministry-lesson-2": {
+      "slides": [
+        {
+          "t": "cover",
+          "eyebrow": "The Ministry &middot; Matthew 10",
+          "lesson": "Lesson 2",
+          "title": "The Discipline of the Sent",
+          "ref": "Matthew 10:11-16",
+          "speakerNote": "Opening title. Start Lesson 2 here."
+        },
+        {
+          "t": "big",
+          "sup": "Big Idea",
+          "text": "Jesus does not only <span class=\"acc\">send</span> disciples. He instructs them how to <span class=\"acc\">move.</span>",
+          "ref": "Matthew 10:11-16",
+          "speakerNote": "Big idea. Use after “Jesus does not only send His disciples into the work.”"
+        },
+        {
+          "t": "te",
+          "n": "01",
+          "hl": "Burden is not the same as <span class=\"acc\">instruction.</span>",
+          "pts": [
+            "There is a difference between being burdened and being instructed.",
+            "There is a difference between compassion and moving under command.",
+            "There is a difference between seeing need and knowing assignment.",
+            "<span class=\"hi\">Ministry without instruction can cause damage.</span>"
+          ],
+          "ref": "Matthew 10:11-16",
+          "speakerNote": "Opening diagnostic. Burden, compassion, need, and assignment."
+        },
+        {
+          "t": "te",
+          "n": "02",
+          "hl": "The discipline of the <span class=\"acc\">sent.</span>",
+          "pts": [
+            "How do sent people enter?",
+            "How do sent people discern?",
+            "How do sent people stay?",
+            "How do sent people carry peace, leave clean, and face danger without becoming dangerous?"
+          ],
+          "ref": "Matthew 10:11-16",
+          "speakerNote": "Transition into the lesson frame: enter, discern, stay, peace, leave, danger."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:11",
+          "text": "&ldquo;And into whatsoever city or town ye shall enter, enquire who in it is worthy; and there abide till ye go thence.&rdquo;",
+          "tk": "The first instruction is not preach louder. The first instruction is enquire.",
+          "speakerNote": "Read Matthew 10:11. Begin Point I: discern before you invest."
+        },
+        {
+          "t": "te",
+          "n": "03",
+          "hl": "Discern before you <span class=\"acc\">invest.</span>",
+          "pts": [
+            "Jesus does not tell them to attach to the first interested person.",
+            "He does not let need alone decide where they stay.",
+            "Worthy does not mean perfect. It means receptive.",
+            "<span class=\"hi\">Mature ministry sees posture, not only pain.</span>"
+          ],
+          "ref": "Matthew 10:11",
+          "speakerNote": "Point I. Slow down on “enquire” and “worthy.”"
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "Compassion sees need. Obedience discerns <span class=\"acc\">assignment.</span>",
+          "ref": "Matthew 10:11",
+          "speakerNote": "Preach line after Point I: Compassion sees need, obedience discerns assignment."
+        },
+        {
+          "t": "te",
+          "n": "04",
+          "hl": "A worthy house is <span class=\"acc\">receptive.</span>",
+          "pts": [
+            "Not every person who needs help wants truth.",
+            "Not every open door is obedience.",
+            "Not every invitation is assignment.",
+            "<span class=\"hi\">Can the Word, peace, instruction, and truth rest here?</span>"
+          ],
+          "ref": "Matthew 10:11",
+          "speakerNote": "Explain worthy as receptive, not perfect or impressive."
+        },
+        {
+          "t": "te",
+          "n": "05",
+          "hl": "Sent people must know how to <span class=\"acc\">stay.</span>",
+          "pts": [
+            "Jesus says, &ldquo;There abide till ye go thence.&rdquo;",
+            "Restlessness is not discernment.",
+            "Faithfulness can look ordinary.",
+            "<span class=\"hi\">Stay where God placed you until God releases you.</span>"
+          ],
+          "ref": "Matthew 10:11",
+          "speakerNote": "Point II. Shift from discerning to abiding. Restlessness is not discernment."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:12-13",
+          "text": "&ldquo;And when ye come into an house, salute it. And if the house be worthy, let your peace come upon it: but if it be not worthy, let your peace return to you.&rdquo;",
+          "tk": "The disciple is careful, but not cold.",
+          "speakerNote": "Read Matthew 10:12-13. Begin Point III: peace."
+        },
+        {
+          "t": "te",
+          "n": "06",
+          "hl": "Carry peace, but do not <span class=\"acc\">force</span> it.",
+          "pts": [
+            "The disciple enters with peace.",
+            "Peace rests where there is receptivity.",
+            "Peace returns where it is resisted.",
+            "<span class=\"hi\">You can love and still let peace return.</span>"
+          ],
+          "ref": "Matthew 10:12-13",
+          "speakerNote": "Point III. Peace can rest, or peace can return."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "Do not lose peace trying to <span class=\"acc\">force</span> peace.",
+          "ref": "Matthew 10:12-13",
+          "speakerNote": "Preach line after peace section. Let it land."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:14-15",
+          "text": "&ldquo;And whosoever shall not receive you, nor hear your words, when ye depart out of that house or city, shake off the dust of your feet.&rdquo;",
+          "tk": "Leaving can be obedience when the Word is refused.",
+          "speakerNote": "Read Matthew 10:14-15. Begin Point IV: leaving clean."
+        },
+        {
+          "t": "te",
+          "n": "07",
+          "hl": "Leave without <span class=\"acc\">bitterness.</span>",
+          "pts": [
+            "There are places where staying is no longer patience.",
+            "Dust is the residue of rejection.",
+            "Do not carry the last place into the next assignment.",
+            "<span class=\"hi\">Judgment belongs to God. Obedience belongs to the disciple.</span>"
+          ],
+          "ref": "Matthew 10:14-15",
+          "speakerNote": "Point IV. Dust is residue. Warn against carrying rejection forward."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "Do not carry the dust of a place Jesus told you to <span class=\"acc\">leave.</span>",
+          "ref": "Matthew 10:14-15",
+          "speakerNote": "Preach line after dust section. Pause."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:16",
+          "text": "&ldquo;Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.&rdquo;",
+          "tk": "Do not become a wolf. Do not pretend wolves are not real.",
+          "speakerNote": "Read Matthew 10:16. Begin wolves section."
+        },
+        {
+          "t": "te",
+          "n": "08",
+          "hl": "Sheep among <span class=\"acc\">wolves.</span>",
+          "pts": [
+            "Jesus does not romanticize the work.",
+            "Danger is real, but danger does not redefine the disciple.",
+            "The presence of wolves does not give sheep permission to become wolves.",
+            "<span class=\"hi\">Stay sheep. See wolves. Belong to the Shepherd.</span>"
+          ],
+          "ref": "Matthew 10:16",
+          "speakerNote": "Point V. Sheep among wolves. Do not become what wounded you."
+        },
+        {
+          "t": "te",
+          "n": "09",
+          "hl": "Wise and <span class=\"acc\">harmless.</span>",
+          "pts": [
+            "Harmlessness without wisdom can still damage the work.",
+            "Wisdom without harmlessness becomes corruption with good vocabulary.",
+            "Jesus corrects foolish innocence and corrupt intelligence.",
+            "<span class=\"hi\">Clear eyes. Clean hands.</span>"
+          ],
+          "ref": "Matthew 10:16",
+          "speakerNote": "Point VI. Wise and harmless. Correct both imbalance errors."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "Jesus does not ask for blind innocence or corrupt intelligence. He asks for wisdom with <span class=\"acc\">clean hands.</span>",
+          "ref": "Matthew 10:16",
+          "speakerNote": "Preach line after wisdom section. Clear eyes, clean hands."
+        },
+        {
+          "t": "final",
+          "kicker": "Closing Line",
+          "text": "Sent people do not only carry power. They move under <span class=\"acc\">instruction.</span>",
+          "sub": "Ministry is compassion under command. The sending is His, and the discipline is His too.",
+          "ref": "Matthew 10:11-16",
+          "speakerNote": "Closing. Ministry remains under instruction. End with final line."
+        }
+      ]
+    },
+    "ministry-lesson-3": {
+      "slides": [
+        {
+          "t": "cover",
+          "eyebrow": "The Ministry &middot; Companion Lesson",
+          "lesson": "Lesson 3",
+          "title": "The Making of a Minister",
+          "ref": "1 Timothy 4:12-16 · 2 Timothy",
+          "speakerNote": "Opening title. Start the companion lesson here."
+        },
+        {
+          "t": "big",
+          "sup": "Big Idea",
+          "text": "Paul does not tell Timothy to build a <span class=\"acc\">brand.</span>",
+          "ref": "1 Timothy 4:16",
+          "speakerNote": "Opening big idea. Use after: Paul does not tell Timothy to build a brand."
+        },
+        {
+          "t": "sc",
+          "ref": "1 Timothy 4:16",
+          "text": "&ldquo;Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.&rdquo;",
+          "tk": "Paul does not separate the man from the message.",
+          "speakerNote": "Read 1 Timothy 4:16. Slow down on “thyself” and “doctrine.”"
+        },
+        {
+          "t": "te",
+          "n": "01",
+          "hl": "Watch the life that carries the <span class=\"acc\">doctrine.</span>",
+          "pts": [
+            "Take heed unto thyself.",
+            "Take heed unto the doctrine.",
+            "The man and the message have to be watched together.",
+            "<span class=\"hi\">Truth can be mishandled by a vessel that is out of order.</span>"
+          ],
+          "ref": "1 Timothy 4:16",
+          "speakerNote": "Point I. The minister must watch the life that carries the doctrine."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "Paul does not separate the man from the message because the people receive <span class=\"acc\">both.</span>",
+          "ref": "1 Timothy 4:16",
+          "speakerNote": "Preach line for Point I. Pause after this."
+        },
+        {
+          "t": "sc",
+          "ref": "1 Timothy 4:12",
+          "text": "&ldquo;Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.&rdquo;",
+          "tk": "The minister must become an example before he becomes only a voice.",
+          "speakerNote": "Point II. Use when you read 1 Timothy 4:12 and move from voice to example."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "A minister is not proven by <span class=\"acc\">volume.</span> He is proven by pattern.",
+          "ref": "1 Timothy 4:12",
+          "speakerNote": "Preach line for example/pattern."
+        },
+        {
+          "t": "te",
+          "n": "02",
+          "hl": "Stir the gift, but keep the vessel <span class=\"acc\">governed.</span>",
+          "pts": [
+            "A real gift can still be neglected.",
+            "A true calling can still be underdeveloped.",
+            "The gift being from God does not remove responsibility.",
+            "<span class=\"hi\">The gift is entrusted. The vessel must be governed.</span>"
+          ],
+          "ref": "1 Timothy 4:14-15 · 2 Timothy 1:6",
+          "speakerNote": "Point III. Gift and discipline. Connect 1 Timothy 4:14-15 and 2 Timothy 1:6."
+        },
+        {
+          "t": "sc",
+          "ref": "2 Timothy 1:7",
+          "text": "&ldquo;For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.&rdquo;",
+          "tk": "Power. Love. A sound mind. That is the shape of a safe vessel.",
+          "speakerNote": "Read 2 Timothy 1:7. Explain power, love, and sound mind."
+        },
+        {
+          "t": "sc",
+          "ref": "2 Timothy 2:3",
+          "text": "&ldquo;Thou therefore endure hardness, as a good soldier of Jesus Christ.&rdquo;",
+          "tk": "Hardship must deepen obedience without deforming the spirit.",
+          "speakerNote": "Point IV. Read 2 Timothy 2:3. Hardship and soldier language."
+        },
+        {
+          "t": "big",
+          "sup": "Preach Line",
+          "text": "A minister must learn discomfort without letting discomfort <span class=\"acc\">deform</span> him.",
+          "ref": "2 Timothy 2:3",
+          "speakerNote": "Preach line for hardship. Let it land."
+        },
+        {
+          "t": "sc",
+          "ref": "2 Timothy 2:15",
+          "text": "&ldquo;Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.&rdquo;",
+          "tk": "The Word is not material for clever thoughts. It is truth to be handled rightly.",
+          "speakerNote": "Point V. Read 2 Timothy 2:15. Study and rightly divide the Word."
+        },
+        {
+          "t": "sc",
+          "ref": "2 Timothy 4:2",
+          "text": "&ldquo;Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.&rdquo;",
+          "tk": "Preach the Word when it is received and when it is resisted.",
+          "speakerNote": "Point VI. Read 2 Timothy 4:2. Preach the Word."
+        },
+        {
+          "t": "sc",
+          "ref": "2 Timothy 4:7",
+          "text": "&ldquo;I have fought a good fight, I have finished my course, I have kept the faith.&rdquo;",
+          "tk": "Paul is not only showing Timothy how to start. He is showing him how to finish.",
+          "speakerNote": "Finish section. Read 2 Timothy 4:7."
+        },
+        {
+          "t": "final",
+          "kicker": "Closing Line",
+          "text": "The making of a minister is the making of a <span class=\"acc\">safe vessel</span> for holy work.",
+          "sub": "Life. Doctrine. Gift. Endurance. Study. Preaching. Finish.",
+          "ref": "2 Timothy 4:5-7",
+          "speakerNote": "Final close. The making of a minister is the making of a safe vessel."
+        }
+      ]
+    },
+    "ministry-lesson-4": {
+      "slides": [
+        {
+          "t": "cover",
+          "eyebrow": "The Ministry · Matthew 10",
+          "lesson": "Lesson 4",
+          "title": "What It Takes to Make It",
+          "ref": "Matthew 10:16-28",
+          "speakerNote": "Set the frame: What It Takes to Make It. Keep it direct. This is about ministry cost and endurance."
+        },
+        {
+          "t": "big",
+          "sup": "Big Idea",
+          "text": "To make it in ministry, you have to endure with a <span class=\"acc\">clean spirit.</span>",
+          "ref": "Matthew 10:16-28",
+          "speakerNote": "Big idea for the whole lesson. Clean spirit is the center."
+        },
+        {
+          "t": "te",
+          "n": "01",
+          "hl": "The <span class=\"acc\">thread</span> we are following.",
+          "pts": [
+            "Sheep among wolves (16-18)",
+            "A surrendered mouth (19-20)",
+            "Betrayal can be part of the cost (21)",
+            "Endure to the end (22-25)",
+            "Fear God, not man (26-28)"
+          ],
+          "ref": "Matthew 10:16-28",
+          "speakerNote": "Walk the thread so people know where the lesson is going."
+        },
+        {
+          "t": "te",
+          "n": "02",
+          "hl": "You are sheep among <span class=\"acc\">wolves.</span>",
+          "pts": [
+            "Jesus did not send them into comfort.",
+            "Ministry requires awareness and discernment.",
+            "You cannot be shocked when opposition shows up.",
+            "The environment is hostile, but the spirit must stay clean."
+          ],
+          "ref": "Matthew 10:16",
+          "speakerNote": "Bring out the environment first. Sheep among wolves means people should not expect comfort."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:16",
+          "text": "“Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves.”",
+          "tk": "Be wise, but stay clean.",
+          "speakerNote": "Read the verse slowly. Keep scripture centered and let the key line land."
+        },
+        {
+          "t": "te",
+          "n": "03",
+          "hl": "Wise as serpents. <span class=\"acc\">Harmless as doves.</span>",
+          "pts": [
+            "Wisdom is not suspicion. It is spiritual awareness.",
+            "Harmlessness is not weakness. It is a clean spirit.",
+            "Opposition cannot turn the minister bitter, aggressive, or destructive.",
+            "Be careful without becoming corrupt."
+          ],
+          "ref": "Matthew 10:16",
+          "speakerNote": "Main correction: be careful without becoming corrupt. Do not let wolves turn you into a wolf."
+        },
+        {
+          "t": "te",
+          "n": "04",
+          "hl": "You will be tested in <span class=\"acc\">every arena.</span>",
+          "pts": [
+            "Councils: judgment, accusation, and decision.",
+            "Synagogues: pressure from religious spaces.",
+            "Governors and kings: public and civil authority.",
+            "Ministry can be tested by systems, leaders, family, and society."
+          ],
+          "ref": "Matthew 10:17-18",
+          "speakerNote": "Councils, synagogues, governors, and kings. The testing field is broad."
+        },
+        {
+          "t": "big",
+          "sup": "Major Insight",
+          "text": "Pressure can be <span class=\"acc\">positioning.</span>",
+          "ref": "Matthew 10:18",
+          "speakerNote": "Pressure is not always punishment. Sometimes God is setting the field."
+        },
+        {
+          "t": "te",
+          "n": "05",
+          "hl": "God fills the mouth of a <span class=\"acc\">surrendered vessel.</span>",
+          "pts": [
+            "Jesus said when they deliver you, not if.",
+            "This does not cancel study, preparation, or discipline.",
+            "It does correct panic when the hour comes.",
+            "A surrendered mouth must be connected to an ear that hears God."
+          ],
+          "ref": "Matthew 10:19-20",
+          "speakerNote": "Clarify: this does not cancel study or preparation. It corrects panic."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:19-20",
+          "text": "“But when they deliver you up, take no thought how or what ye shall speak… For it is not ye that speak, but the Spirit of your Father which speaketh in you.”",
+          "tk": "God fills the mouth of a surrendered vessel.",
+          "speakerNote": "Read the mouth scripture. Emphasize God speaking through a surrendered vessel."
+        },
+        {
+          "t": "big",
+          "sup": "Prayer Cue",
+          "text": "God, let my mouth be a vessel ready to speak <span class=\"acc\">Your words.</span>",
+          "ref": "Matthew 10:19-20",
+          "speakerNote": "Make this a prayer moment. Ear tuned in private, mouth surrendered in public."
+        },
+        {
+          "t": "te",
+          "n": "06",
+          "hl": "Betrayal can be part of the <span class=\"acc\">cost.</span>",
+          "pts": [
+            "The cost of ministry can touch the closest relationships.",
+            "It is different when resistance comes from people you thought would stand with you.",
+            "Jesus tells us ahead of time so betrayal does not destroy obedience.",
+            "Pain is real, but obedience stays intact."
+          ],
+          "ref": "Matthew 10:21",
+          "speakerNote": "Do not overdramatize. Betrayal is real, but obedience stays intact."
+        },
+        {
+          "t": "big",
+          "sup": "Major Point",
+          "text": "Betrayal does not cancel <span class=\"acc\">obedience.</span>",
+          "ref": "Matthew 10:21",
+          "speakerNote": "Land the phrase: betrayal does not cancel obedience."
+        },
+        {
+          "t": "te",
+          "n": "07",
+          "hl": "Endurance is the proof, <span class=\"acc\">not the start.</span>",
+          "pts": [
+            "Starting is not the proof. Continuing is.",
+            "Some people love ministry until ministry costs them something.",
+            "Some people love truth until truth separates them from approval.",
+            "He that endureth to the end shall be saved."
+          ],
+          "ref": "Matthew 10:22",
+          "speakerNote": "Press endurance. Starting is not the proof. Continuing is."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:22",
+          "text": "“And ye shall be hated of all men for my name’s sake: but he that endureth to the end shall be saved.”",
+          "tk": "Endurance is the proof, not the start.",
+          "speakerNote": "Read Matthew 10:22 and let the reward land."
+        },
+        {
+          "t": "te",
+          "n": "08",
+          "hl": "Rejection does not cancel <span class=\"acc\">assignment.</span>",
+          "pts": [
+            "When they persecute you in one city, flee into another.",
+            "Do not stop because one door closes.",
+            "Do not turn one rejection into disobedience.",
+            "Keep moving. Keep preaching. Keep serving."
+          ],
+          "ref": "Matthew 10:23",
+          "speakerNote": "Movement after rejection. Do not let one closed door become disobedience."
+        },
+        {
+          "t": "te",
+          "n": "09",
+          "hl": "Reset your <span class=\"acc\">expectations.</span>",
+          "pts": [
+            "The disciple is not above his master.",
+            "If they resisted Jesus, they will resist His household.",
+            "Do not follow a rejected Christ and expect universal acceptance.",
+            "Right expectations keep offense from taking root."
+          ],
+          "ref": "Matthew 10:24-25",
+          "speakerNote": "Expectation reset. If they resisted Jesus, they will resist His household."
+        },
+        {
+          "t": "te",
+          "n": "10",
+          "hl": "Fear God, <span class=\"acc\">not man.</span>",
+          "pts": [
+            "You do not have to expose everybody.",
+            "You do not have to defend yourself against everybody.",
+            "God knows how to bring truth to the surface.",
+            "The fear of God must be stronger than the fear of man."
+          ],
+          "ref": "Matthew 10:26-28",
+          "speakerNote": "Fear God, not man. God brings hidden things to light."
+        },
+        {
+          "t": "sc",
+          "ref": "Matthew 10:28",
+          "text": "“And fear not them which kill the body… but rather fear him which is able to destroy both soul and body in hell.”",
+          "tk": "Fear God, not man.",
+          "speakerNote": "Read Matthew 10:28 with weight, not hype."
+        },
+        {
+          "t": "final",
+          "kicker": "Closing Thread",
+          "text": "Wisdom. Surrendered mouth. Endurance. Movement. <span class=\"acc\">Fear of God.</span>",
+          "sub": "Ministry has a cost. But he that endureth to the end shall be saved.",
+          "ref": "Matthew 10:16-28",
+          "speakerNote": "Close with the thread recap and pray for clean endurance."
+        }
+      ]
+    },
+    "living-with-purpose": {
+      "slides": [
+        {
+          "type": "cover",
+          "title": "Living With Purpose",
+          "sub": "Seeking God's Best in Every Stage of Life",
+          "ref": "Matthew 6:33",
+          "notes": "Open the room. The lesson is about living purposefully in the stage God has you in now.",
+          "speakerNote": "Open the room. The lesson is about living purposefully in the stage God has you in now."
+        },
+        {
+          "type": "verse",
+          "kicker": "Anchor Text",
+          "ref": "Matthew 6:33",
+          "text": "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+          "notes": "Read the anchor text slowly. Emphasize FIRST.",
+          "speakerNote": "Read the anchor text slowly. Emphasize FIRST."
+        },
+        {
+          "type": "statement",
+          "kicker": "Big Idea",
+          "text": "Purpose is not something you enter when your circumstances change.",
+          "sub": "Purpose is how you live while seeking God first in the stage He has you in now.",
+          "notes": "Set the thesis. Purpose is present-tense, not postponed until marriage, career, money, or another answered prayer.",
+          "speakerNote": "Set the thesis. Purpose is present-tense, not postponed until marriage, career, money, or another answered prayer."
+        },
+        {
+          "type": "progression",
+          "kicker": "Today's Progression",
+          "words": [
+            "SEEK",
+            "ASK",
+            "KNOCK",
+            "CALL",
+            "TRUST"
+          ],
+          "sub": "Trust God with “all these things.”",
+          "notes": "Give them the map before the lesson begins.",
+          "speakerNote": "Give them the map before the lesson begins."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Icebreaker · Round One",
+          "text": "If you could ask God for one thing concerning your present stage of life, what would it be?",
+          "sub": "Keep the answers short. Serious or light is fine.",
+          "notes": "Put a microphone in the room. Collect answers without responding to every one.",
+          "speakerNote": "Put a microphone in the room. Collect answers without responding to every one."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Icebreaker · Round Two",
+          "text": "What are you waiting on God for right now?",
+          "sub": "Everybody is waiting for something.",
+          "notes": "Let this expose the common experience of waiting.",
+          "speakerNote": "Let this expose the common experience of waiting."
+        },
+        {
+          "type": "statement",
+          "kicker": "Transition",
+          "text": "Different ages. Different situations. Different desires. Same starting point:",
+          "sub": "SEEK FIRST THE KINGDOM OF GOD.",
+          "notes": "Transition directly from the room answers into Matthew 6:33.",
+          "speakerNote": "Transition directly from the room answers into Matthew 6:33."
+        },
+        {
+          "type": "statement",
+          "kicker": "Introduction",
+          "text": "Stop treating your current stage like a waiting room.",
+          "notes": "Name the danger: “My real life starts when...” Marriage, career, house, more money, answered prayer, or this season ending.",
+          "speakerNote": "Name the danger: “My real life starts when...” Marriage, career, house, more money, answered prayer, or this season ending."
+        },
+        {
+          "type": "verse",
+          "ref": "Ecclesiastes 3:1",
+          "text": "To every thing there is a season, and a time to every purpose under the heaven.",
+          "sub": "There is purpose in the season, not merely purpose after the season.",
+          "notes": "Scripture never teaches us to postpone purpose.",
+          "speakerNote": "Scripture never teaches us to postpone purpose."
+        },
+        {
+          "type": "verse",
+          "ref": "Philippians 4:11",
+          "text": "For I have learned, in whatsoever state I am, therewith to be content.",
+          "sub": "Contentment does not mean you stop desiring. It means your joy, obedience, identity, and usefulness to God are not suspended.",
+          "notes": "You can desire change without despising the stage you are in.",
+          "speakerNote": "You can desire change without despising the stage you are in."
+        },
+        {
+          "type": "section",
+          "kicker": "01",
+          "title": "SEEK",
+          "sub": "What are you looking for?",
+          "ref": "Matthew 6:33",
+          "notes": "Begin the SEEK section.",
+          "speakerNote": "Begin the SEEK section."
+        },
+        {
+          "type": "statement",
+          "kicker": "Order Matters",
+          "text": "Jesus did not merely say seek. He said seek Him FIRST.",
+          "sub": "Everybody seeks something. The issue is order.",
+          "notes": "Marriage, money, security, recognition, success, friendship, approval, comfort, purpose. Good things become dangerous when they take first place.",
+          "speakerNote": "Marriage, money, security, recognition, success, friendship, approval, comfort, purpose. Good things become dangerous when they take first place."
+        },
+        {
+          "type": "points",
+          "kicker": "To Seek",
+          "title": "Intentional pursuit because I consider something valuable.",
+          "points": [
+            "Attention",
+            "Desire",
+            "Movement",
+            "Priority",
+            "Persistence"
+          ],
+          "notes": "Seeking is not accidental. It has movement and priority.",
+          "speakerNote": "Seeking is not accidental. It has movement and priority."
+        },
+        {
+          "type": "points",
+          "kicker": "Seek the Lord",
+          "title": "Scripture keeps repeating the command.",
+          "points": [
+            "Deuteronomy 4:29 · with all thy heart and soul",
+            "1 Chronicles 16:11 · continually",
+            "Psalm 27:8 · Thy face, LORD, will I seek",
+            "Psalm 34:10 · shall not want any good thing",
+            "Isaiah 55:6 · while he may be found",
+            "Jeremiah 29:13 · with all your heart"
+          ],
+          "notes": "You do not have to read every verse here. Use the Scripture Bank if you want any one of them full screen.",
+          "speakerNote": "You do not have to read every verse here. Use the Scripture Bank if you want any one of them full screen."
+        },
+        {
+          "type": "points",
+          "kicker": "How Do We Seek God?",
+          "title": "Start with what God has already given you.",
+          "points": [
+            "Prayer · “God, I want You.”",
+            "His Word · Has God already spoken?",
+            "Obedience · Sometimes you already know the next right thing."
+          ],
+          "notes": "Some people want revelation when what they need is obedience.",
+          "speakerNote": "Some people want revelation when what they need is obedience."
+        },
+        {
+          "type": "points",
+          "kicker": "How Do We Seek God?",
+          "title": "Govern appetite. Receive counsel. Serve.",
+          "points": [
+            "Fasting · appetites may speak, but they do not rule",
+            "Godly counsel · people who know God, Scripture, and you",
+            "Serving · purpose often becomes clearer while moving"
+          ],
+          "notes": "For singles, legitimate desires can become controlling desires. Fasting puts desire back under government.",
+          "speakerNote": "For singles, legitimate desires can become controlling desires. Fasting puts desire back under government."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Discussion",
+          "text": "What competes most aggressively with seeking God first?",
+          "sub": "How can you tell when a legitimate desire has moved into first place?",
+          "notes": "Possible answer: when your peace depends upon receiving it. This leads into ASK.",
+          "speakerNote": "Possible answer: when your peace depends upon receiving it. This leads into ASK."
+        },
+        {
+          "type": "section",
+          "kicker": "02",
+          "title": "ASK",
+          "sub": "Bring your desires to God.",
+          "ref": "Matthew 7:7",
+          "notes": "Christian maturity does not mean pretending you do not want anything.",
+          "speakerNote": "Christian maturity does not mean pretending you do not want anything."
+        },
+        {
+          "type": "verse",
+          "ref": "Matthew 7:7",
+          "text": "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you:",
+          "sub": "God invites us to ask.",
+          "notes": "Want marriage? Direction? Wisdom? Ministry opportunity? Provision? Restoration? Ask.",
+          "speakerNote": "Want marriage? Direction? Wisdom? Ministry opportunity? Provision? Restoration? Ask."
+        },
+        {
+          "type": "points",
+          "kicker": "How Do We Ask?",
+          "title": "Bring the real request.",
+          "points": [
+            "Ask specifically",
+            "Ask according to His will",
+            "Ask with faith",
+            "Ask with the right motives"
+          ],
+          "notes": "Prayer is not “God, approve my plan.” It is “Here is what I desire, but I trust Your wisdom more than mine.”",
+          "speakerNote": "Prayer is not “God, approve my plan.” It is “Here is what I desire, but I trust Your wisdom more than mine.”"
+        },
+        {
+          "type": "prompt",
+          "kicker": "Motive Check",
+          "text": "Why do I want what I am asking God for?",
+          "sub": "A request can be good while the motive still needs purification.",
+          "notes": "Use marriage as the example: companionship, sex, social pressure, fear, image, family expectation, or covenant/service/partnership?",
+          "speakerNote": "Use marriage as the example: companionship, sex, social pressure, fear, image, family expectation, or covenant/service/partnership?"
+        },
+        {
+          "type": "statement",
+          "kicker": "Important Principle",
+          "text": "God can answer the prayer by changing the situation.",
+          "sub": "Sometimes God answers the prayer by changing the person who prayed it.",
+          "notes": "Let this sit before moving to KNOCK.",
+          "speakerNote": "Let this sit before moving to KNOCK."
+        },
+        {
+          "type": "section",
+          "kicker": "03",
+          "title": "KNOCK",
+          "sub": "Walk toward the doors you are praying about.",
+          "ref": "Matthew 7:7",
+          "notes": "Knocking introduces movement. You reached a door because you moved.",
+          "speakerNote": "Knocking introduces movement. You reached a door because you moved."
+        },
+        {
+          "type": "points",
+          "kicker": "Active Waiting",
+          "title": "Prayer is not an excuse for passivity.",
+          "points": [
+            "Employment · are you applying?",
+            "Financial stability · are you budgeting?",
+            "Friendship · are you becoming relational?",
+            "Marriage · are you becoming capable of building one?",
+            "Ministry · are you serving where there is already a need?",
+            "Knowledge · are you studying?"
+          ],
+          "notes": "Challenge spiritualized passivity.",
+          "speakerNote": "Challenge spiritualized passivity."
+        },
+        {
+          "type": "points",
+          "kicker": "Principles for Open Doors",
+          "title": "An opportunity is not automatically permission.",
+          "points": [
+            "Not every open door is from God",
+            "Not every closed door is rejection",
+            "Do not force a door God has closed",
+            "Do not fear a door God opens",
+            "Let Scripture govern every door"
+          ],
+          "notes": "Jonah found a ship going exactly where he wanted. Availability does not equal divine permission.",
+          "speakerNote": "Jonah found a ship going exactly where he wanted. Availability does not equal divine permission."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Ask the Room",
+          "text": "What is the difference between waiting on God and procrastinating?",
+          "sub": "Waiting on God is active obedience without forcing the outcome.",
+          "notes": "Let them answer first.",
+          "speakerNote": "Let them answer first."
+        },
+        {
+          "type": "section",
+          "kicker": "04",
+          "title": "CALL",
+          "sub": "When you need God to answer.",
+          "ref": "Jeremiah 33:3",
+          "notes": "Call is not the fourth word in Matthew 7:7, but it fits the biblical progression.",
+          "speakerNote": "Call is not the fourth word in Matthew 7:7, but it fits the biblical progression."
+        },
+        {
+          "type": "verse",
+          "ref": "Jeremiah 33:3",
+          "text": "Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not.",
+          "notes": "There are moments where you are not merely seeking direction. You are crying out.",
+          "speakerNote": "There are moments where you are not merely seeking direction. You are crying out."
+        },
+        {
+          "type": "points",
+          "kicker": "Call on God",
+          "title": "Stop carrying everything internally.",
+          "points": [
+            "When you are lonely · Call",
+            "When you do not understand · Call",
+            "When you are afraid · Call",
+            "When temptation is strong · Call",
+            "When you made a mess · Call",
+            "When you need God above everybody else's advice · Call"
+          ],
+          "notes": "Prayer should be the reflex of a life that knows where its help comes from.",
+          "speakerNote": "Prayer should be the reflex of a life that knows where its help comes from."
+        },
+        {
+          "type": "progression",
+          "kicker": "Put It Together",
+          "words": [
+            "SEEK",
+            "ASK",
+            "KNOCK",
+            "CALL"
+          ],
+          "sub": "Then comes something harder: TRUST.",
+          "notes": "Seek: God, what do You want? Ask: this is what I desire. Knock: I will move when You open the way. Call: I need You. None of those gives you control over the answer.",
+          "speakerNote": "Seek: God, what do You want? Ask: this is what I desire. Knock: I will move when You open the way. Call: I need You. None of those gives you control over the answer."
+        },
+        {
+          "type": "section",
+          "kicker": "05",
+          "title": "ALL THESE THINGS",
+          "sub": "What was Jesus actually promising?",
+          "ref": "Matthew 6:31-33",
+          "notes": "Return to the anchor text and make them identify the context.",
+          "speakerNote": "Return to the anchor text and make them identify the context."
+        },
+        {
+          "type": "verse",
+          "ref": "Matthew 6:31-33",
+          "text": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? ... But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+          "sub": "Your heavenly Father knoweth that ye have need of all these things.",
+          "notes": "The context defines “all these things”: needs, not a guarantee of every imagined life outcome.",
+          "speakerNote": "The context defines “all these things”: needs, not a guarantee of every imagined life outcome."
+        },
+        {
+          "type": "statement",
+          "kicker": "Read the Context",
+          "text": "“All these things” does NOT mean:",
+          "sub": "Put God first and He guarantees the spouse, house, career, income, children, and lifestyle you imagined.",
+          "notes": "Do not turn Matthew 6:33 into a prosperity formula.",
+          "speakerNote": "Do not turn Matthew 6:33 into a prosperity formula."
+        },
+        {
+          "type": "statement",
+          "kicker": "The Promise Is Better",
+          "text": "You take care of My kingdom.",
+          "sub": "Trust Me with your needs.",
+          "notes": "Before you ask, explain, panic, or compare, your Father knows.",
+          "speakerNote": "Before you ask, explain, panic, or compare, your Father knows."
+        },
+        {
+          "type": "statement",
+          "kicker": "God Knows What You Need",
+          "text": "The answer to anxiety is not “everything will happen when I want.”",
+          "sub": "The answer is: MY FATHER KNOWS.",
+          "notes": "Land Matthew 6:32 here.",
+          "speakerNote": "Land Matthew 6:32 here."
+        },
+        {
+          "type": "statement",
+          "kicker": "God's Best",
+          "text": "God's best is not necessarily getting everything you imagined.",
+          "sub": "It is becoming everything He has called you to become while receiving whatever He knows is good for you.",
+          "notes": "This is where the lesson title lands.",
+          "speakerNote": "This is where the lesson title lands."
+        },
+        {
+          "type": "verse",
+          "ref": "Psalm 84:11",
+          "text": "For the LORD God is a sun and shield: the LORD will give grace and glory: no good thing will he withhold from them that walk uprightly.",
+          "sub": "If He withholds it: it may not be good for me, not good for me yet, or there is a purpose I cannot currently see.",
+          "notes": "This requires trust, not control.",
+          "speakerNote": "This requires trust, not control."
+        },
+        {
+          "type": "section",
+          "kicker": "Singles Application",
+          "title": "DON'T WASTE THE STAGE YOU'RE IN",
+          "sub": "Every stage has opportunities unique to that stage.",
+          "ref": "1 Corinthians 7:32",
+          "notes": "Marriage is not inferior or superior. Each stage carries distinct opportunities and responsibilities.",
+          "speakerNote": "Marriage is not inferior or superior. Each stage carries distinct opportunities and responsibilities."
+        },
+        {
+          "type": "verse",
+          "ref": "1 Corinthians 7:32",
+          "text": "He that is unmarried careth for the things that belong to the Lord, how he may please the Lord:",
+          "sub": "Do not spend this stage staring at the next one.",
+          "notes": "Ask what can be built now.",
+          "speakerNote": "Ask what can be built now."
+        },
+        {
+          "type": "points",
+          "kicker": "Build Now",
+          "title": "What can this stage produce?",
+          "points": [
+            "Spiritually · relationship with God",
+            "Financially · habits and stewardship",
+            "Emotionally · address wounds, fears, insecurities, patterns",
+            "Relationally · become a better friend, sibling, church member, mentor",
+            "Physically · steward your body",
+            "Professionally · learn and build",
+            "Ministerially · serve somebody now"
+          ],
+          "notes": "Purpose is practical. Build what is available to build now.",
+          "speakerNote": "Purpose is practical. Build what is available to build now."
+        },
+        {
+          "type": "statement",
+          "kicker": "For Those Desiring Marriage",
+          "text": "Do not just seek the right person.",
+          "sub": "BECOME THE RIGHT PERSON.",
+          "notes": "Shift the prayer from “Where are they?” to “What are You developing in me?”",
+          "speakerNote": "Shift the prayer from “Where are they?” to “What are You developing in me?”"
+        },
+        {
+          "type": "points",
+          "kicker": "You Bring Yourself Into Marriage",
+          "title": "Marriage does not magically create:",
+          "points": [
+            "Discipline",
+            "Character",
+            "Communication",
+            "Financial wisdom",
+            "Emotional maturity",
+            "Purity",
+            "Patience",
+            "Spiritual depth"
+          ],
+          "notes": "Build the person now.",
+          "speakerNote": "Build the person now."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Final Exercise",
+          "text": "SEEK · What is God asking me to pursue more intentionally?",
+          "sub": "ASK · What desire do I need to honestly place before God?",
+          "notes": "Have everyone use phone or paper. These answers are private.",
+          "speakerNote": "Have everyone use phone or paper. These answers are private."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Final Exercise",
+          "text": "KNOCK · What action have I been praying about that I now need to take?",
+          "sub": "CALL · What burden do I need to cry out to God about?",
+          "notes": "Give them time to write.",
+          "speakerNote": "Give them time to write."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Final Exercise",
+          "text": "TRUST · What outcome do I need to release back into God's hands?",
+          "notes": "This is the final and hardest question.",
+          "speakerNote": "This is the final and hardest question."
+        },
+        {
+          "type": "verse",
+          "kicker": "Closing",
+          "ref": "Matthew 6:33",
+          "text": "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+          "notes": "Return one final time to the anchor text.",
+          "speakerNote": "Return one final time to the anchor text."
+        },
+        {
+          "type": "statement",
+          "kicker": "Live With Purpose Now",
+          "text": "Seek now. Ask now. Knock now. Call now. Trust now.",
+          "sub": "Serve. Build. Grow. Pray. Learn. Give. Love. Obey.",
+          "notes": "Do not live saying “I will have purpose when...”",
+          "speakerNote": "Do not live saying “I will have purpose when...”"
+        },
+        {
+          "type": "statement",
+          "kicker": "Final Line",
+          "text": "Your current stage is not the hallway leading to your life.",
+          "sub": "THIS IS YOUR LIFE. And if you seek the kingdom first, no stage of it has to be wasted.",
+          "notes": "End here. Let it breathe. Then reveal the purpose constellation.",
+          "speakerNote": "End here. Let it breathe. Then reveal the purpose constellation."
+        }
+      ]
+    },
+    "kingdom-principles-alignment": {
+      "slides": [
+        {
+          "type": "cover",
+          "kicker": "Kingdom Principles · Week 4",
+          "title": "THE PRINCIPLE OF ALIGNMENT",
+          "sub": "Authority Flows Through Alignment",
+          "ref": "Matthew 8:5-13",
+          "notes": "Open with the core principle: Kingdom authority does not begin with being over something. It begins with being properly under the rule of the King.",
+          "speakerNote": "Open with the core principle: Kingdom authority does not begin with being over something. It begins with being properly under the rule of the King."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Opening Question",
+          "title": "AM I MOVING?",
+          "sub": "Or am I moving in the direction of the King?",
+          "notes": "Do not let activity become the standard. A person can be moving fast and still be moving away from the King.",
+          "speakerNote": "Do not let activity become the standard. A person can be moving fast and still be moving away from the King."
+        },
+        {
+          "type": "points",
+          "kicker": "What Is Alignment?",
+          "title": "MOVING IN THE SAME DIRECTION",
+          "points": [
+            "What I believe",
+            "What I say",
+            "What I desire",
+            "What I practice",
+            "What God commands"
+          ],
+          "notes": "Alignment is not merely agreement in the mind. It is belief, speech, desire, practice, and God's command converging.",
+          "speakerNote": "Alignment is not merely agreement in the mind. It is belief, speech, desire, practice, and God's command converging."
+        },
+        {
+          "type": "statement",
+          "kicker": "Movement Is Not Proof",
+          "title": "A PERSON CAN BE ACTIVE, PRODUCTIVE, AND GIFTED WHILE STILL BEING MISALIGNED.",
+          "sub": "Movement does not prove alignment.",
+          "notes": "This is an important diagnostic. Fruitfulness and motion can hide internal resistance for a while.",
+          "speakerNote": "This is an important diagnostic. Fruitfulness and motion can hide internal resistance for a while."
+        },
+        {
+          "type": "verse",
+          "kicker": "Primary Text",
+          "ref": "Matthew 8:8-9",
+          "text": "Speak the word only, and my servant shall be healed. For I am a man under authority, having soldiers under me.",
+          "notes": "Read verses 8-9. Emphasize both phrases: 'speak the word only' and 'under authority.'",
+          "speakerNote": "Read verses 8-9. Emphasize both phrases: 'speak the word only' and 'under authority.'"
+        },
+        {
+          "type": "contrast",
+          "kicker": "The Centurion Understood Order",
+          "left": "I HAVE AUTHORITY.",
+          "right": "I AM UNDER AUTHORITY.",
+          "sub": "He began with what he was under before he described what was under him.",
+          "notes": "The order matters. His authority over soldiers existed because he himself operated inside a larger structure of authority.",
+          "speakerNote": "The order matters. His authority over soldiers existed because he himself operated inside a larger structure of authority."
+        },
+        {
+          "type": "statement",
+          "kicker": "Kingdom Principle",
+          "title": "AUTHORITY OVER OTHERS BEGINS WITH SUBMISSION TO PROPER AUTHORITY.",
+          "sub": "The centurion recognized delegated authority, so he understood the authority of Jesus.",
+          "notes": "Because the centurion understood delegated authority, he recognized that Jesus did not need physical proximity. His word was enough.",
+          "speakerNote": "Because the centurion understood delegated authority, he recognized that Jesus did not need physical proximity. His word was enough."
+        },
+        {
+          "type": "contrast",
+          "kicker": "Agreement Is Not Alignment",
+          "left": "GOD IS RIGHT.",
+          "right": "BECAUSE GOD IS RIGHT, I WILL CHANGE.",
+          "sub": "Agreement acknowledges truth. Alignment adjusts to truth.",
+          "notes": "Many people agree with Scripture but remain misaligned with Scripture. The difference is adjustment.",
+          "speakerNote": "Many people agree with Scripture but remain misaligned with Scripture. The difference is adjustment."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Word Check",
+          "title": "DOES THE WORD GOVERN ME?",
+          "sub": "It is not enough to know what Scripture says. Does what Scripture says determine what I do?",
+          "notes": "Ask where people keep negotiating with something God has already made clear.",
+          "speakerNote": "Ask where people keep negotiating with something God has already made clear."
+        },
+        {
+          "type": "steps",
+          "kicker": "Submission Before Resistance",
+          "title": "JAMES 4:7",
+          "steps": [
+            "Submit to God.",
+            "Resist the devil.",
+            "He will flee."
+          ],
+          "sub": "We cannot continually resist the King and expect to operate effectively in the King's authority.",
+          "notes": "The order is submission, then resistance. We often want authority of resistance without posture of submission.",
+          "speakerNote": "The order is submission, then resistance. We often want authority of resistance without posture of submission."
+        },
+        {
+          "type": "statement",
+          "kicker": "Submission Is Not Weakness",
+          "title": "SUBMISSION IS RECOGNIZING PROPER ORDER.",
+          "sub": "The centurion was powerful because he understood both who was under him and whose authority he was under.",
+          "notes": "Submission is not passivity. It is intelligent recognition of rightful order.",
+          "speakerNote": "Submission is not passivity. It is intelligent recognition of rightful order."
+        },
+        {
+          "type": "verse",
+          "kicker": "Self-Government",
+          "ref": "Proverbs 25:28",
+          "text": "He that hath no rule over his own spirit is like a city that is broken down, and without walls.",
+          "sub": "Before governing what is around us, we must govern what is within us under God.",
+          "notes": "A city without walls is exposed. Lack of self-government makes gifted people vulnerable.",
+          "speakerNote": "A city without walls is exposed. Lack of self-government makes gifted people vulnerable."
+        },
+        {
+          "type": "statement",
+          "kicker": "The Kingdom Definition of Strength",
+          "ref": "Proverbs 16:32",
+          "title": "SCRIPTURE CALLS SOMEONE POWERFUL WHEN THEY CAN GOVERN THEMSELVES UNDER GOD.",
+          "sub": "The world often calls someone powerful when they can control people.",
+          "notes": "Read Proverbs 16:32 from the Scripture Bank if needed. Slow to anger is better than the mighty.",
+          "speakerNote": "Read Proverbs 16:32 from the Scripture Bank if needed. Slow to anger is better than the mighty."
+        },
+        {
+          "type": "points",
+          "kicker": "What Must Be Governed?",
+          "title": "SELF-GOVERNMENT BECOMES PRACTICAL",
+          "points": [
+            "Anger",
+            "Speech",
+            "Appetite",
+            "Sexuality",
+            "Spending",
+            "Time",
+            "Impulses",
+            "Emotional reactions",
+            "Private habits",
+            "Discipline"
+          ],
+          "notes": "Move quickly through the list. Ask which of these quietly governs us instead of being governed.",
+          "speakerNote": "Move quickly through the list. Ask which of these quietly governs us instead of being governed."
+        },
+        {
+          "type": "statement",
+          "kicker": "Authority Exposes Character",
+          "title": "IF I CANNOT GOVERN MYSELF, MORE AUTHORITY WILL NOT SOLVE MY PROBLEM. IT WILL EXPOSE IT.",
+          "notes": "Authority magnifies what is already present. Leadership does not create character; it reveals it.",
+          "speakerNote": "Authority magnifies what is already present. Leadership does not create character; it reveals it."
+        },
+        {
+          "type": "points",
+          "kicker": "Alignment Before Assignment",
+          "ref": "Matthew 10:1, 5-7",
+          "title": "JESUS GAVE AUTHORITY, THEN DEFINED THE ASSIGNMENT.",
+          "points": [
+            "Where to go",
+            "Where not to go",
+            "Whom to serve",
+            "What to preach"
+          ],
+          "notes": "They did not give themselves authority. Jesus gave it, then set boundaries around its use.",
+          "speakerNote": "They did not give themselves authority. Jesus gave it, then set boundaries around its use."
+        },
+        {
+          "type": "statement",
+          "kicker": "Stay Inside the Assignment",
+          "title": "AUTHORITY DOES NOT GIVE US PERMISSION TO CREATE OUR OWN MISSION.",
+          "sub": "Authority empowers us to fulfill His mission. Not every opportunity is permission.",
+          "notes": "Sometimes obedience is doing what God told you. Sometimes obedience is refusing what He did not tell you.",
+          "speakerNote": "Sometimes obedience is doing what God told you. Sometimes obedience is refusing what He did not tell you."
+        },
+        {
+          "type": "points",
+          "kicker": "Authority Is for Service",
+          "ref": "Matthew 10:8",
+          "title": "FREELY YE HAVE RECEIVED, FREELY GIVE.",
+          "points": [
+            "More useful",
+            "More faithful",
+            "More responsible",
+            "More sacrificial"
+          ],
+          "sub": "Not simply more visible.",
+          "notes": "Jesus gave authority because people needed help. Authority is a stewardship for service, not status.",
+          "speakerNote": "Jesus gave authority because people needed help. Authority is a stewardship for service, not status."
+        },
+        {
+          "type": "points",
+          "kicker": "Faithful in the Small",
+          "ref": "Luke 16:10",
+          "title": "READINESS IS REVEALED IN SMALL RESPONSIBILITIES.",
+          "points": [
+            "Do I keep my word?",
+            "Do I finish what I start?",
+            "Can I serve when nobody sees?",
+            "Am I dependable?"
+          ],
+          "notes": "Before asking whether someone can handle the platform, ask whether they can handle what is already in their hands.",
+          "speakerNote": "Before asking whether someone can handle the platform, ask whether they can handle what is already in their hands."
+        },
+        {
+          "type": "verse",
+          "kicker": "Beneath the Master",
+          "ref": "Matthew 10:24-25",
+          "text": "The disciple is not above his master, nor the servant above his lord.",
+          "sub": "Christianity is not adding Jesus to our plans. Discipleship places our life beneath the Master.",
+          "notes": "This is one of the deepest alignment statements. Jesus is not an addition to our plan; He is Lord over it.",
+          "speakerNote": "This is one of the deepest alignment statements. Jesus is not an addition to our plan; He is Lord over it."
+        },
+        {
+          "type": "points",
+          "kicker": "Alignment Costs Preference",
+          "ref": "Matthew 10:37-39",
+          "title": "EVENTUALLY GOD'S DIRECTION WILL CONFLICT WITH SOMETHING WE PREFER.",
+          "points": [
+            "Comfort",
+            "Relationships",
+            "Reputation",
+            "Money",
+            "Plans",
+            "Ambition",
+            "Approval"
+          ],
+          "sub": "Alignment is revealed when God disagrees with us and we adjust.",
+          "notes": "Everyone agrees with God when God agrees with them. Alignment becomes visible when obedience costs preference.",
+          "speakerNote": "Everyone agrees with God when God agrees with them. Alignment becomes visible when obedience costs preference."
+        },
+        {
+          "type": "illustration",
+          "kicker": "The Alignment Illustration",
+          "title": "A MISALIGNED VEHICLE CAN STILL MOVE.",
+          "points": [
+            "It constantly pulls",
+            "Steering takes more effort",
+            "Tires wear unevenly",
+            "Energy is wasted",
+            "Other parts experience stress"
+          ],
+          "sub": "Alignment does not eliminate every difficulty. It eliminates unnecessary resistance.",
+          "notes": "Return to this illustration near the close. Movement is possible in misalignment, but it becomes costly and stressful.",
+          "speakerNote": "Return to this illustration near the close. Movement is possible in misalignment, but it becomes costly and stressful."
+        },
+        {
+          "type": "check",
+          "kicker": "Six-Point Alignment Check",
+          "items": [
+            [
+              "WORD",
+              "What has God said that I keep negotiating with?"
+            ],
+            [
+              "CHARACTER",
+              "Does my private life agree with my public confession?"
+            ],
+            [
+              "AUTHORITY",
+              "Can I receive correction without becoming defensive?"
+            ],
+            [
+              "RESPONSIBILITY",
+              "Am I faithful with what is already in my hands?"
+            ],
+            [
+              "ASSIGNMENT",
+              "Am I doing what God called me to do?"
+            ],
+            [
+              "RELATIONSHIPS",
+              "Is anyone's approval stronger than my obedience to Christ?"
+            ]
+          ],
+          "notes": "Let this become diagnostic, not accusatory. Give people room to identify one area rather than trying to fix six.",
+          "speakerNote": "Let this become diagnostic, not accusatory. Give people room to identify one area rather than trying to fix six."
+        },
+        {
+          "type": "levels",
+          "kicker": "Three Levels of Alignment",
+          "levels": [
+            [
+              "1",
+              "ALIGN THE HEART",
+              "What do I desire?"
+            ],
+            [
+              "2",
+              "ALIGN THE LIFE",
+              "What do I practice?"
+            ],
+            [
+              "3",
+              "ALIGN THE ASSIGNMENT",
+              "What has God called me to carry?"
+            ]
+          ],
+          "notes": "Heart, life, assignment. Desire comes under God; belief becomes habit; calling becomes specific stewardship.",
+          "speakerNote": "Heart, life, assignment. Desire comes under God; belief becomes habit; calling becomes specific stewardship."
+        },
+        {
+          "type": "steps",
+          "kicker": "Weekly Practice",
+          "title": "CHOOSE ONE AREA OF MISALIGNMENT.",
+          "steps": [
+            "Identify what God has said.",
+            "Identify where your life disagrees.",
+            "Make one visible correction.",
+            "Stop defending the misalignment.",
+            "Practice the correction consistently."
+          ],
+          "notes": "Not ten areas. One. The goal is visible adjustment, not emotional overload.",
+          "speakerNote": "Not ten areas. One. The goal is visible adjustment, not emotional overload."
+        },
+        {
+          "type": "contrast",
+          "kicker": "Closing Response",
+          "left": "DOES GOD FIT INTO MY LIFE?",
+          "right": "IS MY LIFE ALIGNED WITH THE RULE OF GOD?",
+          "sub": "The second question is the question of discipleship.",
+          "notes": "Slow down. This is the closing turn from concept to surrender.",
+          "speakerNote": "Slow down. This is the closing turn from concept to surrender."
+        },
+        {
+          "type": "prompt",
+          "kicker": "Final Reflection",
+          "title": "WHERE AM I ASKING GOD FOR AUTHORITY WHILE RESISTING THE ALIGNMENT REQUIRED TO CARRY IT?",
+          "sub": "Sit with the question before you answer it.",
+          "notes": "End quietly. Give space. Do not rush to fill the silence.",
+          "speakerNote": "End quietly. Give space. Do not rush to fill the silence."
+        }
+      ]
+    },
+    "kingdom-principles-provision": {
+      "slides": [
+        {
+          "type": "cover",
+          "kicker": "Kingdom Principles · Week 5",
+          "title": "THE PRINCIPLE OF PROVISION",
+          "sub": "God Provides What His Purpose Requires",
+          "ref": "Matthew 6:25-32",
+          "notes": "Open with the core principle: God's provision is not limited to money. He supplies what is necessary for us to live, obey, serve, endure, and fulfill what He has entrusted to us.",
+          "speakerNote": "Open with the core principle: God's provision is not limited to money. He supplies what is necessary for us to live, obey, serve, endure, and fulfill what He has entrusted to us."
+        },
+        {
+          "type": "points",
+          "kicker": "Provision Is Bigger Than Money",
+          "title": "GOD PROVIDES FOR FAITHFUL LIVING",
+          "points": [
+            "Wisdom",
+            "Strength",
+            "Grace",
+            "Relationships",
+            "Opportunity",
+            "Peace",
+            "Endurance",
+            "Direction"
+          ],
+          "sub": "Provision is whatever God supplies for faithful living and obedience.",
+          "notes": "Start by expanding the room's definition of provision beyond finances.",
+          "speakerNote": "Start by expanding the room's definition of provision beyond finances."
+        },
+        {
+          "type": "statement",
+          "kicker": "Sometimes Provision Is Enough",
+          "title": "SOMETIMES GOD'S PROVISION IS NOT MORE. IT IS ENOUGH.",
+          "sub": "Sometimes you need wisdom to steward what God already gave you. Sometimes you need grace to walk through what He has not removed.",
+          "notes": "Use money and sufficient grace as the contrast. More is not always the form provision takes.",
+          "speakerNote": "Use money and sufficient grace as the contrast. More is not always the form provision takes."
+        },
+        {
+          "type": "points",
+          "kicker": "The Questions Jesus Addresses",
+          "ref": "Matthew 6:25-32",
+          "title": "LEGITIMATE NEEDS ARE NOT PERMISSION TO LIVE AFRAID.",
+          "points": [
+            "What will I eat?",
+            "What will I drink?",
+            "What will I wear?"
+          ],
+          "notes": "Jesus is not denying the reality of needs. He is confronting anxious self-sufficiency.",
+          "speakerNote": "Jesus is not denying the reality of needs. He is confronting anxious self-sufficiency."
+        },
+        {
+          "type": "statement",
+          "kicker": "You Are Not Your Own Source",
+          "title": "YOU ARE NOT RESPONSIBLE FOR BEING YOUR OWN SOURCE.",
+          "sub": "Jesus points to the birds and flowers and says: Look at how your Father operates.",
+          "notes": "The lesson is not that we will never need anything. The lesson is that we are not the source.",
+          "speakerNote": "The lesson is not that we will never need anything. The lesson is that we are not the source."
+        },
+        {
+          "type": "statement",
+          "kicker": "Need Does Not Mean Abandonment",
+          "title": "A NEED CAN BECOME THE PLACE WHERE WE LEARN ABOUT OUR PROVIDER.",
+          "sub": "Having a need does not mean God failed, forgot you, or moved you outside His care.",
+          "notes": "Challenge the assumption that need equals divine absence.",
+          "speakerNote": "Challenge the assumption that need equals divine absence."
+        },
+        {
+          "type": "points",
+          "kicker": "Source and Channel",
+          "title": "DO NOT CONFUSE THE CHANNEL WITH THE SOURCE.",
+          "points": [
+            "Employment",
+            "A customer",
+            "Another person",
+            "Your skill",
+            "A business",
+            "An opportunity"
+          ],
+          "sub": "Your employer may sign the check. God is still your Provider.",
+          "notes": "Name ordinary channels of provision while keeping God identified as Source.",
+          "speakerNote": "Name ordinary channels of provision while keeping God identified as Source."
+        },
+        {
+          "type": "verse",
+          "kicker": "The Father Feeds Them",
+          "ref": "Matthew 6:26",
+          "text": "Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them.",
+          "sub": "Birds still fly, search, gather, build, and move. Behind the process, Jesus identifies the Source.",
+          "notes": "Use this to balance trust and activity. The Father feeds, but the birds still move.",
+          "speakerNote": "Use this to balance trust and activity. The Father feeds, but the birds still move."
+        },
+        {
+          "type": "points",
+          "kicker": "Provision and Responsibility",
+          "title": "PROVISION AND STEWARDSHIP WORK TOGETHER.",
+          "points": [
+            "God can provide work, then expect you to work",
+            "God can provide income, then expect you to steward it",
+            "God can provide family, then expect you to care for them",
+            "God can provide opportunity, then expect you to prepare"
+          ],
+          "notes": "Biblical trust is not irresponsibility baptized in spiritual language.",
+          "speakerNote": "Biblical trust is not irresponsibility baptized in spiritual language."
+        },
+        {
+          "type": "verse",
+          "kicker": "Your Father Knows",
+          "ref": "Matthew 6:31-32",
+          "text": "Your heavenly Father knoweth that ye have need of all these things.",
+          "sub": "Before you calculated it. Before you explained it. Before anybody else knew. Your Father knows what you need.",
+          "notes": "This is especially important for people carrying family responsibility. The Father knows before they do.",
+          "speakerNote": "This is especially important for people carrying family responsibility. The Father knows before they do."
+        },
+        {
+          "type": "contrast",
+          "kicker": "Responsibility vs. Self-Sufficiency",
+          "left": "I WILL FAITHFULLY CARE FOR WHAT GOD ENTRUSTED TO ME.",
+          "right": "EVERYTHING DEPENDS UPON ME.",
+          "sub": "One produces diligence. The other produces fear.",
+          "notes": "Make the distinction clear: responsibility is healthy; acting like the source is not.",
+          "speakerNote": "Make the distinction clear: responsibility is healthy; acting like the source is not."
+        },
+        {
+          "type": "verse",
+          "kicker": "Provision Flows From Fatherhood",
+          "ref": "Matthew 7:9-11",
+          "text": "How much more shall your Father which is in heaven give good things to them that ask him?",
+          "sub": "The promise is not merely that God has resources. The promise rests on the truth that God is good.",
+          "notes": "Provision flows out of God's fatherly goodness, not merely His capacity.",
+          "speakerNote": "Provision flows out of God's fatherly goodness, not merely His capacity."
+        },
+        {
+          "type": "points",
+          "kicker": "A Good Father Gives Good Things",
+          "title": "A DENIED REQUEST IS NOT NECESSARILY DENIED PROVISION.",
+          "points": [
+            "Yes",
+            "Wait",
+            "Not this",
+            "Not yet",
+            "Something different",
+            "Strength instead"
+          ],
+          "sub": "Sometimes the no is provision.",
+          "notes": "Guard the lesson from prosperity theology. A good Father does not prove goodness by saying yes to everything.",
+          "speakerNote": "Guard the lesson from prosperity theology. A good Father does not prove goodness by saying yes to everything."
+        },
+        {
+          "type": "verse",
+          "kicker": "Provision for the Assignment",
+          "ref": "Matthew 10:9-10",
+          "text": "Provide neither gold, nor silver, nor brass in your purses... for the workman is worthy of his meat.",
+          "sub": "They did not receive everything before they started. Some provision came after obedience.",
+          "notes": "Jesus sent them into an assignment where they would encounter provision along the way.",
+          "speakerNote": "Jesus sent them into an assignment where they would encounter provision along the way."
+        },
+        {
+          "type": "contrast",
+          "kicker": "Obedience Before Visibility",
+          "left": "PROVISION FIRST. OBEDIENCE SECOND.",
+          "right": "OBEY FIRST. ENCOUNTER PROVISION INSIDE THE ASSIGNMENT.",
+          "notes": "We often want the whole journey funded and explained before taking the first obedient step.",
+          "speakerNote": "We often want the whole journey funded and explained before taking the first obedient step."
+        },
+        {
+          "type": "points",
+          "kicker": "Provision May Be at the Next Step",
+          "ref": "Matthew 10:11",
+          "title": "GOD'S PROVISION MAY ALREADY EXIST SOMEWHERE YOU HAVE NOT ARRIVED YET.",
+          "points": [
+            "A person you have not met",
+            "A skill you have not learned",
+            "A door that has not opened",
+            "An opportunity you have not encountered"
+          ],
+          "notes": "Their provision could come through people they had not yet met in towns they had not yet entered.",
+          "speakerNote": "Their provision could come through people they had not yet met in towns they had not yet entered."
+        },
+        {
+          "type": "statement",
+          "kicker": "Today's Provision",
+          "title": "YOU DO NOT NEED TODAY'S RESOURCES FOR EVERY FUTURE ASSIGNMENT.",
+          "sub": "You need today's provision for today's obedience.",
+          "notes": "Let this reduce the pressure to possess five years of resources today.",
+          "speakerNote": "Let this reduce the pressure to possess five years of resources today."
+        },
+        {
+          "type": "verse",
+          "kicker": "Sufficient Grace",
+          "ref": "2 Corinthians 12:9",
+          "text": "My grace is sufficient for thee: for my strength is made perfect in weakness.",
+          "sub": "Paul asked for removal. God supplied sustaining grace. Strength to endure is still provision.",
+          "notes": "Sometimes the answer to 'remove this' is 'I will sustain you through this.'",
+          "speakerNote": "Sometimes the answer to 'remove this' is 'I will sustain you through this.'"
+        },
+        {
+          "type": "verse",
+          "kicker": "Help in Time of Need",
+          "ref": "Hebrews 4:16",
+          "text": "Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need.",
+          "sub": "God gives grace appropriate for the moment.",
+          "notes": "You do not need today all the strength you will need for the next five years.",
+          "speakerNote": "You do not need today all the strength you will need for the next five years."
+        },
+        {
+          "type": "verse",
+          "kicker": "Jehovahjireh",
+          "ref": "Genesis 22:8, 14",
+          "text": "My son, God will provide himself a lamb... And Abraham called the name of that place Jehovahjireh.",
+          "sub": "Abraham did not create the provision. He discovered what God had prepared.",
+          "notes": "The ram was already there. Sometimes we are praying for God to create what He has already prepared beyond our sight.",
+          "speakerNote": "The ram was already there. Sometimes we are praying for God to create what He has already prepared beyond our sight."
+        },
+        {
+          "type": "statement",
+          "kicker": "Provision and Place",
+          "title": "PROVISION AND OBEDIENCE ARE OFTEN CONNECTED.",
+          "sub": "The ram was on the mountain God told Abraham to climb. If God provides for an assignment, alignment with that assignment matters.",
+          "notes": "Do not make this a formula about geography. The principle is alignment with the assignment.",
+          "speakerNote": "Do not make this a formula about geography. The principle is alignment with the assignment."
+        },
+        {
+          "type": "points",
+          "kicker": "The Shepherd Provides",
+          "ref": "Psalm 23:1",
+          "title": "THE LORD IS MY SHEPHERD; I SHALL NOT WANT.",
+          "points": [
+            "Rest",
+            "Restoration",
+            "Direction",
+            "Presence",
+            "Protection",
+            "Provision"
+          ],
+          "notes": "Psalm 23 defines provision as shepherd-care, not excess.",
+          "speakerNote": "Psalm 23 defines provision as shepherd-care, not excess."
+        },
+        {
+          "type": "statement",
+          "kicker": "Provision in the Valley",
+          "title": "SOMETIMES PROVISION IS NOT AVOIDING THE VALLEY.",
+          "sub": "It is discovering: “Thou art with me.”",
+          "notes": "God's provision did not keep David out of the valley. It accompanied him through it.",
+          "speakerNote": "God's provision did not keep David out of the valley. It accompanied him through it."
+        },
+        {
+          "type": "contrast",
+          "kicker": "Provision vs. Prosperity",
+          "left": "IF GOD IS WITH ME, I SHOULD CONTINUALLY HAVE MORE.",
+          "right": "IF GOD HAS CALLED ME, HE WILL SUPPLY WHAT I NEED TO WALK FAITHFULLY AND FULFILL WHAT HE REQUIRES.",
+          "sub": "Sometimes abundance. Sometimes enough. Sometimes wisdom. Sometimes another person. Sometimes strength to endure.",
+          "notes": "Make the distinction without denying that God can give abundance. The issue is defining provision by purpose rather than accumulation.",
+          "speakerNote": "Make the distinction without denying that God can give abundance. The issue is defining provision by purpose rather than accumulation."
+        },
+        {
+          "type": "check",
+          "kicker": "Provision Check",
+          "items": [
+            [
+              "FAMILY",
+              "Am I responsible without acting like I am the source?"
+            ],
+            [
+              "FINANCIAL",
+              "Am I stewarding what God already gave me?"
+            ],
+            [
+              "SPIRITUAL",
+              "What does my soul need from God now?"
+            ],
+            [
+              "ASSIGNMENT",
+              "Am I delaying obedience until everything is guaranteed?"
+            ],
+            [
+              "TRUST",
+              "Where have I interpreted uncertainty as abandonment?"
+            ]
+          ],
+          "notes": "Use this diagnostically. Ask people to identify one area, not solve all five at once.",
+          "speakerNote": "Use this diagnostically. Ask people to identify one area, not solve all five at once."
+        },
+        {
+          "type": "columns",
+          "kicker": "Weekly Practice",
+          "title": "CHOOSE ONE NEED YOU HAVE BEEN CARRYING.",
+          "leftTitle": "WHAT IS MINE TO DO?",
+          "left": [
+            "Work",
+            "Prepare",
+            "Budget",
+            "Ask",
+            "Apply",
+            "Plan",
+            "Obey"
+          ],
+          "rightTitle": "WHAT BELONGS TO GOD?",
+          "right": [
+            "Outcome",
+            "Timing",
+            "Opportunity",
+            "Open doors",
+            "Other people's responses",
+            "Tomorrow"
+          ],
+          "sub": "Do your part faithfully. Release God's part back to Him.",
+          "notes": "Separate responsibility from control. This is the practical exercise for the week.",
+          "speakerNote": "Separate responsibility from control. This is the practical exercise for the week."
+        },
+        {
+          "type": "statement",
+          "kicker": "Closing Truth",
+          "title": "YOU ARE RESPONSIBLE FOR OBEDIENCE. GOD IS RESPONSIBLE FOR PROVISION.",
+          "sub": "Work hard. Plan wisely. Steward carefully. Prepare faithfully. And still say: “The LORD is my shepherd.” I am not the source. God is.",
+          "notes": "End quietly. Let the final sentence carry the frame: I am not the source. God is.",
+          "speakerNote": "End quietly. Let the final sentence carry the frame: I am not the source. God is."
+        }
+      ]
+    }
+  }
+}
