@@ -112,6 +112,11 @@ if(gameBrowser.includes("'conversation.item.create'"))fail('Legacy Realtime conv
 if(!gameBrowser.includes('Bible Battle'))fail('Game UI must use Bible Battle branding');
 const gameCss=fs.readFileSync('games/game.css','utf8');
 if(!gameCss.includes('Bible Battle broadcast skin'))fail('Broadcast game skin is missing');
+if(!gameBrowser.includes("renderQr('host-qr'"))fail('Host lobby join QR is missing');
+if(!gameBrowser.includes("renderQr('display-qr'"))fail('Display join QR is missing');
+if(gameBrowser.includes("state.phase!=='lobby'||players.length>0"))fail('Joined players must not lock team-count controls');
+if(!gameBrowser.includes('NEW PACK READY'))fail('AI pack generation needs explicit success confirmation');
+if(!gameCss.includes('Bible Battle broadcast package v2'))fail('Broadcast graphics package v2 is missing');
 
 const {spawnSync}=await import('node:child_process');
 for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js']){
