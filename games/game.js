@@ -307,7 +307,7 @@ async function generatePack(){
 }
 
 async function initDisplay(){
-  show('display');const code=codeFromUrl();
+  show('display');initBattleFx();const code=codeFromUrl();
   if(!code){$('display-stage').innerHTML='<div class="display-question"><div class="question-category">DISPLAY SETUP</div><h1>Open this screen from the host console.</h1></div>';return}
   $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>armAudio();
   await fetchState();await connectRealtime(code);startPolling(900);setInterval(()=>{renderDisplay();updateTimers()},100);
@@ -356,6 +356,23 @@ function updateTimers(){
     el.style.setProperty('--progress',String(Math.max(0,Math.min(1,left/Math.max(1,total)))));
     const s=el.querySelector('strong');if(s)s.textContent=Math.ceil(left/1000);
   });
+}
+function initBattleFx(){
+  if(battleFxStarted)return;const canvas=$('battle-fx-canvas');if(!canvas)return;battleFxStarted=true;
+  const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
+  const stars=Array.from({length:34},(_,i)=>({x:(i*73%997)/997,y:(i*149%991)/991,r:.5+(i%4)*.32,s:.00004+(i%5)*.000018}));
+  function resize(){const d=Math.min(2,window.devicePixelRatio||1),r=canvas.getBoundingClientRect();canvas.width=Math.max(1,Math.floor(r.width*d));canvas.height=Math.max(1,Math.floor(r.height*d));ctx.setTransform(d,0,0,d,0,0)}
+  resize();addEventListener('resize',resize,{passive:true});
+  function frame(ts){
+    const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);
+    const sweep=(Math.sin(ts*.00018)+1)/2;
+    const g=ctx.createLinearGradient(w*(sweep-.3),0,w*(sweep+.25),h);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,'rgba(246,202,89,.035)');g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+    const rg=ctx.createRadialGradient(w*.52,h*.12,0,w*.52,h*.12,Math.max(w,h)*.72);rg.addColorStop(0,'rgba(44,111,168,.075)');rg.addColorStop(.45,'rgba(20,60,96,.025)');rg.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
+    for(const p of stars){p.y+=p.s*16;if(p.y>1)p.y=0;ctx.beginPath();ctx.arc(p.x*w,p.y*h,p.r,0,Math.PI*2);ctx.fillStyle='rgba(255,231,166,.13)';ctx.fill()}
+    requestAnimationFrame(frame);
+  }requestAnimationFrame(frame);
 }
 function effectKey(){return [state?.phase,state?.lastResult?.nonce,(state?.winnerTeamIds||[]).join(',')].join('|')}
 function displayEffects(){
