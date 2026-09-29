@@ -142,6 +142,7 @@ export default async function handler(req,res){
   }
 
   if(action==='SET_CAPTAIN'){
+    if(!['lobby','board'].includes(state.phase))return res.status(409).json({error:'Change captains in the lobby or between questions.'});
     const teamId=clean(body.teamId,40),targetPlayerId=clean(body.targetPlayerId,80);
     const players=await getGamePlayers(row.id),target=players.find(p=>p.player_id===targetPlayerId&&p.team_id===teamId);
     if(!target)return res.status(400).json({error:'Player is not on that team'});

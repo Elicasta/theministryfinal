@@ -58,9 +58,19 @@
           </section>
 
           <section class="host-panel">
-            <div class="panel-label">Game Pack</div>
+            <div class="panel-label">Show Settings</div>
+            <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · Meridian</small></span><input id="voice-toggle" type="checkbox"></label>
+            <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
+            <label class="toggle-row"><span>Auto Steal <small>Wrong answer or timeout → other teams buzz. First buzz wins; 60% points.</small></span><input id="steal-toggle" type="checkbox" checked></label>
+            <div class="field-row"><label>Answer timer</label><select id="captain-time"><option value="10000">10 sec</option><option value="20000">20 sec</option><option value="30000" selected>30 sec</option><option value="60000">60 sec</option></select></div>
+            <label class="toggle-row"><span>Host judges answers <small>Accept spoken answers and alternate wording</small></span><input id="judge-toggle" type="checkbox" checked></label><div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
+          </section>
+        </div>
+
+          <section class="host-panel">
+            <div class="panel-label">Round &amp; Question Packs</div>
             <div class="pack-title" id="pack-title">Bible Battle</div>
-            <div class="field-row">
+            <label class="pack-field" for="round-pack">Choose a saved pack</label><select id="round-pack" class="full"></select><p id="pack-categories" class="rules-note"></p><button id="apply-pack" class="game-btn full">Use selected pack</button><p id="round-note" class="rules-note">Scores and players stay with this room.</p><hr><label class="pack-field" for="generation-theme">AI category set</label><select id="generation-theme" class="full"><option value="apostolic">Apostolic &amp; Trivia</option><option value="classic">Books of the Bible</option></select><div class="field-row">
               <label for="difficulty">AI Difficulty</label>
               <select id="difficulty">
                 <option value="mixed">Mixed</option>
@@ -75,16 +85,6 @@
             <div id="pack-confirm" class="pack-confirm hidden"></div>
           </section>
 
-          <section class="host-panel">
-            <div class="panel-label">Show Settings</div>
-            <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · Meridian</small></span><input id="voice-toggle" type="checkbox"></label>
-            <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
-            <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
-            <div class="field-row"><label>Answer timer</label><select id="captain-time"><option value="10000">10 sec</option><option value="20000">20 sec</option><option value="30000" selected>30 sec</option><option value="60000">60 sec</option></select></div>
-            <label class="toggle-row"><span>Host judges answers <small>Accept spoken answers and alternate wording</small></span><input id="judge-toggle" type="checkbox" checked></label><div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
-          </section>
-        </div>
-
         <section id="host-live-library" class="host-panel host-library-panel hidden">
           <div class="library-head"><div><span class="panel-label">Question Library</span><strong>30 Questions</strong></div><span id="library-progress">0 / 30</span></div>
           <div class="library-tools"><input id="question-search" type="search" placeholder="Search questions…" aria-label="Search questions"><select id="category-filter" aria-label="Filter category"><option value="">All categories</option></select></div><div id="host-question-library" class="host-question-library"></div>
@@ -98,6 +98,7 @@
             <div id="host-qr" class="battle-qr" aria-label="Join game QR code"></div>
           </div>
           <div class="host-section-head"><div><span class="panel-label">Players</span><h2>Lobby</h2></div><span id="player-count" class="count-pill">0 connected</span></div>
+          <p class="rules-note">First to join each team becomes captain. Agree on a captain together, then the host can use Make Captain below. Change captains between questions too.</p>
           <div id="lobby-teams" class="lobby-teams"></div>
         </div>
 
@@ -126,7 +127,7 @@
             <aside class="host-right-rail">
               <section class="rail-panel">
                 <div class="rail-title"><span>Teams & Scores</span><small>LIVE</small></div>
-                <div id="host-scorebar" class="host-scorebar host-score-stack"></div>
+                <div id="captain-controls"></div><div id="host-scorebar" class="host-scorebar host-score-stack"></div>
               </section>
               <section class="rail-panel">
                 <div class="rail-title"><span>Game Control</span></div>

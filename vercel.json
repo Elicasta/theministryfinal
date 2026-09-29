@@ -139,5 +139,10 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/game/generate.js": {
+      "maxDuration": 60
+    }
+  }
 }

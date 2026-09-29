@@ -17,7 +17,7 @@ const server=http.createServer(async(req,res)=>{
       let body='';for await(const chunk of req){body+=chunk;if(body.length>100000)return res.status(413).json({error:'Request too large'})}
       req.body=body?JSON.parse(body):{};req.query=Object.fromEntries(url.searchParams);
       const name=url.pathname.split('/').pop();
-      if(!['create','state','join','action','health','current','generate','voice','live-session'].includes(name))return res.status(404).json({error:'Not found'});
+      if(!['create','state','join','action','health','current','pack','generate','voice','live-session'].includes(name))return res.status(404).json({error:'Not found'});
       const {default:handler}=await import(path.join(root,'api/game',name+'.js'));return await handler(req,res);
     }
     const route=/^\/games?(\/(host|play|join|display|projector))?\/?$/.test(url.pathname)||url.pathname==='/';

@@ -125,3 +125,78 @@ test('server-only files are denied before hosted static-file routing',()=>{
   }
   for(const pathname of ['/game/projector','/games/projector'])assert.equal(config.routes.find(r=>r.src===pathname)?.dest,'/games/index.html');
 });
+
+test('round packs preserve scores, players and captains, and isolate repeated submissions',async()=>{
+  const {default:choose}=await import('../api/game/pack.js');
+  const g=await game(),red=await player(g,'team-1');
+  assert.equal((await call(choose,{...red,packId:'bible-battle-starter'})).status,401);
+  await act(g,'ADJUST_SCORE',{teamId:'team-1',delta:300});
+  assert.equal((await call(choose,{...g,packId:'bible-battle-starter'})).status,200);
+  let r=(await call(state,g)).body;assert.equal(r.pack.categories[0].id,'apostolic-doctrine');assert.equal(r.teams[0].score,300);
+  await act(g,'START');await act(g,'ADJUST_SCORE',{teamId:'team-1',delta:300});const first=r.pack.board[0].id;await act(g,'OPEN_QUESTION',{questionId:first});
+  assert.equal((await call(choose,{...g,packId:'bible-battle-classic'})).status,409);
+  await act(red,'ANSWER',{answer:'Jesus'});await act(g,'REVEAL');await act(g,'NEXT');
+  await call(choose,{...g,packId:'bible-battle-starter'});r=(await call(state,g)).body;
+  assert.equal(r.state.roundNumber,2);assert.equal(r.teams[0].score,300);assert.equal(r.players.length,1);assert.equal(r.players[0].isCaptain,true);
+  assert.notEqual(r.pack.board[0].id,first);assert.deepEqual(r.state.usedQuestionIds,[]);
+  await act(g,'OPEN_QUESTION',{questionId:r.pack.board[0].id});assert.equal((await act(red,'ANSWER',{answer:'Jesus'})).status,200);
+});
+
+test('background generation survives polls, saves privately, and cannot replace active play',async()=>{
+  const {default:generate}=await import('../api/game/generate.js');
+  const {LEGACY_GAME_PACK}=await import('../lib/game-pack.js');
+  const savedFetch=globalThis.fetch,savedKey=process.env.OPENAI_API_KEY;process.env.OPENAI_API_KEY='test-only';
+  let starts=0,status='in_progress';
+  globalThis.fetch=async(url,options)=>{
+    assert.ok(String(url).startsWith('https://api.openai.com/v1/responses'));
+    if(options.method==='POST'){starts++;const payload=JSON.parse(options.body);assert.equal(payload.background,true);return {ok:true,json:async()=>({id:'resp_test',status:'queued'})}}
+    if(status==='transient')throw new Error('Temporary network failure');
+    return {ok:true,json:async()=>status==='completed'?{id:'resp_test',status,output_text:JSON.stringify(LEGACY_GAME_PACK)}:{id:'resp_test',status}};
+  };
+  try{
+    const g=await game();
+    const startsResult=await Promise.all([call(generate,{...g,theme:'apostolic'}),call(generate,{...g,theme:'apostolic'})]);
+    assert.ok(startsResult.every(r=>[200,202].includes(r.status)));assert.equal(starts,1);
+    await act(g,'START');await act(g,'OPEN_QUESTION',{questionId:'pentateuch200'});
+    assert.equal((await call(generate,{...g,operation:'status'})).body.generation.status,'in_progress');
+    status='transient';assert.equal((await call(generate,{...g,operation:'status'})).status,503);
+    assert.equal((await getGameByCode(g.code)).row.state.generation.status,'queued');
+    status='completed';assert.equal((await call(generate,{...g,operation:'status'})).body.generation.status,'completed');
+    const host=(await call(state,g)).body,pub=(await call(state,{code:g.code},'GET')).body;
+    assert.equal(host.state.activeQuestion.id,'pentateuch200');assert.equal(host.pack.id,'bible-battle-classic');
+    assert.equal(host.pack.availablePacks.filter(p=>p.generatedBy==='OpenAI').length,1);
+    assert.equal(pub.state.generation,undefined);assert.equal(pub.pack.availablePacks,undefined);assert.equal(pub.pack.generation,undefined);
+    await call(generate,{...g,operation:'status'});assert.equal((await call(state,g)).body.pack.availablePacks.length,3);
+  }finally{globalThis.fetch=savedFetch;if(savedKey===undefined)delete process.env.OPENAI_API_KEY;else process.env.OPENAI_API_KEY=savedKey}
+});
+
+test('generated packs reject malformed finals and ambiguous multiple choices',async()=>{
+  const {validatePack}=await import('../lib/game-generation.js');const {LEGACY_GAME_PACK}=await import('../lib/game-pack.js');
+  const raw=structuredClone(LEGACY_GAME_PACK);raw.final.correctAnswer='';assert.throws(()=>validatePack(raw,'apostolic','test'));
+  const bad=structuredClone(LEGACY_GAME_PACK);bad.questions[0].correctAnswer='Not a choice';assert.throws(()=>validatePack(bad,'apostolic','test'));
+  const valid=validatePack(LEGACY_GAME_PACK,'apostolic','test');assert.equal(valid.questions.length,30);
+});
+
+test('captains can change between questions but not during an answer',async()=>{
+  const g=await game(),first=await player(g,'team-1','First'),second=await player(g,'team-1','Second');
+  let r=await act(g,'SET_CAPTAIN',{teamId:'team-1',targetPlayerId:second.playerId});assert.equal(r.body.players.find(p=>p.playerId===second.playerId).isCaptain,true);
+  await act(g,'START');await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});
+  assert.equal((await act(g,'SET_CAPTAIN',{teamId:'team-1',targetPlayerId:first.playerId})).status,409);
+  await act(g,'REVEAL');await act(g,'NEXT');assert.equal((await act(g,'SET_CAPTAIN',{teamId:'team-1',targetPlayerId:first.playerId})).status,200);
+});
+
+test('timeout respects questions that disallow stealing',async()=>{
+  const {updateRoom}=await import('../lib/game-rounds.js');const g=await game();
+  await act(g,'START');await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});
+  await updateRoom(g.code,row=>({question_pack:{...row.question_pack,questions:row.question_pack.questions.map(q=>({...q,stealAllowed:false}))},state:{...row.state,phase:'open',teamDeadline:Date.now()-100}}));
+  assert.equal((await call(state,{code:g.code},'GET')).body.state.phase,'reveal');
+});
+
+
+test('isolated rooms do not replace the permanent projector game',async()=>{
+  const {default:current}=await import('../api/game/current.js');
+  const main=await game();await act(main,'START');
+  const isolated=(await call(create,{autoProjector:false})).body;
+  await act({code:isolated.gameCode,hostToken:isolated.hostToken},'START');
+  assert.equal((await call(current,{},'GET')).body.gameCode,main.code);
+});
