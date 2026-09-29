@@ -207,7 +207,7 @@ function boardHtml(host=false){
   return cats.map(c=>'<div class="'+(host?'host-cat':'game-category')+'">'+esc(c.label)+'</div>').join('')+
     [100,200,300,400,500].map(points=>cats.map(c=>{
       const q=rows.find(x=>x.category===c.id&&Number(x.points)===points),used=q&&(state.usedQuestionIds||[]).includes(q.id);
-      if(host)return '<div class="host-tile monitor '+(used?'used':'')+'">'+(q?'
+      if(host)return '<div class="host-tile monitor '+(used?'used':'')+'">'+(q?'$'+points:'—')+'</div>';
       return '<div class="game-tile '+(used?'used':'')+'">'+(q&&!used?'$'+points:'')+'</div>';
     }).join('')).join('');
 }
