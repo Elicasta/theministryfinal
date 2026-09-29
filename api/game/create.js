@@ -14,12 +14,13 @@ export default async function handler(req,res){
     id:clean(inputTeams[i]?.id||'team-'+(i+1),40),
     name:clean(inputTeams[i]?.name||(['Team Red','Team Blue','Team Green','Team Gold'][i]||'Team '+(i+1)),40),
     color:clean(inputTeams[i]?.color||COLORS[i%COLORS.length],20),
-    score:0,streak:0,captainPlayerId:null
+    score:0,streak:0,bestStreak:0,captainPlayerId:null
   }));
   const settings={
     captainMs:Math.max(3000,Math.min(Number(body.settings?.captainMs)||30000,60000)),
     openMs:Math.max(2000,Math.min(Number(body.settings?.openMs)||5000,12000)),
     stealMs:Math.max(2000,Math.min(Number(body.settings?.stealMs)||5000,10000)),
+    autoTurn:body.settings?.autoTurn!==false,
     autoSteal:body.settings?.autoSteal!==false,
     sound:body.settings?.sound!==false,
     voice:body.settings?.voice===true,

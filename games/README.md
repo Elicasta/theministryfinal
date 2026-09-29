@@ -66,3 +66,13 @@ The first player to join a team becomes its captain. Teams agree on their captai
 With **Auto Steal** enabled, an incorrect answer or an expired team answer window opens a five-second buzz window, unless that question disallows steals. Other teams can buzz on their phones; the first accepted buzz wins. They then get a captain answer window followed by a team window. A correct steal earns 60% of the question's points. A failed steal or no buzz reveals the answer. Hosts can also use **Open Steal** before revealing the answer.
 
 For an isolated room that must not take over the permanent projector, the create API accepts `autoProjector: false`. Such rooms still work through their room-specific display link. Normal host-created rooms follow the permanent projector by default.
+
+## Team turns, streaks and returning players
+
+**Auto team switch** is on by default. Each completed question advances to the next team in the displayed team order when the host presses Back to Board. The order wraps after the last team. Steals award points only: if Red answers and Green steals, Blue still goes next. Toggle auto switching off in Show Settings or the live host control to choose teams manually.
+
+Each scoreboard shows **current streak** and **best streak** for the game. Correct answers, including steals, add one. Incorrect answers and an expired team answer window reset that team's current streak, preserving its best. Waiting while another team plays does not break a streak. Streaks do not add bonus points.
+
+The player browser keeps a secure, HttpOnly cookie for each room. Reloading, re-entering the room code, and clearing local page storage restore the same server-verified player and team. Existing player credentials migrate on reconnect. Team changes and other-team actions are rejected on the server, and a connection failure never opens a replacement team picker. Use **Join another game** for a different room. This protects normal refresh and reconnection; clearing all cookies or using a separate browser creates a new browser session.
+
+Mobile layouts cover joining, team selection, answering, stealing, wagering, results and winners, plus host and display routes. Celebration text fits the device width and may be dismissed by tapping it.

@@ -46,7 +46,7 @@ function renderQr(id,url,key,size=176){
 }
 function saveHostAuth(v){hostAuth=v;localStorage.setItem('ministry_game_host_auth',JSON.stringify(v))}
 function loadHostAuth(){try{return JSON.parse(localStorage.getItem('ministry_game_host_auth')||'null')}catch(e){return null}}
-function savePlayerAuth(v){playerAuth=v;localStorage.setItem('ministry_game_player_'+v.code,JSON.stringify(v))}
+function savePlayerAuth(v){playerAuth=v;localStorage.setItem('ministry_game_last_code',v.code);localStorage.setItem('ministry_game_player_'+v.code,JSON.stringify(v))}
 function loadPlayerAuth(code){try{return JSON.parse(localStorage.getItem('ministry_game_player_'+code)||'null')}catch(e){return null}}
 
 async function api(path,options={}){
@@ -142,6 +142,7 @@ function wireHost(){
   $('host-wrong').onclick=()=>gameAction('JUDGE',{correct:false});
   $('host-steal').onclick=()=>gameAction('OPEN_STEAL');
   $('host-reveal').onclick=()=>gameAction('REVEAL');
+  $('auto-turn-toggle').onclick=()=>gameAction('SET_AUTO_TURN',{enabled:state.settings?.autoTurn===false});
   $('host-next').onclick=()=>gameAction('NEXT');
   $('host-final').onclick=()=>gameAction('START_FINAL');
   $('host-end').onclick=()=>{if(confirm('End this game and show the final scores?'))gameAction('END')};
@@ -157,7 +158,7 @@ function wireHost(){
   $('question-search').oninput=e=>{librarySearch=e.target.value;renderQuestionLibrary()};
   $('category-filter').onchange=e=>{libraryCategory=e.target.value;renderQuestionLibrary()};
 
-  for(const id of ['judge-toggle','voice-toggle','sound-toggle','steal-toggle','captain-time','open-time']){
+  for(const id of ['auto-turn-setup','judge-toggle','voice-toggle','sound-toggle','steal-toggle','captain-time','open-time']){
     $(id).onchange=queueSetup;
   }
   document.addEventListener('input',e=>{if(e.target.matches('[data-team-name]'))queueSetup()});
@@ -187,6 +188,7 @@ function hostSettings(){
     captainMs:Number($('captain-time')?.value)||30000,
     openMs:Number($('open-time')?.value)||5000,
     stealMs:5000,
+    autoTurn:$('auto-turn-setup')?.checked!==false,
     autoSteal:$('steal-toggle')?.checked!==false,
     sound:$('sound-toggle')?.checked!==false,
     voice:$('voice-toggle')?.checked===true,manualJudging:$('judge-toggle')?.checked!==false
@@ -215,6 +217,10 @@ function renderHost(){
   const lastTeam=state.teams[state.teams.length-1],lastTeamOccupied=!!lastTeam&&players.some(p=>p.teamId===lastTeam.id);
   if($('team-minus'))$('team-minus').disabled=state.phase!=='lobby'||state.teams.length<=2||lastTeamOccupied;
   if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||state.teams.length>=12;
+  $('auto-turn-setup').checked=state.settings?.autoTurn!==false;
+  $('auto-turn-toggle').textContent=state.settings?.autoTurn===false?'Auto team switch: OFF · Enable':'Auto team switch: ON · Disable';
+  $('auto-turn-toggle').disabled=['ended','winner'].includes(state.phase);
+  $('auto-turn-toggle').setAttribute('aria-pressed',String(state.settings?.autoTurn!==false));
   $('judge-toggle').checked=state.settings?.manualJudging!==false;
   $('voice-toggle').checked=!!state.settings?.voice;$('sound-toggle').checked=state.settings?.sound!==false;$('steal-toggle').checked=state.settings?.autoSteal!==false;
   $('captain-time').value=String(state.settings?.captainMs||30000);$('open-time').value=String(state.settings?.openMs||5000);
@@ -236,7 +242,7 @@ function renderLobby(){
   }).join('');
 }
 function scorebarHtml(host=false){
-  return state.teams.map((t,i)=>`<div class="${host?'host-score':'display-team'} ${state.controlTeamId===t.id?'control':''}" style="--team:${t.color}">${crest(i)}<div class="team-copy"><span class="team-name">${esc(t.name)}</span><strong class="team-score">${Number(t.score||0).toLocaleString()}</strong><span class="team-pips">${[0,1,2,3].map(n=>`<b class="${n<(t.streak||0)?'lit':''}"></b>`).join('')}</span></div>${host?`<div class="score-actions"><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="-100" aria-label="Subtract 100 from ${esc(t.name)}">−</button><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="100" aria-label="Add 100 to ${esc(t.name)}">+</button><button class="mini-btn set-active" data-score-team="${esc(t.id)}" ${!['board','lobby'].includes(state.phase)?'disabled':''}>${state.controlTeamId===t.id?'♛ Active':'Set active'}</button></div>`:''}</div>`).join('');
+  return state.teams.map((t,i)=>`<div class="${host?'host-score':'display-team'} ${state.controlTeamId===t.id?'control':''}" style="--team:${t.color}">${crest(i)}<div class="team-copy"><span class="team-name">${esc(t.name)}</span><strong class="team-score">${Number(t.score||0).toLocaleString()}</strong><span class="team-pips">${[0,1,2,3].map(n=>`<b class="${n<(t.streak||0)?'lit':''}"></b>`).join('')}</span><small class="team-streak">${Number(t.streak)||0} streak · best ${Math.max(Number(t.bestStreak)||0,Number(t.streak)||0)}</small></div>${host?`<div class="score-actions"><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="-100" aria-label="Subtract 100 from ${esc(t.name)}">−</button><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="100" aria-label="Add 100 to ${esc(t.name)}">+</button><button class="mini-btn set-active" data-score-team="${esc(t.id)}" ${!['board','lobby'].includes(state.phase)?'disabled':''}>${state.controlTeamId===t.id?'♛ Active':'Set active'}</button></div>`:''}</div>`).join('');
 }
 function boardHtml(host=false){
   const cats=pack?.categories||[],rows=pack?.board||[];
@@ -622,13 +628,15 @@ function playSfx(n){if(!audioCtx||state?.settings?.sound===false)return;if(n==='
 function confetti(color){const layer=$('fx-layer');if(!layer)return;for(let i=0;i<72;i++){const p=document.createElement('i');p.className='particle';p.style.setProperty('--p',i%3===0?'#fff':i%3===1?color:'#ffcc57');p.style.setProperty('--x0',(innerWidth/2)+'px');p.style.setProperty('--y0',(innerHeight*.52)+'px');p.style.setProperty('--x1',(Math.random()*innerWidth)+'px');p.style.setProperty('--y1',(Math.random()*innerHeight)+'px');layer.appendChild(p);setTimeout(()=>p.remove(),1600)}}
 
 async function initPlayer(){
-  show('player');const code=codeFromUrl();
-  if(code){$('join-code-input').value=code;playerAuth=loadPlayerAuth(code)}
-  wirePlayer();
-  if(playerAuth){
-    try{await fetchState();if(!me())throw new Error('Session expired');hide('join-step');hide('profile-step');show('player-game');await connectRealtime(code);startPolling(1000);startHeartbeat();return}catch(e){playerAuth=null}
-  }
-  if(code)await connectToGame();
+  show('player');wirePlayer();
+  const code=codeFromUrl()||(qs.get('new')?'':localStorage.getItem('ministry_game_last_code')||'');
+  if(code){$('join-code-input').value=code;await connectToGame()}
+}
+async function enterPlayer(d,code){
+  playerAuth={code,playerId:d.player.playerId};savePlayerAuth(playerAuth);applySnapshot(d);
+  hide('join-step');hide('profile-step');show('player-game');$('player-game-code').textContent=code;
+  history.replaceState(null,'','/games/play?code='+encodeURIComponent(code));
+  await connectRealtime(code);startPolling(1000);startHeartbeat();
 }
 function wirePlayer(){
   $('connect-game').onclick=connectToGame;
@@ -646,9 +654,18 @@ function wirePlayer(){
 async function connectToGame(){
   const code=String($('join-code-input').value||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6),err=$('join-error');
   if(code.length!==6){err.textContent='Enter the 6-character game code.';return}
+  $('connect-game').disabled=true;err.textContent='Restoring your player…';hide('profile-step');
   try{
-    const d=await api('/api/game/state?code='+encodeURIComponent(code));applySnapshot(d);$('player-game-code').textContent=code;hide('join-step');show('profile-step');selectedTeamId=null;renderTeamPicker();await connectRealtime(code);
-  }catch(e){err.textContent=e.message}
+    const saved=loadPlayerAuth(code);
+    try{
+      const restored=await api('/api/game/join',{method:'POST',body:JSON.stringify({code,resume:true,...(saved||{})})});
+      await enterPlayer(restored,code);return;
+    }catch(e){if(e.status!==404||saved)throw e}
+    const d=await api('/api/game/state?code='+encodeURIComponent(code));applySnapshot(d);
+    history.replaceState(null,'','/games/play?code='+encodeURIComponent(code));
+    $('player-game-code').textContent=code;hide('join-step');show('profile-step');selectedTeamId=null;renderTeamPicker();
+  }catch(e){show('join-step');err.textContent=e.status===401?'Your saved player could not reconnect. Retry here; your team will not change.':e.message}
+  finally{$('connect-game').disabled=false}
 }
 function renderTeamPicker(){
   if(!snapshot)return;
@@ -657,11 +674,11 @@ function renderTeamPicker(){
 async function joinSelectedTeam(){
   const code=snapshot?.gameCode||codeFromUrl(),name=String($('player-name').value||'').trim();
   if(!name||!selectedTeamId){toast('Enter your name and choose a team.');return}
+  $('join-team').disabled=true;
   try{
     const d=await api('/api/game/join',{method:'POST',body:JSON.stringify({code,name,teamId:selectedTeamId})});
-    playerAuth={code,playerId:d.player.playerId,playerToken:d.playerToken};savePlayerAuth(playerAuth);applySnapshot(d);
-    hide('profile-step');show('player-game');$('player-game-code').textContent=code;startPolling(1000);startHeartbeat();if(navigator.vibrate)navigator.vibrate([20,35,20]);
-  }catch(e){toast(e.message)}
+    await enterPlayer(d,code);if(navigator.vibrate)navigator.vibrate([20,35,20]);
+  }catch(e){toast(e.message)}finally{$('join-team').disabled=false}
 }
 function startHeartbeat(){setInterval(()=>{if(playerAuth)playerDo('HEARTBEAT',{},true)},20000)}
 async function playerDo(action,extra={},quiet=false){
@@ -674,7 +691,7 @@ function renderPlayer(){
   if(!playerAuth){if(!$('profile-step').classList.contains('hidden'))renderTeamPicker();return}
   const p=me(),t=team(p?.teamId);if(!p||!t)return;
   $('player-scores').innerHTML=scorebarHtml(false);
-  $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML=crest(state.teams.findIndex(x=>x.id===t.id))+'<div><b>'+esc(t.name)+'</b><strong>'+Number(t.score).toLocaleString()+'</strong></div><span class="role-badge">'+(p.isCaptain?'♛ Captain':'Player')+'</span>';
+  $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML=crest(state.teams.findIndex(x=>x.id===t.id))+'<div><b>'+esc(t.name)+'</b><strong>'+Number(t.score).toLocaleString()+'</strong><small class="team-streak">'+(Number(t.streak)||0)+' streak · best '+Math.max(Number(t.bestStreak)||0,Number(t.streak)||0)+'</small></div><span class="role-badge">'+(p.isCaptain?'♛ Captain':'Player')+'</span>';
   const host=$('player-content'),q=activeQ();
   if(state.phase==='lobby'){host.innerHTML='<div class="waiting"><strong>YOU’RE IN</strong>Waiting for the host to start.</div>'}
   else if(state.phase==='board'){
@@ -727,7 +744,7 @@ function playerEffects(force=false){
   const won=force?(state.winnerTeamIds||[]).includes(t.id):(state.lastResult?.correct&&state.lastResult?.teamId===t.id);
   if(!won)return;
   if(navigator.vibrate)navigator.vibrate(force?[70,50,70,50,140]:[40,30,80]);
-  const box=$('player-celebration');box.style.setProperty('--team',t.color);box.innerHTML='<div><div class="celeb-word">'+(force?'CHAMPIONS!':'CORRECT!')+'</div><div class="celeb-points">'+(force?t.score+' PTS':'+'+state.lastResult.points)+'</div></div>';box.classList.remove('hidden');setTimeout(()=>box.classList.add('hidden'),1800);
+  const box=$('player-celebration');box.style.setProperty('--team',t.color);box.innerHTML='<div><div class="celeb-word">'+(force?'CHAMPIONS!':'CORRECT!')+'</div><div class="celeb-points">'+(force?t.score+' PTS':'+'+state.lastResult.points)+'</div></div>';box.classList.remove('hidden');clearTimeout(playerEffects.timer);playerEffects.timer=setTimeout(()=>box.classList.add('hidden'),1800);box.onclick=()=>box.classList.add('hidden');
 }
 
 function compactBoard(){

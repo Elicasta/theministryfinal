@@ -13,9 +13,9 @@ const {default:state}=await import('../api/game/state.js');
 const {getGameByCode,saveGameState,publicGameState}=await import('../lib/game-db.js');
 const {advanceClock}=await import('../lib/game-clock.js');
 const {BUILTIN_GAME_PACK}=await import('../lib/game-pack.js');
-async function call(handler,body={},method='POST'){
-  const out={status:200};const res={setHeader(){},status(n){out.status=n;return this},json(value){out.body=value;return this}};
-  await handler({method,body,query:body},res);return out;
+async function call(handler,body={},method='POST',headers={}){
+  const out={status:200,headers:{}};const res={setHeader(k,v){out.headers[k]=v},status(n){out.status=n;return this},json(value){out.body=value;return this}};
+  await handler({method,body,query:body,headers},res);return out;
 }
 async function game(settings={}){const r=await call(create,{teamCount:4,settings});assert.equal(r.status,200);return {code:r.body.gameCode,hostToken:r.body.hostToken}}
 async function player(g,teamId,name='Player'){const r=await call(join,{code:g.code,teamId,name});assert.equal(r.status,200);return {code:g.code,playerId:r.body.player.playerId,playerToken:r.body.playerToken}}
@@ -52,11 +52,11 @@ test('complete host, player, steal and final-round game',async t=>{
     assert.equal((await act(g,'OPEN_STEAL')).status,409);
   });
   await t.test('wrong answer stays secret before steal; other team can buzz and earn 60%',async()=>{
-    await act(g,'NEXT');await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});await act(red,'ANSWER',{answer:'Moses'});await act(g,'JUDGE',{correct:false});
+    await act(g,'NEXT');await act(g,'SET_CONTROL_TEAM',{teamId:'team-1'});await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});await act(red,'ANSWER',{answer:'Moses'});await act(g,'JUDGE',{correct:false});
     let r=await call(state,{code:g.code},'GET');assert.equal(r.body.state.lastResult.correctAnswer,undefined);
     await advanceClock((await getGameByCode(g.code)).row,Date.now()+3000);
     assert.equal((await act(red,'BUZZ')).status,403);r=await act(blue,'BUZZ');assert.equal(r.body.state.phase,'steal_captain');
-    await act(blue,'ANSWER',{answer:'Noah'});r=await act(g,'JUDGE',{correct:true});assert.equal(r.body.teams[1].score,60);assert.equal(r.body.state.controlTeamId,'team-2');
+    await act(blue,'ANSWER',{answer:'Noah'});r=await act(g,'JUDGE',{correct:true});assert.equal(r.body.teams[1].score,60);assert.equal(r.body.state.controlTeamId,'team-1');
     await act(g,'REVEAL');await act(g,'NEXT');assert.equal((await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'})).status,409);
   });
   await t.test('final wagers and answers lock; duplicate judging cannot change score',async()=>{
@@ -139,7 +139,7 @@ test('round packs preserve scores, players and captains, and isolate repeated su
   await call(choose,{...g,packId:'bible-battle-starter'});r=(await call(state,g)).body;
   assert.equal(r.state.roundNumber,2);assert.equal(r.teams[0].score,300);assert.equal(r.players.length,1);assert.equal(r.players[0].isCaptain,true);
   assert.notEqual(r.pack.board[0].id,first);assert.deepEqual(r.state.usedQuestionIds,[]);
-  await act(g,'OPEN_QUESTION',{questionId:r.pack.board[0].id});assert.equal((await act(red,'ANSWER',{answer:'Jesus'})).status,200);
+  await act(g,'SET_CONTROL_TEAM',{teamId:'team-1'});await act(g,'OPEN_QUESTION',{questionId:r.pack.board[0].id});assert.equal((await act(red,'ANSWER',{answer:'Jesus'})).status,200);
 });
 
 test('background generation survives polls, saves privately, and cannot replace active play',async()=>{
@@ -199,4 +199,59 @@ test('isolated rooms do not replace the permanent projector game',async()=>{
   const isolated=(await call(create,{autoProjector:false})).body;
   await act({code:isolated.gameCode,hostToken:isolated.hostToken},'START');
   assert.equal((await call(current,{},'GET')).body.gameCode,main.code);
+});
+
+test('automatic turns rotate, wrap, preserve the queue through steals, and can be disabled by the host',async()=>{
+ const g=await game();await player(g,'team-1');const blue=await player(g,'team-3');
+ await act(g,'START');assert.equal((await call(state,g)).body.state.controlTeamId,'team-1');
+ await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});await act(g,'JUDGE',{correct:true});
+ let r=await act(g,'NEXT');assert.equal(r.body.state.controlTeamId,'team-2');
+ assert.equal((await act(g,'NEXT')).status,409);
+ await act(g,'SET_CONTROL_TEAM',{teamId:'team-4'});await act(g,'OPEN_QUESTION',{questionId:'pentateuch200'});await act(g,'REVEAL');
+ r=await act(g,'NEXT');assert.equal(r.body.state.controlTeamId,'team-1');
+ await act(g,'OPEN_QUESTION',{questionId:'pentateuch300'});await act(g,'OPEN_STEAL');await act(blue,'BUZZ');await act(g,'JUDGE',{correct:true});
+ r=await act(g,'NEXT');assert.equal(r.body.state.controlTeamId,'team-2');
+ assert.equal((await act(blue,'SET_AUTO_TURN',{enabled:false})).status,403);
+ await act(g,'SET_AUTO_TURN',{enabled:false});await act(g,'OPEN_QUESTION',{questionId:'pentateuch400'});await act(g,'REVEAL');
+ r=await act(g,'NEXT');assert.equal(r.body.state.controlTeamId,'team-2');assert.equal(r.body.state.settings.autoTurn,false);
+ await act(g,'SET_AUTO_TURN',{enabled:true});await act(g,'OPEN_QUESTION',{questionId:'pentateuch500'});await act(g,'REVEAL');
+ r=await act(g,'NEXT');assert.equal(r.body.state.controlTeamId,'team-3');
+});
+
+test('device session restores the same player and prevents cross-team rejoin and controls',async()=>{
+ const g=await game();
+ const first=await call(join,{code:g.code,name:'Red captain',teamId:'team-1'});
+ const cookie=first.headers['Set-Cookie'].split(';')[0],headers={cookie};
+ assert.match(first.headers['Set-Cookie'],/HttpOnly/);assert.match(first.headers['Set-Cookie'],/SameSite=Lax/);
+ const red=first.body.player,blue=await player(g,'team-2');
+ const restored=await call(join,{code:g.code,resume:true},'POST',headers);
+ assert.equal(restored.body.player.playerId,red.playerId);assert.equal(restored.body.player.teamId,'team-1');
+ const rejoin=await call(join,{code:g.code,name:'Red again',teamId:'team-1'},'POST',headers);
+ assert.equal(rejoin.body.player.playerId,red.playerId);assert.equal(rejoin.body.players.length,2);
+ assert.equal((await call(join,{code:g.code,name:'Pretend blue',teamId:'team-2'},'POST',headers)).status,403);
+ assert.equal((await call(state,{...blue},'POST',headers)).status,401);
+ await act(g,'START');await act(g,'SET_CONTROL_TEAM',{teamId:'team-2'});
+ assert.equal((await call(action,{code:g.code,action:'OPEN_QUESTION',questionId:'pentateuch100'},'POST',headers)).status,403);
+ await act(g,'OPEN_QUESTION',{questionId:'pentateuch100'});
+ assert.equal((await call(action,{code:g.code,action:'ANSWER',answer:'Noah',teamId:'team-2'},'POST',headers)).status,403);
+ assert.equal((await call(action,{...blue,action:'ANSWER',answer:'Noah'},'POST',headers)).status,401);
+ const snapshot=await call(state,{code:g.code},'POST',headers);assert.equal(snapshot.status,200);assert.equal(snapshot.body.players.find(p=>p.playerId===red.playerId).teamId,'team-1');
+});
+
+test('invalid saved cookies fail closed and legacy player tokens migrate to a cookie',async()=>{
+ const g=await game(),red=await player(g,'team-1');
+ assert.equal((await call(join,{code:g.code,resume:true},'POST',{cookie:'ministry_player_'+g.code+'=broken'})).status,401);
+ const restored=await call(join,{...red,resume:true});assert.equal(restored.status,200);assert.match(restored.headers['Set-Cookie'],/HttpOnly/);
+ assert.equal(restored.body.player.playerId,red.playerId);
+});
+
+test('streaks track correct answers and steals, reset on misses/timeouts, and preserve the best',async()=>{
+ const g=await game();await act(g,'START');await act(g,'SET_AUTO_TURN',{enabled:false});
+ for(const questionId of ['pentateuch100','pentateuch200']){await act(g,'OPEN_QUESTION',{questionId});await act(g,'JUDGE',{correct:true});await act(g,'NEXT')}
+ let r=(await call(state,g)).body;assert.equal(r.teams[0].streak,2);assert.equal(r.teams[0].bestStreak,2);
+ await act(g,'OPEN_QUESTION',{questionId:'pentateuch300'});await act(g,'JUDGE',{correct:false});r=(await call(state,g)).body;assert.equal(r.teams[0].streak,0);assert.equal(r.teams[0].bestStreak,2);
+ await act(g,'REVEAL');await act(g,'NEXT');await act(g,'OPEN_QUESTION',{questionId:'pentateuch400'});await act(g,'JUDGE',{correct:true});await act(g,'NEXT');
+ await act(g,'OPEN_QUESTION',{questionId:'pentateuch500'});const row=(await getGameByCode(g.code)).row;row.state.phase='open';row.state.teamDeadline=Date.now()-1;await saveGameState(row,row.state);
+ r=(await call(state,g)).body;assert.equal(r.teams[0].streak,0);assert.equal(r.teams[0].bestStreak,2);
+ const blue=await player(g,'team-2');await act(blue,'BUZZ');await act(g,'JUDGE',{correct:true});r=(await call(state,g)).body;assert.equal(r.teams[1].streak,1);assert.equal(r.teams[1].bestStreak,1);assert.equal(r.state.controlTeamId,'team-1');
 });

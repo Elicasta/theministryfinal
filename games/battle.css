@@ -70,3 +70,36 @@ button,a,input,select{touch-action:manipulation}button:focus-visible,a:focus-vis
   .game-board{width:100%;flex:1;min-height:0;grid-template-rows:minmax(35px,.8fr) repeat(5,minmax(0,1fr));gap:8px}
   .game-category,.game-tile{min-height:0;aspect-ratio:auto}.game-category{font-size:clamp(10px,1.5svh,16px);padding:6px}.game-tile{font-size:clamp(20px,4svh,44px)}
 }
+
+/* Phone layouts and safe-area-aware result overlays. */
+.player-celebration{width:100%;height:100dvh;max-width:100vw;overflow:hidden;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));cursor:pointer}
+.player-celebration>div{width:100%;min-width:0;max-width:100%}
+.player-celebration .celeb-word{font:700 clamp(28px,10vw,92px)/1.05 Georgia,serif;letter-spacing:-.035em;white-space:normal;overflow-wrap:anywhere}
+.player-celebration .celeb-points{font:700 clamp(26px,8vw,68px)/1.15 Georgia,serif;margin-top:20px;overflow-wrap:anywhere}
+.session-note{font-size:11px;line-height:1.5;color:#91a6b6;margin:8px 0 14px}.session-note a{color:var(--gold);display:inline-block;padding:6px 0}.player-card,.waiting,.phone-card,.player-content{min-width:0;overflow-wrap:anywhere}
+#auto-turn-toggle{margin-bottom:12px;font-size:11px;white-space:normal;line-height:1.4;min-height:44px}
+@media(max-width:960px){
+  .host-shell,.host-grid,.host-main,.host-sidebar,.host-live-grid,.host-center-deck,.host-right-rail{min-width:0;max-width:100%}
+  .host-topbar{position:relative;grid-template-columns:1fr;gap:18px;padding:20px 16px;height:auto}
+  .host-title-lock{justify-content:center}.host-header-right{justify-content:center;flex-wrap:wrap;width:100%;gap:12px}
+  .host-topbar .mini-btn{min-height:44px;white-space:normal}.host-live-meta{flex-wrap:wrap}
+  .host-sidebar{overflow:visible;max-height:none}.host-live-grid{grid-template-columns:1fr}.host-grid{display:flex;flex-direction:column}
+  .host-sidebar{order:2;width:100%}.host-main{order:1;width:100%}.host-shell:has(#host-lobby:not(.hidden)) .host-sidebar{order:0}
+  .host-right-rail{display:grid;grid-template-columns:1fr}.host-question{min-width:0}.host-question h2{overflow-wrap:anywhere}
+  .join-url{overflow-wrap:anywhere;word-break:break-word}.battle-join-card{min-width:0}
+  .host-panel input,.host-panel select,.host-question input,.host-question select,.player-shell input,.player-shell select{font-size:16px!important;max-width:100%;min-width:0;min-height:44px}
+  .player-shell button,.host-main button,.host-sidebar button{min-height:44px}
+}
+@media(max-width:650px){
+  .player-shell{width:100%;max-width:100%;padding:0 max(12px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));overflow-x:clip}
+  .player-top{position:relative;padding:20px 0;gap:8px}.remote-brand{font-size:clamp(20px,6vw,27px)}.connection-chip{flex-shrink:0;font-size:8px;padding:8px}
+  .phone-card{width:100%;margin:12px 0}.player-team-banner{gap:10px;padding:14px}.player-team-banner>div{min-width:0}.player-team-banner b{overflow-wrap:anywhere;letter-spacing:.08em}.player-team-banner .crest{width:45px;height:52px}.role-badge{padding:8px;font-size:10px;flex-shrink:0}
+  .player-card{padding:16px;display:flow-root}.player-card .question{font-size:clamp(23px,6.7vw,30px);line-height:1.18;overflow-wrap:anywhere}.player-card h2,.waiting strong{font-size:clamp(23px,7vw,32px);line-height:1.15;overflow-wrap:anywhere}
+  .player-timer.timer-ring{width:76px;height:76px;margin:16px 0 8px 12px}.phone-choices{clear:both;grid-template-columns:1fr}.phone-choice{min-width:0;white-space:normal;overflow-wrap:anywhere;font-size:16px;padding:15px;line-height:1.35}.board-select{display:block;width:100%;max-width:100%;font-size:16px;min-height:50px}.buzz-button{font-size:clamp(20px,6vw,28px);aspect-ratio:auto;min-height:90px;white-space:normal;line-height:1.2}.steal-device-title{font-size:clamp(24px,7vw,34px)!important;line-height:1.15!important;overflow-wrap:anywhere}
+  #player-scores{grid-template-columns:repeat(2,minmax(0,1fr))}#player-scores .team-name{font-size:11px;white-space:normal}#player-scores .team-score{font-size:28px}.suggestion-count>span{min-width:0;overflow-wrap:anywhere}.answer-input{font-size:18px!important}
+  .host-title-lock strong{font-size:28px}.host-board{width:100%;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}.host-cat{min-width:0;overflow-wrap:anywhere;line-height:1.2;font-size:8px}.host-tile{min-width:0;min-height:58px;font-size:21px}.host-controls{grid-template-columns:1fr 1fr}.host-controls .game-btn{padding:10px;font-size:11px;white-space:normal}
+  .host-question{padding:18px}.host-question h2{font-size:clamp(26px,7vw,36px)}.host-clock{position:relative;right:auto;bottom:auto;float:none;margin:15px auto}.timer-controls{flex-wrap:wrap}.timer-controls button{flex:1;white-space:normal;font-size:11px}
+  .display-shell{overflow-x:clip}.display-top{gap:8px}.display-title strong{font-size:clamp(20px,6vw,28px)}.display-join{gap:6px}.display-code,.display-join strong{font-size:13px}.display-stage{min-height:0;display:block}.display-stage .broadcast-question{height:auto;min-height:0}.question-status{flex-wrap:wrap;gap:8px}.question-copy{min-width:0}.broadcast-question .choice-grid{grid-template-columns:1fr}.display-choice{min-width:0;overflow-wrap:anywhere}.broadcast-result{min-height:340px;padding:24px 16px}.broadcast-result>strong{font-size:clamp(28px,9vw,48px);overflow-wrap:anywhere}.answer-reveal h2{font-size:clamp(28px,9vw,48px)}.projector-standby{padding:30px 16px}.projector-standby h1{font-size:38px}.projector-standby p{font-size:19px}
+  .landing-card{width:100%;min-width:0}.landing-card h1{font-size:clamp(34px,10vw,60px)}.landing-details{flex-wrap:wrap}.landing-card .game-btn{min-height:48px}
+}
+.team-streak{display:block;color:#dac180;font-size:10px;line-height:1.35;letter-spacing:.025em}.display-team .team-streak{font-size:clamp(8px,1.2svh,12px)}.player-team-banner .team-streak{margin-top:6px;font-size:11px}#player-scores .display-team{height:auto;min-height:105px}#player-scores .team-streak{font-size:9px}.display-team .team-pips{gap:4px}.display-team .team-pips b{height:6px;width:6px}
