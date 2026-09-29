@@ -536,10 +536,13 @@ function renderPlayer(){
   else if(['captain','open','steal_captain','steal_open'].includes(state.phase))renderPlayerQuestion(host,q,p,t);
   else if(['locked','steal_locked'].includes(state.phase))host.innerHTML='<div class="player-card"><div class="player-phase">ANSWER LOCKED</div><h2>'+esc(team(state.lockedTeamId)?.name||'Team')+'</h2><div class="question">'+esc(state.lockedAnswer||'')+'</div><div class="small-state">Waiting for the host…</div></div>';
   else if(state.phase==='steal_buzz'){
-    if(t.id===state.controlTeamId)host.innerHTML='<div class="waiting"><strong>STEAL OPEN</strong>Other teams are racing for the steal.</div>';
-    else host.innerHTML='<div class="player-card"><div class="player-phase">STEAL WINDOW</div><button id="steal-buzz-button" class="buzz-button">BUZZ</button><div class="player-timer">'+seconds(state.stealBuzzDeadline)+'</div></div>';
+    if(t.id===state.controlTeamId)host.innerHTML='<div class="waiting"><strong>STEAL OPEN</strong>Every other team can buzz right now.</div>';
+    else{
+      const sig=String(state.stealBuzzDeadline||'');if(sig&&sig!==lastStealSignal){lastStealSignal=sig;if(navigator.vibrate)navigator.vibrate([120,45,120,45,220])}
+      host.innerHTML='<div class="player-card steal-takeover" style="--team:'+t.color+'"><div class="player-phase">STEAL AVAILABLE</div><strong class="steal-device-title">YOUR TEAM CAN STEAL</strong><button id="steal-buzz-button" class="buzz-button">BUZZ TO STEAL</button><div class="player-timer">'+seconds(state.stealBuzzDeadline)+'</div><div class="small-state">First server-accepted buzz wins the steal.</div></div>';
+    }
   }else if(state.phase==='reveal')host.innerHTML='<div class="player-card"><div class="player-phase">CORRECT ANSWER</div><h2>'+esc(q?.correctAnswer||'')+'</h2><div class="small-state">'+esc(q?.reference||'')+' · '+esc(q?.explanation||'')+'</div></div>';
-  else if(state.phase==='result'){const r=state.lastResult||{};host.innerHTML='<div class="waiting"><strong>'+(r.correct?'SCORE!':'ROUND OVER')+'</strong>'+esc(team(r.teamId)?.name||'')+(r.correct?' earned '+r.points+' points.':'')+'</div>';playerEffects()}
+  else if(state.phase==='result'){const r=state.lastResult||{},nextSteal=state.resultNextPhase==='steal_buzz';host.innerHTML='<div class="waiting result-wait '+(r.correct?'correct':'wrong')+'"><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong>'+esc(team(r.teamId)?.name||'')+(r.correct?' earned '+r.points+' points.':nextSteal?' missed. Steal opens next.':' missed. Returning to the board.')+'</div>';playerEffects()}
   else if(state.phase==='final_wager'){
     if(p.isCaptain)host.innerHTML='<div class="player-card"><div class="player-phase">FINAL WAGER</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><div class="small-state">You have '+t.score+' points.</div><input id="wager-input" class="answer-input" type="number" min="0" max="'+Math.max(0,t.score)+'" value="'+Math.min(500,Math.max(0,t.score))+'"><button id="submit-wager" class="game-btn primary full">Lock Wager</button></div>';
     else host.innerHTML='<div class="waiting"><strong>FINAL WAGER</strong>Your captain is choosing the wager.</div>';
@@ -558,7 +561,7 @@ function renderPlayerQuestion(host,q,p,t){
   if((q.choices||[]).length)controls='<div class="phone-choices">'+q.choices.map((x,i)=>'<button class="phone-choice '+(own?.answer===x?'selected':'')+'" data-answer="'+esc(x)+'"><b>'+String.fromCharCode(65+i)+'</b>'+esc(x)+'</button>').join('')+'</div>';
   else controls='<input id="typed-answer" class="answer-input" maxlength="160" placeholder="Type answer"><button id="typed-send" class="game-btn primary full">'+(canLock?'LOCK ANSWER':'SEND TO CAPTAIN')+'</button>';
   const suggestions=p.isCaptain?captainSuggestions(t.id):'';
-  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer">'+seconds(currentDeadline())+'</div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your next answer locks for the team.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
+  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer">'+seconds(currentDeadline())+'</div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your next answer is locked and checked automatically.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
 }
 function captainSuggestions(teamId){
   const rows=submissions.filter(x=>x.teamId===teamId);if(!rows.length)return '<div class="suggestions-box"><div class="small-state">No suggestions yet.</div></div>';
