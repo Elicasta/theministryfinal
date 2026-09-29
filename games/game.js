@@ -166,7 +166,7 @@ function renderHost(){
   if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||players.length>0;
   $('voice-toggle').checked=!!state.settings?.voice;$('sound-toggle').checked=state.settings?.sound!==false;$('steal-toggle').checked=state.settings?.autoSteal!==false;
   $('captain-time').value=String(state.settings?.captainMs||7000);$('open-time').value=String(state.settings?.openMs||5000);
-  $('pack-title').textContent=pack?.title||'Bible Showdown';
+  $('pack-title').textContent=pack?.title||'Bible Battle';
   $('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
   const lobby=state.phase==='lobby';$('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
   renderLobby();if(!lobby)renderHostGame();
@@ -182,8 +182,8 @@ function renderLobby(){
   }).join('');
 }
 function scorebarHtml(host=false){
-  return state.teams.map(t=>'<div class="'+(host?'host-score':'display-team')+' '+(state.controlTeamId===t.id?'control':'')+'" style="--team:'+t.color+'" '+(host?'data-score-team="'+esc(t.id)+'"':'')+'>'+
-    (host?'<small>'+esc(t.name)+'</small><strong>'+t.score+'</strong>':'<span class="team-name">'+esc(t.name)+'</span><span class="team-score">'+t.score+'</span>')+'</div>').join('');
+  return state.teams.map((t,i)=>'<div class="'+(host?'host-score':'display-team')+' '+(state.controlTeamId===t.id?'control':'')+'" style="--team:'+t.color+'" '+(host?'data-score-team="'+esc(t.id)+'"':'')+'>'+
+    (host?'<small>'+esc(t.name)+'</small><strong>'+Number(t.score||0).toLocaleString()+'</strong>':'<span class="team-emblem">'+['♜','♛','♟','♚','✦','◆'][i%6]+'</span><span class="team-copy"><span class="team-name">'+esc(t.name)+'</span><span class="team-score">'+Number(t.score||0).toLocaleString()+'</span><i class="team-pips"><b></b><b></b><b></b><b></b></i></span>')+'</div>').join('');
 }
 function boardHtml(host=false){
   const cats=pack?.categories||[],rows=pack?.board||[];
@@ -274,7 +274,7 @@ function renderDisplay(){
   else if(['final_answer','final_judging'].includes(state.phase))stage.innerHTML='<div class="display-question"><div class="question-category">FINAL SHOWDOWN</div><h1>'+esc(pack?.final?.prompt||'Get ready…')+'</h1></div>';
   else if(['winner','ended'].includes(state.phase)){
     const ids=state.winnerTeamIds||[],names=ids.map(id=>team(id)?.name).filter(Boolean),t=team(ids[0]);
-    stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="question-category">BIBLE SHOWDOWN CHAMPIONS</div><div class="winner-name">'+esc(names.join(' + ')||'WINNER')+'</div><div class="winner-score">'+(t?.score||0)+' POINTS</div></div>';
+    stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="question-category">BIBLE BATTLE CHAMPIONS</div><div class="winner-name">'+esc(names.join(' + ')||'WINNER')+'</div><div class="winner-score">'+(t?.score||0)+' POINTS</div></div>';
   }
   displayEffects();
 }
@@ -322,7 +322,7 @@ function liveEventText(cue){
   if(cue==='wrong')return 'Game event: The engine marked '+(t?.name||'the team')+' INCORRECT. Briefly react. A steal may follow. Do not reveal the correct answer.';
   if(cue==='steal')return 'Game event: The steal window is open. Invite every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' to buzz now.';
   if(cue==='final')return 'Game event: Final Showdown begins. Announce the category '+(pack?.final?.category||'Final Round')+' and tell captains to lock their wagers.';
-  if(cue==='winner')return 'Game event: The engine declares '+(winner.join(' and ')||'the winning team')+' the Bible Showdown champion'+(winner.length===1?'':'s')+'. Give a concise championship announcement.';
+  if(cue==='winner')return 'Game event: The engine declares '+(winner.join(' and ')||'the winning team')+' the Bible Battle champion'+(winner.length===1?'':'s')+'. Give a concise championship announcement.';
   return '';
 }
 function liveAnnounce(cue){

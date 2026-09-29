@@ -107,6 +107,9 @@ if(!liveApi.includes("'meridian'"))fail('Meridian must be the default Live voice
 if(!liveApi.includes('verifyDisplay'))fail('Live session endpoint must require display authorization');
 if(!gameBrowser.includes('RTCPeerConnection'))fail('Game display must use WebRTC for GPT-Live');
 if(gameBrowser.includes("fetch('/api/game/voice'"))fail('Legacy per-cue TTS should not drive the game display');
+if(!gameBrowser.includes('Bible Battle'))fail('Game UI must use Bible Battle branding');
+const gameCss=fs.readFileSync('games/game.css','utf8');
+if(!gameCss.includes('Bible Battle broadcast skin'))fail('Broadcast game skin is missing');
 
 const {spawnSync}=await import('node:child_process');
 for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js']){
