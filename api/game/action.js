@@ -146,7 +146,7 @@ export default async function handler(req,res){
       usedQuestionIds:[...(state.usedQuestionIds||[]),questionId]};
     const c=await commit(row,state,'QUESTION_OPENED',{actorType:role,playerId:player?.player_id||null,teamId:state.controlTeamId,payload:{questionId}});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
-    return res.status(200).json(await hydrate(c.row,'host'));
+    return res.status(200).json(await hydrate(c.row,role,player));
   }
 
   if(action==='TICK'){
