@@ -1,120 +1,143 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/games",
-      "destination": "/games/index.html"
+      "src": "/\\.local(?:/.*)?",
+      "dest": "/api/game/private"
     },
     {
-      "source": "/games/host",
-      "destination": "/games/index.html"
+      "src": "/lib(?:/.*)?",
+      "dest": "/api/game/private"
     },
     {
-      "source": "/games/display",
-      "destination": "/games/index.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/games/play",
-      "destination": "/games/index.html"
+      "src": "/game/projector",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/games/join",
-      "destination": "/games/index.html"
+      "src": "/games/projector",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/game",
-      "destination": "/games/index.html"
+      "src": "/game/join",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/game/host",
-      "destination": "/games/index.html"
+      "src": "/games",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/game/display",
-      "destination": "/games/index.html"
+      "src": "/games/host",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/game/play",
-      "destination": "/games/index.html"
+      "src": "/games/display",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/admin",
-      "destination": "/engine/index.html"
+      "src": "/games/play",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/remote",
-      "destination": "/engine/index.html"
+      "src": "/games/join",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/mobile",
-      "destination": "/engine/index.html"
+      "src": "/game",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/live",
-      "destination": "/engine/index.html"
+      "src": "/game/host",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/teach",
-      "destination": "/engine/index.html"
+      "src": "/game/display",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/projector",
-      "destination": "/engine/index.html"
+      "src": "/game/play",
+      "dest": "/games/index.html"
     },
     {
-      "source": "/scriptures",
-      "destination": "/engine/index.html"
+      "src": "/admin",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/scripture",
-      "destination": "/engine/index.html"
+      "src": "/remote",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/confidence",
-      "destination": "/engine/index.html"
+      "src": "/mobile",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/obsslides",
-      "destination": "/engine/index.html"
+      "src": "/live",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/obslowerthirds",
-      "destination": "/engine/index.html"
+      "src": "/teach",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/class",
-      "destination": "/engine/index.html"
+      "src": "/projector",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/presenter",
-      "destination": "/engine/index.html"
+      "src": "/scriptures",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/lessons",
-      "destination": "/library/index.html"
+      "src": "/scripture",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/lessons/manuscript",
-      "destination": "/library/manuscript.html"
+      "src": "/confidence",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/obs16.9",
-      "destination": "/obs-overlay.html"
+      "src": "/obsslides",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/obs9.16",
-      "destination": "/obs-overlay.html"
+      "src": "/obslowerthirds",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/evidence/presenter",
-      "destination": "/kingdom-evidence-presenter.html"
+      "src": "/class",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/evidence/week2/online",
-      "destination": "/kingdom-evidence-week2-online.html"
+      "src": "/presenter",
+      "dest": "/engine/index.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/lessons",
+      "dest": "/library/index.html"
+    },
+    {
+      "src": "/lessons/manuscript",
+      "dest": "/library/manuscript.html"
+    },
+    {
+      "src": "/obs16.9",
+      "dest": "/obs-overlay.html"
+    },
+    {
+      "src": "/obs9.16",
+      "dest": "/obs-overlay.html"
+    },
+    {
+      "src": "/evidence/presenter",
+      "dest": "/kingdom-evidence-presenter.html"
+    },
+    {
+      "src": "/evidence/week2/online",
+      "dest": "/kingdom-evidence-week2-online.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

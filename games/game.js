@@ -3,12 +3,25 @@
 
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const route=location.pathname.toLowerCase().replace(/\/+$/,'')||'/games';
-const role=route==='/games/host'?'host':route==='/games/display'?'display':['/games/play','/games/join'].includes(route)?'player':'landing';
+const route=(location.pathname.toLowerCase().replace(/\/+$/,'')||'/games').replace(/^\/game(?=\/|$)/,'/games');
+const role=route==='/games/host'?'host':['/games/display','/games/projector'].includes(route)?'display':['/games/play','/games/join'].includes(route)?'player':'landing';
 const qs=new URLSearchParams(location.search);
-const codeFromUrl=()=>String(qs.get('code')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
-const now=()=>Date.now();
+const codeFromUrl=()=>String(qs.get('code')||autoDisplayCode||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+let clockOffset=0;
+const now=()=>Date.now()+clockOffset;
+const timeText=n=>'00:'+String(n).padStart(2,'0');
+function toast(message){const el=$('game-toast');el.textContent=message;el.classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.add('hidden'),4500)}
+function crest(i){
+  const paths=[
+    '<path d="M32 3 20 8 13 5 9 16 3 23 8 34 7 43 18 50 25 61 33 54 44 58 49 46 58 38 55 27 60 18 48 13 44 5Z" opacity=".5"/><path d="M19 19 25 14 32 19 40 14 46 20 42 30 45 37 38 48 26 48 19 37 22 29Z"/><path d="m24 27 5 2m7 0 5-2m-12 8 4 3 4-3m-8 7 4-4 4 4" fill="none" stroke="#06121c" stroke-width="3"/>',
+    '<path d="M4 8c14 3 18 12 22 18-2-11 1-18 7-24 0 14 5 20 9 25l7-8 10 2-7 5c0 11-8 20-20 21l-15 13 3-16C7 39 3 30 2 23l19 9C10 24 5 15 4 8Z"/>',
+    '<path d="M29 59c3-19 3-31 6-45" fill="none" stroke="currentColor" stroke-width="4"/><path d="M33 29C29 10 44 5 59 5c-2 17-11 24-26 24ZM29 40C9 39 4 26 5 14c18 3 25 13 24 26ZM32 47c4-15 15-18 27-16-4 13-13 18-27 16Z"/><path d="M16 59h30" stroke="currentColor" stroke-width="3"/>',
+    '<path d="m7 19 13 11L32 9l12 21 13-11-7 31H14Z"/><path d="M15 56h34" stroke="currentColor" stroke-width="6"/><circle cx="7" cy="16" r="4"/><circle cx="32" cy="6" r="4"/><circle cx="57" cy="16" r="4"/>'
+  ];return '<svg class="crest" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">'+paths[i%4]+'</svg>';
+}
+function safeColor(v){return /^#[0-9a-f]{6}$/i.test(v)?v:'#f5c44e'}
 
+let renderKey='',librarySearch='',libraryCategory='',shareOrigin=location.origin,autoDisplayCode='';
 let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
 let sb=null,channel=null,pollTimer=null,tickTimer=null,tickPending=false,fetchPending=false;
@@ -23,7 +36,7 @@ function me(){return players.find(p=>p.playerId===playerAuth?.playerId)||null}
 function isCaptain(){return !!me()?.isCaptain}
 function category(id){return pack?.categories?.find(c=>c.id===id)}
 function activeQ(){return state?.activeQuestion||null}
-function joinUrl(code){return location.origin+'/games/play?code='+encodeURIComponent(code)}
+function joinUrl(code){return shareOrigin+'/games/play?code='+encodeURIComponent(code)}
 function displayUrl(code,dt){return location.origin+'/games/display?code='+encodeURIComponent(code)+(dt?'&dt='+encodeURIComponent(dt):'')}
 function renderQr(id,url,key,size=176){
   const el=$(id);if(!el||!window.QRCode||qrCache[key]===url)return;
@@ -36,16 +49,21 @@ function savePlayerAuth(v){playerAuth=v;localStorage.setItem('ministry_game_play
 function loadPlayerAuth(code){try{return JSON.parse(localStorage.getItem('ministry_game_player_'+code)||'null')}catch(e){return null}}
 
 async function api(path,options={}){
-  const r=await fetch(path,{cache:'no-store',...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});
+  const r=await fetch(path,{signal:AbortSignal.timeout(15000),cache:'no-store',...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});
   const d=await r.json().catch(()=>({}));
   if(!r.ok){const e=new Error(d.error||('Request failed '+r.status));e.status=r.status;e.data=d;throw e}
+  if(d.serverTime)clockOffset=d.serverTime-Date.now();
   return d;
 }
 function applySnapshot(d){
   if(!d?.ok)return;
+  if(snapshot&&d.gameCode===snapshot.gameCode&&d.version<snapshot.version)return;
   snapshot=d;state=d.state||{};pack=d.pack||{};players=d.players||[];submissions=d.submissions||[];
   state.teams=d.teams||state.teams||[];
-  render();
+  state.teams=state.teams.map(t=>({...t,color:safeColor(t.color)}));
+  const key=JSON.stringify([d.gameCode,d.version,players,submissions]);
+  if(key!==renderKey){renderKey=key;render()}
+  updateTimers();
 }
 async function fetchState(){
   if(fetchPending)return;fetchPending=true;
@@ -55,7 +73,7 @@ async function fetchState(){
     else if(role==='player'&&playerAuth)applySnapshot(await api('/api/game/state',{method:'POST',body:JSON.stringify({code,playerId:playerAuth.playerId,playerToken:playerAuth.playerToken})}));
     else applySnapshot(await api('/api/game/state?code='+encodeURIComponent(code)));
     network(true,'Live');
-  }catch(e){network(false,e.status===404?'Game not found':'Reconnect')}
+  }catch(e){network(false,e.status===404?'Game not found':'Reconnecting');if(e.status===401||e.status===404)throw e}
   finally{fetchPending=false}
 }
 async function gameAction(action,extra={}){
@@ -65,11 +83,13 @@ async function gameAction(action,extra={}){
     const d=await api('/api/game/action',{method:'POST',body:JSON.stringify({code,action,...auth,...extra})});
     if(d?.ok&&d.state)applySnapshot(d);
     return d;
-  }catch(e){if(e.status===409){await fetchState();return null}throw e}
+  }catch(e){if(e.status===409){await fetchState();toast(e.message);return null}toast(e.message);return null}
 }
 async function connectRealtime(code){
   try{
-    const c=await api('/api/config');if(!c.supabaseUrl||!c.supabaseAnonKey||!window.supabase)return;
+    const c=await api('/api/config');if(c.local)return;
+    if(c.supabaseUrl&&c.supabaseAnonKey&&!window.supabase){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js';s.onload=resolve;s.onerror=reject;document.head.append(s)})}
+    if(!c.supabaseUrl||!c.supabaseAnonKey||!window.supabase)return;
     sb=window.supabase.createClient(c.supabaseUrl,c.supabaseAnonKey,{realtime:{params:{eventsPerSecond:20}}});
     channel=sb.channel('game:'+code,{config:{broadcast:{self:false}}})
       .on('broadcast',{event:'state'},()=>fetchState())
@@ -81,8 +101,8 @@ function network(ok,label){
   if($('host-network'))$('host-network').textContent=label;
   if($('player-connection')){$('player-connection').textContent=String(label).toUpperCase();$('player-connection').classList.toggle('on',ok)}
 }
-function startPolling(ms=1200){clearInterval(pollTimer);pollTimer=setInterval(fetchState,ms)}
-function seconds(deadline){return Math.max(0,Math.ceil((Number(deadline||0)-now())/1000))}
+function startPolling(ms=1200){clearInterval(pollTimer);pollTimer=setInterval(()=>fetchState().catch(()=>{}),ms)}
+function seconds(deadline){return Math.max(0,Math.ceil((Number(deadline||0)-(state?.timerPausedAt||now()))/1000))}
 function currentDeadline(){
   if(state?.phase==='captain')return state.captainDeadline;
   if(state?.phase==='open')return state.teamDeadline;
@@ -99,35 +119,47 @@ function initLanding(){show('landing')}
 
 async function initHost(){
   show('host');
+  try{const config=await api('/api/config');shareOrigin=config.shareOrigin||location.origin}catch{}
   let saved=loadHostAuth();
   if(saved?.code&&saved?.hostToken){
     hostAuth=saved;
-    try{await fetchState()}catch(e){}
+    try{await fetchState()}catch(e){if(e.status===401||e.status===404){hostAuth=null;localStorage.removeItem('ministry_game_host_auth')}else throw e}
   }
   if(!snapshot){
-    const d=await api('/api/game/create',{method:'POST',body:JSON.stringify({teamCount:2})});
+    const d=await api('/api/game/create',{method:'POST',body:JSON.stringify({teamCount:4})});
     hostAuth={code:d.gameCode,hostToken:d.hostToken,displayToken:d.displayToken};saveHostAuth(hostAuth);applySnapshot(d);
   }else if(!hostAuth.displayToken&&saved?.displayToken){hostAuth.displayToken=saved.displayToken}
+  try{const health=await api('/api/game/health');if(!health.openAIConfigured){$('generate-pack').disabled=true;$('generate-pack').textContent='AI pack · cloud setup needed';$('voice-toggle').disabled=true}}catch{}
   wireHost();
   await connectRealtime(hostAuth.code);startPolling(1000);
   clearInterval(tickTimer);tickTimer=setInterval(hostTick,180);
 }
 function wireHost(){
   $('team-minus').onclick=()=>hostResize(-1);$('team-plus').onclick=()=>hostResize(1);
-  $('start-game').onclick=()=>gameAction('START');
+  $('start-game').onclick=async()=>{clearTimeout(setupTimer);const teams=state.teams.map(t=>({...t,name:document.querySelector('[data-team-name="'+CSS.escape(t.id)+'"]')?.value||t.name}));const saved=await gameAction('SETUP',{teamCount:teams.length,teams,settings:hostSettings()});if(saved)await gameAction('START')};
   $('host-correct').onclick=()=>gameAction('JUDGE',{correct:true});
   $('host-wrong').onclick=()=>gameAction('JUDGE',{correct:false});
   $('host-steal').onclick=()=>gameAction('OPEN_STEAL');
   $('host-reveal').onclick=()=>gameAction('REVEAL');
   $('host-next').onclick=()=>gameAction('NEXT');
   $('host-final').onclick=()=>gameAction('START_FINAL');
-  $('host-end').onclick=()=>gameAction('END');
+  $('host-end').onclick=()=>{if(confirm('End this game and show the final scores?'))gameAction('END')};
   $('generate-pack').onclick=generatePack;
-  for(const id of ['voice-toggle','sound-toggle','steal-toggle','captain-time','open-time']){
+  $('timer-pause').onclick=()=>gameAction(state.timerPausedAt?'RESUME':'PAUSE');
+  $('timer-reset').onclick=()=>gameAction('RESET_TIMER');
+  $('copy-projector').onclick=()=>navigator.clipboard.writeText(location.origin+'/game/projector').then(()=>toast('Permanent projector link copied')).catch(()=>toast(location.origin+'/game/projector'));
+  $('copy-join').onclick=()=>navigator.clipboard.writeText(joinUrl(hostAuth.code)).then(()=>toast('Join link copied')).catch(()=>toast(joinUrl(hostAuth.code)));
+  $('new-game').onclick=()=>{if(confirm('Create a fresh game? This game stays available through its code.')){localStorage.removeItem('ministry_game_host_auth');location.reload()}};
+  $('question-search').oninput=e=>{librarySearch=e.target.value;renderQuestionLibrary()};
+  $('category-filter').onchange=e=>{libraryCategory=e.target.value;renderQuestionLibrary()};
+
+  for(const id of ['judge-toggle','voice-toggle','sound-toggle','steal-toggle','captain-time','open-time']){
     $(id).onchange=queueSetup;
   }
   document.addEventListener('input',e=>{if(e.target.matches('[data-team-name]'))queueSetup()});
   document.addEventListener('click',e=>{
+    const question=e.target.closest('[data-open-question]');if(question)return gameAction('OPEN_QUESTION',{questionId:question.dataset.openQuestion});
+    const adjust=e.target.closest('[data-adjust-score]');if(adjust)return gameAction('ADJUST_SCORE',{teamId:adjust.dataset.teamId,delta:Number(adjust.dataset.adjustScore)});
     const cap=e.target.closest('[data-captain]');if(cap)return gameAction('SET_CAPTAIN',{teamId:cap.dataset.teamId,targetPlayerId:cap.dataset.captain});
     const score=e.target.closest('[data-score-team]');if(score)return gameAction('SET_CONTROL_TEAM',{teamId:score.dataset.scoreTeam});
     if(e.target.closest('#open-final-question'))return gameAction('OPEN_FINAL');
@@ -148,12 +180,12 @@ function hostResize(delta){
 }
 function hostSettings(){
   return {
-    captainMs:Number($('captain-time')?.value)||7000,
+    captainMs:Number($('captain-time')?.value)||30000,
     openMs:Number($('open-time')?.value)||5000,
     stealMs:5000,
     autoSteal:$('steal-toggle')?.checked!==false,
     sound:$('sound-toggle')?.checked!==false,
-    voice:$('voice-toggle')?.checked===true
+    voice:$('voice-toggle')?.checked===true,manualJudging:$('judge-toggle')?.checked!==false
   };
 }
 function queueSetup(){
@@ -164,7 +196,7 @@ function queueSetup(){
   },350);
 }
 function hostTick(){
-  if(role!=='host'||!state||tickPending)return;
+  if(role!=='host'||!state||tickPending||state.timerPausedAt)return;
   const d=state?.phase==='result'?state.resultDeadline:currentDeadline();if(!d||now()<Number(d))return;
   tickPending=true;gameAction('TICK').finally(()=>setTimeout(()=>tickPending=false,220));
 }
@@ -179,10 +211,11 @@ function renderHost(){
   const lastTeam=state.teams[state.teams.length-1],lastTeamOccupied=!!lastTeam&&players.some(p=>p.teamId===lastTeam.id);
   if($('team-minus'))$('team-minus').disabled=state.phase!=='lobby'||state.teams.length<=2||lastTeamOccupied;
   if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||state.teams.length>=12;
+  $('judge-toggle').checked=state.settings?.manualJudging!==false;
   $('voice-toggle').checked=!!state.settings?.voice;$('sound-toggle').checked=state.settings?.sound!==false;$('steal-toggle').checked=state.settings?.autoSteal!==false;
-  $('captain-time').value=String(state.settings?.captainMs||7000);$('open-time').value=String(state.settings?.openMs||5000);
+  $('captain-time').value=String(state.settings?.captainMs||30000);$('open-time').value=String(state.settings?.openMs||5000);
   $('pack-title').textContent=pack?.title||'Bible Battle';
-  $('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
+  if(!document.activeElement?.matches('[data-team-name]'))$('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
   const lobby=state.phase==='lobby';
   $('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
   $('host-setup-panels')?.classList.toggle('hidden',!lobby);$('host-live-library')?.classList.toggle('hidden',lobby);
@@ -199,16 +232,15 @@ function renderLobby(){
   }).join('');
 }
 function scorebarHtml(host=false){
-  return state.teams.map((t,i)=>'<div class="'+(host?'host-score':'display-team')+' '+(state.controlTeamId===t.id?'control':'')+'" style="--team:'+t.color+'" '+(host?'data-score-team="'+esc(t.id)+'"':'')+'>'+
-    (host?'<small>'+esc(t.name)+'</small><strong>'+Number(t.score||0).toLocaleString()+'</strong>':'<span class="team-emblem">'+['♜','♛','♟','♚','✦','◆'][i%6]+'</span><span class="team-copy"><span class="team-name">'+esc(t.name)+'</span><span class="team-score">'+Number(t.score||0).toLocaleString()+'</span><i class="team-pips"><b></b><b></b><b></b><b></b></i></span>')+'</div>').join('');
+  return state.teams.map((t,i)=>`<div class="${host?'host-score':'display-team'} ${state.controlTeamId===t.id?'control':''}" style="--team:${t.color}">${crest(i)}<div class="team-copy"><span class="team-name">${esc(t.name)}</span><strong class="team-score">${Number(t.score||0).toLocaleString()}</strong><span class="team-pips">${[0,1,2,3].map(n=>`<b class="${n<(t.streak||0)?'lit':''}"></b>`).join('')}</span></div>${host?`<div class="score-actions"><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="-100" aria-label="Subtract 100 from ${esc(t.name)}">−</button><button class="mini-btn" data-team-id="${esc(t.id)}" data-adjust-score="100" aria-label="Add 100 to ${esc(t.name)}">+</button><button class="mini-btn set-active" data-score-team="${esc(t.id)}" ${!['board','lobby'].includes(state.phase)?'disabled':''}>${state.controlTeamId===t.id?'♛ Active':'Set active'}</button></div>`:''}</div>`).join('');
 }
 function boardHtml(host=false){
   const cats=pack?.categories||[],rows=pack?.board||[];
   return cats.map(c=>'<div class="'+(host?'host-cat':'game-category')+'">'+esc(c.label)+'</div>').join('')+
     [100,200,300,400,500].map(points=>cats.map(c=>{
       const q=rows.find(x=>x.category===c.id&&Number(x.points)===points),used=q&&(state.usedQuestionIds||[]).includes(q.id);
-      if(host)return '<div class="host-tile monitor '+(used?'used':'')+'">'+(q?'$'+points:'—')+'</div>';
-      return '<div class="game-tile '+(used?'used':'')+'">'+(q&&!used?'$'+points:'')+'</div>';
+      if(host)return '<button class="host-tile '+(used?'used':'')+'" data-open-question="'+esc(q?.id||'')+'" '+(used||!q?'disabled':'')+' aria-label="'+esc(c.label)+' '+points+' points">'+(used?'✓':q?points:'—')+'</button>';
+      return '<div class="game-tile '+(used?'used':'')+'">'+(q&&!used?points:'')+'</div>';
     }).join('')).join('');
 }
 function renderHostGame(){
@@ -223,16 +255,24 @@ function renderHostGame(){
   }else{
     board.classList.add('hidden');box.classList.remove('hidden');box.innerHTML=hostQuestionHtml();
   }
-  $('host-correct').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
-  $('host-wrong').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
-  $('host-steal').classList.add('hidden');$('host-reveal').classList.add('hidden');$('host-next').classList.add('hidden');
+  $('host-correct').classList.toggle('hidden',!['captain','open','locked','steal_captain','steal_open','steal_locked'].includes(phase));
+  $('host-wrong').classList.toggle('hidden',!['captain','open','locked','steal_captain','steal_open','steal_locked'].includes(phase));
+  $('host-steal').classList.toggle('hidden',!['captain','open','locked'].includes(phase));
+  $('host-reveal').classList.toggle('hidden',!q||['reveal','board'].includes(phase));
+  $('host-next').classList.toggle('hidden',!['reveal','result'].includes(phase));
+  $('timer-controls').classList.toggle('hidden',!currentDeadline());
+  $('timer-pause').textContent=state.timerPausedAt?'▶ Resume timer':'Ⅱ Pause timer';
+  $('rail-projector').href=location.origin+'/game/projector';
+  $('round-progress').innerHTML='<span>QUESTION '+(state.usedQuestionIds?.length||0)+' / '+(pack.board?.length||30)+'</span><span>'+esc(state.timerPausedAt?'TIMER PAUSED':phaseLabel())+'</span>';
+  $('host-activity').innerHTML=(state.activity||[]).slice(0,6).map(x=>'<div class="activity-row"><i></i><span>'+esc(x.kind.replaceAll('_',' ').toLowerCase())+'</span><small>'+new Date(x.at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</small></div>').join('')||'<p class="small-state">Your game activity appears here.</p>';
+
   $('host-final').classList.toggle('hidden',phase!=='board');$('host-end').classList.toggle('hidden',phase==='ended');
   if($('host-control-summary')){
     const cap=players.find(p=>p.playerId===control?.captainPlayerId);
     $('host-control-summary').innerHTML='<div class="control-team" style="--team:'+(control?.color||'#f7c84b')+'"><small>TEAM IN CONTROL</small><strong>'+esc(control?.name||'—')+'</strong><span>Captain: '+esc(cap?.name||'Not assigned')+'</span></div>'+
       '<div class="control-line"><span>Mode</span><b>'+esc(phaseLabel()||'BOARD')+'</b></div>'+
       '<div class="control-line"><span>Steals</span><b>'+(state.settings?.autoSteal===false?'MANUAL':'AUTO')+'</b></div>'+
-      '<div class="control-line"><span>Judging</span><b>AUTO</b></div>';
+      '<div class="control-line"><span>Judging</span><b>'+(state.settings?.manualJudging!==false?'HOST':'AUTO')+'</b></div>';
   }
   if($('host-device-summary')){
     const online=players.filter(p=>p.connected).length,captains=players.filter(p=>p.isCaptain).length;
@@ -247,11 +287,12 @@ function renderQuestionLibrary(){
   const el=$('host-question-library');if(!el)return;
   const rows=pack?.board||[],used=new Set(state.usedQuestionIds||[]);
   if($('library-progress'))$('library-progress').textContent=used.size+' / '+rows.length;
-  el.innerHTML=(pack?.categories||[]).map(c=>{
-    const qs=rows.filter(q=>q.category===c.id).sort((x,y)=>x.points-y.points);
+  const filter=$('category-filter');if(filter.options.length===1)filter.innerHTML='<option value="">All categories</option>'+(pack.categories||[]).map(c=>'<option value="'+esc(c.id)+'">'+esc(c.label)+'</option>').join('');
+  el.innerHTML=(pack?.categories||[]).filter(c=>!libraryCategory||c.id===libraryCategory).map(c=>{
+    const qs=rows.filter(q=>q.category===c.id&&(!librarySearch||q.prompt.toLowerCase().includes(librarySearch.toLowerCase()))).sort((x,y)=>x.points-y.points);
     return '<section class="library-group"><h4>'+esc(c.label)+' <span>'+qs.length+'</span></h4>'+qs.map(q=>{
       const active=q.id===state.activeQuestionId,done=used.has(q.id);
-      return '<div class="library-question monitor '+(active?'active ':'')+(done?'used':'')+'"><b>'+q.points+'</b><span>'+esc(q.prompt||c.label+' · '+q.points)+'</span><i>'+(active?'LIVE':done?'USED':'READY')+'</i></div>';
+      return '<button '+(state.phase!=='board'||done?'disabled':'')+' data-open-question="'+esc(q.id)+'" class="library-question '+(active?'active ':'')+(done?'used':'')+'"><b>'+q.points+'</b><span>'+esc(q.prompt||c.label+' · '+q.points)+'</span><i>'+(active?'LIVE':done?'USED':'READY')+'</i></button>';
     }).join('')+'</section>';
   }).join('');
 }
@@ -263,7 +304,7 @@ function hostQuestionHtml(){
     const answers=state.finalAnswers||{},wagers=state.finalWagers||{};
     return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.prompt||'')+'</h2><div class="suggestion-grid">'+state.teams.map(t=>{
       const ans=answers[t.id];
-      return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(ans?esc(ans):'Waiting…')+'</div>'+(ans?'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>':'')+'</div>';
+      return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(ans?esc(ans):'Waiting…')+'</div>'+(Object.hasOwn(state.finalJudged||{},t.id)?'<span>Judged</span>':'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>')+'</div>';
     }).join('')+'</div>';
   }
   if(['winner','ended'].includes(state.phase)){
@@ -276,8 +317,9 @@ function hostQuestionHtml(){
   const subs=submissions.filter(x=>x.teamId===(activeTeam?.id)),r=state.lastResult||{};
   return '<div class="hq-meta">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' POINTS · '+esc(phaseLabel())+'</div>'+
     '<h2>'+esc(q.prompt)+'</h2>'+
-    (currentDeadline()?'<div class="host-clock">'+seconds(currentDeadline())+'</div>':'')+
+    (currentDeadline()?'<div class="host-clock timer-ring" data-deadline="'+currentDeadline()+'"><strong>'+timeText(seconds(currentDeadline()))+'</strong></div>':'')+
     (state.phase==='result'?'<div class="host-result '+(r.correct?'correct':'wrong')+'"><b>'+(r.correct?'CORRECT':'INCORRECT')+'</b><span>'+esc(team(r.teamId)?.name||'')+(r.correct?' +'+r.points:'')+'</span></div>':'')+
+    (state.lockedAnswer?'<div class="locked-response"><small>LOCKED ANSWER</small><strong>'+esc(state.lockedAnswer)+'</strong></div>':'')+
     (subs.length?'<div class="suggestion-grid">'+subs.map(x=>'<div class="suggestion"><b>'+esc(players.find(p=>p.playerId===x.playerId)?.name||'Player')+(x.isCaptain?' · CAPTAIN':'')+'</b>'+esc(x.answer)+'</div>').join('')+'</div>':'');
 }
 window.__gameOpenFinal=()=>gameAction('OPEN_FINAL');
@@ -300,10 +342,43 @@ async function generatePack(){
 }
 
 async function initDisplay(){
-  show('display');initBattleFx();const code=codeFromUrl();
-  if(!code){$('display-stage').innerHTML='<div class="display-question"><div class="question-category">DISPLAY SETUP</div><h1>Open this screen from the host console.</h1></div>';return}
+  try{const config=await api('/api/config');shareOrigin=config.shareOrigin||location.origin}catch{}
+  show('display');$('fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>toast('Fullscreen is unavailable'));initBattleFx();const code=codeFromUrl();
+  if(!code)return startAutoProjector();
   $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>armAudio();
-  await fetchState();await connectRealtime(code);startPolling(900);setInterval(()=>{renderDisplay();updateTimers()},100);
+  await fetchState();await connectRealtime(code);startPolling(900);setInterval(updateTimers,100);
+}
+function startAutoProjector(){
+  let busy=false,standby=true,hadError=false;
+  function waiting(message='Your next game starts here.'){
+    $('display-scorebar').classList.add('hidden');$('display-bottom-board').classList.add('hidden');
+    $('arm-audio').classList.add('hidden');$('live-voice-status').classList.add('hidden');
+    document.querySelector('.display-join').classList.add('hidden');
+    $('display-stage').innerHTML='<section class="projector-standby"><span>THE MINISTRY · GAME NIGHT</span><div class="standby-crown">♛</div><h1>Gather your teams.</h1><p>'+esc(message)+'</p><div class="standby-status"><i></i> Waiting for the host to start a game</div><small>Keep this screen open. Bible Battle will appear automatically.</small></section>';
+  }
+  waiting();
+  $('arm-audio').onclick=()=>armAudio();
+  async function sync(){
+    if(busy)return;busy=true;
+    try{
+      const room=await api('/api/game/current');
+      if(!room.gameCode){
+        if(!standby||hadError){waiting();standby=true}
+        autoDisplayCode='';snapshot=null;state=null;renderKey='';
+      }else{
+        if(autoDisplayCode!==room.gameCode){
+          autoDisplayCode=room.gameCode;snapshot=null;state=null;renderKey='';
+          $('display-scorebar').classList.remove('hidden');$('display-bottom-board').classList.remove('hidden');
+          $('arm-audio').classList.remove('hidden');document.querySelector('.display-join').classList.remove('hidden');
+          standby=false;lastEffectKey='';
+        }
+        await fetchState();
+      }
+      hadError=false;
+    }catch{hadError=true;if(standby)waiting('Reconnecting to the game service…')}
+    finally{busy=false}
+  }
+  sync();setInterval(sync,1200);
 }
 function renderDisplay(){
   if(!state)return;
@@ -313,17 +388,20 @@ function renderDisplay(){
   if($('display-join-url'))$('display-join-url').textContent=joinUrl(gameCode).replace(/^https?:\/\//,'');
   renderQr('display-qr',joinUrl(gameCode),'display',96);
   $('voice-disclosure').classList.toggle('hidden',!state.settings?.voice);
+  $('live-voice-status').classList.toggle('hidden',!state.settings?.voice);
+  if(!state.settings?.voice)$('arm-audio').textContent=audioArmed?'Sound ready':'Enable sound';
   const stage=$('display-stage'),q=activeQ();
+  $('display-bottom-board').innerHTML=compactBoard();
   if(state.phase==='lobby'){
     stage.innerHTML='<section class="broadcast-lobby"><div class="lobby-copy"><span>JOIN BIBLE BATTLE</span><strong>'+esc(gameCode)+'</strong><p>Scan the QR code or enter the game code on your phone.</p></div><div class="lobby-team-count">'+players.length+' PLAYERS CONNECTED</div></section>';
   }else if(state.phase==='board'){
     const control=team(state.controlTeamId);
     stage.innerHTML='<div class="board-scene"><div class="board-heading"><span>THE BOARD</span><strong>'+esc(control?.name||'Team')+' controls · captain selects</strong></div><div class="game-board" style="--cat-count:'+(pack?.categories||[]).length+'">'+boardHtml(false)+'</div></div>';
-  }else if(['captain','open','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
+  }else if(['captain','open','locked','steal_locked','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
   else if(state.phase==='steal_buzz'){
     stage.innerHTML='<section class="broadcast-result steal-scene"><span>STEAL AVAILABLE</span><strong>BUZZ NOW</strong><p>All eligible teams can buzz from their phones.</p><div class="timer-ring compact" data-deadline="'+state.stealBuzzDeadline+'"><strong>'+seconds(state.stealBuzzDeadline)+'</strong></div></section>';
   }else if(state.phase==='reveal'){
-    stage.innerHTML='<section class="broadcast-reveal"><div><span>CORRECT ANSWER</span><strong>'+esc(q?.correctAnswer||'')+'</strong><b>'+esc(q?.reference||'')+'</b><p>'+esc(q?.explanation||'')+'</p></div></section>';
+    stage.innerHTML='<div class="reveal-layout">'+displayQuestion(q)+'<aside class="answer-reveal"><div>✓ ANSWER REVEALED</div><h2>'+esc(q?.correctAnswer||'')+'</h2><b>'+esc(q?.reference||'')+'</b><p>'+esc(q?.explanation||'')+'</p></aside></div>';
   }else if(state.phase==='result'){
     const r=state.lastResult||{},t=team(r.teamId),showAnswer=!!r.correctAnswer;
     stage.innerHTML='<section class="broadcast-result '+(r.correct?'correct':'wrong')+'" style="--team:'+(t?.color||'#35d6ff')+'"><span>'+esc(t?.name||'TEAM')+'</span><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong><b>'+(r.correct?'+'+r.points+' POINTS':(state.resultNextPhase==='steal_buzz'?'STEAL OPENS NEXT':'ROUND COMPLETE'))+'</b>'+(showAnswer?'<p>'+esc(r.correctAnswer)+' · '+esc(r.reference||'')+'</p>':'')+'</section>';
@@ -341,13 +419,13 @@ function displayQuestion(q){
   if(!q)return '';
   const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId),deadline=currentDeadline();
   const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(x)+'</span></div>').join('')+'</div>':'';
-  return '<section class="broadcast-question"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+deadline+'"><strong>'+seconds(deadline)+'</strong></div><small>SECONDS</small></aside></section>';
+  return '<section class="broadcast-question"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b><small>QUESTION '+state.usedQuestionIds.length+' / '+pack.board.length+'</small></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+(deadline||0)+'"><strong>'+timeText(seconds(deadline))+'</strong></div><small>SECONDS</small></aside></section>';
 }
 function updateTimers(){
   document.querySelectorAll('[data-deadline]').forEach(el=>{
-    const d=Number(el.dataset.deadline),left=Math.max(0,d-now()),total=state?.phase==='steal_buzz'?(state.settings?.stealMs||5000):((state.settings?.captainMs||7000)+(state.settings?.openMs||5000));
+    const d=Number(el.dataset.deadline),left=Math.max(0,d-(state?.timerPausedAt||now())),total=state?.phase==='steal_buzz'?(state.settings?.stealMs||5000):((state.settings?.captainMs||30000)+(state.settings?.openMs||5000));
     el.style.setProperty('--progress',String(Math.max(0,Math.min(1,left/Math.max(1,total)))));
-    const s=el.querySelector('strong');if(s)s.textContent=Math.ceil(left/1000);
+    const s=el.querySelector('strong');if(s)s.textContent=timeText(Math.ceil(left/1000));
   });
 }
 function initBattleFx(){
@@ -498,7 +576,7 @@ async function armAudio(){
   }catch(e){console.error('Game audio start failed',e);liveStatus('AUDIO UNAVAILABLE')}
 }
 function tone(freq,start,duration,gain=.07,type='sine'){if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.001,audioCtx.currentTime+start);g.gain.exponentialRampToValueAtTime(gain,audioCtx.currentTime+start+.015);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+start+duration);o.connect(g);g.connect(audioCtx.destination);o.start(audioCtx.currentTime+start);o.stop(audioCtx.currentTime+start+duration+.03)}
-function playSfx(n){if(!audioCtx)return;if(n==='arm'){tone(440,0,.08);tone(660,.07,.12)}if(n==='question'){tone(220,0,.11,.05,'sawtooth');tone(440,.08,.16,.06,'sawtooth')}if(n==='lock'){tone(180,0,.12,.07,'square');tone(120,.12,.16,.05,'square')}if(n==='correct'){[523,659,784,1047].forEach((f,i)=>tone(f,i*.07,.22,.07,'triangle'))}if(n==='wrong'){tone(170,0,.28,.08,'sawtooth');tone(110,.12,.34,.07,'sawtooth')}if(n==='steal'){tone(880,0,.08,.06);tone(660,.09,.08,.06);tone(990,.18,.18,.07)}if(n==='winner'){[392,523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.32,.07,'triangle'))}}
+function playSfx(n){if(!audioCtx||state?.settings?.sound===false)return;if(n==='arm'){tone(440,0,.08);tone(660,.07,.12)}if(n==='question'){tone(220,0,.11,.05,'sawtooth');tone(440,.08,.16,.06,'sawtooth')}if(n==='lock'){tone(180,0,.12,.07,'square');tone(120,.12,.16,.05,'square')}if(n==='correct'){[523,659,784,1047].forEach((f,i)=>tone(f,i*.07,.22,.07,'triangle'))}if(n==='wrong'){tone(170,0,.28,.08,'sawtooth');tone(110,.12,.34,.07,'sawtooth')}if(n==='steal'){tone(880,0,.08,.06);tone(660,.09,.08,.06);tone(990,.18,.18,.07)}if(n==='winner'){[392,523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.32,.07,'triangle'))}}
 function confetti(color){const layer=$('fx-layer');if(!layer)return;for(let i=0;i<72;i++){const p=document.createElement('i');p.className='particle';p.style.setProperty('--p',i%3===0?'#fff':i%3===1?color:'#ffcc57');p.style.setProperty('--x0',(innerWidth/2)+'px');p.style.setProperty('--y0',(innerHeight*.52)+'px');p.style.setProperty('--x1',(Math.random()*innerWidth)+'px');p.style.setProperty('--y1',(Math.random()*innerHeight)+'px');layer.appendChild(p);setTimeout(()=>p.remove(),1600)}}
 
 async function initPlayer(){
@@ -506,7 +584,7 @@ async function initPlayer(){
   if(code){$('join-code-input').value=code;playerAuth=loadPlayerAuth(code)}
   wirePlayer();
   if(playerAuth){
-    try{await fetchState();hide('join-step');hide('profile-step');show('player-game');await connectRealtime(code);startPolling(1000);startHeartbeat();return}catch(e){}
+    try{await fetchState();if(!me())throw new Error('Session expired');hide('join-step');hide('profile-step');show('player-game');await connectRealtime(code);startPolling(1000);startHeartbeat();return}catch(e){playerAuth=null}
   }
   if(code)await connectToGame();
 }
@@ -536,12 +614,12 @@ function renderTeamPicker(){
 }
 async function joinSelectedTeam(){
   const code=snapshot?.gameCode||codeFromUrl(),name=String($('player-name').value||'').trim();
-  if(!name||!selectedTeamId)return;
+  if(!name||!selectedTeamId){toast('Enter your name and choose a team.');return}
   try{
     const d=await api('/api/game/join',{method:'POST',body:JSON.stringify({code,name,teamId:selectedTeamId})});
     playerAuth={code,playerId:d.player.playerId,playerToken:d.playerToken};savePlayerAuth(playerAuth);applySnapshot(d);
     hide('profile-step');show('player-game');$('player-game-code').textContent=code;startPolling(1000);startHeartbeat();if(navigator.vibrate)navigator.vibrate([20,35,20]);
-  }catch(e){$('join-error').textContent=e.message}
+  }catch(e){toast(e.message)}
 }
 function startHeartbeat(){setInterval(()=>{if(playerAuth)playerDo('HEARTBEAT',{},true)},20000)}
 async function playerDo(action,extra={},quiet=false){
@@ -553,7 +631,8 @@ function renderPlayer(){
   if(!state)return;
   if(!playerAuth){if(!$('profile-step').classList.contains('hidden'))renderTeamPicker();return}
   const p=me(),t=team(p?.teamId);if(!p||!t)return;
-  $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML='<b>'+esc(t.name)+(p.isCaptain?' · CAPTAIN':'')+'</b><strong>'+t.score+'</strong>';
+  $('player-scores').innerHTML=scorebarHtml(false);
+  $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML=crest(state.teams.findIndex(x=>x.id===t.id))+'<div><b>'+esc(t.name)+'</b><strong>'+Number(t.score).toLocaleString()+'</strong></div><span class="role-badge">'+(p.isCaptain?'♛ Captain':'Player')+'</span>';
   const host=$('player-content'),q=activeQ();
   if(state.phase==='lobby'){host.innerHTML='<div class="waiting"><strong>YOU’RE IN</strong>Waiting for the host to start.</div>'}
   else if(state.phase==='board'){
@@ -574,7 +653,8 @@ function renderPlayer(){
   }else if(state.phase==='reveal')host.innerHTML='<div class="player-card"><div class="player-phase">CORRECT ANSWER</div><h2>'+esc(q?.correctAnswer||'')+'</h2><div class="small-state">'+esc(q?.reference||'')+' · '+esc(q?.explanation||'')+'</div></div>';
   else if(state.phase==='result'){const r=state.lastResult||{},nextSteal=state.resultNextPhase==='steal_buzz';host.innerHTML='<div class="waiting result-wait '+(r.correct?'correct':'wrong')+'"><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong>'+esc(team(r.teamId)?.name||'')+(r.correct?' earned '+r.points+' points.':nextSteal?' missed. Steal opens next.':' missed. Returning to the board.')+'</div>';playerEffects()}
   else if(state.phase==='final_wager'){
-    if(p.isCaptain)host.innerHTML='<div class="player-card"><div class="player-phase">FINAL WAGER</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><div class="small-state">You have '+t.score+' points.</div><input id="wager-input" class="answer-input" type="number" min="0" max="'+Math.max(0,t.score)+'" value="'+Math.min(500,Math.max(0,t.score))+'"><button id="submit-wager" class="game-btn primary full">Lock Wager</button></div>';
+    if(p.isCaptain&&Object.hasOwn(state.finalWagers||{},t.id))host.innerHTML='<div class="waiting"><strong>WAGER LOCKED</strong>'+state.finalWagers[t.id]+' points. Waiting for the host.</div>';
+    else if(p.isCaptain)host.innerHTML='<div class="player-card"><div class="player-phase">FINAL WAGER</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><div class="small-state">You have '+t.score+' points.</div><input id="wager-input" class="answer-input" type="number" min="0" max="'+Math.max(0,t.score)+'" value="'+Math.min(500,Math.max(0,t.score))+'"><button id="submit-wager" class="game-btn primary full">Lock Wager</button></div>';
     else host.innerHTML='<div class="waiting"><strong>FINAL WAGER</strong>Your captain is choosing the wager.</div>';
   }else if(state.phase==='final_answer'){
     if(p.isCaptain){const existing=state.finalAnswers?.[t.id];host.innerHTML=existing?'<div class="waiting"><strong>FINAL LOCKED</strong>'+esc(existing)+'</div>':'<div class="player-card"><div class="player-phase">FINAL SHOWDOWN</div><div class="question">'+esc(pack?.final?.prompt||'')+'</div><input id="final-answer-input" class="answer-input" maxlength="160" placeholder="Final answer"><button id="submit-final-answer" class="game-btn primary full">Lock Final Answer</button></div>'}
@@ -585,13 +665,13 @@ function renderPlayer(){
 function renderPlayerQuestion(host,q,p,t){
   if(!q)return;
   const stealing=state.phase.startsWith('steal_'),activeTeam=stealing?state.stealTeamId:state.controlTeamId;
-  if(t.id!==activeTeam){host.innerHTML='<div class="waiting"><strong>'+esc(team(activeTeam)?.name||'Team')+'</strong>'+(stealing?'has the steal.':'is answering.')+'</div>';return}
+  if(t.id!==activeTeam){host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' POINTS</div><div class="question">'+esc(q.prompt)+'</div><div class="waiting"><strong>'+esc(team(activeTeam)?.name||'Team')+'</strong>'+(stealing?'has the steal.':'is answering. Stay ready for a steal.')+'</div></div>';return}
   const open=state.phase.endsWith('open'),canLock=p.isCaptain||open,own=submissions.find(x=>x.playerId===p.playerId);
   let controls='';
   if((q.choices||[]).length)controls='<div class="phone-choices">'+q.choices.map((x,i)=>'<button class="phone-choice '+(own?.answer===x?'selected':'')+'" data-answer="'+esc(x)+'"><b>'+String.fromCharCode(65+i)+'</b>'+esc(x)+'</button>').join('')+'</div>';
-  else controls='<input id="typed-answer" class="answer-input" maxlength="160" placeholder="Type answer"><button id="typed-send" class="game-btn primary full">'+(canLock?'LOCK ANSWER':'SEND TO CAPTAIN')+'</button>';
+  else controls='<input id="typed-answer" class="answer-input" maxlength="160" aria-label="Your answer" autocomplete="off" placeholder="Type your answer…"><button id="typed-send" class="game-btn primary full">'+(canLock?'▣ Lock in final answer':'SEND TO CAPTAIN')+'</button>';
   const suggestions=p.isCaptain?captainSuggestions(t.id):'';
-  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer">'+seconds(currentDeadline())+'</div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your next answer is locked and checked automatically.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
+  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer timer-ring" data-deadline="'+currentDeadline()+'"><strong>'+timeText(seconds(currentDeadline()))+'</strong></div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your answer is final once locked. The host judges this round.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
 }
 function captainSuggestions(teamId){
   const rows=submissions.filter(x=>x.teamId===teamId);if(!rows.length)return '<div class="suggestions-box"><div class="small-state">No suggestions yet.</div></div>';
@@ -608,11 +688,24 @@ function playerEffects(force=false){
   const box=$('player-celebration');box.style.setProperty('--team',t.color);box.innerHTML='<div><div class="celeb-word">'+(force?'CHAMPIONS!':'CORRECT!')+'</div><div class="celeb-points">'+(force?t.score+' PTS':'+'+state.lastResult.points)+'</div></div>';box.classList.remove('hidden');setTimeout(()=>box.classList.add('hidden'),1800);
 }
 
+function compactBoard(){
+  return (pack?.categories||[]).map((c,i)=>`<div class="compact-category" style="--category:${['#ff5267','#39a7ff','#00d597','#f5c44e','#b168ed','#9ca9b9'][i%6]}"><strong>${['▤','♛','❧','†','♟','✎'][i%6]} ${esc(c.label)}</strong><div>${(pack.board||[]).filter(q=>q.category===c.id).map(q=>`<span class="${q.id===state.activeQuestionId?'selected':''} ${(state.usedQuestionIds||[]).includes(q.id)?'used':''}">${q.points}</span>`).join('')}</div></div>`).join('');
+}
 function render(){
+  const active=document.activeElement,id=active?.id,selection=active?.selectionStart;
+  const inputs=[...document.querySelectorAll('#player-content input,#player-content select')].map(el=>({id:el.id,value:el.value,question:el.dataset.question}));
+  const priorQuestion=document.querySelector('#player-content')?.dataset.question;
   if(role==='host')renderHost();
   else if(role==='display')renderDisplay();
-  else if(role==='player')renderPlayer();
+  else if(role==='player'){
+    renderPlayer();const current=state.activeQuestionId||state.phase;
+    if(priorQuestion===current)for(const item of inputs){const el=$(item.id);if(el)el.value=item.value}
+    if($('player-content'))$('player-content').dataset.question=current;
+  }
+  if(id&&$(id)&&role==='player'){const el=$(id);el.focus({preventScroll:true});try{el.setSelectionRange(selection,selection)}catch{}}
+  updateTimers();
 }
+setInterval(updateTimers,100);
 
 (async()=>{
   try{
@@ -621,7 +714,7 @@ function render(){
     if(role==='display')return await initDisplay();
     if(role==='player')return await initPlayer();
   }catch(e){
-    document.body.innerHTML='<main class="landing"><section class="landing-card"><div class="brand-kicker">THE MINISTRY GAMES</div><h1>GAME<br><span>OFFLINE</span></h1><p>'+esc(e.message||'The game engine could not start.')+'</p></section></main>';
+    document.body.innerHTML='<main class="landing"><section class="landing-card"><div class="brand-kicker">THE MINISTRY GAMES</div><h1>GAME<br><span>OFFLINE</span></h1><p>'+esc(e.message||'The game engine could not start.')+'</p><a class="game-btn primary" href="/games/host">Retry</a><a class="game-btn" href="/games">Back to games</a></section></main>';
   }
 })();
 })();

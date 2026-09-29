@@ -19,7 +19,7 @@ for(const lesson of lib.lessons){
 }
 if(!ids.has(lib.latest))fail('latest lesson does not exist: '+lib.latest);
 
-const routes=new Map((vercel.rewrites||[]).map(x=>[x.source,x.destination]));
+const routes=new Map((vercel.routes||vercel.rewrites||[]).map(x=>[x.src||x.source,x.dest||x.destination]));
 if(routes.get('/lessons')!=='/library/index.html')fail('/lessons route missing');
 if(routes.get('/lessons/manuscript')!=='/library/manuscript.html')fail('/lessons/manuscript route missing');
 
