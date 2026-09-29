@@ -1,6 +1,42 @@
 {
   "rewrites": [
     {
+      "source": "/games",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/games/host",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/games/display",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/games/play",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/games/join",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/game",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/game/host",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/game/display",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/game/play",
+      "destination": "/games/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/engine/index.html"
     },

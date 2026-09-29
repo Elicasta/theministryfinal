@@ -77,5 +77,35 @@ for(const file of ['api/poll-save.js','api/poll-vote-submit.js']){
   if(!src.includes("res.status(503)"))fail('visible poll storage failure missing from '+file);
 }
 
+
+// Ministry Games stays isolated from the teaching engine.
+for(const route of ['/games','/games/host','/games/display','/games/play','/games/join']){
+  if(routes.get(route)!=='/games/index.html')fail('game route missing: '+route);
+}
+for(const file of [
+  'games/index.html','games/game.css','games/game.js','games/questions.js',
+  'lib/game-db.js','lib/game-pack.js',
+  'api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js',
+  'api/game/generate.js','api/game/voice.js','api/game/health.js',
+  'supabase/game-engine.sql'
+]){
+  if(!fs.existsSync(file))fail('game engine file missing: '+file);
+}
+try{new Function(fs.readFileSync('games/game.js','utf8'))}catch(e){fail('games/game.js syntax error: '+e.message)}
+if(fs.readFileSync('games/questions.js','utf8').includes('correctAnswer'))fail('answer key leaked into browser question metadata');
+const gameAction=fs.readFileSync('api/game/action.js','utf8');
+if(!gameAction.includes('verifyHost')||!gameAction.includes('verifyPlayer'))fail('game action authorization missing');
+if(!gameAction.includes('game_submissions'))fail('concurrency-safe game submissions missing');
+if(!fs.readFileSync('lib/game-db.js','utf8').includes("version:'eq.'+String(row.version)"))fail('optimistic game-state concurrency guard missing');
+const gameSchema=fs.readFileSync('supabase/game-engine.sql','utf8');
+if(!gameSchema.includes('game_sessions')||!gameSchema.includes('game_players')||!gameSchema.includes('game_submissions'))fail('game database schema incomplete');
+if(!gameSchema.includes('enable row level security'))fail('game tables must use RLS');
+
+const {spawnSync}=await import('node:child_process');
+for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/health.js']){
+  const parsed=spawnSync(process.execPath,['--check','--input-type=module'],{input:fs.readFileSync(file,'utf8'),encoding:'utf8'});
+  if(parsed.status!==0)fail(file+' syntax error: '+String(parsed.stderr||parsed.stdout).trim());
+}
+
 console.log('Ministry hardening checks passed');
 console.log('Lessons:',lib.lessons.length,'Latest:',lib.latest);
