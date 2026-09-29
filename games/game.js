@@ -318,31 +318,37 @@ function renderDisplay(){
   const gameCode=snapshot?.gameCode||codeFromUrl();
   $('display-code').textContent='CODE '+gameCode;
   if($('display-join-url'))$('display-join-url').textContent=joinUrl(gameCode).replace(/^https?:\/\//,'');
-  renderQr('display-qr',joinUrl(gameCode),'display',112);
+  renderQr('display-qr',joinUrl(gameCode),'display',96);
   $('voice-disclosure').classList.toggle('hidden',!state.settings?.voice);
   const stage=$('display-stage'),q=activeQ();
-  if(state.phase==='lobby')stage.innerHTML='<div class="display-question"><div class="question-category">JOIN THE GAME</div><h1>'+esc(snapshot.gameCode)+'</h1><div class="reveal-explain">'+esc(joinUrl(snapshot.gameCode).replace(/^https?:\/\//,''))+'</div></div>';
-  else if(state.phase==='board')stage.innerHTML='<div class="game-board" style="--cat-count:'+(pack?.categories||[]).length+'">'+boardHtml(false)+'</div>';
-  else if(['captain','open','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
-  else if(['locked','steal_locked'].includes(state.phase)){
-    const t=team(state.lockedTeamId);stage.innerHTML='<div class="display-question"><div class="answer-lock">'+esc(t?.name||'Team')+' LOCKED</div><div class="answer-big">'+esc(state.lockedAnswer||'')+'</div></div>';
-  }else if(state.phase==='steal_buzz')stage.innerHTML='<div class="display-question"><div class="question-category">ANY OTHER TEAM</div><div class="steal-call">STEAL!</div><div class="timer-ring" data-deadline="'+state.stealBuzzDeadline+'"><strong>'+seconds(state.stealBuzzDeadline)+'</strong></div></div>';
-  else if(state.phase==='reveal')stage.innerHTML='<div class="display-question"><div class="question-category">CORRECT ANSWER</div><div class="answer-big">'+esc(q?.correctAnswer||'')+'</div><div class="reveal-ref">'+esc(q?.reference||'')+'</div><div class="reveal-explain">'+esc(q?.explanation||'')+'</div></div>';
-  else if(state.phase==='result'){
-    const r=state.lastResult||{},t=team(r.teamId);stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="result-word '+(r.correct?'correct':'wrong')+'">'+(r.correct?'CORRECT':'MISSED')+'</div><div class="question-category">'+esc(t?.name||'')+(r.correct?' · +'+r.points:'')+'</div><div class="reveal-ref">'+esc(r.correctAnswer||'')+' · '+esc(r.reference||'')+'</div></div>';
-  }else if(state.phase==='final_wager')stage.innerHTML='<div class="display-question"><div class="question-category">FINAL SHOWDOWN</div><h1>'+esc(pack?.final?.category||'Final Round')+'</h1><div class="reveal-explain">Captains, lock your wagers.</div></div>';
-  else if(['final_answer','final_judging'].includes(state.phase))stage.innerHTML='<div class="display-question"><div class="question-category">FINAL SHOWDOWN</div><h1>'+esc(pack?.final?.prompt||'Get ready…')+'</h1></div>';
-  else if(['winner','ended'].includes(state.phase)){
+  if(state.phase==='lobby'){
+    stage.innerHTML='<section class="broadcast-lobby"><div class="lobby-copy"><span>JOIN BIBLE BATTLE</span><strong>'+esc(gameCode)+'</strong><p>Scan the QR code or enter the game code on your phone.</p></div><div class="lobby-team-count">'+players.length+' PLAYERS CONNECTED</div></section>';
+  }else if(state.phase==='board'){
+    const control=team(state.controlTeamId);
+    stage.innerHTML='<div class="board-scene"><div class="board-heading"><span>THE BOARD</span><strong>'+esc(control?.name||'Team')+' controls · captain selects</strong></div><div class="game-board" style="--cat-count:'+(pack?.categories||[]).length+'">'+boardHtml(false)+'</div></div>';
+  }else if(['captain','open','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
+  else if(state.phase==='steal_buzz'){
+    stage.innerHTML='<section class="broadcast-result steal-scene"><span>STEAL AVAILABLE</span><strong>BUZZ NOW</strong><p>All eligible teams can buzz from their phones.</p><div class="timer-ring compact" data-deadline="'+state.stealBuzzDeadline+'"><strong>'+seconds(state.stealBuzzDeadline)+'</strong></div></section>';
+  }else if(state.phase==='reveal'){
+    stage.innerHTML='<section class="broadcast-reveal"><div><span>CORRECT ANSWER</span><strong>'+esc(q?.correctAnswer||'')+'</strong><b>'+esc(q?.reference||'')+'</b><p>'+esc(q?.explanation||'')+'</p></div></section>';
+  }else if(state.phase==='result'){
+    const r=state.lastResult||{},t=team(r.teamId),showAnswer=!!r.correctAnswer;
+    stage.innerHTML='<section class="broadcast-result '+(r.correct?'correct':'wrong')+'" style="--team:'+(t?.color||'#35d6ff')+'"><span>'+esc(t?.name||'TEAM')+'</span><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong><b>'+(r.correct?'+'+r.points+' POINTS':(state.resultNextPhase==='steal_buzz'?'STEAL OPENS NEXT':'ROUND COMPLETE'))+'</b>'+(showAnswer?'<p>'+esc(r.correctAnswer)+' · '+esc(r.reference||'')+'</p>':'')+'</section>';
+  }else if(state.phase==='final_wager'){
+    stage.innerHTML='<section class="broadcast-result"><span>FINAL SHOWDOWN</span><strong>'+esc(pack?.final?.category||'Final Round')+'</strong><p>Captains, lock your wagers.</p></section>';
+  }else if(['final_answer','final_judging'].includes(state.phase)){
+    stage.innerHTML='<section class="broadcast-question"><div class="question-copy"><span>FINAL SHOWDOWN</span><h1>'+esc(pack?.final?.prompt||'Get ready…')+'</h1></div></section>';
+  }else if(['winner','ended'].includes(state.phase)){
     const ids=state.winnerTeamIds||[],names=ids.map(id=>team(id)?.name).filter(Boolean),t=team(ids[0]);
-    stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="question-category">BIBLE BATTLE CHAMPIONS</div><div class="winner-name">'+esc(names.join(' + ')||'WINNER')+'</div><div class="winner-score">'+(t?.score||0)+' POINTS</div></div>';
-  }
+    stage.innerHTML='<section class="broadcast-result winner" style="--team:'+(t?.color||'#f7c84b')+'"><span>BIBLE BATTLE CHAMPIONS</span><strong>'+esc(names.join(' + ')||'WINNER')+'</strong><b>'+Number(t?.score||0).toLocaleString()+' POINTS</b></section>';
+  }else stage.innerHTML='<section class="broadcast-result"><span>BIBLE BATTLE</span><strong>STANDBY</strong></section>';
   displayEffects();
 }
 function displayQuestion(q){
   if(!q)return '';
   const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId),deadline=currentDeadline();
-  const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b>'+esc(x)+'</div>').join('')+'</div>':'';
-  return '<div class="display-question"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span class="question-points">'+q.points+'</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="phase-tag '+(state.phase.endsWith('open')?'open':'')+'">'+esc(activeTeam?.name||'Team')+' · '+esc(phaseLabel())+'</div><div class="timer-ring" data-deadline="'+deadline+'"><strong>'+seconds(deadline)+'</strong></div></div>';
+  const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(x)+'</span></div>').join('')+'</div>':'';
+  return '<section class="broadcast-question"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+deadline+'"><strong>'+seconds(deadline)+'</strong></div><small>SECONDS</small></aside></section>';
 }
 function updateTimers(){
   document.querySelectorAll('[data-deadline]').forEach(el=>{
