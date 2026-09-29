@@ -442,7 +442,7 @@ async function startMeridianLive(){
     livePc=new RTCPeerConnection();
     liveDc=livePc.createDataChannel('oai-events');
     const output=$('live-voice-audio');
-    livePc.ontrack=e=>{if(output){output.srcObject=e.streams[0]||new MediaStream([e.track]);output.muted=false;output.volume=1;output.play().catch(err=>console.error('Meridian playback blocked',err))}};
+    livePc.ontrack=e=>{if(output){output.srcObject=e.streams[0]||new MediaStream([e.track]);output.muted=false;output.volume=1;output.play().catch(err=>{console.error('Meridian playback blocked',err);liveStatus('MERIDIAN AUDIO BLOCKED');const btn=$('arm-audio');if(btn)btn.textContent='Tap to hear Meridian'})}};
     const silent=createSilentInput();for(const tr of silent.getTracks())livePc.addTrack(tr,silent);
     let startTimer=null;
     liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · STARTING');
@@ -489,9 +489,13 @@ function stopMeridianLive(){
 async function armAudio(){
   try{
     audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();await audioCtx.resume();
+    const output=$('live-voice-audio');
+    if(liveConnected&&liveSessionStarted&&output){
+      await output.play();audioArmed=true;liveStatus('MERIDIAN LIVE',true);return;
+    }
     audioArmed=true;playSfx('arm');$('arm-audio')?.classList.add('armed');
     if(state?.settings?.voice)await startMeridianLive();else liveStatus('GAME AUDIO ARMED');
-  }catch(e){liveStatus('AUDIO UNAVAILABLE')}
+  }catch(e){console.error('Game audio start failed',e);liveStatus('AUDIO UNAVAILABLE')}
 }
 function tone(freq,start,duration,gain=.07,type='sine'){if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.001,audioCtx.currentTime+start);g.gain.exponentialRampToValueAtTime(gain,audioCtx.currentTime+start+.015);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+start+duration);o.connect(g);g.connect(audioCtx.destination);o.start(audioCtx.currentTime+start);o.stop(audioCtx.currentTime+start+duration+.03)}
 function playSfx(n){if(!audioCtx)return;if(n==='arm'){tone(440,0,.08);tone(660,.07,.12)}if(n==='question'){tone(220,0,.11,.05,'sawtooth');tone(440,.08,.16,.06,'sawtooth')}if(n==='lock'){tone(180,0,.12,.07,'square');tone(120,.12,.16,.05,'square')}if(n==='correct'){[523,659,784,1047].forEach((f,i)=>tone(f,i*.07,.22,.07,'triangle'))}if(n==='wrong'){tone(170,0,.28,.08,'sawtooth');tone(110,.12,.34,.07,'sawtooth')}if(n==='steal'){tone(880,0,.08,.06);tone(660,.09,.08,.06);tone(990,.18,.18,.07)}if(n==='winner'){[392,523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.32,.07,'triangle'))}}
