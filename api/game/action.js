@@ -1,3 +1,4 @@
+import {authenticatedPlayer} from '../../lib/game-player-session.js';
 import {
   clean, db, verifyHost, verifyPlayer, getGameByCode, getGamePlayers,
   getQuestionSubmissions, saveGameState, recordGameEvent, broadcastGame,
@@ -19,9 +20,8 @@ function answerMatches(q,answer){
 }
 function applyJudgement(state,q,teamId,answer,isSteal,correct){
   const points=correct?Math.max(0,Math.round(Number(q?.points||0)*(isSteal?.6:1))):0;
-  state.teams=(state.teams||[]).map(t=>t.id===teamId?{...t,score:(Number(t.score)||0)+points,streak:correct?(Number(t.streak)||0)+1:0}:t);
-  if(correct)state.controlTeamId=teamId;
-  state.lastResult={correct,teamId,points,answer,correctAnswer:q?.correctAnswer||'',reference:q?.reference||'',explanation:q?.explanation||'',nonce:nowMs()};
+  state.teams=(state.teams||[]).map(t=>{if(t.id!==teamId)return t;const streak=correct?(Number(t.streak)||0)+1:0;return {...t,score:(Number(t.score)||0)+points,streak,bestStreak:Math.max(Number(t.bestStreak)||0,Number(t.streak)||0,streak)}});
+  state.lastResult={correct,isSteal,teamId,points,answer,correctAnswer:q?.correctAnswer||'',reference:q?.reference||'',explanation:q?.explanation||'',nonce:nowMs()};
   state.phase='result';
   state.resultDeadline=nowMs()+2200;
   state.resultNextPhase=(!correct&&!isSteal&&q?.stealAllowed!==false&&state.settings?.autoSteal!==false&&(state.teams||[]).length>1)?'steal_buzz':'board';
@@ -47,7 +47,7 @@ async function commit(row,state,kind,meta={}){
 }
 function clearRound(state){
   return {
-    ...state,timerPausedAt:null,activeQuestionId:null,questionOpenedAt:null,captainDeadline:null,teamDeadline:null,
+    ...state,questionTeamId:null,timerPausedAt:null,activeQuestionId:null,questionOpenedAt:null,captainDeadline:null,teamDeadline:null,
     lockedAnswer:null,lockedBy:null,lockedTeamId:null,stealTeamId:null,stealBuzzDeadline:null,
     stealCaptainDeadline:null,stealDeadline:null,lastResult:null,resultDeadline:null,resultNextPhase:null
   };
@@ -69,16 +69,17 @@ export default async function handler(req,res){
   row=await advanceClock(row);
   let state=row.state||{},role='public',player=null;
 
+  const auth=body.hostToken?null:await authenticatedPlayer(req,body,code);
   if(body.hostToken&&await verifyHost(code,body.hostToken))role='host';
-  else if(body.playerId&&body.playerToken&&await verifyPlayer(code,body.playerId,body.playerToken)){
+  else if(auth){
     role='player';
     const players=await getGamePlayers(row.id);
-    player=players.find(p=>p.player_id===body.playerId)||null;
+    player=players.find(p=>p.player_id===auth.playerId)||null;
     if(player)player.is_captain=state.teams?.find(t=>t.id===player.team_id)?.captainPlayerId===player.player_id;
     if(!player)return res.status(401).json({error:'Player session expired'});
   } else return res.status(401).json({error:'Invalid game credentials'});
 
-  const hostOnly=new Set(['PAUSE','RESUME','RESET_TIMER','ADJUST_SCORE','SETUP','SET_CAPTAIN','SET_CONTROL_TEAM','START','TICK','JUDGE','OPEN_STEAL','REVEAL','NEXT','START_FINAL','OPEN_FINAL','FINAL_JUDGE','END']);
+  const hostOnly=new Set(['PAUSE','RESUME','RESET_TIMER','ADJUST_SCORE','SETUP','SET_AUTO_TURN','SET_CAPTAIN','SET_CONTROL_TEAM','START','TICK','JUDGE','OPEN_STEAL','REVEAL','NEXT','START_FINAL','OPEN_FINAL','FINAL_JUDGE','END']);
   const playerOnly=new Set(['ANSWER','BUZZ','FINAL_WAGER','FINAL_ANSWER','HEARTBEAT']);
   if(hostOnly.has(action)&&role!=='host')return res.status(403).json({error:'Host action required'});
   if(playerOnly.has(action)&&role!=='player')return res.status(403).json({error:'Player action required'});
@@ -117,7 +118,7 @@ export default async function handler(req,res){
       id:clean(incoming[i]?.id||old[i]?.id||('team-'+(i+1)),40),
       name:clean(incoming[i]?.name||old[i]?.name||('Team '+(i+1)),40),
       color:clean(incoming[i]?.color||old[i]?.color||palette[i%palette.length],20),
-      score:Number(old[i]?.score)||0,streak:Number(old[i]?.streak)||0,captainPlayerId:old[i]?.captainPlayerId||null
+      score:Number(old[i]?.score)||0,streak:Number(old[i]?.streak)||0,bestStreak:Number(old[i]?.bestStreak)||0,captainPlayerId:old[i]?.captainPlayerId||null
     }));
     const keptIds=new Set(nextTeams.map(t=>t.id)),removed=old.filter(t=>!keptIds.has(t.id));
     if(removed.length){
@@ -131,6 +132,7 @@ export default async function handler(req,res){
       captainMs:Math.max(3000,Math.min(Number(body.settings?.captainMs??state.settings?.captainMs)||30000,60000)),
       openMs:Math.max(2000,Math.min(Number(body.settings?.openMs??state.settings?.openMs)||5000,12000)),
       stealMs:Math.max(2000,Math.min(Number(body.settings?.stealMs??state.settings?.stealMs)||5000,10000)),
+      autoTurn:body.settings?.autoTurn??state.settings?.autoTurn??true,
       autoSteal:body.settings?.autoSteal??state.settings?.autoSteal??true,
       sound:body.settings?.sound??state.settings?.sound??true,
       voice:body.settings?.voice??state.settings?.voice??false,
@@ -139,6 +141,14 @@ export default async function handler(req,res){
     const c=await commit(row,state,'SETUP_UPDATED',{actorType:'host'});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
     return res.status(200).json(await hydrate(c.row,role,player));
+  }
+
+  if(action==='SET_AUTO_TURN'){
+    if(typeof body.enabled!=='boolean')return res.status(400).json({error:'Choose on or off'});
+    state.settings={...state.settings,autoTurn:body.enabled};
+    const c=await commit(row,state,'AUTO_TURN_CHANGED',{actorType:'host'});
+    if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
+    return res.status(200).json(await hydrate(c.row,'host'));
   }
 
   if(action==='SET_CAPTAIN'){
@@ -167,7 +177,7 @@ export default async function handler(req,res){
   if(action==='START'){
     if(state.phase!=='lobby')return res.status(409).json({error:'Game has already started'});
     state=clearRound(state);state.phase='board';state.usedQuestionIds=[];state.winnerTeamIds=[];state.finalWagers={};state.finalAnswers={};state.finalJudged={};
-    state.teams=(state.teams||[]).map(t=>({...t,score:0,streak:0}));
+    state.teams=(state.teams||[]).map(t=>({...t,score:0,streak:0,bestStreak:0}));
     const players=await getGamePlayers(row.id),captained=state.teams.find(t=>players.some(p=>p.team_id===t.id&&p.is_captain));
     if(captained&&!players.some(p=>p.team_id===state.controlTeamId&&p.is_captain))state.controlTeamId=captained.id;
     const c=await commit(row,state,'GAME_STARTED',{actorType:'host',teamId:state.controlTeamId});
@@ -183,7 +193,7 @@ export default async function handler(req,res){
     if(!q)return res.status(404).json({error:'Question not found'});
     if((state.usedQuestionIds||[]).includes(questionId))return res.status(409).json({error:'Question already used'});
     const t=nowMs(),captainMs=Number(state.settings?.captainMs)||7000,openMs=Number(state.settings?.openMs)||5000;
-    state={...state,phase:'captain',activeQuestionId:questionId,questionOpenedAt:t,captainDeadline:t+captainMs,teamDeadline:t+captainMs+openMs,
+    state={...state,questionTeamId:state.controlTeamId,phase:'captain',activeQuestionId:questionId,questionOpenedAt:t,captainDeadline:t+captainMs,teamDeadline:t+captainMs+openMs,
       lockedAnswer:null,lockedBy:null,lockedTeamId:null,stealTeamId:null,stealBuzzDeadline:null,stealCaptainDeadline:null,stealDeadline:null,lastResult:null,
       usedQuestionIds:[...(state.usedQuestionIds||[]),questionId]};
     const c=await commit(row,state,'QUESTION_OPENED',{actorType:role,playerId:player?.player_id||null,teamId:state.controlTeamId,payload:{questionId}});
@@ -268,6 +278,11 @@ export default async function handler(req,res){
 
   if(action==='NEXT'){
     if(!['reveal','result'].includes(state.phase))return res.status(409).json({error:'Reveal the answer before continuing'});
+    if(state.settings?.autoTurn!==false){
+      const original=state.questionTeamId||state.controlTeamId;
+      const index=Math.max(0,state.teams.findIndex(t=>t.id===original));
+      state.controlTeamId=state.teams[(index+1)%state.teams.length].id;
+    }
     state=clearRound(state);state.phase='board';
     const c=await commit(row,state,'RETURNED_TO_BOARD',{actorType:'host'});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});

@@ -1,3 +1,4 @@
+import {authenticatedPlayer,playerCredentials,setPlayerCookie} from '../../lib/game-player-session.js';
 import { clean, randomToken, hashToken, db, broadcastGame, publicGameState, corsNoStore, getGameByCode, saveGameState } from '../../lib/game-db.js';
 
 export default async function handler(req,res){
@@ -7,12 +8,24 @@ export default async function handler(req,res){
   const code=clean(body.code,12).toUpperCase();
   const name=clean(body.name,40);
   const teamId=clean(body.teamId,40);
-  if(!code||!name||!teamId)return res.status(400).json({error:'Game code, name, and team are required'});
+  if(!code)return res.status(400).json({error:'Game code, name, and team are required'});
 
   const gq=new URLSearchParams({select:'*',game_code:'eq.'+code,limit:'1'});
   const gr=await db('game_sessions?'+gq.toString());
   const game=Array.isArray(gr.json)?gr.json[0]:null;
   if(!gr.ok||!game)return res.status(404).json({error:'Game not found'});
+  const credentials=playerCredentials(req,body,code);
+  if(credentials.cookie||credentials.invalid||body.resume||body.playerToken){
+    const auth=await authenticatedPlayer(req,body,code);
+    if(!auth)return res.status(credentials.cookie||credentials.invalid||body.playerToken?401:404).json({error:'Your saved player session could not be restored. Reconnect with the original browser.'});
+    const pq=new URLSearchParams({select:'*',game_id:'eq.'+game.id,order:'joined_at.asc'});
+    const pr=await db('game_players?'+pq),players=pr.json||[],player=players.find(p=>p.player_id===auth.playerId);
+    if(!player)return res.status(401).json({error:'Player session unavailable'});
+    if(teamId&&teamId!==player.team_id)return res.status(403).json({error:'This device is already joined to another team. Refreshing cannot change your team.'});
+    setPlayerCookie(res,code,auth);
+    return res.status(200).json({...publicGameState(game,players,'player',[],player.team_id),player:{playerId:player.player_id,name:player.name,teamId:player.team_id,isCaptain:game.state.teams.find(t=>t.id===player.team_id)?.captainPlayerId===player.player_id}});
+  }
+  if(!name||!teamId)return res.status(400).json({error:'Name and team are required'});
   if(game.status==='ended')return res.status(409).json({error:'This game has ended'});
 
   const teams=Array.isArray(game.state?.teams)?game.state.teams:[];
@@ -59,6 +72,7 @@ export default async function handler(req,res){
   const pq=new URLSearchParams({select:'*',game_id:'eq.'+game.id,order:'joined_at.asc'});
   const pr=await db('game_players?'+pq.toString());
   refreshed=(await getGameByCode(code)).row||refreshed;
+  setPlayerCookie(res,code,{playerId,playerToken});
   return res.status(200).json({
     ...publicGameState(refreshed,Array.isArray(pr.json)?pr.json:[],'player',[],teamId),
     player:{playerId,name,teamId,isCaptain},

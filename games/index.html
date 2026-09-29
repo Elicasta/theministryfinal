@@ -61,6 +61,7 @@
             <div class="panel-label">Show Settings</div>
             <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · Meridian</small></span><input id="voice-toggle" type="checkbox"></label>
             <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
+            <label class="toggle-row"><span>Auto team switch <small>Fixed team order after each question. Steals award points only.</small></span><input id="auto-turn-setup" type="checkbox" checked></label>
             <label class="toggle-row"><span>Auto Steal <small>Wrong answer or timeout → other teams buzz. First buzz wins; 60% points.</small></span><input id="steal-toggle" type="checkbox" checked></label>
             <div class="field-row"><label>Answer timer</label><select id="captain-time"><option value="10000">10 sec</option><option value="20000">20 sec</option><option value="30000" selected>30 sec</option><option value="60000">60 sec</option></select></div>
             <label class="toggle-row"><span>Host judges answers <small>Accept spoken answers and alternate wording</small></span><input id="judge-toggle" type="checkbox" checked></label><div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
@@ -127,7 +128,7 @@
             <aside class="host-right-rail">
               <section class="rail-panel">
                 <div class="rail-title"><span>Teams & Scores</span><small>LIVE</small></div>
-                <div id="captain-controls"></div><div id="host-scorebar" class="host-scorebar host-score-stack"></div>
+                <button id="auto-turn-toggle" class="game-btn full" aria-pressed="true">Auto team switch: ON · Disable</button><div id="captain-controls"></div><div id="host-scorebar" class="host-scorebar host-score-stack"></div>
               </section>
               <section class="rail-panel">
                 <div class="rail-title"><span>Game Control</span></div>
@@ -186,7 +187,7 @@
 
     <section id="player-game" class="player-game hidden">
       <div id="player-team-banner" class="player-team-banner"></div>
-      <div id="player-content" class="player-content"></div><section class="phone-card remote-scores"><div class="panel-label">♛ Teams & scores</div><div id="player-scores"></div></section>
+      <p class="session-note">Your team stays locked on this device. <a href="/games/join?new=1">Join another game</a></p><div id="player-content" class="player-content"></div><section class="phone-card remote-scores"><div class="panel-label">♛ Teams & scores</div><div id="player-scores"></div></section>
       <div id="player-celebration" class="player-celebration hidden"></div>
     </section>
   </main>
