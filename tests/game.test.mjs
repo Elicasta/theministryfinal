@@ -191,3 +191,12 @@ test('timeout respects questions that disallow stealing',async()=>{
   await updateRoom(g.code,row=>({question_pack:{...row.question_pack,questions:row.question_pack.questions.map(q=>({...q,stealAllowed:false}))},state:{...row.state,phase:'open',teamDeadline:Date.now()-100}}));
   assert.equal((await call(state,{code:g.code},'GET')).body.state.phase,'reveal');
 });
+
+
+test('isolated rooms do not replace the permanent projector game',async()=>{
+  const {default:current}=await import('../api/game/current.js');
+  const main=await game();await act(main,'START');
+  const isolated=(await call(create,{autoProjector:false})).body;
+  await act({code:isolated.gameCode,hostToken:isolated.hostToken},'START');
+  assert.equal((await call(current,{},'GET')).body.gameCode,main.code);
+});

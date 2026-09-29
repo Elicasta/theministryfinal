@@ -64,3 +64,5 @@ For fresh questions, select an **AI category set** and difficulty, then **Genera
 The first player to join a team becomes its captain. Teams agree on their captain verbally; the host assigns them using **Make Captain** in the lobby or **Team captains** between questions. Captain changes are locked while answering.
 
 With **Auto Steal** enabled, an incorrect answer or an expired team answer window opens a five-second buzz window, unless that question disallows steals. Other teams can buzz on their phones; the first accepted buzz wins. They then get a captain answer window followed by a team window. A correct steal earns 60% of the question's points. A failed steal or no buzz reveals the answer. Hosts can also use **Open Steal** before revealing the answer.
+
+For an isolated room that must not take over the permanent projector, the create API accepts `autoProjector: false`. Such rooms still work through their room-specific display link. Normal host-created rooms follow the permanent projector by default.

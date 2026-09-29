@@ -29,7 +29,7 @@ export default async function handler(req,res){
   const hostToken=randomToken();
   const displayToken=randomToken(18);
   const state={
-    engine:'ministry-games-v1',displayChannel:displayChannel(),phase:'lobby',teams,settings,
+    engine:'ministry-games-v1',displayChannel:displayChannel()+(body.autoProjector===false?':manual':''),phase:'lobby',teams,settings,
     controlTeamId:teams[0].id,activeQuestionId:null,usedQuestionIds:[],
     questionOpenedAt:null,captainDeadline:null,teamDeadline:null,stealDeadline:null,
     lockedAnswer:null,lockedBy:null,stealTeamId:null,lastResult:null,
