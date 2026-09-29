@@ -363,7 +363,7 @@ async function startMeridianLive(){
     // GPT-Live expects a live browser audio path. Keep the mic track running but disabled
     // unless interactive hosting is explicitly added later.
     liveMicStream=await navigator.mediaDevices.getUserMedia({audio:true});
-    const micTrack=liveMicStream.getAudioTracks()[0];micTrack.enabled=false;livePc.addTrack(micTrack,liveMicStream);
+    const micTrack=liveMicStream.getAudioTracks()[0];micTrack.enabled=true;livePc.addTrack(micTrack,liveMicStream);
     liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · WAITING');
     liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
     liveDc.onerror=()=>liveStatus('MERIDIAN DATA ERROR');
@@ -371,6 +371,7 @@ async function startMeridianLive(){
       const evt=JSON.parse(e.data);
       if(evt.type==='session.started'){
         liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
+        liveSend('session.input_audio.mute',{event_id:'game_mic_mute_'+Date.now()});
         liveSend('session.instructions.append',{event_id:'game_host_ready_'+Date.now(),delegation_id:null,content:'Speak now: Meridian is online. Bible Battle is ready. Then remain quiet until the game application sends another announcement.'});
       }
       if(evt.type==='session.instructions.appended'||evt.type==='session.commentary.appended')liveStatus('MERIDIAN LIVE',true);
