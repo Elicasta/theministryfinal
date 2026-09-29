@@ -4,9 +4,9 @@
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const route=(location.pathname.toLowerCase().replace(/\/+$/,'')||'/games').replace(/^\/game(?=\/|$)/,'/games');
-const role=route==='/games/host'?'host':route==='/games/display'?'display':['/games/play','/games/join'].includes(route)?'player':'landing';
+const role=route==='/games/host'?'host':['/games/display','/games/projector'].includes(route)?'display':['/games/play','/games/join'].includes(route)?'player':'landing';
 const qs=new URLSearchParams(location.search);
-const codeFromUrl=()=>String(qs.get('code')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+const codeFromUrl=()=>String(qs.get('code')||autoDisplayCode||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
 let clockOffset=0;
 const now=()=>Date.now()+clockOffset;
 const timeText=n=>'00:'+String(n).padStart(2,'0');
@@ -21,7 +21,7 @@ function crest(i){
 }
 function safeColor(v){return /^#[0-9a-f]{6}$/i.test(v)?v:'#f5c44e'}
 
-let renderKey='',librarySearch='',libraryCategory='',shareOrigin=location.origin;
+let renderKey='',librarySearch='',libraryCategory='',shareOrigin=location.origin,autoDisplayCode='';
 let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
 let sb=null,channel=null,pollTimer=null,tickTimer=null,tickPending=false,fetchPending=false;
@@ -147,6 +147,7 @@ function wireHost(){
   $('generate-pack').onclick=generatePack;
   $('timer-pause').onclick=()=>gameAction(state.timerPausedAt?'RESUME':'PAUSE');
   $('timer-reset').onclick=()=>gameAction('RESET_TIMER');
+  $('copy-projector').onclick=()=>navigator.clipboard.writeText(location.origin+'/game/projector').then(()=>toast('Permanent projector link copied')).catch(()=>toast(location.origin+'/game/projector'));
   $('copy-join').onclick=()=>navigator.clipboard.writeText(joinUrl(hostAuth.code)).then(()=>toast('Join link copied')).catch(()=>toast(joinUrl(hostAuth.code)));
   $('new-game').onclick=()=>{if(confirm('Create a fresh game? This game stays available through its code.')){localStorage.removeItem('ministry_game_host_auth');location.reload()}};
   $('question-search').oninput=e=>{librarySearch=e.target.value;renderQuestionLibrary()};
@@ -261,7 +262,7 @@ function renderHostGame(){
   $('host-next').classList.toggle('hidden',!['reveal','result'].includes(phase));
   $('timer-controls').classList.toggle('hidden',!currentDeadline());
   $('timer-pause').textContent=state.timerPausedAt?'▶ Resume timer':'Ⅱ Pause timer';
-  $('rail-projector').href=displayUrl(hostAuth.code,hostAuth.displayToken);
+  $('rail-projector').href=location.origin+'/game/projector';
   $('round-progress').innerHTML='<span>QUESTION '+(state.usedQuestionIds?.length||0)+' / '+(pack.board?.length||30)+'</span><span>'+esc(state.timerPausedAt?'TIMER PAUSED':phaseLabel())+'</span>';
   $('host-activity').innerHTML=(state.activity||[]).slice(0,6).map(x=>'<div class="activity-row"><i></i><span>'+esc(x.kind.replaceAll('_',' ').toLowerCase())+'</span><small>'+new Date(x.at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</small></div>').join('')||'<p class="small-state">Your game activity appears here.</p>';
 
@@ -343,9 +344,41 @@ async function generatePack(){
 async function initDisplay(){
   try{const config=await api('/api/config');shareOrigin=config.shareOrigin||location.origin}catch{}
   show('display');$('fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>toast('Fullscreen is unavailable'));initBattleFx();const code=codeFromUrl();
-  if(!code){$('display-stage').innerHTML='<div class="display-question"><div class="question-category">DISPLAY SETUP</div><h1>Open this screen from the host console.</h1></div>';return}
+  if(!code)return startAutoProjector();
   $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>armAudio();
   await fetchState();await connectRealtime(code);startPolling(900);setInterval(updateTimers,100);
+}
+function startAutoProjector(){
+  let busy=false,standby=true,hadError=false;
+  function waiting(message='Your next game starts here.'){
+    $('display-scorebar').classList.add('hidden');$('display-bottom-board').classList.add('hidden');
+    $('arm-audio').classList.add('hidden');$('live-voice-status').classList.add('hidden');
+    document.querySelector('.display-join').classList.add('hidden');
+    $('display-stage').innerHTML='<section class="projector-standby"><span>THE MINISTRY · GAME NIGHT</span><div class="standby-crown">♛</div><h1>Gather your teams.</h1><p>'+esc(message)+'</p><div class="standby-status"><i></i> Waiting for the host to start a game</div><small>Keep this screen open. Bible Battle will appear automatically.</small></section>';
+  }
+  waiting();
+  $('arm-audio').onclick=()=>armAudio();
+  async function sync(){
+    if(busy)return;busy=true;
+    try{
+      const room=await api('/api/game/current');
+      if(!room.gameCode){
+        if(!standby||hadError){waiting();standby=true}
+        autoDisplayCode='';snapshot=null;state=null;renderKey='';
+      }else{
+        if(autoDisplayCode!==room.gameCode){
+          autoDisplayCode=room.gameCode;snapshot=null;state=null;renderKey='';
+          $('display-scorebar').classList.remove('hidden');$('display-bottom-board').classList.remove('hidden');
+          $('arm-audio').classList.remove('hidden');document.querySelector('.display-join').classList.remove('hidden');
+          standby=false;lastEffectKey='';
+        }
+        await fetchState();
+      }
+      hadError=false;
+    }catch{hadError=true;if(standby)waiting('Reconnecting to the game service…')}
+    finally{busy=false}
+  }
+  sync();setInterval(sync,1200);
 }
 function renderDisplay(){
   if(!state)return;

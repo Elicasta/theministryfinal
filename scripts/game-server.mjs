@@ -17,10 +17,10 @@ const server=http.createServer(async(req,res)=>{
       let body='';for await(const chunk of req){body+=chunk;if(body.length>100000)return res.status(413).json({error:'Request too large'})}
       req.body=body?JSON.parse(body):{};req.query=Object.fromEntries(url.searchParams);
       const name=url.pathname.split('/').pop();
-      if(!['create','state','join','action','health','generate','voice','live-session'].includes(name))return res.status(404).json({error:'Not found'});
+      if(!['create','state','join','action','health','current','generate','voice','live-session'].includes(name))return res.status(404).json({error:'Not found'});
       const {default:handler}=await import(path.join(root,'api/game',name+'.js'));return await handler(req,res);
     }
-    const route=/^\/games?(\/(host|play|join|display))?\/?$/.test(url.pathname)||url.pathname==='/';
+    const route=/^\/games?(\/(host|play|join|display|projector))?\/?$/.test(url.pathname)||url.pathname==='/';
     const relative=route?'games/index.html':decodeURIComponent(url.pathname).replace(/^\//,'');
     // Only browser assets are served: answer packs, local state, and credentials stay private.
     if(!route&&!/^(games\/(game\.js|game\.css|battle\.css|questions\.js|assets\/[\w.-]+)|assets\/[\w.-]+)$/.test(relative))return res.status(404).end('Not found');

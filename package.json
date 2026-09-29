@@ -1,1 +1,12 @@
-{"name":"ministry-bible-battle","private":true,"type":"module","scripts":{"dev":"node scripts/game-server.mjs","test":"node --test tests/*.test.mjs","check":"node scripts/verify-hardening.mjs"},"engines":{"node":">=20"}}
+{
+  "name": "ministry-bible-battle",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/game-server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/verify-hardening.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

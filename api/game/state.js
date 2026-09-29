@@ -1,4 +1,4 @@
-import { clean, db, verifyHost, verifyPlayer, publicGameState, corsNoStore } from '../../lib/game-db.js';
+import { clean, db, verifyHost, verifyPlayer, publicGameState, corsNoStore, displayChannel, saveGameState } from '../../lib/game-db.js';
 
 import { advanceClock } from '../../lib/game-clock.js';
 
@@ -18,6 +18,7 @@ export default async function handler(req,res){
   else if(body.playerId&&body.playerToken&&await verifyPlayer(code,body.playerId,body.playerToken))role='player';
 
   if((body.hostToken||body.playerToken)&&role==='public')return res.status(401).json({error:'Session expired. Please reconnect.'});
+  if(role==='host'&&!game.state?.displayChannel){const saved=await saveGameState(game,{...game.state,displayChannel:displayChannel()});if(saved.row)game=saved.row}
   game=await advanceClock(game);
   const pq=new URLSearchParams({select:'player_id,name,team_id,is_captain,connected,last_seen_at',game_id:'eq.'+game.id,order:'joined_at.asc'});
   const pr=await db('game_players?'+pq.toString());

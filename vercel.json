@@ -9,6 +9,14 @@
       "destination": "/api/game/private"
     },
     {
+      "source": "/game/projector",
+      "destination": "/games/index.html"
+    },
+    {
+      "source": "/games/projector",
+      "destination": "/games/index.html"
+    },
+    {
       "source": "/game/join",
       "destination": "/games/index.html"
     },

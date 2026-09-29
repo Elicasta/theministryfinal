@@ -1,4 +1,4 @@
-import { clean, randomCode, randomToken, hashToken, db, broadcastGame, publicGameState, corsNoStore } from '../../lib/game-db.js';
+import { clean, randomCode, randomToken, hashToken, db, broadcastGame, publicGameState, corsNoStore, displayChannel } from '../../lib/game-db.js';
 import { BUILTIN_GAME_PACK } from '../../lib/game-pack.js';
 
 const COLORS=['#ff304f','#159dff','#00d597','#f5c44e','#aa6cff','#ff8f3d','#4f7dff','#ff71ce','#7ee787','#f7a8ff','#8ad5ff','#f2cc60'];
@@ -29,7 +29,7 @@ export default async function handler(req,res){
   const hostToken=randomToken();
   const displayToken=randomToken(18);
   const state={
-    engine:'ministry-games-v1',phase:'lobby',teams,settings,
+    engine:'ministry-games-v1',displayChannel:displayChannel(),phase:'lobby',teams,settings,
     controlTeamId:teams[0].id,activeQuestionId:null,usedQuestionIds:[],
     questionOpenedAt:null,captainDeadline:null,teamDeadline:null,stealDeadline:null,
     lockedAnswer:null,lockedBy:null,stealTeamId:null,lastResult:null,

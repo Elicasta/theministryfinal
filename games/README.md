@@ -41,3 +41,16 @@ The browser polls authoritative state. Expired windows advance on server reads/a
 `games/assets/bible-backdrop.png` was generated with the built-in image generation tool. Prompt: “Widescreen background texture for a Bible trivia game question panel. An open antique Bible on a dark wooden table, low close camera angle, pages flowing diagonally across the lower right, rich ink navy shadows and subtle warm gold rim lighting on page edges. Moody cinematic realistic still life. Upper left and middle mostly dark empty navy negative space for later interface text. No other objects, no legible text, no title, no logos, no interface elements. Landscape 16:9 composition.”
 
 Team crests are inline SVG. QRCode.js 1.0.0 (MIT license, David Shim) is vendored for reliable QR rendering; see `games/assets/qrcode-LICENSE.txt`. Fonts have system fallbacks if Google Fonts is unavailable.
+
+## Permanent projector link
+
+Use **`/game/projector`** (also `/games/projector`) in your projector browser or browser-source URL. It needs no room code and automatically follows the newest host room on that deployment:
+
+- New room / lobby: branded standby screen.
+- Host presses Start Game: the game appears automatically.
+- Game ends: returns to standby. Final-round winners remain visible for 20 seconds first.
+- Next room starts: switches automatically; the URL never changes.
+
+Use **Copy permanent projector link** in the host's Devices & Systems panel. The host's header Projector link remains a room-specific display if you need to pin a particular game (including its AI voice token). Preview branches and production use separate projector channels, so a preview test cannot take over a production projector. The permanent route uses public audience state and does not grant host control or AI voice credentials. Use the host and projector from the same deployment. Multiple simultaneous rooms are supported by room-specific display links; the permanent route always follows the newest room.
+
+Browser autoplay rules still apply to sound: visuals activate without a click; sound effects require an initial click on Enable sound. The permanent link does not enable AI voice automatically.

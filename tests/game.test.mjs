@@ -102,3 +102,14 @@ test('host can judge a spoken steal without crediting the original locked team',
   await advanceClock((await getGameByCode(g.code)).row,Date.now()+3000);await act(blue,'BUZZ');
   const r=await act(g,'JUDGE',{correct:true});assert.equal(r.body.teams[0].score,0);assert.equal(r.body.teams[1].score,120);
 });
+
+test('permanent projector waits, activates, ends, and never revives an old room',async()=>{
+  const {default:current}=await import('../api/game/current.js');
+  const g=await game();
+  let r=await call(current,{},'GET');assert.equal(r.body.status,'standby');assert.equal(r.body.gameCode,null);
+  await act(g,'START');r=await call(current,{},'GET');assert.equal(r.body.gameCode,g.code);assert.equal(r.body.status,'live');
+  assert.deepEqual(Object.keys(r.body).sort(),['gameCode','ok','serverTime','status']);
+  await act(g,'END');r=await call(current,{},'GET');assert.equal(r.body.status,'standby');assert.equal(r.body.gameCode,null);
+  const next=await game();assert.equal((await call(current,{},'GET')).body.status,'standby');
+  await act(next,'START');assert.equal((await call(current,{},'GET')).body.gameCode,next.code);
+});
