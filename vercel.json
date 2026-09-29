@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/.local/:path*",
+      "destination": "/api/game/private"
+    },
+    {
+      "source": "/lib/:path*",
+      "destination": "/api/game/private"
+    },
+    {
+      "source": "/game/join",
+      "destination": "/games/index.html"
+    },
+    {
       "source": "/games",
       "destination": "/games/index.html"
     },

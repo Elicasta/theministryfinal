@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#050711">
   <title>Bible Battle · The Ministry Games</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/games/game.css">
+  <link rel="stylesheet" href="/games/battle.css">
 </head>
 <body>
   <div class="game-noise"></div>
@@ -17,16 +18,16 @@
     <div class="landing-glow"></div>
     <section class="landing-card">
       <div class="brand-kicker">THE MINISTRY GAMES</div>
-      <h1>BIBLE<br><span>BATTLE</span></h1>
-      <p>Fast-paced team Bible competition built for the whole room.</p>
+      <div class="landing-crown">♛</div><h1>BIBLE <span>BATTLE</span></h1>
+      <p>One room. Four teams. One unforgettable Bible battle.</p>
       <div class="landing-actions">
-        <a class="game-btn primary" href="/games/host">Create Game</a>
-        <a class="game-btn" href="/games/play">Join Game</a>
+        <a class="game-btn primary" href="/games/host">Host a game <span>→</span></a>
+        <a class="game-btn" href="/games/play">Join with a code</a>
       </div>
       <div class="mode-strip">
         <span>BOARD</span><i></i><span>STEALS</span><i></i><span>CAPTAINS</span><i></i><span>FINAL ROUND</span>
       </div>
-    </section>
+    <div class="landing-details"><span><b>30</b> ready-to-play questions</span><span><b>6</b> Bible categories</span><span><b>∞</b> moments together</span></div><p class="landing-foot">No downloads. Players join on their phones. The host leads the room.</p></section>
   </main>
 
   <main id="host" class="host-shell hidden">
@@ -39,7 +40,7 @@
           <span id="host-player-top">0 Players</span>
           <a href="/games/display" id="display-link" target="_blank">Projector</a>
         </div>
-        <div class="host-session-chip"><small>SESSION CODE</small><strong id="host-code">------</strong></div>
+        <button id="new-game" class="mini-btn">New game</button><button id="copy-join" class="mini-btn" aria-label="Copy player join link">Copy join link</button><div class="host-session-chip"><small>SESSION CODE</small><strong id="host-code">------</strong></div>
       </div>
     </header>
 
@@ -49,8 +50,8 @@
           <section class="host-panel">
             <div class="panel-label">Game Setup</div>
             <div class="field-row">
-              <label>Teams</label>
-              <div class="stepper"><button id="team-minus">−</button><strong id="team-count">2</strong><button id="team-plus">+</button></div>
+              <label>Teams · 2–12</label>
+              <div class="stepper"><button id="team-minus">−</button><strong id="team-count">4</strong><button id="team-plus">+</button></div>
             </div>
             <div id="team-editor" class="team-editor"></div>
             <button id="start-game" class="game-btn primary full">Start Game</button>
@@ -70,7 +71,7 @@
               </select>
             </div>
             <button id="generate-pack" class="game-btn full pack-generate">Generate AI Pack</button>
-            <div id="generator-state" class="pack-status ready"><span class="pack-status-icon">✓</span><span>Built-in verified starter pack loaded.</span></div>
+            <div id="generator-state" class="pack-status ready"><span class="pack-status-icon">✓</span><span>30 scripture-linked questions ready. AI is optional.</span></div>
             <div id="pack-confirm" class="pack-confirm hidden"></div>
           </section>
 
@@ -79,14 +80,14 @@
             <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · Meridian</small></span><input id="voice-toggle" type="checkbox"></label>
             <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
             <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
-            <div class="field-row"><label>Captain Priority</label><select id="captain-time"><option value="5000">5 sec</option><option value="7000" selected>7 sec</option><option value="10000">10 sec</option></select></div>
-            <div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
+            <div class="field-row"><label>Answer timer</label><select id="captain-time"><option value="10000">10 sec</option><option value="20000">20 sec</option><option value="30000" selected>30 sec</option><option value="60000">60 sec</option></select></div>
+            <label class="toggle-row"><span>Host judges answers <small>Accept spoken answers and alternate wording</small></span><input id="judge-toggle" type="checkbox" checked></label><div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
           </section>
         </div>
 
         <section id="host-live-library" class="host-panel host-library-panel hidden">
           <div class="library-head"><div><span class="panel-label">Question Library</span><strong>30 Questions</strong></div><span id="library-progress">0 / 30</span></div>
-          <div id="host-question-library" class="host-question-library"></div>
+          <div class="library-tools"><input id="question-search" type="search" placeholder="Search questions…" aria-label="Search questions"><select id="category-filter" aria-label="Filter category"><option value="">All categories</option></select></div><div id="host-question-library" class="host-question-library"></div>
         </section>
       </aside>
 
@@ -110,16 +111,16 @@
               </div>
               <div id="host-board" class="host-board"></div>
               <div id="host-question" class="host-question hidden"></div>
-              <div class="host-controls">
-                <button id="host-correct" class="game-btn success hidden">Manual Correct</button>
-                <button id="host-wrong" class="game-btn danger hidden">Manual Wrong</button>
+              <div id="timer-controls" class="timer-controls hidden"><button id="timer-pause" class="game-btn">Ⅱ Pause timer</button><button id="timer-reset" class="game-btn">↺ Reset timer</button><span>Host controls the pace</span></div><div class="host-controls">
+                <button id="host-correct" class="game-btn success hidden">✓ Correct <small>Award points</small></button>
+                <button id="host-wrong" class="game-btn danger hidden">✕ Incorrect <small>Offer the steal</small></button>
                 <button id="host-steal" class="game-btn hidden">Open Steal</button>
                 <button id="host-reveal" class="game-btn primary hidden">Reveal Answer</button>
                 <button id="host-next" class="game-btn primary hidden">Back to Board</button>
                 <button id="host-final" class="game-btn">Final Round</button>
                 <button id="host-end" class="game-btn danger">End Game</button>
               </div>
-              <div id="host-answer-notes" class="host-answer-notes"></div>
+              <div id="round-progress" class="round-progress"></div><div id="host-answer-notes" class="host-answer-notes"></div>
             </section>
 
             <aside class="host-right-rail">
@@ -133,8 +134,9 @@
               </section>
               <section class="rail-panel">
                 <div class="rail-title"><span>Devices & Systems</span></div>
-                <div id="host-device-summary" class="device-summary"></div>
+                <div id="host-device-summary" class="device-summary"></div><a id="rail-projector" class="game-btn full" target="_blank">↗ Open projector</a>
               </section>
+              <section class="rail-panel"><div class="rail-title">Recent activity</div><div id="host-activity"></div></section>
             </aside>
           </div>
         </div>
@@ -153,14 +155,14 @@
       <div id="voice-disclosure" class="voice-disclosure hidden">Meridian · GPT-Live · AI-generated voice</div>
     </div>
     <div id="display-scorebar" class="display-scorebar"></div>
-    <div id="display-stage" class="display-stage"></div>
+    <div id="display-stage" class="display-stage"></div><div id="display-bottom-board" class="bottom-board"></div><button id="fullscreen" class="mini-btn fullscreen-button" aria-label="Enter fullscreen">⛶ Fullscreen</button>
     <canvas id="battle-fx-canvas" class="battle-fx-canvas"></canvas>
     <div id="fx-layer" class="fx-layer"></div>
   </main>
 
   <main id="player" class="player-shell hidden">
     <header class="player-top">
-      <div><div class="brand-kicker">BIBLE BATTLE</div><div id="player-game-code" class="player-game-code"></div></div>
+      <div><a class="remote-brand" href="/games">BIBLE BATTLE</a><div class="remote-label">THE MINISTRY · REMOTE</div><div id="player-game-code" class="player-game-code"></div></div>
       <div id="player-connection" class="connection-chip">CONNECTING</div>
     </header>
 
@@ -183,14 +185,14 @@
 
     <section id="player-game" class="player-game hidden">
       <div id="player-team-banner" class="player-team-banner"></div>
-      <div id="player-content" class="player-content"></div>
+      <div id="player-content" class="player-content"></div><section class="phone-card remote-scores"><div class="panel-label">♛ Teams & scores</div><div id="player-scores"></div></section>
       <div id="player-celebration" class="player-celebration hidden"></div>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-  <script src="/games/questions.js"></script>
+
+  <script src="/games/assets/qrcode.min.js"></script>
+  <div id="game-toast" role="status" aria-live="polite" class="hidden"></div>
   <script src="/games/game.js"></script>
 </body>
 </html>

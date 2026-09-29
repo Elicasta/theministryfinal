@@ -1,4 +1,4 @@
-import { clean, randomToken, hashToken, db, broadcastGame, publicGameState, corsNoStore } from '../../lib/game-db.js';
+import { clean, randomToken, hashToken, db, broadcastGame, publicGameState, corsNoStore, getGameByCode, saveGameState } from '../../lib/game-db.js';
 
 export default async function handler(req,res){
   corsNoStore(res);
@@ -35,13 +35,20 @@ export default async function handler(req,res){
   if(!write.ok)return res.status(502).json({error:'Could not join game',details:write.text});
   const player=Array.isArray(write.json)?write.json[0]:write.json;
 
-  let state=game.state||{};
-  if(needsCaptain){
-    state={...state,teams:teams.map(t=>t.id===teamId?{...t,captainPlayerId:playerId}:t)};
-    await db('game_sessions?game_code=eq.'+encodeURIComponent(code),{
-      method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({state})
-    });
+  // Claim captain with the same optimistic lock as scoring; never replace a
+  // newer round state with the stale lobby snapshot read at join time.
+  let refreshed=(await getGameByCode(code)).row||game;
+  for(let attempt=0;attempt<5;attempt++){
+    const currentTeam=refreshed.state.teams.find(t=>t.id===teamId);
+    if(currentTeam?.captainPlayerId)break;
+    const next=structuredClone(refreshed.state);
+    next.teams=next.teams.map(t=>t.id===teamId?{...t,captainPlayerId:playerId}:t);
+    const saved=await saveGameState(refreshed,next);
+    if(saved.row){refreshed=saved.row;break}
+    refreshed=(await getGameByCode(code)).row||refreshed;
   }
+  const isCaptain=refreshed.state.teams.find(t=>t.id===teamId)?.captainPlayerId===playerId;
+  await db('game_players?game_id=eq.'+game.id+'&player_id=eq.'+encodeURIComponent(playerId),{method:'PATCH',body:JSON.stringify({is_captain:isCaptain})});
 
   await db('game_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({
     game_id:game.id,game_code:code,kind:'PLAYER_JOINED',actor_type:'player',
@@ -51,10 +58,10 @@ export default async function handler(req,res){
 
   const pq=new URLSearchParams({select:'*',game_id:'eq.'+game.id,order:'joined_at.asc'});
   const pr=await db('game_players?'+pq.toString());
-  const refreshed={...game,state,version:Number(game.version||0)+1};
+  refreshed=(await getGameByCode(code)).row||refreshed;
   return res.status(200).json({
     ...publicGameState(refreshed,Array.isArray(pr.json)?pr.json:[],'player',[],teamId),
-    player:{playerId,name,teamId,isCaptain:needsCaptain},
+    player:{playerId,name,teamId,isCaptain},
     playerToken
   });
 }
