@@ -194,9 +194,14 @@ export default async function handler(req,res){
     const isSteal=state.phase==='steal_locked',points=correct?Math.max(0,Math.round(Number(q.points||0)*(isSteal?.6:1))):0;
     state.teams=(state.teams||[]).map(t=>t.id===teamId?{...t,score:(Number(t.score)||0)+points,streak:correct?(Number(t.streak)||0)+1:0}:t);
     if(correct)state.controlTeamId=teamId;
-    state.lastResult={correct,teamId,points,answer:state.lockedAnswer,correctAnswer:q.correctAnswer,reference:q.reference||'',explanation:q.explanation||'',nonce:nowMs()};
-    if(!correct&&!isSteal&&state.settings?.autoSteal!==false&&(state.teams||[]).length>1){state.phase='steal_buzz';state.stealTeamId=null;state.stealBuzzDeadline=nowMs()+(Number(state.settings?.stealMs)||5000)}
-    else state.phase='result';
+    const nonce=nowMs();
+    if(!correct&&!isSteal&&state.settings?.autoSteal!==false&&(state.teams||[]).length>1){
+      state.lastResult={correct:false,teamId,points:0,answer:state.lockedAnswer,nonce};
+      state.phase='steal_buzz';state.stealTeamId=null;state.stealBuzzDeadline=nowMs()+(Number(state.settings?.stealMs)||5000);
+    }else{
+      state.lastResult={correct,teamId,points,answer:state.lockedAnswer,correctAnswer:q.correctAnswer,reference:q.reference||'',explanation:q.explanation||'',nonce};
+      state.phase='result';
+    }
     const c=await commit(row,state,correct?'ANSWER_CORRECT':'ANSWER_WRONG',{actorType:'host',teamId,payload:{points,isSteal}});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
     return res.status(200).json(await hydrate(c.row,'host'));
