@@ -66,7 +66,7 @@ function validatePack(raw){
   }
   return {
     id:'ai-'+Date.now().toString(36),
-    title:clean(raw.title||'Bible Showdown',80),
+    title:clean(String(raw.title||'Bible Battle').replace(/Bible Showdown/gi,'Bible Battle'),80),
     version:1,
     generatedBy:'OpenAI',
     generatedAt:new Date().toISOString(),
@@ -87,7 +87,8 @@ export default async function handler(req,res){
   if(row.state?.phase!=='lobby')return res.status(409).json({error:'Generate the pack before starting the game'});
 
   const difficulty=['easy','medium','hard','expert','mixed'].includes(body.difficulty)?body.difficulty:'mixed';
-  const prompt=`Create a fast-paced Bible game-show pack for a church audience.
+  const prompt=`Create a fast-paced Bible Battle game-show pack for a church audience.
+The title must begin with "Bible Battle" and must never use the old name "Bible Showdown".
 Use KJV wording for verse-fill questions.
 Difficulty: ${difficulty}.
 Create exactly 30 main questions: 5 per category, using point values 100, 200, 300, 400, 500 once per category.
@@ -109,7 +110,7 @@ Also create one Final Showdown question from the Book of Acts with a clear, veri
           {role:'system',content:'You create accurate, energetic Bible game-show question packs. Return only schema-compliant structured output.'},
           {role:'user',content:prompt}
         ],
-        text:{format:{type:'json_schema',name:'bible_showdown_pack',strict:true,schema}}
+        text:{format:{type:'json_schema',name:'bible_battle_pack',strict:true,schema}}
       })
     });
     const data=await r.json().catch(()=>({}));
