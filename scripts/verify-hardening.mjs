@@ -143,3 +143,8 @@ if(!gameBrowser.includes('renderQuestionLibrary'))fail('host question library is
 if(!gameBrowser.includes('initBattleFx'))fail('canvas broadcast graphics runtime is missing');
 const gameDb=fs.readFileSync('lib/game-db.js','utf8');
 if(!gameDb.includes("state.resultNextPhase!=='steal_buzz'"))fail('pre-steal answer hiding is missing');
+
+if(gameBrowser.includes("data-question-id=\"'+esc(q?.id"))fail('host board must be monitor-only; captains choose questions');
+if(!gameBrowser.includes("lastTeamOccupied"))fail('lobby team reduction must protect populated teams');
+if(!gameAction.includes("Move them before removing that team"))fail('server must reject removing populated teams');
+if(!gameAction.includes("captained=state.teams.find"))fail('game start must prefer a team with a captain');
