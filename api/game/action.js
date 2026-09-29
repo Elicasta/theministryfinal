@@ -16,7 +16,7 @@ async function hydrate(row,role,player){
     const all=await getQuestionSubmissions(row.id,row.state.activeQuestionId);
     submissions=role==='host'?all:all.filter(x=>x.team_id===player?.team_id);
   }
-  return publicGameState(row,players,role,submissions);
+  return publicGameState(row,players,role,submissions,player?.team_id||null);
 }
 async function commit(row,state,kind,meta={}){
   const saved=await saveGameState(row,{...state,updatedAt:new Date().toISOString()},responseStatus(state.phase));
