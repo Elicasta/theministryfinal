@@ -126,3 +126,10 @@ for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api
 
 console.log('Ministry hardening checks passed');
 console.log('Lessons:',lib.lessons.length,'Latest:',lib.latest);
+
+if(!gameBrowser.includes("captain-board-select"))fail('Control captain board picker is missing');
+if(!gameBrowser.includes("playerDo('OPEN_QUESTION'"))fail('Captain board selection is not wired to the game engine');
+if(!gameBrowser.includes("session.input_audio.mute"))fail('GPT-Live input must stay active and be muted through the Live session');
+if(!gameBrowser.includes("evt.type==='session.started'"))fail('GPT-Live must wait for session.started before speaking');
+if(!gameBrowser.includes("state.phase==='steal_buzz'"))fail('Player steal-buzz state is missing');
+if(!gameCss.includes('Bible Battle v3: fixed 16:9 broadcast composition'))fail('Fixed 16:9 broadcast composition is missing');
