@@ -17,5 +17,17 @@ export default async function handler(req,res){
 
   const pq=new URLSearchParams({select:'player_id,name,team_id,is_captain,connected,last_seen_at',game_id:'eq.'+game.id,order:'joined_at.asc'});
   const pr=await db('game_players?'+pq.toString());
-  return res.status(200).json(publicGameState(game,Array.isArray(pr.json)?pr.json:[],role));
+  let privateTeamId=null;
+  if(role==='player'){
+    const players=Array.isArray(pr.json)?pr.json:[];
+    privateTeamId=players.find(p=>p.player_id===body.playerId)?.team_id||null;
+  }
+  let submissions=[];
+  if(game.state?.activeQuestionId&&(role==='host'||role==='player')){
+    const sq=new URLSearchParams({select:'*',game_id:'eq.'+game.id,question_id:'eq.'+game.state.activeQuestionId,order:'created_at.asc'});
+    const sr=await db('game_submissions?'+sq.toString());
+    submissions=Array.isArray(sr.json)?sr.json:[];
+    if(role==='player'&&privateTeamId)submissions=submissions.filter(x=>x.team_id===privateTeamId);
+  }
+  return res.status(200).json(publicGameState(game,Array.isArray(pr.json)?pr.json:[],role,submissions,privateTeamId));
 }
