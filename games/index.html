@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#050711">
+  <title>Bible Showdown · The Ministry Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/games/game.css">
+</head>
+<body>
+  <div class="game-noise"></div>
+
+  <main id="landing" class="landing hidden">
+    <div class="landing-glow"></div>
+    <section class="landing-card">
+      <div class="brand-kicker">THE MINISTRY GAMES</div>
+      <h1>BIBLE<br><span>SHOWDOWN</span></h1>
+      <p>Fast-paced team Bible competition built for the whole room.</p>
+      <div class="landing-actions">
+        <a class="game-btn primary" href="/games/host">Create Game</a>
+        <a class="game-btn" href="/games/play">Join Game</a>
+      </div>
+      <div class="mode-strip">
+        <span>BOARD</span><i></i><span>STEALS</span><i></i><span>CAPTAINS</span><i></i><span>FINAL ROUND</span>
+      </div>
+    </section>
+  </main>
+
+  <main id="host" class="host-shell hidden">
+    <header class="host-topbar">
+      <div>
+        <div class="brand-kicker">THE MINISTRY GAMES</div>
+        <div class="host-title">Bible Showdown <span id="host-code"></span></div>
+      </div>
+      <div class="host-status">
+        <span id="host-dot" class="live-dot"></span>
+        <span id="host-network">Connecting</span>
+        <a href="/games/display" id="display-link" target="_blank">Open Display</a>
+      </div>
+    </header>
+
+    <div class="host-grid">
+      <aside class="host-sidebar">
+        <section class="host-panel">
+          <div class="panel-label">Game Setup</div>
+          <div class="field-row">
+            <label>Teams</label>
+            <div class="stepper"><button id="team-minus">−</button><strong id="team-count">2</strong><button id="team-plus">+</button></div>
+          </div>
+          <div id="team-editor" class="team-editor"></div>
+          <button id="start-game" class="game-btn primary full">Start Game</button>
+        </section>
+
+        <section class="host-panel">
+          <div class="panel-label">Game Pack</div>
+          <div class="pack-title" id="pack-title">Bible Showdown</div>
+          <div class="field-row">
+            <label for="difficulty">AI Difficulty</label>
+            <select id="difficulty">
+              <option value="mixed">Mixed</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+          <button id="generate-pack" class="game-btn full">Generate AI Pack</button>
+          <div id="generator-state" class="small-state">Built-in verified starter pack loaded.</div>
+        </section>
+
+        <section class="host-panel">
+          <div class="panel-label">Show Settings</div>
+          <label class="toggle-row"><span>AI Voice Host <small>AI-generated voice</small></span><input id="voice-toggle" type="checkbox"></label>
+          <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
+          <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
+          <div class="field-row"><label>Captain Priority</label><select id="captain-time"><option value="5000">5 sec</option><option value="7000" selected>7 sec</option><option value="10000">10 sec</option></select></div>
+          <div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
+        </section>
+      </aside>
+
+      <section class="host-main">
+        <div id="host-lobby" class="host-view">
+          <div class="lobby-code-card">
+            <div class="panel-label">Join Code</div>
+            <div id="big-code" class="big-code">------</div>
+            <div id="join-url" class="join-url">theministry.vercel.app/games/play</div>
+          </div>
+          <div class="host-section-head"><div><span class="panel-label">Players</span><h2>Lobby</h2></div><span id="player-count" class="count-pill">0 connected</span></div>
+          <div id="lobby-teams" class="lobby-teams"></div>
+        </div>
+
+        <div id="host-game" class="host-view hidden">
+          <div id="host-scorebar" class="host-scorebar"></div>
+          <div id="host-board" class="host-board"></div>
+          <div id="host-question" class="host-question hidden"></div>
+          <div class="host-controls">
+            <button id="host-correct" class="game-btn success hidden">Correct</button>
+            <button id="host-wrong" class="game-btn danger hidden">Wrong</button>
+            <button id="host-steal" class="game-btn hidden">Open Steal</button>
+            <button id="host-reveal" class="game-btn primary hidden">Reveal Answer</button>
+            <button id="host-next" class="game-btn primary hidden">Back to Board</button>
+            <button id="host-final" class="game-btn hidden">Final Round</button>
+            <button id="host-end" class="game-btn danger">End Game</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <main id="display" class="display-shell hidden">
+    <button id="arm-audio" class="audio-arm">Tap to arm game audio</button>
+    <div class="display-top">
+      <div class="display-brand">THE MINISTRY <b>GAMES</b></div>
+      <div id="display-code" class="display-code"></div>
+      <div id="voice-disclosure" class="voice-disclosure hidden">AI-generated game host voice</div>
+    </div>
+    <div id="display-stage" class="display-stage"></div>
+    <div id="display-scorebar" class="display-scorebar"></div>
+    <div id="fx-layer" class="fx-layer"></div>
+  </main>
+
+  <main id="player" class="player-shell hidden">
+    <header class="player-top">
+      <div><div class="brand-kicker">BIBLE SHOWDOWN</div><div id="player-game-code" class="player-game-code"></div></div>
+      <div id="player-connection" class="connection-chip">CONNECTING</div>
+    </header>
+
+    <section id="join-step" class="phone-card join-card">
+      <div class="panel-label">Join Game</div>
+      <h1>Get in the game.</h1>
+      <label>Game Code<input id="join-code-input" autocomplete="off" maxlength="6" placeholder="ABC123"></label>
+      <button id="connect-game" class="game-btn primary full">Connect</button>
+      <div id="join-error" class="small-state"></div>
+    </section>
+
+    <section id="profile-step" class="phone-card hidden">
+      <div class="panel-label">Player Setup</div>
+      <h2>Who are you?</h2>
+      <label>Name<input id="player-name" maxlength="24" placeholder="Your name"></label>
+      <div class="panel-label spaced">Choose Team</div>
+      <div id="team-picker" class="team-picker"></div>
+      <button id="join-team" class="game-btn primary full" disabled>Join Team</button>
+    </section>
+
+    <section id="player-game" class="player-game hidden">
+      <div id="player-team-banner" class="player-team-banner"></div>
+      <div id="player-content" class="player-content"></div>
+      <div id="player-celebration" class="player-celebration hidden"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/games/questions.js"></script>
+  <script src="/games/game.js"></script>
+</body>
+</html>
