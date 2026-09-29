@@ -56,9 +56,13 @@ function validatePack(raw){
     seen.add(q.id);
     questions.push({...q,points:pts,choices:Array.isArray(q.choices)?q.choices.slice(0,4):[],acceptedAnswers:Array.isArray(q.acceptedAnswers)?q.acceptedAnswers:[],stealAllowed:q.stealAllowed!==false});
   }
+  const board=[];
   for(const id of CATEGORY_IDS){
-    const rows=questions.filter(q=>q.category===id);
-    if(rows.length<4)throw new Error('Generator did not cover '+CATEGORY_LABELS[id]);
+    for(const points of [100,200,300,400,500]){
+      const q=questions.find(x=>x.category===id&&x.points===points);
+      if(!q)throw new Error('Generator missed '+CATEGORY_LABELS[id]+' for '+points+' points');
+      board.push(q);
+    }
   }
   return {
     id:'ai-'+Date.now().toString(36),
@@ -67,7 +71,7 @@ function validatePack(raw){
     generatedBy:'OpenAI',
     generatedAt:new Date().toISOString(),
     categories:CATEGORY_IDS.map(id=>({id,label:CATEGORY_LABELS[id]})),
-    questions:questions.slice(0,36),
+    questions:board,
     final:raw.final
   };
 }
