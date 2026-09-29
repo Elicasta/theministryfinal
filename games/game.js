@@ -13,8 +13,8 @@ let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
 let sb=null,channel=null,pollTimer=null,tickTimer=null,tickPending=false,fetchPending=false;
 let audioCtx=null,audioArmed=false,lastEffectKey='',lastPlayerEffectKey='',selectedTeamId=null,setupTimer=null;
-let livePc=null,liveDc=null,liveConnected=false,liveConnecting=false,liveMicStream=null,liveMicEnabled=false;
-let qrCache={host:'',display:''};
+let livePc=null,liveDc=null,liveConnected=false,liveConnecting=false,liveMicStream=null,liveMicEnabled=false,liveSessionStarted=false,liveSilentSource=null;
+let qrCache={host:'',display:''},lastStealSignal='',battleFxStarted=false;
 
 function show(id){$(id)?.classList.remove('hidden')}
 function hide(id){$(id)?.classList.add('hidden')}
