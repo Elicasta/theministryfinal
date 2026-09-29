@@ -54,3 +54,13 @@ Use **`/game/projector`** (also `/games/projector`) in your projector browser or
 Use **Copy permanent projector link** in the host's Devices & Systems panel. The host's header Projector link remains a room-specific display if you need to pin a particular game (including its AI voice token). Preview branches and production use separate projector channels, so a preview test cannot take over a production projector. The permanent route uses public audience state and does not grant host control or AI voice credentials. Use the host and projector from the same deployment. Multiple simultaneous rooms are supported by room-specific display links; the permanent route always follows the newest room.
 
 Browser autoplay rules still apply to sound: visuals activate without a click; sound effects require an initial click on Enable sound. The permanent link does not enable AI voice automatically.
+
+## Changing rounds and generating questions
+
+The host's **Round & Question Packs** panel stays visible during play. It includes both **Classic** (Pentateuch, Kings, Prophets, Gospels, Acts, Letters) and **Apostolic & Trivia** (Apostolic Doctrine, Bible Trivia, Where in the Bible?, Finish the Verse, Bible People, Who Said It?). Each contains 30 ready questions. Choose a pack and press **Use selected pack** in the lobby, or **Start next round** from the board between questions. Scores, players, captains and the room code carry over; the board resets. Multiple-choice choices are shuffled for the new round.
+
+For fresh questions, select an **AI category set** and difficulty, then **Generate AI Pack**. Generation runs in the background and survives a host-page refresh. A completed pack is validated and saved in the room's pack selector; it never replaces an active question automatically. Select the new pack and use it when ready. Up to eight custom packs stay saved in the room. The OpenAI Responses background job is polled only by the authenticated host; no AI answer keys or job IDs appear in audience state. The next host visit resumes an unfinished job.
+
+The first player to join a team becomes its captain. Teams agree on their captain verbally; the host assigns them using **Make Captain** in the lobby or **Team captains** between questions. Captain changes are locked while answering.
+
+With **Auto Steal** enabled, an incorrect answer or an expired team answer window opens a five-second buzz window, unless that question disallows steals. Other teams can buzz on their phones; the first accepted buzz wins. They then get a captain answer window followed by a team window. A correct steal earns 60% of the question's points. A failed steal or no buzz reveals the answer. Hosts can also use **Open Steal** before revealing the answer.

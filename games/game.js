@@ -21,6 +21,7 @@ function crest(i){
 }
 function safeColor(v){return /^#[0-9a-f]{6}$/i.test(v)?v:'#f5c44e'}
 
+let generationBusy=false,generationPolling=false,aiConfigured=true,packSelection='';
 let renderKey='',librarySearch='',libraryCategory='',shareOrigin=location.origin,autoDisplayCode='';
 let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
@@ -129,7 +130,7 @@ async function initHost(){
     const d=await api('/api/game/create',{method:'POST',body:JSON.stringify({teamCount:4})});
     hostAuth={code:d.gameCode,hostToken:d.hostToken,displayToken:d.displayToken};saveHostAuth(hostAuth);applySnapshot(d);
   }else if(!hostAuth.displayToken&&saved?.displayToken){hostAuth.displayToken=saved.displayToken}
-  try{const health=await api('/api/game/health');if(!health.openAIConfigured){$('generate-pack').disabled=true;$('generate-pack').textContent='AI pack · cloud setup needed';$('voice-toggle').disabled=true}}catch{}
+  try{const health=await api('/api/game/health');if(!health.openAIConfigured){aiConfigured=false;$('generate-pack').disabled=true;$('generate-pack').textContent='AI pack · cloud setup needed';$('voice-toggle').disabled=true}}catch{}
   wireHost();
   await connectRealtime(hostAuth.code);startPolling(1000);
   clearInterval(tickTimer);tickTimer=setInterval(hostTick,180);
@@ -145,6 +146,9 @@ function wireHost(){
   $('host-final').onclick=()=>gameAction('START_FINAL');
   $('host-end').onclick=()=>{if(confirm('End this game and show the final scores?'))gameAction('END')};
   $('generate-pack').onclick=generatePack;
+  $('round-pack').onchange=e=>{packSelection=e.target.value;renderPackPanel()};
+  $('apply-pack').onclick=applyPack;
+  setInterval(pollGeneration,3000);
   $('timer-pause').onclick=()=>gameAction(state.timerPausedAt?'RESUME':'PAUSE');
   $('timer-reset').onclick=()=>gameAction('RESET_TIMER');
   $('copy-projector').onclick=()=>navigator.clipboard.writeText(location.origin+'/game/projector').then(()=>toast('Permanent projector link copied')).catch(()=>toast(location.origin+'/game/projector'));
@@ -214,7 +218,7 @@ function renderHost(){
   $('judge-toggle').checked=state.settings?.manualJudging!==false;
   $('voice-toggle').checked=!!state.settings?.voice;$('sound-toggle').checked=state.settings?.sound!==false;$('steal-toggle').checked=state.settings?.autoSteal!==false;
   $('captain-time').value=String(state.settings?.captainMs||30000);$('open-time').value=String(state.settings?.openMs||5000);
-  $('pack-title').textContent=pack?.title||'Bible Battle';
+  $('pack-title').textContent='Round '+(state.roundNumber||1)+' · '+(pack?.title||'Bible Battle');renderPackPanel();
   if(!document.activeElement?.matches('[data-team-name]'))$('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
   const lobby=state.phase==='lobby';
   $('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
@@ -246,7 +250,9 @@ function boardHtml(host=false){
 function renderHostGame(){
   const board=$('host-board'),box=$('host-question'),phase=state.phase,q=activeQ(),control=team(state.controlTeamId);
   $('host-scorebar').innerHTML=scorebarHtml(true);
-  if($('host-phase'))$('host-phase').textContent=phaseLabel()||'BOARD';
+  $('captain-controls').innerHTML='<details><summary>Team captains</summary><p class="rules-note">First player to join is captain. Choose a different captain between questions.</p>'+state.teams.map(t=>'<label class="pack-field">'+esc(t.name)+'<select data-captain-select="'+esc(t.id)+'" '+(phase!=='board'?'disabled':'')+'><option value="">No captain</option>'+players.filter(p=>p.teamId===t.id).map(p=>'<option value="'+esc(p.playerId)+'" '+(p.isCaptain?'selected':'')+'>'+esc(p.name)+'</option>').join('')+'</select></label>').join('')+'</details>';
+  document.querySelectorAll('[data-captain-select]').forEach(el=>el.onchange=()=>el.value&&gameAction('SET_CAPTAIN',{teamId:el.dataset.captainSelect,targetPlayerId:el.value}));
+  if($('host-phase'))$('host-phase').textContent='ROUND '+(state.roundNumber||1)+' · '+(phaseLabel()||'BOARD');
   if($('host-active-meta'))$('host-active-meta').textContent=q?(esc(category(q.category)?.label||q.category)+' · '+q.points+' pts'):(control?.name+' controls the board');
   renderQuestionLibrary();
   if(state.phase==='board'){
@@ -324,21 +330,46 @@ function hostQuestionHtml(){
 }
 window.__gameOpenFinal=()=>gameAction('OPEN_FINAL');
 
+function renderPackPanel(){
+  const list=pack.availablePacks||[],select=$('round-pack');
+  if(!list.some(p=>p.id===packSelection))packSelection=pack.id;
+  select.innerHTML=list.map(p=>'<option value="'+esc(p.id)+'" '+(p.id===packSelection?'selected':'')+'>'+esc(p.title)+'</option>').join('');
+  const chosen=list.find(p=>p.id===packSelection);
+  $('pack-categories').textContent=(chosen?.categories||[]).map(c=>c.label).join(' · ');
+  $('apply-pack').disabled=!['lobby','board'].includes(state.phase)||!chosen;
+  $('apply-pack').textContent=state.phase==='lobby'?'Use selected pack':'Start next round';
+  $('round-note').textContent=state.phase==='lobby'?'Choose either starter set or a saved AI pack.':'Start the next round from the board. Scores, teams and captains carry over.';
+  const job=pack.generation,busy=generationBusy||['starting','queued','in_progress'].includes(job?.status);
+  $('generate-pack').disabled=busy||!aiConfigured||['winner','ended'].includes(state.phase);
+  $('generate-pack').textContent=busy?'Generating in background…':aiConfigured?'Generate AI Pack':'AI needs cloud setup';
+  const status=$('generator-state');
+  if(busy){status.className='pack-status working';status.innerHTML='<span class="pack-spinner"></span><span>Building 30 questions. You can keep playing or refresh; progress resumes automatically.</span>'}
+  else if(job?.status==='completed'){status.className='pack-status success';status.innerHTML='<span>✓ <b>NEW PACK READY</b> · Saved above. Select it and use it when you are ready.</span>'}
+  else if(job?.status==='failed'){status.className='pack-status error';status.innerHTML='<span>'+esc(job.error)+'. Your current pack is unchanged.</span>'}
+}
+async function applyPack(){
+  if(state.phase==='board'&&!confirm('Start a fresh board with this pack? Scores and players will carry over.'))return;
+  $('apply-pack').disabled=true;
+  try{await api('/api/game/pack',{method:'POST',body:JSON.stringify({...hostAuth,packId:packSelection})});libraryCategory='';librarySearch='';$('question-search').value='';await fetchState();toast('Round pack loaded. Scores and players preserved.')}catch(e){toast(e.message)}finally{renderPackPanel()}
+}
 async function generatePack(){
-  const b=$('generate-pack'),status=$('generator-state'),confirm=$('pack-confirm'),difficulty=$('difficulty').value;
-  b.disabled=true;b.classList.add('working');b.textContent='Generating & validating…';
-  status.className='pack-status working';status.innerHTML='<span class="pack-spinner"></span><span>OpenAI is building a complete 30-question board. This can take a moment.</span>';
-  confirm.classList.add('hidden');confirm.innerHTML='';
+  if(generationBusy)return;generationBusy=true;renderPackPanel();
   try{
-    const d=await api('/api/game/generate',{method:'POST',body:JSON.stringify({code:hostAuth.code,hostToken:hostAuth.hostToken,difficulty})});
-    const stamp=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
-    status.className='pack-status success';status.innerHTML='<span class="pack-status-icon">✓</span><span><b>NEW PACK READY</b> · '+esc(d.pack?.questionCount||30)+' questions validated and saved.</span>';
-    confirm.innerHTML='<div><small>AI GAME PACK</small><strong>'+esc(d.pack?.title||'Bible Battle')+'</strong><span>'+esc(difficulty.toUpperCase())+' · '+esc(d.pack?.questionCount||30)+' QUESTIONS · '+esc(stamp)+'</span></div><button class="mini-btn" id="review-pack">Review Board</button>';
-    confirm.classList.remove('hidden');await fetchState();
-    $('review-pack')?.addEventListener('click',()=>{document.querySelector('.pack-confirm')?.scrollIntoView({behavior:'smooth',block:'center'});});
-  }catch(e){
-    status.className='pack-status error';status.innerHTML='<span class="pack-status-icon">!</span><span><b>PACK NOT REPLACED.</b> '+esc(e.message||'AI generator unavailable. The previous pack is still loaded.')+'</span>';
-  } finally{b.disabled=false;b.classList.remove('working');b.textContent='Generate New AI Pack'}
+    const d=await api('/api/game/generate',{method:'POST',signal:AbortSignal.timeout(45000),body:JSON.stringify({...hostAuth,operation:'start',difficulty:$('difficulty').value,theme:$('generation-theme').value})});
+    pack.generation=d.generation;await fetchState();
+  }catch(e){toast(e.name==='TimeoutError'?'Still checking generation. Progress will resume automatically.':e.message);await fetchState()}
+  finally{generationBusy=false;renderPackPanel();pollGeneration()}
+}
+async function pollGeneration(){
+  if(generationPolling||generationBusy||!['starting','queued','in_progress'].includes(pack?.generation?.status))return;
+  generationPolling=true;
+  try{
+    const d=await api('/api/game/generate',{method:'POST',signal:AbortSignal.timeout(45000),body:JSON.stringify({...hostAuth,operation:'status'})});
+    pack.generation=d.generation;
+    if(d.generation.status==='completed'){packSelection=d.generation.packId;await fetchState();toast('New AI pack saved. Choose it for this game or the next round.')}
+    renderPackPanel();
+  }catch(e){$('generator-state').textContent='Reconnecting to generation… Your current pack is safe.';await fetchState()}
+  finally{generationPolling=false}
 }
 
 async function initDisplay(){
@@ -413,13 +444,24 @@ function renderDisplay(){
     const ids=state.winnerTeamIds||[],names=ids.map(id=>team(id)?.name).filter(Boolean),t=team(ids[0]);
     stage.innerHTML='<section class="broadcast-result winner" style="--team:'+(t?.color||'#f7c84b')+'"><span>BIBLE BATTLE CHAMPIONS</span><strong>'+esc(names.join(' + ')||'WINNER')+'</strong><b>'+Number(t?.score||0).toLocaleString()+' POINTS</b></section>';
   }else stage.innerHTML='<section class="broadcast-result"><span>BIBLE BATTLE</span><strong>STANDBY</strong></section>';
-  displayEffects();
+  requestAnimationFrame(fitProjector);displayEffects();
 }
+function fitProjector(){
+  if(role!=='display'||innerWidth<=650)return;
+  document.querySelectorAll('.broadcast-question h1').forEach(el=>{
+    el.style.fontSize='';
+    const copy=el.closest('.question-copy');if(!copy)return;
+    let size=parseFloat(getComputedStyle(el).fontSize);
+    while(size>18&&(copy.scrollHeight>copy.clientHeight+1||el.scrollWidth>el.clientWidth+1)){size--;el.style.fontSize=size+'px'}
+  });
+}
+addEventListener('resize',()=>requestAnimationFrame(fitProjector));
+if(document.fonts)document.fonts.ready.then(()=>requestAnimationFrame(fitProjector));
 function displayQuestion(q){
   if(!q)return '';
   const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId),deadline=currentDeadline();
   const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(x)+'</span></div>').join('')+'</div>':'';
-  return '<section class="broadcast-question"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b><small>QUESTION '+state.usedQuestionIds.length+' / '+pack.board.length+'</small></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+(deadline||0)+'"><strong>'+timeText(seconds(deadline))+'</strong></div><small>SECONDS</small></aside></section>';
+  return '<section class="broadcast-question '+(choices?'has-choices':'')+'"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b><small>ROUND '+(state.roundNumber||1)+' · QUESTION '+state.usedQuestionIds.length+' / '+pack.board.length+'</small></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+(deadline||0)+'"><strong>'+timeText(seconds(deadline))+'</strong></div><small>SECONDS</small></aside></section>';
 }
 function updateTimers(){
   document.querySelectorAll('[data-deadline]').forEach(el=>{
