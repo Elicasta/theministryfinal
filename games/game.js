@@ -159,7 +159,7 @@ function queueSetup(){
 }
 function hostTick(){
   if(role!=='host'||!state||tickPending)return;
-  const d=currentDeadline();if(!d||now()<Number(d))return;
+  const d=state?.phase==='result'?state.resultDeadline:currentDeadline();if(!d||now()<Number(d))return;
   tickPending=true;gameAction('TICK').finally(()=>setTimeout(()=>tickPending=false,220));
 }
 function renderHost(){
@@ -359,27 +359,33 @@ async function startMeridianLive(){
     livePc=new RTCPeerConnection();
     liveDc=livePc.createDataChannel('oai-events');
     const audio=$('live-voice-audio');
-    livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.play().catch(()=>{})}};
-    liveDc.onopen=()=>{
-      liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
-      liveSend('session.instructions.append',{
-        event_id:'game_host_ready_'+Date.now(),
-        delegation_id:null,
-        content:'You are now live as the Bible Battle announcer. Say exactly: Meridian is online. Bible Battle is ready. Then wait silently for game events.'
-      });
-    };
+    livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.muted=false;audio.volume=1;audio.play().catch(()=>{})}};
+    // GPT-Live expects a live browser audio path. Keep the mic track running but disabled
+    // unless interactive hosting is explicitly added later.
+    liveMicStream=await navigator.mediaDevices.getUserMedia({audio:true});
+    const micTrack=liveMicStream.getAudioTracks()[0];micTrack.enabled=false;livePc.addTrack(micTrack,liveMicStream);
+    liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · WAITING');
     liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
-    liveDc.onerror=()=>liveStatus('MERIDIAN ERROR');
-    liveDc.onmessage=e=>{try{const evt=JSON.parse(e.data);if(evt.type==='session.started')liveStatus('MERIDIAN LIVE',true);if(evt.type==='error'){console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||'EVENT REJECTED'))}}catch(_){}};
-    livePc.addTransceiver('audio',{direction:'recvonly'});
+    liveDc.onerror=()=>liveStatus('MERIDIAN DATA ERROR');
+    liveDc.onmessage=e=>{try{
+      const evt=JSON.parse(e.data);
+      if(evt.type==='session.started'){
+        liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
+        liveSend('session.instructions.append',{event_id:'game_host_ready_'+Date.now(),delegation_id:null,content:'Speak now: Meridian is online. Bible Battle is ready. Then remain quiet until the game application sends another announcement.'});
+      }
+      if(evt.type==='session.instructions.appended'||evt.type==='session.commentary.appended')liveStatus('MERIDIAN LIVE',true);
+      if(evt.type==='error'){console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||evt.error?.message||'EVENT REJECTED'))}
+    }catch(_){}};
     const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);
     const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp:offer.sdp})});
-    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Live session failed');
+    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error((d.error||'Live session failed')+(d.details?' · '+d.details:''));
     const answer=d?.transport?.sdp;if(!answer)throw new Error('OpenAI Live did not return an SDP answer');
     await livePc.setRemoteDescription({type:'answer',sdp:answer});
   }catch(e){
+    console.error('Meridian startup failed',e);
     liveConnected=false;liveConnecting=false;try{livePc?.close()}catch(_){}
-    livePc=null;liveDc=null;liveStatus('MERIDIAN UNAVAILABLE');
+    if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
+    livePc=null;liveDc=null;liveMicStream=null;liveStatus('MERIDIAN UNAVAILABLE · '+String(e?.message||'START FAILED').slice(0,80));
   }
 }
 function stopMeridianLive(){
@@ -414,6 +420,7 @@ function wirePlayer(){
   document.addEventListener('click',e=>{
     const pick=e.target.closest('[data-pick-team]');if(pick){selectedTeamId=pick.dataset.pickTeam;renderTeamPicker();$('join-team').disabled=false;return}
     const ans=e.target.closest('[data-answer]');if(ans)return submitAnswer(ans.dataset.answer);
+    if(e.target.closest('#captain-pick-question'))return playerDo('OPEN_QUESTION',{questionId:$('captain-board-select')?.value||''});
     if(e.target.closest('#steal-buzz-button'))return playerDo('BUZZ');
     if(e.target.closest('#typed-send'))return submitAnswer($('typed-answer')?.value);
     if(e.target.closest('#submit-wager'))return playerDo('FINAL_WAGER',{wager:Number($('wager-input')?.value)||0});
@@ -453,7 +460,13 @@ function renderPlayer(){
   $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML='<b>'+esc(t.name)+(p.isCaptain?' · CAPTAIN':'')+'</b><strong>'+t.score+'</strong>';
   const host=$('player-content'),q=activeQ();
   if(state.phase==='lobby'){host.innerHTML='<div class="waiting"><strong>YOU’RE IN</strong>Waiting for the host to start.</div>'}
-  else if(state.phase==='board'){host.innerHTML='<div class="waiting"><strong>BOARD LIVE</strong>'+esc(team(state.controlTeamId)?.name||'A team')+' controls the board.</div>'}
+  else if(state.phase==='board'){
+    if(p.isCaptain&&t.id===state.controlTeamId){
+      const available=(pack?.board||[]).filter(q=>!(state.usedQuestionIds||[]).includes(q.id));
+      const groups=(pack?.categories||[]).map(c=>{const opts=available.filter(q=>q.category===c.id).sort((a,b)=>a.points-b.points);return opts.length?'<optgroup label="'+esc(c.label)+'">'+opts.map(q=>'<option value="'+esc(q.id)+'">'+esc(c.label)+' · '+q.points+' points</option>').join('')+'</optgroup>':''}).join('');
+      host.innerHTML='<div class="player-card captain-board-picker"><div class="player-phase">YOUR TEAM CONTROLS THE BOARD</div><h2>Choose the next question</h2><select id="captain-board-select" class="board-select">'+groups+'</select><button id="captain-pick-question" class="game-btn primary full">Open Question</button><div class="small-state">Your selection opens immediately for the room.</div></div>';
+    }else host.innerHTML='<div class="waiting"><strong>BOARD LIVE</strong>'+esc(team(state.controlTeamId)?.name||'A team')+' controls the board. Their captain is choosing.</div>';
+  }
   else if(['captain','open','steal_captain','steal_open'].includes(state.phase))renderPlayerQuestion(host,q,p,t);
   else if(['locked','steal_locked'].includes(state.phase))host.innerHTML='<div class="player-card"><div class="player-phase">ANSWER LOCKED</div><h2>'+esc(team(state.lockedTeamId)?.name||'Team')+'</h2><div class="question">'+esc(state.lockedAnswer||'')+'</div><div class="small-state">Waiting for the host…</div></div>';
   else if(state.phase==='steal_buzz'){
