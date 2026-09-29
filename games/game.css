@@ -260,3 +260,11 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;back
 @media(max-width:720px){
   .display-top{height:72px;min-height:72px;padding:0 14px}.display-logo{display:none}.display-title{justify-self:start}.display-title strong{font-size:1.65rem}.display-join{display:flex}.display-qr{width:48px!important}.display-join b{display:none}.display-scorebar{min-height:90px;overflow-x:auto;padding:6px 10px}.display-team{height:76px;min-width:150px}.display-stage{padding:8px 10px 12px}.broadcast-question{grid-template-columns:1fr;padding:18px}.question-clock{position:absolute;right:16px;top:14px;border:0}.timer-ring{width:78px;height:78px}.timer-ring strong{font-size:1.7rem}.question-clock small{display:none}.broadcast-question h1{font-size:clamp(1.7rem,6vw,2.7rem);padding-right:86px}.choice-grid{grid-template-columns:1fr}.host-right-rail{grid-template-columns:1fr}
 }
+
+/* v3 compatibility overrides */
+.host-sidebar{display:block}
+.pick-team{min-height:76px;border:1px solid var(--team);border-left:4px solid var(--team);background:linear-gradient(125deg,color-mix(in srgb,var(--team) 15%,#07131f),#07131f);color:#fff;border-radius:4px;padding:12px;font:900 .8rem var(--fc);letter-spacing:.08em;text-transform:uppercase;box-shadow:inset 0 0 22px color-mix(in srgb,var(--team) 7%,transparent)}
+.pick-team.selected{box-shadow:0 0 0 2px var(--team),0 0 25px color-mix(in srgb,var(--team) 24%,transparent)}
+.player-card{border-radius:5px!important}.phone-choice{border-radius:4px!important}.player-team-banner{border-radius:0 0 5px 5px!important}
+@media(max-width:900px){.host-sidebar{display:block!important}}
+@media(max-width:620px){.host-sidebar{display:block!important}}
