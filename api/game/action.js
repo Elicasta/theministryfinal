@@ -84,12 +84,19 @@ export default async function handler(req,res){
     const count=Math.max(2,Math.min(Number(body.teamCount)||incoming.length||state.teams?.length||2,12));
     const palette=['#35d6ff','#ff5d70','#46e7a4','#ffcc57','#aa6cff','#ff8f3d','#4f7dff','#ff71ce','#7ee787','#f7a8ff','#8ad5ff','#f2cc60'];
     const old=Array.isArray(state.teams)?state.teams:[];
-    state.teams=Array.from({length:count},(_,i)=>({
+    const nextTeams=Array.from({length:count},(_,i)=>({
       id:clean(incoming[i]?.id||old[i]?.id||('team-'+(i+1)),40),
       name:clean(incoming[i]?.name||old[i]?.name||('Team '+(i+1)),40),
       color:clean(incoming[i]?.color||old[i]?.color||palette[i%palette.length],20),
       score:Number(old[i]?.score)||0,streak:Number(old[i]?.streak)||0,captainPlayerId:old[i]?.captainPlayerId||null
     }));
+    const keptIds=new Set(nextTeams.map(t=>t.id)),removed=old.filter(t=>!keptIds.has(t.id));
+    if(removed.length){
+      const players=await getGamePlayers(row.id);
+      const occupied=removed.find(t=>players.some(p=>p.team_id===t.id));
+      if(occupied)return res.status(409).json({error:occupied.name+' still has players. Move them before removing that team.'});
+    }
+    state.teams=nextTeams;
     state.controlTeamId=state.teams.some(t=>t.id===state.controlTeamId)?state.controlTeamId:state.teams[0].id;
     state.settings={
       captainMs:Math.max(3000,Math.min(Number(body.settings?.captainMs??state.settings?.captainMs)||7000,15000)),
@@ -128,7 +135,9 @@ export default async function handler(req,res){
   if(action==='START'){
     state=clearRound(state);state.phase='board';state.usedQuestionIds=[];state.winnerTeamIds=[];state.finalWagers={};state.finalAnswers={};state.finalJudged={};
     state.teams=(state.teams||[]).map(t=>({...t,score:0,streak:0}));
-    const c=await commit(row,state,'GAME_STARTED',{actorType:'host'});
+    const players=await getGamePlayers(row.id),captained=state.teams.find(t=>players.some(p=>p.team_id===t.id&&p.is_captain));
+    if(captained&&!players.some(p=>p.team_id===state.controlTeamId&&p.is_captain))state.controlTeamId=captained.id;
+    const c=await commit(row,state,'GAME_STARTED',{actorType:'host',teamId:state.controlTeamId});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
     return res.status(200).json(await hydrate(c.row,'host'));
   }
