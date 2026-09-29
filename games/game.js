@@ -164,10 +164,11 @@ function hostTick(){
 }
 function renderHost(){
   if(!state)return;
-  $('host-code').textContent='· '+hostAuth.code;$('big-code').textContent=hostAuth.code;
+  $('host-code').textContent=hostAuth.code;$('big-code').textContent=hostAuth.code;
   $('join-url').textContent=joinUrl(hostAuth.code).replace(/^https?:\/\//,'');
   renderQr('host-qr',joinUrl(hostAuth.code),'host',184);
   $('display-link').href=displayUrl(hostAuth.code,hostAuth.displayToken);
+  if($('host-player-top'))$('host-player-top').textContent=players.length+' Player'+(players.length===1?'':'s');
   $('team-count').textContent=state.teams.length;
   if($('team-minus'))$('team-minus').disabled=state.phase!=='lobby'||state.teams.length<=2;
   if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||state.teams.length>=12;
@@ -175,7 +176,9 @@ function renderHost(){
   $('captain-time').value=String(state.settings?.captainMs||7000);$('open-time').value=String(state.settings?.openMs||5000);
   $('pack-title').textContent=pack?.title||'Bible Battle';
   $('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
-  const lobby=state.phase==='lobby';$('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
+  const lobby=state.phase==='lobby';
+  $('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
+  $('host-setup-panels')?.classList.toggle('hidden',!lobby);$('host-live-library')?.classList.toggle('hidden',lobby);
   renderLobby();if(!lobby)renderHostGame();
 }
 function renderLobby(){
@@ -202,26 +205,65 @@ function boardHtml(host=false){
     }).join('')).join('');
 }
 function renderHostGame(){
-  $('host-scorebar').style.setProperty('--team-count',state.teams.length);$('host-scorebar').innerHTML=scorebarHtml(true);
-  const board=$('host-board'),box=$('host-question');
+  const board=$('host-board'),box=$('host-question'),phase=state.phase,q=activeQ(),control=team(state.controlTeamId);
+  $('host-scorebar').innerHTML=scorebarHtml(true);
+  if($('host-phase'))$('host-phase').textContent=phaseLabel()||'BOARD';
+  if($('host-active-meta'))$('host-active-meta').textContent=q?(esc(category(q.category)?.label||q.category)+' · '+q.points+' pts'):(control?.name+' controls the board');
+  renderQuestionLibrary();
   if(state.phase==='board'){
     board.classList.remove('hidden');box.classList.add('hidden');
     board.style.setProperty('--cat-count',(pack?.categories||[]).length);board.innerHTML=boardHtml(true);
   }else{
     board.classList.add('hidden');box.classList.remove('hidden');box.innerHTML=hostQuestionHtml();
   }
-  const phase=state.phase;
   $('host-correct').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
   $('host-wrong').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
-  $('host-steal').classList.toggle('hidden',!['locked','reveal'].includes(phase));
-  $('host-reveal').classList.add('hidden');
-  $('host-next').classList.toggle('hidden',!['result','reveal'].includes(phase));
-  $('host-final').classList.toggle('hidden',phase!=='board');
-  $('host-end').classList.toggle('hidden',phase==='ended');
+  $('host-steal').classList.add('hidden');$('host-reveal').classList.add('hidden');$('host-next').classList.add('hidden');
+  $('host-final').classList.toggle('hidden',phase!=='board');$('host-end').classList.toggle('hidden',phase==='ended');
+  if($('host-control-summary')){
+    const cap=players.find(p=>p.playerId===control?.captainPlayerId);
+    $('host-control-summary').innerHTML='<div class="control-team" style="--team:'+(control?.color||'#f7c84b')+'"><small>TEAM IN CONTROL</small><strong>'+esc(control?.name||'—')+'</strong><span>Captain: '+esc(cap?.name||'Not assigned')+'</span></div>'+
+      '<div class="control-line"><span>Mode</span><b>'+esc(phaseLabel()||'BOARD')+'</b></div>'+
+      '<div class="control-line"><span>Steals</span><b>'+(state.settings?.autoSteal===false?'MANUAL':'AUTO')+'</b></div>'+
+      '<div class="control-line"><span>Judging</span><b>AUTO</b></div>';
+  }
+  if($('host-device-summary')){
+    const online=players.filter(p=>p.connected).length,captains=players.filter(p=>p.isCaptain).length;
+    $('host-device-summary').innerHTML='<div class="device-stat"><strong>'+online+'</strong><span>Players online</span></div><div class="device-stat"><strong>'+captains+'</strong><span>Captains</span></div><div class="device-stat"><strong>'+(state.settings?.voice?'ON':'OFF')+'</strong><span>Meridian</span></div>';
+  }
+  if($('host-answer-notes')){
+    const r=state.lastResult;
+    $('host-answer-notes').innerHTML=q?'<div><small>CORRECT ANSWER</small><strong>'+esc(q.correctAnswer||r?.correctAnswer||'Hidden until result')+'</strong></div><div><small>REFERENCE</small><strong>'+esc(q.reference||r?.reference||'')+'</strong></div><div class="notes-wide"><small>HOST NOTES</small><span>'+esc(q.explanation||r?.explanation||'Answers are judged automatically against the verified answer set.')+'</span></div>':'<div class="notes-wide"><small>BOARD CONTROL</small><span>The captain of '+esc(control?.name||'the active team')+' chooses the next available question from their phone.</span></div>';
+  }
+}
+function renderQuestionLibrary(){
+  const el=$('host-question-library');if(!el)return;
+  const rows=pack?.board||[],used=new Set(state.usedQuestionIds||[]);
+  if($('library-progress'))$('library-progress').textContent=used.size+' / '+rows.length;
+  el.innerHTML=(pack?.categories||[]).map(c=>{
+    const qs=rows.filter(q=>q.category===c.id).sort((x,y)=>x.points-y.points);
+    return '<section class="library-group"><h4>'+esc(c.label)+' <span>'+qs.length+'</span></h4>'+qs.map(q=>{
+      const active=q.id===state.activeQuestionId,done=used.has(q.id);
+      return '<button class="library-question '+(active?'active ':'')+(done?'used':'')+'" data-question-id="'+esc(q.id)+'" '+(done?'disabled':'')+'><b>'+q.points+'</b><span>'+esc(q.prompt||c.label+' · '+q.points)+'</span><i>'+(active?'LIVE':done?'USED':'READY')+'</i></button>';
+    }).join('')+'</section>';
+  }).join('');
 }
 function hostQuestionHtml(){
-  if(state.phase==='final_wager'){
-    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" onclick="window.__gameOpenFinal()">Open Final Question</button>';
+  if(state.phase==='final_wager')return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" onclick="window.__gameOpenFinal()">Open Final Question</button>';
+  if(['final_answer','final_judging'].includes(state.phase)){
+    const answers=state.finalAnswers||{},wagers=state.finalWagers||{};
+    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.prompt||'')+'</h2><div class="suggestion-grid">'+state.teams.map(t=>{const ans=answers[t.id];return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(ans?esc(ans):'Waiting…')+'</div>'+(ans?'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>':'')+'</div>'}).join('')+'</div>';
+  }
+  if(['winner','ended'].includes(state.phase)){const names=(state.winnerTeamIds||[]).map(id=>team(id)?.name).filter(Boolean);return '<div class="hq-meta">GAME COMPLETE</div><h2>'+esc(names.join(' + ')||'Winner')+'</h2>'}
+  const q=activeQ();if(!q)return '<div class="hq-meta">'+esc(phaseLabel())+'</div><h2>Waiting for the next board selection.</h2>';
+  const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId),subs=submissions.filter(x=>x.teamId===(activeTeam?.id)),r=state.lastResult||{};
+  return '<div class="hq-meta">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' POINTS · '+esc(phaseLabel())+'</div>'+
+    '<h2>'+esc(q.prompt)+'</h2>'+
+    (currentDeadline()?'<div class="host-clock">'+seconds(currentDeadline())+'</div>':'')+
+    (state.phase==='result'?'<div class="host-result '+(r.correct?'correct':'wrong')+'"><b>'+(r.correct?'CORRECT':'INCORRECT')+'</b><span>'+esc(team(r.teamId)?.name||'')+(r.correct?' +'+r.points:'')+'</span></div>':'')+
+    (subs.length?'<div class="suggestion-grid">'+subs.map(x=>'<div class="suggestion"><b>'+esc(players.find(p=>p.playerId===x.playerId)?.name||'Player')+(x.isCaptain?' · CAPTAIN':'')+'</b>'+esc(x.answer)+'</div>').join('')+'</div>':'');
+}
+window.__gameOpenFinal()">Open Final Question</button>';
   }
   if(['final_answer','final_judging'].includes(state.phase)){
     const answers=state.finalAnswers||{},wagers=state.finalWagers||{};
