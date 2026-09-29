@@ -86,7 +86,7 @@ for(const file of [
   'games/index.html','games/game.css','games/game.js','games/questions.js',
   'lib/game-db.js','lib/game-pack.js',
   'api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js',
-  'api/game/generate.js','api/game/voice.js','api/game/health.js',
+  'api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js',
   'supabase/game-engine.sql'
 ]){
   if(!fs.existsSync(file))fail('game engine file missing: '+file);
@@ -100,9 +100,16 @@ if(!fs.readFileSync('lib/game-db.js','utf8').includes("version:'eq.'+String(row.
 const gameSchema=fs.readFileSync('supabase/game-engine.sql','utf8');
 if(!gameSchema.includes('game_sessions')||!gameSchema.includes('game_players')||!gameSchema.includes('game_submissions'))fail('game database schema incomplete');
 if(!gameSchema.includes('enable row level security'))fail('game tables must use RLS');
+const liveApi=fs.readFileSync('api/game/live-session.js','utf8');
+const gameBrowser=fs.readFileSync('games/game.js','utf8');
+if(!liveApi.includes("'gpt-live-1'"))fail('GPT-Live model is not configured');
+if(!liveApi.includes("'meridian'"))fail('Meridian must be the default Live voice');
+if(!liveApi.includes('verifyDisplay'))fail('Live session endpoint must require display authorization');
+if(!gameBrowser.includes('RTCPeerConnection'))fail('Game display must use WebRTC for GPT-Live');
+if(gameBrowser.includes("fetch('/api/game/voice'"))fail('Legacy per-cue TTS should not drive the game display');
 
 const {spawnSync}=await import('node:child_process');
-for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/health.js']){
+for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js']){
   const parsed=spawnSync(process.execPath,['--check','--input-type=module'],{input:fs.readFileSync(file,'utf8'),encoding:'utf8'});
   if(parsed.status!==0)fail(file+' syntax error: '+String(parsed.stderr||parsed.stdout).trim());
 }

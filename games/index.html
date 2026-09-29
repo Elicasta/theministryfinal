@@ -73,7 +73,7 @@
 
         <section class="host-panel">
           <div class="panel-label">Show Settings</div>
-          <label class="toggle-row"><span>AI Voice Host <small>AI-generated voice</small></span><input id="voice-toggle" type="checkbox"></label>
+          <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · AI-generated voice</small></span><input id="voice-toggle" type="checkbox"></label>
           <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
           <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
           <div class="field-row"><label>Captain Priority</label><select id="captain-time"><option value="5000">5 sec</option><option value="7000" selected>7 sec</option><option value="10000">10 sec</option></select></div>
@@ -111,11 +111,13 @@
   </main>
 
   <main id="display" class="display-shell hidden">
-    <button id="arm-audio" class="audio-arm">Tap to arm game audio</button>
+    <button id="arm-audio" class="audio-arm">Start Meridian Live</button>
+    <div id="live-voice-status" class="live-voice-status" aria-live="polite">MERIDIAN OFFLINE</div>
+    <audio id="live-voice-audio" autoplay></audio>
     <div class="display-top">
       <div class="display-brand">THE MINISTRY <b>GAMES</b></div>
       <div id="display-code" class="display-code"></div>
-      <div id="voice-disclosure" class="voice-disclosure hidden">AI-generated game host voice</div>
+      <div id="voice-disclosure" class="voice-disclosure hidden">Meridian · GPT-Live · AI-generated voice</div>
     </div>
     <div id="display-stage" class="display-stage"></div>
     <div id="display-scorebar" class="display-scorebar"></div>
