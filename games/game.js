@@ -326,10 +326,13 @@ function liveEventText(cue){
   return '';
 }
 function liveAnnounce(cue){
-  if(!liveConnected)return;
-  const text=liveEventText(cue);if(!text)return;
-  liveSend('conversation.item.create',{item:{type:'message',role:'user',content:[{type:'input_text',text}]}});
-  liveSend('response.create',{response:{modalities:['audio'],instructions:'Announce the supplied game event now. Keep it concise and energetic. Never invent game facts.'}});
+  if(!liveConnected)return false;
+  const text=liveEventText(cue);if(!text)return false;
+  return liveSend('session.commentary.append',{
+    event_id:'game_'+cue+'_'+Date.now(),
+    delegation_id:null,
+    content:text+' Speak this game update now, briefly and energetically. Do not invent or change any game fact.'
+  });
 }
 async function startMeridianLive(){
   if(liveConnected||liveConnecting||!displayToken||!state?.settings?.voice)return;
@@ -339,10 +342,17 @@ async function startMeridianLive(){
     liveDc=livePc.createDataChannel('oai-events');
     const audio=$('live-voice-audio');
     livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.play().catch(()=>{})}};
-    liveDc.onopen=()=>{liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true)};
+    liveDc.onopen=()=>{
+      liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
+      liveSend('session.instructions.append',{
+        event_id:'game_host_ready_'+Date.now(),
+        delegation_id:null,
+        content:'You are now live as the Bible Battle announcer. Say exactly: Meridian is online. Bible Battle is ready. Then wait silently for game events.'
+      });
+    };
     liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
     liveDc.onerror=()=>liveStatus('MERIDIAN ERROR');
-    liveDc.onmessage=e=>{try{const evt=JSON.parse(e.data);if(evt.type==='session.started')liveStatus('MERIDIAN LIVE',true)}catch(_){}};
+    liveDc.onmessage=e=>{try{const evt=JSON.parse(e.data);if(evt.type==='session.started')liveStatus('MERIDIAN LIVE',true);if(evt.type==='error'){console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||'EVENT REJECTED'))}}catch(_){}};
     livePc.addTransceiver('audio',{direction:'recvonly'});
     const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);
     const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp:offer.sdp})});

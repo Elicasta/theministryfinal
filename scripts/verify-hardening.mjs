@@ -107,6 +107,8 @@ if(!liveApi.includes("'meridian'"))fail('Meridian must be the default Live voice
 if(!liveApi.includes('verifyDisplay'))fail('Live session endpoint must require display authorization');
 if(!gameBrowser.includes('RTCPeerConnection'))fail('Game display must use WebRTC for GPT-Live');
 if(gameBrowser.includes("fetch('/api/game/voice'"))fail('Legacy per-cue TTS should not drive the game display');
+if(!gameBrowser.includes("'session.commentary.append'"))fail('Meridian announcements must use GPT-Live commentary events');
+if(gameBrowser.includes("'conversation.item.create'"))fail('Legacy Realtime conversation events must not drive GPT-Live');
 if(!gameBrowser.includes('Bible Battle'))fail('Game UI must use Bible Battle branding');
 const gameCss=fs.readFileSync('games/game.css','utf8');
 if(!gameCss.includes('Bible Battle broadcast skin'))fail('Broadcast game skin is missing');
