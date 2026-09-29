@@ -161,6 +161,8 @@ function renderHost(){
   $('join-url').textContent=joinUrl(hostAuth.code).replace(/^https?:\/\//,'');
   $('display-link').href=displayUrl(hostAuth.code,hostAuth.displayToken);
   $('team-count').textContent=state.teams.length;
+  if($('team-minus'))$('team-minus').disabled=state.phase!=='lobby'||players.length>0;
+  if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||players.length>0;
   $('voice-toggle').checked=!!state.settings?.voice;$('sound-toggle').checked=state.settings?.sound!==false;$('steal-toggle').checked=state.settings?.autoSteal!==false;
   $('captain-time').value=String(state.settings?.captainMs||7000);$('open-time').value=String(state.settings?.openMs||5000);
   $('pack-title').textContent=pack?.title||'Bible Showdown';
@@ -204,7 +206,7 @@ function renderHostGame(){
   $('host-correct').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
   $('host-wrong').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
   $('host-steal').classList.toggle('hidden',!['locked','reveal'].includes(phase));
-  $('host-reveal').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
+  $('host-reveal').classList.add('hidden');
   $('host-next').classList.toggle('hidden',!['result','reveal'].includes(phase));
   $('host-final').classList.toggle('hidden',phase!=='board');
   $('host-end').classList.toggle('hidden',phase==='ended');
