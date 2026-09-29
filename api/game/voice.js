@@ -7,13 +7,14 @@ function currentQuestion(row){
 function voiceText(row,cue){
   const state=row.state||{},q=currentQuestion(row),teams=Array.isArray(state.teams)?state.teams:[];
   const team=id=>teams.find(t=>t.id===id);
+  if(cue==='ready')return 'Voice host online. Bible Battle is ready.';
   if(cue==='question'&&q)return `${q.category}. For ${q.points} points. ${q.prompt}`;
   if(cue==='correct')return `Correct! ${team(state.lastResult?.teamId)?.name||'That team'} earns ${state.lastResult?.points||0} points.`;
   if(cue==='wrong')return 'Not quite. The steal is open.';
   if(cue==='steal')return 'Steal opportunity. Other teams, get ready to buzz.';
   if(cue==='winner'){
     const ids=state.winnerTeamIds||[],names=ids.map(id=>team(id)?.name).filter(Boolean);
-    return names.length===1?`${names[0]} wins Bible Showdown!`:`We have co-champions: ${names.join(' and ')}!`;
+    return names.length===1?`${names[0]} wins Bible Battle!`:`We have co-champions: ${names.join(' and ')}!`;
   }
   if(cue==='final')return `Final Showdown. The category is ${row.question_pack?.final?.category||'The Bible'}.`;
   return '';

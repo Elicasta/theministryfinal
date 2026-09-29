@@ -31,54 +31,62 @@
 
   <main id="host" class="host-shell hidden">
     <header class="host-topbar">
-      <div>
-        <div class="brand-kicker">THE MINISTRY GAMES</div>
-        <div class="host-title">Bible Battle <span id="host-code"></span></div>
-      </div>
-      <div class="host-status">
-        <span id="host-dot" class="live-dot"></span>
-        <span id="host-network">Connecting</span>
-        <a href="/games/display" id="display-link" target="_blank">Open Display</a>
+      <div class="host-logo">† <span>THE<br>MINISTRY</span></div>
+      <div class="host-title-lock"><strong>BIBLE BATTLE</strong><span>HOST</span></div>
+      <div class="host-header-right">
+        <div class="host-live-meta">
+          <span class="live-pill"><i id="host-dot" class="live-dot"></i><b id="host-network">Connecting</b></span>
+          <span id="host-player-top">0 Players</span>
+          <a href="/games/display" id="display-link" target="_blank">Projector</a>
+        </div>
+        <div class="host-session-chip"><small>SESSION CODE</small><strong id="host-code">------</strong></div>
       </div>
     </header>
 
     <div class="host-grid">
       <aside class="host-sidebar">
-        <section class="host-panel">
-          <div class="panel-label">Game Setup</div>
-          <div class="field-row">
-            <label>Teams</label>
-            <div class="stepper"><button id="team-minus">−</button><strong id="team-count">2</strong><button id="team-plus">+</button></div>
-          </div>
-          <div id="team-editor" class="team-editor"></div>
-          <button id="start-game" class="game-btn primary full">Start Game</button>
-        </section>
+        <div id="host-setup-panels">
+          <section class="host-panel">
+            <div class="panel-label">Game Setup</div>
+            <div class="field-row">
+              <label>Teams</label>
+              <div class="stepper"><button id="team-minus">−</button><strong id="team-count">2</strong><button id="team-plus">+</button></div>
+            </div>
+            <div id="team-editor" class="team-editor"></div>
+            <button id="start-game" class="game-btn primary full">Start Game</button>
+          </section>
 
-        <section class="host-panel">
-          <div class="panel-label">Game Pack</div>
-          <div class="pack-title" id="pack-title">Bible Battle</div>
-          <div class="field-row">
-            <label for="difficulty">AI Difficulty</label>
-            <select id="difficulty">
-              <option value="mixed">Mixed</option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-              <option value="expert">Expert</option>
-            </select>
-          </div>
-          <button id="generate-pack" class="game-btn full pack-generate">Generate AI Pack</button>
-          <div id="generator-state" class="pack-status ready"><span class="pack-status-icon">✓</span><span>Built-in verified starter pack loaded.</span></div>
-          <div id="pack-confirm" class="pack-confirm hidden"></div>
-        </section>
+          <section class="host-panel">
+            <div class="panel-label">Game Pack</div>
+            <div class="pack-title" id="pack-title">Bible Battle</div>
+            <div class="field-row">
+              <label for="difficulty">AI Difficulty</label>
+              <select id="difficulty">
+                <option value="mixed">Mixed</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
+            <button id="generate-pack" class="game-btn full pack-generate">Generate AI Pack</button>
+            <div id="generator-state" class="pack-status ready"><span class="pack-status-icon">✓</span><span>Built-in verified starter pack loaded.</span></div>
+            <div id="pack-confirm" class="pack-confirm hidden"></div>
+          </section>
 
-        <section class="host-panel">
-          <div class="panel-label">Show Settings</div>
-          <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · AI-generated voice</small></span><input id="voice-toggle" type="checkbox"></label>
-          <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
-          <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
-          <div class="field-row"><label>Captain Priority</label><select id="captain-time"><option value="5000">5 sec</option><option value="7000" selected>7 sec</option><option value="10000">10 sec</option></select></div>
-          <div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
+          <section class="host-panel">
+            <div class="panel-label">Show Settings</div>
+            <label class="toggle-row"><span>Meridian Live Host <small>GPT-Live · Meridian</small></span><input id="voice-toggle" type="checkbox"></label>
+            <label class="toggle-row"><span>Sound FX</span><input id="sound-toggle" type="checkbox" checked></label>
+            <label class="toggle-row"><span>Auto Steal</span><input id="steal-toggle" type="checkbox" checked></label>
+            <div class="field-row"><label>Captain Priority</label><select id="captain-time"><option value="5000">5 sec</option><option value="7000" selected>7 sec</option><option value="10000">10 sec</option></select></div>
+            <div class="field-row"><label>Team Open</label><select id="open-time"><option value="3000">3 sec</option><option value="5000" selected>5 sec</option><option value="7000">7 sec</option></select></div>
+          </section>
+        </div>
+
+        <section id="host-live-library" class="host-panel host-library-panel hidden">
+          <div class="library-head"><div><span class="panel-label">Question Library</span><strong>30 Questions</strong></div><span id="library-progress">0 / 30</span></div>
+          <div id="host-question-library" class="host-question-library"></div>
         </section>
       </aside>
 
@@ -93,17 +101,41 @@
         </div>
 
         <div id="host-game" class="host-view hidden">
-          <div id="host-scorebar" class="host-scorebar"></div>
-          <div id="host-board" class="host-board"></div>
-          <div id="host-question" class="host-question hidden"></div>
-          <div class="host-controls">
-            <button id="host-correct" class="game-btn success hidden">Correct</button>
-            <button id="host-wrong" class="game-btn danger hidden">Wrong</button>
-            <button id="host-steal" class="game-btn hidden">Open Steal</button>
-            <button id="host-reveal" class="game-btn primary hidden">Reveal Answer</button>
-            <button id="host-next" class="game-btn primary hidden">Back to Board</button>
-            <button id="host-final" class="game-btn hidden">Final Round</button>
-            <button id="host-end" class="game-btn danger">End Game</button>
+          <div class="host-live-grid">
+            <section class="host-center-deck">
+              <div class="round-control-bar">
+                <span><i></i> ROUND CONTROL</span>
+                <strong id="host-phase">BOARD</strong>
+                <b id="host-active-meta">Waiting for selection</b>
+              </div>
+              <div id="host-board" class="host-board"></div>
+              <div id="host-question" class="host-question hidden"></div>
+              <div class="host-controls">
+                <button id="host-correct" class="game-btn success hidden">Manual Correct</button>
+                <button id="host-wrong" class="game-btn danger hidden">Manual Wrong</button>
+                <button id="host-steal" class="game-btn hidden">Open Steal</button>
+                <button id="host-reveal" class="game-btn primary hidden">Reveal Answer</button>
+                <button id="host-next" class="game-btn primary hidden">Back to Board</button>
+                <button id="host-final" class="game-btn">Final Round</button>
+                <button id="host-end" class="game-btn danger">End Game</button>
+              </div>
+              <div id="host-answer-notes" class="host-answer-notes"></div>
+            </section>
+
+            <aside class="host-right-rail">
+              <section class="rail-panel">
+                <div class="rail-title"><span>Teams & Scores</span><small>LIVE</small></div>
+                <div id="host-scorebar" class="host-scorebar host-score-stack"></div>
+              </section>
+              <section class="rail-panel">
+                <div class="rail-title"><span>Game Control</span></div>
+                <div id="host-control-summary" class="control-summary"></div>
+              </section>
+              <section class="rail-panel">
+                <div class="rail-title"><span>Devices & Systems</span></div>
+                <div id="host-device-summary" class="device-summary"></div>
+              </section>
+            </aside>
           </div>
         </div>
       </section>
@@ -115,12 +147,14 @@
     <div id="live-voice-status" class="live-voice-status" aria-live="polite">MERIDIAN OFFLINE</div>
     <audio id="live-voice-audio" autoplay></audio>
     <div class="display-top">
-      <div class="display-brand"><span>† &nbsp; THE MINISTRY</span><strong>BIBLE BATTLE</strong><small>THE MINISTRY · LIVE GAME</small></div>
+      <div class="display-logo">† <span>THE<br>MINISTRY</span></div>
+      <div class="display-title"><strong>BIBLE BATTLE</strong><small>THE MINISTRY · LIVE GAME</small></div>
       <div class="display-join"><div id="display-qr" class="display-qr"></div><div><span>JOIN AT</span><b id="display-join-url">theministry.app/game</b><strong id="display-code"></strong></div></div>
       <div id="voice-disclosure" class="voice-disclosure hidden">Meridian · GPT-Live · AI-generated voice</div>
     </div>
-    <div id="display-stage" class="display-stage"></div>
     <div id="display-scorebar" class="display-scorebar"></div>
+    <div id="display-stage" class="display-stage"></div>
+    <canvas id="battle-fx-canvas" class="battle-fx-canvas"></canvas>
     <div id="fx-layer" class="fx-layer"></div>
   </main>
 

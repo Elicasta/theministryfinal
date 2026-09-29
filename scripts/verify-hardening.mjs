@@ -106,7 +106,7 @@ if(!liveApi.includes("'gpt-live-1'"))fail('GPT-Live model is not configured');
 if(!liveApi.includes("'meridian'"))fail('Meridian must be the default Live voice');
 if(!liveApi.includes('verifyDisplay'))fail('Live session endpoint must require display authorization');
 if(!gameBrowser.includes('RTCPeerConnection'))fail('Game display must use WebRTC for GPT-Live');
-if(gameBrowser.includes("fetch('/api/game/voice'"))fail('Legacy per-cue TTS should not drive the game display');
+if(!gameBrowser.includes("fetch('/api/game/voice'"))fail('Audible TTS fallback is missing');
 if(!gameBrowser.includes("'session.commentary.append'"))fail('Meridian announcements must use GPT-Live commentary events');
 if(gameBrowser.includes("'conversation.item.create'"))fail('Legacy Realtime conversation events must not drive GPT-Live');
 if(!gameBrowser.includes('Bible Battle'))fail('Game UI must use Bible Battle branding');
@@ -116,7 +116,7 @@ if(!gameBrowser.includes("renderQr('host-qr'"))fail('Host lobby join QR is missi
 if(!gameBrowser.includes("renderQr('display-qr'"))fail('Display join QR is missing');
 if(gameBrowser.includes("state.phase!=='lobby'||players.length>0"))fail('Joined players must not lock team-count controls');
 if(!gameBrowser.includes('NEW PACK READY'))fail('AI pack generation needs explicit success confirmation');
-if(!gameCss.includes('Bible Battle broadcast package v2'))fail('Broadcast graphics package v2 is missing');
+if(!gameCss.includes('Bible Battle Broadcast System v3'))fail('Broadcast graphics system v3 is missing');
 
 const {spawnSync}=await import('node:child_process');
 for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js']){
@@ -126,3 +126,20 @@ for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api
 
 console.log('Ministry hardening checks passed');
 console.log('Lessons:',lib.lessons.length,'Latest:',lib.latest);
+
+if(!gameBrowser.includes("captain-board-select"))fail('Control captain board picker is missing');
+if(!gameBrowser.includes("playerDo('OPEN_QUESTION'"))fail('Captain board selection is not wired to the game engine');
+if(!gameBrowser.includes('createSilentInput'))fail('GPT-Live needs an active silent WebRTC input track for announcer mode');
+if(!gameBrowser.includes('waitForIceComplete'))fail('GPT-Live WebRTC must wait for ICE gathering');
+if(!gameBrowser.includes("evt.type==='session.started'"))fail('GPT-Live must wait for session.started before speaking');
+if(!gameBrowser.includes("state.phase==='steal_buzz'"))fail('Player steal-buzz state is missing');
+if(!gameCss.includes('Projector: fixed 16:9 broadcast composition'))fail('Fixed 16:9 broadcast composition is missing');
+
+if(!gameAction.includes('answerMatches'))fail('deterministic automatic answer grading is missing');
+if(!gameAction.includes("resultNextPhase"))fail('automatic result-to-board/steal transition is missing');
+if(!gameAction.includes("Only the captain of the team in control"))fail('captain board-selection authorization is missing');
+if(!gameBrowser.includes('steal-takeover'))fail('eligible-player steal takeover is missing');
+if(!gameBrowser.includes('renderQuestionLibrary'))fail('host question library is missing');
+if(!gameBrowser.includes('initBattleFx'))fail('canvas broadcast graphics runtime is missing');
+const gameDb=fs.readFileSync('lib/game-db.js','utf8');
+if(!gameDb.includes("state.resultNextPhase!=='steal_buzz'"))fail('pre-steal answer hiding is missing');

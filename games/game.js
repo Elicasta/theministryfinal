@@ -13,8 +13,8 @@ let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
 let sb=null,channel=null,pollTimer=null,tickTimer=null,tickPending=false,fetchPending=false;
 let audioCtx=null,audioArmed=false,lastEffectKey='',lastPlayerEffectKey='',selectedTeamId=null,setupTimer=null;
-let livePc=null,liveDc=null,liveConnected=false,liveConnecting=false,liveMicStream=null,liveMicEnabled=false;
-let qrCache={host:'',display:''};
+let livePc=null,liveDc=null,liveConnected=false,liveConnecting=false,liveMicStream=null,liveMicEnabled=false,liveSessionStarted=false,liveSilentSource=null;
+let qrCache={host:'',display:''},lastStealSignal='',battleFxStarted=false;
 
 function show(id){$(id)?.classList.remove('hidden')}
 function hide(id){$(id)?.classList.add('hidden')}
@@ -131,6 +131,7 @@ function wireHost(){
     const cap=e.target.closest('[data-captain]');if(cap)return gameAction('SET_CAPTAIN',{teamId:cap.dataset.teamId,targetPlayerId:cap.dataset.captain});
     const score=e.target.closest('[data-score-team]');if(score)return gameAction('SET_CONTROL_TEAM',{teamId:score.dataset.scoreTeam});
     const q=e.target.closest('[data-question-id]');if(q&&!q.classList.contains('used'))return gameAction('OPEN_QUESTION',{questionId:q.dataset.questionId});
+    if(e.target.closest('#open-final-question'))return gameAction('OPEN_FINAL');
     const fj=e.target.closest('[data-final-judge]');if(fj)return gameAction('FINAL_JUDGE',{teamId:fj.dataset.teamId,correct:fj.dataset.finalJudge==='correct'});
   });
 }
@@ -159,15 +160,16 @@ function queueSetup(){
 }
 function hostTick(){
   if(role!=='host'||!state||tickPending)return;
-  const d=currentDeadline();if(!d||now()<Number(d))return;
+  const d=state?.phase==='result'?state.resultDeadline:currentDeadline();if(!d||now()<Number(d))return;
   tickPending=true;gameAction('TICK').finally(()=>setTimeout(()=>tickPending=false,220));
 }
 function renderHost(){
   if(!state)return;
-  $('host-code').textContent='· '+hostAuth.code;$('big-code').textContent=hostAuth.code;
+  $('host-code').textContent=hostAuth.code;$('big-code').textContent=hostAuth.code;
   $('join-url').textContent=joinUrl(hostAuth.code).replace(/^https?:\/\//,'');
   renderQr('host-qr',joinUrl(hostAuth.code),'host',184);
   $('display-link').href=displayUrl(hostAuth.code,hostAuth.displayToken);
+  if($('host-player-top'))$('host-player-top').textContent=players.length+' Player'+(players.length===1?'':'s');
   $('team-count').textContent=state.teams.length;
   if($('team-minus'))$('team-minus').disabled=state.phase!=='lobby'||state.teams.length<=2;
   if($('team-plus'))$('team-plus').disabled=state.phase!=='lobby'||state.teams.length>=12;
@@ -175,7 +177,9 @@ function renderHost(){
   $('captain-time').value=String(state.settings?.captainMs||7000);$('open-time').value=String(state.settings?.openMs||5000);
   $('pack-title').textContent=pack?.title||'Bible Battle';
   $('team-editor').innerHTML=state.teams.map(t=>'<div class="team-edit"><span class="team-swatch" style="background:'+t.color+'"></span><input data-team-name="'+esc(t.id)+'" value="'+esc(t.name)+'"></div>').join('');
-  const lobby=state.phase==='lobby';$('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
+  const lobby=state.phase==='lobby';
+  $('host-lobby').classList.toggle('hidden',!lobby);$('host-game').classList.toggle('hidden',lobby);
+  $('host-setup-panels')?.classList.toggle('hidden',!lobby);$('host-live-library')?.classList.toggle('hidden',lobby);
   renderLobby();if(!lobby)renderHostGame();
 }
 function renderLobby(){
@@ -202,32 +206,58 @@ function boardHtml(host=false){
     }).join('')).join('');
 }
 function renderHostGame(){
-  $('host-scorebar').style.setProperty('--team-count',state.teams.length);$('host-scorebar').innerHTML=scorebarHtml(true);
-  const board=$('host-board'),box=$('host-question');
+  const board=$('host-board'),box=$('host-question'),phase=state.phase,q=activeQ(),control=team(state.controlTeamId);
+  $('host-scorebar').innerHTML=scorebarHtml(true);
+  if($('host-phase'))$('host-phase').textContent=phaseLabel()||'BOARD';
+  if($('host-active-meta'))$('host-active-meta').textContent=q?(esc(category(q.category)?.label||q.category)+' · '+q.points+' pts'):(control?.name+' controls the board');
+  renderQuestionLibrary();
   if(state.phase==='board'){
     board.classList.remove('hidden');box.classList.add('hidden');
     board.style.setProperty('--cat-count',(pack?.categories||[]).length);board.innerHTML=boardHtml(true);
   }else{
     board.classList.add('hidden');box.classList.remove('hidden');box.innerHTML=hostQuestionHtml();
   }
-  const phase=state.phase;
   $('host-correct').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
   $('host-wrong').classList.toggle('hidden',!['locked','steal_locked'].includes(phase));
-  $('host-steal').classList.toggle('hidden',!['locked','reveal'].includes(phase));
-  $('host-reveal').classList.add('hidden');
-  $('host-next').classList.toggle('hidden',!['result','reveal'].includes(phase));
-  $('host-final').classList.toggle('hidden',phase!=='board');
-  $('host-end').classList.toggle('hidden',phase==='ended');
+  $('host-steal').classList.add('hidden');$('host-reveal').classList.add('hidden');$('host-next').classList.add('hidden');
+  $('host-final').classList.toggle('hidden',phase!=='board');$('host-end').classList.toggle('hidden',phase==='ended');
+  if($('host-control-summary')){
+    const cap=players.find(p=>p.playerId===control?.captainPlayerId);
+    $('host-control-summary').innerHTML='<div class="control-team" style="--team:'+(control?.color||'#f7c84b')+'"><small>TEAM IN CONTROL</small><strong>'+esc(control?.name||'—')+'</strong><span>Captain: '+esc(cap?.name||'Not assigned')+'</span></div>'+
+      '<div class="control-line"><span>Mode</span><b>'+esc(phaseLabel()||'BOARD')+'</b></div>'+
+      '<div class="control-line"><span>Steals</span><b>'+(state.settings?.autoSteal===false?'MANUAL':'AUTO')+'</b></div>'+
+      '<div class="control-line"><span>Judging</span><b>AUTO</b></div>';
+  }
+  if($('host-device-summary')){
+    const online=players.filter(p=>p.connected).length,captains=players.filter(p=>p.isCaptain).length;
+    $('host-device-summary').innerHTML='<div class="device-stat"><strong>'+online+'</strong><span>Players online</span></div><div class="device-stat"><strong>'+captains+'</strong><span>Captains</span></div><div class="device-stat"><strong>'+(state.settings?.voice?'ON':'OFF')+'</strong><span>Meridian</span></div>';
+  }
+  if($('host-answer-notes')){
+    const r=state.lastResult;
+    $('host-answer-notes').innerHTML=q?'<div><small>CORRECT ANSWER</small><strong>'+esc(q.correctAnswer||r?.correctAnswer||'Hidden until result')+'</strong></div><div><small>REFERENCE</small><strong>'+esc(q.reference||r?.reference||'')+'</strong></div><div class="notes-wide"><small>HOST NOTES</small><span>'+esc(q.explanation||r?.explanation||'Answers are judged automatically against the verified answer set.')+'</span></div>':'<div class="notes-wide"><small>BOARD CONTROL</small><span>The captain of '+esc(control?.name||'the active team')+' chooses the next available question from their phone.</span></div>';
+  }
+}
+function renderQuestionLibrary(){
+  const el=$('host-question-library');if(!el)return;
+  const rows=pack?.board||[],used=new Set(state.usedQuestionIds||[]);
+  if($('library-progress'))$('library-progress').textContent=used.size+' / '+rows.length;
+  el.innerHTML=(pack?.categories||[]).map(c=>{
+    const qs=rows.filter(q=>q.category===c.id).sort((x,y)=>x.points-y.points);
+    return '<section class="library-group"><h4>'+esc(c.label)+' <span>'+qs.length+'</span></h4>'+qs.map(q=>{
+      const active=q.id===state.activeQuestionId,done=used.has(q.id);
+      return '<button class="library-question '+(active?'active ':'')+(done?'used':'')+'" data-question-id="'+esc(q.id)+'" '+(done?'disabled':'')+'><b>'+q.points+'</b><span>'+esc(q.prompt||c.label+' · '+q.points)+'</span><i>'+(active?'LIVE':done?'USED':'READY')+'</i></button>';
+    }).join('')+'</section>';
+  }).join('');
 }
 function hostQuestionHtml(){
   if(state.phase==='final_wager'){
-    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" onclick="window.__gameOpenFinal()">Open Final Question</button>';
+    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" id="open-final-question">Open Final Question</button>';
   }
   if(['final_answer','final_judging'].includes(state.phase)){
     const answers=state.finalAnswers||{},wagers=state.finalWagers||{};
     return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.prompt||'')+'</h2><div class="suggestion-grid">'+state.teams.map(t=>{
-      const a=answers[t.id];
-      return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(a?esc(a):'Waiting…')+'</div>'+(a?'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>':'')+'</div>';
+      const ans=answers[t.id];
+      return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(ans?esc(ans):'Waiting…')+'</div>'+(ans?'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>':'')+'</div>';
     }).join('')+'</div>';
   }
   if(['winner','ended'].includes(state.phase)){
@@ -235,14 +265,13 @@ function hostQuestionHtml(){
     return '<div class="hq-meta">GAME COMPLETE</div><h2>'+esc(names.join(' + ')||'Winner')+'</h2>';
   }
   const q=activeQ();
-  if(!q)return '<div class="hq-meta">'+esc(phaseLabel())+'</div><h2>Waiting for game state…</h2>';
+  if(!q)return '<div class="hq-meta">'+esc(phaseLabel())+'</div><h2>Waiting for the next board selection.</h2>';
   const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId);
-  const subs=submissions.filter(x=>x.teamId===(activeTeam?.id));
-  return '<div class="hq-meta">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' · '+esc(phaseLabel())+'</div>'+
+  const subs=submissions.filter(x=>x.teamId===(activeTeam?.id)),r=state.lastResult||{};
+  return '<div class="hq-meta">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' POINTS · '+esc(phaseLabel())+'</div>'+
     '<h2>'+esc(q.prompt)+'</h2>'+
-    (state.lockedAnswer?'<div class="locked-answer">'+esc(state.lockedAnswer)+'</div>':'')+
-    (['result','reveal'].includes(state.phase)?'<div class="answer-key"><b>Correct:</b> '+esc(q.correctAnswer||state.lastResult?.correctAnswer||'')+'<br><small>'+esc(q.reference||state.lastResult?.reference||'')+' · '+esc(q.explanation||state.lastResult?.explanation||'')+'</small></div>':'')+
-    (currentDeadline()?'<div class="panel-label">Clock · '+seconds(currentDeadline())+' sec</div>':'')+
+    (currentDeadline()?'<div class="host-clock">'+seconds(currentDeadline())+'</div>':'')+
+    (state.phase==='result'?'<div class="host-result '+(r.correct?'correct':'wrong')+'"><b>'+(r.correct?'CORRECT':'INCORRECT')+'</b><span>'+esc(team(r.teamId)?.name||'')+(r.correct?' +'+r.points:'')+'</span></div>':'')+
     (subs.length?'<div class="suggestion-grid">'+subs.map(x=>'<div class="suggestion"><b>'+esc(players.find(p=>p.playerId===x.playerId)?.name||'Player')+(x.isCaptain?' · CAPTAIN':'')+'</b>'+esc(x.answer)+'</div>').join('')+'</div>':'');
 }
 window.__gameOpenFinal=()=>gameAction('OPEN_FINAL');
@@ -265,7 +294,7 @@ async function generatePack(){
 }
 
 async function initDisplay(){
-  show('display');const code=codeFromUrl();
+  show('display');initBattleFx();const code=codeFromUrl();
   if(!code){$('display-stage').innerHTML='<div class="display-question"><div class="question-category">DISPLAY SETUP</div><h1>Open this screen from the host console.</h1></div>';return}
   $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>armAudio();
   await fetchState();await connectRealtime(code);startPolling(900);setInterval(()=>{renderDisplay();updateTimers()},100);
@@ -276,31 +305,37 @@ function renderDisplay(){
   const gameCode=snapshot?.gameCode||codeFromUrl();
   $('display-code').textContent='CODE '+gameCode;
   if($('display-join-url'))$('display-join-url').textContent=joinUrl(gameCode).replace(/^https?:\/\//,'');
-  renderQr('display-qr',joinUrl(gameCode),'display',112);
+  renderQr('display-qr',joinUrl(gameCode),'display',96);
   $('voice-disclosure').classList.toggle('hidden',!state.settings?.voice);
   const stage=$('display-stage'),q=activeQ();
-  if(state.phase==='lobby')stage.innerHTML='<div class="display-question"><div class="question-category">JOIN THE GAME</div><h1>'+esc(snapshot.gameCode)+'</h1><div class="reveal-explain">'+esc(joinUrl(snapshot.gameCode).replace(/^https?:\/\//,''))+'</div></div>';
-  else if(state.phase==='board')stage.innerHTML='<div class="game-board" style="--cat-count:'+(pack?.categories||[]).length+'">'+boardHtml(false)+'</div>';
-  else if(['captain','open','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
-  else if(['locked','steal_locked'].includes(state.phase)){
-    const t=team(state.lockedTeamId);stage.innerHTML='<div class="display-question"><div class="answer-lock">'+esc(t?.name||'Team')+' LOCKED</div><div class="answer-big">'+esc(state.lockedAnswer||'')+'</div></div>';
-  }else if(state.phase==='steal_buzz')stage.innerHTML='<div class="display-question"><div class="question-category">ANY OTHER TEAM</div><div class="steal-call">STEAL!</div><div class="timer-ring" data-deadline="'+state.stealBuzzDeadline+'"><strong>'+seconds(state.stealBuzzDeadline)+'</strong></div></div>';
-  else if(state.phase==='reveal')stage.innerHTML='<div class="display-question"><div class="question-category">CORRECT ANSWER</div><div class="answer-big">'+esc(q?.correctAnswer||'')+'</div><div class="reveal-ref">'+esc(q?.reference||'')+'</div><div class="reveal-explain">'+esc(q?.explanation||'')+'</div></div>';
-  else if(state.phase==='result'){
-    const r=state.lastResult||{},t=team(r.teamId);stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="result-word '+(r.correct?'correct':'wrong')+'">'+(r.correct?'CORRECT':'MISSED')+'</div><div class="question-category">'+esc(t?.name||'')+(r.correct?' · +'+r.points:'')+'</div><div class="reveal-ref">'+esc(r.correctAnswer||'')+' · '+esc(r.reference||'')+'</div></div>';
-  }else if(state.phase==='final_wager')stage.innerHTML='<div class="display-question"><div class="question-category">FINAL SHOWDOWN</div><h1>'+esc(pack?.final?.category||'Final Round')+'</h1><div class="reveal-explain">Captains, lock your wagers.</div></div>';
-  else if(['final_answer','final_judging'].includes(state.phase))stage.innerHTML='<div class="display-question"><div class="question-category">FINAL SHOWDOWN</div><h1>'+esc(pack?.final?.prompt||'Get ready…')+'</h1></div>';
-  else if(['winner','ended'].includes(state.phase)){
+  if(state.phase==='lobby'){
+    stage.innerHTML='<section class="broadcast-lobby"><div class="lobby-copy"><span>JOIN BIBLE BATTLE</span><strong>'+esc(gameCode)+'</strong><p>Scan the QR code or enter the game code on your phone.</p></div><div class="lobby-team-count">'+players.length+' PLAYERS CONNECTED</div></section>';
+  }else if(state.phase==='board'){
+    const control=team(state.controlTeamId);
+    stage.innerHTML='<div class="board-scene"><div class="board-heading"><span>THE BOARD</span><strong>'+esc(control?.name||'Team')+' controls · captain selects</strong></div><div class="game-board" style="--cat-count:'+(pack?.categories||[]).length+'">'+boardHtml(false)+'</div></div>';
+  }else if(['captain','open','steal_captain','steal_open'].includes(state.phase))stage.innerHTML=displayQuestion(q);
+  else if(state.phase==='steal_buzz'){
+    stage.innerHTML='<section class="broadcast-result steal-scene"><span>STEAL AVAILABLE</span><strong>BUZZ NOW</strong><p>All eligible teams can buzz from their phones.</p><div class="timer-ring compact" data-deadline="'+state.stealBuzzDeadline+'"><strong>'+seconds(state.stealBuzzDeadline)+'</strong></div></section>';
+  }else if(state.phase==='reveal'){
+    stage.innerHTML='<section class="broadcast-reveal"><div><span>CORRECT ANSWER</span><strong>'+esc(q?.correctAnswer||'')+'</strong><b>'+esc(q?.reference||'')+'</b><p>'+esc(q?.explanation||'')+'</p></div></section>';
+  }else if(state.phase==='result'){
+    const r=state.lastResult||{},t=team(r.teamId),showAnswer=!!r.correctAnswer;
+    stage.innerHTML='<section class="broadcast-result '+(r.correct?'correct':'wrong')+'" style="--team:'+(t?.color||'#35d6ff')+'"><span>'+esc(t?.name||'TEAM')+'</span><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong><b>'+(r.correct?'+'+r.points+' POINTS':(state.resultNextPhase==='steal_buzz'?'STEAL OPENS NEXT':'ROUND COMPLETE'))+'</b>'+(showAnswer?'<p>'+esc(r.correctAnswer)+' · '+esc(r.reference||'')+'</p>':'')+'</section>';
+  }else if(state.phase==='final_wager'){
+    stage.innerHTML='<section class="broadcast-result"><span>FINAL SHOWDOWN</span><strong>'+esc(pack?.final?.category||'Final Round')+'</strong><p>Captains, lock your wagers.</p></section>';
+  }else if(['final_answer','final_judging'].includes(state.phase)){
+    stage.innerHTML='<section class="broadcast-question"><div class="question-copy"><span>FINAL SHOWDOWN</span><h1>'+esc(pack?.final?.prompt||'Get ready…')+'</h1></div></section>';
+  }else if(['winner','ended'].includes(state.phase)){
     const ids=state.winnerTeamIds||[],names=ids.map(id=>team(id)?.name).filter(Boolean),t=team(ids[0]);
-    stage.innerHTML='<div class="display-question" style="--team:'+(t?.color||'#35d6ff')+'"><div class="question-category">BIBLE BATTLE CHAMPIONS</div><div class="winner-name">'+esc(names.join(' + ')||'WINNER')+'</div><div class="winner-score">'+(t?.score||0)+' POINTS</div></div>';
-  }
+    stage.innerHTML='<section class="broadcast-result winner" style="--team:'+(t?.color||'#f7c84b')+'"><span>BIBLE BATTLE CHAMPIONS</span><strong>'+esc(names.join(' + ')||'WINNER')+'</strong><b>'+Number(t?.score||0).toLocaleString()+' POINTS</b></section>';
+  }else stage.innerHTML='<section class="broadcast-result"><span>BIBLE BATTLE</span><strong>STANDBY</strong></section>';
   displayEffects();
 }
 function displayQuestion(q){
   if(!q)return '';
   const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId),deadline=currentDeadline();
-  const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b>'+esc(x)+'</div>').join('')+'</div>':'';
-  return '<div class="display-question"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span class="question-points">'+q.points+'</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="phase-tag '+(state.phase.endsWith('open')?'open':'')+'">'+esc(activeTeam?.name||'Team')+' · '+esc(phaseLabel())+'</div><div class="timer-ring" data-deadline="'+deadline+'"><strong>'+seconds(deadline)+'</strong></div></div>';
+  const choices=(q.choices||[]).length?'<div class="choice-grid">'+q.choices.map((x,i)=>'<div class="display-choice"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(x)+'</span></div>').join('')+'</div>':'';
+  return '<section class="broadcast-question"><div class="question-copy"><div class="question-category">'+esc(category(q.category)?.label||q.category)+' <span>'+q.points+' POINTS</span></div><h1>'+esc(q.prompt)+'</h1>'+choices+'<div class="question-status"><span style="--team:'+(activeTeam?.color||'#f7c84b')+'">'+esc(activeTeam?.name||'Team')+'</span><b>'+esc(phaseLabel())+'</b></div></div><aside class="question-clock"><div class="timer-ring" data-deadline="'+deadline+'"><strong>'+seconds(deadline)+'</strong></div><small>SECONDS</small></aside></section>';
 }
 function updateTimers(){
   document.querySelectorAll('[data-deadline]').forEach(el=>{
@@ -308,6 +343,23 @@ function updateTimers(){
     el.style.setProperty('--progress',String(Math.max(0,Math.min(1,left/Math.max(1,total)))));
     const s=el.querySelector('strong');if(s)s.textContent=Math.ceil(left/1000);
   });
+}
+function initBattleFx(){
+  if(battleFxStarted)return;const canvas=$('battle-fx-canvas');if(!canvas)return;battleFxStarted=true;
+  const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
+  const stars=Array.from({length:34},(_,i)=>({x:(i*73%997)/997,y:(i*149%991)/991,r:.5+(i%4)*.32,s:.00004+(i%5)*.000018}));
+  function resize(){const d=Math.min(2,window.devicePixelRatio||1),r=canvas.getBoundingClientRect();canvas.width=Math.max(1,Math.floor(r.width*d));canvas.height=Math.max(1,Math.floor(r.height*d));ctx.setTransform(d,0,0,d,0,0)}
+  resize();addEventListener('resize',resize,{passive:true});
+  function frame(ts){
+    const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);
+    const sweep=(Math.sin(ts*.00018)+1)/2;
+    const g=ctx.createLinearGradient(w*(sweep-.3),0,w*(sweep+.25),h);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,'rgba(246,202,89,.035)');g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+    const rg=ctx.createRadialGradient(w*.52,h*.12,0,w*.52,h*.12,Math.max(w,h)*.72);rg.addColorStop(0,'rgba(44,111,168,.075)');rg.addColorStop(.45,'rgba(20,60,96,.025)');rg.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
+    for(const p of stars){p.y+=p.s*16;if(p.y>1)p.y=0;ctx.beginPath();ctx.arc(p.x*w,p.y*h,p.r,0,Math.PI*2);ctx.fillStyle='rgba(255,231,166,.13)';ctx.fill()}
+    requestAnimationFrame(frame);
+  }requestAnimationFrame(frame);
 }
 function effectKey(){return [state?.phase,state?.lastResult?.nonce,(state?.winnerTeamIds||[]).join(',')].join('|')}
 function displayEffects(){
@@ -327,66 +379,106 @@ function displayEffects(){
 }
 function liveStatus(label,on=false){
   const el=$('live-voice-status');if(el){el.textContent=label;el.classList.toggle('on',on)}
-  const b=$('arm-audio');if(b)b.textContent=on?'Meridian Live · Connected':(liveConnecting?'Connecting Meridian…':'Start Meridian Live');
+  const btn=$('arm-audio');if(btn)btn.textContent=on?'Meridian Live':(liveConnecting?'Connecting Meridian…':'Start Meridian Live');
 }
 function liveSend(type,payload={}){
-  if(!liveDc||liveDc.readyState!=='open')return false;
-  try{liveDc.send(JSON.stringify({type,...payload}));return true}catch(e){return false}
+  if(!liveDc||liveDc.readyState!=='open'||!liveSessionStarted)return false;
+  try{liveDc.send(JSON.stringify({type,...payload}));return true}catch(e){console.error('Meridian send failed',e);return false}
 }
 function liveEventText(cue){
   const q=activeQ(),r=state.lastResult||{},t=team(r.teamId),winner=(state.winnerTeamIds||[]).map(id=>team(id)?.name).filter(Boolean);
-  if(cue==='question'&&q)return 'Game event: Announce '+(category(q.category)?.label||q.category)+' for '+q.points+' points, then read this exact question: '+q.prompt;
-  if(cue==='correct')return 'Game event: The engine marked '+(t?.name||'the team')+' CORRECT for '+(r.points||0)+' points. Celebrate briefly. Do not add or change points.';
-  if(cue==='wrong')return 'Game event: The engine marked '+(t?.name||'the team')+' INCORRECT. Briefly react. A steal may follow. Do not reveal the correct answer.';
-  if(cue==='steal')return 'Game event: The steal window is open. Invite every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' to buzz now.';
-  if(cue==='final')return 'Game event: Final Showdown begins. Announce the category '+(pack?.final?.category||'Final Round')+' and tell captains to lock their wagers.';
-  if(cue==='winner')return 'Game event: The engine declares '+(winner.join(' and ')||'the winning team')+' the Bible Battle champion'+(winner.length===1?'':'s')+'. Give a concise championship announcement.';
+  if(cue==='ready')return 'Voice host online. Bible Battle is ready.';
+  if(cue==='question'&&q)return 'Announce '+(category(q.category)?.label||q.category)+' for '+q.points+' points, then read this exact question: '+q.prompt;
+  if(cue==='correct')return (t?.name||'The team')+' is correct and earns '+(r.points||0)+' points. Celebrate briefly.';
+  if(cue==='wrong')return (t?.name||'The team')+' is incorrect. '+(state.resultNextPhase==='steal_buzz'?'Tell the other teams a steal is coming.':'The round is complete.');
+  if(cue==='steal')return 'Steal is open now. Every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' can buzz.';
+  if(cue==='final')return 'Final Showdown begins. The category is '+(pack?.final?.category||'Final Round')+'. Captains should lock their wagers.';
+  if(cue==='winner')return (winner.join(' and ')||'The winning team')+' '+(winner.length===1?'is':'are')+' the Bible Battle champion'+(winner.length===1?'':'s')+'.';
   return '';
 }
+async function fallbackSpeak(cue){
+  if(!state?.settings?.voice||!displayToken)return false;
+  try{
+    liveStatus('VOICE FALLBACK');
+    const r=await fetch('/api/game/voice',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,cue})});
+    if(!r.ok)return false;
+    const blob=await r.blob(),url=URL.createObjectURL(blob),audio=new Audio(url);
+    audio.onended=()=>{URL.revokeObjectURL(url);liveStatus(liveSessionStarted?'MERIDIAN LIVE':'VOICE FALLBACK',liveSessionStarted)};
+    await audio.play();return true;
+  }catch(e){console.error('Voice fallback failed',e);return false}
+}
 function liveAnnounce(cue){
-  if(!liveConnected)return false;
   const text=liveEventText(cue);if(!text)return false;
-  return liveSend('session.commentary.append',{
-    event_id:'game_'+cue+'_'+Date.now(),
-    delegation_id:null,
-    content:text+' Speak this game update now, briefly and energetically. Do not invent or change any game fact.'
+  if(!liveConnected||!liveSessionStarted){fallbackSpeak(cue);return false}
+  const sent=liveSend('session.commentary.append',{event_id:'game_'+cue+'_'+Date.now(),delegation_id:null,content:text});
+  if(!sent)fallbackSpeak(cue);
+  return sent;
+}
+function waitForIceComplete(pc,timeout=5000){
+  if(pc.iceGatheringState==='complete')return Promise.resolve();
+  return new Promise(resolve=>{
+    const done=()=>{pc.removeEventListener('icegatheringstatechange',check);clearTimeout(timer);resolve()};
+    const check=()=>{if(pc.iceGatheringState==='complete')done()};
+    const timer=setTimeout(done,timeout);pc.addEventListener('icegatheringstatechange',check);
   });
+}
+function createSilentInput(){
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  audioCtx=audioCtx||new Ctx();
+  const dest=audioCtx.createMediaStreamDestination(),osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+  gain.gain.value=0.000001;osc.frequency.value=20;osc.connect(gain);gain.connect(dest);osc.start();
+  liveSilentSource={osc,gain,dest};liveMicStream=dest.stream;return dest.stream;
 }
 async function startMeridianLive(){
   if(liveConnected||liveConnecting||!displayToken||!state?.settings?.voice)return;
-  liveConnecting=true;liveStatus('CONNECTING MERIDIAN');
+  liveConnecting=true;liveSessionStarted=false;liveStatus('CONNECTING MERIDIAN');
   try{
     livePc=new RTCPeerConnection();
     liveDc=livePc.createDataChannel('oai-events');
-    const audio=$('live-voice-audio');
-    livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.play().catch(()=>{})}};
-    liveDc.onopen=()=>{
-      liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
-      liveSend('session.instructions.append',{
-        event_id:'game_host_ready_'+Date.now(),
-        delegation_id:null,
-        content:'You are now live as the Bible Battle announcer. Say exactly: Meridian is online. Bible Battle is ready. Then wait silently for game events.'
-      });
-    };
-    liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
-    liveDc.onerror=()=>liveStatus('MERIDIAN ERROR');
-    liveDc.onmessage=e=>{try{const evt=JSON.parse(e.data);if(evt.type==='session.started')liveStatus('MERIDIAN LIVE',true);if(evt.type==='error'){console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||'EVENT REJECTED'))}}catch(_){}};
-    livePc.addTransceiver('audio',{direction:'recvonly'});
-    const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);
-    const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp:offer.sdp})});
-    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Live session failed');
+    const output=$('live-voice-audio');
+    livePc.ontrack=e=>{if(output){output.srcObject=e.streams[0]||new MediaStream([e.track]);output.muted=false;output.volume=1;output.play().catch(err=>console.error('Meridian playback blocked',err))}};
+    const silent=createSilentInput();for(const tr of silent.getTracks())livePc.addTrack(tr,silent);
+    let startTimer=null;
+    liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · STARTING');
+    liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveSessionStarted=false;liveStatus('MERIDIAN OFFLINE')};
+    liveDc.onerror=e=>{console.error('Meridian data channel error',e);liveStatus('MERIDIAN DATA ERROR')};
+    liveDc.onmessage=e=>{try{
+      const evt=JSON.parse(e.data);
+      if(evt.type==='session.started'){
+        clearTimeout(startTimer);liveSessionStarted=true;liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
+        liveSend('session.instructions.append',{event_id:'game_host_ready_'+Date.now(),delegation_id:null,content:'Immediately say exactly: Meridian is online. Bible Battle is ready. Then pause and wait silently for game announcements.'});
+      }else if(evt.type==='session.output_transcript.delta'){
+        liveStatus('MERIDIAN SPEAKING',true);
+      }else if(evt.type==='session.instructions.appended'||evt.type==='session.commentary.appended'){
+        liveStatus('MERIDIAN LIVE',true);
+      }else if(evt.type==='session.closed'){
+        liveConnected=false;liveSessionStarted=false;liveStatus('MERIDIAN OFFLINE');
+      }else if(evt.type==='error'){
+        console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||evt.error?.message||'EVENT REJECTED'));
+      }
+    }catch(err){console.error('Meridian event parse error',err)}};
+    const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);await waitForIceComplete(livePc);
+    const sdp=livePc.localDescription?.sdp||offer.sdp;
+    const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp})});
+    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error((d.error||'Live session failed')+(d.details?' · '+d.details:''));
     const answer=d?.transport?.sdp;if(!answer)throw new Error('OpenAI Live did not return an SDP answer');
     await livePc.setRemoteDescription({type:'answer',sdp:answer});
+    startTimer=setTimeout(()=>{if(!liveSessionStarted){liveStatus('MERIDIAN START TIMEOUT');fallbackSpeak('ready')}},9000);
   }catch(e){
-    liveConnected=false;liveConnecting=false;try{livePc?.close()}catch(_){}
-    livePc=null;liveDc=null;liveStatus('MERIDIAN UNAVAILABLE');
+    console.error('Meridian startup failed',e);liveConnected=false;liveConnecting=false;liveSessionStarted=false;
+    try{livePc?.close()}catch(_){}
+    try{liveSilentSource?.osc?.stop()}catch(_){}
+    livePc=null;liveDc=null;liveMicStream=null;liveSilentSource=null;liveStatus('MERIDIAN UNAVAILABLE');fallbackSpeak('ready');
   }
 }
 function stopMeridianLive(){
-  liveConnected=false;liveConnecting=false;
+  const wasStarted=liveSessionStarted;
+  try{if(wasStarted)liveSend('session.close',{event_id:'game_close_'+Date.now()})}catch(_){}
+  liveConnected=false;liveConnecting=false;liveSessionStarted=false;
   try{liveDc?.close()}catch(_){}try{livePc?.close()}catch(_){}
+  try{liveSilentSource?.osc?.stop()}catch(_){}
   if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
-  livePc=null;liveDc=null;liveMicStream=null;liveMicEnabled=false;liveStatus('MERIDIAN OFFLINE');
+  livePc=null;liveDc=null;liveMicStream=null;liveSilentSource=null;liveMicEnabled=false;liveStatus('MERIDIAN OFFLINE');
 }
 async function armAudio(){
   try{
@@ -414,6 +506,7 @@ function wirePlayer(){
   document.addEventListener('click',e=>{
     const pick=e.target.closest('[data-pick-team]');if(pick){selectedTeamId=pick.dataset.pickTeam;renderTeamPicker();$('join-team').disabled=false;return}
     const ans=e.target.closest('[data-answer]');if(ans)return submitAnswer(ans.dataset.answer);
+    if(e.target.closest('#captain-pick-question'))return playerDo('OPEN_QUESTION',{questionId:$('captain-board-select')?.value||''});
     if(e.target.closest('#steal-buzz-button'))return playerDo('BUZZ');
     if(e.target.closest('#typed-send'))return submitAnswer($('typed-answer')?.value);
     if(e.target.closest('#submit-wager'))return playerDo('FINAL_WAGER',{wager:Number($('wager-input')?.value)||0});
@@ -453,14 +546,23 @@ function renderPlayer(){
   $('player-team-banner').style.setProperty('--team',t.color);$('player-team-banner').innerHTML='<b>'+esc(t.name)+(p.isCaptain?' · CAPTAIN':'')+'</b><strong>'+t.score+'</strong>';
   const host=$('player-content'),q=activeQ();
   if(state.phase==='lobby'){host.innerHTML='<div class="waiting"><strong>YOU’RE IN</strong>Waiting for the host to start.</div>'}
-  else if(state.phase==='board'){host.innerHTML='<div class="waiting"><strong>BOARD LIVE</strong>'+esc(team(state.controlTeamId)?.name||'A team')+' controls the board.</div>'}
+  else if(state.phase==='board'){
+    if(p.isCaptain&&t.id===state.controlTeamId){
+      const available=(pack?.board||[]).filter(q=>!(state.usedQuestionIds||[]).includes(q.id));
+      const groups=(pack?.categories||[]).map(c=>{const opts=available.filter(q=>q.category===c.id).sort((a,b)=>a.points-b.points);return opts.length?'<optgroup label="'+esc(c.label)+'">'+opts.map(q=>'<option value="'+esc(q.id)+'">'+esc(c.label)+' · '+q.points+' points</option>').join('')+'</optgroup>':''}).join('');
+      host.innerHTML='<div class="player-card captain-board-picker"><div class="player-phase">YOUR TEAM CONTROLS THE BOARD</div><h2>Choose the next question</h2><select id="captain-board-select" class="board-select">'+groups+'</select><button id="captain-pick-question" class="game-btn primary full">Open Question</button><div class="small-state">Your selection opens immediately for the room.</div></div>';
+    }else host.innerHTML='<div class="waiting"><strong>BOARD LIVE</strong>'+esc(team(state.controlTeamId)?.name||'A team')+' controls the board. Their captain is choosing.</div>';
+  }
   else if(['captain','open','steal_captain','steal_open'].includes(state.phase))renderPlayerQuestion(host,q,p,t);
   else if(['locked','steal_locked'].includes(state.phase))host.innerHTML='<div class="player-card"><div class="player-phase">ANSWER LOCKED</div><h2>'+esc(team(state.lockedTeamId)?.name||'Team')+'</h2><div class="question">'+esc(state.lockedAnswer||'')+'</div><div class="small-state">Waiting for the host…</div></div>';
   else if(state.phase==='steal_buzz'){
-    if(t.id===state.controlTeamId)host.innerHTML='<div class="waiting"><strong>STEAL OPEN</strong>Other teams are racing for the steal.</div>';
-    else host.innerHTML='<div class="player-card"><div class="player-phase">STEAL WINDOW</div><button id="steal-buzz-button" class="buzz-button">BUZZ</button><div class="player-timer">'+seconds(state.stealBuzzDeadline)+'</div></div>';
+    if(t.id===state.controlTeamId)host.innerHTML='<div class="waiting"><strong>STEAL OPEN</strong>Every other team can buzz right now.</div>';
+    else{
+      const sig=String(state.stealBuzzDeadline||'');if(sig&&sig!==lastStealSignal){lastStealSignal=sig;if(navigator.vibrate)navigator.vibrate([120,45,120,45,220])}
+      host.innerHTML='<div class="player-card steal-takeover" style="--team:'+t.color+'"><div class="player-phase">STEAL AVAILABLE</div><strong class="steal-device-title">YOUR TEAM CAN STEAL</strong><button id="steal-buzz-button" class="buzz-button">BUZZ TO STEAL</button><div class="player-timer">'+seconds(state.stealBuzzDeadline)+'</div><div class="small-state">First server-accepted buzz wins the steal.</div></div>';
+    }
   }else if(state.phase==='reveal')host.innerHTML='<div class="player-card"><div class="player-phase">CORRECT ANSWER</div><h2>'+esc(q?.correctAnswer||'')+'</h2><div class="small-state">'+esc(q?.reference||'')+' · '+esc(q?.explanation||'')+'</div></div>';
-  else if(state.phase==='result'){const r=state.lastResult||{};host.innerHTML='<div class="waiting"><strong>'+(r.correct?'SCORE!':'ROUND OVER')+'</strong>'+esc(team(r.teamId)?.name||'')+(r.correct?' earned '+r.points+' points.':'')+'</div>';playerEffects()}
+  else if(state.phase==='result'){const r=state.lastResult||{},nextSteal=state.resultNextPhase==='steal_buzz';host.innerHTML='<div class="waiting result-wait '+(r.correct?'correct':'wrong')+'"><strong>'+(r.correct?'CORRECT':'INCORRECT')+'</strong>'+esc(team(r.teamId)?.name||'')+(r.correct?' earned '+r.points+' points.':nextSteal?' missed. Steal opens next.':' missed. Returning to the board.')+'</div>';playerEffects()}
   else if(state.phase==='final_wager'){
     if(p.isCaptain)host.innerHTML='<div class="player-card"><div class="player-phase">FINAL WAGER</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><div class="small-state">You have '+t.score+' points.</div><input id="wager-input" class="answer-input" type="number" min="0" max="'+Math.max(0,t.score)+'" value="'+Math.min(500,Math.max(0,t.score))+'"><button id="submit-wager" class="game-btn primary full">Lock Wager</button></div>';
     else host.innerHTML='<div class="waiting"><strong>FINAL WAGER</strong>Your captain is choosing the wager.</div>';
@@ -479,7 +581,7 @@ function renderPlayerQuestion(host,q,p,t){
   if((q.choices||[]).length)controls='<div class="phone-choices">'+q.choices.map((x,i)=>'<button class="phone-choice '+(own?.answer===x?'selected':'')+'" data-answer="'+esc(x)+'"><b>'+String.fromCharCode(65+i)+'</b>'+esc(x)+'</button>').join('')+'</div>';
   else controls='<input id="typed-answer" class="answer-input" maxlength="160" placeholder="Type answer"><button id="typed-send" class="game-btn primary full">'+(canLock?'LOCK ANSWER':'SEND TO CAPTAIN')+'</button>';
   const suggestions=p.isCaptain?captainSuggestions(t.id):'';
-  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer">'+seconds(currentDeadline())+'</div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your next answer locks for the team.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
+  host.innerHTML='<div class="player-card"><div class="player-phase">'+esc(phaseLabel())+'</div><div class="player-timer">'+seconds(currentDeadline())+'</div><div class="question">'+esc(q.prompt)+'</div>'+controls+'<div class="small-state">'+(canLock?'Your next answer is locked and checked automatically.':'Your answer is a suggestion until the captain locks or the team-open window begins.')+'</div>'+suggestions+'</div>';
 }
 function captainSuggestions(teamId){
   const rows=submissions.filter(x=>x.teamId===teamId);if(!rows.length)return '<div class="suggestions-box"><div class="small-state">No suggestions yet.</div></div>';
