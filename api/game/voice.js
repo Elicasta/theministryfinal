@@ -20,7 +20,7 @@ function voiceText(row,cue){
   return '';
 }
 export default async function handler(req,res){
-  res.setHeader('Cache-Control','public, max-age=30, s-maxage=30');
+  corsNoStore(res);
   if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});
   const key=process.env.OPENAI_API_KEY;
   if(!key)return res.status(503).json({error:'AI voice is not configured'});
