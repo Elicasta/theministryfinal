@@ -103,3 +103,5 @@ button,a,input,select{touch-action:manipulation}button:focus-visible,a:focus-vis
   .landing-card{width:100%;min-width:0}.landing-card h1{font-size:clamp(34px,10vw,60px)}.landing-details{flex-wrap:wrap}.landing-card .game-btn{min-height:48px}
 }
 .team-streak{display:block;color:#dac180;font-size:10px;line-height:1.35;letter-spacing:.025em}.display-team .team-streak{font-size:clamp(8px,1.2svh,12px)}.player-team-banner .team-streak{margin-top:6px;font-size:11px}#player-scores .display-team{height:auto;min-height:105px}#player-scores .team-streak{font-size:9px}.display-team .team-pips{gap:4px}.display-team .team-pips b{height:6px;width:6px}
+/* Streak labels replace the pips in the compact projector score strip. */
+.display-scorebar .team-copy{gap:2px}.display-scorebar .team-pips{display:none}.display-scorebar .display-team{padding-top:6px;padding-bottom:6px}.display-scorebar .team-name,.display-scorebar .team-streak{line-height:1.1}
