@@ -53,7 +53,7 @@ export default async function handler(req,res){
   const pr=await db('game_players?'+pq.toString());
   const refreshed={...game,state,version:Number(game.version||0)+1};
   return res.status(200).json({
-    ...publicGameState(refreshed,Array.isArray(pr.json)?pr.json:[],'player'),
+    ...publicGameState(refreshed,Array.isArray(pr.json)?pr.json:[],'player',[],teamId),
     player:{playerId,name,teamId,isCaptain:needsCaptain},
     playerToken
   });
