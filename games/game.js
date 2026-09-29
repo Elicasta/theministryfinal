@@ -249,7 +249,31 @@ function renderQuestionLibrary(){
   }).join('');
 }
 function hostQuestionHtml(){
-  if(state.phase==='final_wager')return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" onclick="window.__gameOpenFinal=()=>gameAction('OPEN_FINAL');
+  if(state.phase==='final_wager'){
+    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.category||'Final Round')+'</h2><p>Captains are wagering privately.</p><button class="game-btn primary" id="open-final-question">Open Final Question</button>';
+  }
+  if(['final_answer','final_judging'].includes(state.phase)){
+    const answers=state.finalAnswers||{},wagers=state.finalWagers||{};
+    return '<div class="hq-meta">FINAL SHOWDOWN</div><h2>'+esc(pack?.final?.prompt||'')+'</h2><div class="suggestion-grid">'+state.teams.map(t=>{
+      const ans=answers[t.id];
+      return '<div class="suggestion"><b>'+esc(t.name)+' · wager '+(wagers[t.id]??'—')+'</b><div>'+(ans?esc(ans):'Waiting…')+'</div>'+(ans?'<div class="poll-actions"><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="correct">Correct</button><button class="mini-btn" data-team-id="'+t.id+'" data-final-judge="wrong">Wrong</button></div>':'')+'</div>';
+    }).join('')+'</div>';
+  }
+  if(['winner','ended'].includes(state.phase)){
+    const names=(state.winnerTeamIds||[]).map(id=>team(id)?.name).filter(Boolean);
+    return '<div class="hq-meta">GAME COMPLETE</div><h2>'+esc(names.join(' + ')||'Winner')+'</h2>';
+  }
+  const q=activeQ();
+  if(!q)return '<div class="hq-meta">'+esc(phaseLabel())+'</div><h2>Waiting for the next board selection.</h2>';
+  const activeTeam=state.phase.startsWith('steal_')?team(state.stealTeamId):team(state.controlTeamId);
+  const subs=submissions.filter(x=>x.teamId===(activeTeam?.id)),r=state.lastResult||{};
+  return '<div class="hq-meta">'+esc(category(q.category)?.label||q.category)+' · '+q.points+' POINTS · '+esc(phaseLabel())+'</div>'+
+    '<h2>'+esc(q.prompt)+'</h2>'+
+    (currentDeadline()?'<div class="host-clock">'+seconds(currentDeadline())+'</div>':'')+
+    (state.phase==='result'?'<div class="host-result '+(r.correct?'correct':'wrong')+'"><b>'+(r.correct?'CORRECT':'INCORRECT')+'</b><span>'+esc(team(r.teamId)?.name||'')+(r.correct?' +'+r.points:'')+'</span></div>':'')+
+    (subs.length?'<div class="suggestion-grid">'+subs.map(x=>'<div class="suggestion"><b>'+esc(players.find(p=>p.playerId===x.playerId)?.name||'Player')+(x.isCaptain?' · CAPTAIN':'')+'</b>'+esc(x.answer)+'</div>').join('')+'</div>':'');
+}
+window.__gameOpenFinal=()=>gameAction('OPEN_FINAL');
 
 async function generatePack(){
   const b=$('generate-pack'),status=$('generator-state'),confirm=$('pack-confirm'),difficulty=$('difficulty').value;
