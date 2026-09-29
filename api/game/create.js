@@ -26,6 +26,7 @@ export default async function handler(req,res){
   };
 
   const hostToken=randomToken();
+  const displayToken=randomToken(18);
   const state={
     engine:'ministry-games-v1',phase:'lobby',teams,settings,
     controlTeamId:teams[0].id,activeQuestionId:null,usedQuestionIds:[],
@@ -41,7 +42,7 @@ export default async function handler(req,res){
       method:'POST',
       headers:{Prefer:'return=representation'},
       body:JSON.stringify({
-        game_code:code,status:'lobby',host_token_hash:hashToken(hostToken),
+        game_code:code,status:'lobby',host_token_hash:hashToken(hostToken),display_token_hash:hashToken(displayToken),
         state,question_pack:BUILTIN_GAME_PACK
       })
     });
@@ -53,5 +54,5 @@ export default async function handler(req,res){
   const row=Array.isArray(write.json)?write.json[0]:write.json;
   await db('game_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({game_id:row.id,game_code:code,kind:'GAME_CREATED',actor_type:'host',payload:{teams:count}})});
   broadcastGame(code,'state',{version:row.version,reason:'GAME_CREATED'}).catch(()=>{});
-  return res.status(200).json({...publicGameState(row,[],'host'),hostToken});
+  return res.status(200).json({...publicGameState(row,[],'host'),hostToken,displayToken});
 }
