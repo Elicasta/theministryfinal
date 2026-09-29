@@ -13,6 +13,7 @@ let snapshot=null,state=null,pack=null,players=[],submissions=[];
 let hostAuth=null,playerAuth=null,displayToken=qs.get('dt')||'';
 let sb=null,channel=null,pollTimer=null,tickTimer=null,tickPending=false,fetchPending=false;
 let audioCtx=null,audioArmed=false,lastEffectKey='',lastPlayerEffectKey='',selectedTeamId=null,setupTimer=null;
+let livePc=null,liveDc=null,liveConnected=false,liveConnecting=false,liveMicStream=null,liveMicEnabled=false;
 
 function show(id){$(id)?.classList.remove('hidden')}
 function hide(id){$(id)?.classList.add('hidden')}
@@ -251,7 +252,7 @@ async function generatePack(){
 async function initDisplay(){
   show('display');const code=codeFromUrl();
   if(!code){$('display-stage').innerHTML='<div class="display-question"><div class="question-category">DISPLAY SETUP</div><h1>Open this screen from the host console.</h1></div>';return}
-  $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>{armAudio();$('arm-audio').classList.add('armed')};
+  $('display-code').textContent='GAME '+code;$('arm-audio').onclick=()=>armAudio();
   await fetchState();await connectRealtime(code);startPolling(900);setInterval(()=>{renderDisplay();updateTimers()},100);
 }
 function renderDisplay(){
@@ -292,25 +293,80 @@ function updateTimers(){
 }
 function effectKey(){return [state?.phase,state?.lastResult?.nonce,(state?.winnerTeamIds||[]).join(',')].join('|')}
 function displayEffects(){
-  const key=effectKey();if(key===lastEffectKey)return;const prev=lastEffectKey;lastEffectKey=key;
+  const key=effectKey();if(key===lastEffectKey)return;lastEffectKey=key;
   if(!audioArmed)return;
   if(['captain','steal_captain'].includes(state.phase))playSfx('question');
   if(['locked','steal_locked'].includes(state.phase))playSfx('lock');
   if(state.phase==='steal_buzz')playSfx('steal');
-  if(state.phase==='result'){if(state.lastResult?.correct){playSfx('correct');confetti(team(state.lastResult.teamId)?.color||'#35d6ff');speak('correct')}else{playSfx('wrong');speak('wrong')}}
-  if(['winner','ended'].includes(state.phase)){playSfx('winner');confetti(team(state.winnerTeamIds?.[0])?.color||'#35d6ff');speak('winner')}
-  if(state.phase==='captain')speak('question');
-  if(state.phase==='steal_buzz')speak('steal');
-  if(state.phase==='final_wager')speak('final');
+  if(state.phase==='result'){if(state.lastResult?.correct){playSfx('correct');confetti(team(state.lastResult.teamId)?.color||'#35d6ff')}else playSfx('wrong')}
+  if(['winner','ended'].includes(state.phase)){playSfx('winner');confetti(team(state.winnerTeamIds?.[0])?.color||'#35d6ff')}
+  if(!state.settings?.voice)return;
+  if(state.phase==='captain')liveAnnounce('question');
+  if(state.phase==='steal_buzz')liveAnnounce('steal');
+  if(state.phase==='result')liveAnnounce(state.lastResult?.correct?'correct':'wrong');
+  if(state.phase==='final_wager')liveAnnounce('final');
+  if(['winner','ended'].includes(state.phase))liveAnnounce('winner');
 }
-async function speak(cue){
-  if(!state.settings?.voice||!displayToken)return;
+function liveStatus(label,on=false){
+  const el=$('live-voice-status');if(el){el.textContent=label;el.classList.toggle('on',on)}
+  const b=$('arm-audio');if(b)b.textContent=on?'Meridian Live · Connected':(liveConnecting?'Connecting Meridian…':'Start Meridian Live');
+}
+function liveSend(type,payload={}){
+  if(!liveDc||liveDc.readyState!=='open')return false;
+  try{liveDc.send(JSON.stringify({type,...payload}));return true}catch(e){return false}
+}
+function liveEventText(cue){
+  const q=activeQ(),r=state.lastResult||{},t=team(r.teamId),winner=(state.winnerTeamIds||[]).map(id=>team(id)?.name).filter(Boolean);
+  if(cue==='question'&&q)return 'Game event: Announce '+(category(q.category)?.label||q.category)+' for '+q.points+' points, then read this exact question: '+q.prompt;
+  if(cue==='correct')return 'Game event: The engine marked '+(t?.name||'the team')+' CORRECT for '+(r.points||0)+' points. Celebrate briefly. Do not add or change points.';
+  if(cue==='wrong')return 'Game event: The engine marked '+(t?.name||'the team')+' INCORRECT. Briefly react. A steal may follow. Do not reveal the correct answer.';
+  if(cue==='steal')return 'Game event: The steal window is open. Invite every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' to buzz now.';
+  if(cue==='final')return 'Game event: Final Showdown begins. Announce the category '+(pack?.final?.category||'Final Round')+' and tell captains to lock their wagers.';
+  if(cue==='winner')return 'Game event: The engine declares '+(winner.join(' and ')||'the winning team')+' the Bible Showdown champion'+(winner.length===1?'':'s')+'. Give a concise championship announcement.';
+  return '';
+}
+function liveAnnounce(cue){
+  if(!liveConnected)return;
+  const text=liveEventText(cue);if(!text)return;
+  liveSend('conversation.item.create',{item:{type:'message',role:'user',content:[{type:'input_text',text}]}});
+  liveSend('response.create',{response:{modalities:['audio'],instructions:'Announce the supplied game event now. Keep it concise and energetic. Never invent game facts.'}});
+}
+async function startMeridianLive(){
+  if(liveConnected||liveConnecting||!displayToken||!state?.settings?.voice)return;
+  liveConnecting=true;liveStatus('CONNECTING MERIDIAN');
   try{
-    const r=await fetch('/api/game/voice',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,cue})});
-    if(!r.ok)return;const blob=await r.blob(),url=URL.createObjectURL(blob),a=new Audio(url);a.onended=()=>URL.revokeObjectURL(url);await a.play();
-  }catch(e){}
+    livePc=new RTCPeerConnection();
+    liveDc=livePc.createDataChannel('oai-events');
+    const audio=$('live-voice-audio');
+    livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.play().catch(()=>{})}};
+    liveDc.onopen=()=>{liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true)};
+    liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
+    liveDc.onerror=()=>liveStatus('MERIDIAN ERROR');
+    liveDc.onmessage=e=>{try{const evt=JSON.parse(e.data);if(evt.type==='session.started')liveStatus('MERIDIAN LIVE',true)}catch(_){}};
+    livePc.addTransceiver('audio',{direction:'recvonly'});
+    const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);
+    const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp:offer.sdp})});
+    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Live session failed');
+    const answer=d?.transport?.sdp;if(!answer)throw new Error('OpenAI Live did not return an SDP answer');
+    await livePc.setRemoteDescription({type:'answer',sdp:answer});
+  }catch(e){
+    liveConnected=false;liveConnecting=false;try{livePc?.close()}catch(_){}
+    livePc=null;liveDc=null;liveStatus('MERIDIAN UNAVAILABLE');
+  }
 }
-function armAudio(){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();audioCtx.resume();audioArmed=true;playSfx('arm')}catch(e){}}
+function stopMeridianLive(){
+  liveConnected=false;liveConnecting=false;
+  try{liveDc?.close()}catch(_){}try{livePc?.close()}catch(_){}
+  if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
+  livePc=null;liveDc=null;liveMicStream=null;liveMicEnabled=false;liveStatus('MERIDIAN OFFLINE');
+}
+async function armAudio(){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();await audioCtx.resume();
+    audioArmed=true;playSfx('arm');$('arm-audio')?.classList.add('armed');
+    if(state?.settings?.voice)await startMeridianLive();else liveStatus('GAME AUDIO ARMED');
+  }catch(e){liveStatus('AUDIO UNAVAILABLE')}
+}
 function tone(freq,start,duration,gain=.07,type='sine'){if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.001,audioCtx.currentTime+start);g.gain.exponentialRampToValueAtTime(gain,audioCtx.currentTime+start+.015);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+start+duration);o.connect(g);g.connect(audioCtx.destination);o.start(audioCtx.currentTime+start);o.stop(audioCtx.currentTime+start+duration+.03)}
 function playSfx(n){if(!audioCtx)return;if(n==='arm'){tone(440,0,.08);tone(660,.07,.12)}if(n==='question'){tone(220,0,.11,.05,'sawtooth');tone(440,.08,.16,.06,'sawtooth')}if(n==='lock'){tone(180,0,.12,.07,'square');tone(120,.12,.16,.05,'square')}if(n==='correct'){[523,659,784,1047].forEach((f,i)=>tone(f,i*.07,.22,.07,'triangle'))}if(n==='wrong'){tone(170,0,.28,.08,'sawtooth');tone(110,.12,.34,.07,'sawtooth')}if(n==='steal'){tone(880,0,.08,.06);tone(660,.09,.08,.06);tone(990,.18,.18,.07)}if(n==='winner'){[392,523,659,784,1047].forEach((f,i)=>tone(f,i*.11,.32,.07,'triangle'))}}
 function confetti(color){const layer=$('fx-layer');if(!layer)return;for(let i=0;i<72;i++){const p=document.createElement('i');p.className='particle';p.style.setProperty('--p',i%3===0?'#fff':i%3===1?color:'#ffcc57');p.style.setProperty('--x0',(innerWidth/2)+'px');p.style.setProperty('--y0',(innerHeight*.52)+'px');p.style.setProperty('--x1',(Math.random()*innerWidth)+'px');p.style.setProperty('--y1',(Math.random()*innerHeight)+'px');layer.appendChild(p);setTimeout(()=>p.remove(),1600)}}
