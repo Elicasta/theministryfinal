@@ -56,7 +56,7 @@ export default async function handler(req,res){
     if(!player)return res.status(401).json({error:'Player session expired'});
   } else return res.status(401).json({error:'Invalid game credentials'});
 
-  const hostOnly=new Set(['SETUP','SET_CAPTAIN','SET_CONTROL_TEAM','START','OPEN_QUESTION','TICK','JUDGE','OPEN_STEAL','REVEAL','NEXT','START_FINAL','OPEN_FINAL','FINAL_JUDGE','END']);
+  const hostOnly=new Set(['SETUP','SET_CAPTAIN','SET_CONTROL_TEAM','START','TICK','JUDGE','OPEN_STEAL','REVEAL','NEXT','START_FINAL','OPEN_FINAL','FINAL_JUDGE','END']);
   const playerOnly=new Set(['ANSWER','BUZZ','FINAL_WAGER','FINAL_ANSWER','HEARTBEAT']);
   if(hostOnly.has(action)&&role!=='host')return res.status(403).json({error:'Host action required'});
   if(playerOnly.has(action)&&role!=='player')return res.status(403).json({error:'Player action required'});
@@ -117,6 +117,8 @@ export default async function handler(req,res){
   }
 
   if(action==='OPEN_QUESTION'){
+    if(role==='player'&&(!player?.is_captain||player.team_id!==state.controlTeamId))return res.status(403).json({error:'Only the captain of the team in control can choose the board question'});
+    if(role!=='host'&&role!=='player')return res.status(403).json({error:'Question selection not allowed'});
     if(state.phase!=='board')return res.status(409).json({error:'Return to the board first'});
     const questionId=clean(body.questionId,120),q=qById(row,questionId);
     if(!q)return res.status(404).json({error:'Question not found'});
@@ -125,14 +127,20 @@ export default async function handler(req,res){
     state={...state,phase:'captain',activeQuestionId:questionId,questionOpenedAt:t,captainDeadline:t+captainMs,teamDeadline:t+captainMs+openMs,
       lockedAnswer:null,lockedBy:null,lockedTeamId:null,stealTeamId:null,stealBuzzDeadline:null,stealCaptainDeadline:null,stealDeadline:null,lastResult:null,
       usedQuestionIds:[...(state.usedQuestionIds||[]),questionId]};
-    const c=await commit(row,state,'QUESTION_OPENED',{actorType:'host',teamId:state.controlTeamId,payload:{questionId}});
+    const c=await commit(row,state,'QUESTION_OPENED',{actorType:role,playerId:player?.player_id||null,teamId:state.controlTeamId,payload:{questionId}});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
     return res.status(200).json(await hydrate(c.row,'host'));
   }
 
   if(action==='TICK'){
     const t=nowMs();let changed=false,kind='';
-    if(state.phase==='captain'&&state.captainDeadline&&t>=state.captainDeadline){state.phase='open';changed=true;kind='TEAM_OPENED'}
+    if(state.phase==='result'&&state.resultDeadline&&t>=state.resultDeadline){
+      const next=state.resultNextPhase||'board';
+      if(next==='steal_buzz'){state.phase='steal_buzz';state.stealTeamId=null;state.stealBuzzDeadline=t+(Number(state.settings?.stealMs)||5000);kind='STEAL_OPENED'}
+      else{state=clearRound(state);state.phase='board';kind='RETURNED_TO_BOARD'}
+      state.resultDeadline=null;state.resultNextPhase=null;changed=true;
+    }
+    else if(state.phase==='captain'&&state.captainDeadline&&t>=state.captainDeadline){state.phase='open';changed=true;kind='TEAM_OPENED'}
     else if(state.phase==='open'&&state.teamDeadline&&t>=state.teamDeadline){
       if(state.settings?.autoSteal!==false&&(state.teams||[]).length>1){state.phase='steal_buzz';state.stealBuzzDeadline=t+(Number(state.settings?.stealMs)||5000);changed=true;kind='STEAL_OPENED'}
       else{state.phase='reveal';changed=true;kind='QUESTION_TIMED_OUT'}
@@ -195,13 +203,10 @@ export default async function handler(req,res){
     state.teams=(state.teams||[]).map(t=>t.id===teamId?{...t,score:(Number(t.score)||0)+points,streak:correct?(Number(t.streak)||0)+1:0}:t);
     if(correct)state.controlTeamId=teamId;
     const nonce=nowMs();
-    if(!correct&&!isSteal&&state.settings?.autoSteal!==false&&(state.teams||[]).length>1){
-      state.lastResult={correct:false,teamId,points:0,answer:state.lockedAnswer,nonce};
-      state.phase='steal_buzz';state.stealTeamId=null;state.stealBuzzDeadline=nowMs()+(Number(state.settings?.stealMs)||5000);
-    }else{
-      state.lastResult={correct,teamId,points,answer:state.lockedAnswer,correctAnswer:q.correctAnswer,reference:q.reference||'',explanation:q.explanation||'',nonce};
-      state.phase='result';
-    }
+    state.lastResult={correct,teamId,points,answer:state.lockedAnswer,correctAnswer:q.correctAnswer,reference:q.reference||'',explanation:q.explanation||'',nonce};
+    state.phase='result';
+    state.resultDeadline=nowMs()+2200;
+    state.resultNextPhase=(!correct&&!isSteal&&state.settings?.autoSteal!==false&&(state.teams||[]).length>1)?'steal_buzz':'board';
     const c=await commit(row,state,correct?'ANSWER_CORRECT':'ANSWER_WRONG',{actorType:'host',teamId,payload:{points,isSteal}});
     if(c.conflict)return res.status(409).json({error:'Game changed. Retry.'});
     return res.status(200).json(await hydrate(c.row,'host'));
