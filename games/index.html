@@ -17,7 +17,7 @@
     <div class="landing-glow"></div>
     <section class="landing-card">
       <div class="brand-kicker">THE MINISTRY GAMES</div>
-      <h1>BIBLE<br><span>SHOWDOWN</span></h1>
+      <h1>BIBLE<br><span>BATTLE</span></h1>
       <p>Fast-paced team Bible competition built for the whole room.</p>
       <div class="landing-actions">
         <a class="game-btn primary" href="/games/host">Create Game</a>
@@ -67,8 +67,9 @@
               <option value="expert">Expert</option>
             </select>
           </div>
-          <button id="generate-pack" class="game-btn full">Generate AI Pack</button>
-          <div id="generator-state" class="small-state">Built-in verified starter pack loaded.</div>
+          <button id="generate-pack" class="game-btn full pack-generate">Generate AI Pack</button>
+          <div id="generator-state" class="pack-status ready"><span class="pack-status-icon">✓</span><span>Built-in verified starter pack loaded.</span></div>
+          <div id="pack-confirm" class="pack-confirm hidden"></div>
         </section>
 
         <section class="host-panel">
@@ -83,10 +84,9 @@
 
       <section class="host-main">
         <div id="host-lobby" class="host-view">
-          <div class="lobby-code-card">
-            <div class="panel-label">Join Code</div>
-            <div id="big-code" class="big-code">------</div>
-            <div id="join-url" class="join-url">theministry.vercel.app/games/play</div>
+          <div class="lobby-code-card battle-join-card">
+            <div class="join-copy"><div class="panel-label">Join Bible Battle</div><div class="join-command">SCAN TO JOIN</div><div id="join-url" class="join-url">theministry.vercel.app/games/play</div><div class="code-label">OR ENTER CODE</div><div id="big-code" class="big-code">------</div></div>
+            <div id="host-qr" class="battle-qr" aria-label="Join game QR code"></div>
           </div>
           <div class="host-section-head"><div><span class="panel-label">Players</span><h2>Lobby</h2></div><span id="player-count" class="count-pill">0 connected</span></div>
           <div id="lobby-teams" class="lobby-teams"></div>
@@ -116,7 +116,7 @@
     <audio id="live-voice-audio" autoplay></audio>
     <div class="display-top">
       <div class="display-brand"><span>† &nbsp; THE MINISTRY</span><strong>BIBLE BATTLE</strong><small>THE MINISTRY · LIVE GAME</small></div>
-      <div id="display-code" class="display-code"></div>
+      <div class="display-join"><div id="display-qr" class="display-qr"></div><div><span>JOIN AT</span><b id="display-join-url">theministry.app/game</b><strong id="display-code"></strong></div></div>
       <div id="voice-disclosure" class="voice-disclosure hidden">Meridian · GPT-Live · AI-generated voice</div>
     </div>
     <div id="display-stage" class="display-stage"></div>
@@ -155,6 +155,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script src="/games/questions.js"></script>
   <script src="/games/game.js"></script>
 </body>
