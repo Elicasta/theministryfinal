@@ -113,3 +113,15 @@ test('permanent projector waits, activates, ends, and never revives an old room'
   const next=await game();assert.equal((await call(current,{},'GET')).body.status,'standby');
   await act(next,'START');assert.equal((await call(current,{},'GET')).body.gameCode,next.code);
 });
+
+
+test('server-only files are denied before hosted static-file routing',()=>{
+  const config=JSON.parse(fs.readFileSync(new URL('../vercel.json',import.meta.url),'utf8'));
+  const boundary=config.routes.findIndex(r=>r.handle==='filesystem');
+  assert.ok(boundary>0);
+  for(const pathname of ['/lib/game-pack.js','/lib/game-db.js','/.local/games.json']){
+    const rule=config.routes.slice(0,boundary).find(r=>new RegExp('^'+r.src+'$').test(pathname));
+    assert.equal(rule?.dest,'/api/game/private');
+  }
+  for(const pathname of ['/game/projector','/games/projector'])assert.equal(config.routes.find(r=>r.src===pathname)?.dest,'/games/index.html');
+});
