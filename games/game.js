@@ -485,8 +485,9 @@ async function startMeridianLive(){
   }
 }
 function stopMeridianLive(){
+  const wasStarted=liveSessionStarted;
+  try{if(wasStarted)liveSend('session.close',{event_id:'game_close_'+Date.now()})}catch(_){}
   liveConnected=false;liveConnecting=false;liveSessionStarted=false;
-  try{if(liveSessionStarted)liveSend('session.close',{event_id:'game_close_'+Date.now()})}catch(_){}
   try{liveDc?.close()}catch(_){}try{livePc?.close()}catch(_){}
   try{liveSilentSource?.osc?.stop()}catch(_){}
   if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
