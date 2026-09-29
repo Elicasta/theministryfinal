@@ -392,73 +392,105 @@ function displayEffects(){
 }
 function liveStatus(label,on=false){
   const el=$('live-voice-status');if(el){el.textContent=label;el.classList.toggle('on',on)}
-  const b=$('arm-audio');if(b)b.textContent=on?'Meridian Live · Connected':(liveConnecting?'Connecting Meridian…':'Start Meridian Live');
+  const btn=$('arm-audio');if(btn)btn.textContent=on?'Meridian Live':(liveConnecting?'Connecting Meridian…':'Start Meridian Live');
 }
 function liveSend(type,payload={}){
-  if(!liveDc||liveDc.readyState!=='open')return false;
-  try{liveDc.send(JSON.stringify({type,...payload}));return true}catch(e){return false}
+  if(!liveDc||liveDc.readyState!=='open'||!liveSessionStarted)return false;
+  try{liveDc.send(JSON.stringify({type,...payload}));return true}catch(e){console.error('Meridian send failed',e);return false}
 }
 function liveEventText(cue){
   const q=activeQ(),r=state.lastResult||{},t=team(r.teamId),winner=(state.winnerTeamIds||[]).map(id=>team(id)?.name).filter(Boolean);
-  if(cue==='question'&&q)return 'Game event: Announce '+(category(q.category)?.label||q.category)+' for '+q.points+' points, then read this exact question: '+q.prompt;
-  if(cue==='correct')return 'Game event: The engine marked '+(t?.name||'the team')+' CORRECT for '+(r.points||0)+' points. Celebrate briefly. Do not add or change points.';
-  if(cue==='wrong')return 'Game event: The engine marked '+(t?.name||'the team')+' INCORRECT. Briefly react. A steal may follow. Do not reveal the correct answer.';
-  if(cue==='steal')return 'Game event: The steal window is open. Invite every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' to buzz now.';
-  if(cue==='final')return 'Game event: Final Showdown begins. Announce the category '+(pack?.final?.category||'Final Round')+' and tell captains to lock their wagers.';
-  if(cue==='winner')return 'Game event: The engine declares '+(winner.join(' and ')||'the winning team')+' the Bible Battle champion'+(winner.length===1?'':'s')+'. Give a concise championship announcement.';
+  if(cue==='ready')return 'Voice host online. Bible Battle is ready.';
+  if(cue==='question'&&q)return 'Announce '+(category(q.category)?.label||q.category)+' for '+q.points+' points, then read this exact question: '+q.prompt;
+  if(cue==='correct')return (t?.name||'The team')+' is correct and earns '+(r.points||0)+' points. Celebrate briefly.';
+  if(cue==='wrong')return (t?.name||'The team')+' is incorrect. '+(state.resultNextPhase==='steal_buzz'?'Tell the other teams a steal is coming.':'The round is complete.');
+  if(cue==='steal')return 'Steal is open now. Every eligible team except '+(team(state.controlTeamId)?.name||'the original team')+' can buzz.';
+  if(cue==='final')return 'Final Showdown begins. The category is '+(pack?.final?.category||'Final Round')+'. Captains should lock their wagers.';
+  if(cue==='winner')return (winner.join(' and ')||'The winning team')+' '+(winner.length===1?'is':'are')+' the Bible Battle champion'+(winner.length===1?'':'s')+'.';
   return '';
 }
+async function fallbackSpeak(cue){
+  if(!state?.settings?.voice||!displayToken)return false;
+  try{
+    liveStatus('VOICE FALLBACK');
+    const r=await fetch('/api/game/voice',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,cue})});
+    if(!r.ok)return false;
+    const blob=await r.blob(),url=URL.createObjectURL(blob),audio=new Audio(url);
+    audio.onended=()=>{URL.revokeObjectURL(url);liveStatus(liveSessionStarted?'MERIDIAN LIVE':'VOICE FALLBACK',liveSessionStarted)};
+    await audio.play();return true;
+  }catch(e){console.error('Voice fallback failed',e);return false}
+}
 function liveAnnounce(cue){
-  if(!liveConnected)return false;
   const text=liveEventText(cue);if(!text)return false;
-  return liveSend('session.commentary.append',{
-    event_id:'game_'+cue+'_'+Date.now(),
-    delegation_id:null,
-    content:text+' Speak this game update now, briefly and energetically. Do not invent or change any game fact.'
+  if(!liveConnected||!liveSessionStarted){fallbackSpeak(cue);return false}
+  const sent=liveSend('session.commentary.append',{event_id:'game_'+cue+'_'+Date.now(),delegation_id:null,content:text});
+  if(!sent)fallbackSpeak(cue);
+  return sent;
+}
+function waitForIceComplete(pc,timeout=5000){
+  if(pc.iceGatheringState==='complete')return Promise.resolve();
+  return new Promise(resolve=>{
+    const done=()=>{pc.removeEventListener('icegatheringstatechange',check);clearTimeout(timer);resolve()};
+    const check=()=>{if(pc.iceGatheringState==='complete')done()};
+    const timer=setTimeout(done,timeout);pc.addEventListener('icegatheringstatechange',check);
   });
+}
+function createSilentInput(){
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  audioCtx=audioCtx||new Ctx();
+  const dest=audioCtx.createMediaStreamDestination(),osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+  gain.gain.value=0.000001;osc.frequency.value=20;osc.connect(gain);gain.connect(dest);osc.start();
+  liveSilentSource={osc,gain,dest};liveMicStream=dest.stream;return dest.stream;
 }
 async function startMeridianLive(){
   if(liveConnected||liveConnecting||!displayToken||!state?.settings?.voice)return;
-  liveConnecting=true;liveStatus('CONNECTING MERIDIAN');
+  liveConnecting=true;liveSessionStarted=false;liveStatus('CONNECTING MERIDIAN');
   try{
     livePc=new RTCPeerConnection();
     liveDc=livePc.createDataChannel('oai-events');
-    const audio=$('live-voice-audio');
-    livePc.ontrack=e=>{if(audio){audio.srcObject=e.streams[0];audio.muted=false;audio.volume=1;audio.play().catch(()=>{})}};
-    // GPT-Live expects a live browser audio path. Keep the mic track running but disabled
-    // unless interactive hosting is explicitly added later.
-    liveMicStream=await navigator.mediaDevices.getUserMedia({audio:true});
-    const micTrack=liveMicStream.getAudioTracks()[0];micTrack.enabled=true;livePc.addTrack(micTrack,liveMicStream);
-    liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · WAITING');
-    liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveStatus('MERIDIAN OFFLINE')};
-    liveDc.onerror=()=>liveStatus('MERIDIAN DATA ERROR');
+    const output=$('live-voice-audio');
+    livePc.ontrack=e=>{if(output){output.srcObject=e.streams[0]||new MediaStream([e.track]);output.muted=false;output.volume=1;output.play().catch(err=>console.error('Meridian playback blocked',err))}};
+    const silent=createSilentInput();for(const tr of silent.getTracks())livePc.addTrack(tr,silent);
+    let startTimer=null;
+    liveDc.onopen=()=>liveStatus('MERIDIAN CONNECTED · STARTING');
+    liveDc.onclose=()=>{liveConnected=false;liveConnecting=false;liveSessionStarted=false;liveStatus('MERIDIAN OFFLINE')};
+    liveDc.onerror=e=>{console.error('Meridian data channel error',e);liveStatus('MERIDIAN DATA ERROR')};
     liveDc.onmessage=e=>{try{
       const evt=JSON.parse(e.data);
       if(evt.type==='session.started'){
-        liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
-        liveSend('session.input_audio.mute',{event_id:'game_mic_mute_'+Date.now()});
-        liveSend('session.instructions.append',{event_id:'game_host_ready_'+Date.now(),delegation_id:null,content:'Speak now: Meridian is online. Bible Battle is ready. Then remain quiet until the game application sends another announcement.'});
+        clearTimeout(startTimer);liveSessionStarted=true;liveConnected=true;liveConnecting=false;liveStatus('MERIDIAN LIVE',true);
+        liveSend('session.instructions.append',{event_id:'game_host_ready_'+Date.now(),delegation_id:null,content:'Immediately say exactly: Meridian is online. Bible Battle is ready. Then pause and wait silently for game announcements.'});
+      }else if(evt.type==='session.output_transcript.delta'){
+        liveStatus('MERIDIAN SPEAKING',true);
+      }else if(evt.type==='session.instructions.appended'||evt.type==='session.commentary.appended'){
+        liveStatus('MERIDIAN LIVE',true);
+      }else if(evt.type==='session.closed'){
+        liveConnected=false;liveSessionStarted=false;liveStatus('MERIDIAN OFFLINE');
+      }else if(evt.type==='error'){
+        console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||evt.error?.message||'EVENT REJECTED'));
       }
-      if(evt.type==='session.instructions.appended'||evt.type==='session.commentary.appended')liveStatus('MERIDIAN LIVE',true);
-      if(evt.type==='error'){console.error('Meridian Live error',evt);liveStatus('MERIDIAN ERROR · '+(evt.error?.code||evt.error?.message||'EVENT REJECTED'))}
-    }catch(_){}};
-    const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);
-    const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp:offer.sdp})});
+    }catch(err){console.error('Meridian event parse error',err)}};
+    const offer=await livePc.createOffer();await livePc.setLocalDescription(offer);await waitForIceComplete(livePc);
+    const sdp=livePc.localDescription?.sdp||offer.sdp;
+    const r=await fetch('/api/game/live-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:snapshot.gameCode,displayToken,sdp})});
     const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error((d.error||'Live session failed')+(d.details?' · '+d.details:''));
     const answer=d?.transport?.sdp;if(!answer)throw new Error('OpenAI Live did not return an SDP answer');
     await livePc.setRemoteDescription({type:'answer',sdp:answer});
+    startTimer=setTimeout(()=>{if(!liveSessionStarted){liveStatus('MERIDIAN START TIMEOUT');fallbackSpeak('ready')}},9000);
   }catch(e){
-    console.error('Meridian startup failed',e);
-    liveConnected=false;liveConnecting=false;try{livePc?.close()}catch(_){}
-    if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
-    livePc=null;liveDc=null;liveMicStream=null;liveStatus('MERIDIAN UNAVAILABLE · '+String(e?.message||'START FAILED').slice(0,80));
+    console.error('Meridian startup failed',e);liveConnected=false;liveConnecting=false;liveSessionStarted=false;
+    try{livePc?.close()}catch(_){}
+    try{liveSilentSource?.osc?.stop()}catch(_){}
+    livePc=null;liveDc=null;liveMicStream=null;liveSilentSource=null;liveStatus('MERIDIAN UNAVAILABLE');fallbackSpeak('ready');
   }
 }
 function stopMeridianLive(){
-  liveConnected=false;liveConnecting=false;
+  liveConnected=false;liveConnecting=false;liveSessionStarted=false;
+  try{if(liveSessionStarted)liveSend('session.close',{event_id:'game_close_'+Date.now()})}catch(_){}
   try{liveDc?.close()}catch(_){}try{livePc?.close()}catch(_){}
+  try{liveSilentSource?.osc?.stop()}catch(_){}
   if(liveMicStream){for(const tr of liveMicStream.getTracks())tr.stop()}
-  livePc=null;liveDc=null;liveMicStream=null;liveMicEnabled=false;liveStatus('MERIDIAN OFFLINE');
+  livePc=null;liveDc=null;liveMicStream=null;liveSilentSource=null;liveMicEnabled=false;liveStatus('MERIDIAN OFFLINE');
 }
 async function armAudio(){
   try{
