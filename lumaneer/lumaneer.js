@@ -1,0 +1,1 @@
+window.LUMANEER={name:"Lumaneer",tagline:"Illuminate the Word.",version:"0.1-foundation"};
