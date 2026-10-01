@@ -102,7 +102,7 @@ export default async function handler(req,res){
       locked:myUnit?!!game.state.quizLocks?.[myUnit]:false
     },
     quiz:{id:pack.id,title:pack.title,scripture:pack.scripture,questionCount:questions.length,questions:safeQuestions},
-    players:players.map(p=>safePlayer(p,teams)),
+    players:role==='public'?[]:players.map(p=>safePlayer(p,teams)),
     answers:role==='host'?submissions.map(x=>({questionId:x.question_id,playerId:x.player_id,teamId:x.team_id,answer:x.answer,isCaptain:!!x.is_captain}))
       :myRows.map(x=>({questionId:x.question_id,answer:x.answer,teamId:x.team_id})),
     role,
