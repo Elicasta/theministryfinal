@@ -24,6 +24,22 @@
       "dest": "/games/index.html"
     },
     {
+      "src": "/games/quiz",
+      "dest": "/games/quiz.html"
+    },
+    {
+      "src": "/games/quiz/host",
+      "dest": "/games/quiz.html"
+    },
+    {
+      "src": "/games/quiz/display",
+      "dest": "/games/quiz.html"
+    },
+    {
+      "src": "/games/quiz/play",
+      "dest": "/games/quiz.html"
+    },
+    {
       "src": "/games",
       "dest": "/games/index.html"
     },
