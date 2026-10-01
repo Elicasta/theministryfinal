@@ -163,9 +163,14 @@ export default async function handler(req,res){
     if(row.state.phase!=='quiz_review')return res.status(409).json({error:'Review is not active'});
     const total=row.question_pack?.questions?.length||0;
     const next=nextReviewState(row.state.reviewIndex||0,row.state.reviewStage||'responses',total);
+    if(next.done){
+      row=await updateRoom(code,current=>({state:{...current.state,phase:'quiz_complete',reviewIndex:next.index,reviewStage:next.stage},status:'quiz_complete'}));
+      await announce(row,'QUIZ_COMPLETED','host',null,{index:next.index,stage:next.stage});
+      return res.status(200).json({ok:true,done:true});
+    }
     row=await updateRoom(code,current=>({state:{...current.state,reviewIndex:next.index,reviewStage:next.stage}}));
-    await announce(row,'QUIZ_REVIEW_ADVANCED','host',null,{index:next.index,stage:next.stage,done:next.done});
-    return res.status(200).json({ok:true,done:next.done});
+    await announce(row,'QUIZ_REVIEW_ADVANCED','host',null,{index:next.index,stage:next.stage,done:false});
+    return res.status(200).json({ok:true,done:false});
   }
 
   if(action==='BACK_REVIEW'){
