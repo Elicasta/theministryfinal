@@ -27,6 +27,7 @@ export default async function handler(req,res){
   }
   if(!name||!teamId)return res.status(400).json({error:'Name and team are required'});
   if(game.status==='ended')return res.status(409).json({error:'This game has ended'});
+  if(game.state?.mode==='quiz'&&!['quiz_lobby','quiz_active'].includes(game.state.phase))return res.status(409).json({error:'This quiz is no longer accepting new participants'});
 
   const teams=Array.isArray(game.state?.teams)?game.state.teams:[];
   const team=teams.find(t=>t.id===teamId);
