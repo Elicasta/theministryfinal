@@ -188,3 +188,4 @@
   .cue-button{width:100%}
   .note-body{font-size:var(--manuscript-size,1rem)}
 }
+.session-bookmark-tools{margin:0 0 12px;padding:10px;border:1px solid #315a75;border-radius:11px;background:#061b2d}.session-bookmark-tools .resume-btn{margin-bottom:7px}.end-here-btn{width:100%;background:#40251c;border-color:#875b48;color:#ffd9c8}.bookmark-state{margin-top:7px;color:#8eafc3;font-size:.64rem;line-height:1.35}.end-here-btn:active{background:#5a3022}
