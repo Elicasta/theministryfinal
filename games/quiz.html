@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d1117">
+  <title>Quiz & Review · The Ministry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/games/quiz.css">
+</head>
+<body>
+  <div id="quiz-toast" class="quiz-toast hidden" role="status" aria-live="polite"></div>
+
+  <main id="quiz-landing" class="landing hidden">
+    <section class="landing-card">
+      <div class="eyebrow">THE MINISTRY · QUIZ & REVIEW</div>
+      <h1>Learn it.<br><span>Measure it.</span><br>Apply it.</h1>
+      <p>A structured Bible quiz with individual or team participation, room-wide results, guided review, and practical application.</p>
+      <div class="landing-actions">
+        <a class="btn primary" href="/games/quiz/host">Host Matthew 11 Quiz</a>
+        <a class="btn" href="/games/quiz/play">Join Quiz</a>
+      </div>
+      <a class="quiet-link" href="/games">← Bible Battle</a>
+    </section>
+  </main>
+
+  <main id="quiz-host" class="host-shell hidden">
+    <header class="topbar">
+      <div class="brand"><span>THE MINISTRY</span><strong>QUIZ & REVIEW</strong></div>
+      <div class="top-actions">
+        <span id="host-network" class="network">Connecting</span>
+        <a id="host-projector-link" class="btn small" target="_blank">Projector</a>
+        <button id="new-quiz" class="btn small">New Quiz</button>
+        <div class="code-chip"><small>SESSION</small><strong id="host-code">------</strong></div>
+      </div>
+    </header>
+
+    <div class="host-layout">
+      <aside class="host-sidebar">
+        <section id="setup-panel" class="panel">
+          <div class="panel-label">Quiz Setup</div>
+          <h2>Matthew 11</h2>
+          <p class="muted">The King Confronts Expectations + Greater Revelation, Greater Responsibility</p>
+          <label class="field">Participation
+            <select id="quiz-mode">
+              <option value="individual">Individual Quiz · scores roll into teams</option>
+              <option value="team">Team Quiz · captain submits one answer</option>
+            </select>
+          </label>
+          <div class="field-row">
+            <span>Teams</span>
+            <div class="stepper"><button id="team-minus">−</button><strong id="team-count">4</strong><button id="team-plus">+</button></div>
+          </div>
+          <div id="team-editor" class="team-editor"></div>
+          <button id="start-quiz" class="btn primary full">Start Quiz</button>
+        </section>
+
+        <section class="panel">
+          <div class="panel-label">Session</div>
+          <div class="qr-wrap"><div id="host-qr" class="qr"></div></div>
+          <div class="join-copy"><span>Join at</span><strong id="join-url"></strong><span>or enter</span><b id="big-code">------</b></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-label">Format</div>
+          <div class="format-row"><b>12</b><span>questions</span></div>
+          <div class="format-row"><b>%</b><span>percentage scoring</span></div>
+          <div class="format-row"><b>4</b><span>review stages per question</span></div>
+        </section>
+      </aside>
+
+      <section class="host-main">
+        <section id="host-lobby" class="host-view">
+          <div class="view-head"><div><span class="eyebrow">MATTHEW 11</span><h1>Quiz Lobby</h1></div><span id="player-count" class="status-pill">0 connected</span></div>
+          <p id="mode-note" class="lead"></p>
+          <div id="lobby-teams" class="team-grid"></div>
+        </section>
+
+        <section id="host-active" class="host-view hidden">
+          <div class="view-head"><div><span class="eyebrow">QUIZ IN PROGRESS</span><h1>Matthew 11</h1></div><div id="host-progress-big" class="big-progress">0 / 0</div></div>
+          <p class="lead">Questions stay on participant devices. The projector only shows completion progress until the quiz closes.</p>
+          <div id="host-progress-teams" class="progress-grid"></div>
+          <div class="host-command"><button id="close-quiz" class="btn danger">Close Quiz & Show Results</button><span>Use this if someone leaves or cannot submit.</span></div>
+        </section>
+
+        <section id="host-results" class="host-view hidden">
+          <div class="view-head"><div><span class="eyebrow">QUIZ RESULTS</span><h1>Team Scores</h1></div><div id="overall-score" class="overall-score">0%</div></div>
+          <div id="host-team-results" class="results-list"></div>
+          <div class="host-command"><button id="start-review" class="btn primary">Begin Question Review</button><span>Review is host-paced. Nothing advances automatically.</span></div>
+        </section>
+
+        <section id="host-review" class="host-view hidden">
+          <div class="review-toolbar">
+            <button id="review-back" class="btn small">← Back</button>
+            <div><span id="review-progress" class="eyebrow"></span><strong id="review-stage-label"></strong></div>
+            <div><button id="review-next" class="btn primary small">Continue →</button><button id="end-review" class="btn small">End Review</button></div>
+          </div>
+          <div id="host-review-card" class="review-card"></div>
+        </section>
+
+        <section id="host-complete" class="host-view hidden">
+          <div class="view-head"><div><span class="eyebrow">QUIZ COMPLETE</span><h1>Matthew 11</h1></div><div id="complete-score" class="overall-score">0%</div></div>
+          <p class="lead">Knowledge measured. Missed areas reviewed. The final step is response.</p>
+          <div id="complete-results" class="results-list"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <main id="quiz-display" class="display-shell hidden">
+    <header class="display-top">
+      <div class="brand"><span>THE MINISTRY</span><strong>QUIZ & REVIEW</strong></div>
+      <div class="display-join"><div id="display-qr" class="qr small-qr"></div><div><span>JOIN QUIZ</span><strong id="display-code"></strong></div></div>
+    </header>
+    <section id="display-stage" class="display-stage"></section>
+    <footer id="display-footer" class="display-footer"></footer>
+    <button id="fullscreen" class="btn small fullscreen">Fullscreen</button>
+  </main>
+
+  <main id="quiz-player" class="player-shell hidden">
+    <header class="player-top">
+      <a class="player-brand" href="/games/quiz">QUIZ & REVIEW</a>
+      <div><span id="player-connection" class="network">CONNECTING</span><strong id="player-code"></strong></div>
+    </header>
+
+    <section id="join-step" class="phone-card">
+      <div class="panel-label">Join Quiz</div>
+      <h1>Matthew 11</h1>
+      <label class="field">Session Code<input id="join-code-input" maxlength="6" autocomplete="off" placeholder="ABC123"></label>
+      <button id="connect-quiz" class="btn primary full">Connect</button>
+      <p id="join-error" class="muted"></p>
+    </section>
+
+    <section id="profile-step" class="phone-card hidden">
+      <div class="panel-label">Participant Setup</div>
+      <h2>Who are you?</h2>
+      <label class="field">Name<input id="player-name" maxlength="24" placeholder="Your name"></label>
+      <div class="panel-label spaced">Choose Team</div>
+      <div id="team-picker" class="team-picker"></div>
+      <button id="join-team" class="btn primary full" disabled>Join Team</button>
+    </section>
+
+    <section id="player-session" class="player-session hidden">
+      <div id="player-team-bar" class="player-team-bar"></div>
+      <div id="player-content"></div>
+    </section>
+  </main>
+
+  <script src="/games/assets/qrcode.min.js"></script>
+  <script src="/games/quiz.js"></script>
+</body>
+</html>

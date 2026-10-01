@@ -82,16 +82,23 @@ for(const file of ['api/poll-save.js','api/poll-vote-submit.js']){
 for(const route of ['/games','/games/host','/games/display','/games/play','/games/join']){
   if(routes.get(route)!=='/games/index.html')fail('game route missing: '+route);
 }
+for(const route of ['/games/quiz','/games/quiz/host','/games/quiz/display','/games/quiz/play']){
+  if(routes.get(route)!=='/games/quiz.html')fail('quiz route missing: '+route);
+}
 for(const file of [
   'games/index.html','games/game.css','games/game.js','games/questions.js',
   'lib/game-db.js','lib/game-pack.js',
   'api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js',
   'api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js',
-  'supabase/game-engine.sql'
+  'supabase/game-engine.sql',
+  'games/quiz.html','games/quiz.css','games/quiz.js',
+  'lib/quiz-pack.js','lib/quiz-engine.js',
+  'api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js'
 ]){
   if(!fs.existsSync(file))fail('game engine file missing: '+file);
 }
 try{new Function(fs.readFileSync('games/game.js','utf8'))}catch(e){fail('games/game.js syntax error: '+e.message)}
+try{new Function(fs.readFileSync('games/quiz.js','utf8'))}catch(e){fail('games/quiz.js syntax error: '+e.message)}
 if(fs.readFileSync('games/questions.js','utf8').includes('correctAnswer'))fail('answer key leaked into browser question metadata');
 const gameAction=fs.readFileSync('api/game/action.js','utf8');
 if(!gameAction.includes('verifyHost')||!gameAction.includes('verifyPlayer'))fail('game action authorization missing');
@@ -119,7 +126,7 @@ if(!gameBrowser.includes('NEW PACK READY'))fail('AI pack generation needs explic
 if(!gameCss.includes('Bible Battle Broadcast System v3'))fail('Broadcast graphics system v3 is missing');
 
 const {spawnSync}=await import('node:child_process');
-for(const file of ['lib/game-db.js','lib/game-pack.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js']){
+for(const file of ['lib/game-db.js','lib/game-pack.js','lib/quiz-pack.js','lib/quiz-engine.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js','api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js']){
   const parsed=spawnSync(process.execPath,['--check','--input-type=module'],{input:fs.readFileSync(file,'utf8'),encoding:'utf8'});
   if(parsed.status!==0)fail(file+' syntax error: '+String(parsed.stderr||parsed.stdout).trim());
 }
@@ -148,3 +155,10 @@ if(gameBrowser.includes("data-question-id=\"'+esc(q?.id"))fail('host board must 
 if(!gameBrowser.includes("lastTeamOccupied"))fail('lobby team reduction must protect populated teams');
 if(!gameAction.includes("Move them before removing that team"))fail('server must reject removing populated teams');
 if(!gameAction.includes("captained=state.teams.find"))fail('game start must prefer a team with a captain');
+
+const quizPack=fs.readFileSync('lib/quiz-pack.js','utf8');
+if((quizPack.match(/id:'m11q/g)||[]).length!==12)fail('Matthew 11 quiz pilot must contain 12 questions');
+if(!quizPack.includes('application:'))fail('quiz practical applications are missing');
+const quizAction=fs.readFileSync('api/game/quiz-action.js','utf8');
+if(!quizAction.includes("action==='SUBMIT_QUIZ'"))fail('quiz submission lock is missing');
+if(!quizAction.includes("action==='START_REVIEW'"))fail('quiz review flow is missing');
