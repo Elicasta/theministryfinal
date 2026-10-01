@@ -26,3 +26,16 @@ Existing Kingdom Evidence presenter/projector/student behavior remains the live 
 8. Live session adapter around existing presenter/projector/poll system
 9. Import workflow for Matthew 1-10
 10. Only after verification, map lumaneer.com and establish permanent public routes
+
+## Major build status
+- Teacher course and module workspaces
+- Editable canonical manuscript draft
+- Existing Chapter 11 deck -> manuscript import
+- Lumaneer AI endpoint for study guides, discussion prompts, quizzes, and outlines
+- Student module workspace with device-local note autosave for safe preview
+- Study library shell
+- New-module draft workflow
+- Existing presenter/student/projector retained as live engine
+
+### Production safety
+The SQL migration remains unapplied. Database-backed accounts, cloud notes, discussions, enrollments, and quiz attempts should be activated only after preview review. The branch intentionally uses local draft persistence where possible so tonight's production database is not changed.
