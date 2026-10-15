@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/games/quiz.css">
   <link rel="stylesheet" href="/games/quiz-v2-extra.css">
   <link rel="stylesheet" href="/games/quiz-review-experience.css">
+  <link rel="stylesheet" href="/games/quiz-language-qr.css">
 </head>
 <body>
   <div id="quiz-toast" class="quiz-toast hidden" role="status" aria-live="polite"></div>
@@ -134,6 +135,7 @@
       <div class="panel-label">Participant Setup</div>
       <h2>Who are you?</h2>
       <label class="field">Name<input id="player-name" maxlength="24" placeholder="Your name"></label>
+      <label class="quiz-language-choice"><input id="quiz-spanish" type="checkbox" value="es"><span><strong>Español · RVR1960</strong><small>Hacer mi cuestionario en español / Take the quiz in Spanish</small></span></label>
       <div class="panel-label spaced">Choose Team</div>
       <div id="team-picker" class="team-picker"></div>
       <button id="join-team" class="btn primary full" disabled>Join Team</button>
