@@ -23,7 +23,7 @@ export default async function handler(req,res){
     if(!player)return res.status(401).json({error:'Player session unavailable'});
     if(teamId&&teamId!==player.team_id)return res.status(403).json({error:'This device is already joined to another team. Refreshing cannot change your team.'});
     setPlayerCookie(res,code,auth);
-    return res.status(200).json({...publicGameState(game,players,'player',[],player.team_id),player:{playerId:player.player_id,name:player.name,teamId:player.team_id,isCaptain:game.state.teams.find(t=>t.id===player.team_id)?.captainPlayerId===player.player_id}});
+    return res.status(200).json({...publicGameState(game,players,'player',[],player.team_id),player:{playerId:player.player_id,name:player.name,teamId:player.team_id,language:player.preferred_language||'en',isCaptain:game.state.teams.find(t=>t.id===player.team_id)?.captainPlayerId===player.player_id}});
   }
   if(!name||!teamId)return res.status(400).json({error:'Name and team are required'});
   if(game.status==='ended')return res.status(409).json({error:'This game has ended'});
@@ -43,7 +43,8 @@ export default async function handler(req,res){
     method:'POST',headers:{Prefer:'return=representation'},
     body:JSON.stringify({
       game_id:game.id,player_id:playerId,token_hash:hashToken(playerToken),
-      name,team_id:teamId,is_captain:needsCaptain,connected:true,last_seen_at:new Date().toISOString()
+      name,team_id:teamId,is_captain:needsCaptain,connected:true,last_seen_at:new Date().toISOString(),
+      ...(game.state?.mode==='quiz'?{preferred_language:body.language==='es'?'es':'en'}:{})
     })
   });
   if(!write.ok)return res.status(502).json({error:'Could not join game',details:write.text});
@@ -76,7 +77,7 @@ export default async function handler(req,res){
   setPlayerCookie(res,code,{playerId,playerToken});
   return res.status(200).json({
     ...publicGameState(refreshed,Array.isArray(pr.json)?pr.json:[],'player',[],teamId),
-    player:{playerId,name,teamId,isCaptain},
+    player:{playerId,name,teamId,isCaptain,language:game.state?.mode==='quiz'&&body.language==='es'?'es':'en'},
     playerToken
   });
 }
