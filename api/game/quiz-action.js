@@ -1,4 +1,5 @@
 import {authenticatedPlayer} from '../../lib/game-player-session.js';
+import {archiveQuizHistory} from '../../lib/quiz-history.js';
 import {clean,db,verifyHost,corsNoStore,broadcastGame,recordGameEvent,getGameByCode,getGamePlayers} from '../../lib/game-db.js';
 import {updateRoom} from '../../lib/game-rounds.js';
 import {
@@ -35,6 +36,20 @@ async function announce(row,kind,actorType='system',player=null,payload={}){
   await recordGameEvent(row,kind,{actorType,playerId:player?.player_id||null,teamId:player?.team_id||null,payload});
   broadcastGame(row.game_code,'state',{reason:kind}).catch(()=>{});
 }
+async function persistHistory(code){
+  const {row}=await getGameByCode(code);
+  if(!row||row.state?.mode!=='quiz')return false;
+  if(row.state.quizHistorySavedAt)return true;
+  const roster=await getGamePlayers(row.id),submissions=await submissionsFor(row.id);
+  await archiveQuizHistory(row,roster,submissions);
+  // Recording a successful archive is idempotent, while the archive itself is
+  // keyed by game_id + player_id. Review can safely retry after outages.
+  await updateRoom(code,current=>{
+    if(current.state.quizHistorySavedAt)return null;
+    return {state:{...current.state,quizHistorySavedAt:new Date().toISOString()}};
+  });
+  return true;
+}
 async function finalize(code){
   const {row}=await getGameByCode(code);if(!row||row.state?.phase!=='quiz_active')return null;
   const players=await getGamePlayers(row.id),submissions=await submissionsFor(row.id);
@@ -42,13 +57,15 @@ async function finalize(code){
     pack:row.question_pack,players,teams:row.state.teams||[],submissions,
     locks:row.state.quizLocks||{},mode:row.state.quizMode||'individual'
   });
-  return updateRoom(code,current=>{
+  const updated=await updateRoom(code,current=>{
     if(current.state?.phase!=='quiz_active'||current.state?.mode!=='quiz')return null;
     const percentages=new Map(results.teamResults.map(t=>[t.teamId,t.percent]));
     return {state:{...current.state,phase:'quiz_results',quizResults:results,
       quizFinishedAt:new Date().toISOString(),reviewIndex:0,reviewStage:'responses',
       teams:(current.state.teams||[]).map(t=>({...t,score:percentages.get(t.id)||0}))},status:'quiz_results'};
   });
+  if(updated)await persistHistory(code).catch(error=>console.error('Quiz history deferred:',error.message));
+  return updated;
 }
 export default async function handler(req,res){
   corsNoStore(res);
@@ -174,9 +191,18 @@ export default async function handler(req,res){
     await announce(row,'QUIZ_RESULTS_READY','host');
     return res.status(200).json({ok:true});
   }
+  if(action==='ARCHIVE_HISTORY'){
+    if(!host)return res.status(403).json({error:'Host access required'});
+    if(!['quiz_results','quiz_review','quiz_complete'].includes(row.state.phase))
+      return res.status(409).json({error:'Results are not final yet'});
+    try{await persistHistory(code);return res.status(200).json({ok:true,archived:true})}
+    catch{return res.status(503).json({error:'History could not be saved. Retry shortly.'})}
+  }
   if(action==='START_REVIEW'){
     if(!host)return res.status(403).json({error:'Host access required'});
     if(row.state.phase!=='quiz_results')return res.status(409).json({error:'Results not ready'});
+    try{await persistHistory(code)}
+    catch(error){return res.status(503).json({error:'Could not save everyone’s quiz history. Retry Begin Review.'})}
     row=await updateRoom(code,current=>({state:{...current.state,phase:'quiz_review',reviewIndex:0,reviewStage:'responses'},status:'quiz_review'}));
     await announce(row,'QUIZ_REVIEW_STARTED','host');
     return res.status(200).json({ok:true});
