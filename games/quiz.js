@@ -75,19 +75,19 @@ function closeHistory(){document.getElementById('quiz-history-overlay')?.remove(
 async function openHistory(){
   closeHistory();
   const overlay=document.createElement('div');overlay.id='quiz-history-overlay';overlay.className='quiz-history-overlay';
-  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','My saved quiz answers');
-  overlay.innerHTML='<div class="quiz-history-panel"><button type="button" class="btn small" data-history-close>Close ×</button><h2>Your saved quiz record</h2><p class="muted">Loading your answers…</p></div>';
+  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label',tr('My saved quiz answers','Mis respuestas guardadas'));
+  overlay.innerHTML='<div class="quiz-history-panel"><button type="button" class="btn small" data-history-close>'+tr('Close','Cerrar')+' ×</button><h2>'+tr('Your saved quiz record','Tus respuestas guardadas')+'</h2><p class="muted">'+tr('Loading your answers…','Cargando tus respuestas…')+'</p></div>';
   document.body.appendChild(overlay);
   try{
     const d=await api('/api/game/quiz-history',auth()),h=d.history,items=h.answers||[];
-    overlay.querySelector('.quiz-history-panel').innerHTML='<button type="button" class="btn small quiz-history-close" data-history-close>Close ×</button>'+
-      '<div class="eyebrow">MY QUIZ HISTORY · '+esc(h.scripture||'Matthew 11')+'</div>'+
+    overlay.querySelector('.quiz-history-panel').innerHTML='<button type="button" class="btn small quiz-history-close" data-history-close>'+tr('Close','Cerrar')+' ×</button>'+
+      '<div class="eyebrow">'+tr('MY QUIZ HISTORY','MIS CUESTIONARIOS')+' · '+esc(h.scripture||'Matthew 11')+'</div>'+
       '<h2>'+esc(h.participation==='team'?(h.teamName||'Team'):'Solo')+' · '+Number(h.percent)+'%</h2>'+
-      '<p class="muted">'+Number(h.correct)+' / '+Number(h.total)+' correct · '+esc(h.gameCode)+'</p>'+
-      '<div class="quiz-history-answers">'+items.map(item=>'<article class="quiz-history-answer"><div class="quiz-history-answer-meta"><span>QUESTION '+Number(item.order)+' · '+esc(item.reference||'')+'</span><strong class="'+(item.correct?'correct':'missed')+'">'+(item.correct?'Correct':'Review')+'</strong></div>'+
-      '<h3>'+esc(item.prompt||'')+'</h3><p><b>Your '+(h.participation==='team'?'team’s ':'')+'answer:</b> '+esc(item.answer||'Not answered')+'</p>'+
-      (!item.correct?'<p><b>Scripture answer:</b> '+esc(item.correctAnswer||'')+'</p>':'')+'</article>').join('')+'</div>'+
-      '<p class="muted">This record is tied to your authenticated game participation. Future Lumaneer linking requires verified account ownership.</p>';
+      '<p class="muted">'+Number(h.correct)+' / '+Number(h.total)+' '+tr('correct','correctas')+' · '+esc(h.gameCode)+'</p>'+
+      '<div class="quiz-history-answers">'+items.map(item=>'<article class="quiz-history-answer"><div class="quiz-history-answer-meta"><span>'+tr('QUESTION','PREGUNTA')+' '+Number(item.order)+' · '+esc(item.reference||'')+'</span><strong class="'+(item.correct?'correct':'missed')+'">'+(item.correct?tr('Correct','Correcta'):tr('Review','Repasar'))+'</strong></div>'+
+      '<h3>'+esc(item.prompt||'')+'</h3><p><b>'+tr('Your ','Tu ')+(h.participation==='team'?tr('team’s ','equipo · '):'')+tr('answer:','respuesta:')+'</b> '+esc(item.answer||tr('Not answered','Sin responder'))+'</p>'+
+      (!item.correct?'<p><b>'+tr('Scripture answer:','Respuesta bíblica:')+'</b> '+esc(item.correctAnswer||'')+'</p>':'')+'</article>').join('')+'</div>'+
+      '<p class="muted">'+tr('This record is tied to your authenticated game participation. Future Lumaneer linking requires verified account ownership.','Este registro está asociado a tu participación autenticada. Para vincularlo a Lumaneer será necesario verificar tu identidad.')+'</p>';
   }catch(e){const p=overlay.querySelector('.quiz-history-panel .muted');if(p)p.textContent=e.message||'Could not load this record.'}
 }
 function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?tr('Fill in the blank','Completa el espacio'):tr('Multiple choice','Opción múltiple'))+'</span></div>'}
@@ -274,6 +274,9 @@ function bindPlayer(){
   });
 }
 function renderParticipation(){
+  const profileText=[['quiz-profile-title','Participant Setup','Datos del participante'],['quiz-profile-heading','Who are you?','¿Quién eres?'],['quiz-profile-name-label','Name','Nombre'],['quiz-profile-team-label','Choose Team','Elige un equipo']];
+  for(const [id,en,es] of profileText)if($(id))$(id).textContent=tr(en,es);
+  if($('player-name'))$('player-name').placeholder=tr('Your name','Tu nombre');
   const groupLabel=document.querySelector('#participation-choice .panel-label');
   if(groupLabel)groupLabel.textContent=tr('How will you participate?','¿Cómo participarás?');
   document.querySelectorAll('[data-participation]').forEach(b=>{
@@ -369,6 +372,7 @@ function renderPlayer(){
   if(!playerAuth){if(!$('profile-step')?.classList.contains('hidden'))renderParticipation();return}
   if(!me)return;
   document.documentElement.lang=esMode()?'es':'en';
+  const brand=document.querySelector('.player-brand');if(brand)brand.textContent=tr('QUIZ & REVIEW','CUESTIONARIO Y REPASO');
   const t=team(me.teamId);
   $('player-team-bar').innerHTML='<span class="team-dot" style="background:'+esc(t?.color||'#768598')+'"></span><strong>'+
     esc(me.participation==='solo'?'Solo · '+me.name:t?.name||tr('Team','Equipo'))+'</strong><span>'+
