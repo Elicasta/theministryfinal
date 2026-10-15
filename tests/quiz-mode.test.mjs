@@ -40,6 +40,9 @@ test('typed answers accept case, punctuation and whitespace variations',()=>{
   assert.equal(gradeAnswer(question('m11q05'),'offende'),true);
   assert.equal(gradeAnswer(question('m11q18'),'night'),false);
   assert.equal(gradeAnswer(question('m11q18'),'ligth'),true);
+  assert.equal(gradeAnswer(question('m11q18'),'ligh'),true);
+  assert.equal(gradeAnswer(question('m11q16'),'res'),true);
+  assert.equal(gradeAnswer(question('m11q16'),'best'),false);
   assert.equal(gradeAnswer(question('m11q03'),'completely'),false);
 });
 
