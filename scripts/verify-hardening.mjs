@@ -92,7 +92,8 @@ for(const file of [
   'api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js',
   'supabase/game-engine.sql',
   'games/quiz.html','games/quiz.css','games/quiz.js',
-  'lib/quiz-pack.js','lib/quiz-engine.js','lib/quiz-history.js',
+  'lib/quiz-pack.js','lib/quiz-engine.js','lib/quiz-history.js','lib/quiz-es.js',
+  'games/quiz-language-qr.css','supabase/quiz-player-language.sql',
   'api/game/quiz-history.js','games/quiz-review-experience.css','supabase/quiz-history.sql',
   'api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js'
 ]){
@@ -127,7 +128,7 @@ if(!gameBrowser.includes('NEW PACK READY'))fail('AI pack generation needs explic
 if(!gameCss.includes('Bible Battle Broadcast System v3'))fail('Broadcast graphics system v3 is missing');
 
 const {spawnSync}=await import('node:child_process');
-for(const file of ['lib/game-db.js','lib/game-pack.js','lib/quiz-pack.js','lib/quiz-engine.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js','api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js','lib/quiz-history.js','api/game/quiz-history.js']){
+for(const file of ['lib/game-db.js','lib/game-pack.js','lib/quiz-pack.js','lib/quiz-engine.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js','api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js','lib/quiz-history.js','api/game/quiz-history.js','lib/quiz-es.js']){
   const parsed=spawnSync(process.execPath,['--check','--input-type=module'],{input:fs.readFileSync(file,'utf8'),encoding:'utf8'});
   if(parsed.status!==0)fail(file+' syntax error: '+String(parsed.stderr||parsed.stdout).trim());
 }
@@ -177,3 +178,13 @@ const theater=fs.readFileSync('games/quiz-review-experience.css','utf8');
 for(const phase of ['quiz-theater-responses','quiz-theater-answer','quiz-theater-explanation','quiz-theater-application']){
   if(!theater.includes(phase))fail('classroom review stage missing: '+phase);
 }
+
+// Bilingual quiz must remain a per-player display choice with canonical scoring.
+const esSource=fs.readFileSync('lib/quiz-es.js','utf8');
+if(!esSource.includes('translatePublicQuestion')||!esSource.includes('SPANISH_QUESTIONS'))fail('RVR1960 quiz translation missing');
+const gameJoin=fs.readFileSync('api/game/join.js','utf8');
+if(!gameJoin.includes("game.state?.mode==='quiz'?{preferred_language"))fail('quiz language selection must not modify Bible Battle login');
+const stageHtml=fs.readFileSync('games/quiz.html','utf8');
+if(!stageHtml.includes('quiz-spanish')||!stageHtml.includes('quiz-language-qr.css'))fail('player Spanish opt-in or QR styles missing');
+const quizDisplay=fs.readFileSync('games/quiz.js','utf8');
+if(!quizDisplay.includes('display-guide-big')||!quizDisplay.includes('display-join-big')||!quizDisplay.includes('apostolicguide.com'))fail('large centered distinct lobby QRs missing');
