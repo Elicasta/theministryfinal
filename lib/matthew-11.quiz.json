@@ -1,7 +1,7 @@
 {
-  "id": "matthew-11-quiz-review-v2",
-  "version": 2,
-  "title": "Matthew 11 | The King Confronts Expectations",
+  "id": "matthew-11-quiz-review-v3",
+  "version": 3,
+  "title": "Matthew 11 | Expectations, Revelation & Responsibility",
   "scripture": "Matthew 11 (KJV)",
   "sourceLessons": [
     "kingdom-evidence-11-part-1",
@@ -80,6 +80,23 @@
       "correctAnswer": "The things they heard and saw",
       "explanation": "Jesus pointed to the evidence of His ministry: healing, restoration, resurrection, and gospel proclamation, in keeping with Isaiah’s witness.",
       "application": "Measure your expectations against what Scripture reveals, rather than interpreting Christ only through what has not happened yet."
+    },
+    {
+      "id": "m11q19",
+      "type": "multiple_choice",
+      "reference": "Matthew 11:4–6",
+      "section": "Jesus’ Answer",
+      "category": "Interpretation · Challenge",
+      "prompt": "Why did Jesus point John to the works people were hearing and seeing rather than promising John immediate release?",
+      "choices": [
+        "His works testified to the identity and mission Scripture had promised",
+        "John needed to prove his loyalty before Jesus could respond",
+        "The crowds understood the Messiah better than John did",
+        "The Messiah would never confront suffering or injustice"
+      ],
+      "correctAnswer": "His works testified to the identity and mission Scripture had promised",
+      "explanation": "The signs Jesus named were not random displays. They were consistent with the promised work of God (compare Isaiah 35:5–6 and 61:1). John was being directed to interpret his circumstances through revealed truth rather than require Jesus to follow an expected timetable.",
+      "application": "When God does not act on your preferred timetable, what does the evidence of Scripture still require you to believe and obey?"
     },
     {
       "id": "m11q05",
@@ -161,6 +178,23 @@
       "application": "Have you ever rejected a correction because you disliked the messenger or the way it was delivered?"
     },
     {
+      "id": "m11q20",
+      "type": "multiple_choice",
+      "reference": "Matthew 11:19",
+      "section": "A Generation That Would Not Respond",
+      "category": "Wisdom · Challenge",
+      "prompt": "In the context of criticism against both John and Jesus, what does “wisdom is justified of her children” teach?",
+      "choices": [
+        "The outcome of God’s wisdom reveals its soundness despite inconsistent criticism",
+        "Every criticism of a religious teacher must be accepted as true",
+        "Wisdom is measured primarily by the approval of influential people",
+        "John’s message becomes invalid whenever people misunderstand his lifestyle"
+      ],
+      "correctAnswer": "The outcome of God’s wisdom reveals its soundness despite inconsistent criticism",
+      "explanation": "Matthew 11:19 closes the contrast with a test of wisdom by what it produces. The response of the critics was inconsistent, but their reaction did not overturn the truth or fruit of what God was doing through John and Jesus.",
+      "application": "Are you judging truth only by how it is presented, or are you examining what it actually produces in obedience and repentance?"
+    },
+    {
       "id": "m11q10",
       "type": "fill_blank",
       "reference": "Matthew 11:19",
@@ -207,6 +241,23 @@
       "correctAnswer": "The former cities had received greater revelation and were accountable for their response",
       "explanation": "Jesus ties the day of judgment to the light that people received. These cities had witnessed mighty works but did not repent.",
       "application": "Ask not only what truth you possess, but how faithfully you are responding to the truth you have received."
+    },
+    {
+      "id": "m11q21",
+      "type": "multiple_choice",
+      "reference": "Matthew 11:23–24",
+      "section": "Greater Revelation, Greater Accountability",
+      "category": "Judgment · Challenge",
+      "prompt": "Why does Jesus compare Capernaum unfavorably with Sodom in the day of judgment?",
+      "choices": [
+        "Capernaum received mighty works yet failed to respond in repentance",
+        "Capernaum had no opportunity to witness His ministry",
+        "Sodom had already received the same public works from Jesus",
+        "Capernaum was condemned because its buildings were larger"
+      ],
+      "correctAnswer": "Capernaum received mighty works yet failed to respond in repentance",
+      "explanation": "Matthew 11:20–24 links greater exposure to the mighty works of Christ with greater accountability. Jesus teaches that responsibility is measured not merely by what someone has done, but by the revelation they have refused.",
+      "application": "What truth has been repeatedly made clear to you, yet has not produced a corresponding change in your life?"
     },
     {
       "id": "m11q13",
@@ -286,6 +337,23 @@
       "correctAnswer": "Come to Him, take His yoke, learn of Him",
       "explanation": "Jesus says, “Come unto me,” “Take my yoke,” and “learn of me.” Rest is not the absence of discipleship but a life shaped by the right Master.",
       "application": "Where are you asking Jesus to approve your own way rather than letting Him teach you His?"
+    },
+    {
+      "id": "m11q22",
+      "type": "multiple_choice",
+      "reference": "Matthew 11:28–30",
+      "section": "Christ’s Invitation",
+      "category": "Discipleship · Challenge",
+      "prompt": "What is missing from the claim that Jesus’ promise of rest means a disciple has no further responsibility?",
+      "choices": [
+        "Jesus immediately calls people to take His yoke and learn from Him",
+        "Jesus limits His invitation to people who already know everything",
+        "Jesus says His rest is only for people without any burden",
+        "Jesus teaches that obedience is unnecessary once someone believes"
+      ],
+      "correctAnswer": "Jesus immediately calls people to take His yoke and learn from Him",
+      "explanation": "The sequence in verses 28–30 matters: come, take, and learn. Christ offers relief from crushing burdens by bringing disciples into a new relationship under His instruction. His rest and His yoke belong together.",
+      "application": "Where do you want the relief Christ offers without accepting the direction His yoke requires?"
     },
     {
       "id": "m11q18",
