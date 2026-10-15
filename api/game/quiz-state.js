@@ -1,3 +1,4 @@
+import {translatePublicQuestion,translateResponseStats} from '../../lib/quiz-es.js';
 import {authenticatedPlayer,playerCredentials,setPlayerCookie} from '../../lib/game-player-session.js';
 import {clean,db,verifyHost,corsNoStore} from '../../lib/game-db.js';
 import {expectedQuizEntries,expectedQuizUnits,entryKeyForPlayer,publicQuestion,publicReviewQuestion,SOLO_TEAM_ID} from '../../lib/quiz-engine.js';
@@ -5,7 +6,7 @@ import {expectedQuizEntries,expectedQuizUnits,entryKeyForPlayer,publicQuestion,p
 const resultPhases=new Set(['quiz_results','quiz_review','quiz_complete']);
 const isSolo=t=>t?.id===SOLO_TEAM_ID||t?.isSolo;
 const playerView=(p,teams)=>({
-  playerId:p.player_id,name:p.name,teamId:p.team_id,
+  playerId:p.player_id,name:p.name,teamId:p.team_id,language:p.preferred_language==='es'?'es':'en',
   participation:p.team_id===SOLO_TEAM_ID?'solo':'team',
   isCaptain:teams.find(t=>t.id===p.team_id)?.captainPlayerId===p.player_id,
   connected:!!p.connected&&Date.now()-Date.parse(p.last_seen_at)<45000
@@ -36,7 +37,7 @@ function resultsView(results){
     breakdown:results.breakdown||null,
     soloResults:(results.soloResults||[]).map(safeEntry),teamResults:(results.teamResults||[]).map(safeEntry)};
 }
-function reviewView(state,pack,isHost){
+function reviewView(state,pack,isHost,language='en'){
   if(state.phase!=='quiz_review')return null;
   const q=pack.questions?.[state.reviewIndex]||null;
   if(!q)return null;
@@ -45,13 +46,13 @@ function reviewView(state,pack,isHost){
   const showResponses=isHost||stage==='responses'||stage==='answer'||stage==='explanation'||stage==='application';
   return {
     index:state.reviewIndex,total:pack.questions.length,stage,
-    question:publicReviewQuestion(q,stage,isHost),
+    question:language==='es'?translatePublicQuestion(publicReviewQuestion(q,stage,isHost)):publicReviewQuestion(q,stage,isHost),
     stats:!stat?null:{
       total:stat.total,answered:stat.answered,unanswered:stat.unanswered,
       // The public review response stage must not disclose the key via the correct percentage.
       ...(isHost||stage!=='responses'?{correctPercent:stat.correctPercent}:{}),
-      type:stat.type,responses:showResponses?stat.responses:[],
-      fillResponses:showResponses?(stat.fillResponses||[]):[]
+      type:stat.type,responses:showResponses?(language==='es'?translateResponseStats(q,stat).responses:stat.responses):[],
+      fillResponses:showResponses?(language==='es'?translateResponseStats(q,stat).fillResponses:(stat.fillResponses||[])):[]
     }
   };
 }
@@ -73,10 +74,11 @@ export default async function handler(req,res){
     if(auth){role='player';setPlayerCookie(res,code,auth)}
   }
   if((body.hostToken||body.playerToken||credentials.cookie||credentials.invalid)&&role==='public')return res.status(401).json({error:'Quiz authentication expired'});
-  const pq=new URLSearchParams({select:'player_id,name,team_id,is_captain,connected,last_seen_at',game_id:'eq.'+game.id,order:'joined_at.asc'});
+  const pq=new URLSearchParams({select:'player_id,name,team_id,is_captain,connected,last_seen_at,preferred_language',game_id:'eq.'+game.id,order:'joined_at.asc'});
   const pr=await db('game_players?'+pq.toString()),players=pr.ok&&Array.isArray(pr.json)?pr.json:[];
   const teams=game.state.teams||[],pack=game.question_pack||{},questions=Array.isArray(pack.questions)?pack.questions:[];
   const me=role==='player'?players.find(p=>p.player_id===auth.playerId):null;
+  const playerLanguage=me?.preferred_language==='es'?'es':'en';
   let submissions=[];
   if(role!=='public'){
     const sq=new URLSearchParams({select:'question_id,player_id,team_id,answer,created_at',game_id:'eq.'+game.id,order:'created_at.asc'});
@@ -90,15 +92,16 @@ export default async function handler(req,res){
     : (game.state.quizMode==='team'?a.team_id===me.team_id:a.player_id===me.player_id)) : [];
   return res.status(200).json({
     ok:true,gameCode:game.game_code,version:game.version,serverTime:Date.now(),role,
-    quiz:{id:pack.id,title:pack.title,scripture:pack.scripture,questionCount:questions.length,
+    quiz:{id:pack.id,title:role==='player'&&playerLanguage==='es'?'Mateo 11 | Expectativas, revelación y responsabilidad':pack.title,
+      scripture:role==='player'&&playerLanguage==='es'?'Mateo 11 (RVR1960)':pack.scripture,questionCount:questions.length,
       // Host may manage the answer key privately. Clients only receive the prompt and options.
-      questions:role==='host'?questions:questions.map(publicQuestion)},
+      questions:role==='host'?questions:questions.map(q=>role==='player'&&playerLanguage==='es'?translatePublicQuestion(publicQuestion(q)):publicQuestion(q))},
     state:{mode:'quiz',phase:game.state.phase,quizMode:game.state.quizMode,teams,
       progress:progress(game.state,players),quizStartedAt:game.state.quizStartedAt,
       quizFinishedAt:game.state.quizFinishedAt,quizHistorySavedAt:game.state.quizHistorySavedAt||null,reviewIndex:game.state.reviewIndex||0,
       reviewStage:game.state.reviewStage||'responses',locked:!!game.state.quizLocks?.[myUnit],
       results:resultPhases.has(game.state.phase)?resultsView(game.state.quizResults):null,
-      review:reviewView(game.state,pack,role==='host')},
+      review:reviewView(game.state,pack,role==='host',role==='player'?playerLanguage:'en')},
     players:role==='host'?players.map(p=>playerView(p,teams)):[],
     me:me?playerView(me,teams):null,
     answers:role==='host'?submissions.map(a=>({questionId:a.question_id,teamId:a.team_id,playerId:a.player_id,answer:a.answer}))
