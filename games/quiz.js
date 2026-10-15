@@ -70,6 +70,40 @@ function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.referenc
 function reviewContent(review,host=false,projector=false){
   if(!review)return '<p class="muted">Waiting for the review.</p>';
   const q=review.question||{},stat=review.stats||{},stage=review.stage;
+  const steps=['responses','answer','explanation','application'],step=Math.max(0,steps.indexOf(stage));
+  if(projector){
+    const lead='<div class="quiz-theater-kicker"><span class="quiz-theater-step">REVEAL '+(step+1)+' OF 4</span><span>'+esc(q.reference||'Matthew 11')+'</span></div>';
+    const question='<h1 class="quiz-theater-question">'+esc(q.prompt||'')+'</h1>';
+    let body='';
+    if(stage==='responses'){
+      let bars='';
+      if(q.type==='fill_blank'){
+        const items=stat.fillResponses||[];
+        bars=(items.length?items.map((r,i)=>'<div class="quiz-theater-fill" style="--reveal-order:'+i+'"><strong>'+esc(r.answer)+'</strong><span>'+Number(r.percent||0)+'%</span></div>').join(''):'<p class="muted">No saved typed responses.</p>');
+      }else{
+        bars=(q.choices||[]).map((choice,i)=>{
+          const r=(stat.responses||[]).find(x=>x.answer===choice)||{count:0,percent:0};
+          return '<div class="quiz-theater-choice" style="--reveal-order:'+i+'"><div class="quiz-theater-choice-label"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span><strong>'+Number(r.percent||0)+'%</strong></div><div class="quiz-theater-bar"><i style="--bar-size:'+Math.min(100,Math.max(0,Number(r.percent)||0))+'%"></i></div></div>';
+        }).join('');
+      }
+      body='<div class="quiz-theater-body"><div class="quiz-theater-eyebrow">HOW DID THE ROOM RESPOND?</div>'+question+'<div class="quiz-theater-responses">'+bars+'</div><p class="quiz-theater-nudge">Look at the responses. What made this question difficult?</p></div>';
+    }else if(stage==='answer'){
+      body='<div class="quiz-theater-body quiz-theater-answer"><div class="quiz-theater-eyebrow">THE SCRIPTURE REVEALS</div>'+question+
+        '<div class="quiz-theater-answer-text">'+esc(q.correctAnswer||'')+'</div>'+
+        '<div class="quiz-theater-accuracy"><b>'+Number(stat.correctPercent||0)+'%</b><span>of submitted entries answered correctly</span></div></div>';
+    }else if(stage==='explanation'){
+      body='<div class="quiz-theater-body quiz-theater-explanation"><div class="quiz-theater-eyebrow">GO BACK TO THE TEXT</div>'+
+        '<div class="quiz-theater-reference">'+esc(q.reference||'Matthew 11')+'</div>'+
+        '<h1 class="quiz-theater-heading">What is Scripture showing us?</h1>'+
+        '<p class="quiz-theater-paragraph">'+esc(q.explanation||'')+'</p></div>';
+    }else{
+      body='<div class="quiz-theater-body quiz-theater-application"><div class="quiz-theater-eyebrow">BRING THE TEXT INTO LIFE</div>'+
+        '<h1 class="quiz-theater-heading">Where do we see this today?</h1>'+
+        '<p class="quiz-theater-paragraph">'+esc(q.application||'')+'</p>'+
+        '<div class="quiz-theater-discuss">Discuss it together. What would obedience look like in a real situation?</div></div>';
+    }
+    return '<div class="quiz-theater quiz-theater-'+esc(stage)+'">'+lead+body+'</div>';
+  }
   let responses='';
   if(q.type==='fill_blank'){
     const items=stat.fillResponses||[];
@@ -80,10 +114,14 @@ function reviewContent(review,host=false,projector=false){
       return '<div class="response-row"><div><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span><strong>'+r.percent+'%</strong></div><div class="meter"><i style="width:'+r.percent+'%"></i></div></div>';
     }).join('')+'</div>';
   }
-  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+(projector&&stage!=='responses'?'':responses);
-  if((projector&&stage!=='responses')||['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
-  if((projector&&stage==='explanation')||(!projector&&['explanation','application'].includes(stage)))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
+  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+responses;
+  if(['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
+  if(['explanation','application'].includes(stage))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
   if(stage==='application')html+='<section class="reveal-block application"><span>Practical application</span><p>'+esc(q.application||'')+'</p></section>';
+  if(host){
+    const cues={responses:'Ask the room why the responses differ before revealing the text.',answer:'Let the answer settle. Ask someone to locate it in Matthew 11.',explanation:'Follow the movement of the verse; clarify why the other choices miss it.',application:'Invite one concrete example of obedience. No pressure for a public confession.'};
+    html+='<div class="quiz-host-prompt"><strong>HOST DISCUSSION CUE</strong><p>'+esc(cues[stage]||'')+'</p></div>';
+  }
   return html;
 }
 
@@ -182,7 +220,7 @@ function renderDisplay(){
     footer.innerHTML='<span>Solo and team results are ranked separately.</span>';
   }else if(state.phase==='quiz_review'){
     const r=state.review;
-    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r,false,true)+'</div></div>';
+    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><div class="quiz-stage-track">'+['responses','answer','explanation','application'].map((phase,i)=>'<span class="'+(i<=['responses','answer','explanation','application'].indexOf(r?.stage)?'active':'')+'" title="'+esc(stages[phase])+'"></span>').join('')+'</div><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r,false,true)+'</div></div>';
     footer.innerHTML='<span>'+esc(r?.question?.reference||'Matthew 11')+'</span><strong>'+(r?.stage==='responses'?((r?.stats?.answered||0)+' responses'):(r?.stats?.correctPercent||0)+'% correct')+'</strong>';
   }else{
     stage.innerHTML='<div class="display-results"><span class="eyebrow">MATTHEW 11 · COMPLETE</span><div class="display-overall">'+(state.results?.overallPercent??0)+'%</div><h1>Knowledge → Understanding → Application</h1>'+scoreboard(state.results)+'</div>';
