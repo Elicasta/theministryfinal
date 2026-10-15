@@ -1,3 +1,4 @@
+import {englishChoiceFromSpanish} from '../../lib/quiz-es.js';
 import {authenticatedPlayer} from '../../lib/game-player-session.js';
 import {archiveQuizHistory} from '../../lib/quiz-history.js';
 import {clean,db,verifyHost,corsNoStore,broadcastGame,recordGameEvent,getGameByCode,getGamePlayers} from '../../lib/game-db.js';
@@ -148,7 +149,11 @@ export default async function handler(req,res){
     if(row.state.quizLocks?.[unit])return res.status(409).json({error:'Answers are locked'});
     const questionId=clean(body.questionId,120),q=row.question_pack?.questions?.find(x=>x.id===questionId);
     const raw=String(body.answer??'');
-    const validated=validateAnswer(q?.type?q:{...q,type:'multiple_choice'},raw);
+    // Persist multiple-choice answers in canonical English for a shared scoreboard.
+    // Typed Spanish RVR1960 blanks stay in Spanish and are graded bilingually.
+    const answer=player.preferred_language==='es'&&q?.type==='multiple_choice'
+      ?(englishChoiceFromSpanish(q,raw)||raw):raw;
+    const validated=validateAnswer(q?.type?q:{...q,type:'multiple_choice'},answer);
     if(!validated.ok)return res.status(400).json({error:validated.reason});
     // Re-read state immediately before the write so stale clients cannot edit after submission.
     const current=(await getGameByCode(code)).row;
