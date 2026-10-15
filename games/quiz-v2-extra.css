@@ -1,0 +1,18 @@
+/* Additive styles for mixed Solo/Team Quiz & Review on top of games/quiz.css. */
+.quiz-participation{margin:20px 0 12px}
+.participation-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.participation-button{border:1px solid #3a4652;border-radius:10px;background:#101820;color:#eef1f4;min-height:74px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:12px;font-weight:800;cursor:pointer}
+.participation-button small{display:block;color:#a8b4bf;font-size:.77rem;font-weight:500;margin-top:5px}
+.participation-button.active{outline:2px solid #d3b36a;border-color:#d3b36a;background:#28251b}
+.quiz-blank{display:grid;gap:10px;margin:20px 0}
+.quiz-blank label{font-weight:700;color:#b8c4ce}
+.quiz-blank input{width:100%;min-height:58px;border:1px solid #647281;border-radius:9px;background:#111820;color:#fff;padding:12px 14px;font-size:1.2rem}
+.quiz-blank small{color:#8fbe9a}
+.quiz-scoreboards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px;align-items:start;margin:20px 0}
+.quiz-scoreboards .results-list{margin-top:10px}
+.quiz-fill-response{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid #34424d;padding:13px 16px;margin:8px 0;border-radius:9px;word-break:break-word}
+.quiz-fill-response strong{color:#d3b36a;font-family:'Barlow Condensed',sans-serif;font-size:1.6rem}
+.display-review .review-card{min-height:0;overflow:auto}
+.display-results .quiz-scoreboards{text-align:left}
+.display-results .quiz-scoreboards .results-list{max-height:50vh;overflow:auto}
+@media(max-width:600px){.participation-buttons{grid-template-columns:1fr 1fr}.quiz-scoreboards{grid-template-columns:1fr}.quiz-blank input{font-size:1rem}}

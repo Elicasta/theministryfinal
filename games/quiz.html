@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/games/quiz.css">
+  <link rel="stylesheet" href="/games/quiz-v2-extra.css">
 </head>
 <body>
   <div id="quiz-toast" class="quiz-toast hidden" role="status" aria-live="polite"></div>
@@ -43,12 +44,7 @@
           <div class="panel-label">Quiz Setup</div>
           <h2>Matthew 11</h2>
           <p class="muted">The King Confronts Expectations + Greater Revelation, Greater Responsibility</p>
-          <label class="field">Participation
-            <select id="quiz-mode">
-              <option value="individual">Individual Quiz · scores roll into teams</option>
-              <option value="team">Team Quiz · captain submits one answer</option>
-            </select>
-          </label>
+          <p class="muted">Each person chooses Solo or Team when joining.</p>
           <div class="field-row">
             <span>Teams</span>
             <div class="stepper"><button id="team-minus">−</button><strong id="team-count">4</strong><button id="team-plus">+</button></div>
@@ -65,9 +61,9 @@
 
         <section class="panel">
           <div class="panel-label">Format</div>
-          <div class="format-row"><b>12</b><span>questions</span></div>
+          <div class="format-row"><b>18</b><span>questions</span></div>
           <div class="format-row"><b>%</b><span>percentage scoring</span></div>
-          <div class="format-row"><b>4</b><span>review stages per question</span></div>
+          <div class="format-row"><b>4</b><span>host-controlled review stages</span></div>
         </section>
       </aside>
 
