@@ -95,7 +95,7 @@ export default async function handler(req,res){
       questions:role==='host'?questions:questions.map(publicQuestion)},
     state:{mode:'quiz',phase:game.state.phase,quizMode:game.state.quizMode,teams,
       progress:progress(game.state,players),quizStartedAt:game.state.quizStartedAt,
-      quizFinishedAt:game.state.quizFinishedAt,reviewIndex:game.state.reviewIndex||0,
+      quizFinishedAt:game.state.quizFinishedAt,quizHistorySavedAt:game.state.quizHistorySavedAt||null,reviewIndex:game.state.reviewIndex||0,
       reviewStage:game.state.reviewStage||'responses',locked:!!game.state.quizLocks?.[myUnit],
       results:resultPhases.has(game.state.phase)?resultsView(game.state.quizResults):null,
       review:reviewView(game.state,pack,role==='host')},
