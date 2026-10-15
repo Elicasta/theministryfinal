@@ -105,6 +105,11 @@ export default async function handler(req,res){
     players:role==='host'?players.map(p=>playerView(p,teams)):[],
     me:me?playerView(me,teams):null,
     answers:role==='host'?submissions.map(a=>({questionId:a.question_id,teamId:a.team_id,playerId:a.player_id,answer:a.answer}))
-      :myAnswers.map(a=>({questionId:a.question_id,answer:a.answer})),
+      :myAnswers.map(a=>{
+        const original=questions.find(q=>q.id===a.question_id);
+        const translated=playerLanguage==='es'&&original?translatePublicQuestion(publicQuestion(original)):null;
+        const position=original?.choices?.indexOf(a.answer)??-1;
+        return {questionId:a.question_id,answer:position>=0&&translated?.choices?.[position]?translated.choices[position]:a.answer};
+      }),
   });
 }
