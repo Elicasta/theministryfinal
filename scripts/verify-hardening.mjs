@@ -92,7 +92,8 @@ for(const file of [
   'api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js',
   'supabase/game-engine.sql',
   'games/quiz.html','games/quiz.css','games/quiz.js',
-  'lib/quiz-pack.js','lib/quiz-engine.js',
+  'lib/quiz-pack.js','lib/quiz-engine.js','lib/quiz-history.js',
+  'api/game/quiz-history.js','games/quiz-review-experience.css','supabase/quiz-history.sql',
   'api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js'
 ]){
   if(!fs.existsSync(file))fail('game engine file missing: '+file);
@@ -126,7 +127,7 @@ if(!gameBrowser.includes('NEW PACK READY'))fail('AI pack generation needs explic
 if(!gameCss.includes('Bible Battle Broadcast System v3'))fail('Broadcast graphics system v3 is missing');
 
 const {spawnSync}=await import('node:child_process');
-for(const file of ['lib/game-db.js','lib/game-pack.js','lib/quiz-pack.js','lib/quiz-engine.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js','api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js']){
+for(const file of ['lib/game-db.js','lib/game-pack.js','lib/quiz-pack.js','lib/quiz-engine.js','api/game/create.js','api/game/join.js','api/game/state.js','api/game/action.js','api/game/generate.js','api/game/voice.js','api/game/live-session.js','api/game/health.js','api/game/quiz-create.js','api/game/quiz-state.js','api/game/quiz-action.js','lib/quiz-history.js','api/game/quiz-history.js']){
   const parsed=spawnSync(process.execPath,['--check','--input-type=module'],{input:fs.readFileSync(file,'utf8'),encoding:'utf8'});
   if(parsed.status!==0)fail(file+' syntax error: '+String(parsed.stderr||parsed.stdout).trim());
 }
@@ -164,3 +165,15 @@ if(quizPack.questions.some(q=>!q.explanation||!q.application))fail('quiz explana
 const quizAction=fs.readFileSync('api/game/quiz-action.js','utf8');
 if(!quizAction.includes("action==='SUBMIT_QUIZ'"))fail('quiz submission lock is missing');
 if(!quizAction.includes("action==='START_REVIEW'"))fail('quiz review flow is missing');
+
+// Long-lived Lumaneer history is stored separately from session-scoped state.
+const archiveSchema=fs.readFileSync('supabase/quiz-history.sql','utf8');
+if(!archiveSchema.includes('create table if not exists public.quiz_history')||!archiveSchema.includes('enable row level security'))fail('private quiz history schema missing');
+const archiveAction=fs.readFileSync('api/game/quiz-action.js','utf8');
+if(!archiveAction.includes('archiveQuizHistory')||!archiveAction.includes("action==='ARCHIVE_HISTORY'"))fail('idempotent historical quiz persistence missing');
+const archiveRead=fs.readFileSync('api/game/quiz-history.js','utf8');
+if(!archiveRead.includes('authenticatedPlayer')||!archiveRead.includes("player_id:'eq.'+auth.playerId"))fail('participant history read must be personally authenticated');
+const theater=fs.readFileSync('games/quiz.js','utf8');
+for(const phase of ['quiz-theater-responses','quiz-theater-answer','quiz-theater-explanation','quiz-theater-application']){
+  if(!theater.includes(phase))fail('classroom review stage missing: '+phase);
+}
