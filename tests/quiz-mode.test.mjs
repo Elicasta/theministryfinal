@@ -19,11 +19,11 @@ const players=[
 ];
 const marks=(id,answer,playerId,teamId)=>({question_id:id,answer,player_id:playerId,team_id:teamId,created_at:'2026-10-15T15:00:00Z'});
 
-test('Matthew 11 pack is 18 sequential and balanced items',()=>{
-  assert.equal(pack.questions.length,18);
-  assert.equal(pack.questions.filter(q=>q.type==='multiple_choice').length,11);
+test('Matthew 11 pack is 22 distinct items including four challenging interpretations',()=>{
+  assert.equal(pack.questions.length,22);
+  assert.equal(pack.questions.filter(q=>q.type==='multiple_choice').length,15);
   assert.equal(pack.questions.filter(q=>q.type==='fill_blank').length,7);
-  assert.deepEqual(pack.questions.map(x=>x.id),Array.from({length:18},(_,i)=>`m11q${String(i+1).padStart(2,'0')}`));
+  assert.equal(new Set(pack.questions.map(x=>x.id)).size,22);
 });
 
 test('typed answers accept case, punctuation and whitespace variations',()=>{
@@ -33,6 +33,11 @@ test('typed answers accept case, punctuation and whitespace variations',()=>{
   assert.equal(gradeAnswer(q,'another person'),false);
   assert.equal(gradeAnswer(question('m11q05'),'Offended!'),true);
   assert.equal(gradeAnswer(question('m11q16'),' rested '),false);
+  assert.equal(gradeAnswer(question('m11q03'),'anothre'),true);
+  assert.equal(gradeAnswer(question('m11q05'),'offende'),true);
+  assert.equal(gradeAnswer(question('m11q18'),'night'),false);
+  assert.equal(gradeAnswer(question('m11q18'),'ligth'),true);
+  assert.equal(gradeAnswer(question('m11q03'),'completely'),false);
 });
 
 test('multiple choice accepts only one of the four offered answers',()=>{
@@ -118,11 +123,11 @@ test('participant payload hides answer key and explanations before reveal',()=>{
 });
 
 test('review keeps all four stages and last action closes',()=>{
-  assert.deepEqual(nextReviewState(0,'responses',18),{index:0,stage:'answer',done:false});
-  assert.deepEqual(nextReviewState(0,'answer',18),{index:0,stage:'explanation',done:false});
-  assert.deepEqual(nextReviewState(0,'explanation',18),{index:0,stage:'application',done:false});
-  assert.deepEqual(nextReviewState(0,'application',18),{index:1,stage:'responses',done:false});
-  assert.deepEqual(nextReviewState(17,'application',18),{index:17,stage:'application',done:true});
+  assert.deepEqual(nextReviewState(0,'responses',22),{index:0,stage:'answer',done:false});
+  assert.deepEqual(nextReviewState(0,'answer',22),{index:0,stage:'explanation',done:false});
+  assert.deepEqual(nextReviewState(0,'explanation',22),{index:0,stage:'application',done:false});
+  assert.deepEqual(nextReviewState(0,'application',22),{index:1,stage:'responses',done:false});
+  assert.deepEqual(nextReviewState(21,'application',22),{index:21,stage:'application',done:true});
   assert.deepEqual(previousReviewState(1,'responses'),{index:0,stage:'application'});
 });
 

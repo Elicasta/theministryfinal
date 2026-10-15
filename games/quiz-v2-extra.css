@@ -16,3 +16,61 @@
 .display-results .quiz-scoreboards{text-align:left}
 .display-results .quiz-scoreboards .results-list{max-height:50vh;overflow:auto}
 @media(max-width:600px){.participation-buttons{grid-template-columns:1fr 1fr}.quiz-scoreboards{grid-template-columns:1fr}.quiz-blank input{font-size:1rem}}
+
+/* v3 fullscreen projector: keep QR entirely inside its header and
+   show ONE review stage at a time, not a long cumulative scroll. */
+.display-shell{height:100dvh;min-height:0;grid-template-rows:86px minmax(0,1fr) 50px}
+.display-top{min-height:0;overflow:hidden;padding:3px 20px}
+.display-join{flex:none;min-width:0;gap:10px;align-self:center}
+.display-join .small-qr{width:80px;height:80px;flex:0 0 80px;padding:4px;overflow:hidden;display:grid;place-items:center}
+.display-join .small-qr img,.display-join .small-qr canvas{width:72px!important;height:72px!important;max-width:100%;display:block}
+.display-join strong{font-size:clamp(1.2rem,2vw,1.8rem);white-space:nowrap}
+.display-stage{min-width:0;min-height:0;overflow:hidden;padding:clamp(10px,1.7dvh,20px) 3vw}
+.display-review{align-self:stretch;width:min(1200px,100%);min-height:0;grid-template-rows:auto minmax(0,1fr)}
+.display-review-head{margin-bottom:7px;padding:0 0 8px;flex-shrink:0}
+.display-review .review-card{min-height:0;overflow:auto;overscroll-behavior:contain;padding:clamp(13px,2.2vmin,28px)}
+.display-review .review-meta{margin-bottom:8px}
+.display-review .review-question{font-size:clamp(1.35rem,2.6vmin,2.35rem);line-height:1.22;margin:0 0 clamp(8px,1.6dvh,15px);max-width:none}
+.display-review .response-bars{gap:clamp(5px,1dvh,11px)}
+.display-review .response-row>div:first-child{margin-bottom:3px}
+.display-review .response-row .meter{height:6px}
+.display-review .reveal-block{margin-top:clamp(10px,1.3dvh,16px);padding-top:clamp(10px,1.3dvh,16px);max-width:none}
+.display-review .reveal-block.answer h2{font-size:clamp(1.7rem,3.8vmin,3.3rem);line-height:1.08;margin:5px 0}
+.display-review .reveal-block p{font-size:clamp(.92rem,1.6vmin,1.22rem);line-height:1.45;margin:7px 0}
+.display-footer{min-height:0;font-size:clamp(.75rem,1.4vmin,.95rem)}
+/* Mobile remotes: prevent focus-triggered iOS browser zoom and horizontal
+   overflow, while retaining user-controlled accessibility zoom. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;max-width:100%}
+body{max-width:100%;overflow-x:hidden}
+.player-shell{width:100%;max-width:760px;min-width:0;overflow-x:clip}
+.player-shell input,.player-shell select,.player-shell textarea{font-size:16px!important;max-width:100%;min-width:0}
+.player-top,.player-top>div{min-width:0}
+.phone-card,.quiz-card,.choice,.choice-list,.quiz-nav{min-width:0;max-width:100%}
+.quiz-card h1{overflow-wrap:anywhere;font-size:clamp(1.14rem,4.3vw,1.45rem)}
+.quiz-nav .btn{min-width:0;overflow-wrap:anywhere;padding-inline:8px}
+@media(max-width:640px){
+ .display-shell{grid-template-rows:70px minmax(0,1fr) 43px}
+ .display-join .small-qr{display:grid;width:62px;height:62px;flex-basis:62px;padding:3px}
+ .display-join .small-qr img,.display-join .small-qr canvas{width:56px!important;height:56px!important}
+ .display-join strong{font-size:1.1rem}
+ .display-top{padding:3px 8px}
+ .display-stage{padding:8px}
+ .display-review .review-question{font-size:clamp(1.05rem,4.1vw,1.5rem)}
+ .display-review .review-card{padding:12px}
+ .display-review .response-row{font-size:.78rem}
+ .display-review .reveal-block p{font-size:.83rem}
+ .display-review .reveal-block.answer h2{font-size:clamp(1.5rem,5vw,2rem)}
+ .phone-card{max-width:calc(100% - 20px)}
+ .player-team-bar{grid-template-columns:12px minmax(0,1fr);}
+ .player-team-bar span:last-child{grid-column:2}
+ .quiz-blank input{font-size:16px}
+}
+@media(max-height:740px) and (min-width:641px){
+ .display-review .review-card{padding:12px 20px}
+ .display-review .review-question{font-size:clamp(1.25rem,2.9vmin,2rem)}
+ .display-review .review-meta{margin-bottom:3px}
+ .display-review .response-bars{gap:4px}
+ .display-review .response-row b{width:24px;height:24px}
+ .display-review .response-row strong{font-size:1rem}
+ .display-review .reveal-block p{font-size:.95rem}
+}

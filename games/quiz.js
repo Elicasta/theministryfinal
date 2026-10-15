@@ -67,7 +67,7 @@ function scoreboard(data){
   '<section><div class="panel-label">Team ranking · '+teamResults.length+' submitted</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">No team submissions yet.</p>')+'</div></section></div>';
 }
 function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?'Fill in the blank':'Multiple choice')+'</span></div>'}
-function reviewContent(review,host=false){
+function reviewContent(review,host=false,projector=false){
   if(!review)return '<p class="muted">Waiting for the review.</p>';
   const q=review.question||{},stat=review.stats||{},stage=review.stage;
   let responses='';
@@ -80,9 +80,9 @@ function reviewContent(review,host=false){
       return '<div class="response-row"><div><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span><strong>'+r.percent+'%</strong></div><div class="meter"><i style="width:'+r.percent+'%"></i></div></div>';
     }).join('')+'</div>';
   }
-  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+responses;
-  if(['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
-  if(['explanation','application'].includes(stage))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
+  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+(projector&&stage!=='responses'?'':responses);
+  if((projector&&stage!=='responses')||['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
+  if((projector&&stage==='explanation')||(!projector&&['explanation','application'].includes(stage)))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
   if(stage==='application')html+='<section class="reveal-block application"><span>Practical application</span><p>'+esc(q.application||'')+'</p></section>';
   return html;
 }
@@ -92,7 +92,7 @@ async function initHost(){
   show('quiz-host');hostAuth=loadJSON(hostKey);
   if(hostAuth?.code){try{await requestState()}catch{hostAuth=null;localStorage.removeItem(hostKey)}}
   if(!snap){
-    const d=await api('/api/game/quiz-create',{packId:'matthew-11-quiz-review-v2',teamCount:4});
+    const d=await api('/api/game/quiz-create',{packId:'matthew-11-quiz-review-v3',teamCount:4});
     saveHost({code:d.gameCode,hostToken:d.hostToken,displayToken:d.displayToken});
     await requestState();
   }
@@ -168,7 +168,7 @@ async function initDisplay(){
 }
 function renderDisplay(){
   if(!state)return;
-  $('display-code').textContent=snap.gameCode;qr('display-qr',shareLink(snap.gameCode),98);
+  $('display-code').textContent=snap.gameCode;qr('display-qr',shareLink(snap.gameCode),72);
   const stage=$('display-stage'),footer=$('display-footer');
   if(state.phase==='quiz_lobby'){
     stage.innerHTML='<div class="display-message"><span>MATTHEW 11 · QUIZ & REVIEW</span><h1>Join the quiz.</h1><p>Choose Solo or Team before the host starts.</p></div>';
@@ -182,7 +182,7 @@ function renderDisplay(){
     footer.innerHTML='<span>Solo and team results are ranked separately.</span>';
   }else if(state.phase==='quiz_review'){
     const r=state.review;
-    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r)+'</div></div>';
+    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r,false,true)+'</div></div>';
     footer.innerHTML='<span>'+esc(r?.question?.reference||'Matthew 11')+'</span><strong>'+(r?.stage==='responses'?((r?.stats?.answered||0)+' responses'):(r?.stats?.correctPercent||0)+'% correct')+'</strong>';
   }else{
     stage.innerHTML='<div class="display-results"><span class="eyebrow">MATTHEW 11 · COMPLETE</span><div class="display-overall">'+(state.results?.overallPercent??0)+'%</div><h1>Knowledge → Understanding → Application</h1>'+scoreboard(state.results)+'</div>';
@@ -200,8 +200,7 @@ function bindPlayer(){
     const mode=e.target.closest('[data-participation]');if(mode){chosenParticipation=mode.dataset.participation;renderParticipation();return}
     const t=e.target.closest('[data-pick-team]');if(t){selectedTeamId=t.dataset.pickTeam;renderParticipation();return}
     const choice=e.target.closest('[data-quiz-answer]');if(choice){answerQuestion(choice.dataset.quizAnswer);return}
-    const next=e.target.closest('[data-quiz-nav]');if(next){currentIndex=Math.max(0,Math.min(pack.questionCount-1,currentIndex+Number(next.dataset.quizNav)));renderPlayer();return}
-    if(e.target.closest('#save-fill-answer')){saveFillAnswer();return}
+    const next=e.target.closest('[data-quiz-nav]');if(next){navigateQuiz(Number(next.dataset.quizNav));return}
     if(e.target.closest('#submit-quiz'))submitQuiz();
   });
 }
@@ -256,17 +255,40 @@ async function answerQuestion(answer){
   if(state.locked||!canSubmit())return;
   const q=pack.questions?.[currentIndex];if(q)await act('ANSWER',{questionId:q.id,answer});
 }
+// Next is the save action for typed answers. Do not advance or submit if
+// persistence fails: the server remains the source of truth.
 async function saveFillAnswer(){
-  if(state.locked||!canSubmit())return;
+  if(state.locked||!canSubmit())return false;
   const q=pack.questions?.[currentIndex],v=String($('fill-answer-input')?.value||'').trim();
-  if(!v){toast('Enter the missing word.');return}
-  if(q)await act('ANSWER',{questionId:q.id,answer:v});
+  if(!q||q.type!=='fill_blank')return true;
+  if(!v){toast('Enter your answer before continuing.');return false}
+  if(v===myAnswer(q.id))return true;
+  const saved=await act('ANSWER',{questionId:q.id,answer:v});
+  return Boolean(saved);
+}
+let changingQuestion=false;
+async function navigateQuiz(delta){
+  if(changingQuestion)return;
+  changingQuestion=true;
+  try{
+    if(pack.questions?.[currentIndex]?.type==='fill_blank'&&canSubmit()){
+      if(!await saveFillAnswer())return;
+    }
+    currentIndex=Math.max(0,Math.min(pack.questionCount-1,currentIndex+delta));
+    renderPlayer();
+  }finally{changingQuestion=false}
 }
 async function submitQuiz(){
-  if(state.locked||!canSubmit())return;
-  const missing=(pack.questions||[]).filter(q=>!myAnswer(q.id)).length;
-  if(missing&&!confirm('There are '+missing+' unanswered questions. Submit anyway?'))return;
-  if(confirm('Submit now? Answers cannot be changed afterward.'))await act('SUBMIT_QUIZ');
+  if(state.locked||!canSubmit()||changingQuestion)return;
+  changingQuestion=true;
+  try{
+    if(pack.questions?.[currentIndex]?.type==='fill_blank'){
+      if(!await saveFillAnswer())return;
+    }
+    const missing=(pack.questions||[]).filter(q=>!myAnswer(q.id)).length;
+    if(missing&&!confirm('There are '+missing+' unanswered questions. Submit anyway?'))return;
+    if(confirm('Submit now? Answers cannot be changed afterward.'))await act('SUBMIT_QUIZ');
+  }finally{changingQuestion=false}
 }
 function renderPlayer(){
   if(!state)return;
@@ -282,11 +304,11 @@ function renderPlayer(){
     const completed=(pack.questions||[]).filter(x=>myAnswer(x.id)).length;
     let response='';
     if(q.type==='fill_blank'){
-      response='<div class="quiz-blank"><label for="fill-answer-input">Enter the missing word</label><input id="fill-answer-input" type="text" maxlength="120" spellcheck="false" autocomplete="off" value="'+esc(myAnswer(q.id))+'" '+(!canSubmit()?'disabled':'')+' placeholder="Your answer"><button type="button" id="save-fill-answer" class="btn primary" '+(!canSubmit()?'disabled':'')+'>Save Answer</button>'+(myAnswer(q.id)?'<small>Answer saved</small>':'')+'</div>';
+      response='<div class="quiz-blank"><label for="fill-answer-input">Enter the missing word</label><input id="fill-answer-input" type="text" maxlength="120" spellcheck="false" autocomplete="off" enterkeyhint="next" value="'+esc(myAnswer(q.id))+'" '+(!canSubmit()?'disabled':'')+' placeholder="Your answer">'+(myAnswer(q.id)?'<small>Saved. Continue when ready.</small>':'<small>Minor spelling mistakes are allowed.</small>')+'</div>';
     }else response='<div class="choice-list">'+(q.choices||[]).map((choice,i)=>'<button class="choice '+(myAnswer(q.id)===choice?'selected':'')+'" data-quiz-answer="'+esc(choice)+'" '+(!canSubmit()?'disabled':'')+'><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span></button>').join('')+'</div>';
     el.innerHTML='<section class="phone-card quiz-card"><div class="quiz-progress-head"><span>QUESTION '+(currentIndex+1)+' OF '+pack.questionCount+'</span><strong>'+completed+' answered</strong></div><div class="meter"><i style="width:'+Math.round(completed/pack.questionCount*100)+'%"></i></div>'+questionTag(q)+'<h1>'+esc(q.prompt)+'</h1>'+response+
     (!canSubmit()?'<div class="discussion-note">Discuss with your team. Only the captain saves the group response.</div>':'')+
-    '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>← Previous</button>'+(currentIndex===pack.questionCount-1?(canSubmit()?'<button class="btn primary" id="submit-quiz">Submit Quiz</button>':'<button class="btn" disabled>Captain submits</button>'):'<button class="btn primary" data-quiz-nav="1">Next →</button>')+'</div></section>';
+    '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>← Previous</button>'+(currentIndex===pack.questionCount-1?(canSubmit()?'<button class="btn primary" id="submit-quiz">'+(q.type==='fill_blank'?'Save & Submit':'Submit Quiz')+'</button>':'<button class="btn" disabled>Captain submits</button>'):'<button class="btn primary" data-quiz-nav="1">'+(q.type==='fill_blank'&&canSubmit()?'Save & Next →':'Next →')+'</button>')+'</div></section>';
     return;
   }
   if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+'<p class="muted">The host will guide the review.</p></section>';return}
