@@ -157,8 +157,8 @@ if(!gameAction.includes("Move them before removing that team"))fail('server must
 if(!gameAction.includes("captained=state.teams.find"))fail('game start must prefer a team with a captain');
 
 const quizPack=JSON.parse(fs.readFileSync('lib/matthew-11.quiz.json','utf8'));
-if(quizPack.questions.length!==18)fail('Matthew 11 Quiz & Review must contain 18 questions');
-if(quizPack.questions.filter(q=>q.type==='multiple_choice').length!==11)fail('Matthew 11 must include 11 multiple-choice questions');
+if(quizPack.questions.length!==22)fail('Matthew 11 Quiz & Review must contain 22 questions');
+if(quizPack.questions.filter(q=>q.type==='multiple_choice').length!==15)fail('Matthew 11 must include 15 multiple-choice questions');
 if(quizPack.questions.filter(q=>q.type==='fill_blank').length!==7)fail('Matthew 11 must include 7 fill-in-the-blank questions');
 if(quizPack.questions.some(q=>!q.explanation||!q.application))fail('quiz explanation/application missing');
 const quizAction=fs.readFileSync('api/game/quiz-action.js','utf8');
