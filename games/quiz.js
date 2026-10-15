@@ -62,14 +62,14 @@ async function connectNetwork(code){
 function startPolling(){clearInterval(poll);poll=setInterval(()=>requestState().catch(()=>network('Reconnecting')),1500)}
 function startHeartbeat(){clearInterval(heartbeat);heartbeat=setInterval(()=>{if(playerAuth)act('HEARTBEAT')},24000)}
 
-function resultLine(r,i){return '<article class="result-row" style="--team:'+esc(r.color||'#768598')+'"><span class="rank">'+(i+1)+'</span><span class="team-dot"></span><strong>'+esc(r.name)+'</strong><div><b>'+r.percent+'%</b><small>'+r.correct+' / '+r.possible+' correct</small></div></article>'}
+function resultLine(r,i){return '<article class="result-row" style="--team:'+esc(r.color||'#768598')+'"><span class="rank">'+(i+1)+'</span><span class="team-dot"></span><strong>'+esc(r.name)+'</strong><div><b>'+r.percent+'%</b><small>'+r.correct+' / '+r.possible+' '+tr('correct','correctas')+'</small></div></article>'}
 function scoreboard(data){
   const soloResults=data?.soloResults||[],teamResults=data?.teamResults||[];
-  return '<div class="quiz-scoreboards"><section><div class="panel-label">Solo ranking · '+soloResults.length+' submitted</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">No solo submissions yet.</p>')+'</div></section>'+ 
-  '<section><div class="panel-label">Team ranking · '+teamResults.length+' submitted</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">No team submissions yet.</p>')+'</div></section></div>';
+  return '<div class="quiz-scoreboards"><section><div class="panel-label">'+tr('Solo ranking','Clasificación individual')+' · '+soloResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">Aún no hay entregas individuales.</p>')+'</div></section>'+ 
+  '<section><div class="panel-label">'+tr('Team ranking','Clasificación por equipos')+' · '+teamResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">Aún no hay entregas de equipos.</p>')+'</div></section></div>';
 }
 function historyButton(){
-  return '<div class="quiz-history-cta"><button class="btn primary" data-history-open>Review my saved answers</button><small>Saved by your game session for future verified Lumaneer profile linking.</small></div>';
+  return '<div class="quiz-history-cta"><button class="btn primary" data-history-open>'+tr('Review my saved answers','Revisar mis respuestas guardadas')+'</button><small>'+tr('Saved by your game session for future verified Lumaneer profile linking.','Guardado en tu sesión para vincularlo con tu perfil verificado de Lumaneer en el futuro.')+'</small></div>';
 }
 function closeHistory(){document.getElementById('quiz-history-overlay')?.remove()}
 async function openHistory(){
@@ -90,9 +90,9 @@ async function openHistory(){
       '<p class="muted">This record is tied to your authenticated game participation. Future Lumaneer linking requires verified account ownership.</p>';
   }catch(e){const p=overlay.querySelector('.quiz-history-panel .muted');if(p)p.textContent=e.message||'Could not load this record.'}
 }
-function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?'Fill in the blank':'Multiple choice')+'</span></div>'}
+function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?tr('Fill in the blank','Completa el espacio'):tr('Multiple choice','Opción múltiple'))+'</span></div>'}
 function reviewContent(review,host=false,projector=false){
-  if(!review)return '<p class="muted">Waiting for the review.</p>';
+  if(!review)return '<p class="muted">Esperando el repaso.</p>';
   const q=review.question||{},stat=review.stats||{},stage=review.stage;
   const steps=['responses','answer','explanation','application'],step=Math.max(0,steps.indexOf(stage));
   if(projector){
@@ -131,7 +131,7 @@ function reviewContent(review,host=false,projector=false){
   let responses='';
   if(q.type==='fill_blank'){
     const items=stat.fillResponses||[];
-    responses='<div class="response-bars"><div class="panel-label">Typed responses</div>'+(items.length?items.map(r=>'<div class="quiz-fill-response"><span>'+esc(r.answer)+'</span><strong>'+r.percent+'%</strong></div>').join(''):'<p>No typed answers.</p>')+'</div>';
+    responses='<div class="response-bars"><div class="panel-label">'+tr('Typed responses','Respuestas escritas')+'</div>'+(items.length?items.map(r=>'<div class="quiz-fill-response"><span>'+esc(r.answer)+'</span><strong>'+r.percent+'%</strong></div>').join(''):'<p>'+tr('No typed answers.','No hay respuestas escritas.')+'</p>')+'</div>';
   }else{
     responses='<div class="response-bars">'+(q.choices||[]).map((choice,i)=>{
       const r=(stat.responses||[]).find(x=>x.answer===choice)||{count:0,percent:0};
@@ -139,9 +139,9 @@ function reviewContent(review,host=false,projector=false){
     }).join('')+'</div>';
   }
   let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+responses;
-  if(['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
-  if(['explanation','application'].includes(stage))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
-  if(stage==='application')html+='<section class="reveal-block application"><span>Practical application</span><p>'+esc(q.application||'')+'</p></section>';
+  if(['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>'+tr('Correct answer','Respuesta correcta')+' · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% '+tr('answered correctly','respondieron correctamente')+'</p></section>';
+  if(['explanation','application'].includes(stage))html+='<section class="reveal-block"><span>'+tr('Biblical explanation','Explicación bíblica')+'</span><p>'+esc(q.explanation||'')+'</p></section>';
+  if(stage==='application')html+='<section class="reveal-block application"><span>'+tr('Practical application','Aplicación práctica')+'</span><p>'+esc(q.application||'')+'</p></section>';
   if(host){
     const cues={responses:'Ask the room why the responses differ before revealing the text.',answer:'Let the answer settle. Ask someone to locate it in Matthew 11.',explanation:'Follow the movement of the verse; clarify why the other choices miss it.',application:'Invite one concrete example of obedience. No pressure for a public confession.'};
     html+='<div class="quiz-host-prompt"><strong>HOST DISCUSSION CUE</strong><p>'+esc(cues[stage]||'')+'</p></div>';
@@ -259,6 +259,7 @@ function renderDisplay(){
 async function initPlayer(){show('quiz-player');bindPlayer();const code=urlCode()||(params.has('new')?'':localStorage.getItem(lastCodeKey)||'');if(code){$('join-code-input').value=code;await connectToQuiz()}}
 function bindPlayer(){
   $('connect-quiz').onclick=connectToQuiz;$('join-team').onclick=joinPlayer;
+  $('quiz-spanish')?.addEventListener('change',renderParticipation);
   const chooser=document.createElement('div');chooser.className='quiz-participation';chooser.id='participation-choice';
   chooser.innerHTML='<div class="panel-label">How will you participate?</div><div class="participation-buttons"><button type="button" class="participation-button active" data-participation="solo">Solo <small>Answer on your own</small></button><button type="button" class="participation-button" data-participation="team">Team <small>Discuss, captain submits</small></button></div>';
   $('team-picker')?.parentElement?.insertBefore(chooser,$('team-picker').previousElementSibling||$('team-picker'));
@@ -273,13 +274,18 @@ function bindPlayer(){
   });
 }
 function renderParticipation(){
-  document.querySelectorAll('[data-participation]').forEach(b=>b.classList.toggle('active',b.dataset.participation===chosenParticipation));
+  const groupLabel=document.querySelector('#participation-choice .panel-label');
+  if(groupLabel)groupLabel.textContent=tr('How will you participate?','¿Cómo participarás?');
+  document.querySelectorAll('[data-participation]').forEach(b=>{
+    b.classList.toggle('active',b.dataset.participation===chosenParticipation);
+    b.innerHTML=b.dataset.participation==='solo'?'Solo <small>'+tr('Answer on your own','Responde individualmente')+'</small>':tr('Team','Equipo')+' <small>'+tr('Discuss, captain submits','Conversen; el capitán entrega')+'</small>';
+  });
   const group=$('team-picker');if(!group)return;
   group.classList.toggle('hidden',chosenParticipation==='solo');
   group.innerHTML=realTeams().map(t=>'<button type="button" class="pick-team '+(selectedTeamId===t.id?'selected':'')+'" data-pick-team="'+esc(t.id)+'" style="--team:'+esc(t.color)+'"><span class="team-dot"></span>'+esc(t.name)+'</button>').join('');
   if(group.previousElementSibling&&group.previousElementSibling.id!=='participation-choice')group.previousElementSibling.classList.toggle('hidden',chosenParticipation==='solo');
   $('join-team').disabled=chosenParticipation==='team'&&!selectedTeamId;
-  $('join-team').textContent=chosenParticipation==='solo'?'Join as Solo':'Join Team';
+  $('join-team').textContent=chosenParticipation==='solo'?tr('Join as Solo','Unirme individualmente'):tr('Join Team','Unirme al equipo');
 }
 async function connectToQuiz(){
   const code=String($('join-code-input').value||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
@@ -305,7 +311,7 @@ async function connectToQuiz(){
 async function joinPlayer(){
   const code=snap?.gameCode||urlCode(),name=String($('player-name').value||'').trim();
   const teamId=chosenParticipation==='solo'?'solo':selectedTeamId;
-  if(!name||!teamId){toast('Enter your name and select how to participate.');return}
+  if(!name||!teamId){toast(tr('Enter your name and select how to participate.','Escribe tu nombre y elige cómo participar.'));return}
   $('join-team').disabled=true;
   try{
     const d=await api('/api/game/join',{code,name,teamId,language:$('quiz-spanish')?.checked?'es':'en'});
@@ -329,7 +335,7 @@ async function saveFillAnswer(){
   if(state.locked||!canSubmit())return false;
   const q=pack.questions?.[currentIndex],v=String($('fill-answer-input')?.value||'').trim();
   if(!q||q.type!=='fill_blank')return true;
-  if(!v){toast('Enter your answer before continuing.');return false}
+  if(!v){toast(tr('Enter your answer before continuing.','Escribe tu respuesta antes de continuar.'));return false}
   if(v===myAnswer(q.id))return true;
   const saved=await act('ANSWER',{questionId:q.id,answer:v});
   return Boolean(saved);
@@ -354,8 +360,8 @@ async function submitQuiz(){
       if(!await saveFillAnswer())return;
     }
     const missing=(pack.questions||[]).filter(q=>!myAnswer(q.id)).length;
-    if(missing&&!confirm('There are '+missing+' unanswered questions. Submit anyway?'))return;
-    if(confirm('Submit now? Answers cannot be changed afterward.'))await act('SUBMIT_QUIZ');
+    if(missing&&!confirm(tr('There are ','Hay ')+missing+tr(' unanswered questions. Submit anyway?',' preguntas sin responder. ¿Entregar de todos modos?')))return;
+    if(confirm(tr('Submit now? Answers cannot be changed afterward.','¿Entregar ahora? Después no podrás cambiar tus respuestas.')))await act('SUBMIT_QUIZ');
   }finally{changingQuestion=false}
 }
 function renderPlayer(){
