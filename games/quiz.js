@@ -66,6 +66,28 @@ function scoreboard(data){
   return '<div class="quiz-scoreboards"><section><div class="panel-label">Solo ranking · '+soloResults.length+' submitted</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">No solo submissions yet.</p>')+'</div></section>'+ 
   '<section><div class="panel-label">Team ranking · '+teamResults.length+' submitted</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">No team submissions yet.</p>')+'</div></section></div>';
 }
+function historyButton(){
+  return '<div class="quiz-history-cta"><button class="btn primary" data-history-open>Review my saved answers</button><small>Saved by your game session for future verified Lumaneer profile linking.</small></div>';
+}
+function closeHistory(){document.getElementById('quiz-history-overlay')?.remove()}
+async function openHistory(){
+  closeHistory();
+  const overlay=document.createElement('div');overlay.id='quiz-history-overlay';overlay.className='quiz-history-overlay';
+  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','My saved quiz answers');
+  overlay.innerHTML='<div class="quiz-history-panel"><button type="button" class="btn small" data-history-close>Close ×</button><h2>Your saved quiz record</h2><p class="muted">Loading your answers…</p></div>';
+  document.body.appendChild(overlay);
+  try{
+    const d=await api('/api/game/quiz-history',auth()),h=d.history,items=h.answers||[];
+    overlay.querySelector('.quiz-history-panel').innerHTML='<button type="button" class="btn small quiz-history-close" data-history-close>Close ×</button>'+
+      '<div class="eyebrow">MY QUIZ HISTORY · '+esc(h.scripture||'Matthew 11')+'</div>'+
+      '<h2>'+esc(h.participation==='team'?(h.teamName||'Team'):'Solo')+' · '+Number(h.percent)+'%</h2>'+
+      '<p class="muted">'+Number(h.correct)+' / '+Number(h.total)+' correct · '+esc(h.gameCode)+'</p>'+
+      '<div class="quiz-history-answers">'+items.map(item=>'<article class="quiz-history-answer"><div class="quiz-history-answer-meta"><span>QUESTION '+Number(item.order)+' · '+esc(item.reference||'')+'</span><strong class="'+(item.correct?'correct':'missed')+'">'+(item.correct?'Correct':'Review')+'</strong></div>'+
+      '<h3>'+esc(item.prompt||'')+'</h3><p><b>Your '+(h.participation==='team'?'team’s ':'')+'answer:</b> '+esc(item.answer||'Not answered')+'</p>'+
+      (!item.correct?'<p><b>Scripture answer:</b> '+esc(item.correctAnswer||'')+'</p>':'')+'</article>').join('')+'</div>'+
+      '<p class="muted">This record is tied to your authenticated game participation. Future Lumaneer linking requires verified account ownership.</p>';
+  }catch(e){const p=overlay.querySelector('.quiz-history-panel .muted');if(p)p.textContent=e.message||'Could not load this record.'}
+}
 function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?'Fill in the blank':'Multiple choice')+'</span></div>'}
 function reviewContent(review,host=false,projector=false){
   if(!review)return '<p class="muted">Waiting for the review.</p>';
@@ -142,8 +164,10 @@ function bindHost(){
   $('close-quiz').onclick=()=>{if(confirm('Close the quiz and score only submitted work?'))act('CLOSE_QUIZ')};
   $('start-review').onclick=()=>act('START_REVIEW');$('review-back').onclick=()=>act('BACK_REVIEW');$('review-next').onclick=()=>act('ADVANCE_REVIEW');
   $('end-review').onclick=()=>{if(confirm('End review and show final scores?'))act('END_REVIEW')};
+  document.addEventListener('click',e=>{if(e.target.closest('[data-archive-history]'))act('ARCHIVE_HISTORY')});
   $('new-quiz').onclick=()=>{if(confirm('Start a new quiz room?')){localStorage.removeItem(hostKey);location.reload()}};
   document.addEventListener('input',e=>{if(e.target.matches('[data-team-name]'))scheduleSetup()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHistory()});
   document.addEventListener('click',e=>{const b=e.target.closest('[data-captain]');if(b)act('SET_CAPTAIN',{teamId:b.dataset.teamId,targetPlayerId:b.dataset.captain})});
   const selector=$('quiz-mode');if(selector){selector.closest('label')?.classList.add('hidden');selector.value='team'}
 }
@@ -188,7 +212,7 @@ function renderHost(){
     const groups=[...realTeams().map(t=>({...t,...(p.teams||[]).find(e=>e.teamId===t.id)})),{id:'solo',name:'Solo Participants',color:'#768598',...(p.solo||{expected:0,submitted:0})}];
     $('host-progress-teams').innerHTML=groups.map(t=>'<article class="progress-card" style="--team:'+esc(t.color)+'"><div><span class="team-dot"></span><strong>'+esc(t.name)+'</strong><b>'+(t.submitted||0)+' / '+(t.expected||0)+'</b></div><div class="meter"><i style="width:'+(t.expected?Math.round(t.submitted/t.expected*100):0)+'%"></i></div></article>').join('');
   }else if(state.phase==='quiz_results'){
-    show('host-results');$('overall-score').textContent=(state.results?.overallPercent??0)+'%';$('host-team-results').innerHTML=scoreboard(state.results);
+    show('host-results');$('overall-score').textContent=(state.results?.overallPercent??0)+'%';$('host-team-results').innerHTML=scoreboard(state.results)+(state.quizHistorySavedAt?'<p class="quiz-archive-status">Participant answer history archived for Lumaneer.</p>':'<div class="quiz-archive-warning">History has not been confirmed saved. <button class="btn small" data-archive-history>Retry save history</button></div>');
   }else if(state.phase==='quiz_review'){
     show('host-review');const r=state.review;
     $('review-progress').textContent='QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||pack.questionCount);
@@ -196,7 +220,7 @@ function renderHost(){
     $('review-back').disabled=r?.index===0&&r?.stage==='responses';
     $('review-next').textContent=r?.index===r?.total-1&&r?.stage==='application'?'Finish Quiz':'Continue →';
   }else{
-    show('host-complete');$('complete-score').textContent=(state.results?.overallPercent??0)+'%';$('complete-results').innerHTML=scoreboard(state.results);
+    show('host-complete');$('complete-score').textContent=(state.results?.overallPercent??0)+'%';$('complete-results').innerHTML=scoreboard(state.results)+(state.quizHistorySavedAt?'<p class="quiz-archive-status">Participant answer history saved.</p>':'<div class="quiz-archive-warning"><button class="btn small" data-archive-history>Retry save history</button></div>');
   }
   const formatRows=document.querySelectorAll('.format-row');if(formatRows[0])formatRows[0].innerHTML='<b>'+pack.questionCount+'</b><span>questions · multiple choice + fill</span>';
 }
@@ -240,6 +264,8 @@ function bindPlayer(){
     const choice=e.target.closest('[data-quiz-answer]');if(choice){answerQuestion(choice.dataset.quizAnswer);return}
     const next=e.target.closest('[data-quiz-nav]');if(next){navigateQuiz(Number(next.dataset.quizNav));return}
     if(e.target.closest('#submit-quiz'))submitQuiz();
+    if(e.target.closest('[data-history-open]'))openHistory();
+    if(e.target.closest('[data-history-close]'))closeHistory();
   });
 }
 function renderParticipation(){
@@ -349,9 +375,9 @@ function renderPlayer(){
     '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>← Previous</button>'+(currentIndex===pack.questionCount-1?(canSubmit()?'<button class="btn primary" id="submit-quiz">'+(q.type==='fill_blank'?'Save & Submit':'Submit Quiz')+'</button>':'<button class="btn" disabled>Captain submits</button>'):'<button class="btn primary" data-quiz-nav="1">'+(q.type==='fill_blank'&&canSubmit()?'Save & Next →':'Next →')+'</button>')+'</div></section>';
     return;
   }
-  if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+'<p class="muted">The host will guide the review.</p></section>';return}
+  if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The host will guide the review.</p></section>';return}
   if(state.phase==='quiz_review'){el.innerHTML='<section class="phone-card review-phone"><span class="eyebrow">'+esc(stages[state.review?.stage]||'Review')+'</span>'+reviewContent(state.review)+'</section>';return}
-  el.innerHTML='<section class="phone-card"><span class="eyebrow">QUIZ COMPLETE</span><h1>'+(state.results?.overallPercent??0)+'% room accuracy</h1>'+scoreboard(state.results)+'<p class="muted">The goal is not only to know Matthew 11, but to respond to it.</p></section>';
+  el.innerHTML='<section class="phone-card"><span class="eyebrow">QUIZ COMPLETE</span><h1>'+(state.results?.overallPercent??0)+'% room accuracy</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The goal is not only to know Matthew 11, but to respond to it.</p></section>';
 }
 function render(){if(role==='host')renderHost();else if(role==='display')renderDisplay();else if(role==='player')renderPlayer()}
 if(role==='landing')initLanding();
