@@ -16,13 +16,15 @@ const realTeams=()=>state?.teams?.filter(t=>!solo(t))||[];
 const team=id=>state?.teams?.find(t=>t.id===id);
 const show=id=>$(id)?.classList.remove('hidden');const hide=id=>$(id)?.classList.add('hidden');
 const urlCode=()=>String(params.get('code')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+function esMode(){return role==='player'&&(me?.language==='es'||(!me&&$('quiz-spanish')?.checked))}
+function tr(en,es){return esMode()?es:en}
 function toast(message){const el=$('quiz-toast');if(!el)return;el.textContent=message;show('quiz-toast');clearTimeout(toast.t);toast.t=setTimeout(()=>hide('quiz-toast'),4300)}
 function loadJSON(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
 function saveHost(data){hostAuth=data;localStorage.setItem(hostKey,JSON.stringify(data))}
 function savePlayer(data){playerAuth=data;localStorage.setItem(lastCodeKey,data.code);localStorage.setItem(playerKey(data.code),JSON.stringify(data))}
 function shareLink(code){return shareOrigin+'/games/quiz/play?code='+encodeURIComponent(code)}
 function projectorLink(code){return location.origin+'/games/quiz/display?code='+encodeURIComponent(code)}
-function qr(id,url,size){const el=$(id);if(!el||!window.QRCode||qrMemo[id]===url)return;qrMemo[id]=url;el.innerHTML='';new QRCode(el,{text:url,width:size,height:size,colorDark:'#111820',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}
+function qr(id,url,size){const el=$(id);if(!el||!window.QRCode||(qrMemo[id]===url&&el.querySelector('img,canvas')))return;qrMemo[id]=url;el.innerHTML='';new QRCode(el,{text:url,width:size,height:size,colorDark:'#111820',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}
 async function api(path,body){
   const r=await fetch(path,{cache:'no-store',...(body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{})});
   const d=await r.json().catch(()=>({}));
@@ -233,7 +235,9 @@ function renderDisplay(){
   $('display-code').textContent=snap.gameCode;qr('display-qr',shareLink(snap.gameCode),72);
   const stage=$('display-stage'),footer=$('display-footer');
   if(state.phase==='quiz_lobby'){
-    stage.innerHTML='<div class="display-message"><span>MATTHEW 11 · QUIZ & REVIEW</span><h1>Join the quiz.</h1><p>Choose Solo or Team before the host starts.</p></div>';
+    stage.innerHTML='<div class="quiz-lobby-center"><span class="eyebrow">MATTHEW 11 · QUIZ & REVIEW</span><h1>JOIN THE QUIZ</h1><p>Choose Solo or Team · Español disponible en el registro</p><div class="quiz-lobby-qr-grid"><div class="quiz-lobby-qr-card"><div class="quiz-lobby-qr-title">JOIN THE QUIZ / ENTRAR AL CUESTIONARIO</div><div id="display-join-big" class="quiz-lobby-big-qr"></div><strong class="quiz-lobby-code">'+esc(snap.gameCode)+'</strong></div><div class="quiz-lobby-qr-card"><div class="quiz-lobby-qr-title">APOSTOLIC GUIDE</div><div id="display-guide-big" class="quiz-lobby-big-qr"></div><strong>apostolicguide.com</strong></div></div></div>';
+    qr('display-join-big',shareLink(snap.gameCode),220);
+    qr('display-guide-big','https://apostolicguide.com/',220);
     footer.innerHTML='<span>'+pack.questionCount+' questions · multiple choice + fill in the blank</span>';
   }else if(state.phase==='quiz_active'){
     const p=state.progress||{};
@@ -304,7 +308,7 @@ async function joinPlayer(){
   if(!name||!teamId){toast('Enter your name and select how to participate.');return}
   $('join-team').disabled=true;
   try{
-    const d=await api('/api/game/join',{code,name,teamId});
+    const d=await api('/api/game/join',{code,name,teamId,language:$('quiz-spanish')?.checked?'es':'en'});
     savePlayer({code,playerId:d.player.playerId});await enterPlayer(code);
   }catch(e){toast(e.message)}finally{$('join-team').disabled=false}
 }
