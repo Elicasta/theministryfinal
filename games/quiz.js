@@ -66,10 +66,66 @@ function scoreboard(data){
   return '<div class="quiz-scoreboards"><section><div class="panel-label">Solo ranking · '+soloResults.length+' submitted</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">No solo submissions yet.</p>')+'</div></section>'+ 
   '<section><div class="panel-label">Team ranking · '+teamResults.length+' submitted</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">No team submissions yet.</p>')+'</div></section></div>';
 }
+function historyButton(){
+  return '<div class="quiz-history-cta"><button class="btn primary" data-history-open>Review my saved answers</button><small>Saved by your game session for future verified Lumaneer profile linking.</small></div>';
+}
+function closeHistory(){document.getElementById('quiz-history-overlay')?.remove()}
+async function openHistory(){
+  closeHistory();
+  const overlay=document.createElement('div');overlay.id='quiz-history-overlay';overlay.className='quiz-history-overlay';
+  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','My saved quiz answers');
+  overlay.innerHTML='<div class="quiz-history-panel"><button type="button" class="btn small" data-history-close>Close ×</button><h2>Your saved quiz record</h2><p class="muted">Loading your answers…</p></div>';
+  document.body.appendChild(overlay);
+  try{
+    const d=await api('/api/game/quiz-history',auth()),h=d.history,items=h.answers||[];
+    overlay.querySelector('.quiz-history-panel').innerHTML='<button type="button" class="btn small quiz-history-close" data-history-close>Close ×</button>'+
+      '<div class="eyebrow">MY QUIZ HISTORY · '+esc(h.scripture||'Matthew 11')+'</div>'+
+      '<h2>'+esc(h.participation==='team'?(h.teamName||'Team'):'Solo')+' · '+Number(h.percent)+'%</h2>'+
+      '<p class="muted">'+Number(h.correct)+' / '+Number(h.total)+' correct · '+esc(h.gameCode)+'</p>'+
+      '<div class="quiz-history-answers">'+items.map(item=>'<article class="quiz-history-answer"><div class="quiz-history-answer-meta"><span>QUESTION '+Number(item.order)+' · '+esc(item.reference||'')+'</span><strong class="'+(item.correct?'correct':'missed')+'">'+(item.correct?'Correct':'Review')+'</strong></div>'+
+      '<h3>'+esc(item.prompt||'')+'</h3><p><b>Your '+(h.participation==='team'?'team’s ':'')+'answer:</b> '+esc(item.answer||'Not answered')+'</p>'+
+      (!item.correct?'<p><b>Scripture answer:</b> '+esc(item.correctAnswer||'')+'</p>':'')+'</article>').join('')+'</div>'+
+      '<p class="muted">This record is tied to your authenticated game participation. Future Lumaneer linking requires verified account ownership.</p>';
+  }catch(e){const p=overlay.querySelector('.quiz-history-panel .muted');if(p)p.textContent=e.message||'Could not load this record.'}
+}
 function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?'Fill in the blank':'Multiple choice')+'</span></div>'}
 function reviewContent(review,host=false,projector=false){
   if(!review)return '<p class="muted">Waiting for the review.</p>';
   const q=review.question||{},stat=review.stats||{},stage=review.stage;
+  const steps=['responses','answer','explanation','application'],step=Math.max(0,steps.indexOf(stage));
+  if(projector){
+    const lead='<div class="quiz-theater-kicker"><span class="quiz-theater-step">REVEAL '+(step+1)+' OF 4</span><span>'+esc(q.reference||'Matthew 11')+'</span></div>';
+    const question='<h1 class="quiz-theater-question">'+esc(q.prompt||'')+'</h1>';
+    let body='';
+    if(stage==='responses'){
+      let bars='';
+      if(q.type==='fill_blank'){
+        const items=stat.fillResponses||[];
+        bars=(items.length?items.map((r,i)=>'<div class="quiz-theater-fill" style="--reveal-order:'+i+'"><strong>'+esc(r.answer)+'</strong><span>'+Number(r.percent||0)+'%</span></div>').join(''):'<p class="muted">No saved typed responses.</p>');
+      }else{
+        bars=(q.choices||[]).map((choice,i)=>{
+          const r=(stat.responses||[]).find(x=>x.answer===choice)||{count:0,percent:0};
+          return '<div class="quiz-theater-choice" style="--reveal-order:'+i+'"><div class="quiz-theater-choice-label"><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span><strong>'+Number(r.percent||0)+'%</strong></div><div class="quiz-theater-bar"><i style="--bar-size:'+Math.min(100,Math.max(0,Number(r.percent)||0))+'%"></i></div></div>';
+        }).join('');
+      }
+      body='<div class="quiz-theater-body"><div class="quiz-theater-eyebrow">HOW DID THE ROOM RESPOND?</div>'+question+'<div class="quiz-theater-responses">'+bars+'</div><p class="quiz-theater-nudge">Look at the responses. What made this question difficult?</p></div>';
+    }else if(stage==='answer'){
+      body='<div class="quiz-theater-body quiz-theater-answer"><div class="quiz-theater-eyebrow">THE SCRIPTURE REVEALS</div>'+question+
+        '<div class="quiz-theater-answer-text">'+esc(q.correctAnswer||'')+'</div>'+
+        '<div class="quiz-theater-accuracy"><b>'+Number(stat.correctPercent||0)+'%</b><span>of submitted entries answered correctly</span></div></div>';
+    }else if(stage==='explanation'){
+      body='<div class="quiz-theater-body quiz-theater-explanation"><div class="quiz-theater-eyebrow">GO BACK TO THE TEXT</div>'+
+        '<div class="quiz-theater-reference">'+esc(q.reference||'Matthew 11')+'</div>'+
+        '<h1 class="quiz-theater-heading">What is Scripture showing us?</h1>'+
+        '<p class="quiz-theater-paragraph">'+esc(q.explanation||'')+'</p></div>';
+    }else{
+      body='<div class="quiz-theater-body quiz-theater-application"><div class="quiz-theater-eyebrow">BRING THE TEXT INTO LIFE</div>'+
+        '<h1 class="quiz-theater-heading">Where do we see this today?</h1>'+
+        '<p class="quiz-theater-paragraph">'+esc(q.application||'')+'</p>'+
+        '<div class="quiz-theater-discuss">Discuss it together. What would obedience look like in a real situation?</div></div>';
+    }
+    return '<div class="quiz-theater quiz-theater-'+esc(stage)+'">'+lead+body+'</div>';
+  }
   let responses='';
   if(q.type==='fill_blank'){
     const items=stat.fillResponses||[];
@@ -80,10 +136,14 @@ function reviewContent(review,host=false,projector=false){
       return '<div class="response-row"><div><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span><strong>'+r.percent+'%</strong></div><div class="meter"><i style="width:'+r.percent+'%"></i></div></div>';
     }).join('')+'</div>';
   }
-  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+(projector&&stage!=='responses'?'':responses);
-  if((projector&&stage!=='responses')||['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
-  if((projector&&stage==='explanation')||(!projector&&['explanation','application'].includes(stage)))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
+  let html=questionTag(q)+'<h1 class="review-question">'+esc(q.prompt||'')+'</h1>'+responses;
+  if(['answer','explanation','application'].includes(stage))html+='<section class="reveal-block answer"><span>Correct answer · '+esc(q.reference||'')+'</span><h2>'+esc(q.correctAnswer||'')+'</h2><p>'+Number(stat.correctPercent||0)+'% answered correctly</p></section>';
+  if(['explanation','application'].includes(stage))html+='<section class="reveal-block"><span>Biblical explanation</span><p>'+esc(q.explanation||'')+'</p></section>';
   if(stage==='application')html+='<section class="reveal-block application"><span>Practical application</span><p>'+esc(q.application||'')+'</p></section>';
+  if(host){
+    const cues={responses:'Ask the room why the responses differ before revealing the text.',answer:'Let the answer settle. Ask someone to locate it in Matthew 11.',explanation:'Follow the movement of the verse; clarify why the other choices miss it.',application:'Invite one concrete example of obedience. No pressure for a public confession.'};
+    html+='<div class="quiz-host-prompt"><strong>HOST DISCUSSION CUE</strong><p>'+esc(cues[stage]||'')+'</p></div>';
+  }
   return html;
 }
 
@@ -104,8 +164,10 @@ function bindHost(){
   $('close-quiz').onclick=()=>{if(confirm('Close the quiz and score only submitted work?'))act('CLOSE_QUIZ')};
   $('start-review').onclick=()=>act('START_REVIEW');$('review-back').onclick=()=>act('BACK_REVIEW');$('review-next').onclick=()=>act('ADVANCE_REVIEW');
   $('end-review').onclick=()=>{if(confirm('End review and show final scores?'))act('END_REVIEW')};
+  document.addEventListener('click',e=>{if(e.target.closest('[data-archive-history]'))act('ARCHIVE_HISTORY')});
   $('new-quiz').onclick=()=>{if(confirm('Start a new quiz room?')){localStorage.removeItem(hostKey);location.reload()}};
   document.addEventListener('input',e=>{if(e.target.matches('[data-team-name]'))scheduleSetup()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHistory()});
   document.addEventListener('click',e=>{const b=e.target.closest('[data-captain]');if(b)act('SET_CAPTAIN',{teamId:b.dataset.teamId,targetPlayerId:b.dataset.captain})});
   const selector=$('quiz-mode');if(selector){selector.closest('label')?.classList.add('hidden');selector.value='team'}
 }
@@ -150,7 +212,7 @@ function renderHost(){
     const groups=[...realTeams().map(t=>({...t,...(p.teams||[]).find(e=>e.teamId===t.id)})),{id:'solo',name:'Solo Participants',color:'#768598',...(p.solo||{expected:0,submitted:0})}];
     $('host-progress-teams').innerHTML=groups.map(t=>'<article class="progress-card" style="--team:'+esc(t.color)+'"><div><span class="team-dot"></span><strong>'+esc(t.name)+'</strong><b>'+(t.submitted||0)+' / '+(t.expected||0)+'</b></div><div class="meter"><i style="width:'+(t.expected?Math.round(t.submitted/t.expected*100):0)+'%"></i></div></article>').join('');
   }else if(state.phase==='quiz_results'){
-    show('host-results');$('overall-score').textContent=(state.results?.overallPercent??0)+'%';$('host-team-results').innerHTML=scoreboard(state.results);
+    show('host-results');$('overall-score').textContent=(state.results?.overallPercent??0)+'%';$('host-team-results').innerHTML=scoreboard(state.results)+(state.quizHistorySavedAt?'<p class="quiz-archive-status">Participant answer history archived for Lumaneer.</p>':'<div class="quiz-archive-warning">History has not been confirmed saved. <button class="btn small" data-archive-history>Retry save history</button></div>');
   }else if(state.phase==='quiz_review'){
     show('host-review');const r=state.review;
     $('review-progress').textContent='QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||pack.questionCount);
@@ -158,7 +220,7 @@ function renderHost(){
     $('review-back').disabled=r?.index===0&&r?.stage==='responses';
     $('review-next').textContent=r?.index===r?.total-1&&r?.stage==='application'?'Finish Quiz':'Continue →';
   }else{
-    show('host-complete');$('complete-score').textContent=(state.results?.overallPercent??0)+'%';$('complete-results').innerHTML=scoreboard(state.results);
+    show('host-complete');$('complete-score').textContent=(state.results?.overallPercent??0)+'%';$('complete-results').innerHTML=scoreboard(state.results)+(state.quizHistorySavedAt?'<p class="quiz-archive-status">Participant answer history saved.</p>':'<div class="quiz-archive-warning"><button class="btn small" data-archive-history>Retry save history</button></div>');
   }
   const formatRows=document.querySelectorAll('.format-row');if(formatRows[0])formatRows[0].innerHTML='<b>'+pack.questionCount+'</b><span>questions · multiple choice + fill</span>';
 }
@@ -182,7 +244,7 @@ function renderDisplay(){
     footer.innerHTML='<span>Solo and team results are ranked separately.</span>';
   }else if(state.phase==='quiz_review'){
     const r=state.review;
-    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r,false,true)+'</div></div>';
+    stage.innerHTML='<div class="display-review"><div class="display-review-head"><span>QUESTION '+((r?.index||0)+1)+' OF '+(r?.total||0)+'</span><div class="quiz-stage-track">'+['responses','answer','explanation','application'].map((phase,i)=>'<span class="'+(i<=['responses','answer','explanation','application'].indexOf(r?.stage)?'active':'')+'" title="'+esc(stages[phase])+'"></span>').join('')+'</div><strong>'+esc(stages[r?.stage]||'Review')+'</strong></div><div class="review-card">'+reviewContent(r,false,true)+'</div></div>';
     footer.innerHTML='<span>'+esc(r?.question?.reference||'Matthew 11')+'</span><strong>'+(r?.stage==='responses'?((r?.stats?.answered||0)+' responses'):(r?.stats?.correctPercent||0)+'% correct')+'</strong>';
   }else{
     stage.innerHTML='<div class="display-results"><span class="eyebrow">MATTHEW 11 · COMPLETE</span><div class="display-overall">'+(state.results?.overallPercent??0)+'%</div><h1>Knowledge → Understanding → Application</h1>'+scoreboard(state.results)+'</div>';
@@ -202,6 +264,8 @@ function bindPlayer(){
     const choice=e.target.closest('[data-quiz-answer]');if(choice){answerQuestion(choice.dataset.quizAnswer);return}
     const next=e.target.closest('[data-quiz-nav]');if(next){navigateQuiz(Number(next.dataset.quizNav));return}
     if(e.target.closest('#submit-quiz'))submitQuiz();
+    if(e.target.closest('[data-history-open]'))openHistory();
+    if(e.target.closest('[data-history-close]'))closeHistory();
   });
 }
 function renderParticipation(){
@@ -311,9 +375,9 @@ function renderPlayer(){
     '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>← Previous</button>'+(currentIndex===pack.questionCount-1?(canSubmit()?'<button class="btn primary" id="submit-quiz">'+(q.type==='fill_blank'?'Save & Submit':'Submit Quiz')+'</button>':'<button class="btn" disabled>Captain submits</button>'):'<button class="btn primary" data-quiz-nav="1">'+(q.type==='fill_blank'&&canSubmit()?'Save & Next →':'Next →')+'</button>')+'</div></section>';
     return;
   }
-  if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+'<p class="muted">The host will guide the review.</p></section>';return}
+  if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The host will guide the review.</p></section>';return}
   if(state.phase==='quiz_review'){el.innerHTML='<section class="phone-card review-phone"><span class="eyebrow">'+esc(stages[state.review?.stage]||'Review')+'</span>'+reviewContent(state.review)+'</section>';return}
-  el.innerHTML='<section class="phone-card"><span class="eyebrow">QUIZ COMPLETE</span><h1>'+(state.results?.overallPercent??0)+'% room accuracy</h1>'+scoreboard(state.results)+'<p class="muted">The goal is not only to know Matthew 11, but to respond to it.</p></section>';
+  el.innerHTML='<section class="phone-card"><span class="eyebrow">QUIZ COMPLETE</span><h1>'+(state.results?.overallPercent??0)+'% room accuracy</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The goal is not only to know Matthew 11, but to respond to it.</p></section>';
 }
 function render(){if(role==='host')renderHost();else if(role==='display')renderDisplay();else if(role==='player')renderPlayer()}
 if(role==='landing')initLanding();
