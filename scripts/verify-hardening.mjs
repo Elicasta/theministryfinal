@@ -173,7 +173,7 @@ const archiveAction=fs.readFileSync('api/game/quiz-action.js','utf8');
 if(!archiveAction.includes('archiveQuizHistory')||!archiveAction.includes("action==='ARCHIVE_HISTORY'"))fail('idempotent historical quiz persistence missing');
 const archiveRead=fs.readFileSync('api/game/quiz-history.js','utf8');
 if(!archiveRead.includes('authenticatedPlayer')||!archiveRead.includes("player_id:'eq.'+auth.playerId"))fail('participant history read must be personally authenticated');
-const theater=fs.readFileSync('games/quiz.js','utf8');
+const theater=fs.readFileSync('games/quiz-review-experience.css','utf8');
 for(const phase of ['quiz-theater-responses','quiz-theater-answer','quiz-theater-explanation','quiz-theater-application']){
   if(!theater.includes(phase))fail('classroom review stage missing: '+phase);
 }
