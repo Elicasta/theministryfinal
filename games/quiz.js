@@ -65,8 +65,8 @@ function startHeartbeat(){clearInterval(heartbeat);heartbeat=setInterval(()=>{if
 function resultLine(r,i){return '<article class="result-row" style="--team:'+esc(r.color||'#768598')+'"><span class="rank">'+(i+1)+'</span><span class="team-dot"></span><strong>'+esc(r.name)+'</strong><div><b>'+r.percent+'%</b><small>'+r.correct+' / '+r.possible+' '+tr('correct','correctas')+'</small></div></article>'}
 function scoreboard(data){
   const soloResults=data?.soloResults||[],teamResults=data?.teamResults||[];
-  return '<div class="quiz-scoreboards"><section><div class="panel-label">'+tr('Solo ranking','Clasificación individual')+' · '+soloResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">Aún no hay entregas individuales.</p>')+'</div></section>'+ 
-  '<section><div class="panel-label">'+tr('Team ranking','Clasificación por equipos')+' · '+teamResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">Aún no hay entregas de equipos.</p>')+'</div></section></div>';
+  return '<div class="quiz-scoreboards"><section><div class="panel-label">'+tr('Solo ranking','Clasificación individual')+' · '+soloResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(soloResults.map(resultLine).join('')||'<p class="muted">'+tr('No solo submissions yet.','Aún no hay entregas individuales.')+'</p>')+'</div></section>'+ 
+  '<section><div class="panel-label">'+tr('Team ranking','Clasificación por equipos')+' · '+teamResults.length+' '+tr('submitted','entregados')+'</div><div class="results-list">'+(teamResults.map(resultLine).join('')||'<p class="muted">'+tr('No team submissions yet.','Aún no hay entregas de equipos.')+'</p>')+'</div></section></div>';
 }
 function historyButton(){
   return '<div class="quiz-history-cta"><button class="btn primary" data-history-open>'+tr('Review my saved answers','Revisar mis respuestas guardadas')+'</button><small>'+tr('Saved by your game session for future verified Lumaneer profile linking.','Guardado en tu sesión para vincularlo con tu perfil verificado de Lumaneer en el futuro.')+'</small></div>';
@@ -92,7 +92,7 @@ async function openHistory(){
 }
 function questionTag(q){return '<div class="review-meta"><span>'+esc(q?.reference||q?.section||'Matthew 11')+'</span><span>'+esc(q?.type==='fill_blank'?tr('Fill in the blank','Completa el espacio'):tr('Multiple choice','Opción múltiple'))+'</span></div>'}
 function reviewContent(review,host=false,projector=false){
-  if(!review)return '<p class="muted">Esperando el repaso.</p>';
+  if(!review)return '<p class="muted">'+tr('Waiting for the review.','Esperando el repaso.')+'</p>';
   const q=review.question||{},stat=review.stats||{},stage=review.stage;
   const steps=['responses','answer','explanation','application'],step=Math.max(0,steps.indexOf(stage));
   if(projector){
@@ -368,26 +368,55 @@ function renderPlayer(){
   if(!state)return;
   if(!playerAuth){if(!$('profile-step')?.classList.contains('hidden'))renderParticipation();return}
   if(!me)return;
+  document.documentElement.lang=esMode()?'es':'en';
   const t=team(me.teamId);
-  $('player-team-bar').innerHTML='<span class="team-dot" style="background:'+esc(t?.color||'#768598')+'"></span><strong>'+esc(me.participation==='solo'?'Solo · '+me.name:t?.name||'Team')+'</strong><span>'+esc(me.participation==='solo'?'Individual answers':me.isCaptain?'Team captain':'Team discussion')+'</span>';
+  $('player-team-bar').innerHTML='<span class="team-dot" style="background:'+esc(t?.color||'#768598')+'"></span><strong>'+
+    esc(me.participation==='solo'?'Solo · '+me.name:t?.name||tr('Team','Equipo'))+'</strong><span>'+
+    esc(me.participation==='solo'?tr('Individual answers','Respuestas individuales'):me.isCaptain?tr('Team captain','Capitán del equipo'):tr('Team discussion','Discusión en equipo'))+'</span>';
   const el=$('player-content');
-  if(state.phase==='quiz_lobby'){el.innerHTML='<section class="phone-card waiting-card"><span class="eyebrow">YOU’RE JOINED</span><h1>Matthew 11</h1><p>Waiting for the host to start.</p></section>';return}
+  if(state.phase==='quiz_lobby'){
+    el.innerHTML='<section class="phone-card waiting-card"><span class="eyebrow">'+tr('YOU’RE JOINED','TE HAS UNIDO')+'</span><h1>'+tr('Matthew 11','Mateo 11')+'</h1><p>'+tr('Waiting for the host to start.','Esperando a que el anfitrión inicie el cuestionario.')+'</p></section>';
+    return;
+  }
   if(state.phase==='quiz_active'){
-    if(state.locked){el.innerHTML='<section class="phone-card waiting-card"><span class="eyebrow">SUBMITTED</span><h1>Answers locked.</h1><p>'+state.progress.submitted+' / '+state.progress.expected+' entries submitted.</p></section>';return}
+    if(state.locked){
+      el.innerHTML='<section class="phone-card waiting-card"><span class="eyebrow">'+tr('SUBMITTED','ENTREGADO')+'</span><h1>'+tr('Answers locked.','Respuestas cerradas.')+'</h1><p>'+state.progress.submitted+' / '+state.progress.expected+' '+tr('entries submitted.','entregas realizadas.')+'</p></section>';
+      return;
+    }
     const q=pack.questions?.[currentIndex];if(!q)return;
     const completed=(pack.questions||[]).filter(x=>myAnswer(x.id)).length;
     let response='';
     if(q.type==='fill_blank'){
-      response='<div class="quiz-blank"><label for="fill-answer-input">Enter the missing word</label><input id="fill-answer-input" type="text" maxlength="120" spellcheck="false" autocomplete="off" enterkeyhint="next" value="'+esc(myAnswer(q.id))+'" '+(!canSubmit()?'disabled':'')+' placeholder="Your answer">'+(myAnswer(q.id)?'<small>Saved. Continue when ready.</small>':'<small>Minor spelling mistakes are allowed.</small>')+'</div>';
-    }else response='<div class="choice-list">'+(q.choices||[]).map((choice,i)=>'<button class="choice '+(myAnswer(q.id)===choice?'selected':'')+'" data-quiz-answer="'+esc(choice)+'" '+(!canSubmit()?'disabled':'')+'><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span></button>').join('')+'</div>';
-    el.innerHTML='<section class="phone-card quiz-card"><div class="quiz-progress-head"><span>QUESTION '+(currentIndex+1)+' OF '+pack.questionCount+'</span><strong>'+completed+' answered</strong></div><div class="meter"><i style="width:'+Math.round(completed/pack.questionCount*100)+'%"></i></div>'+questionTag(q)+'<h1>'+esc(q.prompt)+'</h1>'+response+
-    (!canSubmit()?'<div class="discussion-note">Discuss with your team. Only the captain saves the group response.</div>':'')+
-    '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>← Previous</button>'+(currentIndex===pack.questionCount-1?(canSubmit()?'<button class="btn primary" id="submit-quiz">'+(q.type==='fill_blank'?'Save & Submit':'Submit Quiz')+'</button>':'<button class="btn" disabled>Captain submits</button>'):'<button class="btn primary" data-quiz-nav="1">'+(q.type==='fill_blank'&&canSubmit()?'Save & Next →':'Next →')+'</button>')+'</div></section>';
+      response='<div class="quiz-blank"><label for="fill-answer-input">'+tr('Enter the missing word','Escribe la palabra que falta')+'</label>'+
+        '<input id="fill-answer-input" type="text" maxlength="120" spellcheck="false" autocomplete="off" enterkeyhint="next" value="'+esc(myAnswer(q.id))+'" '+(!canSubmit()?'disabled':'')+
+        ' placeholder="'+tr('Your answer','Tu respuesta')+'">'+
+        (myAnswer(q.id)?'<small>'+tr('Saved. Continue when ready.','Guardado. Continúa cuando estés listo.')+'</small>':'<small>'+tr('Minor spelling mistakes are allowed.','Se aceptan errores ortográficos leves.')+'</small>')+'</div>';
+    }else{
+      response='<div class="choice-list">'+(q.choices||[]).map((choice,i)=>'<button class="choice '+(myAnswer(q.id)===choice?'selected':'')+'" data-quiz-answer="'+esc(choice)+'" '+(!canSubmit()?'disabled':'')+'><b>'+String.fromCharCode(65+i)+'</b><span>'+esc(choice)+'</span></button>').join('')+'</div>';
+    }
+    el.innerHTML='<section class="phone-card quiz-card"><div class="quiz-progress-head"><span>'+tr('QUESTION','PREGUNTA')+' '+(currentIndex+1)+' '+tr('OF','DE')+' '+pack.questionCount+'</span><strong>'+completed+' '+tr('answered','respondidas')+'</strong></div>'+
+      '<div class="meter"><i style="width:'+Math.round(completed/pack.questionCount*100)+'%"></i></div>'+questionTag(q)+'<h1>'+esc(q.prompt)+'</h1>'+response+
+      (!canSubmit()?'<div class="discussion-note">'+tr('Discuss with your team. Only the captain saves the group response.','Hablen con su equipo. Solo el capitán guarda la respuesta del grupo.')+'</div>':'')+
+      '<div class="quiz-nav"><button class="btn" data-quiz-nav="-1" '+(currentIndex===0?'disabled':'')+'>'+tr('← Previous','← Anterior')+'</button>'+
+      (currentIndex===pack.questionCount-1?
+        (canSubmit()?'<button class="btn primary" id="submit-quiz">'+(q.type==='fill_blank'?tr('Save & Submit','Guardar y entregar'):tr('Submit Quiz','Entregar cuestionario'))+'</button>':'<button class="btn" disabled>'+tr('Captain submits','Entrega el capitán')+'</button>'):
+        '<button class="btn primary" data-quiz-nav="1">'+(q.type==='fill_blank'&&canSubmit()?tr('Save & Next →','Guardar y seguir →'):tr('Next →','Siguiente →'))+'</button>')+
+      '</div></section>';
     return;
   }
-  if(state.phase==='quiz_results'){el.innerHTML='<section class="phone-card"><span class="eyebrow">RESULTS</span><h1>Matthew 11</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The host will guide the review.</p></section>';return}
-  if(state.phase==='quiz_review'){el.innerHTML='<section class="phone-card review-phone"><span class="eyebrow">'+esc(stages[state.review?.stage]||'Review')+'</span>'+reviewContent(state.review)+'</section>';return}
-  el.innerHTML='<section class="phone-card"><span class="eyebrow">QUIZ COMPLETE</span><h1>'+(state.results?.overallPercent??0)+'% room accuracy</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">The goal is not only to know Matthew 11, but to respond to it.</p></section>';
+  if(state.phase==='quiz_results'){
+    el.innerHTML='<section class="phone-card"><span class="eyebrow">'+tr('RESULTS','RESULTADOS')+'</span><h1>'+tr('Matthew 11','Mateo 11')+'</h1>'+scoreboard(state.results)+historyButton()+'<p class="muted">'+tr('The host will guide the review.','El anfitrión guiará el repaso.')+'</p></section>';
+    return;
+  }
+  if(state.phase==='quiz_review'){
+    const stage=state.review?.stage||'responses';
+    const spanishStages={responses:'Respuestas del grupo',answer:'Respuesta correcta',explanation:'Explicación bíblica',application:'Aplicación práctica'};
+    el.innerHTML='<section class="phone-card review-phone"><span class="eyebrow">'+esc(esMode()?spanishStages[stage]||'Repaso':stages[stage]||'Review')+'</span>'+reviewContent(state.review)+'</section>';
+    return;
+  }
+  el.innerHTML='<section class="phone-card"><span class="eyebrow">'+tr('QUIZ COMPLETE','CUESTIONARIO COMPLETADO')+'</span>'+
+    '<h1>'+(state.results?.overallPercent??0)+'% '+tr('room accuracy','de aciertos del grupo')+'</h1>'+scoreboard(state.results)+historyButton()+
+    '<p class="muted">'+tr('The goal is not only to know Matthew 11, but to respond to it.','El objetivo no es solo conocer Mateo 11, sino responder a su enseñanza.')+'</p></section>';
 }
 function render(){if(role==='host')renderHost();else if(role==='display')renderDisplay();else if(role==='player')renderPlayer()}
 if(role==='landing')initLanding();
