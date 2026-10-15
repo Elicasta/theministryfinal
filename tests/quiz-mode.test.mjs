@@ -24,6 +24,9 @@ test('Matthew 11 pack is 22 distinct items including four challenging interpreta
   assert.equal(pack.questions.filter(q=>q.type==='multiple_choice').length,15);
   assert.equal(pack.questions.filter(q=>q.type==='fill_blank').length,7);
   assert.equal(new Set(pack.questions.map(x=>x.id)).size,22);
+  const placements=pack.questions.filter(q=>q.type==='multiple_choice').map(q=>q.choices.indexOf(q.correctAnswer));
+  assert.deepEqual([...new Set(placements)].sort(),[0,1,2,3]);
+  assert.ok(Math.max(...[0,1,2,3].map(i=>placements.filter(p=>p===i).length))<=4);
 });
 
 test('typed answers accept case, punctuation and whitespace variations',()=>{
