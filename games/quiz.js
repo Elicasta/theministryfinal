@@ -92,7 +92,7 @@ async function initHost(){
   show('quiz-host');hostAuth=loadJSON(hostKey);
   if(hostAuth?.code){try{await requestState()}catch{hostAuth=null;localStorage.removeItem(hostKey)}}
   if(!snap){
-    const d=await api('/api/game/quiz-create',{packId:'matthew-11-quiz-review-v3',teamCount:4});
+    const d=await api('/api/game/quiz-create',{packId:'matthew-11-quiz-review-v4',teamCount:4});
     saveHost({code:d.gameCode,hostToken:d.hostToken,displayToken:d.displayToken});
     await requestState();
   }
