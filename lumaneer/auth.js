@@ -1,0 +1,6 @@
+let lumaneerClient=null;
+async function getLumaneerClient(){if(lumaneerClient)return lumaneerClient;const c=await fetch('/api/config',{cache:'no-store'}).then(r=>r.json());if(!c.supabaseUrl||!c.supabaseAnonKey)throw new Error('Lumaneer authentication is not configured.');if(!window.supabase)await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';s.onload=resolve;s.onerror=reject;document.head.appendChild(s)});lumaneerClient=window.supabase.createClient(c.supabaseUrl,c.supabaseAnonKey);return lumaneerClient}
+async function lumaneerSession(){const sb=await getLumaneerClient(),{data}=await sb.auth.getSession();return data.session}
+async function lumaneerProfile(){const session=await lumaneerSession();if(!session)return null;const sb=await getLumaneerClient(),{data}=await sb.from('lumaneer_profiles').select('*').eq('id',session.user.id).maybeSingle();return data||{id:session.user.id,email:session.user.email,role:'student'}}
+async function lumaneerSignIn(email){const sb=await getLumaneerClient();return sb.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+'/lumaneer/learn/'}})}
+async function lumaneerSignOut(){const sb=await getLumaneerClient();await sb.auth.signOut();location.href='/lumaneer/'}

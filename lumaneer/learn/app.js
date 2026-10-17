@@ -1,0 +1,6 @@
+const $=s=>document.querySelector(s);
+const previewCourse={slug:'matthew-king-and-kingdom',title:'Matthew: The King and His Kingdom',subtitle:'Chapter-by-chapter teaching, study and review.'};
+function renderOpenPortal(name='Student',courses=[previewCourse]){$('#authGate').hidden=true;$('#portal').hidden=false;$('#studentName').textContent=name;const wrap=$('#courseList');wrap.innerHTML=(courses.length?courses:[previewCourse]).map(c=>`<article class="card"><span class="tag">COURSE</span><h2>${c.title}</h2><p>${c.subtitle||''}</p><a class="button" href="/lumaneer/learn/course/?course=${encodeURIComponent(c.slug)}">Open course</a></article>`).join('')}
+async function boot(){renderOpenPortal();try{const session=await lumaneerSession();if(!session)return;const p=await lumaneerProfile();const sb=await getLumaneerClient();const {data:courses}=await sb.from('lumaneer_courses').select('id,slug,title,subtitle,description,status').eq('status','published').order('created_at');renderOpenPortal(p?.display_name||session.user.email.split('@')[0],courses||[])}catch(e){console.warn('Lumaneer open student preview:',e.message)}}
+document.addEventListener('click',async e=>{if(e.target.id==='signOut'){await lumaneerSignOut();renderOpenPortal()}});
+boot();
