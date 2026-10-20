@@ -184,7 +184,7 @@ function buildPresenter(){
   if($('presenter-lesson'))$('presenter-lesson').textContent=lesson.series+' · '+lesson.sequence+' · '+lesson.title;
   const root=$('manuscript'); if(!root)return;
   const rows=lesson.manuscript?.length?lesson.manuscript:slides().map(s=>({title:titleOf(s),html:s.sub?'<p>'+esc(clean(s.sub))+'</p>':'',refs:s.ref?[s.ref]:[],notes:s.notes||''}));
-  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div><div class="note-body">'+(m.html||'')+'</div>'+pollsForSlide(i).map(p=>notePollHtml(p,i)).join('')+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
+  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div>'+pollsForSlide(i).map(p=>notePollHtml(p,i)).join('')+'<div class="note-body">'+(m.html||'')+'</div>'+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
   window.MinistryIpadMount?.();
 }
 
