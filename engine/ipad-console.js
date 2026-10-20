@@ -58,6 +58,17 @@
     if($('ipad-cue-next'))$('ipad-cue-next').textContent='Next: '+clean(next?.title||'End');
     if($('ipad-next'))$('ipad-next').textContent=!st.started?'Start Lesson →':st.overlay||st.activePoll||st.activeQuestion?'Clear Overlay →':st.slide>=lesson.slides.length-1?'End Lesson →':'Next Slide →';
     if($('ipad-black'))$('ipad-black').textContent=st.black?'Restore Projector':'Black Projector';
+    const cuePolls=(lesson.polls||[]).filter(p=>p.cueSlide===st.slide);
+    const liveCuePoll=cuePolls.find(p=>p.id===st.activePoll?.id);
+    const cuePoll=liveCuePoll||cuePolls[0];
+    const quick=$('ipad-current-poll');
+    if(quick){
+      quick.hidden=!st.started||!cuePoll;
+      quick.dataset.pollId=cuePoll?.id||'';
+      quick.dataset.pollAction=liveCuePoll?(st.activePoll.mode==='question'?'results':'close'):'launch';
+      quick.textContent=!st.started||!cuePoll?'Launch Poll':liveCuePoll?(st.activePoll.mode==='question'?'Show Poll Results':'Close Poll'):'Launch Poll';
+      quick.classList.toggle('ipad-poll-is-live',!!liveCuePoll);
+    }
     renderPolls();
   }
   function audience(){renderQuestions();renderPolls();}
@@ -78,6 +89,13 @@
     });
     $('ipad-prev')?.addEventListener('click',()=>{api.prev();scrollToLive()});
     $('ipad-next')?.addEventListener('click',()=>{api.next();scrollToLive()});
+    $('ipad-current-poll')?.addEventListener('click',()=>{
+      const button=$('ipad-current-poll'),id=button?.dataset.pollId;
+      if(!id)return;
+      if(button.dataset.pollAction==='results'){api.showPollResults(id);return}
+      if(button.dataset.pollAction==='close'){api.closePoll(id);return}
+      api.launchPoll(id);
+    });
     $('ipad-clear')?.addEventListener('click',()=>api.clearTakeover());
     $('ipad-black')?.addEventListener('click',()=>api.toggleBlack());
     $('ipad-clear-scripture')?.addEventListener('click',()=>api.clearScriptureOutput());
@@ -89,6 +107,11 @@
       if(el=hit('[data-ipad-jump]')){api.go(Number(el.dataset.ipadJump));scrollToLive();return}
       if(el=hit('[data-ipad-verse]')){api.pushVerse(Number(el.dataset.ipadVerse));return}
       if(el=hit('[data-ipad-tv]')){api.pushVerseTV(Number(el.dataset.ipadTv));return}
+      if(el=hit('[data-ipad-poll-cue-launch]')){
+        const cueSlide=Number(el.dataset.ipadPollCueSlide),st=api.getState();
+        if(!st.started||st.slide!==cueSlide){api.go(cueSlide);scrollToLive()}
+        api.launchPoll(el.dataset.ipadPollCueLaunch);return
+      }
       if(el=hit('[data-ipad-poll-launch]')){api.launchPoll(el.dataset.ipadPollLaunch);return}
       if(el=hit('[data-ipad-poll-results]')){api.showPollResults(el.dataset.ipadPollResults);return}
       if(el=hit('[data-ipad-poll-close]')){api.closePoll(el.dataset.ipadPollClose);return}
