@@ -140,7 +140,7 @@ function takeover(){
   if(state.activeQuestion)return '<div class="take-k">'+esc(langText('Anonymous Question','Pregunta Anónima'))+'</div><div class="take-q">'+esc(state.activeQuestion.text)+'</div>';
   if(state.activePoll){
     const raw=poll(state.activePoll.id), p=localizedPoll(raw); if(!p)return '';
-    if(state.activePoll.mode==='question')return '<div class="take-k">'+esc(classText('Live Poll','Encuesta en vivo'))+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>'<div class="step"><div class="step-n">'+String.fromCharCode(65+i)+'</div><div class="step-t">'+esc(o)+'</div></div>').join('')+'</div>';
+    if(state.activePoll.mode==='question')return '<div class="take-k">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>'<div class="step"><div class="step-n">'+String.fromCharCode(65+i)+'</div><div class="step-t">'+esc(o)+'</div></div>').join('')+'</div>';
     const c=state.activePoll.results||{},t=state.activePoll.total||0;
     return '<div class="take-k">'+esc(langText('Live Results','Resultados'))+' · '+t+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o,n=c[canonical]||0,pc=t?Math.round(n/t*100):0;return '<div class="poll-option"><div class="poll-label">'+esc(o)+'</div><div class="poll-bar"><div class="poll-fill" style="width:'+pc+'%"></div></div><div class="poll-pct">'+pc+'%</div></div>'}).join('')+'</div>';
   }
