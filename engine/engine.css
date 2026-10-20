@@ -32,3 +32,41 @@ body[data-theme="purpose"] .stage{background:radial-gradient(circle at 78% 18%,r
 @media(max-width:720px){.engine-toolbar{grid-template-columns:1fr}.presenter-top{align-items:flex-start}.presenter-actions{flex-direction:column;gap:5px}.note-head{display:block}.note-cue{margin-top:8px}.outputs{grid-template-columns:repeat(2,1fr)}}
 
 .scripture-screen.hidden,.output.hidden,.confidence.hidden,.obs-slide.hidden,.obs-lower.hidden,.presenter-shell.hidden,.class-shell.hidden{display:none!important}
+
+
+/* v64: integrated iPad teaching console */
+#presenter .ipad-transport{position:sticky;top:66px;z-index:19;display:flex;align-items:center;gap:9px;padding:10px 16px;background:#171b22;color:#fff;border-bottom:1px solid #343a44;box-shadow:0 7px 24px #1112}
+.ipad-transport-btn,.ipad-secondary{border:1px solid #4c525d;border-radius:9px;background:#242b34;color:#f9f5ed;font:700 .8rem/1.15 var(--fb);padding:11px 12px;cursor:pointer;min-height:44px}
+.ipad-transport-btn:focus-visible,.ipad-secondary:focus-visible,.note-cue:focus-visible{outline:3px solid #f5ad73;outline-offset:2px}
+.ipad-transport-btn.ipad-primary{background:#b52c26;border-color:#c73f36;min-width:132px}
+.ipad-cue{min-width:135px;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:10px;flex:1;align-items:center;font:700 .85rem var(--fb)}
+.ipad-cue #ipad-cue-num{color:#ffbc92;font:800 1.5rem var(--fc)}
+.ipad-cue #ipad-cue-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ipad-cue small{grid-column:2;color:#aeb7c3;font-size:.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ipad-sync{font:700 .65rem var(--fc);letter-spacing:.06em;color:#f5c481;white-space:nowrap}.ipad-sync[data-live=yes]{color:#9ee3bb}
+.ipad-layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:18px;max-width:1600px;margin:auto;padding:15px 18px 70px;align-items:start}
+#presenter .ipad-manuscript{max-width:none;min-width:0;margin:0;padding:0 0 60px;scroll-margin-top:190px}
+#presenter .note-section{scroll-margin-top:190px}#presenter .note-body{font-size:1.02rem;line-height:1.68}
+#presenter .note-section.is-live{box-shadow:0 0 0 2px rgba(158,29,22,.15);border-color:#ae382c}
+.ipad-sidebar{position:sticky;top:140px;align-self:start;max-height:calc(100dvh - 152px);overflow-y:auto;padding:0 3px 20px;overscroll-behavior:contain}
+.ipad-side-intro{background:#161c23;color:#eee9e0;border-radius:10px;padding:13px;margin-bottom:10px}
+.ipad-side-intro select{width:100%;min-height:42px;border-radius:7px;border:1px solid #515963;background:#242b34;color:white;padding:5px 9px;font-size:.85rem}
+.ipad-drawer{background:#fffefa;border:1px solid #d4cdc1;border-radius:10px;margin-bottom:10px;overflow:hidden}
+.ipad-drawer>summary{display:flex;justify-content:space-between;align-items:center;padding:14px 13px;font:800 .86rem var(--fb);cursor:pointer;color:#27201c}
+.ipad-drawer>summary span{font-size:.65rem;color:#8d8376}
+.ipad-drawer-body{padding:2px 12px 12px;max-height:390px;overflow:auto}
+.ipad-item{border-top:1px solid #e5dfd5;padding:12px 0;color:#282524;font-size:.8rem;line-height:1.4}
+.ipad-item-live{background:#fff4e8;padding:12px 8px;border-left:3px solid #ad271f}
+.ipad-item strong{display:block;font-weight:800;font-size:.85rem}
+.ipad-item p{font-size:.75rem;line-height:1.45;color:#5c554d;margin:6px 0}
+.ipad-item-top{display:flex;justify-content:space-between;gap:8px;color:#81776c;font:700 .65rem var(--fc);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.ipad-pair{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ipad-sidebar .ipad-secondary{font-size:.72rem;min-height:38px;padding:9px 10px;border-color:#424952}
+.ipad-secondary.ipad-active{background:#912921}.ipad-secondary.ipad-danger{background:#722c2c}
+.ipad-drawer>.ipad-secondary{margin:0 12px 12px}
+.ipad-feedback{font:.78rem/1.45 var(--fb);color:#5d554d;padding:12px}
+.ipad-feedback[data-kind=error]{color:#aa2525;font-weight:800}
+.ipad-feedback[data-kind=ok]{color:#1a6b43}
+@media(max-width:1060px){.ipad-layout{grid-template-columns:minmax(0,1fr) 300px;gap:10px;padding:12px}.ipad-transport{gap:5px!important}.ipad-sync{display:none}}
+@media(max-width:780px){#presenter .ipad-transport{top:66px;flex-wrap:wrap;padding:9px}.ipad-cue{order:5;flex-basis:100%}.ipad-layout{display:flex;flex-direction:column;gap:12px}.ipad-sidebar{position:static;max-height:none;width:100%;order:1}.ipad-manuscript{order:2;width:100%}.ipad-drawer-body{max-height:270px}}
+@media(max-width:490px){#presenter .ipad-transport{top:79px}.ipad-transport-btn{flex:1;min-width:0;font-size:.67rem;padding:10px 5px}.ipad-cue{font-size:.73rem}.presenter-actions a{font-size:.58rem}#presenter .note-section{padding:18px 14px;scroll-margin-top:200px}}
