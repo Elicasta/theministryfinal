@@ -70,3 +70,6 @@
 @media(prefers-reduced-motion:reduce){
   .quiz-theater-body,.quiz-theater-choice,.quiz-theater-fill,.quiz-theater-bar i,.quiz-theater-answer-text{animation:none!important}
 }
+
+/* Classroom review: explanation phase remains distinct from answer/application. */
+.quiz-theater-explanation .quiz-theater-paragraph{max-width:1020px;line-height:1.6}
