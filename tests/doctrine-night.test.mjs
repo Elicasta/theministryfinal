@@ -173,6 +173,84 @@ test('iPad navigation stays inside right sidebar and does not obstruct manuscrip
   assert.match(ipad,/\$\('ipad-clear'\)\?\.addEventListener/);
 });
 
+test('confidence timer starts at first slide, continues, and resets on taking slide one again', () => {
+  const engine=load('engine/engine.js');
+  const goStart=engine.indexOf('function go(i){');
+  const goEnd=engine.indexOf('function next(){',goStart);
+  assert.ok(goStart>0&&goEnd>goStart);
+  let now=1000;
+  const state={started:false,startedAt:null,timerStoppedAt:null,slide:0};
+  const go=new Script(engine.slice(goStart,goEnd)+'\n go;')
+    .runInNewContext({
+      state,
+      slides:()=>[{}, {}, {}],
+      Date:{now:()=>now},
+      scriptureForSlide:()=>null,
+      send:()=>{},render:()=>{}
+    });
+  go(0);
+  assert.equal(state.startedAt,1000);
+  now=4200;go(1);
+  assert.equal(state.startedAt,1000,'Advancing normally must not reset timer');
+  now=8400;go(2);
+  assert.equal(state.startedAt,1000);
+  now=10000;go(0);
+  assert.equal(state.startedAt,10000,'Returning to first slide must reset timer');
+  now=11000;go(1);
+  assert.equal(state.startedAt,10000,'Second advance must continue new timer');
+  assert.match(engine,/setInterval\(\(\)=>\{if\(view==='confidence'\)tick\(\)\},500\)/);
+});
+
+test('side Scripture output preserves explicit clearing and uses Spanish references', async () => {
+  const engine=load('engine/engine.js');
+  const refScript=load('engine/spanish-ref.js');
+  const html=load('engine/index.html');
+  const scriptContext={window:{}};
+  new Script(refScript).runInNewContext(scriptContext);
+  const translate=scriptContext.window.MinistrySpanishRef;
+  assert.equal(translate('Genesis 1:26'),'Génesis 1:26');
+  assert.equal(translate('Isaiah 48:16'),'Isaías 48:16');
+  assert.equal(translate('John 1:1'),'Juan 1:1');
+  assert.equal(translate('Acts 2:38'),'Hechos 2:38');
+  assert.equal(translate('1 Corinthians 11:10'),'1 Corintios 11:10');
+  assert.equal(translate('Deuteronomy 6:4'),'Deuteronomio 6:4');
+  assert.match(html, /src="\/engine\/spanish-ref\.js"/);
+  assert.match(engine, /spanishVersePending\.has\(ref\)/);
+  assert.match(engine, /if\(view==='scriptures'&&String\(state\.scriptureOutput/);
+  assert.match(engine, /spanishVersePending\.delete\(ref\)/);
+  assert.match(engine, /function queueSpanishVerse\(ref\)/);
+  assert.match(engine, /scriptureOutput=null;send\(\);render\(\)/);
+  const handle=engine.slice(engine.indexOf('async function handle(msg){'),engine.indexOf('function send(){'));
+  assert.doesNotMatch(handle,/scriptureForSlide/,'Synchronization must not resurrect a cleared Scripture');
+  assert.match(html, /href="\/scriptures" target="_blank" rel="noopener">Scripture TVs/);
+});
+
+test('RVR1960 provider requires server-side credentials and returns clear errors', () => {
+  const adapter=load('api/scripture-rvr1960.js');
+  assert.match(adapter,/process\.env\.API_BIBLE_KEY/);
+  assert.match(adapter,/process\.env\.API_BIBLE_RVR1960_ID/);
+  assert.match(adapter,/\/v1'\+path/);
+  assert.match(adapter,/content-type=text/);
+  assert.match(adapter,/setHeader\('Cache-Control','private, no-store/);
+  assert.match(adapter,/RVR 1960 provider not connected/);
+  assert.match(adapter,/RVR 1960 lookup unavailable/);
+  assert.doesNotMatch(load('engine/engine.js'),/process\.env\.API_BIBLE_KEY/);
+  assert.match(adapter,/copyright:String\(data\.copyright/);
+});
+
+test('confidence monitor has live status, complete manuscript, and stable scroll', () => {
+  const html=load('engine/index.html'),engine=load('engine/engine.js'),css=load('engine/engine.css');
+  assert.match(html,/id="conf-sync"/);
+  assert.match(html,/id="conf-notes"/);
+  assert.match(html,/id="conf-poll"/);
+  assert.match(engine,/const m=lesson\?\.manuscript\?\.\[idx\]/);
+  assert.match(engine,/notes\.dataset\.noteKey!==key/);
+  assert.match(engine,/notes\.appendChild\(parsed\.content\)/);
+  assert.match(engine,/\$\('conf-sync'\)\.dataset\.live=/);
+  assert.match(css,/#confidence \.conf-notes-text\{[^\n]*overflow-y:auto/);
+  assert.match(html, /href="\/confidence" target="_blank" rel="noopener">Confidence/);
+});
+
 test('iPad console script parses and controller identifiers match markup', () => {
   const js=load('engine/ipad-console.js');
   const engine=load('engine/engine.js');
