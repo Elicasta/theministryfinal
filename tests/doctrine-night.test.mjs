@@ -71,6 +71,24 @@ test('Isaiah 48 uses Instagram speaker-color quotations while marking them inter
   assert.match(all,/Trinitarian/i);
 });
 
+test('ESV Isaiah 48:16 closes the quotation before And now', () => {
+  const i=lesson.slides.findIndex(x=>x.ref==='Isaiah 48:16'&&x.translation_en==='ESV excerpt');
+  assert.ok(i>=0,'ESV Isaiah passage missing');
+  const slide=lesson.slides[i];
+  assert.match(slide.title,/ESV/);
+  assert.match(slide.text,/there.”\s*And now the Lord GOD has sent me/);
+  assert.match(slide.sub,/ESV excerpt/);
+  assert.match(lesson.manuscript[i].html,/ESV/);
+  assert.match(lesson.slides[i+1].title,/ESV QUOTATION MARK/);
+  const reveal=lesson.slides[i+2];
+  assert.match(reveal.sub,/ESV places a closing quote/);
+  assert.match(reveal.points.join(' '),/ISAIAH/);
+  assert.match(reveal.es.sub,/La ESV/);
+  assert.match(lesson.englishVersionNotes.credit,/English Standard Version.*Crossway/);
+  assert.match(lesson.englishVersionNotes.source,/esv.org/);
+  assert.ok(lesson.polls.some(p=>p.cueSlide===i+1),'Isaiah poll must stay after the ESV reading');
+});
+ 
 test('Genesis 1:1 through 12 is represented without missing verses', () => {
   for(let verse=1;verse<=12;verse++) assert.ok(lesson.verses.some(v=>v.ref==='Genesis 1:'+verse&&v.text),'Missing Genesis 1:'+verse);
   const oneness=lesson.slides.slice(0,lesson.slides.findIndex(s=>s.title.startsWith('HOLINESS ·')));
