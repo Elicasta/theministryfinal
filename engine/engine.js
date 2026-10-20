@@ -32,6 +32,7 @@ function slides(){return lesson?.slides||[]}
 function verses(){return lesson?.verses||[]}
 function polls(){return lesson?.polls||[]}
 function poll(id){return polls().find(p=>String(p.id)===String(id))}
+function pollsForSlide(index){return polls().filter(p=>Number.isInteger(p.cueSlide)&&p.cueSlide===index)}
 function theme(){document.body.dataset.theme=lesson?.theme||'default';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
@@ -175,11 +176,15 @@ function buildRemote(){
   renderPollAdmin();
 }
 
+function notePollHtml(p,slideIndex){
+  return '<div class="note-poll" data-note-poll="'+esc(p.id)+'"><div class="note-poll-eyebrow">POLL CUE · SLIDE '+(slideIndex+1)+'</div><div class="note-poll-question">'+esc(p.question)+'</div><div class="note-poll-actions"><button type="button" class="note-poll-launch" data-ipad-poll-cue-launch="'+esc(p.id)+'" data-ipad-poll-cue-slide="'+slideIndex+'">Launch Poll</button><button type="button" class="note-poll-secondary" data-ipad-poll-results="'+esc(p.id)+'" disabled>Show Results</button><button type="button" class="note-poll-secondary" data-ipad-poll-close="'+esc(p.id)+'" disabled>Close Poll</button></div><div class="note-poll-status" data-note-poll-status aria-live="polite">Ready to launch when you reach this slide.</div></div>';
+}
+
 function buildPresenter(){
   if($('presenter-lesson'))$('presenter-lesson').textContent=lesson.series+' · '+lesson.sequence+' · '+lesson.title;
   const root=$('manuscript'); if(!root)return;
   const rows=lesson.manuscript?.length?lesson.manuscript:slides().map(s=>({title:titleOf(s),html:s.sub?'<p>'+esc(clean(s.sub))+'</p>':'',refs:s.ref?[s.ref]:[],notes:s.notes||''}));
-  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div><div class="note-body">'+(m.html||'')+'</div>'+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
+  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div><div class="note-body">'+(m.html||'')+'</div>'+pollsForSlide(i).map(p=>notePollHtml(p,i)).join('')+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
   window.MinistryIpadMount?.();
 }
 
@@ -239,6 +244,20 @@ function renderRemoteCue(){
 function renderPresenterLive(){
   document.querySelectorAll('[data-note]').forEach(n=>n.classList.toggle('is-live',state.started&&Number(n.dataset.note)===state.slide));
   document.querySelectorAll('[data-cue]').forEach(b=>{const on=state.started&&Number(b.dataset.cue)===state.slide;b.classList.toggle('live',on);b.textContent=on?'LIVE':'Take Slide '+(Number(b.dataset.cue)+1)});
+  document.querySelectorAll('[data-note-poll]').forEach(box=>{
+    const active=state.activePoll?.id===box.dataset.notePoll;
+    const liveQuestion=active&&state.activePoll.mode==='question';
+    const liveResults=active&&state.activePoll.mode==='results';
+    box.classList.toggle('note-poll-live',active);
+    const launch=box.querySelector('[data-ipad-poll-cue-launch]');
+    if(launch){launch.disabled=liveQuestion;launch.textContent=liveQuestion?'Poll Live':liveResults?'Show Question':'Launch Poll'}
+    const results=box.querySelector('[data-ipad-poll-results]');
+    if(results)results.disabled=!active||liveResults;
+    const close=box.querySelector('[data-ipad-poll-close]');
+    if(close)close.disabled=!active;
+    const status=box.querySelector('[data-note-poll-status]');
+    if(status)status.textContent=liveQuestion?'LIVE · Audience can vote now':liveResults?'RESULTS ON PROJECTOR · Close to return to slide':'Ready to launch when you reach this slide.';
+  });
   window.MinistryIpadRender?.();
 }
 
