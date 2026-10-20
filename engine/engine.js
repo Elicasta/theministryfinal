@@ -140,7 +140,7 @@ function takeover(){
   if(state.activeQuestion)return '<div class="take-k">'+esc(langText('Anonymous Question','Pregunta Anónima'))+'</div><div class="take-q">'+esc(state.activeQuestion.text)+'</div>';
   if(state.activePoll){
     const raw=poll(state.activePoll.id), p=localizedPoll(raw); if(!p)return '';
-    if(state.activePoll.mode==='question')return '<div class="take-k">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>'<div class="step"><div class="step-n">'+String.fromCharCode(65+i)+'</div><div class="step-t">'+esc(o)+'</div></div>').join('')+'</div>';
+    if(state.activePoll.mode==='question')return '<div class="take-k">'+esc(classText('Live Poll','Encuesta en vivo'))+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>'<div class="step"><div class="step-n">'+String.fromCharCode(65+i)+'</div><div class="step-t">'+esc(o)+'</div></div>').join('')+'</div>';
     const c=state.activePoll.results||{},t=state.activePoll.total||0;
     return '<div class="take-k">'+esc(langText('Live Results','Resultados'))+' · '+t+'</div><div class="take-q">'+esc(p.question)+'</div><div class="poll-options">'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o,n=c[canonical]||0,pc=t?Math.round(n/t*100):0;return '<div class="poll-option"><div class="poll-label">'+esc(o)+'</div><div class="poll-bar"><div class="poll-fill" style="width:'+pc+'%"></div></div><div class="poll-pct">'+pc+'%</div></div>'}).join('')+'</div>';
   }
@@ -431,53 +431,101 @@ function send(){
   if(sbUrl&&sbKey)fetch(sbUrl+'/rest/v1/sync_state',{method:'POST',headers:{'Content-Type':'application/json',apikey:sbKey,Authorization:'Bearer '+sbKey,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({id:SYNC_ID,payload:JSON.stringify(msg),updated_at:new Date().toISOString()})}).catch(()=>{});
 }
 
+const classLabels={
+  liveClass:['Live Class','Clase en vivo'],
+  intro:['Follow the lesson live, answer polls, and ask anonymous questions.','Sigue la lección en vivo, participa en las encuestas y envía preguntas anónimas.'],
+  emailLabel:['Email address','Correo electrónico'],
+  privacy:['Your email lets you participate. Questions are shown anonymously.','Tu correo permite participar. Tus preguntas se muestran de forma anónima.'],
+  enter:['Enter Lesson','Entrar a la lección'],
+  connecting:['Connecting','Conectando'],
+  anonymousQuestion:['Anonymous Question','Pregunta anónima'],
+  send:['Send Question','Enviar pregunta'],
+  ask:['Ask something from the lesson…','Escribe una pregunta sobre la lección…']
+};
+function renderClassLanguageUi(){
+  if(view!=='class')return;
+  const root=$('class-portal');if(root)root.lang=classLanguage;
+  document.querySelectorAll('[data-class-language]').forEach(b=>{
+    const active=b.dataset.classLanguage===classLanguage;
+    b.setAttribute('aria-pressed',active?'true':'false');
+    b.classList.toggle('selected',active);
+  });
+  document.querySelectorAll('[data-class-i18n]').forEach(el=>{
+    const words=classLabels[el.dataset.classI18n];if(words)el.textContent=words[classLanguage==='es'?1:0];
+  });
+  document.querySelectorAll('[data-class-placeholder]').forEach(el=>{
+    const words=classLabels[el.dataset.classPlaceholder];if(words)el.placeholder=words[classLanguage==='es'?1:0];
+  });
+}
+function setClassLanguage(language){
+  if(!['en','es'].includes(language))return;
+  classLanguage=language;
+  try{localStorage.setItem('ministry_class_language',language)}catch(e){}
+  renderClassLanguageUi();
+  renderClass();
+}
+
 function initClass(){
+  renderClassLanguageUi();
+  document.querySelectorAll('[data-class-language]').forEach(b=>b.addEventListener('click',()=>setClassLanguage(b.dataset.classLanguage)));
   if(classEmail&&validEmail(classEmail))$('class-gate')?.classList.add('hidden');
   if($('class-email'))$('class-email').value=classEmail;
   $('class-enter')?.addEventListener('click',()=>{
     const v=String($('class-email')?.value||'').trim().toLowerCase();
-    if(!validEmail(v)){if($('class-gate-error'))$('class-gate-error').textContent='Enter a valid email address.';return}
+    if(!validEmail(v)){if($('class-gate-error'))$('class-gate-error').textContent=classText('Enter a valid email address.','Escribe un correo electrónico válido.');return}
     classEmail=v;localStorage.setItem('ministry_class_email',v);$('class-gate')?.classList.add('hidden');renderClass();
   });
   $('class-question-send')?.addEventListener('click',submitQuestion);
 }
 function renderClass(){
   if(!lesson||view!=='class')return;
-  const s=localizedSlide(slides()[state.slide]||slides()[0]||{});
-  if($('class-gate-title'))$('class-gate-title').textContent=lesson.title;
-  if($('class-series'))$('class-series').textContent=lesson.series+' · '+lesson.sequence;
-  if($('class-kicker'))$('class-kicker').textContent=state.started?(s.kicker||lesson.sequence):langText('Waiting for lesson','Esperando la lección');
-  if($('class-title'))$('class-title').textContent=state.started?clean(titleOf(s)):lesson.title;
-  if($('class-ref'))$('class-ref').textContent=s.ref||lesson.scripture||'';
-  if($('class-body'))$('class-body').textContent=s.type==='verse'?(s.text||''):(s.sub||'');
-  if($('class-points')){const ps=s.points||s.steps||[];$('class-points').innerHTML=ps.map(x=>'<li>'+esc(clean(x))+'</li>').join('');$('class-points').style.display=ps.length?'block':'none'}
+  renderClassLanguageUi();
+  const raw=slides()[state.slide]||slides()[0]||{};
+  const s=localizedSlide(raw,classLanguage);
+  if($('class-gate-title'))$('class-gate-title').textContent=classLanguage==='es'?(lesson.title_es||lesson.title):lesson.title;
+  if($('class-series'))$('class-series').textContent=classLanguage==='es'?(lesson.sequence_es||lesson.series+' · '+lesson.sequence):lesson.series+' · '+lesson.sequence;
+  if($('class-kicker'))$('class-kicker').textContent=state.started?(s.kicker||lesson.sequence):classText('Waiting for lesson','Esperando la lección');
+  if($('class-title'))$('class-title').textContent=state.started?clean(titleOf(s)):(classLanguage==='es'?(lesson.title_es||lesson.title):lesson.title);
+  const ref=s.ref||lesson.scripture||'';
+  if($('class-ref'))$('class-ref').textContent=classLanguage==='es'?(window.MinistrySpanishRef?.(ref)||ref):ref;
+  const body=$('class-body');
+  if(body){
+    if(s.type==='contrast'){
+      body.innerHTML='<div class="class-comparison"><div>'+esc(s.left||'')+'</div><div>'+esc(s.right||'')+'</div></div>';
+    }else body.textContent=s.type==='verse'?(s.text||''):(s.sub||'');
+  }
+  if($('class-points')){
+    const ps=s.points||s.steps||[];
+    $('class-points').innerHTML=ps.map(x=>'<li>'+esc(clean(x))+'</li>').join('');
+    $('class-points').style.display=ps.length?'block':'none';
+  }
   renderClassPoll();
 }
 function renderClassPoll(){
   const host=$('class-poll');if(!host)return;
   if(!state.activePoll?.id||state.activePoll.mode!=='question'){host.innerHTML='';return}
-  const raw=poll(state.activePoll.id),p=localizedPoll(raw);if(!p||!raw){host.innerHTML='';return}
+  const raw=poll(state.activePoll.id),p=localizedPoll(raw,classLanguage);if(!p||!raw){host.innerHTML='';return}
   const saved=localStorage.getItem('ministry_vote_'+lesson.id+'_'+p.id)||'';
-  host.innerHTML='<section class="class-card"><div class="ey">'+esc(langText('Live Poll','Encuesta En Vivo'))+'</div><div class="class-poll-q">'+esc(p.question)+'</div>'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o;return '<button class="class-choice '+(saved===canonical?'selected':'')+'" data-class-vote-index="'+i+'">'+esc(o)+'</button>'}).join('')+'<div id="class-poll-state" class="class-state">'+(saved?langText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.'):langText('Choose one answer.','Escoge una respuesta.'))+'</div></section>';
+  host.innerHTML='<section class="class-card"><div class="ey">'+esc(classText('Live Poll','Encuesta en vivo'))+'</div><div class="class-poll-q">'+esc(p.question)+'</div>'+(p.options||[]).map((o,i)=>{const canonical=(raw.options||[])[i]||o;return '<button class="class-choice '+(saved===canonical?'selected':'')+'" data-class-vote-index="'+i+'">'+esc(o)+'</button>'}).join('')+'<div id="class-poll-state" class="class-state">'+(saved?classText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.'):classText('Choose one answer.','Elige una respuesta.'))+'</div></section>';
   host.querySelectorAll('[data-class-vote-index]').forEach(b=>{const i=Number(b.dataset.classVoteIndex),canonical=(raw.options||[])[i];b.onclick=()=>submitVote(raw,canonical)});
 }
 async function submitVote(p,answer){
   if(!classEmail)return;
-  const st=$('class-poll-state'),buttons=[...document.querySelectorAll('[data-class-vote]')];buttons.forEach(b=>b.disabled=true);if(st)st.textContent=langText('Saving vote…','Guardando voto…');
+  const st=$('class-poll-state'),buttons=[...document.querySelectorAll('[data-class-vote-index]')];buttons.forEach(b=>b.disabled=true);if(st)st.textContent=classText('Saving vote…','Guardando el voto…');
   try{
     const r=await fetch('/api/poll-vote-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({series_slug:lesson.seriesSlug,lesson_slug:lesson.slug,vote:{poll_id:p.id,pollId:p.id,question:p.question,options:p.options,answer,email:classEmail,session_id:classSession,anonymous:true,id:p.id+'_'+classSession}})});
     const d=await r.json().catch(()=>({}));if(!r.ok||d.saved===false)throw new Error(d.error||d.reason||'Vote was not saved');
-    localStorage.setItem('ministry_vote_'+lesson.id+'_'+p.id,answer);renderClassPoll();const done=$('class-poll-state');if(done){done.textContent=langText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.');done.classList.add('ok')}
-  }catch(e){if(st)st.textContent=(e?.message||'Vote could not be saved')+'. '+langText('Tap an answer to retry.','Toca una respuesta para intentar de nuevo.');buttons.forEach(b=>b.disabled=false)}
+    localStorage.setItem('ministry_vote_'+lesson.id+'_'+p.id,answer);renderClassPoll();const done=$('class-poll-state');if(done){done.textContent=classText('Vote saved. You can change it.','Voto guardado. Puedes cambiarlo.');done.classList.add('ok')}
+  }catch(e){if(st)st.textContent=(e?.message||'Vote could not be saved')+'. '+classText('Tap an answer to retry.','Toca una respuesta para volver a intentarlo.');buttons.forEach(b=>b.disabled=false)}
 }
 async function submitQuestion(){
-  const ta=$('class-question'),st=$('class-question-state'),text=String(ta?.value||'').trim();if(!text){if(st)st.textContent=langText('Type a question first.','Escribe una pregunta primero.');return}
-  if(st)st.textContent=langText('Sending…','Enviando…');
+  const ta=$('class-question'),st=$('class-question-state'),text=String(ta?.value||'').trim();if(!text){if(st)st.textContent=classText('Type a question first.','Primero escribe una pregunta.');return}
+  if(st)st.textContent=classText('Sending…','Enviando…');
   try{
     const r=await fetch('/api/question-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'q_'+Date.now()+'_'+Math.random().toString(16).slice(2),text,series_slug:lesson.seriesSlug,lesson_slug:lesson.slug,name:'Anonymous',anonymous:true,session_id:classSession,email:classEmail})});
     const d=await r.json().catch(()=>({}));if(!r.ok||d.saved===false)throw new Error(d.error||d.reason||'Could not send');
-    ta.value='';st.textContent=langText('Sent anonymously.','Enviado anónimamente.');st.classList.add('ok')
-  }catch(e){st.textContent=e?.message||langText('Could not send.','No se pudo enviar.')}
+    ta.value='';st.textContent=classText('Sent anonymously.','Enviada de forma anónima.');st.classList.add('ok')
+  }catch(e){st.textContent=e?.message||classText('Could not send.','No se pudo enviar.')}
 }
 
 window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
