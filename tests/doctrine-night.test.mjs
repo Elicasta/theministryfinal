@@ -146,6 +146,33 @@ test('slide cues expose poll launch, results and close on the iPad only', () => 
   assert.ok(!engine.includes('notePollHtml(p,slideIndex)} on projector'),'Poll controls must remain presenter-only');
 });
 
+test('iPad navigation stays inside right sidebar and does not obstruct manuscript', () => {
+  const html=load('engine/index.html');
+  const css=load('engine/ipad-console.css');
+  const ipad=load('engine/ipad-console.js');
+  const presenter=html.slice(html.indexOf('<div id="presenter"'),html.indexOf('<div id="projector"'));
+  const asideStart=presenter.indexOf('<aside class="ipad-sidebar"');
+  const navStart=presenter.indexOf('<section class="ipad-nav-panel"');
+  const navEnd=presenter.indexOf('</section>',navStart);
+  const sessionStart=presenter.indexOf('class="ipad-side-intro"');
+  const manuscriptStart=presenter.indexOf('<main id="manuscript"');
+  assert.ok(asideStart>manuscriptStart,'Manuscript should precede right-side control rail');
+  assert.ok(navStart>asideStart,'Nav card must be nested inside sidebar, not above the manuscript');
+  assert.ok(navEnd<sessionStart,'Nav card should be at the top of the right sidebar');
+  assert.ok(!presenter.includes('class="ipad-transport"'),'Obstructive full-width toolbar must be removed');
+  assert.equal((presenter.match(/id="ipad-next"/g)||[]).length,1);
+  for(const id of ['ipad-prev','ipad-next','ipad-clear','ipad-current-poll','ipad-cue-num','ipad-cue-title','ipad-cue-next','ipad-sync']){
+    assert.ok(presenter.slice(navStart,navEnd).includes('id="'+id+'"'),id+' must be inside the nav card');
+  }
+  assert.match(css,/#presenter \.ipad-nav-panel\{position:sticky/);
+  assert.match(css,/#presenter \.ipad-nav-panel #ipad-cue-title\{[^\n]*color:#2c2823/);
+  assert.match(css,/#presenter \.ipad-manuscript \.note-section\{scroll-margin-top:90px/);
+  assert.match(css,/#presenter \.ipad-nav-actions \.ipad-poll-toolbar\{/);
+  assert.match(ipad,/\$\('ipad-prev'\)\?\.addEventListener/);
+  assert.match(ipad,/\$\('ipad-next'\)\?\.addEventListener/);
+  assert.match(ipad,/\$\('ipad-clear'\)\?\.addEventListener/);
+});
+
 test('iPad console script parses and controller identifiers match markup', () => {
   const js=load('engine/ipad-console.js');
   const engine=load('engine/engine.js');
