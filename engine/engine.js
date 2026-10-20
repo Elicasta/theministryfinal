@@ -2,11 +2,12 @@
 'use strict';
 
 const ROOM='ministry-unified-v2', CHANNEL=ROOM, SYNC_ID=1, TYPE='ministry_unified_state', TTL=14400000;
-const CLASS_URL=location.origin+'/class', GUIDE_URL='https://apostolicguide.com/';
+const GUIDE_URL='https://apostolicguide.com/';
+const classUrl=()=>location.origin+'/class'+(lesson?.id?'?lesson='+encodeURIComponent(lesson.id):'');
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clean=s=>String(s??'').replace(/<[^>]*>/g,'').replace(/&middot;/g,'·').replace(/&rarr;/g,'→').replace(/&ldquo;|&rdquo;/g,'"').replace(/&rsquo;/g,"'");
-const qr=u=>'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data='+encodeURIComponent(u);
+const qr=u=>'https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=12&data='+encodeURIComponent(u);
 
 const path=location.pathname.toLowerCase().replace(/\/+$/,'')||'/';
 const queryView=(new URLSearchParams(location.search).get('view')||'').toLowerCase();
@@ -48,6 +49,15 @@ function localizedPoll(p){
   return tr?{...p,...tr,_english:p}:{...p,_translationMissing:true,_english:p};
 }
 
+function resourceQrCards(large=false){
+  const items=[
+    {label:'JOIN THE LIVE STUDY',hint:'Follow Scripture · Answer polls · Ask questions',url:classUrl()},
+    {label:'APOSTOLIC GUIDE',hint:'Continue your Bible study',url:GUIDE_URL}
+  ];
+  const cards=items.map(item=>'<div class="resource-qr-card"><div class="resource-qr-image"><img src="'+qr(item.url)+'" alt="Scan to open '+esc(item.label)+'" decoding="async" referrerpolicy="no-referrer" onerror="this.closest(\'.resource-qr-image\').classList.add(\'qr-failed\')"></div><div class="resource-qr-label">'+esc(item.label)+'</div>'+(large?'<div class="resource-qr-hint">'+esc(item.hint)+'</div>':'')+'<div class="resource-qr-url">'+esc(item.url.replace(/^https?:\\/\\//,''))+'</div></div>').join('');
+  return '<div class="resource-qr-grid '+(large?'resource-qr-large':'resource-qr-small')+'">'+cards+'</div>';
+}
+
 function slideHtml(raw,withQr=true){
   const s=localizedSlide(raw)||{};
   const k=s.kicker?'<div class="p-kicker">'+esc(clean(s.kicker))+'</div>':'';
@@ -57,7 +67,8 @@ function slideHtml(raw,withQr=true){
     ?'<div class="presented-translation"><div class="translation-label">English</div>'+esc(clean(s._english.title||s._english.text||s._english.sub||''))+'</div>':'';
   const missing=(state.language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
 
-  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr?'<div class="qr-row"><div class="qr"><img src="'+qr(CLASS_URL)+'"><strong>Join Lesson</strong></div><div class="qr"><img src="'+qr(GUIDE_URL)+'"><strong>Apostolic Guide</strong></div></div>':'')+'</div>';
+  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr?resourceQrCards(false):'')+'</div>';
+  if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
   if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(clean(s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='statement')return k+ref+'<div class="statement">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='prompt')return k+'<div class="p-title med">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
