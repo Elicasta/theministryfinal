@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-25",
-  "latest": "kingdom-evidence-11-part-2",
+  "updatedAt": "2026-10-20",
+  "latest": "doctrine-night-tenets-2026-10-20",
   "rules": {
     "stableBuildsAreImmutable": true,
     "requiredArtifacts": [
@@ -199,6 +199,28 @@
         "legacyStudent": "/evidence"
       },
       "manuscriptType": "chapter11",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "doctrine-night-tenets-2026-10-20",
+      "series": "Doctrine Night",
+      "sequence": "Tenets of Our Faith",
+      "title": "The Tenets of Our Faith · Scripture Challenge",
+      "scripture": "Deuteronomy 6:4 · 1 Peter 1:15 · Acts 2:38",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=doctrine-night-tenets-2026-10-20",
+        "projector": "/projector?lesson=doctrine-night-tenets-2026-10-20",
+        "manuscript": "/presenter?lesson=doctrine-night-tenets-2026-10-20",
+        "student": "/class?lesson=doctrine-night-tenets-2026-10-20",
+        "controller": "/mobile?lesson=doctrine-night-tenets-2026-10-20",
+        "scriptures": "/scriptures?lesson=doctrine-night-tenets-2026-10-20",
+        "confidence": "/confidence?lesson=doctrine-night-tenets-2026-10-20"
+      },
+      "engineSource": "/content/doctrine-night-2026-10-20.json",
+      "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
   ]
