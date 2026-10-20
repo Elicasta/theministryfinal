@@ -56,183 +56,240 @@
       "notes": "Connect with Mark 12:29; Isaiah 44:6 and 45:5; do not assert this verse alone disproves the Trinity."
     },
     {
-      "type": "prompt",
-      "title": "CHALLENGE 1 · Who sent whom in Isaiah 48:16?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "The speaker says 'the Lord GOD, and his Spirit, hath sent me.' Doesn't that give us three persons?",
-      "ref": "Isaiah 48:12–17",
-      "text": "",
+      "type": "verse",
+      "title": "CHALLENGE 1 · Who is “US”?",
+      "kicker": "TRINITARIAN OBJECTION · VERSE 26 ONLY",
+      "ref": "Genesis 1:26",
+      "sub": "",
+      "text": "And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.",
       "points": [],
-      "notes": "Have someone read 48:12–17, not only v16. Ask who 'I' refers to before and after 'and now'."
+      "notes": "SHOW ONLY verse 26. Do not hint at verse 27 yet. Have someone offer a fair Trinitarian reading, then ask: Who actually creates in the following verse?"
     },
     {
       "type": "verse",
-      "title": "Read the difficult verse",
-      "kicker": "ISAIAH 48 · TEXT FIRST",
+      "title": "THE ANSWER · Keep reading",
+      "kicker": "REVEAL · THE VERY NEXT VERSE",
+      "ref": "Genesis 1:27",
       "sub": "",
-      "ref": "Isaiah 48:16",
-      "text": "Come ye near unto me, hear ye this; I have not spoken in secret from the beginning; from the time that it was, there am I: and now the Lord GOD, and his Spirit, hath sent me.",
+      "text": "So God created man in his own image, in the image of God created he him; male and female created he them.",
       "points": [],
-      "notes": "Then read 48:12 and 48:17. Punctuation is a presentation issue, not proof that speaker shift occurred."
+      "notes": "Read the whole verse three times slowly: God, HIS, HE. Emphasize text vs theological conclusion."
     },
     {
       "type": "points",
-      "title": "Isaiah 48:16 · Which reading holds?",
-      "kicker": "REVEAL · WEIGH THE EVIDENCE",
+      "title": "“US” spoke. HE created.",
+      "kicker": "EXPLANATION · GENESIS 1:26–27",
+      "ref": "Genesis 1:26–27",
       "sub": "",
-      "ref": "",
       "text": "",
       "points": [
-        "48:12–13: the speaker is 'the first' and the Creator.",
-        "48:16: 'and now' may introduce a prophetic speaker.",
-        "48:17: 'Thus saith the LORD' introduces divine speech again.",
-        "No original modern quotation marks fix the speaker boundary.",
-        "Possible reading ≠ demonstrated fact."
+        "Verse 26: “Let US make … OUR image.”",
+        "Verse 27: “So GOD created … HIS own image.”",
+        "Verse 27: “In the image of God created HE him.”",
+        "The action is attributed to God in the singular."
       ],
-      "notes": "Have the congregation articulate the strongest objection to the prophetic-speaker reading: the shift has no explicit speaker tag."
-    },
-    {
-      "type": "prompt",
-      "title": "CHALLENGE 2 · Does Genesis 19:24 describe two LORDs?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "The LORD rained fire 'from the LORD out of heaven.' Why does Yahweh appear twice?",
-      "ref": "Genesis 19:24",
-      "text": "",
-      "points": [],
-      "notes": "Ask volunteers to diagram subject, action, source."
+      "notes": "The reveal is the contrast. Avoid claiming verse 27 rules out every Trinitarian reading: classic Trinitarians agree that the one God created."
     },
     {
       "type": "verse",
-      "title": "One LORD, repeated source",
-      "kicker": "GENESIS 19 · TEXT FIRST",
-      "sub": "",
+      "title": "CHALLENGE 2 · Two LORDs?",
+      "kicker": "TRINITARIAN OBJECTION · GENESIS 19:24",
       "ref": "Genesis 19:24",
+      "sub": "",
       "text": "Then the LORD rained upon Sodom and upon Gomorrah brimstone and fire from the LORD out of heaven;",
       "points": [],
-      "notes": ""
+      "notes": "Ask them to identify subject, verb, what fell and where it came from. Can the same name be repeated without positing two divine persons?"
     },
     {
-      "type": "prompt",
-      "title": "CHALLENGE 3 · Who shared glory before the world?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "John 17:5 sounds like the Son existed beside the Father before creation.",
-      "ref": "John 17:5",
+      "type": "contrast",
+      "title": "RE-PUNCTUATE THE READING",
+      "kicker": "GENESIS 19:24 · COMPARE INTERPRETATIONS",
+      "ref": "Genesis 19:24",
+      "sub": "Brackets and rewording represent interpretations, NOT the original Hebrew text.",
       "text": "",
       "points": [],
-      "notes": "Invite strongest opposing reading. Do NOT pretend prayer or preexistence language is imaginary."
+      "notes": "Important: Do not claim commas prove the one-LORD reading. The Hebrew repeats the divine name; both approaches must explain it.",
+      "left": "TWO-PERSON INTERPRETATION\nThe LORD [on earth] rained fire from the LORD [in heaven].",
+      "right": "ONE-LORD PARAPHRASE\nThe LORD caused fire to rain from heaven, as the LORD's judgment."
+    },
+    {
+      "type": "points",
+      "title": "CHALLENGE 3 · Who is speaking?",
+      "kicker": "ISAIAH 48:12–16 · READ THE VOICE FIRST",
+      "ref": "Isaiah 48:12–15",
+      "sub": "",
+      "text": "",
+      "points": [
+        "v12 · “I am he; I am the first, I also am the last.”",
+        "v13 · “Mine hand also hath laid the foundation of the earth.”",
+        "v14 · “The LORD hath loved him … his pleasure on Babylon.”",
+        "v15 · “I, even I, have spoken … I have called him.”"
+      ],
+      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged."
     },
     {
       "type": "verse",
-      "title": "Glory before the world",
-      "kicker": "JOHN 17 · TEXT FIRST",
+      "title": "Read Isaiah 48:16 without quotation marks",
+      "kicker": "TRINITARIAN OBJECTION · UNMARKED KJV",
+      "ref": "Isaiah 48:16",
       "sub": "",
-      "ref": "John 17:5",
-      "text": "And now, O Father, glorify thou me with thine own self with the glory which I had with thee before the world was.",
+      "text": "Come ye near unto me, hear ye this; I have not spoken in secret from the beginning; from the time that it was, there am I: and now the Lord GOD, and his Spirit, hath sent me.",
       "points": [],
-      "notes": ""
+      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?"
     },
     {
       "type": "prompt",
-      "title": "CHALLENGE 4 · How can the Word be WITH God?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "John 1:1 says the Word was with God, and the Word was God.",
-      "ref": "John 1:1–14",
+      "title": "WHERE WOULD YOU CLOSE THE QUOTE?",
+      "kicker": "THE PUNCTUATION CHALLENGE",
+      "ref": "Isaiah 48:16",
+      "sub": "Read to “…there am I:” · At “AND NOW,” is the speaker still the LORD, or does Isaiah begin speaking?",
       "text": "",
       "points": [],
-      "notes": ""
+      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure."
+    },
+    {
+      "type": "points",
+      "title": "🔴 LORD · 🔵 ISAIAH",
+      "kicker": "QUOTE-MARKER REVEAL · INTERPRETIVE PUNCTUATION",
+      "ref": "Isaiah 48:12–17",
+      "sub": "Speaker labels and quotation marks are OUR reading aids, not marks in the Hebrew manuscript.",
+      "text": "",
+      "points": [
+        "🔴 LORD (vv12–15): “I am the first … I also am the last.”",
+        "🔴 LORD (v16a): “...from the time that it was, there am I.”",
+        "🔵 ISAIAH (v16b): “And now the Lord GOD, and his Spirit, hath sent me.”",
+        "🔵 ISAIAH (v17a): “Thus saith the LORD, thy Redeemer ...”",
+        "🔴 LORD (v17b): “I am the LORD thy God ...”"
+      ],
+      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes."
+    },
+    {
+      "type": "points",
+      "title": "Who is the “ME”?",
+      "kicker": "ISAIAH 48 · EXPLAIN AND DEFEND",
+      "ref": "Isaiah 48:16–17",
+      "sub": "",
+      "text": "",
+      "points": [
+        "Our reading: v16b is Isaiah speaking of his commission.",
+        "The red LORD quotation ends after “there am I.”",
+        "The blue prophetic voice starts at “And now ... hath sent me.”",
+        "“Thus saith the LORD” in v17 introduces God's words again.",
+        "The text does not explicitly identify three eternal persons."
+      ],
+      "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence."
     },
     {
       "type": "verse",
-      "title": "The Word was God",
-      "kicker": "JOHN 1 · TEXT FIRST",
-      "sub": "",
+      "title": "CHALLENGE 4 · The Word was WITH God",
+      "kicker": "JOHN 1:1 · THE TRINITARIAN CASE FIRST",
       "ref": "John 1:1",
+      "sub": "",
       "text": "In the beginning was the Word, and the Word was with God, and the Word was God.",
       "points": [],
-      "notes": ""
+      "notes": "State the doctrine fairly: the Logos is the eternal Son, personally with the Father, fully God, not a second God. Ask how the same Bible describes God's speech in creation."
     },
     {
       "type": "prompt",
-      "title": "CHALLENGE 5 · If Jesus is God, why did He pray?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "In Matthew 26:39 Jesus submits His will to the Father's. Is He speaking to Himself?",
-      "ref": "Matthew 26:39 · John 17",
+      "title": "HOW DID GOD CREATE?",
+      "kicker": "JOHN 1 · GO BACK TO GENESIS",
+      "ref": "Genesis 1:1–12",
+      "sub": "Every time you hear ‘And God said,’ call it out. Who speaks? Who brings it into being?",
       "text": "",
       "points": [],
-      "notes": ""
+      "notes": "Open Genesis 1:1–12. Make the audience track repeated God said/God made/God called. The next slides reveal the actual sequence."
     },
     {
       "type": "points",
-      "title": "The incarnation is not pretend",
-      "kicker": "ONENESS · REVEAL",
+      "title": "GENESIS 1:1–3 · GOD CREATES AND SPEAKS",
+      "kicker": "CREATION PATTERN · PART 1",
+      "ref": "Genesis 1:1–3",
       "sub": "",
-      "ref": "",
       "text": "",
       "points": [
-        "God is Spirit (John 4:24).",
-        "The Word became flesh (John 1:14).",
-        "Jesus is fully divine (Colossians 2:9).",
-        "Jesus' human obedience and prayer are genuine (Hebrews 5:7–9).",
-        "A real relational objection deserves a real explanation."
+        "v1 · “In the beginning God created the heaven and the earth.”",
+        "v2 · “And the Spirit of God moved upon the face of the waters.”",
+        "v3 · “And God said, Let there be light: and there was light.”"
       ],
-      "notes": ""
-    },
-    {
-      "type": "prompt",
-      "title": "CHALLENGE 6 · Three at the Jordan?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "Jesus in the water, the Spirit descending, the Father's voice from heaven.",
-      "ref": "Matthew 3:16–17",
-      "text": "",
-      "points": [],
-      "notes": ""
-    },
-    {
-      "type": "verse",
-      "title": "The voice from heaven",
-      "kicker": "MATTHEW 3 · TEXT FIRST",
-      "sub": "",
-      "ref": "Matthew 3:17",
-      "text": "And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.",
-      "points": [],
-      "notes": ""
-    },
-    {
-      "type": "prompt",
-      "title": "CHALLENGE 7 · Why does the Son become subject?",
-      "kicker": "COMMON TRINITARIAN OBJECTION",
-      "sub": "1 Corinthians 15 says the Son delivers the kingdom and is subject to God.",
-      "ref": "1 Corinthians 15:24–28",
-      "text": "",
-      "points": [],
-      "notes": ""
-    },
-    {
-      "type": "verse",
-      "title": "The Son subject unto God",
-      "kicker": "1 CORINTHIANS 15 · TEXT FIRST",
-      "sub": "",
-      "ref": "1 Corinthians 15:28",
-      "text": "And when all things shall be subdued unto him, then shall the Son also himself be subject unto him that put all things under him, that God may be all in all.",
-      "points": [],
-      "notes": ""
+      "notes": "Read the complete verses on your iPad manuscript. The slide quotes from KJV. One Creator; His Spirit; His speech."
     },
     {
       "type": "points",
-      "title": "Can you answer in 30 seconds?",
-      "kicker": "ONENESS · TEAM CHALLENGE",
+      "title": "GENESIS 1:4–6 · GOD CALLS AND SPEAKS",
+      "kicker": "CREATION PATTERN · PART 2",
+      "ref": "Genesis 1:4–6",
       "sub": "",
-      "ref": "",
       "text": "",
       "points": [
-        "Group A: Isaiah 48:16 and punctuation.",
-        "Group B: Genesis 19:24 and the repeated LORD.",
-        "Group C: John 17:5 and glory.",
-        "Group D: John 1:1 and the Word.",
-        "Group E: Jesus' baptism and prayer.",
-        "Group F: 1 Corinthians 15:24–28."
+        "v4 · “And God saw the light, that it was good.”",
+        "v5 · “And God called the light Day ...”",
+        "v6 · “And God said, Let there be a firmament ...”"
       ],
-      "notes": "Allow 5 minutes in groups, 30 seconds per spokesperson, invite fair correction. Optional bonus: Matthew 11:27 with John 1:18 and 2 Corinthians 4:6."
+      "notes": "Highlight same grammatical subject, God. Invite congregation to repeat 'God said' when v6 is read."
+    },
+    {
+      "type": "points",
+      "title": "GENESIS 1:7–9 · GOD MAKES AND SPEAKS",
+      "kicker": "CREATION PATTERN · PART 3",
+      "ref": "Genesis 1:7–9",
+      "sub": "",
+      "text": "",
+      "points": [
+        "v7 · “And God made the firmament ... and it was so.”",
+        "v8 · “And God called the firmament Heaven.”",
+        "v9 · “And God said, Let the waters ... and it was so.”"
+      ],
+      "notes": "Ask: if 'God said' and 'God made' alternate, what does that reveal about speech and act?"
+    },
+    {
+      "type": "points",
+      "title": "GENESIS 1:10–12 · HE SPOKE. IT WAS SO.",
+      "kicker": "CREATION PATTERN · PART 4",
+      "ref": "Genesis 1:10–12",
+      "sub": "",
+      "text": "",
+      "points": [
+        "v10 · “And God called the dry land Earth ...”",
+        "v11 · “And God said, Let the earth bring forth grass ... and it was so.”",
+        "v12 · “And the earth brought forth ... and God saw that it was good.”"
+      ],
+      "notes": "Now ask what John 1:1 means within the Jewish Bible, and transition to Isaiah 44:24."
+    },
+    {
+      "type": "verse",
+      "title": "“ALONE … BY MYSELF”",
+      "kicker": "ISAIAH 44:24 · THE CREATOR EXPLAINS",
+      "ref": "Isaiah 44:24",
+      "sub": "",
+      "text": "Thus saith the LORD, thy redeemer, and he that formed thee from the womb, I am the LORD that maketh all things; that stretcheth forth the heavens alone; that spreadeth abroad the earth by myself;",
+      "points": [],
+      "notes": "Underline alone and by myself. Ask a Trinitarian how they read the same verse: they also hold one Creator, through the eternal Word. Don't say this verse by itself disproves Trinity."
+    },
+    {
+      "type": "points",
+      "title": "THE WORD WAS GOD. THE WORD BECAME FLESH.",
+      "kicker": "JOHN 1 · OUR EXPLANATION",
+      "ref": "John 1:1, 14 · Genesis 1:1–12 · Isaiah 44:24",
+      "sub": "",
+      "text": "",
+      "points": [
+        "God spoke. God created. God made. God called.",
+        "His Word was WITH Him, and His Word WAS God.",
+        "The one LORD says: “I ... stretched forth the heavens alone.”",
+        "John 1:14: That Word was made flesh.",
+        "Jesus Christ reveals the one God, not a second God."
+      ],
+      "notes": "This is our theological reading. Do not claim the Genesis 'God said' motif alone disproves an eternal Logos-person reading."
+    },
+    {
+      "type": "statement",
+      "title": "FOUR OBJECTIONS. ONE GOD.",
+      "kicker": "ONENESS · WRAP-UP BEFORE HOLINESS",
+      "ref": "Deuteronomy 6:4 · John 1:14",
+      "sub": "Keep reading. Follow the speaker. Identify the Creator. Let Scripture interpret Scripture.",
+      "text": "",
+      "points": [],
+      "notes": "Ask four volunteers: one sentence per challenge. Then move on to Holiness."
     },
     {
       "type": "prompt",
@@ -439,34 +496,10 @@
       "text_es": ""
     },
     {
-      "ref": "John 17:5",
-      "text": "And now, O Father, glorify thou me with thine own self with the glory which I had with thee before the world was.",
-      "ref_en": "John 17:5",
-      "text_en": "And now, O Father, glorify thou me with thine own self with the glory which I had with thee before the world was.",
-      "ref_es": "",
-      "text_es": ""
-    },
-    {
       "ref": "John 1:1",
       "text": "In the beginning was the Word, and the Word was with God, and the Word was God.",
       "ref_en": "John 1:1",
       "text_en": "In the beginning was the Word, and the Word was with God, and the Word was God.",
-      "ref_es": "",
-      "text_es": ""
-    },
-    {
-      "ref": "Matthew 3:17",
-      "text": "And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.",
-      "ref_en": "Matthew 3:17",
-      "text_en": "And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.",
-      "ref_es": "",
-      "text_es": ""
-    },
-    {
-      "ref": "1 Corinthians 15:28",
-      "text": "And when all things shall be subdued unto him, then shall the Son also himself be subject unto him that put all things under him, that God may be all in all.",
-      "ref_en": "1 Corinthians 15:28",
-      "text_en": "And when all things shall be subdued unto him, then shall the Son also himself be subject unto him that put all things under him, that God may be all in all.",
       "ref_es": "",
       "text_es": ""
     },
@@ -573,6 +606,174 @@
       "text_en": "Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.",
       "ref_es": "",
       "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:26",
+      "text": "And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.",
+      "ref_en": "Genesis 1:26",
+      "text_en": "And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:27",
+      "text": "So God created man in his own image, in the image of God created he him; male and female created he them.",
+      "ref_en": "Genesis 1:27",
+      "text_en": "So God created man in his own image, in the image of God created he him; male and female created he them.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 48:12",
+      "text": "Hearken unto me, O Jacob and Israel, my called; I am he; I am the first, I also am the last.",
+      "ref_en": "Isaiah 48:12",
+      "text_en": "Hearken unto me, O Jacob and Israel, my called; I am he; I am the first, I also am the last.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 48:13",
+      "text": "Mine hand also hath laid the foundation of the earth, and my right hand hath spanned the heavens: when I call unto them, they stand up together.",
+      "ref_en": "Isaiah 48:13",
+      "text_en": "Mine hand also hath laid the foundation of the earth, and my right hand hath spanned the heavens: when I call unto them, they stand up together.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 48:14",
+      "text": "All ye, assemble yourselves, and hear; which among them hath declared these things? The LORD hath loved him: he will do his pleasure on Babylon, and his arm shall be on the Chaldeans.",
+      "ref_en": "Isaiah 48:14",
+      "text_en": "All ye, assemble yourselves, and hear; which among them hath declared these things? The LORD hath loved him: he will do his pleasure on Babylon, and his arm shall be on the Chaldeans.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 48:15",
+      "text": "I, even I, have spoken; yea, I have called him: I have brought him, and he shall make his way prosperous.",
+      "ref_en": "Isaiah 48:15",
+      "text_en": "I, even I, have spoken; yea, I have called him: I have brought him, and he shall make his way prosperous.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 48:17",
+      "text": "Thus saith the LORD, thy Redeemer, the Holy One of Israel; I am the LORD thy God which teacheth thee to profit, which leadeth thee by the way that thou shouldest go.",
+      "ref_en": "Isaiah 48:17",
+      "text_en": "Thus saith the LORD, thy Redeemer, the Holy One of Israel; I am the LORD thy God which teacheth thee to profit, which leadeth thee by the way that thou shouldest go.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Isaiah 44:24",
+      "text": "Thus saith the LORD, thy redeemer, and he that formed thee from the womb, I am the LORD that maketh all things; that stretcheth forth the heavens alone; that spreadeth abroad the earth by myself;",
+      "ref_en": "Isaiah 44:24",
+      "text_en": "Thus saith the LORD, thy redeemer, and he that formed thee from the womb, I am the LORD that maketh all things; that stretcheth forth the heavens alone; that spreadeth abroad the earth by myself;",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "John 1:14",
+      "text": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+      "ref_en": "John 1:14",
+      "text_en": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:1",
+      "text": "In the beginning God created the heaven and the earth.",
+      "ref_en": "Genesis 1:1",
+      "text_en": "In the beginning God created the heaven and the earth.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:2",
+      "text": "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+      "ref_en": "Genesis 1:2",
+      "text_en": "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:3",
+      "text": "And God said, Let there be light: and there was light.",
+      "ref_en": "Genesis 1:3",
+      "text_en": "And God said, Let there be light: and there was light.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:4",
+      "text": "And God saw the light, that it was good: and God divided the light from the darkness.",
+      "ref_en": "Genesis 1:4",
+      "text_en": "And God saw the light, that it was good: and God divided the light from the darkness.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:5",
+      "text": "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
+      "ref_en": "Genesis 1:5",
+      "text_en": "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:6",
+      "text": "And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.",
+      "ref_en": "Genesis 1:6",
+      "text_en": "And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:7",
+      "text": "And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so.",
+      "ref_en": "Genesis 1:7",
+      "text_en": "And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:8",
+      "text": "And God called the firmament Heaven. And the evening and the morning were the second day.",
+      "ref_en": "Genesis 1:8",
+      "text_en": "And God called the firmament Heaven. And the evening and the morning were the second day.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:9",
+      "text": "And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so.",
+      "ref_en": "Genesis 1:9",
+      "text_en": "And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:10",
+      "text": "And God called the dry land Earth; and the gathering together of the waters called he Seas: and God saw that it was good.",
+      "ref_en": "Genesis 1:10",
+      "text_en": "And God called the dry land Earth; and the gathering together of the waters called he Seas: and God saw that it was good.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:11",
+      "text": "And God said, Let the earth bring forth grass, the herb yielding seed, and the fruit tree yielding fruit after his kind, whose seed is in itself, upon the earth: and it was so.",
+      "ref_en": "Genesis 1:11",
+      "text_en": "And God said, Let the earth bring forth grass, the herb yielding seed, and the fruit tree yielding fruit after his kind, whose seed is in itself, upon the earth: and it was so.",
+      "ref_es": "",
+      "text_es": ""
+    },
+    {
+      "ref": "Genesis 1:12",
+      "text": "And the earth brought forth grass, and herb yielding seed after his kind, and the tree yielding fruit, whose seed was in itself, after his kind: and God saw that it was good.",
+      "ref_en": "Genesis 1:12",
+      "text_en": "And the earth brought forth grass, and herb yielding seed after his kind, and the tree yielding fruit, whose seed was in itself, after his kind: and God saw that it was good.",
+      "ref_es": "",
+      "text_es": ""
     }
   ],
   "polls": [
@@ -589,81 +790,57 @@
       ]
     },
     {
-      "id": "tenets-20261020-isaiah",
+      "id": "tenets-20261020-gen126",
       "cue": "Slide 5",
       "cueSlide": 4,
-      "question": "What is the fairest answer to Isaiah 48:16?",
+      "question": "What is the smartest next move when someone quotes Genesis 1:26?",
       "options": [
-        "It undeniably proves three divine persons",
-        "Isaiah must be speaking the whole time",
-        "Speaker and Spirit's role are debated; test the context",
-        "The verse can be ignored"
+        "Stop at 'Let us make'",
+        "Read Genesis 1:27",
+        "Claim the Hebrew word means three persons",
+        "Ignore the plural"
       ]
     },
     {
-      "id": "tenets-20261020-genesis",
+      "id": "tenets-20261020-gen1924",
       "cue": "Slide 8",
       "cueSlide": 7,
-      "question": "Does the repeated divine name in Genesis 19:24 force a two-person reading?",
+      "question": "Does Genesis 19:24 require two eternal divine persons?",
       "options": [
-        "Yes, grammatically unavoidable",
-        "No, a repeated-name/source reading is possible",
-        "The second LORD is definitely an angel",
-        "The text never repeats LORD"
+        "Yes, the Hebrew specifies Father and Son",
+        "No, name repetition allows a one-LORD source reading",
+        "It never mentions the LORD twice",
+        "There is no Hebrew text"
       ]
     },
     {
-      "id": "tenets-20261020-john17",
-      "cue": "Slide 10",
-      "cueSlide": 9,
-      "question": "Which issue must a careful Oneness answer to John 17:5 address?",
-      "options": [
-        "The strength of 'I had with thee' language",
-        "Whether Jesus existed at all",
-        "Whether God was present before creation",
-        "Whether glory is always literal light"
-      ]
-    },
-    {
-      "id": "tenets-20261020-john1",
+      "id": "tenets-20261020-isaiah48",
       "cue": "Slide 12",
       "cueSlide": 11,
-      "question": "In the Apostolic reading, what is the Logos?",
+      "question": "Where does our Isaiah speaker-change reading begin?",
       "options": [
-        "A created angel",
-        "God's own divine self-expression made flesh",
-        "A second lesser god",
-        "Only the written Bible"
+        "At Isaiah 48:12",
+        "At 'and now' in 48:16",
+        "At Genesis 1:27",
+        "The change is explicitly labeled Isaiah said"
       ]
     },
     {
-      "id": "tenets-20261020-jordan",
+      "id": "tenets-20261020-john1genesis",
       "cue": "Slide 16",
       "cueSlide": 15,
-      "question": "What does the baptism account certainly depict?",
+      "question": "Which pattern appears repeatedly in Genesis 1:1–12?",
       "options": [
-        "Three separate gods",
-        "Jesus, descending Spirit, and a heavenly voice",
-        "That Jesus was not divine",
-        "That the Holy Ghost was an angel"
-      ]
-    },
-    {
-      "id": "tenets-20261020-corinthians15",
-      "cue": "Slide 18",
-      "cueSlide": 17,
-      "question": "In 1 Corinthians 15:24–28, what is clearly handed over?",
-      "options": [
-        "Christ's divinity",
-        "The completed kingdom",
-        "Jesus' existence",
-        "The Holy Ghost"
+        "A second God speaks",
+        "God creates, God speaks, and His word takes effect",
+        "Three named persons take turns",
+        "Only angels create"
       ]
     },
     {
       "id": "tenets-20261020-holiness",
-      "cue": "Slide 21",
-      "cueSlide": 20,
+      "cue": "Slide 24",
+      "cueSlide": 23,
       "question": "Which is the strongest definition of biblical holiness?",
       "options": [
         "A specific outfit",
@@ -674,8 +851,8 @@
     },
     {
       "id": "tenets-20261020-angels",
-      "cue": "Slide 23",
-      "cueSlide": 22,
+      "cue": "Slide 26",
+      "cueSlide": 25,
       "question": "What does 1 Corinthians 11:10 explicitly say?",
       "options": [
         "The angels determine our salvation",
@@ -686,8 +863,8 @@
     },
     {
       "id": "tenets-20261020-baptism",
-      "cue": "Slide 26",
-      "cueSlide": 25,
+      "cue": "Slide 29",
+      "cueSlide": 28,
       "question": "How does Acts 2:38 relate to Matthew 28:19 in Apostolic teaching?",
       "options": [
         "They contradict each other",
@@ -698,8 +875,8 @@
     },
     {
       "id": "tenets-20261020-greek-name",
-      "cue": "Slide 28",
-      "cueSlide": 27,
+      "cue": "Slide 31",
+      "cueSlide": 30,
       "question": "What do the Greek words in Matthew 28:18–19 actually mean?",
       "options": [
         "Onoma = name; exousia = authority",
@@ -710,8 +887,8 @@
     },
     {
       "id": "tenets-20261020-holyghost",
-      "cue": "Slide 32",
-      "cueSlide": 31,
+      "cue": "Slide 35",
+      "cueSlide": 34,
       "question": "In Acts 10, what convinced Peter's companions that the Spirit was poured out?",
       "options": [
         "They saw a certificate",
@@ -722,8 +899,8 @@
     },
     {
       "id": "tenets-20261020-acts4",
-      "cue": "Slide 30",
-      "cueSlide": 29,
+      "cue": "Slide 33",
+      "cueSlide": 32,
       "question": "What does Acts 4:12 directly say about Jesus' name?",
       "options": [
         "It is the only name by which we must be saved",
@@ -769,151 +946,184 @@
     },
     {
       "slide": 4,
-      "title": "CHALLENGE 1 · Who sent whom in Isaiah 48:16?",
+      "title": "CHALLENGE 1 · Who is “US”?",
       "refs": [
-        "Isaiah 48:12–17"
+        "Genesis 1:26"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> Who is speaking in Isaiah 48:12–16? Does the speaker stay the same throughout?</p><p>A strong Trinitarian reading sees the one who has been present from the beginning sent by the Lord GOD and His Spirit, consistent with preincarnate Christ. The prophetic reading sees an abrupt transition near 'and now,' where Isaiah is sent by the Lord GOD and His Spirit (compare Isaiah 61:1). A genuine challenge: there is no explicit 'then Isaiah said' in the Hebrew. So the prophetic reading is possible but not proved. Original Hebrew manuscripts do not contain modern English quotation marks; punctuation is editorial. The Spirit's grammatical role is disputed too. The text does not explicitly define three coequal, coeternal persons.</p>",
-      "notes": "Have someone read 48:12–17, not only v16. Ask who 'I' refers to before and after 'and now'."
+      "html": "<p><strong>ASK THE ROOM:</strong> Why does God say 'Let US make man in OUR image'? Who is 'us'?</p><p>A common Trinitarian reading sees intra-divine deliberation among Father, Son, and Holy Spirit. Trinitarians do NOT teach three independent gods creating three people. Ask the congregation to identify the grammatical shift they would need to see before drawing conclusions. Do not reveal 1:27 until the next cue.</p>",
+      "notes": "SHOW ONLY verse 26. Do not hint at verse 27 yet. Have someone offer a fair Trinitarian reading, then ask: Who actually creates in the following verse?"
     },
     {
       "slide": 5,
-      "title": "Read the difficult verse",
+      "title": "THE ANSWER · Keep reading",
       "refs": [
-        "Isaiah 48:16"
+        "Genesis 1:27"
       ],
-      "html": "<p><strong>Two readings to put on the screen:</strong></p><p><strong>Reading A (continuous speaker):</strong> '...from the time that it was, there am I: and now the Lord GOD, and his Spirit, hath sent me.' This is often read as a divine or messianic speaker distinguished from the LORD who sends and the Spirit.</p><p><strong>Reading B (prophetic interjection):</strong> '[Divine speech concludes after: there am I.] And now [Isaiah speaks:] the Lord GOD ... hath sent me.' Compare Isaiah 61:1. The bracketed wording is teaching annotation, NOT inspired text and not a claim that quotation marks existed in the Hebrew.</p><p><strong>Apostolic response:</strong> Sending language by itself does not tell us what ontological distinction exists. Isaiah elsewhere insists on one exclusive LORD. Strongest limitation: this does NOT settle who the speaker is. Mark ambiguity honestly.</p>",
-      "notes": "Then read 48:12 and 48:17. Punctuation is a presentation issue, not proof that speaker shift occurred."
+      "html": "<p><strong>READ IT:</strong> So God created man in his own image, in the image of God created he him; male and female created he them.</p><p><strong>Question:</strong> Verse 26 says <em>us/our</em>. Verse 27 says <strong>God created ... HIS own image ... HE created</strong>. The narrative attributes the action to the one God.</p><p><strong>Oneness response:</strong> The 'us' is not, by itself, a list of three persons. The next line attributes creation to God in the singular. Other proposed readings of the plural include divine-council address, deliberative or majestic speech, and the Trinitarian intra-divine reading. Verse 27 weighs against treating verse 26 as proof of multiple creators, but Trinitarians also affirm one Creator. This is evidence to weigh, not a complete disproof of the Trinity.</p>",
+      "notes": "Read the whole verse three times slowly: God, HIS, HE. Emphasize text vs theological conclusion."
     },
     {
       "slide": 6,
-      "title": "Isaiah 48:16 · Which reading holds?",
-      "refs": [],
-      "html": "<p>Say: 'The strongest argument against my reading is the unannounced change of speaker. I will acknowledge it. But the strongest argument against calling this a proof of the Trinity is that three eternal divine persons are not stated. It takes more theological interpretation to get there.' Keep the distinction between certainty and plausibility visible.</p>",
-      "notes": "Have the congregation articulate the strongest objection to the prophetic-speaker reading: the shift has no explicit speaker tag."
+      "title": "“US” spoke. HE created.",
+      "refs": [
+        "Genesis 1:26–27"
+      ],
+      "html": "<p>Say: “Someone might stop at <em>Let us make</em> and say, 'See, there must be three persons.' My first answer is simple: <strong>keep reading.</strong> The next verse says, 'So GOD created man in HIS own image ... HE created him.' The sacred writer does not introduce three creators.”</p><p><strong>Ask:</strong> Does this prove whom God addressed? No. It tells us the story's action is attributed to God, and it calls us to interpret the plural without abandoning the Bible's monotheism. Isaiah 44:24 will later emphasize God's sole creative action.</p>",
+      "notes": "The reveal is the contrast. Avoid claiming verse 27 rules out every Trinitarian reading: classic Trinitarians agree that the one God created."
     },
     {
       "slide": 7,
-      "title": "CHALLENGE 2 · Does Genesis 19:24 describe two LORDs?",
+      "title": "CHALLENGE 2 · Two LORDs?",
       "refs": [
         "Genesis 19:24"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> If a name is repeated as subject and source, must there be two persons?</p><p>Trinitarian reading: the LORD on earth invokes judgment from the LORD in heaven. Apostolic response: Hebrew can repeat the same personal name in place of a pronoun or repeat source for emphasis. The most straightforward single-referent reading here is that Yahweh sent judgment from heaven, from Yahweh Himself. But the repetition is real and it can be given a Trinitarian interpretation; the text does not explicitly identify 'Father' and 'Son.'</p>",
-      "notes": "Ask volunteers to diagram subject, action, source."
+      "html": "<p><strong>ASK THE ROOM:</strong> If the LORD rained fire FROM the LORD, doesn't the verse describe two LORDs?</p><p>A Trinitarian can read this as a distinction between the LORD appearing on earth and the LORD in heaven. Our reading treats it as one LORD sending judgment from heaven; the repeated name emphasizes its source. Read the actual wording before proposing interpretive punctuation.</p>",
+      "notes": "Ask them to identify subject, verb, what fell and where it came from. Can the same name be repeated without positing two divine persons?"
     },
     {
       "slide": 8,
-      "title": "One LORD, repeated source",
+      "title": "RE-PUNCTUATE THE READING",
       "refs": [
         "Genesis 19:24"
       ],
-      "html": "<p>Read Genesis 18–19. Note who speaks to Abraham, who goes to Sodom, and who sends judgment. The phrase is 'the LORD ... from the LORD out of heaven.' Hebrew repetition of the name is not automatic evidence of two divine persons. Explain it simply: 'The LORD caused fire to rain from heaven as the judgment of the LORD.' This is a defensible reading, not a grammatical certainty that excludes others.</p>",
-      "notes": ""
+      "html": "<p><strong>Read KJV again:</strong> Then the LORD rained upon Sodom and upon Gomorrah brimstone and fire from the LORD out of heaven;</p><p>Offer two readings. The first infers two personal referents when 'LORD' is repeated. The second reads one divine actor/source in a name-repetition construction: “The LORD rained judgment from heaven, from the LORD.” Both are attempts to construe the same Hebrew sentence.</p><p><strong>Punctuation exercise:</strong> Insert oral pauses at different places without changing words, then test the meaning. Ancient Hebrew does not come with our English commas identifying how many persons are meant. Modern punctuation and square brackets on this slide are interpretive annotations; repetition by itself does not establish two eternal persons.</p><p>Read Genesis 18–19 if challenged about the earthly appearance; do not ignore the context. Our defense: repeated <em>YHWH</em> can emphasize authority/source without requiring two distinct persons. It does not prove one referent to everyone's satisfaction, but it certainly does not spell out Father and Son.</p>",
+      "notes": "Important: Do not claim commas prove the one-LORD reading. The Hebrew repeats the divine name; both approaches must explain it."
     },
     {
       "slide": 9,
-      "title": "CHALLENGE 3 · Who shared glory before the world?",
+      "title": "CHALLENGE 3 · Who is speaking?",
       "refs": [
-        "John 17:5"
+        "Isaiah 48:12–15"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> Is glory with the Father before the world only a plan, or the Son's personal preexistence?</p><p>A strong Trinitarian reading is that the Son personally shared eternal glory with the Father. Our previous Apostolic reading places the incarnate Messiah's promised glory in God's eternal purpose, fulfilled through the resurrection and exaltation (compare John 17:4–5, Acts 2:23, 1 Peter 1:19–20). However, 'I had with thee' naturally sounds relational and is one of the stronger objections. The verse is not disposed of merely by saying 'it was only a plan.' Explain why Scripture sometimes speaks of what is appointed as certain while acknowledging the ordinary force of the words.</p>",
-      "notes": "Invite strongest opposing reading. Do NOT pretend prayer or preexistence language is imaginary."
+      "html": "<p><strong>Read 48:12–15 in order:</strong></p><p><strong>v12:</strong> Hearken unto me, O Jacob and Israel, my called; I am he; I am the first, I also am the last.</p><p><strong>v13:</strong> Mine hand also hath laid the foundation of the earth, and my right hand hath spanned the heavens: when I call unto them, they stand up together.</p><p><strong>v14:</strong> All ye, assemble yourselves, and hear; which among them hath declared these things? The LORD hath loved him: he will do his pleasure on Babylon, and his arm shall be on the Chaldeans.</p><p><strong>v15:</strong> I, even I, have spoken; yea, I have called him: I have brought him, and he shall make his way prosperous.</p><p><strong>ASK:</strong> Is the “I” in verses 12–15 God or the prophet? The voice is clearly presented as divine. Notice God says He made heaven and earth and called Cyrus/Babylon's conqueror into His purpose.</p>",
+      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged."
     },
     {
       "slide": 10,
-      "title": "Glory before the world",
+      "title": "Read Isaiah 48:16 without quotation marks",
       "refs": [
-        "John 17:5"
+        "Isaiah 48:16"
       ],
-      "html": "<p>John 17:5 is not a throwaway verse. The Apostolic answer: God's Word and redemptive purpose are eternal; the Son enters history through the incarnation. Christ asks for the glory of His completed mission to be realized. Read John 17:4–5 with John 1:1,14 and 1 Peter 1:20.</p><p><strong>Important honesty:</strong> Some interpreters will find personal preexistence more natural here. A responsible defense must explain the wording and compare all the passages, not announce that opponents have misread a simple text.</p>",
-      "notes": ""
+      "html": "<p><strong>Trinitarian argument:</strong> The apparent divine voice from vv12–16a says “the Lord GOD, and his Spirit, hath sent me.” One reading understands the preincarnate Son, the sending Father, and the Spirit as distinguished. This is a serious exegetical challenge, not an absurd argument.</p><p><strong>ASK:</strong> Must the sentence's “me” still be the divine speaker? Or is there a point where Isaiah interjects that he has been sent?</p><p><strong>Do not reveal the punctuation markers until the next cue.</strong> Original Hebrew texts did not contain modern English opening and closing quotation marks, and the speaker transition is a disputed interpretation.</p>",
+      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?"
     },
     {
       "slide": 11,
-      "title": "CHALLENGE 4 · How can the Word be WITH God?",
+      "title": "WHERE WOULD YOU CLOSE THE QUOTE?",
       "refs": [
-        "John 1:1–14"
+        "Isaiah 48:16"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> Does 'with God' necessarily mean a second divine person?</p><p>Our Apostolic account: the Logos is God's own divine Word, self-expression, reason and purpose, eternally belonging to God and fully divine, who becomes flesh in Christ (v14). Trinitarians read this Word as the eternal Son personally distinguished from the Father. John 1:1 makes distinction and deity unavoidable questions, but the nature of that distinction must be argued, not assumed.</p>",
-      "notes": ""
+      "html": "<p><strong>ASK THE ROOM:</strong> At what exact word would you place a closing quote if the prophet begins speaking?</p><p>Our speaker-switch reading places a closing quotation after <em>there am I</em> (v16a) and begins Isaiah's comment at <em>and now</em> (v16b). Classical Trinitarians often retain the same divine or messianic speaker through the sending statement. The absence of an explicit 'Isaiah said' is a genuine challenge to our interpretation.</p>",
+      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure."
     },
     {
       "slide": 12,
-      "title": "The Word was God",
+      "title": "🔴 LORD · 🔵 ISAIAH",
       "refs": [
-        "John 1:1"
+        "Isaiah 48:12–17"
       ],
-      "html": "<p>Read verses 1–3, 14, and 18. For the Oneness view, the Word is never a separate lesser god: it was God Himself, and became flesh. Pair with 2 Corinthians 4:6, Colossians 1:15, and Colossians 2:9. A Trinitarian sees the same text as evidence of both divinity and personal distinction. The challenge is to give a coherent account of both clauses.</p>",
-      "notes": ""
+      "html": "<p><strong>HOW TO LEAD IT:</strong> “Now we're going to put our quotation marks into the passage, and you will see how the speaker can change.”</p><p><strong>🔴 LORD:</strong> verses 12–15 and verse 16a. The voice: “...from the time that it was, there am I.” CLOSE THE LORD'S QUOTATION HERE.</p><p><strong>NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH:</strong></p><p><strong>🔵 ISAIAH:</strong> “And now the Lord GOD, and his Spirit, hath sent me.” Next he introduces God as speaker: “Thus saith the LORD, thy Redeemer, the Holy One of Israel;”</p><p><strong>🔴 LORD:</strong> “I am the LORD thy God which teacheth thee to profit...” (v17b and following).</p><p>Our explanation is that “me” in 16b refers to Isaiah, a prophet sent by the Lord GOD and His Spirit; the writer is no longer quoting the LORD at that point. This is the same red/blue-dot structure from the earlier Instagram teaching. <strong>Distinguish:</strong> placement of quotation marks is an interpretation that some translations suggest, not a claim that Isaiah wrote quotation marks in Hebrew.</p>",
+      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes."
     },
     {
       "slide": 13,
-      "title": "CHALLENGE 5 · If Jesus is God, why did He pray?",
+      "title": "Who is the “ME”?",
       "refs": [
-        "Matthew 26:39 · John 17"
+        "Isaiah 48:16–17"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> Can the one who is fully God truly obey and pray as a man?</p><p>Yes, the incarnate Son possesses real humanity, including a human will and human dependence on the Father. Oneness distinguishes God's eternal Spirit and the genuinely human Son without dividing deity into persons. The strongest opposing observation is that the prayers portray personal relationship. Simply saying 'Jesus talked to Himself' fails to honor the text and should never be our answer.</p>",
-      "notes": ""
+      "html": "<p><strong>Answer to deliver:</strong> “I am not saying that the Bible has the word 'Isaiah said' sitting there. I am saying that prophets often interject and then return to announcing God's speech. Under this reading, the 'me' is the writer Isaiah, sent by the LORD and His Spirit. That's a coherent interpretation of the chapter.”</p><p><strong>Counterpoint:</strong> There is no explicit speaker tag at 16b and the continuous divine-speaker reading remains possible. A scholar may dispute whether the prophet, Messiah, or another prophetic servant is the speaker. The verse alone does not define three eternal persons. The apostolic defense is that the strong monotheism of Isaiah must guide what distinctions are inferred.</p><p><strong>Question:</strong> Are we treating distinctions in sending and activity as equivalent to a proven division into persons? That is a theological step requiring argument.</p>",
+      "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence."
     },
     {
       "slide": 14,
-      "title": "The incarnation is not pretend",
-      "refs": [],
-      "html": "<p>Do not explain the incarnation as if Jesus were a puppet body. In Gethsemane, Jesus' human will submits to the Father's will. This is real prayer. The Oneness reading maintains that the Father is not a separate deity from the one God present in Christ; Trinitarians maintain a personal distinction between Father and Son. Both are attempting to interpret biblical data.</p>",
-      "notes": ""
+      "title": "CHALLENGE 4 · The Word was WITH God",
+      "refs": [
+        "John 1:1"
+      ],
+      "html": "<p><strong>Read KJV:</strong> In the beginning was the Word, and the Word was with God, and the Word was God.</p><p><strong>COMMON TRINITARIAN EXPLANATION:</strong> “The Word was WITH God” distinguishes the eternal Logos (the Son) personally from the Father; “the Word WAS God” affirms the Logos' full deity. Jesus is this Word incarnate (John 1:14). The Trinitarian claim is one divine nature, not two gods.</p><p><strong>ASK:</strong> Must God's own Word be another divine person because it is 'with' Him? What does Genesis portray when God creates by speaking?</p>",
+      "notes": "State the doctrine fairly: the Logos is the eternal Son, personally with the Father, fully God, not a second God. Ask how the same Bible describes God's speech in creation."
     },
     {
       "slide": 15,
-      "title": "CHALLENGE 6 · Three at the Jordan?",
+      "title": "HOW DID GOD CREATE?",
       "refs": [
-        "Matthew 3:16–17"
+        "Genesis 1:1–12"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> Does simultaneous manifestation require three eternal persons?</p><p>The Apostolic response: the transcendent God is not confined to Jesus' earthly body; the Spirit's descent and voice from heaven express God's presence and testimony during the baptism of the incarnate Son. A Trinitarian sees coordinated actions of three distinct persons. The event shows the distinctions, but whether those are eternal personal distinctions is a theological conclusion.</p>",
-      "notes": ""
+      "html": "<p><strong>ASK THE ROOM:</strong> Is it God and another divine person creating, or is it the one God bringing creation into being by His Word?</p><p>Oneness reading: God speaks His own Word, the expression of His mind, will and creative agency. Trinitarians also affirm that the one God creates by His Word. This pattern supports the one Creator and sets up the debate about what it means for the Word to be 'with God.' It does not by itself establish that the Word cannot be personal.</p>",
+      "notes": "Open Genesis 1:1–12. Make the audience track repeated God said/God made/God called. The next slides reveal the actual sequence."
     },
     {
       "slide": 16,
-      "title": "The voice from heaven",
+      "title": "GENESIS 1:1–3 · GOD CREATES AND SPEAKS",
       "refs": [
-        "Matthew 3:17"
+        "Genesis 1:1–3"
       ],
-      "html": "<p>Read Matthew 3:16–17 in full. Never deny the visible sequence. Say: 'God can speak from heaven and act through His Spirit while fully present in Christ.' Oneness theology interprets these as God's manifestations alongside the humanity of the Son. Do not claim Matthew labels them 'modes' or that their coordination alone proves Oneness.</p>",
-      "notes": ""
+      "html": "<p><strong>READ FULL TEXT:</strong></p><p><strong>Genesis 1:1</strong> In the beginning God created the heaven and the earth.</p><p><strong>Genesis 1:2</strong> And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.</p><p><strong>Genesis 1:3</strong> And God said, Let there be light: and there was light.</p><p><strong>Point:</strong> The subject is God. God creates, His Spirit moves, God speaks, and the commanded result comes to pass. In John's prologue, this divine Word is already there in the beginning. Our Oneness account identifies this Word with God Himself as His self-expression.</p>",
+      "notes": "Read the complete verses on your iPad manuscript. The slide quotes from KJV. One Creator; His Spirit; His speech."
     },
     {
       "slide": 17,
-      "title": "CHALLENGE 7 · Why does the Son become subject?",
+      "title": "GENESIS 1:4–6 · GOD CALLS AND SPEAKS",
       "refs": [
-        "1 Corinthians 15:24–28"
+        "Genesis 1:4–6"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> What ends when Christ delivers the kingdom? Does God cease to be God?</p><p>Apostolic reading: the Son's mediatorial kingdom reaches completion; the incarnate Messiah has conquered enemies, and God is all in all. This does not mean divine nature is abolished or that Jesus ceases to exist. The passage distinguishes God and the Son in the economy of redemption. Trinitarians interpret the Son's submission in His mediatorial role without denying eternal divine equality. Read the whole argument in verses 20–28.</p>",
-      "notes": ""
+      "html": "<p><strong>READ FULL TEXT:</strong></p><p><strong>Genesis 1:4</strong> And God saw the light, that it was good: and God divided the light from the darkness.</p><p><strong>Genesis 1:5</strong> And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.</p><p><strong>Genesis 1:6</strong> And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.</p><p><strong>Discussion:</strong> God sees, names, divides and speaks. No new divine creator is introduced by name when He speaks. This shows how Genesis narrates divine creation through God's command.</p>",
+      "notes": "Highlight same grammatical subject, God. Invite congregation to repeat 'God said' when v6 is read."
     },
     {
       "slide": 18,
-      "title": "The Son subject unto God",
+      "title": "GENESIS 1:7–9 · GOD MAKES AND SPEAKS",
       "refs": [
-        "1 Corinthians 15:28"
+        "Genesis 1:7–9"
       ],
-      "html": "<p>Explain the distinction between the identity of Christ and the mission of Christ as the risen Messiah. 'That God may be all in all' points toward the completion of the mediatorial reign. Compare 1 Timothy 2:5. This is not a proof that Christ stops being God; nor by itself does it disprove Trinitarian distinctions.</p>",
-      "notes": ""
+      "html": "<p><strong>READ FULL TEXT:</strong></p><p><strong>Genesis 1:7</strong> And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so.</p><p><strong>Genesis 1:8</strong> And God called the firmament Heaven. And the evening and the morning were the second day.</p><p><strong>Genesis 1:9</strong> And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so.</p><p><strong>Say:</strong> God doesn't need another god in order to speak. His Word is the effective expression of His own will. The earth obeys the one Creator who speaks.</p>",
+      "notes": "Ask: if 'God said' and 'God made' alternate, what does that reveal about speech and act?"
     },
     {
       "slide": 19,
-      "title": "Can you answer in 30 seconds?",
-      "refs": [],
-      "html": "<p>Give groups two minutes to prepare. Each has thirty seconds to state the Trinitarian argument fairly, thirty seconds for the Apostolic response, and one text that might challenge their own interpretation. Bonus: Matthew 11:27 speaks of Father and Son knowing one another exclusively. Compare John 1:18, Colossians 1:15 and 2 Corinthians 4:6 about the invisible God being revealed through Christ. Ask whether revelatory relationship necessarily entails eternal personal distinction.</p>",
-      "notes": "Allow 5 minutes in groups, 30 seconds per spokesperson, invite fair correction. Optional bonus: Matthew 11:27 with John 1:18 and 2 Corinthians 4:6."
+      "title": "GENESIS 1:10–12 · HE SPOKE. IT WAS SO.",
+      "refs": [
+        "Genesis 1:10–12"
+      ],
+      "html": "<p><strong>READ FULL TEXT:</strong></p><p><strong>Genesis 1:10</strong> And God called the dry land Earth; and the gathering together of the waters called he Seas: and God saw that it was good.</p><p><strong>Genesis 1:11</strong> And God said, Let the earth bring forth grass, the herb yielding seed, and the fruit tree yielding fruit after his kind, whose seed is in itself, upon the earth: and it was so.</p><p><strong>Genesis 1:12</strong> And the earth brought forth grass, and herb yielding seed after his kind, and the tree yielding fruit, whose seed was in itself, after his kind: and God saw that it was good.</p><p><strong>Observation:</strong> Genesis repeats God created, God said, God made, God called, God saw. When John uses the Word at creation, this pattern gives a natural way to think of divine creative speech as belonging to the one God.</p>",
+      "notes": "Now ask what John 1:1 means within the Jewish Bible, and transition to Isaiah 44:24."
     },
     {
       "slide": 20,
+      "title": "“ALONE … BY MYSELF”",
+      "refs": [
+        "Isaiah 44:24"
+      ],
+      "html": "<p><strong>Read slowly:</strong> Thus saith the LORD, thy redeemer, and he that formed thee from the womb, I am the LORD that maketh all things; that stretcheth forth the heavens alone; that spreadeth abroad the earth by myself;</p><p><strong>Oneness application:</strong> The Creator says He stretched out the heavens <strong>alone</strong>, that He spread the earth <strong>by myself</strong>. When we hear “the Word was with God,” we read it against this backdrop: the one Creator's own Word, not a second divine creator helping Him.</p><p><strong>Fair Trinitarian answer:</strong> Trinitarians affirm this same verse and argue the Father creates through the Son within the one divine being, not with help from another god. Isaiah 44:24 strongly asserts monotheism, but which model accounts for God, His Spirit, and His Word requires more than one text.</p>",
+      "notes": "Underline alone and by myself. Ask a Trinitarian how they read the same verse: they also hold one Creator, through the eternal Word. Don't say this verse by itself disproves Trinity."
+    },
+    {
+      "slide": 21,
+      "title": "THE WORD WAS GOD. THE WORD BECAME FLESH.",
+      "refs": [
+        "John 1:1, 14 · Genesis 1:1–12 · Isaiah 44:24"
+      ],
+      "html": "<p><strong>PUT IT TOGETHER:</strong> “Genesis begins with one God who creates by speaking. John begins with that same creation language: 'In the beginning.' God's Word is not a rival deity. The Word is with God and is God. In verse 14, that Word becomes flesh in the man Christ Jesus. That is why Jesus fully reveals God (John 1:14; Colossians 2:9).”</p><p><strong>Critical distinction:</strong> Trinitarians also affirm one God and one act of creation. They read the Word as the eternal Son in personal fellowship with the Father. Our position understands the Word as God's own eternal self-expression becoming flesh. We disagree over the personhood of the Logos, not whether Jesus is divine or whether God is one.</p>",
+      "notes": "This is our theological reading. Do not claim the Genesis 'God said' motif alone disproves an eternal Logos-person reading."
+    },
+    {
+      "slide": 22,
+      "title": "FOUR OBJECTIONS. ONE GOD.",
+      "refs": [
+        "Deuteronomy 6:4 · John 1:14"
+      ],
+      "html": "<p><strong>Review:</strong> (1) Genesis 1:26 is not the end of the sentence; v27 says God created in <em>HIS</em> image. (2) Genesis 19:24 repeats the divine name, but name repetition does not force two LORDs. (3) Isaiah 48:16 can be parsed with an interjection from Isaiah beginning at 'and now'; this reading must be defended, not assumed. (4) John 1:1 needs to be read with Genesis 1 and Isaiah 44:24; God creates by His own Word, and the Word becomes flesh.</p><p><strong>Closing statement:</strong> “We do not defend Oneness by ignoring the objections. We answer them by reading more of the Bible.”</p><p>Invite one challenge back from the class. Keep the discussion charitable and move to Holiness with this transition: “If God is one, our life belongs wholly to Him.”</p>",
+      "notes": "Ask four volunteers: one sentence per challenge. Then move on to Holiness."
+    },
+    {
+      "slide": 23,
       "title": "HOLINESS · Is holiness mostly about clothing?",
       "refs": [],
       "html": "<p><strong>ASK THE ROOM:</strong> Can someone look modest and still live unholy?</p><p>Yes. Holiness is belonging to the holy God; it governs the whole life: motive, compassion, honesty, speech, fidelity, consumption and conduct. Modesty is one outward expression of humility and restraint, not the entirety of holiness (1 Peter 1:15–16; Hebrews 12:14; 1 Timothy 2:9–10). The maxim is memorable, but holiness reaches farther than clothing.</p>",
       "notes": ""
     },
     {
-      "slide": 21,
+      "slide": 24,
       "title": "Be holy in all manner of life",
       "refs": [
         "1 Peter 1:15"
@@ -922,7 +1132,7 @@
       "notes": ""
     },
     {
-      "slide": 22,
+      "slide": 25,
       "title": "HEAD COVERING · Why does Paul mention angels?",
       "refs": [
         "1 Corinthians 11:3–16"
@@ -931,7 +1141,7 @@
       "notes": "No invented details about exactly what angels do. Read 3–16 including 11–12 and 15."
     },
     {
-      "slide": 23,
+      "slide": 26,
       "title": "Because of the angels",
       "refs": [
         "1 Corinthians 11:10"
@@ -940,7 +1150,7 @@
       "notes": ""
     },
     {
-      "slide": 24,
+      "slide": 27,
       "title": "Her hair is given for a covering",
       "refs": [
         "1 Corinthians 11:15"
@@ -949,7 +1159,7 @@
       "notes": ""
     },
     {
-      "slide": 25,
+      "slide": 28,
       "title": "BAPTISM · What is the 'name'?",
       "refs": [
         "Matthew 28:19 · Acts 2:38"
@@ -958,7 +1168,7 @@
       "notes": ""
     },
     {
-      "slide": 26,
+      "slide": 29,
       "title": "Go, baptizing in the name",
       "refs": [
         "Matthew 28:19"
@@ -967,7 +1177,7 @@
       "notes": ""
     },
     {
-      "slide": 27,
+      "slide": 30,
       "title": "What does ONOMA actually mean?",
       "refs": [
         "Matthew 28:18–19"
@@ -976,7 +1186,7 @@
       "notes": "Ask first. Launch the Greek poll on the iPad. Let the church distinguish the two words before revealing."
     },
     {
-      "slide": 28,
+      "slide": 31,
       "title": "ONOMA ≠ EXOUSIA",
       "refs": [
         "Matthew 28:18–19"
@@ -985,7 +1195,7 @@
       "notes": "Do not let the etymology overstate a baptismal conclusion; move from grammar to the Acts narrative."
     },
     {
-      "slide": 29,
+      "slide": 32,
       "title": "There is none other name",
       "refs": [
         "Acts 4:12"
@@ -994,7 +1204,7 @@
       "notes": "Ask: whose name had Peter used to heal the lame man? Compare Acts 3:6, 4:10, 4:12."
     },
     {
-      "slide": 30,
+      "slide": 33,
       "title": "Repent and be baptized",
       "refs": [
         "Acts 2:38"
@@ -1003,7 +1213,7 @@
       "notes": ""
     },
     {
-      "slide": 31,
+      "slide": 34,
       "title": "HOLY GHOST · How do you know you received?",
       "refs": [
         "Acts 2 · Acts 10 · Acts 19"
@@ -1012,7 +1222,7 @@
       "notes": ""
     },
     {
-      "slide": 32,
+      "slide": 35,
       "title": "As the Spirit gave utterance",
       "refs": [
         "Acts 2:4"
@@ -1021,7 +1231,7 @@
       "notes": ""
     },
     {
-      "slide": 33,
+      "slide": 36,
       "title": "They heard them speak with tongues",
       "refs": [
         "Acts 10:46"
@@ -1030,14 +1240,14 @@
       "notes": ""
     },
     {
-      "slide": 34,
+      "slide": 37,
       "title": "What does the new birth call us to?",
       "refs": [],
       "html": "<p>Read John 3:5 and Acts 2:38–42. This is not only an argument over formulas. We are responding to Christ's gospel. Invite sincere questions. If someone wants baptism, prayer, or further Bible study, connect them with leadership. Close by reminding the church: conviction, humility, worship, and real life must align.</p>",
       "notes": "Close with response and open questions; don't turn Q&A into pressure toward visitors."
     },
     {
-      "slide": 35,
+      "slide": 38,
       "title": "CAN YOU GIVE AN ANSWER?",
       "refs": [
         "1 Peter 3:15 · Acts 17:11"
@@ -1049,5 +1259,12 @@
   "translations": {
     "es": null
   },
-  "instruction": "English KJV Scripture. Spanish Scripture text is intentionally not invented; attach approved translation before using Spanish scripture output."
+  "instruction": "English KJV Scripture. Spanish Scripture text is intentionally not invented; attach approved translation before using Spanish scripture output.",
+  "onenessChallenges": [
+    "Genesis 1:26–27",
+    "Genesis 19:24",
+    "Isaiah 48:12–16",
+    "John 1:1 (Genesis 1:1–12; Isaiah 44:24)"
+  ],
+  "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved."
 }
