@@ -42,7 +42,7 @@
     const bank=$('ipad-verse-list'),verses=lesson.verses||[];
     if(bank)bank.innerHTML=verses.length?verses.map((v,i)=>'<div class="ipad-item"><strong>'+esc(v.ref||v.ref_en||'')+'</strong><p>'+esc(v.text||v.text_en||'')+'</p><div class="ipad-pair"><button class="ipad-secondary" data-ipad-verse="'+i+'">Main + TV</button><button class="ipad-secondary" data-ipad-tv="'+i+'">Side TV only</button></div></div>').join(''):'<p class="ipad-empty">No verses in the bank.</p>';
     if($('ipad-verse-count'))$('ipad-verse-count').textContent=verses.length;
-    for(const [needle,target] of [['/projector','/projector'],['/class','/class']]){
+    for(const [needle,target] of [['/projector','/projector'],['/class','/class'],['/scriptures','/scriptures'],['/confidence','/confidence']]){
       const a=document.querySelector('.presenter-actions a[href="'+needle+'"]');
       if(a)a.href=target+'?lesson='+encodeURIComponent(lesson.id);
     }
