@@ -208,7 +208,7 @@ test('all 39 Doctrine Night verses include verified manually stored RVR1960 Span
   for(const v of lesson.verses){
     assert.ok(v.text_en||v.text,'Missing English for '+v.ref);
     assert.ok(v.text_es&&v.text_es.length>15,'Missing Spanish for '+v.ref);
-    assert.ok(v.ref_es&&/\\d+:\\d+/.test(v.ref_es),'Missing Spanish reference for '+v.ref);
+    assert.ok(v.ref_es&&v.ref_es.includes(':'),'Missing Spanish reference for '+v.ref);
     assert.equal(v.translation_es,'RVR1960');
   }
   assert.equal(lesson.verses.find(x=>x.ref==='Deuteronomy 6:4').text_es,
@@ -233,11 +233,11 @@ test('side TVs render locally stored Spanish even if last synced state has only 
     ['Acts 2:38','Hechos 2:38'],
     ['1 Corinthians 11:10','1 Corintios 11:10']
   ])assert.equal(translate(en),es);
-  assert.match(html,/src="\\/engine\\/spanish-ref\\.js"/);
+  assert.ok(html.includes('src="/engine/spanish-ref.js"'));
   const first=engine.indexOf('function scriptureHtml(v){');
   const last=engine.indexOf('function projectorScriptureHtml(v){',first);
   assert.ok(first>0&&last>first);
-  const scriptureHtml=new Script(engine.slice(first,last)+'\\n scriptureHtml;').runInNewContext({
+  const scriptureHtml=new Script(engine.slice(first,last)+';scriptureHtml;').runInNewContext({
     normalizeScripture:v=>({...v,ref_es:v.ref_es||translate(v.ref_en)}),
     verses:()=>lesson.verses,
     lesson,
@@ -249,12 +249,12 @@ test('side TVs render locally stored Spanish even if last synced state has only 
   assert.match(result,/Hear, O Israel/);
   assert.match(result,/Reina-Valera 1960/);
   assert.doesNotMatch(result,/no disponible|Conecte la fuente|Cargando/);
-  assert.match(engine,/if\\(c\\.dataset\\.scriptureKey!==key\\)/,'Unrelated state changes must not flicker the Scripture screen');
-  assert.match(engine,/scriptureOutput=null;send\\(\\);render\\(\\)/);
+  assert.ok(engine.includes('if(c.dataset.scriptureKey!==key)'),'Unrelated state changes must not flicker the Scripture screen');
+  assert.ok(engine.includes('scriptureOutput=null;send();render()'));
   const handle=engine.slice(engine.indexOf('async function handle(msg){'),engine.indexOf('function send(){'));
   assert.doesNotMatch(handle,/scriptureForSlide/,'Synchronization must not resurrect a cleared Scripture');
-  assert.doesNotMatch(engine,/api\\/scripture-rvr1960|queueSpanishVerse|spanishVersePending/);
-  assert.match(html,/href="\\/scriptures" target="_blank" rel="noopener">Scripture TVs/);
+  assert.ok(!engine.includes('scripture-rvr1960')&&!engine.includes('queueSpanishVerse')&&!engine.includes('spanishVersePending'));
+  assert.ok(html.includes('href="/scriptures" target="_blank" rel="noopener">Scripture TVs'));
 });
 
 test('confidence monitor has live status, complete manuscript, and stable scroll', () => {
