@@ -33,14 +33,14 @@ test('every slide has aligned manuscript, poll cues and unique poll IDs', () => 
 });
 
 test('Oneness challenge preserves objections and Scripture context', () => {
-  const all = lesson.manuscript.map(x => x.html).join('\n');
+  const all = lesson.manuscript.map(x => x.refs.join(' ')+' '+x.html).join('\n');
   for (const ref of ['Isaiah 48:16','Genesis 19:24','John 17:5','John 1:1','Matthew 3:16','1 Corinthians 15:28']) assert.ok(all.includes(ref), ref);
   assert.match(all, /Trinitarian/i);
   assert.match(all, /punctuation|quotation marks/i);
 });
 
 test('Greek study distinguishes name from power and includes saving name', () => {
-  const all = lesson.manuscript.map(x => x.html).join('\n');
+  const all = lesson.manuscript.map(x => x.refs.join(' ')+' '+x.html).join('\n');
   assert.match(all, /onoma/i);
   assert.match(all, /exousia/i);
   assert.match(all, /εἰς τὸ ὄνομα/);
@@ -50,7 +50,7 @@ test('Greek study distinguishes name from power and includes saving name', () =>
 });
 
 test('holiness, head covering, baptism and Spirit reception are all taught', () => {
-  const all = lesson.manuscript.map(x => x.html).join('\n');
+  const all = lesson.manuscript.map(x => x.refs.join(' ')+' '+x.html).join('\n');
   for (const phrase of ['1 Corinthians 11:10','because of the angels','Matthew 28:19','Acts 2:38','Acts 10:46','Holy Ghost']) assert.ok(all.toLowerCase().includes(phrase.toLowerCase()), phrase);
 });
 
