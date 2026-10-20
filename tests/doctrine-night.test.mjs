@@ -244,7 +244,7 @@ test('confidence monitor has live status, complete manuscript, and stable scroll
   assert.match(html,/id="conf-notes"/);
   assert.match(html,/id="conf-poll"/);
   assert.match(engine,/const m=lesson\?\.manuscript\?\.\[idx\]/);
-  assert.match(engine,/notes\.dataset\.noteKey!==key/);
+  assert.match(engine,/notes\?\.dataset\.noteKey!==key/);
   assert.match(engine,/notes\.appendChild\(parsed\.content\)/);
   assert.match(engine,/\$\('conf-sync'\)\.dataset\.live=/);
   assert.match(css,/#confidence \.conf-notes-text\{[^\n]*overflow-y:auto/);
