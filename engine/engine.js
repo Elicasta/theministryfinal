@@ -54,7 +54,7 @@ function resourceQrCards(large=false){
     {label:'JOIN THE LIVE STUDY',hint:'Follow Scripture · Answer polls · Ask questions',url:classUrl()},
     {label:'APOSTOLIC GUIDE',hint:'Continue your Bible study',url:GUIDE_URL}
   ];
-  const cards=items.map(item=>'<div class="resource-qr-card"><div class="resource-qr-image"><img src="'+qr(item.url)+'" alt="Scan to open '+esc(item.label)+'" decoding="async" referrerpolicy="no-referrer" onerror="this.closest(\'.resource-qr-image\').classList.add(\'qr-failed\')"></div><div class="resource-qr-label">'+esc(item.label)+'</div>'+(large?'<div class="resource-qr-hint">'+esc(item.hint)+'</div>':'')+'<div class="resource-qr-url">'+esc(item.url.replace(/^https?:\\/\\//,''))+'</div></div>').join('');
+  const cards=items.map(item=>'<div class="resource-qr-card"><div class="resource-qr-image"><img src="'+qr(item.url)+'" alt="Scan to open '+esc(item.label)+'" decoding="async" referrerpolicy="no-referrer" onerror="this.closest(\'.resource-qr-image\').classList.add(\'qr-failed\')"></div><div class="resource-qr-label">'+esc(item.label)+'</div>'+(large?'<div class="resource-qr-hint">'+esc(item.hint)+'</div>':'')+'<div class="resource-qr-url">'+esc(item.url.replace('https://','').replace('http://',''))+'</div></div>').join('');
   return '<div class="resource-qr-grid '+(large?'resource-qr-large':'resource-qr-small')+'">'+cards+'</div>';
 }
 
