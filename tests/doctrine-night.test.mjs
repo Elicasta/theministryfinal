@@ -114,6 +114,38 @@ test('study and Apostolic Guide QR cards are projected at opening and dismissal'
   assert.match(css,/resource-qr-url/);
 });
 
+test('slide cues expose poll launch, results and close on the iPad only', () => {
+  const engine=load('engine/engine.js');
+  const ipad=load('engine/ipad-console.js');
+  const css=load('engine/ipad-console.css');
+  const html=load('engine/index.html');
+  assert.equal(lesson.polls.length,11,'All eleven poll cues must remain attached to study slides');
+  assert.equal(new Set(lesson.polls.map(p=>p.cueSlide)).size,lesson.polls.length,'One poll per teaching cue');
+  for(const p of lesson.polls){
+    assert.ok(lesson.slides[p.cueSlide],'Poll is attached to a missing slide: '+p.id);
+    assert.equal(p.cue,'Slide '+(p.cueSlide+1));
+  }
+  assert.match(engine,/function pollsForSlide\(index\)/);
+  assert.match(engine,/pollsForSlide\(i\)\.map\(p=>notePollHtml\(p,i\)\)/);
+  assert.match(engine,/function notePollHtml\(p,slideIndex\)/);
+  for(const action of ['data-ipad-poll-cue-launch','data-ipad-poll-results','data-ipad-poll-close','data-note-poll-status'])
+    assert.ok(engine.includes(action),'Manuscript cue missing '+action);
+  assert.match(engine,/function renderPresenterLive\(\)/);
+  assert.match(engine,/launch\.disabled=liveQuestion/);
+  assert.match(engine,/results\.disabled=!active\|\|liveResults/);
+  assert.match(engine,/close\.disabled=!active/);
+  assert.match(html,/id="ipad-current-poll"/);
+  assert.match(ipad,/\$\('ipad-current-poll'\)\?\.addEventListener\('click'/);
+  assert.match(ipad,/api\.go\(cueSlide\)/);
+  assert.match(ipad,/api\.launchPoll\(el\.dataset\.ipadPollCueLaunch\)/);
+  assert.match(ipad,/api\.showPollResults\(id\)/);
+  assert.match(ipad,/api\.closePoll\(id\)/);
+  assert.match(ipad,/quick\.dataset\.pollAction=/);
+  assert.match(css,/\.note-poll-actions/);
+  assert.match(css,/\.ipad-poll-toolbar\[hidden\]/);
+  assert.ok(!engine.includes('notePollHtml(p,slideIndex)} on projector'),'Poll controls must remain presenter-only');
+});
+
 test('iPad console script parses and controller identifiers match markup', () => {
   const js=load('engine/ipad-console.js');
   const engine=load('engine/engine.js');
