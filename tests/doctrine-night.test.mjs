@@ -198,7 +198,7 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
   assert.equal(state.startedAt,10000,'Returning to first slide must reset timer');
   now=11000;go(1);
   assert.equal(state.startedAt,10000,'Second advance must continue new timer');
-  assert.match(engine,/setInterval\(\(\)=>\{if\(view==='confidence'\)tick\(\)\},500\)/);
+  assert.ok(engine.includes("setInterval(()=>{if(view==='confidence'||view==='presenter')tick()},500)"),'Confidence and presenter timers should continue ticking');
 });
 
 test('all 39 stored Spanish verses consistently display el Señor with source adaptation disclosed', () => {
