@@ -66,7 +66,7 @@ test('Isaiah 48 uses Instagram speaker-color quotations while marking them inter
     assert.ok(all.includes(ref),ref);
   assert.match(text,/🔴 LORD/);
   assert.match(text,/🔵 ISAIAH/);
-  assert.match(all,/NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH/);
+  assert.match(all,/Red = speech from the LORD through v16a; blue = the next prophetic statement starting at/);
   assert.match(all,/not.*(?:original|wrote)|not.*marks in the Hebrew/i);
   assert.match(all,/Trinitarian/i);
 });
