@@ -22,7 +22,8 @@ test('Solo and team leaders render independently',()=>{
 });
 test('Answer key stays out of public question payload',()=>{
   const state=read('api/game/quiz-state.js');
-  assert.match(state,/questions\.map\(publicQuestion\)/);
+  assert.match(state,/questions:role==='host'\?questions:questions\.map\(q=>/);
+  assert.match(state,/publicQuestion\(q\)/);
   assert.match(state,/publicReviewQuestion\(q,stage,isHost\)/);
 });
 test('Host starts with a frozen roster and only authorized actors can answer',()=>{
