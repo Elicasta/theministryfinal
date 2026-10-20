@@ -123,13 +123,35 @@
 
 <div id="class-portal" class="class-shell hidden">
   <div id="class-gate" class="class-gate">
-    <div class="class-gate-card"><div class="ey">Live Class</div><h1 id="class-gate-title">Join Lesson</h1><p>Follow the lesson live, answer polls, and ask anonymous questions.</p><input id="class-email" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn primary full" id="class-enter">Enter Lesson</button><div id="class-gate-error" class="class-state"></div></div>
+    <div class="class-gate-card">
+      <div class="class-language-switch" role="group" aria-label="Choose your language · Elige tu idioma">
+        <button type="button" data-class-language="en" aria-pressed="true">English</button>
+        <button type="button" data-class-language="es" aria-pressed="false">Español</button>
+      </div>
+      <div class="ey" data-class-i18n="liveClass">Live Class</div>
+      <h1 id="class-gate-title">Join Lesson</h1>
+      <p data-class-i18n="intro">Follow the lesson live, answer polls, and ask anonymous questions.</p>
+      <label class="class-email-label" for="class-email" data-class-i18n="emailLabel">Email address</label>
+      <input id="class-email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-required="true">
+      <p class="class-login-privacy" data-class-i18n="privacy">Your email lets you participate. Questions are shown anonymously.</p>
+      <button class="btn primary full" id="class-enter" data-class-i18n="enter">Enter Lesson</button>
+      <div id="class-gate-error" class="class-state" role="status" aria-live="polite"></div>
+    </div>
   </div>
-  <header class="class-top"><div><div class="class-brand">THE MINISTRY</div><div id="class-series" class="class-meta"></div></div><div class="sync"><span id="class-dot" class="dot"></span><span id="class-sync">Connecting</span></div></header>
+  <header class="class-top">
+    <div><div class="class-brand">THE MINISTRY</div><div id="class-series" class="class-meta"></div></div>
+    <div class="class-top-right">
+      <div class="class-language-switch class-language-header" role="group" aria-label="Choose your language · Elige tu idioma">
+        <button type="button" data-class-language="en" aria-pressed="true">English</button>
+        <button type="button" data-class-language="es" aria-pressed="false">Español</button>
+      </div>
+      <div class="sync"><span id="class-dot" class="dot"></span><span id="class-sync" data-class-i18n="connecting">Connecting</span></div>
+    </div>
+  </header>
   <main class="class-main">
     <section class="class-card"><div id="class-kicker" class="ey">Waiting for lesson</div><h2 id="class-title">Standby</h2><div id="class-ref" class="class-ref"></div><div id="class-body" class="class-body"></div><ul id="class-points" class="class-points"></ul></section>
     <div id="class-poll"></div>
-    <section class="class-card"><div class="ey">Anonymous Question</div><textarea id="class-question" placeholder="Ask something from the lesson…"></textarea><button class="btn" id="class-question-send">Send Question</button><div id="class-question-state" class="class-state"></div></section>
+    <section class="class-card"><div class="ey" data-class-i18n="anonymousQuestion">Anonymous Question</div><textarea id="class-question" data-class-placeholder="ask" placeholder="Ask something from the lesson…"></textarea><button class="btn" id="class-question-send" data-class-i18n="send">Send Question</button><div id="class-question-state" class="class-state" role="status" aria-live="polite"></div></section>
   </main>
 </div>
 
