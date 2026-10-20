@@ -17,7 +17,17 @@
       "ref": "Deuteronomy 6:4 · 1 Peter 1:15 · Acts 2:38",
       "text": "",
       "points": [],
-      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds."
+      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds. Two QR codes for study participation and Apostolic Guide appear on the cover. A larger scan slide is next."
+    },
+    {
+      "type": "resources",
+      "title": "SCAN TO JOIN THE STUDY",
+      "kicker": "DOCTRINE NIGHT · PARTICIPATE",
+      "sub": "Follow the teaching, vote in live polls, and send questions. Keep learning with Apostolic Guide.",
+      "ref": "",
+      "text": "",
+      "points": [],
+      "notes": "Display before the warm-up poll. Give everyone a moment to scan the LEFT code, enter their email and open the live lesson. The RIGHT code opens apostolicguide.com for independent follow-up Bible study. Both codes also appear at the end. This slide can be taken again at any time from the iPad manuscript."
     },
     {
       "type": "prompt",
@@ -460,6 +470,16 @@
       "text": "",
       "points": [],
       "notes": "Take anonymous questions. End with prayer."
+    },
+    {
+      "type": "resources",
+      "title": "KEEP STUDYING. KEEP ASKING.",
+      "kicker": "NEXT STEPS · SAVE THE LINKS",
+      "sub": "Review the lesson and continue studying Scripture after tonight.",
+      "ref": "",
+      "text": "",
+      "points": [],
+      "notes": "Leave this slide on screen during dismissal so audience members who came late can join the study and everyone can save Apostolic Guide."
     }
   ],
   "verses": [
@@ -779,8 +799,8 @@
   "polls": [
     {
       "id": "tenets-20261020-warmup",
-      "cue": "Slide 2",
-      "cueSlide": 1,
+      "cue": "Slide 3",
+      "cueSlide": 2,
       "question": "What is hardest when defending your doctrine?",
       "options": [
         "Remembering the reference",
@@ -791,8 +811,8 @@
     },
     {
       "id": "tenets-20261020-gen126",
-      "cue": "Slide 5",
-      "cueSlide": 4,
+      "cue": "Slide 6",
+      "cueSlide": 5,
       "question": "What is the smartest next move when someone quotes Genesis 1:26?",
       "options": [
         "Stop at 'Let us make'",
@@ -803,8 +823,8 @@
     },
     {
       "id": "tenets-20261020-gen1924",
-      "cue": "Slide 8",
-      "cueSlide": 7,
+      "cue": "Slide 9",
+      "cueSlide": 8,
       "question": "Does Genesis 19:24 require two eternal divine persons?",
       "options": [
         "Yes, the Hebrew specifies Father and Son",
@@ -815,8 +835,8 @@
     },
     {
       "id": "tenets-20261020-isaiah48",
-      "cue": "Slide 12",
-      "cueSlide": 11,
+      "cue": "Slide 13",
+      "cueSlide": 12,
       "question": "Where does our Isaiah speaker-change reading begin?",
       "options": [
         "At Isaiah 48:12",
@@ -827,8 +847,8 @@
     },
     {
       "id": "tenets-20261020-john1genesis",
-      "cue": "Slide 16",
-      "cueSlide": 15,
+      "cue": "Slide 17",
+      "cueSlide": 16,
       "question": "Which pattern appears repeatedly in Genesis 1:1–12?",
       "options": [
         "A second God speaks",
@@ -839,8 +859,8 @@
     },
     {
       "id": "tenets-20261020-holiness",
-      "cue": "Slide 24",
-      "cueSlide": 23,
+      "cue": "Slide 25",
+      "cueSlide": 24,
       "question": "Which is the strongest definition of biblical holiness?",
       "options": [
         "A specific outfit",
@@ -851,8 +871,8 @@
     },
     {
       "id": "tenets-20261020-angels",
-      "cue": "Slide 26",
-      "cueSlide": 25,
+      "cue": "Slide 27",
+      "cueSlide": 26,
       "question": "What does 1 Corinthians 11:10 explicitly say?",
       "options": [
         "The angels determine our salvation",
@@ -863,8 +883,8 @@
     },
     {
       "id": "tenets-20261020-baptism",
-      "cue": "Slide 29",
-      "cueSlide": 28,
+      "cue": "Slide 30",
+      "cueSlide": 29,
       "question": "How does Acts 2:38 relate to Matthew 28:19 in Apostolic teaching?",
       "options": [
         "They contradict each other",
@@ -875,8 +895,8 @@
     },
     {
       "id": "tenets-20261020-greek-name",
-      "cue": "Slide 31",
-      "cueSlide": 30,
+      "cue": "Slide 32",
+      "cueSlide": 31,
       "question": "What do the Greek words in Matthew 28:18–19 actually mean?",
       "options": [
         "Onoma = name; exousia = authority",
@@ -887,8 +907,8 @@
     },
     {
       "id": "tenets-20261020-holyghost",
-      "cue": "Slide 35",
-      "cueSlide": 34,
+      "cue": "Slide 36",
+      "cueSlide": 35,
       "question": "In Acts 10, what convinced Peter's companions that the Spirit was poured out?",
       "options": [
         "They saw a certificate",
@@ -899,8 +919,8 @@
     },
     {
       "id": "tenets-20261020-acts4",
-      "cue": "Slide 33",
-      "cueSlide": 32,
+      "cue": "Slide 34",
+      "cueSlide": 33,
       "question": "What does Acts 4:12 directly say about Jesus' name?",
       "options": [
         "It is the only name by which we must be saved",
@@ -919,24 +939,31 @@
         "Deuteronomy 6:4 · 1 Peter 1:15 · Acts 2:38"
       ],
       "html": "<p><strong>Introduction:</strong> Tonight, you are going to do some of the work. I am going to give you passages that people use to challenge what we believe. You must read them, explain their context, and make a case. No answer wins because it sounds confident.</p><p>Our pattern is <strong>Question → Read → Debate → Reveal → Explain → Apply.</strong> Faith deserves careful study and a gracious defense (Acts 17:11; 1 Peter 3:15; 2 Timothy 2:24–25).</p>",
-      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds."
+      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds. Two QR codes for study participation and Apostolic Guide appear on the cover. A larger scan slide is next."
     },
     {
       "slide": 1,
+      "title": "SCAN TO JOIN THE STUDY",
+      "refs": [],
+      "html": "<p><strong>Invite the audience to participate:</strong> Two QR codes are on screen. The left code opens tonight's Doctrine Night study, with the lesson selected automatically. Scan it on your phone to follow along, vote in polls and submit anonymous questions. A valid email is required to enter the audience page; questions appear anonymously to the teacher.</p><p><strong>The right QR code</strong> opens <strong>https://apostolicguide.com/</strong> so people can continue their Bible study after the meeting.</p><p><strong>Direct audience URL:</strong> https://theministry.vercel.app/class?lesson=doctrine-night-tenets-2026-10-20</p><p>Allow a moment for scanning before beginning the warm-up question.</p>",
+      "notes": "Display before the warm-up poll. Give everyone a moment to scan the LEFT code, enter their email and open the live lesson. The RIGHT code opens apostolicguide.com for independent follow-up Bible study. Both codes also appear at the end. This slide can be taken again at any time from the iPad manuscript."
+    },
+    {
+      "slide": 2,
       "title": "Do you know what you believe, or only what you were taught?",
       "refs": [],
       "html": "<p><strong>ASK THE ROOM:</strong> How do you respond when another Christian makes a biblical objection to our doctrine?</p><p>Our task is to represent an objection accurately, not to mock it. Classical Trinitarians teach ONE God in three eternally distinct persons, not three gods. We believe the one God is fully manifested in Jesus Christ. The disagreement is about God's personal distinctions, not whether Christians believe in one God.</p>",
       "notes": "Poll first, then invite two people to explain their choices."
     },
     {
-      "slide": 2,
+      "slide": 3,
       "title": "The rules of the challenge",
       "refs": [],
       "html": "<p>We do not claim every passage settles the Trinity debate on its own. Distinction in language is not automatically distinction of eternal persons. But demonstrating an alternative interpretation does not automatically prove Oneness either. Test how well your interpretation accounts for the whole biblical witness.</p>",
       "notes": ""
     },
     {
-      "slide": 3,
+      "slide": 4,
       "title": "One God is the starting point",
       "refs": [
         "Deuteronomy 6:4"
@@ -945,7 +972,7 @@
       "notes": "Connect with Mark 12:29; Isaiah 44:6 and 45:5; do not assert this verse alone disproves the Trinity."
     },
     {
-      "slide": 4,
+      "slide": 5,
       "title": "CHALLENGE 1 · Who is “US”?",
       "refs": [
         "Genesis 1:26"
@@ -954,7 +981,7 @@
       "notes": "SHOW ONLY verse 26. Do not hint at verse 27 yet. Have someone offer a fair Trinitarian reading, then ask: Who actually creates in the following verse?"
     },
     {
-      "slide": 5,
+      "slide": 6,
       "title": "THE ANSWER · Keep reading",
       "refs": [
         "Genesis 1:27"
@@ -963,7 +990,7 @@
       "notes": "Read the whole verse three times slowly: God, HIS, HE. Emphasize text vs theological conclusion."
     },
     {
-      "slide": 6,
+      "slide": 7,
       "title": "“US” spoke. HE created.",
       "refs": [
         "Genesis 1:26–27"
@@ -972,7 +999,7 @@
       "notes": "The reveal is the contrast. Avoid claiming verse 27 rules out every Trinitarian reading: classic Trinitarians agree that the one God created."
     },
     {
-      "slide": 7,
+      "slide": 8,
       "title": "CHALLENGE 2 · Two LORDs?",
       "refs": [
         "Genesis 19:24"
@@ -981,7 +1008,7 @@
       "notes": "Ask them to identify subject, verb, what fell and where it came from. Can the same name be repeated without positing two divine persons?"
     },
     {
-      "slide": 8,
+      "slide": 9,
       "title": "RE-PUNCTUATE THE READING",
       "refs": [
         "Genesis 19:24"
@@ -990,7 +1017,7 @@
       "notes": "Important: Do not claim commas prove the one-LORD reading. The Hebrew repeats the divine name; both approaches must explain it."
     },
     {
-      "slide": 9,
+      "slide": 10,
       "title": "CHALLENGE 3 · Who is speaking?",
       "refs": [
         "Isaiah 48:12–15"
@@ -999,7 +1026,7 @@
       "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged."
     },
     {
-      "slide": 10,
+      "slide": 11,
       "title": "Read Isaiah 48:16 without quotation marks",
       "refs": [
         "Isaiah 48:16"
@@ -1008,7 +1035,7 @@
       "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?"
     },
     {
-      "slide": 11,
+      "slide": 12,
       "title": "WHERE WOULD YOU CLOSE THE QUOTE?",
       "refs": [
         "Isaiah 48:16"
@@ -1017,7 +1044,7 @@
       "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure."
     },
     {
-      "slide": 12,
+      "slide": 13,
       "title": "🔴 LORD · 🔵 ISAIAH",
       "refs": [
         "Isaiah 48:12–17"
@@ -1026,7 +1053,7 @@
       "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes."
     },
     {
-      "slide": 13,
+      "slide": 14,
       "title": "Who is the “ME”?",
       "refs": [
         "Isaiah 48:16–17"
@@ -1035,7 +1062,7 @@
       "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence."
     },
     {
-      "slide": 14,
+      "slide": 15,
       "title": "CHALLENGE 4 · The Word was WITH God",
       "refs": [
         "John 1:1"
@@ -1044,7 +1071,7 @@
       "notes": "State the doctrine fairly: the Logos is the eternal Son, personally with the Father, fully God, not a second God. Ask how the same Bible describes God's speech in creation."
     },
     {
-      "slide": 15,
+      "slide": 16,
       "title": "HOW DID GOD CREATE?",
       "refs": [
         "Genesis 1:1–12"
@@ -1053,7 +1080,7 @@
       "notes": "Open Genesis 1:1–12. Make the audience track repeated God said/God made/God called. The next slides reveal the actual sequence."
     },
     {
-      "slide": 16,
+      "slide": 17,
       "title": "GENESIS 1:1–3 · GOD CREATES AND SPEAKS",
       "refs": [
         "Genesis 1:1–3"
@@ -1062,7 +1089,7 @@
       "notes": "Read the complete verses on your iPad manuscript. The slide quotes from KJV. One Creator; His Spirit; His speech."
     },
     {
-      "slide": 17,
+      "slide": 18,
       "title": "GENESIS 1:4–6 · GOD CALLS AND SPEAKS",
       "refs": [
         "Genesis 1:4–6"
@@ -1071,7 +1098,7 @@
       "notes": "Highlight same grammatical subject, God. Invite congregation to repeat 'God said' when v6 is read."
     },
     {
-      "slide": 18,
+      "slide": 19,
       "title": "GENESIS 1:7–9 · GOD MAKES AND SPEAKS",
       "refs": [
         "Genesis 1:7–9"
@@ -1080,7 +1107,7 @@
       "notes": "Ask: if 'God said' and 'God made' alternate, what does that reveal about speech and act?"
     },
     {
-      "slide": 19,
+      "slide": 20,
       "title": "GENESIS 1:10–12 · HE SPOKE. IT WAS SO.",
       "refs": [
         "Genesis 1:10–12"
@@ -1089,7 +1116,7 @@
       "notes": "Now ask what John 1:1 means within the Jewish Bible, and transition to Isaiah 44:24."
     },
     {
-      "slide": 20,
+      "slide": 21,
       "title": "“ALONE … BY MYSELF”",
       "refs": [
         "Isaiah 44:24"
@@ -1098,7 +1125,7 @@
       "notes": "Underline alone and by myself. Ask a Trinitarian how they read the same verse: they also hold one Creator, through the eternal Word. Don't say this verse by itself disproves Trinity."
     },
     {
-      "slide": 21,
+      "slide": 22,
       "title": "THE WORD WAS GOD. THE WORD BECAME FLESH.",
       "refs": [
         "John 1:1, 14 · Genesis 1:1–12 · Isaiah 44:24"
@@ -1107,7 +1134,7 @@
       "notes": "This is our theological reading. Do not claim the Genesis 'God said' motif alone disproves an eternal Logos-person reading."
     },
     {
-      "slide": 22,
+      "slide": 23,
       "title": "FOUR OBJECTIONS. ONE GOD.",
       "refs": [
         "Deuteronomy 6:4 · John 1:14"
@@ -1116,14 +1143,14 @@
       "notes": "Ask four volunteers: one sentence per challenge. Then move on to Holiness."
     },
     {
-      "slide": 23,
+      "slide": 24,
       "title": "HOLINESS · Is holiness mostly about clothing?",
       "refs": [],
       "html": "<p><strong>ASK THE ROOM:</strong> Can someone look modest and still live unholy?</p><p>Yes. Holiness is belonging to the holy God; it governs the whole life: motive, compassion, honesty, speech, fidelity, consumption and conduct. Modesty is one outward expression of humility and restraint, not the entirety of holiness (1 Peter 1:15–16; Hebrews 12:14; 1 Timothy 2:9–10). The maxim is memorable, but holiness reaches farther than clothing.</p>",
       "notes": ""
     },
     {
-      "slide": 24,
+      "slide": 25,
       "title": "Be holy in all manner of life",
       "refs": [
         "1 Peter 1:15"
@@ -1132,7 +1159,7 @@
       "notes": ""
     },
     {
-      "slide": 25,
+      "slide": 26,
       "title": "HEAD COVERING · Why does Paul mention angels?",
       "refs": [
         "1 Corinthians 11:3–16"
@@ -1141,7 +1168,7 @@
       "notes": "No invented details about exactly what angels do. Read 3–16 including 11–12 and 15."
     },
     {
-      "slide": 26,
+      "slide": 27,
       "title": "Because of the angels",
       "refs": [
         "1 Corinthians 11:10"
@@ -1150,7 +1177,7 @@
       "notes": ""
     },
     {
-      "slide": 27,
+      "slide": 28,
       "title": "Her hair is given for a covering",
       "refs": [
         "1 Corinthians 11:15"
@@ -1159,7 +1186,7 @@
       "notes": ""
     },
     {
-      "slide": 28,
+      "slide": 29,
       "title": "BAPTISM · What is the 'name'?",
       "refs": [
         "Matthew 28:19 · Acts 2:38"
@@ -1168,7 +1195,7 @@
       "notes": ""
     },
     {
-      "slide": 29,
+      "slide": 30,
       "title": "Go, baptizing in the name",
       "refs": [
         "Matthew 28:19"
@@ -1177,7 +1204,7 @@
       "notes": ""
     },
     {
-      "slide": 30,
+      "slide": 31,
       "title": "What does ONOMA actually mean?",
       "refs": [
         "Matthew 28:18–19"
@@ -1186,7 +1213,7 @@
       "notes": "Ask first. Launch the Greek poll on the iPad. Let the church distinguish the two words before revealing."
     },
     {
-      "slide": 31,
+      "slide": 32,
       "title": "ONOMA ≠ EXOUSIA",
       "refs": [
         "Matthew 28:18–19"
@@ -1195,7 +1222,7 @@
       "notes": "Do not let the etymology overstate a baptismal conclusion; move from grammar to the Acts narrative."
     },
     {
-      "slide": 32,
+      "slide": 33,
       "title": "There is none other name",
       "refs": [
         "Acts 4:12"
@@ -1204,7 +1231,7 @@
       "notes": "Ask: whose name had Peter used to heal the lame man? Compare Acts 3:6, 4:10, 4:12."
     },
     {
-      "slide": 33,
+      "slide": 34,
       "title": "Repent and be baptized",
       "refs": [
         "Acts 2:38"
@@ -1213,7 +1240,7 @@
       "notes": ""
     },
     {
-      "slide": 34,
+      "slide": 35,
       "title": "HOLY GHOST · How do you know you received?",
       "refs": [
         "Acts 2 · Acts 10 · Acts 19"
@@ -1222,7 +1249,7 @@
       "notes": ""
     },
     {
-      "slide": 35,
+      "slide": 36,
       "title": "As the Spirit gave utterance",
       "refs": [
         "Acts 2:4"
@@ -1231,7 +1258,7 @@
       "notes": ""
     },
     {
-      "slide": 36,
+      "slide": 37,
       "title": "They heard them speak with tongues",
       "refs": [
         "Acts 10:46"
@@ -1240,20 +1267,27 @@
       "notes": ""
     },
     {
-      "slide": 37,
+      "slide": 38,
       "title": "What does the new birth call us to?",
       "refs": [],
       "html": "<p>Read John 3:5 and Acts 2:38–42. This is not only an argument over formulas. We are responding to Christ's gospel. Invite sincere questions. If someone wants baptism, prayer, or further Bible study, connect them with leadership. Close by reminding the church: conviction, humility, worship, and real life must align.</p>",
       "notes": "Close with response and open questions; don't turn Q&A into pressure toward visitors."
     },
     {
-      "slide": 38,
+      "slide": 39,
       "title": "CAN YOU GIVE AN ANSWER?",
       "refs": [
         "1 Peter 3:15 · Acts 17:11"
       ],
       "html": "<p><strong>Closing challenge:</strong> Be able to say, 'This is what the text says. This is how we understand it. Here is why. Here is the strongest question someone might still ask.' A conviction that survives an honest question becomes more than repetition.</p><p><strong>Prayer:</strong> God, give us conviction that is rooted in Scripture, holiness that reaches the heart, and courage to obey the gospel with humility and love. Amen.</p>",
       "notes": "Take anonymous questions. End with prayer."
+    },
+    {
+      "slide": 40,
+      "title": "KEEP STUDYING. KEEP ASKING.",
+      "refs": [],
+      "html": "<p><strong>Leave these links on screen during fellowship and dismissal.</strong> The left QR returns to tonight's study, and the right QR opens Apostolic Guide at https://apostolicguide.com/.</p><p>Encourage people to keep reading full passages and bring thoughtful questions to the next class.</p>",
+      "notes": "Leave this slide on screen during dismissal so audience members who came late can join the study and everyone can save Apostolic Guide."
     }
   ],
   "translations": {
@@ -1266,5 +1300,5 @@
     "Isaiah 48:12–16",
     "John 1:1 (Genesis 1:1–12; Isaiah 44:24)"
   ],
-  "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved."
+  "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved. Added two dual-QR projection slides at start/end; cover QR follows exact lesson-specific class URL and ApostolicGuide.com."
 }
