@@ -306,6 +306,44 @@
     },
     {
       "type": "prompt",
+      "title": "GREEK CHALLENGE · What does ONOMA mean?",
+      "kicker": "MATTHEW 28:19 · LANGUAGE LAB",
+      "sub": "Does 'in the name' literally mean 'in the power'? What does the original Greek say?",
+      "ref": "Matthew 28:19",
+      "notes": "Invite one guess; distinguish direct meaning from association. Greek phrase is eis to onoma."
+    },
+    {
+      "type": "points",
+      "title": "εἰς τὸ ὄνομα · INTO THE NAME",
+      "kicker": "GREEK · REVEAL",
+      "ref": "Matthew 28:19",
+      "points": [
+        "εἰς (eis): into / unto / in",
+        "τὸ (to): the (singular article)",
+        "ὄνομα (onoma): name (singular)",
+        "A name can represent identity, character and authority.",
+        "This phrase alone does not specify spoken baptismal words."
+      ],
+      "notes": "A singular name does not by itself prove a singular divine person; this is part of a larger biblical argument."
+    },
+    {
+      "type": "prompt",
+      "title": "CHALLENGE · Whose name saves?",
+      "kicker": "ACTS 4:12 · CONNECT THE PASSAGES",
+      "sub": "Matthew commands baptism into 'the name'; Peter says there is no other saving name. How does this inform Acts 2:38?",
+      "ref": "Acts 4:12",
+      "notes": "Read Acts 3:6 and Acts 4:7–12. Peter names Jesus Christ of Nazareth at Acts 4:10."
+    },
+    {
+      "type": "verse",
+      "title": "There is none other name",
+      "kicker": "ACTS 4 · THE TEXT",
+      "ref": "Acts 4:12",
+      "text": "Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.",
+      "notes": "Read Acts 4:10–12 in context, not simply a slogan. Peter is discussing healing and salvation through Jesus Christ."
+    },
+    {
+      "type": "prompt",
       "title": "What does ONOMA actually mean?",
       "kicker": "GREEK CHALLENGE · MATTHEW 28:18–19",
       "sub": "Jesus says all POWER is His, then commands baptism in the NAME. Are those the same Greek word?",
@@ -698,8 +736,8 @@
     },
     {
       "id": "tenets-20261020-greek-name",
-      "cue": "Slide 28",
-      "cueSlide": 27,
+      "cue": "Slide 32",
+      "cueSlide": 31,
       "question": "What do the Greek words in Matthew 28:18–19 actually mean?",
       "options": [
         "Onoma = name; exousia = authority",
@@ -710,14 +748,38 @@
     },
     {
       "id": "tenets-20261020-holyghost",
-      "cue": "Slide 32",
-      "cueSlide": 31,
+      "cue": "Slide 36",
+      "cueSlide": 35,
       "question": "In Acts 10, what convinced Peter's companions that the Spirit was poured out?",
       "options": [
         "They saw a certificate",
         "They heard tongues and praise",
         "They saw water baptism first",
         "They saw a vision of Peter"
+      ]
+    },
+    {
+      "id": "tenets-20261020-onoma",
+      "cue": "Slide 28",
+      "cueSlide": 27,
+      "question": "In Matthew 28:19, what does the Greek word ὄνομα (onoma) literally mean?",
+      "options": [
+        "Power",
+        "Name",
+        "Immersion",
+        "Command"
+      ]
+    },
+    {
+      "id": "tenets-20261020-acts4",
+      "cue": "Slide 30",
+      "cueSlide": 29,
+      "question": "What does Acts 4:12 directly say about Jesus' name?",
+      "options": [
+        "It is the only name by which we must be saved",
+        "It quotes the exact baptismal words",
+        "It names three gods",
+        "It replaces the need for faith"
       ]
     }
   ],
@@ -956,6 +1018,42 @@
     },
     {
       "slide": 27,
+      "title": "GREEK CHALLENGE · What does ONOMA mean?",
+      "refs": [
+        "Matthew 28:19"
+      ],
+      "html": "<p><strong>ASK:</strong> Is 'name' a literal translation of the Greek, or does onoma literally mean 'power'? Let them answer first.</p><p>Matthew uses <strong>εἰς τὸ ὄνομα (eis to onoma)</strong>: roughly 'into the name.' The noun <em>onoma</em> means 'name.' In context, a name can represent someone's identity, reputation, and authority. It does NOT literally translate 'power.' The association with authority is a figure of speech and contextual usage. See Acts 4:7, where the question is explicitly 'by what power, or by what name?'</p>",
+      "notes": "Invite one guess; distinguish direct meaning from association. Greek phrase is eis to onoma."
+    },
+    {
+      "slide": 28,
+      "title": "εἰς τὸ ὄνομα · INTO THE NAME",
+      "refs": [
+        "Matthew 28:19"
+      ],
+      "html": "<p>Walk through the three Greek words. <strong>Eis</strong> + accusative can mark entry into relationship or belonging. <strong>Onoma</strong> is singular. An Apostolic reading takes the singular name with apostolic practice in Acts to point to Jesus, the revealed name of salvation. A Trinitarian can accept the singular name while retaining the triadic baptismal wording. Grammar alone does not resolve the disagreement.</p><p>Ask why Acts repeatedly speaks of baptism in Jesus Christ's name (Acts 2:38; 8:16; 10:48; 19:5). Also remind students that Acts' Greek baptismal prepositions vary: the phrases are not word-for-word identical throughout the passages.</p>",
+      "notes": "A singular name does not by itself prove a singular divine person; this is part of a larger biblical argument."
+    },
+    {
+      "slide": 29,
+      "title": "CHALLENGE · Whose name saves?",
+      "refs": [
+        "Acts 4:12"
+      ],
+      "html": "<p><strong>ASK:</strong> Which saving name is Peter speaking about? Read Acts 4:10: Jesus Christ of Nazareth. Then read verse 12.</p><p><strong>Apostolic reasoning:</strong> Jesus commissions baptism into 'the name'; Peter preaches Jesus as the saving name and calls people to baptism in Jesus Christ's name (Acts 2:38). Together these give the church its reason for administering baptism in Jesus' name.</p><p><strong>Counterargument:</strong> Acts 4:12 teaches exclusive salvation through Christ, but does not directly prescribe the spoken words during baptism. Other Christians hold the Matthew 28:19 language is the proper wording. Do not overclaim what one verse proves.</p>",
+      "notes": "Read Acts 3:6 and Acts 4:7–12. Peter names Jesus Christ of Nazareth at Acts 4:10."
+    },
+    {
+      "slide": 30,
+      "title": "There is none other name",
+      "refs": [
+        "Acts 4:12"
+      ],
+      "html": "<p>Read Acts 4:7: 'By what power, or by what name, have ye done this?' Read verse 10: Peter answers that it was <strong>by the name of Jesus Christ of Nazareth</strong>. Then read 4:12. The 'name' refers to Jesus and His saving authority, not a magical syllable.</p><p>Teacher summary: 'The power belongs to the person. The name identifies Him and invokes His authority. That is why the Apostolic response in Acts 2:38 matters.'</p>",
+      "notes": "Read Acts 4:10–12 in context, not simply a slogan. Peter is discussing healing and salvation through Jesus Christ."
+    },
+    {
+      "slide": 31,
       "title": "What does ONOMA actually mean?",
       "refs": [
         "Matthew 28:18–19"
@@ -964,7 +1062,7 @@
       "notes": "Ask first. Launch the Greek poll on the iPad. Let the church distinguish the two words before revealing."
     },
     {
-      "slide": 28,
+      "slide": 32,
       "title": "ONOMA ≠ EXOUSIA",
       "refs": [
         "Matthew 28:18–19"
@@ -973,7 +1071,7 @@
       "notes": "Do not let the etymology overstate a baptismal conclusion; move from grammar to the Acts narrative."
     },
     {
-      "slide": 29,
+      "slide": 33,
       "title": "There is none other name",
       "refs": [
         "Acts 4:12"
@@ -982,7 +1080,7 @@
       "notes": "Ask: whose name had Peter used to heal the lame man? Compare Acts 3:6, 4:10, 4:12."
     },
     {
-      "slide": 30,
+      "slide": 34,
       "title": "Repent and be baptized",
       "refs": [
         "Acts 2:38"
@@ -991,7 +1089,7 @@
       "notes": ""
     },
     {
-      "slide": 31,
+      "slide": 35,
       "title": "HOLY GHOST · How do you know you received?",
       "refs": [
         "Acts 2 · Acts 10 · Acts 19"
@@ -1000,7 +1098,7 @@
       "notes": ""
     },
     {
-      "slide": 32,
+      "slide": 36,
       "title": "As the Spirit gave utterance",
       "refs": [
         "Acts 2:4"
@@ -1009,7 +1107,7 @@
       "notes": ""
     },
     {
-      "slide": 33,
+      "slide": 37,
       "title": "They heard them speak with tongues",
       "refs": [
         "Acts 10:46"
@@ -1018,14 +1116,14 @@
       "notes": ""
     },
     {
-      "slide": 34,
+      "slide": 38,
       "title": "What does the new birth call us to?",
       "refs": [],
       "html": "<p>Read John 3:5 and Acts 2:38–42. This is not only an argument over formulas. We are responding to Christ's gospel. Invite sincere questions. If someone wants baptism, prayer, or further Bible study, connect them with leadership. Close by reminding the church: conviction, humility, worship, and real life must align.</p>",
       "notes": "Close with response and open questions; don't turn Q&A into pressure toward visitors."
     },
     {
-      "slide": 35,
+      "slide": 39,
       "title": "CAN YOU GIVE AN ANSWER?",
       "refs": [
         "1 Peter 3:15 · Acts 17:11"
