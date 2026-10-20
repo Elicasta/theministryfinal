@@ -18,6 +18,7 @@ const pathView={
 const view=queryView||pathView||'remote';
 
 let library=null, lesson=null, questions=[], votes=[], bc=null, sbUrl='', sbKey='', sbClient=null, rtChannel=null, lastTs=0;
+const spanishVerseCache=new Map(),spanishVersePending=new Map();
 let classEmail=localStorage.getItem('ministry_class_email')||'';
 let classSession=localStorage.getItem('ministry_class_session')||('class_'+(crypto.randomUUID?crypto.randomUUID():Date.now()+Math.random().toString(16).slice(2)));
 localStorage.setItem('ministry_class_session',classSession);
@@ -88,8 +89,9 @@ function normalizeScripture(v){
   return {
     ref_en:v.ref_en||v.ref||'',
     text_en:v.text_en||v.text||v.kjv||'',
-    ref_es:v.ref_es||'',
-    text_es:v.text_es||v.rvr||''
+    ref_es:v.ref_es||(window.MinistrySpanishRef?.(v.ref_en||v.ref||'')||v.ref_en||v.ref||''),
+    text_es:v.text_es||v.rvr||'',
+    copyright:v.copyright||''
   };
 }
 function scriptureForSlide(index){
@@ -101,16 +103,40 @@ function scriptureForSlide(index){
   if(match) return normalizeScripture(match);
   return normalizeScripture({ref_en:s.ref||'',text_en:s.text||'',ref_es:s.ref_es||'',text_es:s.text_es||''});
 }
+function queueSpanishVerse(ref){
+  if(!ref || spanishVerseCache.has(ref) || spanishVersePending.has(ref))return;
+  const task=fetch('/api/scripture-rvr1960?ref='+encodeURIComponent(ref),{cache:'no-store'})
+    .then(async r=>{
+      const body=await r.json().catch(()=>({}));
+      if(!r.ok||!body.ok||!body.text_es)throw new Error(body.error||'Spanish Scripture unavailable');
+      spanishVerseCache.set(ref,{text_es:body.text_es,ref_es:body.ref_es||'',copyright:body.copyright||''});
+    })
+    .catch(e=>spanishVerseCache.set(ref,{error:e.message||'Spanish Scripture unavailable'}))
+    .finally(()=>{
+      spanishVersePending.delete(ref);
+      // Never assign an asynchronous provider response to live state.
+      // Re-render ONLY if that exact verse is still on the Scripture TVs.
+      if(view==='scriptures'&&String(state.scriptureOutput?.ref_en||state.scriptureOutput?.ref||'').trim()===ref)render();
+    });
+  spanishVersePending.set(ref,task);
+}
 function scriptureHtml(v){
-  const sc=normalizeScripture(v); if(!sc)return '';
-  const hasEs=!!sc.text_es;
-  const primary=hasEs
-    ? '<div class="scripture-primary"><div class="scripture-ref">'+esc(sc.ref_es||sc.ref_en)+' · RVR 1960</div><div class="scripture-text">'+esc(sc.text_es)+'</div></div>'
-    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">SPANISH · RVR 1960</div><div class="scripture-missing">Spanish text is not attached for '+esc(sc.ref_en)+'.</div></div>';
+  const sc=normalizeScripture(v);if(!sc)return '';
+  const key=String(sc.ref_en||'').trim();
+  const cached=spanishVerseCache.get(key);
+  if(!sc.text_es && key && !cached)queueSpanishVerse(key);
+  const spanish=sc.text_es||cached?.text_es||'';
+  const spanishRef=sc.ref_es||cached?.ref_es||sc.ref_en;
+  const copyright=sc.copyright||cached?.copyright||'';
+  const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
+  const primary=spanish
+    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · RVR 1960</div><div class="scripture-text">'+esc(spanish)+'</div></div>'
+    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+'</div><div class="scripture-missing">'+(cached?.error?'RVR 1960 no disponible. Conecte la fuente autorizada.':'Cargando RVR 1960…')+'</div></div>';
   const secondary=sc.text_en
     ? '<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text">'+esc(sc.text_en)+'</div></div>'
     : '';
-  return primary+secondary;
+  const notice=spanish?'<div class="scripture-copyright">'+esc(copyright||'Citas bíblicas tomadas de la Reina-Valera 1960.')+' · <a href="https://api.bible" target="_blank" rel="noopener noreferrer">API.Bible</a></div>':'';
+  return primary+secondary+notice;
 }
 function projectorScriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
