@@ -17,7 +17,13 @@
       "ref": "Deuteronomy 6:4 · 1 Peter 1:15 · Acts 2:38",
       "text": "",
       "points": [],
-      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds. Two QR codes for study participation and Apostolic Guide appear on the cover. A larger scan slide is next."
+      "notes": "Welcome. Ask before explaining. Do not reveal the answers before the congregation responds. Two QR codes for study participation and Apostolic Guide appear on the cover. A larger scan slide is next.",
+      "es": {
+        "title": "LOS FUNDAMENTOS DE NUESTRA FE",
+        "kicker": "NOCHE DE DOCTRINA · 20 DE OCTUBRE DE 2026",
+        "sub": "Un desafío bíblico · Unicidad · Santidad · Nuevo nacimiento",
+        "ref": "Deuteronomio 6:4 · 1 Pedro 1:15 · Hechos 2:38"
+      }
     },
     {
       "type": "resources",
@@ -27,7 +33,12 @@
       "ref": "",
       "text": "",
       "points": [],
-      "notes": "Display before the warm-up poll. Give everyone a moment to scan the LEFT code, enter their email and open the live lesson. The RIGHT code opens apostolicguide.com for independent follow-up Bible study. Both codes also appear at the end. This slide can be taken again at any time from the iPad manuscript."
+      "notes": "Display before the warm-up poll. Give everyone a moment to scan the LEFT code, enter their email and open the live lesson. The RIGHT code opens apostolicguide.com for independent follow-up Bible study. Both codes also appear at the end. This slide can be taken again at any time from the iPad manuscript.",
+      "es": {
+        "title": "ESCANEA PARA PARTICIPAR",
+        "kicker": "NOCHE DE DOCTRINA · PARTICIPA",
+        "sub": "Sigue la enseñanza, vota en las encuestas y envía preguntas. Sigue estudiando con Apostolic Guide."
+      }
     },
     {
       "type": "prompt",
@@ -37,7 +48,12 @@
       "ref": "",
       "text": "",
       "points": [],
-      "notes": "Poll first, then invite two people to explain their choices."
+      "notes": "Poll first, then invite two people to explain their choices.",
+      "es": {
+        "title": "¿SABES LO QUE CREES O SOLO LO QUE TE ENSEÑARON?",
+        "kicker": "PREGUNTA INICIAL · CONVERSEMOS",
+        "sub": "Si alguien te pregunta POR QUÉ, ¿puedes explicarlo con las Escrituras?"
+      }
     },
     {
       "type": "points",
@@ -53,7 +69,19 @@
         "We read the larger passage, not a detached verse.",
         "We mark: text, interpretation, and unresolved questions."
       ],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Las reglas del desafío",
+        "kicker": "CÓMO ESTUDIAMOS",
+        "sub": "",
+        "points": [
+          "Una persona lee la objeción en voz alta.",
+          "Alguien presenta la interpretación contraria fielmente.",
+          "Alguien ofrece una respuesta apostólica.",
+          "Leemos el pasaje completo, no un versículo aislado.",
+          "Distinguimos texto, interpretación y preguntas abiertas."
+        ]
+      }
     },
     {
       "type": "verse",
@@ -63,7 +91,14 @@
       "ref": "Deuteronomy 6:4",
       "text": "Hear, O Israel: The LORD our God is one LORD:",
       "points": [],
-      "notes": "Connect with Mark 12:29; Isaiah 44:6 and 45:5; do not assert this verse alone disproves the Trinity."
+      "notes": "Connect with Mark 12:29; Isaiah 44:6 and 45:5; do not assert this verse alone disproves the Trinity.",
+      "es": {
+        "title": "Un solo Dios es nuestro punto de partida",
+        "kicker": "UNICIDAD · BASE COMPARTIDA",
+        "sub": "",
+        "ref": "Deuteronomio 6:4",
+        "text": "Oye, Israel: Jehová nuestro Dios, Jehová uno es."
+      }
     },
     {
       "type": "verse",
@@ -73,7 +108,14 @@
       "sub": "",
       "text": "And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.",
       "points": [],
-      "notes": "SHOW ONLY verse 26. Do not hint at verse 27 yet. Have someone offer a fair Trinitarian reading, then ask: Who actually creates in the following verse?"
+      "notes": "SHOW ONLY verse 26. Do not hint at verse 27 yet. Have someone offer a fair Trinitarian reading, then ask: Who actually creates in the following verse?",
+      "es": {
+        "title": "DESAFÍO 1 · ¿Quiénes somos «NOSOTROS»?",
+        "kicker": "OBJECIÓN TRINITARIA · SOLO EL VERSÍCULO 26",
+        "sub": "",
+        "ref": "Génesis 1:26",
+        "text": "Entonces dijo Dios: Hagamos al hombre a nuestra imagen, conforme a nuestra semejanza; y señoree en los peces del mar, en las aves de los cielos, en las bestias, en toda la tierra, y en todo animal que se arrastra sobre la tierra."
+      }
     },
     {
       "type": "verse",
@@ -83,7 +125,14 @@
       "sub": "",
       "text": "So God created man in his own image, in the image of God created he him; male and female created he them.",
       "points": [],
-      "notes": "Read the whole verse three times slowly: God, HIS, HE. Emphasize text vs theological conclusion."
+      "notes": "Read the whole verse three times slowly: God, HIS, HE. Emphasize text vs theological conclusion.",
+      "es": {
+        "title": "LA RESPUESTA · Sigue leyendo",
+        "kicker": "REVELACIÓN · EL SIGUIENTE VERSÍCULO",
+        "sub": "",
+        "ref": "Génesis 1:27",
+        "text": "Y creó Dios al hombre a su imagen, a imagen de Dios lo creó; varón y hembra los creó."
+      }
     },
     {
       "type": "points",
@@ -98,7 +147,23 @@
         "Verse 27: “In the image of God created HE him.”",
         "The action is attributed to God in the singular."
       ],
-      "notes": "The reveal is the contrast. Avoid claiming verse 27 rules out every Trinitarian reading: classic Trinitarians agree that the one God created."
+      "notes": "The reveal is the contrast. Avoid claiming verse 27 rules out every Trinitarian reading: classic Trinitarians agree that the one God created.",
+      "es": {
+        "title": "«HAGAMOS» dijo Dios. ÉL creó.",
+        "kicker": "EXPLICACIÓN · GÉNESIS 1:26–27",
+        "sub": "",
+        "ref": "Génesis 1:26–27",
+        "points": [
+          "Versículo 26: «Hagamos al hombre a nuestra imagen».",
+          "Versículo 27: «Y creó Dios al hombre a su imagen».",
+          "Versículo 27: «A imagen de Dios lo creó».",
+          "La acción de crear se atribuye a Dios en singular."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 1:26–27 · SIGUE LEYENDO",
+        "body": "El versículo 26 dice «Hagamos»; el 27 atribuye la creación al único Dios: «Y creó Dios al hombre a su imagen». La teología trinitaria también afirma un solo Creador."
+      }
     },
     {
       "type": "verse",
@@ -108,7 +173,14 @@
       "sub": "",
       "text": "Then the LORD rained upon Sodom and upon Gomorrah brimstone and fire from the LORD out of heaven;",
       "points": [],
-      "notes": "Ask them to identify subject, verb, what fell and where it came from. Can the same name be repeated without positing two divine persons?"
+      "notes": "Ask them to identify subject, verb, what fell and where it came from. Can the same name be repeated without positing two divine persons?",
+      "es": {
+        "title": "DESAFÍO 2 · ¿Dos JEHOVÁS?",
+        "kicker": "OBJECIÓN TRINITARIA · GÉNESIS 19:24",
+        "sub": "",
+        "ref": "Génesis 19:24",
+        "text": "Entonces Jehová hizo llover sobre Sodoma y sobre Gomorra azufre y fuego de parte de Jehová desde los cielos;"
+      }
     },
     {
       "type": "contrast",
@@ -120,7 +192,19 @@
       "points": [],
       "notes": "Important: Do not claim commas prove the one-LORD reading. The Hebrew repeats the divine name; both approaches must explain it.",
       "left": "TWO-PERSON INTERPRETATION\nThe LORD [on earth] rained fire from the LORD [in heaven].",
-      "right": "ONE-LORD PARAPHRASE\nThe LORD caused fire to rain from heaven, as the LORD's judgment."
+      "right": "ONE-LORD PARAPHRASE\nThe LORD caused fire to rain from heaven, as the LORD's judgment.",
+      "es": {
+        "title": "COMPARA LAS LECTURAS",
+        "kicker": "GÉNESIS 19:24 · DOS INTERPRETACIONES",
+        "sub": "Los corchetes y la paráfrasis expresan interpretaciones, NO la puntuación del hebreo original.",
+        "ref": "Génesis 19:24",
+        "left": "INTERPRETACIÓN DE DOS PERSONAS\nJehová [en la tierra] hizo llover fuego de parte de Jehová [en los cielos].",
+        "right": "PARÁFRASIS DE UN SOLO JEHOVÁ\nJehová hizo llover fuego desde los cielos como juicio de Jehová."
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 19:24 · REPETICIÓN DEL NOMBRE",
+        "body": "La repetición «Jehová ... de parte de Jehová» puede expresar la fuente celestial del juicio. No obliga por sí sola a reconocer dos personas divinas."
+      }
     },
     {
       "type": "points",
@@ -135,7 +219,19 @@
         "v14 · “The LORD hath loved him … his pleasure on Babylon.”",
         "v15 · “I, even I, have spoken … I have called him.”"
       ],
-      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged."
+      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged.",
+      "es": {
+        "title": "DESAFÍO 3 · ¿Quién está hablando?",
+        "kicker": "ISAÍAS 48:12–16 · IDENTIFICA LA VOZ",
+        "sub": "",
+        "ref": "Isaías 48:12–15",
+        "points": [
+          "v. 12 · «Yo mismo, yo el primero, yo también el postrero».",
+          "v. 13 · «Mi mano fundó también la tierra».",
+          "v. 14 · «Aquel a quien Jehová amó ejecutará su voluntad».",
+          "v. 15 · «Yo, yo hablé, y le llamé y le traje»."
+        ]
+      }
     },
     {
       "type": "verse",
@@ -145,7 +241,14 @@
       "sub": "",
       "text": "Come ye near unto me, hear ye this; I have not spoken in secret from the beginning; from the time that it was, there am I: and now the Lord GOD, and his Spirit, hath sent me.",
       "points": [],
-      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?"
+      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?",
+      "es": {
+        "title": "Lee Isaías 48:16 sin comillas",
+        "kicker": "OBJECIÓN TRINITARIA · TEXTO SIN MARCAS",
+        "sub": "",
+        "ref": "Isaías 48:16",
+        "text": "Acercaos a mí, oíd esto: desde el principio no hablé en secreto; desde que eso se hizo, allí estaba yo; y ahora me envió Jehová el Señor, y su Espíritu."
+      }
     },
     {
       "type": "prompt",
@@ -155,7 +258,13 @@
       "sub": "Read to “…there am I:” · At “AND NOW,” is the speaker still the LORD, or does Isaiah begin speaking?",
       "text": "",
       "points": [],
-      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure."
+      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure.",
+      "es": {
+        "title": "¿DÓNDE CERRARÍAS LAS COMILLAS?",
+        "kicker": "EL DESAFÍO DE LA PUNTUACIÓN",
+        "sub": "Lee hasta «...allí estaba yo» · Al llegar a «Y AHORA», ¿sigue hablando Jehová o comienza a hablar Isaías?",
+        "ref": "Isaías 48:16"
+      }
     },
     {
       "type": "points",
@@ -171,7 +280,24 @@
         "🔵 ISAIAH (v17a): “Thus saith the LORD, thy Redeemer ...”",
         "🔴 LORD (v17b): “I am the LORD thy God ...”"
       ],
-      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes."
+      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes.",
+      "es": {
+        "title": "🔴 JEHOVÁ · 🔵 ISAÍAS",
+        "kicker": "REVELACIÓN · COMILLAS INTERPRETATIVAS",
+        "sub": "Las etiquetas y las comillas son ayudas para nuestra interpretación; no son marcas originales del manuscrito hebreo.",
+        "ref": "Isaías 48:12–17",
+        "points": [
+          "🔴 JEHOVÁ (vv. 12–15): «Yo el primero, yo también el postrero».",
+          "🔴 JEHOVÁ (v. 16a): «...allí estaba yo».",
+          "🔵 ISAÍAS (v. 16b): «Y ahora me envió Jehová el Señor, y su Espíritu».",
+          "🔵 ISAÍAS (v. 17a): «Así ha dicho Jehová, Redentor tuyo».",
+          "🔴 JEHOVÁ (v. 17b): «Yo soy Jehová Dios tuyo»."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "ISAÍAS 48:16 · ¿QUIÉN HABLA?",
+        "body": "Lectura propuesta: Jehová habla hasta «allí estaba yo»; desde «Y ahora me envió Jehová el Señor, y su Espíritu» habla Isaías. Las comillas son interpretativas."
+      }
     },
     {
       "type": "points",
@@ -187,7 +313,24 @@
         "“Thus saith the LORD” in v17 introduces God's words again.",
         "The text does not explicitly identify three eternal persons."
       ],
-      "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence."
+      "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence.",
+      "es": {
+        "title": "¿Quién es el «ME»?",
+        "kicker": "ISAÍAS 48 · EXPLICA Y DEFIENDE",
+        "sub": "",
+        "ref": "Isaías 48:16–17",
+        "points": [
+          "Nuestra lectura: en el versículo 16b Isaías habla de su comisión.",
+          "La cita de Jehová termina después de «allí estaba yo».",
+          "La voz profética comienza con «Y ahora ... me envió».",
+          "«Así ha dicho Jehová» introduce las palabras divinas.",
+          "El texto no identifica explícitamente tres personas eternas."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "ISAÍAS 48 · CAMBIO DE VOZ",
+        "body": "En esta lectura, «me envió» habla de la comisión de Isaías. No aparece una indicación explícita de cambio de hablante; también hay otras interpretaciones."
+      }
     },
     {
       "type": "verse",
@@ -197,7 +340,14 @@
       "sub": "",
       "text": "In the beginning was the Word, and the Word was with God, and the Word was God.",
       "points": [],
-      "notes": "State the doctrine fairly: the Logos is the eternal Son, personally with the Father, fully God, not a second God. Ask how the same Bible describes God's speech in creation."
+      "notes": "State the doctrine fairly: the Logos is the eternal Son, personally with the Father, fully God, not a second God. Ask how the same Bible describes God's speech in creation.",
+      "es": {
+        "title": "DESAFÍO 4 · El Verbo era CON Dios",
+        "kicker": "JUAN 1:1 · PRIMERO EL ARGUMENTO TRINITARIO",
+        "sub": "",
+        "ref": "Juan 1:1",
+        "text": "En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios."
+      }
     },
     {
       "type": "prompt",
@@ -207,7 +357,13 @@
       "sub": "Every time you hear ‘And God said,’ call it out. Who speaks? Who brings it into being?",
       "text": "",
       "points": [],
-      "notes": "Open Genesis 1:1–12. Make the audience track repeated God said/God made/God called. The next slides reveal the actual sequence."
+      "notes": "Open Genesis 1:1–12. Make the audience track repeated God said/God made/God called. The next slides reveal the actual sequence.",
+      "es": {
+        "title": "¿CÓMO CREÓ DIOS?",
+        "kicker": "JUAN 1 · REGRESEMOS A GÉNESIS",
+        "sub": "Cada vez que escuches «Y dijo Dios», señálalo. ¿Quién habla? ¿Quién hace que suceda?",
+        "ref": "Génesis 1:1–12"
+      }
     },
     {
       "type": "points",
@@ -221,7 +377,22 @@
         "v2 · “And the Spirit of God moved upon the face of the waters.”",
         "v3 · “And God said, Let there be light: and there was light.”"
       ],
-      "notes": "Read the complete verses on your iPad manuscript. The slide quotes from KJV. One Creator; His Spirit; His speech."
+      "notes": "Read the complete verses on your iPad manuscript. The slide quotes from KJV. One Creator; His Spirit; His speech.",
+      "es": {
+        "title": "GÉNESIS 1:1–3 · DIOS CREA Y HABLA",
+        "kicker": "EL PATRÓN DE LA CREACIÓN · PARTE 1",
+        "sub": "",
+        "ref": "Génesis 1:1–3",
+        "points": [
+          "v. 1 · «En el principio creó Dios los cielos y la tierra».",
+          "v. 2 · «El Espíritu de Dios se movía sobre la faz de las aguas».",
+          "v. 3 · «Y dijo Dios: Sea la luz; y fue la luz»."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 1 · LA PALABRA CREADORA",
+        "body": "Un solo Dios crea, su Espíritu se mueve y Dios habla: «Y dijo Dios». La palabra y la acción creadoras pertenecen al mismo Dios."
+      }
     },
     {
       "type": "points",
@@ -235,7 +406,22 @@
         "v5 · “And God called the light Day ...”",
         "v6 · “And God said, Let there be a firmament ...”"
       ],
-      "notes": "Highlight same grammatical subject, God. Invite congregation to repeat 'God said' when v6 is read."
+      "notes": "Highlight same grammatical subject, God. Invite congregation to repeat 'God said' when v6 is read.",
+      "es": {
+        "title": "GÉNESIS 1:4–6 · DIOS NOMBRA Y HABLA",
+        "kicker": "EL PATRÓN DE LA CREACIÓN · PARTE 2",
+        "sub": "",
+        "ref": "Génesis 1:4–6",
+        "points": [
+          "v. 4 · «Y vio Dios que la luz era buena».",
+          "v. 5 · «Y llamó Dios a la luz Día».",
+          "v. 6 · «Luego dijo Dios: Haya expansión ...»."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 1 · DIOS HABLA Y HACE",
+        "body": "El relato repite «Dios dijo», «Dios hizo» y «Dios llamó». El sujeto de la creación sigue siendo Dios."
+      }
     },
     {
       "type": "points",
@@ -249,7 +435,22 @@
         "v8 · “And God called the firmament Heaven.”",
         "v9 · “And God said, Let the waters ... and it was so.”"
       ],
-      "notes": "Ask: if 'God said' and 'God made' alternate, what does that reveal about speech and act?"
+      "notes": "Ask: if 'God said' and 'God made' alternate, what does that reveal about speech and act?",
+      "es": {
+        "title": "GÉNESIS 1:7–9 · DIOS HACE Y HABLA",
+        "kicker": "EL PATRÓN DE LA CREACIÓN · PARTE 3",
+        "sub": "",
+        "ref": "Génesis 1:7–9",
+        "points": [
+          "v. 7 · «E hizo Dios la expansión ... Y fue así».",
+          "v. 8 · «Y llamó Dios a la expansión Cielos».",
+          "v. 9 · «Dijo también Dios ... Y fue así»."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 1 · UN SOLO CREADOR",
+        "body": "«Dijo Dios» y «E hizo Dios» se alternan. Su palabra lleva a cabo su voluntad creadora."
+      }
     },
     {
       "type": "points",
@@ -263,7 +464,22 @@
         "v11 · “And God said, Let the earth bring forth grass ... and it was so.”",
         "v12 · “And the earth brought forth ... and God saw that it was good.”"
       ],
-      "notes": "Now ask what John 1:1 means within the Jewish Bible, and transition to Isaiah 44:24."
+      "notes": "Now ask what John 1:1 means within the Jewish Bible, and transition to Isaiah 44:24.",
+      "es": {
+        "title": "GÉNESIS 1:10–12 · DIOS HABLÓ Y FUE ASÍ",
+        "kicker": "EL PATRÓN DE LA CREACIÓN · PARTE 4",
+        "sub": "",
+        "ref": "Génesis 1:10–12",
+        "points": [
+          "v. 10 · «Y llamó Dios a lo seco Tierra ...».",
+          "v. 11 · «Después dijo Dios: Produzca la tierra ... Y fue así».",
+          "v. 12 · «Produjo, pues, la tierra ... Y vio Dios que era bueno»."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "GÉNESIS 1 · SU PALABRA SE CUMPLE",
+        "body": "«Después dijo Dios ... Y fue así». La creación responde a la palabra del único Dios."
+      }
     },
     {
       "type": "verse",
@@ -273,7 +489,14 @@
       "sub": "",
       "text": "Thus saith the LORD, thy redeemer, and he that formed thee from the womb, I am the LORD that maketh all things; that stretcheth forth the heavens alone; that spreadeth abroad the earth by myself;",
       "points": [],
-      "notes": "Underline alone and by myself. Ask a Trinitarian how they read the same verse: they also hold one Creator, through the eternal Word. Don't say this verse by itself disproves Trinity."
+      "notes": "Underline alone and by myself. Ask a Trinitarian how they read the same verse: they also hold one Creator, through the eternal Word. Don't say this verse by itself disproves Trinity.",
+      "es": {
+        "title": "«SOLO ... POR MÍ MISMO»",
+        "kicker": "ISAÍAS 44:24 · EL CREADOR HABLA",
+        "sub": "",
+        "ref": "Isaías 44:24",
+        "text": "Así dice Jehová, tu Redentor, que te formó desde el vientre: Yo Jehová, que lo hago todo, que extiendo solo los cielos, que extiendo la tierra por mí mismo;"
+      }
     },
     {
       "type": "points",
@@ -289,7 +512,24 @@
         "John 1:14: That Word was made flesh.",
         "Jesus Christ reveals the one God, not a second God."
       ],
-      "notes": "This is our theological reading. Do not claim the Genesis 'God said' motif alone disproves an eternal Logos-person reading."
+      "notes": "This is our theological reading. Do not claim the Genesis 'God said' motif alone disproves an eternal Logos-person reading.",
+      "es": {
+        "title": "EL VERBO ERA DIOS. EL VERBO SE HIZO CARNE.",
+        "kicker": "JUAN 1 · NUESTRA EXPLICACIÓN",
+        "sub": "",
+        "ref": "Juan 1:1, 14 · Génesis 1:1–12 · Isaías 44:24",
+        "points": [
+          "Dios habló. Dios creó. Dios hizo. Dios llamó.",
+          "Su Verbo estaba CON él, y el Verbo ERA Dios.",
+          "El único Jehová dice: «Yo ... que extiendo solo los cielos».",
+          "Juan 1:14: el Verbo fue hecho carne.",
+          "Jesucristo revela al único Dios, no a un segundo dios."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "EL VERBO FUE HECHO CARNE",
+        "body": "Juan 1:1 afirma que el Verbo era con Dios y era Dios; Juan 1:14, que fue hecho carne. Isaías 44:24 declara que Jehová creó solo y por sí mismo."
+      }
     },
     {
       "type": "statement",
@@ -299,7 +539,13 @@
       "sub": "Keep reading. Follow the speaker. Identify the Creator. Let Scripture interpret Scripture.",
       "text": "",
       "points": [],
-      "notes": "Ask four volunteers: one sentence per challenge. Then move on to Holiness."
+      "notes": "Ask four volunteers: one sentence per challenge. Then move on to Holiness.",
+      "es": {
+        "title": "CUATRO OBJECIONES. UN SOLO DIOS.",
+        "kicker": "UNICIDAD · CONCLUSIÓN ANTES DE SANTIDAD",
+        "sub": "Sigue leyendo. Identifica quién habla. Reconoce al Creador. Interpreta las Escrituras con las Escrituras.",
+        "ref": "Deuteronomio 6:4 · Juan 1:14"
+      }
     },
     {
       "type": "prompt",
@@ -309,7 +555,16 @@
       "ref": "",
       "text": "",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "SANTIDAD · ¿Se trata principalmente de la ropa?",
+        "kicker": "2 · SANTIDAD · PREGUNTA INICIAL",
+        "sub": "La santidad es la razón por la que lo hacemos; la modestia es cómo lo expresamos. ¿Es esa toda la enseñanza?"
+      },
+      "tvExplanationEs": {
+        "title": "SANTIDAD Y MODESTIA",
+        "body": "La santidad es una vida consagrada a Dios. La modestia es una manera de expresarla. La santidad también abarca conducta, pensamientos y palabras."
+      }
     },
     {
       "type": "verse",
@@ -319,7 +574,14 @@
       "ref": "1 Peter 1:15",
       "text": "But as he which hath called you is holy, so be ye holy in all manner of conversation;",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Sed santos en toda vuestra manera de vivir",
+        "kicker": "SANTIDAD · PRIMERO EL TEXTO",
+        "sub": "",
+        "ref": "1 Pedro 1:15",
+        "text": "sino, como aquel que os llamó es santo, sed también vosotros santos en toda vuestra manera de vivir;"
+      }
     },
     {
       "type": "prompt",
@@ -329,7 +591,17 @@
       "ref": "1 Corinthians 11:3–16",
       "text": "",
       "points": [],
-      "notes": "No invented details about exactly what angels do. Read 3–16 including 11–12 and 15."
+      "notes": "No invented details about exactly what angels do. Read 3–16 including 11–12 and 15.",
+      "es": {
+        "title": "LA COBERTURA DE LA CABEZA · ¿Por qué menciona Pablo a los ángeles?",
+        "kicker": "CONVERSACIÓN · SEÑAL ESPIRITUAL",
+        "sub": "Si solo se tratara de otras personas que nos ven, ¿por qué dice «por causa de los ángeles»?",
+        "ref": "1 Corintios 11:3–16"
+      },
+      "tvExplanationEs": {
+        "title": "1 CORINTIOS 11 · LOS ÁNGELES",
+        "body": "Pablo menciona la señal de autoridad «por causa de los ángeles». El versículo no explica exactamente qué hacen los ángeles; existen diferentes interpretaciones cristianas."
+      }
     },
     {
       "type": "verse",
@@ -339,7 +611,14 @@
       "ref": "1 Corinthians 11:10",
       "text": "For this cause ought the woman to have power on her head because of the angels.",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Por causa de los ángeles",
+        "kicker": "1 CORINTIOS 11 · PRIMERO EL TEXTO",
+        "sub": "",
+        "ref": "1 Corintios 11:10",
+        "text": "Por lo cual la mujer debe tener señal de autoridad sobre su cabeza, por causa de los ángeles."
+      }
     },
     {
       "type": "verse",
@@ -349,7 +628,18 @@
       "ref": "1 Corinthians 11:15",
       "text": "But if a woman have long hair, it is a glory to her: for her hair is given her for a covering.",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "El cabello le es dado como cobertura",
+        "kicker": "CONSIDERA EL OTRO PASAJE",
+        "sub": "",
+        "ref": "1 Corintios 11:15",
+        "text": "Por el contrario, a la mujer dejarse crecer el cabello le es honroso; porque en lugar de velo le es dado el cabello."
+      },
+      "tvExplanationEs": {
+        "title": "BAUTISMO EN EL NOMBRE DE JESÚS",
+        "body": "Mateo 28:19 ordena bautizar en el nombre. Hechos 2:38 presenta la aplicación apostólica en el nombre de Jesucristo."
+      }
     },
     {
       "type": "prompt",
@@ -359,7 +649,13 @@
       "ref": "Matthew 28:19 · Acts 2:38",
       "text": "",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "BAUTISMO · ¿Cuál es el «nombre»?",
+        "kicker": "3 · AGUA Y ESPÍRITU · PREGUNTA INICIAL",
+        "sub": "Jesús ordena bautizar «en el nombre del Padre, y del Hijo, y del Espíritu Santo». ¿Qué dijeron e hicieron los apóstoles?",
+        "ref": "Mateo 28:19 · Hechos 2:38"
+      }
     },
     {
       "type": "verse",
@@ -369,7 +665,14 @@
       "ref": "Matthew 28:19",
       "text": "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost:",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Id y bautizad en el nombre",
+        "kicker": "EL MANDAMIENTO",
+        "sub": "",
+        "ref": "Mateo 28:19",
+        "text": "Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo;"
+      }
     },
     {
       "type": "prompt",
@@ -379,7 +682,17 @@
       "ref": "Matthew 28:18–19",
       "text": "",
       "points": [],
-      "notes": "Ask first. Launch the Greek poll on the iPad. Let the church distinguish the two words before revealing."
+      "notes": "Ask first. Launch the Greek poll on the iPad. Let the church distinguish the two words before revealing.",
+      "es": {
+        "title": "¿Qué significa realmente ONOMA?",
+        "kicker": "DESAFÍO EN GRIEGO · MATEO 28:18–19",
+        "sub": "Jesús dice que toda POTESTAD le ha sido dada y después manda bautizar en el NOMBRE. ¿Es la misma palabra griega?",
+        "ref": "Mateo 28:18–19"
+      },
+      "tvExplanationEs": {
+        "title": "GRIEGO · ÓNOMA Y EXOUSÍA",
+        "body": "ὄνομα (ónoma): nombre; puede indicar identidad o autoridad representada. ἐξουσία (exousía): potestad o autoridad. En Mateo 28:18 aparece exousía; en el versículo 19, ónoma. No son la misma palabra."
+      }
     },
     {
       "type": "points",
@@ -394,7 +707,19 @@
         "ἐξουσία (exousia) = authority, rendered “power” in KJV v.18.",
         "The baptismal phrase is not literally “in the power of.”"
       ],
-      "notes": "Do not let the etymology overstate a baptismal conclusion; move from grammar to the Acts narrative."
+      "notes": "Do not let the etymology overstate a baptismal conclusion; move from grammar to the Acts narrative.",
+      "es": {
+        "title": "ONOMA ≠ EXOUSIA",
+        "kicker": "REVELACIÓN · LAS PALABRAS EN GRIEGO",
+        "sub": "El nombre identifica a la persona; la misión se ejerce con su autoridad.",
+        "ref": "Mateo 28:18–19",
+        "points": [
+          "ὄνομα (ónoma) = nombre; puede representar identidad y autoridad.",
+          "εἰς τὸ ὄνομα (eis to ónoma) = en el nombre (v. 19).",
+          "ἐξουσία (exousía) = autoridad o potestad (v. 18).",
+          "La expresión bautismal no significa literalmente «en la potestad de»."
+        ]
+      }
     },
     {
       "type": "verse",
@@ -404,7 +729,18 @@
       "ref": "Acts 4:12",
       "text": "Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.",
       "points": [],
-      "notes": "Ask: whose name had Peter used to heal the lame man? Compare Acts 3:6, 4:10, 4:12."
+      "notes": "Ask: whose name had Peter used to heal the lame man? Compare Acts 3:6, 4:10, 4:12.",
+      "es": {
+        "title": "No hay otro nombre",
+        "kicker": "HECHOS 4:12 · EL NOMBRE Y LA SALVACIÓN",
+        "sub": "Lee Hechos 3:6 y 4:7–12 para identificar a qué nombre se refiere Pedro.",
+        "ref": "Hechos 4:12",
+        "text": "Y en ningún otro hay salvación; porque no hay otro nombre bajo el cielo, dado a los hombres, en que podamos ser salvos."
+      },
+      "tvExplanationEs": {
+        "title": "HECHOS 4:12 · UN SOLO NOMBRE",
+        "body": "No hay otro nombre en que podamos ser salvos. Este versículo, por sí solo, no prescribe palabras exactas para bautizar. Compárese con Hechos 2:38 y 19:5."
+      }
     },
     {
       "type": "verse",
@@ -414,7 +750,14 @@
       "ref": "Acts 2:38",
       "text": "Then Peter said unto them, Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost.",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Arrepentíos y bautizaos",
+        "kicker": "LA RESPUESTA APOSTÓLICA",
+        "sub": "",
+        "ref": "Hechos 2:38",
+        "text": "Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados; y recibiréis el don del Espíritu Santo."
+      }
     },
     {
       "type": "prompt",
@@ -424,7 +767,17 @@
       "ref": "Acts 2 · Acts 10 · Acts 19",
       "text": "",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "ESPÍRITU SANTO · ¿Cómo sabes que lo recibiste?",
+        "kicker": "LA PROMESA · PREGUNTA INICIAL",
+        "sub": "¿Es una sensación? ¿Levantar la mano? ¿Hablar en lenguas? ¿El fruto continuo del Espíritu?",
+        "ref": "Hechos 2 · Hechos 10 · Hechos 19"
+      },
+      "tvExplanationEs": {
+        "title": "EL ESPÍRITU SANTO",
+        "body": "En Hechos 2, 10 y 19 aparecen las lenguas relacionadas con la recepción del Espíritu Santo. La vida guiada por el Espíritu también debe producir fruto."
+      }
     },
     {
       "type": "verse",
@@ -434,7 +787,14 @@
       "ref": "Acts 2:4",
       "text": "And they were all filled with the Holy Ghost, and began to speak with other tongues, as the Spirit gave them utterance.",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Según el Espíritu les daba que hablasen",
+        "kicker": "HECHOS 2 · EVIDENCIA INICIAL",
+        "sub": "",
+        "ref": "Hechos 2:4",
+        "text": "Y fueron todos llenos del Espíritu Santo, y comenzaron a hablar en otras lenguas, según el Espíritu les daba que hablasen."
+      }
     },
     {
       "type": "verse",
@@ -444,7 +804,14 @@
       "ref": "Acts 10:46",
       "text": "For they heard them speak with tongues, and magnify God. Then answered Peter,",
       "points": [],
-      "notes": ""
+      "notes": "",
+      "es": {
+        "title": "Los oían hablar en lenguas",
+        "kicker": "HECHOS 10 · TESTIMONIO CONFIRMADO",
+        "sub": "",
+        "ref": "Hechos 10:46",
+        "text": "Porque los oían que hablaban en lenguas, y que magnificaban a Dios."
+      }
     },
     {
       "type": "points",
@@ -459,7 +826,22 @@
         "Receive the gift of the Holy Ghost.",
         "Continue in doctrine, fellowship, prayer, and holy living."
       ],
-      "notes": "Close with response and open questions; don't turn Q&A into pressure toward visitors."
+      "notes": "Close with response and open questions; don't turn Q&A into pressure toward visitors.",
+      "es": {
+        "title": "¿A qué nos llama el nuevo nacimiento?",
+        "kicker": "HECHOS 2:38 · RESPUESTA",
+        "sub": "",
+        "points": [
+          "Arrepiéntete: vuélvete a Dios con fe.",
+          "Bautízate en el nombre de Jesucristo.",
+          "Recibe el don del Espíritu Santo.",
+          "Persevera en doctrina, comunión, oración y una vida santa."
+        ]
+      },
+      "tvExplanationEs": {
+        "title": "EL NUEVO NACIMIENTO",
+        "body": "Arrepentimiento, bautismo en el nombre de Jesucristo y recepción del Espíritu Santo; después, una vida de doctrina, oración, comunión y santidad."
+      }
     },
     {
       "type": "statement",
@@ -469,7 +851,13 @@
       "ref": "1 Peter 3:15 · Acts 17:11",
       "text": "",
       "points": [],
-      "notes": "Take anonymous questions. End with prayer."
+      "notes": "Take anonymous questions. End with prayer.",
+      "es": {
+        "title": "¿PUEDES DAR UNA RESPUESTA?",
+        "kicker": "CONCLUSIÓN FINAL",
+        "sub": "Defiende tu fe. Examina tu interpretación. Respeta a la persona que pregunta.",
+        "ref": "1 Pedro 3:15 · Hechos 17:11"
+      }
     },
     {
       "type": "resources",
@@ -479,7 +867,12 @@
       "ref": "",
       "text": "",
       "points": [],
-      "notes": "Leave this slide on screen during dismissal so audience members who came late can join the study and everyone can save Apostolic Guide."
+      "notes": "Leave this slide on screen during dismissal so audience members who came late can join the study and everyone can save Apostolic Guide.",
+      "es": {
+        "title": "SIGUE ESTUDIANDO. SIGUE PREGUNTANDO.",
+        "kicker": "PRÓXIMOS PASOS · GUARDA LOS ENLACES",
+        "sub": "Revisa la lección y sigue estudiando la Escritura después de hoy."
+      }
     }
   ],
   "verses": [
@@ -846,7 +1239,16 @@
         "Understanding the context",
         "Answering the objection fairly",
         "Saying 'I do not know'"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué es lo más difícil al defender tu doctrina?",
+        "options": [
+          "Recordar la referencia bíblica",
+          "Entender el contexto",
+          "Responder justamente a la objeción",
+          "Decir «no sé»"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-gen126",
@@ -858,7 +1260,16 @@
         "Read Genesis 1:27",
         "Claim the Hebrew word means three persons",
         "Ignore the plural"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué conviene hacer cuando alguien cita Génesis 1:26?",
+        "options": [
+          "Detenerse en «Hagamos»",
+          "Leer Génesis 1:27",
+          "Decir que el hebreo significa tres personas",
+          "Ignorar el plural"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-gen1924",
@@ -870,7 +1281,16 @@
         "No, name repetition allows a one-LORD source reading",
         "It never mentions the LORD twice",
         "There is no Hebrew text"
-      ]
+      ],
+      "es": {
+        "question": "¿Génesis 19:24 exige dos personas divinas eternas?",
+        "options": [
+          "Sí, el hebreo identifica al Padre y al Hijo",
+          "No; repetir el nombre permite una sola fuente divina",
+          "Nunca menciona dos veces a Jehová",
+          "No existe texto hebreo"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-isaiah48",
@@ -882,7 +1302,16 @@
         "At 'and now' in 48:16",
         "At Genesis 1:27",
         "The change is explicitly labeled Isaiah said"
-      ]
+      ],
+      "es": {
+        "question": "¿Dónde comienza el cambio de hablante según nuestra lectura de Isaías?",
+        "options": [
+          "En Isaías 48:12",
+          "En «y ahora», en 48:16",
+          "En Génesis 1:27",
+          "El pasaje dice expresamente «Isaías dijo»"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-john1genesis",
@@ -894,7 +1323,16 @@
         "God creates, God speaks, and His word takes effect",
         "Three named persons take turns",
         "Only angels create"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué patrón se repite en Génesis 1:1–12?",
+        "options": [
+          "Habla un segundo dios",
+          "Dios crea, Dios habla y su palabra se cumple",
+          "Tres personas nombradas se turnan",
+          "Solo los ángeles crean"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-holiness",
@@ -906,7 +1344,16 @@
         "Separation unto God in the whole life",
         "A church tradition alone",
         "Never making a mistake"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué es la santidad bíblica?",
+        "options": [
+          "Una vestimenta específica",
+          "Una vida íntegra apartada para Dios",
+          "Solo una tradición de iglesia",
+          "Nunca equivocarse"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-angels",
@@ -918,7 +1365,16 @@
         "The woman ought to have power on her head because of the angels",
         "Only other people matter",
         "The angels require a particular veil material"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué dice 1 Corintios 11:10?",
+        "options": [
+          "Los ángeles deciden nuestra salvación",
+          "La mujer debe tener señal de autoridad en la cabeza, por causa de los ángeles",
+          "Solo importan las demás personas",
+          "Los ángeles exigen una tela específica"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-baptism",
@@ -930,7 +1386,16 @@
         "Peter applies Jesus' instruction using Jesus' name",
         "Peter forbids baptism",
         "The command was only for the Twelve"
-      ]
+      ],
+      "es": {
+        "question": "¿Cómo relaciona la enseñanza apostólica Hechos 2:38 y Mateo 28:19?",
+        "options": [
+          "Se contradicen",
+          "Pedro aplica la instrucción de Jesús usando su nombre",
+          "Pedro prohíbe el bautismo",
+          "Solo los doce podían bautizar"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-greek-name",
@@ -942,7 +1407,16 @@
         "Onoma = supernatural force; exousia = name",
         "Both Greek words mean baptism",
         "Anima is the Greek word for power"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué significan estas palabras griegas?",
+        "options": [
+          "Ónoma = nombre; exousía = autoridad",
+          "Ónoma = fuerza sobrenatural; exousía = nombre",
+          "Las dos significan bautismo",
+          "Ánima es la palabra griega para potestad"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-holyghost",
@@ -954,7 +1428,16 @@
         "They heard tongues and praise",
         "They saw water baptism first",
         "They saw a vision of Peter"
-      ]
+      ],
+      "es": {
+        "question": "Según Hechos 10, ¿cómo reconocieron la recepción del Espíritu?",
+        "options": [
+          "Vieron un certificado",
+          "Oyeron lenguas y alabanzas",
+          "Vieron primero el bautismo en agua",
+          "Vieron una visión de Pedro"
+        ]
+      }
     },
     {
       "id": "tenets-20261020-acts4",
@@ -966,7 +1449,16 @@
         "It quotes the exact baptismal words",
         "It names three gods",
         "It replaces the need for faith"
-      ]
+      ],
+      "es": {
+        "question": "¿Qué declara Hechos 4:12 sobre el nombre de Jesús?",
+        "options": [
+          "Es el único nombre por el cual debemos ser salvos",
+          "Cita las palabras exactas del bautismo",
+          "Nombra tres dioses",
+          "Sustituye la fe"
+        ]
+      }
     }
   ],
   "prompts": [],
@@ -1341,5 +1833,7 @@
   ],
   "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved. Added two dual-QR projection slides at start/end; cover QR follows exact lesson-specific class URL and ApostolicGuide.com. All 39 Scripture entries manually populated with RVR 1960, source-verified, alongside full attribution.",
   "spanishCopyrightNotice": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas.",
-  "spanishSource": "RVR1960; verified against published BibleGateway passages, manually stored for this noncommercial church class."
+  "spanishSource": "RVR1960; verified against published BibleGateway passages, manually stored for this noncommercial church class.",
+  "title_es": "Los fundamentos de nuestra fe",
+  "sequence_es": "Desafío bíblico"
 }
