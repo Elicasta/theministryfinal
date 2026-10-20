@@ -263,12 +263,29 @@ function renderPresenterLive(){
 
 function renderConfidence(){
   const ss=slides(),s=ss[state.slide]||ss[0],n=ss[state.slide+1];
+  const idx=state.started?state.slide:0;
+  const m=lesson?.manuscript?.[idx];
   $('conf-status').textContent=(lesson.series+' · '+lesson.sequence).toUpperCase();
-  $('conf-k').textContent=state.started?'Current':'Standby';
+  $('conf-k').textContent=state.started?'CURRENT · SLIDE '+(state.slide+1)+' / '+ss.length:'STANDBY';
   $('conf-title').textContent=state.started?clean(titleOf(localizedSlide(s))):lesson.title;
   $('conf-ref').textContent=state.started?(localizedSlide(s).ref||localizedSlide(s).kicker||lesson.scripture):lesson.scripture;
   $('conf-next').textContent=state.started?(n?clean(titleOf(n)):'End'):clean(titleOf(ss[0]));
-  $('conf-notes').textContent=state.started?(s.notes||'No presenter note for this slide.'):'Ready.';
+  const notes=$('conf-notes');
+  const key=lesson.id+':'+idx+':'+(state.started?'live':'standby');
+  if(notes?.dataset.noteKey!==key){
+    notes.dataset.noteKey=key;
+    notes.textContent='';
+    if(state.started && m?.html){
+      const parsed=document.createElement('template');
+      parsed.innerHTML=m.html;
+      // The manuscript comes from authored lesson files, not audience submissions.
+      notes.appendChild(parsed.content);
+    }else notes.textContent=state.started?(s.notes||'No presenter note for this slide.'):'Waiting for the lesson to start.';
+    notes.scrollTop=0;
+  }
+  const live=state.activePoll?.id&&poll(state.activePoll.id);
+  const pollTag=$('conf-poll');
+  if(pollTag){pollTag.hidden=!live;pollTag.textContent=live?(state.activePoll.mode==='results'?'POLL RESULTS · ':'LIVE POLL · ')+live.question:''}
   tick();
 }
 
@@ -280,7 +297,7 @@ function tick(){
 
 function go(i){
   const ss=slides();if(!ss.length)return;const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
-  if(!state.started){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
+  if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
   const autoScripture=scriptureForSlide(t);
   if(autoScripture) state.scriptureOutput=autoScripture;
@@ -346,7 +363,7 @@ function bind(){
   if(view==='presenter'){
     document.addEventListener('click',e=>{const b=e.target.closest('[data-cue]');if(b)go(Number(b.dataset.cue))});
   }
-  setInterval(()=>{if(view==='confidence')renderConfidence()},500);
+  setInterval(()=>{if(view==='confidence')tick()},500);
 }
 
 function startLocal(){try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}}
@@ -373,17 +390,14 @@ async function initNetwork(){
   if(window.supabase)start();else{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=start;document.head.appendChild(sc)}
   setInterval(readLatest,5000);
 }
-function markSync(ok,label){if($('ipad-sync')){$('ipad-sync').textContent=label;$('ipad-sync').dataset.live=ok?'yes':'no'}if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
+function markSync(ok,label){if($('conf-sync')){$('conf-sync').textContent=label;$('conf-sync').dataset.live=ok?'yes':'no'}if($('ipad-sync')){$('ipad-sync').textContent=label;$('ipad-sync').dataset.live=ok?'yes':'no'}if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
 async function handle(msg){
   if(msg?.type!==TYPE||msg.room!==ROOM)return;
   const incoming=msg.state||msg,ts=Number(incoming.ts||msg.ts)||0;if(ts&&lastTs&&ts<lastTs)return;lastTs=Math.max(lastTs,ts);
   const nextLesson=incoming.lessonId||state.lessonId;
   state={...state,...incoming,type:TYPE,room:ROOM};
   if(nextLesson&&nextLesson!==lesson?.id)await loadLesson(nextLesson);
-  if(state.started && !state.scriptureOutput){
-    const recovered=scriptureForSlide(state.slide);
-    if(recovered) state.scriptureOutput=recovered;
-  }
+  // Scripture TV state is explicit: clearing it stays cleared until a verse is actually sent.
   render();
 }
 function send(){
