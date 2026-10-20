@@ -233,17 +233,17 @@
     {
       "type": "points",
       "title": "CHALLENGE 3 · Who is speaking?",
-      "kicker": "ISAIAH 48:12–16 · READ THE VOICE FIRST",
+      "kicker": "ISAIAH 48:12–15 · ESV CONTEXT (PARAPHRASE)",
       "ref": "Isaiah 48:12–15",
       "sub": "",
       "text": "",
       "points": [
-        "v12 · “I am he; I am the first, I also am the last.”",
-        "v13 · “Mine hand also hath laid the foundation of the earth.”",
-        "v14 · “The LORD hath loved him … his pleasure on Babylon.”",
-        "v15 · “I, even I, have spoken … I have called him.”"
+        "v12 · The LORD declares himself the first and the last.",
+        "v13 · The LORD established the earth and spread out the heavens.",
+        "v14 · His appointed agent will carry out the divine purpose against Babylon.",
+        "v15 · The LORD speaks, calls, and secures that agent's success."
       ],
-      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged.",
+      "notes": "Paraphrase the ESV context instead of retaining older KJV quotation fragments. The ESV marks an extended divine quotation that concludes in verse 16 before 'And now'.",
       "es": {
         "title": "DESAFÍO 3 · ¿Quién está hablando?",
         "kicker": "ISAÍAS 48:12–16 · IDENTIFICA LA VOZ",
@@ -259,68 +259,69 @@
     },
     {
       "type": "verse",
-      "title": "Read Isaiah 48:16 without quotation marks",
-      "kicker": "TRINITARIAN OBJECTION · UNMARKED KJV",
+      "title": "ISAIAH 48:16 · ESV QUOTATION MARK",
+      "kicker": "THE ESV · QUOTE ENDS BEFORE “AND NOW”",
       "ref": "Isaiah 48:16",
-      "sub": "",
-      "text": "Come ye near unto me, hear ye this; I have not spoken in secret from the beginning; from the time that it was, there am I: and now the Lord GOD, and his Spirit, hath sent me.",
+      "sub": "ESV excerpt. Notice the closing quotation mark after “there.” Read Isaiah 48:12–17 in full at esv.org.",
+      "text": "“…from the time it came to be I have been there.”\nAnd now the Lord GOD has sent me, and his Spirit.",
       "points": [],
-      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?",
+      "notes": "Display the actual ESV excerpt, not a repunctuated KJV verse. ESV closes the previous divine quotation after 'there' in 16a. 'And now' is outside the quote. That supports our prophet-speaker reading but is not, by itself, explicit identification of Isaiah as the speaker. Explain that Hebrew did not have modern quotation marks.",
       "es": {
-        "title": "Lee Isaías 48:16 sin comillas",
-        "kicker": "OBJECIÓN TRINITARIA · TEXTO SIN MARCAS",
-        "sub": "",
+        "title": "ISAÍAS 48:16 · LA COMILLA EN LA ESV",
+        "kicker": "LA ESV · LA CITA CIERRA ANTES DE «Y AHORA»",
+        "sub": "Traducción explicativa del corte de la cita en la ESV. El texto hebreo no contiene comillas modernas.",
         "ref": "Isaías 48:16",
-        "text": "Acercaos a mí, oíd esto: desde el principio no hablé en secreto; desde que eso se hizo, allí estaba yo; y ahora me envió el Señor Dios, y su Espíritu."
-      }
+        "text": "«...desde que eso se hizo, allí estaba yo». Y ahora me envió el Señor Dios, y su Espíritu."
+      },
+      "translation_en": "ESV excerpt"
     },
     {
       "type": "prompt",
-      "title": "WHERE WOULD YOU CLOSE THE QUOTE?",
-      "kicker": "THE PUNCTUATION CHALLENGE",
+      "title": "WHAT DOES THE ESV QUOTATION MARK SHOW?",
+      "kicker": "ISAIAH 48:16 · ASK THE AUDIENCE",
       "ref": "Isaiah 48:16",
-      "sub": "Read to “…there am I:” · At “AND NOW,” is the speaker still the LORD, or does Isaiah begin speaking?",
+      "sub": "The ESV closes its quotation before “And now.” Does the speaker now change, and who might that speaker be?",
       "text": "",
       "points": [],
-      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure.",
+      "notes": "Let the audience examine the ESV punctuation first. Launch the poll on this slide. The ESV's quotation boundary is not a speaker label: ask whether the prophet is speaking and acknowledge other interpretations.",
       "es": {
-        "title": "¿DÓNDE CERRARÍAS LAS COMILLAS?",
-        "kicker": "EL DESAFÍO DE LA PUNTUACIÓN",
-        "sub": "Lee hasta «...allí estaba yo» · Al llegar a «Y AHORA», ¿sigue hablando el Señor o comienza a hablar Isaías?",
+        "title": "¿QUÉ INDICA LA COMILLA DE LA ESV?",
+        "kicker": "ISAÍAS 48:16 · PREGUNTA AL GRUPO",
+        "sub": "La ESV cierra la cita antes de «Y ahora». ¿Cambia aquí la voz? ¿Quién podría estar hablando?",
         "ref": "Isaías 48:16"
       }
     },
     {
       "type": "points",
       "title": "🔴 LORD · 🔵 ISAIAH",
-      "kicker": "QUOTE-MARKER REVEAL · INTERPRETIVE PUNCTUATION",
+      "kicker": "ESV QUOTATION BREAK · INTERPRETATION REVEAL",
       "ref": "Isaiah 48:12–17",
-      "sub": "Speaker labels and quotation marks are OUR reading aids, not marks in the Hebrew manuscript.",
+      "sub": "ESV places a closing quote at Isaiah 48:16a. Identifying the speaker after that quote as Isaiah remains an interpretation.",
       "text": "",
       "points": [
-        "🔴 LORD (vv12–15): “I am the first … I also am the last.”",
-        "🔴 LORD (v16a): “...from the time that it was, there am I.”",
-        "🔵 ISAIAH (v16b): “And now the Lord GOD, and his Spirit, hath sent me.”",
-        "🔵 ISAIAH (v17a): “Thus saith the LORD, thy Redeemer ...”",
-        "🔴 LORD (v17b): “I am the LORD thy God ...”"
+        "🔴 LORD (vv12–15): God describes his unique identity and creative power.",
+        "🔴 LORD (v16a): The ESV ends the divine quotation immediately before “And now.”",
+        "🔵 ISAIAH (v16b): Our interpretation identifies the newly speaking “me” as the prophet sent by the Lord GOD and his Spirit.",
+        "🔵 ISAIAH (v17a): The prophetic voice introduces a new divine saying.",
+        "🔴 LORD (v17b): God's own words begin again, within a new quotation."
       ],
-      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes.",
+      "notes": "The ESV punctuation is published editorial punctuation, not original Hebrew quote marks. It marks a quotation ending before 'And now', consistent with our speaker-change reading. Trinitarian and other interpreters may identify the speaker differently. Avoid presenting ESV punctuation as proof of a labeled prophet.",
       "es": {
         "title": "🔴 SEÑOR · 🔵 ISAÍAS",
-        "kicker": "REVELACIÓN · COMILLAS INTERPRETATIVAS",
-        "sub": "Las etiquetas y las comillas son ayudas para nuestra interpretación; no son marcas originales del manuscrito hebreo.",
+        "kicker": "LA ESV CIERRA LA CITA · INTERPRETACIÓN DEL CAMBIO DE VOZ",
+        "sub": "La ESV cierra una cita en Isaías 48:16a. Identificar al siguiente hablante como Isaías es una interpretación.",
         "ref": "Isaías 48:12–17",
         "points": [
-          "🔴 SEÑOR (vv. 12–15): «Yo el primero, yo también el postrero».",
-          "🔴 SEÑOR (v. 16a): «...allí estaba yo».",
-          "🔵 ISAÍAS (v. 16b): «Y ahora me envió el Señor Dios, y su Espíritu».",
-          "🔵 ISAÍAS (v. 17a): «Así ha dicho el Señor, Redentor tuyo».",
-          "🔴 SEÑOR (v. 17b): «Yo soy el Señor tu Dios»."
+          "🔴 SEÑOR (vv. 12–15): Dios afirma su identidad y su poder creador.",
+          "🔴 SEÑOR (v. 16a): La ESV cierra la cita divina antes de «Y ahora».",
+          "🔵 ISAÍAS (v. 16b): Nuestra interpretación entiende que «me envió» se refiere al profeta enviado por el Señor Dios y su Espíritu.",
+          "🔵 ISAÍAS (v. 17a): La voz profética presenta una nueva declaración de Dios.",
+          "🔴 SEÑOR (v. 17b): Las palabras directas del Señor comienzan otra vez."
         ]
       },
       "tvExplanationEs": {
-        "title": "ISAÍAS 48:16 · ¿QUIÉN HABLA?",
-        "body": "Lectura propuesta: el Señor habla hasta «allí estaba yo»; desde «Y ahora me envió el Señor Dios, y su Espíritu» habla Isaías. Las comillas son interpretativas."
+        "title": "ISAÍAS 48:16 · ¿DÓNDE CIERRA LA ESV?",
+        "body": "En la ESV se cierran las comillas antes de «Y ahora». Esa puntuación editorial permite proponer un cambio de voz: primero habla el Señor y después Isaías anuncia su comisión. El hebreo original no contiene esas comillas."
       }
     },
     {
@@ -328,27 +329,27 @@
       "title": "Who is the “ME”?",
       "kicker": "ISAIAH 48 · EXPLAIN AND DEFEND",
       "ref": "Isaiah 48:16–17",
-      "sub": "",
+      "sub": "ESV quotation boundaries are editorial. Speaker identity must still be argued from context.",
       "text": "",
       "points": [
-        "Our reading: v16b is Isaiah speaking of his commission.",
-        "The red LORD quotation ends after “there am I.”",
-        "The blue prophetic voice starts at “And now ... hath sent me.”",
-        "“Thus saith the LORD” in v17 introduces God's words again.",
-        "The text does not explicitly identify three eternal persons."
+        "Our reading identifies Isaiah as the speaker of v16b, commissioned by the LORD and his Spirit.",
+        "The ESV closing quote separates v16a from the phrase beginning “And now.”",
+        "Verse 17 introduces the LORD's speech again with its own opening quotation.",
+        "ESV punctuation supports this division of reported speech but does not explicitly name the new speaker.",
+        "Other commentators identify a prophetic or messianic speaker; the issue remains interpretive."
       ],
       "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence.",
       "es": {
         "title": "¿Quién es el «ME»?",
         "kicker": "ISAÍAS 48 · EXPLICA Y DEFIENDE",
-        "sub": "",
+        "sub": "Las comillas de la ESV son editoriales. La identidad de cada voz debe argumentarse por el contexto.",
         "ref": "Isaías 48:16–17",
         "points": [
-          "Nuestra lectura: en el versículo 16b Isaías habla de su comisión.",
-          "La cita del Señor termina después de «allí estaba yo».",
-          "La voz profética comienza con «Y ahora ... me envió».",
-          "«Así ha dicho el Señor» introduce las palabras divinas.",
-          "El texto no identifica explícitamente tres personas eternas."
+          "Nuestra lectura identifica a Isaías como la voz de 16b, enviado por el Señor y su Espíritu.",
+          "La comilla final de la ESV separa el versículo 16a de la frase que comienza con «Y ahora».",
+          "En el versículo 17 comienza otra cita de las palabras del Señor.",
+          "Las comillas de la ESV ayudan a distinguir voces, pero no identifican expresamente al nuevo hablante.",
+          "Otros intérpretes proponen una voz profética o mesiánica; es una cuestión interpretativa."
         ]
       },
       "tvExplanationEs": {
@@ -1586,26 +1587,26 @@
       "refs": [
         "Isaiah 48:12–15"
       ],
-      "html": "<p><strong>Read 48:12–15 in order:</strong></p><p><strong>v12:</strong> Hearken unto me, O Jacob and Israel, my called; I am he; I am the first, I also am the last.</p><p><strong>v13:</strong> Mine hand also hath laid the foundation of the earth, and my right hand hath spanned the heavens: when I call unto them, they stand up together.</p><p><strong>v14:</strong> All ye, assemble yourselves, and hear; which among them hath declared these things? The LORD hath loved him: he will do his pleasure on Babylon, and his arm shall be on the Chaldeans.</p><p><strong>v15:</strong> I, even I, have spoken; yea, I have called him: I have brought him, and he shall make his way prosperous.</p><p><strong>ASK:</strong> Is the “I” in verses 12–15 God or the prophet? The voice is clearly presented as divine. Notice God says He made heaven and earth and called Cyrus/Babylon's conqueror into His purpose.</p>",
-      "notes": "Identify the LORD as speaker in 12–15. Have the room track the verbs and who 'I' means. Then display 16 unchanged."
+      "html": "<p><strong>Read ESV Isaiah 48:12–15 in full if you have the passage open.</strong> This slide paraphrases the ESV context: the LORD identifies himself as the first and last, creator of heaven and earth, and sovereign over the agent who will act against Babylon.</p><p><strong>Ask:</strong> Who is the divine speaker of verses 12–15? The LORD. The ESV's closing quotation is still ahead in verse 16. Full text: <a href=\"https://www.esv.org/Isaiah+48/\">Isaiah 48 (ESV)</a>.</p>",
+      "notes": "Paraphrase the ESV context instead of retaining older KJV quotation fragments. The ESV marks an extended divine quotation that concludes in verse 16 before 'And now'."
     },
     {
       "slide": 12,
-      "title": "Read Isaiah 48:16 without quotation marks",
+      "title": "ISAIAH 48:16 · ESV QUOTATION MARK",
       "refs": [
         "Isaiah 48:16"
       ],
-      "html": "<p><strong>Trinitarian argument:</strong> The apparent divine voice from vv12–16a says “the Lord GOD, and his Spirit, hath sent me.” One reading understands the preincarnate Son, the sending Father, and the Spirit as distinguished. This is a serious exegetical challenge, not an absurd argument.</p><p><strong>ASK:</strong> Must the sentence's “me” still be the divine speaker? Or is there a point where Isaiah interjects that he has been sent?</p><p><strong>Do not reveal the punctuation markers until the next cue.</strong> Original Hebrew texts did not contain modern English opening and closing quotation marks, and the speaker transition is a disputed interpretation.</p>",
-      "notes": "First present without our red/blue markers. Ask: If 'I' is the same throughout, how does the sending language sound?"
+      "html": "<p><strong>Show the ESV excerpt exactly as displayed on the slide.</strong> The quotation mark ends immediately after <em>there</em> in verse 16a, and <em>And now</em> starts outside that quotation. The ESV editors thereby mark a change in reported speech.</p><p><strong>Important distinction:</strong> This is ESV editorial punctuation, not ancient Hebrew quotation marks. It establishes a quotation boundary in the ESV presentation, not an explicit statement that Isaiah is the new speaker.</p><p><strong>Source:</strong> <a href=\"https://www.esv.org/Isaiah+48/\">English Standard Version, Isaiah 48</a> (© 2001 Crossway, ESV Text Edition 2025).</p>",
+      "notes": "Display the actual ESV excerpt, not a repunctuated KJV verse. ESV closes the previous divine quotation after 'there' in 16a. 'And now' is outside the quote. That supports our prophet-speaker reading but is not, by itself, explicit identification of Isaiah as the speaker. Explain that Hebrew did not have modern quotation marks."
     },
     {
       "slide": 13,
-      "title": "WHERE WOULD YOU CLOSE THE QUOTE?",
+      "title": "WHAT DOES THE ESV QUOTATION MARK SHOW?",
       "refs": [
         "Isaiah 48:16"
       ],
-      "html": "<p><strong>ASK THE ROOM:</strong> At what exact word would you place a closing quote if the prophet begins speaking?</p><p>Our speaker-switch reading places a closing quotation after <em>there am I</em> (v16a) and begins Isaiah's comment at <em>and now</em> (v16b). Classical Trinitarians often retain the same divine or messianic speaker through the sending statement. The absence of an explicit 'Isaiah said' is a genuine challenge to our interpretation.</p>",
-      "notes": "Take three responses. This is the Instagram quotation-marker challenge. Next screen reveals the user's red/blue LORD/ISAIAH structure."
+      "html": "<p><strong>ASK THE ROOM:</strong> The ESV closes the divine quotation before <em>And now</em>. Who might be speaking in the next clause? Invite an interpretation before revealing our response. The answer cannot be based on punctuation alone.</p><p><strong>Our reading:</strong> The prophet Isaiah speaks of being sent by the Lord GOD and his Spirit. <strong>Alternative reading:</strong> Trinitarian interpretations may consider a messianic or preincarnate speaker. Compare both in context.</p>",
+      "notes": "Let the audience examine the ESV punctuation first. Launch the poll on this slide. The ESV's quotation boundary is not a speaker label: ask whether the prophet is speaking and acknowledge other interpretations."
     },
     {
       "slide": 14,
@@ -1613,8 +1614,8 @@
       "refs": [
         "Isaiah 48:12–17"
       ],
-      "html": "<p><strong>HOW TO LEAD IT:</strong> “Now we're going to put our quotation marks into the passage, and you will see how the speaker can change.”</p><p><strong>🔴 LORD:</strong> verses 12–15 and verse 16a. The voice: “...from the time that it was, there am I.” CLOSE THE LORD'S QUOTATION HERE.</p><p><strong>NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH:</strong></p><p><strong>🔵 ISAIAH:</strong> “And now the Lord GOD, and his Spirit, hath sent me.” Next he introduces God as speaker: “Thus saith the LORD, thy Redeemer, the Holy One of Israel;”</p><p><strong>🔴 LORD:</strong> “I am the LORD thy God which teacheth thee to profit...” (v17b and following).</p><p>Our explanation is that “me” in 16b refers to Isaiah, a prophet sent by the Lord GOD and His Spirit; the writer is no longer quoting the LORD at that point. This is the same red/blue-dot structure from the earlier Instagram teaching. <strong>Distinguish:</strong> placement of quotation marks is an interpretation that some translations suggest, not a claim that Isaiah wrote quotation marks in Hebrew.</p>",
-      "notes": "Recreate Instagram pattern: NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH. Blue voice introduces Thus saith the LORD; within it the LORD's quotation resumes."
+      "html": "<p><strong>REVEAL:</strong> Red = speech from the LORD through v16a; blue = the next prophetic statement starting at <em>And now</em>; verse 17 introduces the LORD again and his own quotation.</p><p><strong>Published ESV evidence:</strong> The editors place a closing quotation mark at 48:16a, before the <em>And now</em> clause. Our red/blue labels build on that punctuation as a speaker interpretation. No ancient Hebrew quotation marks or explicit words <em>Isaiah said</em> appear there.</p><p><strong>Explain both cases:</strong> The apostolic speaker-switch reading is plausible on these quotation boundaries; a Trinitarian may instead argue a divine/messianic speaker across the passage. Keep the interpretation distinct from what the text states explicitly.</p>",
+      "notes": "The ESV punctuation is published editorial punctuation, not original Hebrew quote marks. It marks a quotation ending before 'And now', consistent with our speaker-change reading. Trinitarian and other interpreters may identify the speaker differently. Avoid presenting ESV punctuation as proof of a labeled prophet."
     },
     {
       "slide": 15,
@@ -1622,7 +1623,7 @@
       "refs": [
         "Isaiah 48:16–17"
       ],
-      "html": "<p><strong>Answer to deliver:</strong> “I am not saying that the Bible has the word 'Isaiah said' sitting there. I am saying that prophets often interject and then return to announcing God's speech. Under this reading, the 'me' is the writer Isaiah, sent by the LORD and His Spirit. That's a coherent interpretation of the chapter.”</p><p><strong>Counterpoint:</strong> There is no explicit speaker tag at 16b and the continuous divine-speaker reading remains possible. A scholar may dispute whether the prophet, Messiah, or another prophetic servant is the speaker. The verse alone does not define three eternal persons. The apostolic defense is that the strong monotheism of Isaiah must guide what distinctions are inferred.</p><p><strong>Question:</strong> Are we treating distinctions in sending and activity as equivalent to a proven division into persons? That is a theological step requiring argument.</p>",
+      "html": "<p><strong>What do we claim?</strong> The ESV's quotation boundary divides God's reported speech from the following sent-speaker statement. Our reading identifies the new speaker as Isaiah, but the editorial mark does not, by itself, identify him. Verse 17 introduces the LORD's voice again.</p><p><strong>Honest challenge:</strong> Ask how each interpretation handles the language of sending and the larger prophetic narrative. No punctuation mark is sufficient proof of three persons or of a single proposed speaker.</p>",
       "notes": "Own the objection: speaker transition isn't tagged 'Isaiah said', so the alternative isn't demonstrably impossible. Speak with careful confidence."
     },
     {
@@ -1864,10 +1865,15 @@
     "Isaiah 48:12–16",
     "John 1:1 (Genesis 1:1–12; Isaiah 44:24)"
   ],
-  "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved. Added two dual-QR projection slides at start/end; cover QR follows exact lesson-specific class URL and ApostolicGuide.com. All 39 Scripture entries manually populated with RVR 1960, source-verified, alongside full attribution. Genesis 19:24 begins from exact Hebrew and literal Yahweh-twice wording; follows with competing interpretations and transparent comma disclaimer.",
+  "revisionNotes": "Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved. Added two dual-QR projection slides at start/end; cover QR follows exact lesson-specific class URL and ApostolicGuide.com. All 39 Scripture entries manually populated with RVR 1960, source-verified, alongside full attribution. Genesis 19:24 begins from exact Hebrew and literal Yahweh-twice wording; follows with competing interpretations and transparent comma disclaimer.Oneness reduced to exactly four challenges; Isaiah marker reconstruction from Instagram teaching; Christian alternative interpretations presented fairly. Holiness and new-birth sections preserved. Added two dual-QR projection slides at start/end; cover QR follows exact lesson-specific class URL and ApostolicGuide.com. All 39 Scripture entries manually populated with RVR 1960, source-verified, alongside full attribution. Genesis 19:24 begins from exact Hebrew and literal Yahweh-twice wording; follows with competing interpretations and transparent comma disclaimer. Updated Isaiah 48 main slides to ESV excerpt and quotation placement; original KJV Scripture bank remains for non-Isaiah texts; editorial punctuation distinguished from speaker interpretation.",
   "spanishCopyrightNotice": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas. Versículos adaptados editorialmente para mostrar «el Señor» como designación divina.",
   "spanishSource": "Texto base Reina-Valera 1960; adaptación editorial para esta clase: «el Señor» sustituye la designación divina de la edición publicada. No es una cita textual idéntica a la versión original.",
   "title_es": "Los fundamentos de nuestra fe",
   "sequence_es": "Desafío bíblico",
-  "spanishDisplayNote": "Lectura basada en RVR 1960; nombre divino adaptado a «el Señor»."
+  "spanishDisplayNote": "Lectura basada en RVR 1960; nombre divino adaptado a «el Señor».",
+  "englishVersionNotes": {
+    "Isaiah48": "Isaiah 48:12–15 presented as ESV-based paraphrase; Isaiah 48:16 main slide quotes an ESV excerpt showing closing quotation before And now; other saved Scripture bank English entries remain KJV.",
+    "credit": "Scripture quotations marked ESV are from The Holy Bible, English Standard Version (ESV), copyright © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.",
+    "source": "https://www.esv.org/Isaiah+48/"
+  }
 }
