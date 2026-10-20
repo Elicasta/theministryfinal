@@ -415,6 +415,13 @@ async function submitQuestion(){
 
 window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
 
+// Narrow bridge for the authenticated-presenter-facing console. Never expose secrets or raw database credentials.
+window.MinistryIpadBridge={
+ snapshot:()=>({lesson,library,state:{...state},questions:[...questions],votes:[...votes]}),
+ loadLesson:id=>loadLesson(id,{broadcast:true,reset:true}),
+ go,prev,next,reset,clearTakeover,clearScriptureOutput,toggleBlack,
+ pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData
+};
 bootstrap().catch(err=>{
   console.error(err);
   document.body.innerHTML='<div style="padding:40px;font-family:system-ui;background:#090909;color:white;min-height:100vh"><h1>Teaching engine could not start</h1><p>'+esc(err.message||String(err))+'</p><p><a href="/lessons" style="color:#61c7ff">Open Lesson Library</a></p></div>';
