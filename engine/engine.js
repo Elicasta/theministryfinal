@@ -139,7 +139,7 @@ async function bootstrap(){
   await initNetwork();
   bind();
   if(view==='class')initClass();
-  if(view==='remote')loadAudienceData();
+  if(view==='remote'||view==='presenter')loadAudienceData();
 }
 
 function showView(){
@@ -169,6 +169,7 @@ function buildPresenter(){
   const root=$('manuscript'); if(!root)return;
   const rows=lesson.manuscript?.length?lesson.manuscript:slides().map(s=>({title:titleOf(s),html:s.sub?'<p>'+esc(clean(s.sub))+'</p>':'',refs:s.ref?[s.ref]:[],notes:s.notes||''}));
   root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div><div class="note-body">'+(m.html||'')+'</div>'+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
+  window.MinistryIpadMount?.();
 }
 
 function renderPollAdmin(){
@@ -227,6 +228,7 @@ function renderRemoteCue(){
 function renderPresenterLive(){
   document.querySelectorAll('[data-note]').forEach(n=>n.classList.toggle('is-live',state.started&&Number(n.dataset.note)===state.slide));
   document.querySelectorAll('[data-cue]').forEach(b=>{const on=state.started&&Number(b.dataset.cue)===state.slide;b.classList.toggle('live',on);b.textContent=on?'LIVE':'Take Slide '+(Number(b.dataset.cue)+1)});
+  window.MinistryIpadRender?.();
 }
 
 function renderConfidence(){
@@ -270,9 +272,9 @@ async function persistPollDefinition(p,status='live'){
   const r=await fetch('/api/poll-save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({series_slug:lesson.seriesSlug,lesson_slug:lesson.slug,status,poll:{id:p.id,poll_id:p.id,question:p.question,options:p.options,type:'choice',save_anonymous:true}})});
   const d=await r.json().catch(()=>({}));if(!r.ok||d.saved===false)throw new Error(d.error||d.reason||'Poll storage unavailable');return true;
 }
-async function launchPoll(id){const p=poll(id);if(!p)return;try{await persistPollDefinition(p,'live')}catch(e){console.warn(e)}state.activePoll={id,mode:'question'};state.overlay=state.activeQuestion=null;state.black=false;send();render()}
+async function launchPoll(id){const p=poll(id);if(!p)return;try{await persistPollDefinition(p,'live')}catch(e){console.warn(e);window.MinistryIpadStatus?.('Poll was not launched: '+(e.message||'storage unavailable'),'error');return}state.activePoll={id,mode:'question'};state.overlay=state.activeQuestion=null;state.black=false;send();render();window.MinistryIpadStatus?.('Poll live: '+p.question,'ok')}
 function voteCounts(p){const out={};(p?.options||[]).forEach(o=>out[o]=0);votes.filter(v=>String(v.poll_id)===String(p?.id)).forEach(v=>{if(Object.hasOwn(out,v.answer))out[v.answer]++});return out}
-async function showPollResults(id){await loadAudienceData();const p=poll(id);if(!p)return;const c=voteCounts(p),total=Object.values(c).reduce((a,b)=>a+b,0);state.activePoll={id,mode:'results',results:c,total};state.overlay=state.activeQuestion=null;state.black=false;send();render()}
+async function showPollResults(id){const ok=await loadAudienceData();if(!ok){window.MinistryIpadStatus?.('Cannot verify vote counts. Results not shown.','error');return}const p=poll(id);if(!p)return;const c=voteCounts(p),total=Object.values(c).reduce((a,b)=>a+b,0);state.activePoll={id,mode:'results',results:c,total};state.overlay=state.activeQuestion=null;state.black=false;send();render();window.MinistryIpadStatus?.('Results shown: '+total+' recorded vote(s).','ok')}
 async function closePoll(id){const p=poll(id||state.activePoll?.id);if(p)persistPollDefinition(p,'closed').catch(()=>{});state.activePoll=null;send();render()}
 function showQuestion(i){const q=questions[i];if(!q)return;state.activeQuestion={id:q.id||q.question_id||String(i),text:q.text};state.overlay=state.activePoll=null;state.black=false;send();render()}
 
@@ -291,7 +293,9 @@ async function loadAudienceData(){
       if($('q-list'))$('q-list').innerHTML=questions.length?questions.map((x,i)=>'<div class="qa-item"><p>'+esc(x.text)+'</p><button class="btn small" data-question="'+i+'">Display</button></div>').join(''):'<div class="qa-item"><p>No anonymous questions yet.</p></div>';
       renderPollAdmin();
     }
-  }catch(e){console.warn('Audience load failed',e)}
+  if(view==='presenter')window.MinistryIpadAudience?.();
+    return q.ok&&p.ok;
+  }catch(e){console.warn('Audience load failed',e);window.MinistryIpadStatus?.('Could not refresh audience responses.','error');return false}
 }
 
 function bind(){
@@ -339,7 +343,7 @@ async function initNetwork(){
   if(window.supabase)start();else{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=start;document.head.appendChild(sc)}
   setInterval(readLatest,5000);
 }
-function markSync(ok,label){if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
+function markSync(ok,label){if($('ipad-sync')){$('ipad-sync').textContent=label;$('ipad-sync').dataset.live=ok?'yes':'no'}if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
 async function handle(msg){
   if(msg?.type!==TYPE||msg.room!==ROOM)return;
   const incoming=msg.state||msg,ts=Number(incoming.ts||msg.ts)||0;if(ts&&lastTs&&ts<lastTs)return;lastTs=Math.max(lastTs,ts);
@@ -408,6 +412,8 @@ async function submitQuestion(){
     ta.value='';st.textContent=langText('Sent anonymously.','Enviado anónimamente.');st.classList.add('ok')
   }catch(e){st.textContent=e?.message||langText('Could not send.','No se pudo enviar.')}
 }
+
+window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
 
 bootstrap().catch(err=>{
   console.error(err);
