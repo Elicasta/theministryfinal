@@ -92,6 +92,28 @@ test('holiness, head covering, baptism and Spirit reception are all taught', () 
   for (const phrase of ['1 Corinthians 11:10','because of the angels','Matthew 28:19','Acts 2:38','Acts 10:46','Holy Ghost']) assert.ok(all.toLowerCase().includes(phrase.toLowerCase()), phrase);
 });
 
+test('study and Apostolic Guide QR cards are projected at opening and dismissal', () => {
+  const resourceSlides=lesson.slides.map((s,i)=>({s,i})).filter(x=>x.s.type==='resources');
+  assert.equal(resourceSlides.length,2);
+  assert.equal(resourceSlides[0].i,1,'Dedicated join slide should follow cover');
+  assert.equal(resourceSlides[1].i,lesson.slides.length-1,'Study links should remain on final slide');
+  assert.equal(lesson.slides[0].type,'cover');
+  assert.match(resourceSlides[0].s.title,/SCAN TO JOIN/);
+  assert.match(resourceSlides[1].s.title,/KEEP STUDYING/);
+  const introNotes=lesson.manuscript[1].html;
+  assert.ok(introNotes.includes('https://theministry.vercel.app/class?lesson='+lesson.id));
+  assert.match(introNotes,/https:\/\/apostolicguide\.com\//);
+  const engine=load('engine/engine.js');
+  const css=load('engine/engine.css');
+  assert.match(engine,/const classUrl=\(\)=>location\.origin\+'\/class'\+\(lesson\?\.id\?'\?lesson='\+encodeURIComponent\(lesson\.id\)/);
+  assert.match(engine,/const GUIDE_URL='https:\/\/apostolicguide\.com\/'/);
+  assert.match(engine,/if\(s\.type==='resources'\)/);
+  assert.match(engine,/resourceQrCards\(true\)/);
+  assert.match(engine,/resourceQrCards\(false\)/);
+  assert.match(css,/resource-qr-large \.resource-qr-image/);
+  assert.match(css,/resource-qr-url/);
+});
+
 test('iPad console script parses and controller identifiers match markup', () => {
   const js=load('engine/ipad-console.js');
   const engine=load('engine/engine.js');
