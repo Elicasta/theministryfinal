@@ -19,6 +19,8 @@ const view=queryView||pathView||'remote';
 
 let library=null, lesson=null, questions=[], votes=[], bc=null, sbUrl='', sbKey='', sbClient=null, rtChannel=null, lastTs=0;
 let classEmail=localStorage.getItem('ministry_class_email')||'';
+let classLanguage=localStorage.getItem('ministry_class_language')||(/^es\b/i.test(navigator.language||'')?'es':'en');
+if(!['en','es'].includes(classLanguage))classLanguage='en';
 let classSession=localStorage.getItem('ministry_class_session')||('class_'+(crypto.randomUUID?crypto.randomUUID():Date.now()+Math.random().toString(16).slice(2)));
 localStorage.setItem('ministry_class_session',classSession);
 
@@ -36,16 +38,17 @@ function pollsForSlide(index){return polls().filter(p=>Number.isInteger(p.cueSli
 function theme(){document.body.dataset.theme=lesson?.theme||'default';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
+function classText(en,es){return classLanguage==='es'?(es||en):en}
 function hasSpanishSlide(s){
   return !!(s?.es || lesson?.translations?.es?.slides?.[s?._index]);
 }
-function localizedSlide(s){
-  if(!s || state.language==='en') return s;
+function localizedSlide(s,language=state.language){
+  if(!s || language==='en') return s;
   const tr=s.es||lesson?.translations?.es?.slides?.[s._index]||null;
   return tr?{...s,...tr,_english:s}:{...s,_translationMissing:true,_english:s};
 }
-function localizedPoll(p){
-  if(!p||state.language==='en')return p;
+function localizedPoll(p,language=state.language){
+  if(!p||language==='en')return p;
   const tr=p.es||lesson?.translations?.es?.polls?.[p.id]||null;
   return tr?{...p,...tr,_english:p}:{...p,_translationMissing:true,_english:p};
 }
@@ -119,11 +122,13 @@ function scriptureHtml(v){
   const primary=spanish
     ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · RVR 1960</div><div class="scripture-text">'+esc(spanish)+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+'</div><div class="scripture-missing">No hay texto español guardado para este versículo.</div></div>';
-  const secondary=sc.text_en
-    ? '<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text">'+esc(sc.text_en)+'</div></div>'
-    : '';
+
   const notice=spanish?'<div class="scripture-copyright">'+esc(sc.copyright||'Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.')+'</div>':'';
-  return primary+secondary+notice;
+  return primary+notice;
+}
+function sideTvExplanationHtml(note){
+  if(!note?.title||!note?.body)return '';
+  return '<aside class="scripture-teaching" lang="es"><div class="scripture-teaching-label">EXPLICACIÓN DE LA LECCIÓN</div><h2>'+esc(note.title)+'</h2><p>'+esc(note.body)+'</p></aside>';
 }
 function projectorScriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
@@ -226,13 +231,13 @@ function render(){
   if(view==='scriptures'){
     const c=$('scripture-content');
     const current=state.scriptureOutput;
-    const key=current?JSON.stringify([lesson.id,current.ref_en||current.ref||'',current.text_en||current.text||'',current.text_es||'']):'waiting';
-    c.classList.toggle('wait',!current);
+    const note=state.started&&s.type!=='verse'?s.tvExplanationEs:null;
+    const key=JSON.stringify([lesson.id,current?.ref_en||current?.ref||'',current?.text_es||'',note?.title||'',note?.body||'']);
+    c.classList.toggle('wait',!current&&!note);
+    c.classList.toggle('with-explanation',!!note);
     if(c.dataset.scriptureKey!==key){
       c.dataset.scriptureKey=key;
-      c.innerHTML=current
-        ? scriptureHtml(current)
-        : '<div class="scripture-wait-title">WAITING FOR SCRIPTURE</div><div class="scripture-wait-sub">The last Scripture stays here until another Scripture is received.</div>';
+      c.innerHTML=(current?scriptureHtml(current):note?'':'<div class="scripture-wait-title">ESPERANDO LA ESCRITURA</div><div class="scripture-wait-sub">El último versículo permanece hasta que llegue uno nuevo.</div>')+sideTvExplanationHtml(note);
     }
   }
   if(view==='confidence')renderConfidence();
