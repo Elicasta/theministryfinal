@@ -95,3 +95,11 @@
   #presenter .ipad-nav-actions .ipad-transport-btn{min-height:45px}
   #presenter .ipad-manuscript .note-section{scroll-margin-top:12px}
 }
+
+
+/* Live status and elapsed session timer share the compact iPad toolbar. */
+#presenter .ipad-live-info{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0;max-width:62%;flex-shrink:0}
+#presenter .ipad-live-info .ipad-sync{min-width:0;max-width:none;overflow:hidden;text-overflow:ellipsis}
+#presenter .ipad-time{font:900 .84rem/1.25 'Barlow Condensed',Arial,sans-serif;letter-spacing:.05em;font-variant-numeric:tabular-nums;color:#263b32;background:#edf3ed;border:1px solid #b5cabb;border-radius:7px;padding:5px 9px;min-width:49px;text-align:center;white-space:nowrap}
+@media(max-width:960px){#presenter .ipad-live-info .ipad-sync{display:inline-flex!important}}
+@media(max-width:720px){#presenter .ipad-live-info{gap:5px}#presenter .ipad-time{padding:5px 7px;font-size:.82rem;min-width:44px}}
