@@ -57,7 +57,7 @@ for(const id of ['ministry-lesson-1','ministry-lesson-2','ministry-lesson-3','mi
 const unifiedEngine=fs.readFileSync('engine/engine.js','utf8');
 if(!unifiedEngine.includes('scriptureOutput:null'))fail('persistent Scripture TV state missing');
 if(!unifiedEngine.includes('if(autoScripture) state.scriptureOutput=autoScripture'))fail('Scripture slides do not auto-follow to side TV');
-if(!unifiedEngine.includes("c.innerHTML=state.scriptureOutput"))fail('Scripture route is not bound to persistent Scripture TV state');
+if(!unifiedEngine.includes("const current=state.scriptureOutput")||!unifiedEngine.includes("scriptureHtml(current)"))fail('Scripture route is not bound to persistent Scripture TV state');
 if(!unifiedEngine.includes('function clearScriptureOutput()'))fail('explicit Scripture TV clear missing');
 if(!unifiedEngine.includes('function pushVerseTV(i)'))fail('Scripture TV-only push missing');
 if(!unifiedEngine.includes('class="take-ref">')||!unifiedEngine.includes('class="take-text">'))fail('main projector Scripture takeover styling changed');
