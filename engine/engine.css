@@ -95,3 +95,40 @@ body[data-theme="purpose"] .stage{background:radial-gradient(circle at 78% 18%,r
 .resource-qr-image.qr-failed:after{content:'Use the URL below';display:block;color:#111;font:800 .8rem/1.2 sans-serif;text-align:center}
 @media(max-height:730px) and (min-width:800px){.resource-qr-large .resource-qr-image{height:min(32vh,245px);width:min(32vh,245px)}.resource-qr-large .resource-qr-card{padding:12px}.resource-qr-large{margin-top:12px}}
 @media(max-width:700px){.resource-qr-slide .p-title.med{font-size:clamp(2rem,7vw,3rem)}.resource-qr-grid{gap:12px}.resource-qr-large .resource-qr-card{width:48%;padding:10px 5px}.resource-qr-large .resource-qr-image{width:min(39vw,185px);height:min(39vw,185px);padding:6px}.resource-qr-small .resource-qr-image{width:110px;height:110px}.resource-qr-small .resource-qr-url{max-width:130px}.resource-qr-hint{font-size:.65rem}}
+
+
+/* Confidence monitor: full manuscript stays readable without interrupting the timer. */
+#confidence{grid-template-rows:66px minmax(0,1fr) minmax(185px,37vh)}
+#confidence .conf-head-meta{display:flex;align-items:center;gap:19px;min-width:0}
+#confidence .conf-series{font:800 clamp(.7rem,1vw,1rem)/1.2 var(--fc);letter-spacing:.12em;color:#c2cacd;text-transform:uppercase;max-width:42vw;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#confidence .conf-sync{font:900 .7rem/1.2 var(--fc);letter-spacing:.08em;text-transform:uppercase;color:#ffb366;border:1px solid #674529;border-radius:14px;padding:6px 11px;white-space:nowrap}
+#confidence .conf-sync[data-live="yes"]{color:#a8e8be;background:#153824;border-color:#3d8d60}
+#confidence .conf-notes{display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:15px 25px;background:#0b1014}
+#confidence .conf-notes-head{display:flex;align-items:center;gap:18px;justify-content:space-between;margin-bottom:8px}
+#confidence .conf-notes-head .conf-k{margin:0}
+#confidence .conf-poll{font:800 .9rem var(--fc);letter-spacing:.04em;color:#ffc9aa;max-width:66%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#confidence .conf-poll[hidden]{display:none}
+#confidence .conf-notes-text{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:2px 12px 13px 0;color:#e1ded8;font:400 clamp(1rem,1.4vw,1.55rem)/1.48 var(--fb);scrollbar-color:#4b595f transparent}
+#confidence .conf-notes-text p{margin:0 0 .75em}
+#confidence .conf-notes-text strong{color:#fff1d7}
+#confidence .conf-notes-text em{color:#f6d3b6}
+#confidence .conf-time{font-size:clamp(3.8rem,6.4vw,7.2rem)}
+#confidence .conf-side{grid-template-rows:minmax(130px,32%) minmax(0,1fr)}
+#confidence .conf-next-title{font-size:clamp(1.7rem,3.2vw,4.3rem)}
+@media(max-width:780px){#confidence{grid-template-rows:58px minmax(0,1fr) minmax(180px,42vh)}#confidence .conf-main{grid-template-columns:1.2fr .8fr;gap:10px;padding:10px}#confidence .conf-current{padding:16px}#confidence .conf-next{padding:12px}#confidence .conf-title{font-size:clamp(2rem,5.5vw,3.6rem)}#confidence .conf-brand{font-size:1.3rem}#confidence .conf-top{padding:0 10px}#confidence .conf-series{display:none}#confidence .conf-notes{padding:10px}}
+
+/* Bilingual Scripture TVs: exact Spanish reference, larger Spanish text above smaller KJV.
+   The last sent reference remains visible until the presenter explicitly sends or clears it. */
+#scriptures .scripture-inner{width:min(1510px,89vw);max-width:min(1510px,89vw);max-height:95vh;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain}
+#scriptures .scripture-inner::-webkit-scrollbar{display:none}
+#scriptures .scripture-primary{padding-left:24px;border-left:5px solid #e8312b}
+#scriptures .scripture-primary .scripture-text{font-size:clamp(1.9rem,3.2vw,4rem);line-height:1.2}
+#scriptures .scripture-primary.scripture-medium .scripture-text{font-size:clamp(1.8rem,2.85vw,3.4rem)}
+#scriptures .scripture-primary.scripture-long .scripture-text{font-size:clamp(1.65rem,2.4vw,2.85rem)}
+#scriptures .scripture-secondary{margin-top:clamp(18px,3vh,40px);padding-top:clamp(16px,2.5vh,29px)}
+#scriptures .scripture-secondary .scripture-text{font-size:clamp(1.1rem,1.65vw,1.95rem);line-height:1.35}
+#scriptures .scripture-primary.scripture-unavailable{opacity:.77}
+#scriptures .scripture-unavailable .scripture-missing{font:800 clamp(.85rem,1.15vw,1.2rem)/1.3 var(--fc);text-transform:none;letter-spacing:.02em;color:#ddc6b7}
+#scriptures .scripture-copyright{font:500 clamp(.6rem,.8vw,.86rem)/1.35 var(--fb);margin-top:25px;color:#9da6aa;max-width:1350px}
+#scriptures .scripture-copyright a{color:#9da6aa;text-decoration:underline}
+@media(max-width:750px){#scriptures .scripture-primary .scripture-text{font-size:clamp(1.5rem,4vw,2.3rem)}#scriptures .scripture-primary.scripture-long .scripture-text{font-size:clamp(1.25rem,3.2vw,1.85rem)}#scriptures .scripture-secondary .scripture-text{font-size:clamp(1rem,2.2vw,1.55rem)}}
