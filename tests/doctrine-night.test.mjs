@@ -201,25 +201,69 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
   assert.match(engine,/setInterval\(\(\)=>\{if\(view==='confidence'\)tick\(\)\},500\)/);
 });
 
-test('all 39 Doctrine Night verses include verified manually stored RVR1960 Spanish and KJV English', () => {
+test('all 39 stored Spanish verses consistently display el Señor with source adaptation disclosed', () => {
   assert.equal(lesson.verses.length,39);
   assert.match(lesson.spanishCopyrightNotice,/Reina-Valera 1960/);
   assert.match(lesson.spanishCopyrightNotice,/Sociedades Bíblicas Unidas/);
+  assert.match(lesson.spanishSource,/adaptación|adaptado|editorial/i);
   for(const v of lesson.verses){
     assert.ok(v.text_en||v.text,'Missing English for '+v.ref);
     assert.ok(v.text_es&&v.text_es.length>15,'Missing Spanish for '+v.ref);
     assert.ok(v.ref_es&&v.ref_es.includes(':'),'Missing Spanish reference for '+v.ref);
-    assert.equal(v.translation_es,'RVR1960');
+    assert.doesNotMatch(v.text_es,/Jehová/i,'Forbidden Spanish display form in '+v.ref);
   }
   assert.equal(lesson.verses.find(x=>x.ref==='Deuteronomy 6:4').text_es,
-    'Oye, Israel: Jehová nuestro Dios, Jehová uno es.');
-  assert.match(lesson.verses.find(x=>x.ref==='Isaiah 48:16').text_es,/y ahora me envió Jehová el Señor, y su Espíritu/);
-  assert.match(lesson.verses.find(x=>x.ref==='Genesis 19:24').text_es,/de parte de Jehová desde los cielos/);
+    'Oye, Israel: el Señor nuestro Dios, el Señor uno es.');
+  assert.match(lesson.verses.find(x=>x.ref==='Isaiah 48:16').text_es,/y ahora me envió el Señor Dios, y su Espíritu/);
+  assert.match(lesson.verses.find(x=>x.ref==='Genesis 19:24').text_es,/de parte del Señor desde los cielos/);
   assert.match(lesson.verses.find(x=>x.ref==='Acts 2:38').text_es,/en el nombre de Jesucristo/);
   for(let v=1;v<=12;v++)assert.ok(lesson.verses.find(x=>x.ref==='Genesis 1:'+v)?.text_es);
 });
 
-test('side TVs render locally stored Spanish even if last synced state has only KJV', () => {
+test('Genesis 19:24 displays the exact Hebrew and literal rendering before doctrinal interpretations', () => {
+  const objection=lesson.slides.findIndex(s=>s.title==='CHALLENGE 2 · Two LORDs?');
+  assert.ok(objection>=0);
+  const hebrew=lesson.slides[objection+1],compare=lesson.slides[objection+2];
+  assert.equal(hebrew.title,'START WITH THE HEBREW');
+  assert.equal(compare.type,'contrast');
+  assert.match(hebrew.left,/וַיהוָה/);
+  assert.match(hebrew.left,/מֵאֵת יְהוָה מִן־הַשָּׁמָיִם/);
+  assert.equal(hebrew.right.split('Yahweh').length-1,2);
+  assert.match(hebrew.right,/from Yahweh, from heaven/);
+  assert.match(hebrew.sub,/TWICE/);
+  assert.match(compare.left,/TWO|DISTINCT-PERSONS/);
+  assert.match(compare.right,/LORD rained down fire from the LORD, in heaven/);
+  assert.match(compare.sub,/comma placement belong to competing interpretations/);
+  assert.match(hebrew.es.right,/el Señor/i);
+  assert.doesNotMatch(JSON.stringify(hebrew.es)+JSON.stringify(compare.es),/Jehová/i);
+  assert.match(lesson.manuscript[objection+1].html,/Yahweh appears/);
+  assert.match(lesson.manuscript[objection+2].html,/interpretive inference/);
+});
+
+test('all 41+ lesson slides and 11 poll questions have complete Spanish translations', () => {
+  assert.ok(lesson.slides.length>=42);
+  for(const [index,slide] of lesson.slides.entries()){
+    assert.ok(slide.es?.title,'Missing Spanish slide '+index);
+    if(slide.type==='verse')assert.ok(slide.es?.text,'Missing Spanish Scripture for '+index);
+    if(slide.points?.length)assert.equal(slide.es.points?.length,slide.points.length);
+    if(slide.type==='contrast')assert.ok(slide.es.left&&slide.es.right);
+    assert.doesNotMatch(JSON.stringify(slide.es),/Jehová/i);
+  }
+  assert.equal(lesson.polls.length,11);
+  for(const poll of lesson.polls){
+    assert.ok(poll.es?.question,'Missing Spanish poll '+poll.id);
+    assert.equal(poll.options.length,poll.es.options?.length);
+    assert.doesNotMatch(JSON.stringify(poll.es),/Jehová/i);
+  }
+  const notes=lesson.slides.filter(s=>s.tvExplanationEs);
+  assert.ok(notes.length>=15);
+  for(const note of notes){
+    assert.ok(note.tvExplanationEs.title&&note.tvExplanationEs.body);
+    assert.doesNotMatch(JSON.stringify(note.tvExplanationEs),/Jehová/i);
+  }
+});
+
+test('side TVs render saved Spanish-only text with last-verse persistence and translated teaching cues', () => {
   const engine=load('engine/engine.js');
   const refScript=load('engine/spanish-ref.js');
   const html=load('engine/index.html');
@@ -245,18 +289,40 @@ test('side TVs render locally stored Spanish even if last synced state has only 
   });
   const stale={ref_en:'Deuteronomy 6:4',ref_es:'Deuteronomio 6:4',text_en:'Hear, O Israel: The LORD our God is one LORD:',text_es:''};
   const result=scriptureHtml(stale);
-  assert.match(result,/Oye, Israel: Jehová nuestro Dios, Jehová uno es/);
-  assert.match(result,/Hear, O Israel/);
+  assert.match(result,/Oye, Israel: el Señor nuestro Dios, el Señor uno es/);
+  assert.doesNotMatch(result,/Hear, O Israel/);
   assert.match(result,/Reina-Valera 1960/);
   assert.doesNotMatch(result,/no disponible|Conecte la fuente|Cargando/);
   assert.ok(engine.includes('if(c.dataset.scriptureKey!==key)'),'Unrelated state changes must not flicker the Scripture screen');
   assert.ok(engine.includes('scriptureOutput=null;send();render()'));
+  assert.ok(engine.includes('sideTvExplanationHtml(note)'));
+  assert.ok(engine.includes("s.type!=='verse'?s.tvExplanationEs:null"));
   const handle=engine.slice(engine.indexOf('async function handle(msg){'),engine.indexOf('function send(){'));
   assert.doesNotMatch(handle,/scriptureForSlide/,'Synchronization must not resurrect a cleared Scripture');
-  assert.ok(!engine.includes('scripture-rvr1960')&&!engine.includes('queueSpanishVerse')&&!engine.includes('spanishVersePending'));
+  assert.ok(!engine.includes('scripture-rvr1960')&&!engine.includes('queueSpanishVerse'));
   assert.ok(html.includes('href="/scriptures" target="_blank" rel="noopener">Scripture TVs'));
 });
 
+test('bilingual audience language is device-specific and does not mutate projector state', () => {
+  const engine=load('engine/engine.js');
+  const html=load('engine/index.html');
+  const css=load('engine/engine.css');
+  assert.match(engine,/let classLanguage=localStorage.getItem\('ministry_class_language'\)/);
+  assert.match(engine,/function classText\(en,es\)/);
+  assert.match(engine,/function setClassLanguage\(language\)/);
+  assert.match(engine,/localStorage.setItem\('ministry_class_language',language\)/);
+  const fn=engine.slice(engine.indexOf('function setClassLanguage('),engine.indexOf('function initClass(){'));
+  assert.doesNotMatch(fn,/state.language\s*=/);
+  assert.doesNotMatch(fn,/send\(/);
+  assert.match(engine,/localizedPoll\(raw,classLanguage\)/);
+  assert.match(engine,/localizedSlide\(raw,classLanguage\)/);
+  assert.match(engine,/const canonical=\(raw.options\|\|\[\]\)\[i\]/);
+  assert.ok((html.match(/data-class-language="en"/g)||[]).length>=2);
+  assert.ok((html.match(/data-class-language="es"/g)||[]).length>=2);
+  for(const key of ['emailLabel','enter','anonymousQuestion','send','intro','privacy'])
+    assert.ok(html.includes('data-class-i18n="'+key+'"'));
+  assert.match(css,/#class-portal \.class-language-switch/);
+});
 test('confidence monitor has live status, complete manuscript, and stable scroll', () => {
   const html=load('engine/index.html'),engine=load('engine/engine.js'),css=load('engine/engine.css');
   assert.match(html,/id="conf-sync"/);
