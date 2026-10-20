@@ -11,7 +11,16 @@ const ids=new Set();
 for(const lesson of lib.lessons){
   if(ids.has(lesson.id))fail('duplicate lesson id: '+lesson.id);
   ids.add(lesson.id);
-  if(lesson.status!=='stable'||lesson.knownGood!==true)fail('lesson not marked stable: '+lesson.id);
+  const stable=lesson.status==='stable'&&lesson.knownGood===true;
+  const ready=lesson.status==='ready'&&lesson.knownGood===false;
+  if(!stable&&!ready)fail('lesson has invalid lifecycle state: '+lesson.id);
+  if(ready){
+    if(!lesson.engineSource?.startsWith('/content/'))fail('ready lesson needs a native source: '+lesson.id);
+    const file=lesson.engineSource.slice(1);
+    if(!fs.existsSync(file))fail('ready lesson source missing: '+file);
+    const draft=readJson(file);
+    if(draft.id!==lesson.id||!Array.isArray(draft.slides)||!draft.slides.length)fail('ready lesson data invalid: '+lesson.id);
+  }
   for(const key of ['presentation','manuscript']){
     if(!lesson.artifacts?.[key]?.startsWith('/'))fail('missing '+key+' route for '+lesson.id);
   }
@@ -28,7 +37,7 @@ for(const route of ['/live','/admin','/remote','/mobile','/projector','/scriptur
 }
 for(const lesson of lib.lessons){
   if(lesson.engine!=='ministry-unified-v2')fail('lesson not assigned to unified engine: '+lesson.id);
-  if(!lesson.artifacts?.legacyPresentation)fail('legacy presentation fallback missing: '+lesson.id);
+  if(lesson.status==='stable'&&!lesson.artifacts?.legacyPresentation)fail('legacy presentation fallback missing: '+lesson.id);
 }
 for(const file of ['engine/index.html','engine/lesson-loader.js','engine/engine.js','engine/engine.css']){
   if(!fs.existsSync(file))fail('unified engine file missing: '+file);
