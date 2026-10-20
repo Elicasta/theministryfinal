@@ -64,17 +64,28 @@
     <div><div class="presenter-brand">THE MINISTRY · IPAD TEACHING CONSOLE</div><div id="presenter-lesson" class="presenter-lesson"></div></div>
     <div class="presenter-actions"><a href="/projector" target="_blank" rel="noopener">Projector</a><a href="/class" target="_blank" rel="noopener">Audience</a><a href="/lessons">Library</a></div>
   </header>
-  <div class="ipad-transport" role="toolbar" aria-label="Live presentation controls">
-    <button type="button" id="ipad-prev" class="ipad-transport-btn" aria-label="Previous slide">← Previous</button>
-    <button type="button" id="ipad-next" class="ipad-transport-btn ipad-primary">Start / Next →</button>
-    <button type="button" id="ipad-current-poll" class="ipad-transport-btn ipad-poll-toolbar" hidden aria-live="polite">Launch Poll</button>
-    <button type="button" id="ipad-clear" class="ipad-transport-btn" aria-label="Clear Scripture or poll overlay">Clear Overlay</button>
-    <div class="ipad-cue"><span id="ipad-cue-num">00</span><span id="ipad-cue-title">Standby</span><small id="ipad-cue-next">Next: Cover</small></div>
-    <span id="ipad-sync" class="ipad-sync" role="status">Connecting</span>
-  </div>
   <div class="ipad-layout">
     <main id="manuscript" class="manuscript ipad-manuscript" aria-label="Manuscript and slide cues"></main>
     <aside class="ipad-sidebar" aria-label="Teaching control panels">
+      <section class="ipad-nav-panel" role="toolbar" aria-label="Live slide navigation">
+        <div class="ipad-nav-meta">
+          <span class="ipad-nav-label">PRESENTATION CONTROL</span>
+          <span id="ipad-sync" class="ipad-sync" role="status">Connecting</span>
+        </div>
+        <div class="ipad-cue" aria-live="polite">
+          <span id="ipad-cue-num">00</span>
+          <div class="ipad-cue-copy">
+            <strong id="ipad-cue-title">Standby</strong>
+            <small id="ipad-cue-next">Next: Cover</small>
+          </div>
+        </div>
+        <div class="ipad-nav-actions">
+          <button type="button" id="ipad-prev" class="ipad-transport-btn" aria-label="Previous slide">← Previous</button>
+          <button type="button" id="ipad-next" class="ipad-transport-btn ipad-primary">Start / Next →</button>
+          <button type="button" id="ipad-current-poll" class="ipad-transport-btn ipad-poll-toolbar" hidden aria-live="polite">Launch Poll</button>
+          <button type="button" id="ipad-clear" class="ipad-transport-btn ipad-clear" aria-label="Clear Scripture or poll overlay">Clear Overlay</button>
+        </div>
+      </section>
       <div class="ipad-side-intro"><div class="ey">SESSION</div><select id="ipad-lesson-select" aria-label="Choose lesson"></select></div>
       <details class="ipad-drawer" open><summary>Live interaction <span id="ipad-poll-count">0</span></summary><div id="ipad-poll-list" class="ipad-drawer-body"></div></details>
       <details class="ipad-drawer"><summary>Scripture bank <span id="ipad-verse-count">0</span></summary><div id="ipad-verse-list" class="ipad-drawer-body"></div></details>
