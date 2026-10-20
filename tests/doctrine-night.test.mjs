@@ -32,11 +32,49 @@ test('every slide has aligned manuscript, poll cues and unique poll IDs', () => 
   }
 });
 
-test('Oneness challenge preserves objections and Scripture context', () => {
-  const all = lesson.manuscript.map(x => x.refs.join(' ')+' '+x.html).join('\n');
-  for (const ref of ['Isaiah 48:16','Genesis 19:24','John 17:5','John 1:1','Matthew 3:16','1 Corinthians 15:28']) assert.ok(all.includes(ref), ref);
-  assert.match(all, /Trinitarian/i);
-  assert.match(all, /punctuation|quotation marks/i);
+test('Oneness uses exactly four objections in the requested order', () => {
+  const holinessIndex=lesson.slides.findIndex(s=>s.title.startsWith('HOLINESS ·'));
+  assert.ok(holinessIndex>15);
+  const slides=lesson.slides.slice(0,holinessIndex);
+  const challenges=slides.filter(s=>/^CHALLENGE [1-4] ·/.test(s.title));
+  assert.deepEqual(challenges.map(s=>s.title), [
+    'CHALLENGE 1 · Who is “US”?',
+    'CHALLENGE 2 · Two LORDs?',
+    'CHALLENGE 3 · Who is speaking?',
+    'CHALLENGE 4 · The Word was WITH God'
+  ]);
+  for (const former of ['John 17:5','Matthew 3:17','1 Corinthians 15:28'])
+    assert.ok(!slides.some(s=>s.ref===former), former+' remains as a separate Oneness challenge');
+  assert.ok(slides[0].title==='THE TENETS OF OUR FAITH');
+  assert.ok(slides.some(s=>s.ref==='Deuteronomy 6:4'));
+  assert.ok(slides.some(s=>s.title==='FOUR OBJECTIONS. ONE GOD.'));
+});
+
+test('Genesis 1:26 objection stays isolated until the next slide reveals verse 27', () => {
+  const i=lesson.slides.findIndex(s=>s.title==='CHALLENGE 1 · Who is “US”?');
+  assert.equal(lesson.slides[i].ref,'Genesis 1:26');
+  assert.equal(lesson.slides[i].text, lesson.verses.find(v=>v.ref==='Genesis 1:26').text);
+  assert.doesNotMatch(JSON.stringify(lesson.slides[i]), /Genesis 1:27/);
+  assert.equal(lesson.slides[i+1].ref,'Genesis 1:27');
+  assert.match(lesson.slides[i+1].text, /God created man in his own image/);
+});
+
+test('Isaiah 48 uses Instagram speaker-color quotations while marking them interpretive', () => {
+  const all=lesson.manuscript.map(x=>x.refs.join(' ')+' '+x.html).join('\n');
+  const text=lesson.slides.map(x=>[x.title,...(x.points||[])].join(' ')).join('\n');
+  for(const ref of ['Isaiah 48:16','Genesis 19:24','John 1:1','Genesis 1:1–12','Isaiah 44:24'])
+    assert.ok(all.includes(ref),ref);
+  assert.match(text,/🔴 LORD/);
+  assert.match(text,/🔵 ISAIAH/);
+  assert.match(all,/NOW, FROM THIS BLUE DOT TO THE NEXT BLUE DOT, ISAIAH/);
+  assert.match(all,/not.*(?:original|wrote)|not.*marks in the Hebrew/i);
+  assert.match(all,/Trinitarian/i);
+});
+
+test('Genesis 1:1 through 12 is represented without missing verses', () => {
+  for(let verse=1;verse<=12;verse++) assert.ok(lesson.verses.some(v=>v.ref==='Genesis 1:'+verse&&v.text),'Missing Genesis 1:'+verse);
+  const oneness=lesson.slides.slice(0,lesson.slides.findIndex(s=>s.title.startsWith('HOLINESS ·')));
+  for(const ref of ['Genesis 1:1–3','Genesis 1:4–6','Genesis 1:7–9','Genesis 1:10–12','Isaiah 44:24']) assert.ok(oneness.some(s=>s.ref===ref),ref);
 });
 
 test('Greek study distinguishes name from power and includes saving name', () => {
