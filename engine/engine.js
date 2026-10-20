@@ -105,6 +105,14 @@ function scriptureForSlide(index){
 }
 function scriptureHtml(v){
   const sc=normalizeScripture(v);if(!sc)return '';
+  // A previously broadcast state may have the English text but not the
+  // newly authored Spanish text. Hydrate only from the EXACT verse reference.
+  const matching=verses().find(row=>String(row.ref_en||row.ref||'').trim()===String(sc.ref_en).trim());
+  if(matching){
+    sc.text_es=matching.text_es||sc.text_es;
+    sc.ref_es=matching.ref_es||sc.ref_es;
+    sc.copyright=lesson?.spanishCopyrightNotice||sc.copyright;
+  }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
@@ -217,10 +225,15 @@ function render(){
   }
   if(view==='scriptures'){
     const c=$('scripture-content');
-    c.classList.toggle('wait',!state.scriptureOutput);
-    c.innerHTML=state.scriptureOutput
-      ? scriptureHtml(state.scriptureOutput)
-      : '<div class="scripture-wait-title">WAITING FOR SCRIPTURE</div><div class="scripture-wait-sub">The last Scripture stays here until another Scripture is received.</div>';
+    const current=state.scriptureOutput;
+    const key=current?JSON.stringify([lesson.id,current.ref_en||current.ref||'',current.text_en||current.text||'',current.text_es||'']):'waiting';
+    c.classList.toggle('wait',!current);
+    if(c.dataset.scriptureKey!==key){
+      c.dataset.scriptureKey=key;
+      c.innerHTML=current
+        ? scriptureHtml(current)
+        : '<div class="scripture-wait-title">WAITING FOR SCRIPTURE</div><div class="scripture-wait-sub">The last Scripture stays here until another Scripture is received.</div>';
+    }
   }
   if(view==='confidence')renderConfidence();
   if(view==='remote')renderRemoteCue();
