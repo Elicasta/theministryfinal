@@ -120,7 +120,7 @@ function scriptureHtml(v){
   const spanishRef=sc.ref_es||sc.ref_en;
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const primary=spanish
-    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · RVR 1960</div><div class="scripture-text">'+esc(spanish)+'</div></div>'
+    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · RVR 1960 · ADAPTACIÓN «EL SEÑOR»</div><div class="scripture-text">'+esc(spanish)+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+'</div><div class="scripture-missing">No hay texto español guardado para este versículo.</div></div>';
 
   const notice=spanish?'<div class="scripture-copyright">'+esc(sc.copyright||'Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.')+'</div>':'';
@@ -242,7 +242,7 @@ function render(){
   }
   if(view==='confidence')renderConfidence();
   if(view==='remote')renderRemoteCue();
-  if(view==='presenter')renderPresenterLive();
+  if(view==='presenter'){renderPresenterLive();tick()}
   if(view==='class')renderClass();
 }
 
@@ -316,6 +316,7 @@ function tick(){
   const end=state.timerStoppedAt||Date.now(),sec=state.startedAt?Math.max(0,Math.floor((end-state.startedAt)/1000)):0;
   const val=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');
   if($('conf-time'))$('conf-time').textContent=val;
+  if($('ipad-time'))$('ipad-time').textContent=val;
 }
 
 function go(i){
@@ -386,7 +387,7 @@ function bind(){
   if(view==='presenter'){
     document.addEventListener('click',e=>{const b=e.target.closest('[data-cue]');if(b)go(Number(b.dataset.cue))});
   }
-  setInterval(()=>{if(view==='confidence')tick()},500);
+  setInterval(()=>{if(view==='confidence'||view==='presenter')tick()},500);
 }
 
 function startLocal(){try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}}
