@@ -201,41 +201,60 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
   assert.match(engine,/setInterval\(\(\)=>\{if\(view==='confidence'\)tick\(\)\},500\)/);
 });
 
-test('side Scripture output preserves explicit clearing and uses Spanish references', async () => {
+test('all 39 Doctrine Night verses include verified manually stored RVR1960 Spanish and KJV English', () => {
+  assert.equal(lesson.verses.length,39);
+  assert.match(lesson.spanishCopyrightNotice,/Reina-Valera 1960/);
+  assert.match(lesson.spanishCopyrightNotice,/Sociedades Bíblicas Unidas/);
+  for(const v of lesson.verses){
+    assert.ok(v.text_en||v.text,'Missing English for '+v.ref);
+    assert.ok(v.text_es&&v.text_es.length>15,'Missing Spanish for '+v.ref);
+    assert.ok(v.ref_es&&/\\d+:\\d+/.test(v.ref_es),'Missing Spanish reference for '+v.ref);
+    assert.equal(v.translation_es,'RVR1960');
+  }
+  assert.equal(lesson.verses.find(x=>x.ref==='Deuteronomy 6:4').text_es,
+    'Oye, Israel: Jehová nuestro Dios, Jehová uno es.');
+  assert.match(lesson.verses.find(x=>x.ref==='Isaiah 48:16').text_es,/y ahora me envió Jehová el Señor, y su Espíritu/);
+  assert.match(lesson.verses.find(x=>x.ref==='Genesis 19:24').text_es,/de parte de Jehová desde los cielos/);
+  assert.match(lesson.verses.find(x=>x.ref==='Acts 2:38').text_es,/en el nombre de Jesucristo/);
+  for(let v=1;v<=12;v++)assert.ok(lesson.verses.find(x=>x.ref==='Genesis 1:'+v)?.text_es);
+});
+
+test('side TVs render locally stored Spanish even if last synced state has only KJV', () => {
   const engine=load('engine/engine.js');
   const refScript=load('engine/spanish-ref.js');
   const html=load('engine/index.html');
-  const scriptContext={window:{}};
-  new Script(refScript).runInNewContext(scriptContext);
-  const translate=scriptContext.window.MinistrySpanishRef;
-  assert.equal(translate('Genesis 1:26'),'Génesis 1:26');
-  assert.equal(translate('Isaiah 48:16'),'Isaías 48:16');
-  assert.equal(translate('John 1:1'),'Juan 1:1');
-  assert.equal(translate('Acts 2:38'),'Hechos 2:38');
-  assert.equal(translate('1 Corinthians 11:10'),'1 Corintios 11:10');
-  assert.equal(translate('Deuteronomy 6:4'),'Deuteronomio 6:4');
-  assert.match(html, /src="\/engine\/spanish-ref\.js"/);
-  assert.match(engine, /spanishVersePending\.has\(ref\)/);
-  assert.match(engine, /if\(view==='scriptures'&&String\(state\.scriptureOutput/);
-  assert.match(engine, /spanishVersePending\.delete\(ref\)/);
-  assert.match(engine, /function queueSpanishVerse\(ref\)/);
-  assert.match(engine, /scriptureOutput=null;send\(\);render\(\)/);
+  const context={window:{}};
+  new Script(refScript).runInNewContext(context);
+  const translate=context.window.MinistrySpanishRef;
+  for(const [en,es] of [
+    ['Genesis 1:26','Génesis 1:26'],
+    ['Isaiah 48:16','Isaías 48:16'],
+    ['John 1:1','Juan 1:1'],
+    ['Acts 2:38','Hechos 2:38'],
+    ['1 Corinthians 11:10','1 Corintios 11:10']
+  ])assert.equal(translate(en),es);
+  assert.match(html,/src="\\/engine\\/spanish-ref\\.js"/);
+  const first=engine.indexOf('function scriptureHtml(v){');
+  const last=engine.indexOf('function projectorScriptureHtml(v){',first);
+  assert.ok(first>0&&last>first);
+  const scriptureHtml=new Script(engine.slice(first,last)+'\\n scriptureHtml;').runInNewContext({
+    normalizeScripture:v=>({...v,ref_es:v.ref_es||translate(v.ref_en)}),
+    verses:()=>lesson.verses,
+    lesson,
+    esc:value=>String(value||'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))
+  });
+  const stale={ref_en:'Deuteronomy 6:4',ref_es:'Deuteronomio 6:4',text_en:'Hear, O Israel: The LORD our God is one LORD:',text_es:''};
+  const result=scriptureHtml(stale);
+  assert.match(result,/Oye, Israel: Jehová nuestro Dios, Jehová uno es/);
+  assert.match(result,/Hear, O Israel/);
+  assert.match(result,/Reina-Valera 1960/);
+  assert.doesNotMatch(result,/no disponible|Conecte la fuente|Cargando/);
+  assert.match(engine,/if\\(c\\.dataset\\.scriptureKey!==key\\)/,'Unrelated state changes must not flicker the Scripture screen');
+  assert.match(engine,/scriptureOutput=null;send\\(\\);render\\(\\)/);
   const handle=engine.slice(engine.indexOf('async function handle(msg){'),engine.indexOf('function send(){'));
   assert.doesNotMatch(handle,/scriptureForSlide/,'Synchronization must not resurrect a cleared Scripture');
-  assert.match(html, /href="\/scriptures" target="_blank" rel="noopener">Scripture TVs/);
-});
-
-test('RVR1960 provider requires server-side credentials and returns clear errors', () => {
-  const adapter=load('api/scripture-rvr1960.js');
-  assert.match(adapter,/process\.env\.API_BIBLE_KEY/);
-  assert.match(adapter,/process\.env\.API_BIBLE_RVR1960_ID/);
-  assert.match(adapter,/\/v1'\+path/);
-  assert.match(adapter,/content-type=text/);
-  assert.match(adapter,/setHeader\('Cache-Control','private, no-store/);
-  assert.match(adapter,/RVR 1960 provider not connected/);
-  assert.match(adapter,/RVR 1960 lookup unavailable/);
-  assert.doesNotMatch(load('engine/engine.js'),/process\.env\.API_BIBLE_KEY/);
-  assert.match(adapter,/copyright:String\(data\.copyright/);
+  assert.doesNotMatch(engine,/api\\/scripture-rvr1960|queueSpanishVerse|spanishVersePending/);
+  assert.match(html,/href="\\/scriptures" target="_blank" rel="noopener">Scripture TVs/);
 });
 
 test('confidence monitor has live status, complete manuscript, and stable scroll', () => {
