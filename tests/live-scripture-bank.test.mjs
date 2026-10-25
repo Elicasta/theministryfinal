@@ -2,8 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runInNewContext,Script} from 'node:vm';
-import {parsePassage,BOOKS} from '../lib/scripture-reference.js';
-import scriptureApi from '../api/scripture.js';
+import scriptureApi, {parsePassage,BOOKS} from '../api/scripture.js';
 
 const load=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const dom={window:{}};
