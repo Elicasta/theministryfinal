@@ -102,8 +102,13 @@ test('iPad and live side screens have revisioned Scripture controls',()=>{
   assert.doesNotThrow(()=>new Script(ipad));
   assert.match(ipad,/decorateInlineScriptures/);
   assert.match(ipad,/api\.pushScripture/);
-  assert.match(ipad,/data-ipad-inline-chapter/);
+  assert.match(ipad,/data-ipad-inline-main/);
+  assert.match(ipad,/data-ipad-inline-clear/);
+  assert.doesNotMatch(ipad,/data-ipad-inline-chapter/);
+  assert.doesNotMatch(ipad,/data-ipad-inline-tv/);
   assert.match(ipad,/data-ipad-bank-main/);
+  assert.match(engine,/function clearPresentedScripture\(\)/);
+  assert.match(ipad,/api\.clearPresentedScripture\(\)/);
   assert.match(ipad,/e\.stopPropagation\(\)/);
   assert.match(engine,/scriptureRevision/);
   assert.match(engine,/state\.scriptureRevision!==revision/);
@@ -112,4 +117,39 @@ test('iPad and live side screens have revisioned Scripture controls',()=>{
   assert.match(css,/body\[data-lesson="inner-healing-2026-10-25"\] #scriptures \.scripture-secondary\s*\{\s*display:block!important/);
   assert.match(html,/id="ipad-bible-drawer"/);
   assert.match(html,/src="\/engine\/scripture-tools\.js"/);
+});
+
+
+test('standalone sermon manuscript is complete, ordered, and unchanged by UI work',()=>{
+  const j=JSON.parse(load('content/inner-healing-2026-10-25.json'));
+  assert.equal(j.id,'inner-healing-2026-10-25');
+  assert.equal(j.slides.length,52);
+  assert.equal(j.manuscript.length,52);
+  const parts=j.manuscript.map((section,index)=>{
+    assert.equal(section.slide,index);
+    assert.ok(section.html.length>20,'Empty manuscript section '+index);
+    return section.html.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+  });
+  const full=parts.join(' ');
+  assert.equal(full.split(/\s+/).filter(Boolean).length,4721);
+  for(const exact of [
+    'You can be delivered from the thing that hurt you',
+    'We have learned to function with the pain',
+    'Not every disagreement is rejection',
+    'Forgiveness didn’t automatically restore the bone',
+    'And the people who are in your life today',
+    'Come to the healer this morning.'
+  ]) assert.ok(full.includes(exact),'Missing sermon passage: '+exact);
+});
+test('scripture tap UI has one clear action and no stacked action buttons',()=>{
+  const ipad=load('engine/ipad-console.js'),html=load('engine/index.html');
+  assert.match(ipad,/p\.appendChild\(verseButton\)/);
+  assert.match(ipad,/while\(p\.firstChild\)verseButton\.appendChild\(p\.firstChild\)/);
+  assert.match(ipad,/clear\.hidden=true/);
+  assert.match(ipad,/refreshActiveScriptures/);
+  assert.doesNotMatch(ipad,/>Project \+ Side TV</);
+  assert.doesNotMatch(ipad,/>Side TV only</);
+  assert.doesNotMatch(ipad,/>Full Chapter</);
+  assert.ok(html.includes('<details id="ipad-bible-drawer" class="ipad-drawer">'),
+    'Full chapter drawer should default closed');
 });

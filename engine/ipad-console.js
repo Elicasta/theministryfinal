@@ -47,13 +47,34 @@
       p.dataset.ipadScriptureRef=parsed.ref;
       p.dataset.ipadScriptureText=parsed.text;
       p.classList.add('ipad-clickable-scripture');
-      p.setAttribute('title','Tap the verse to send it to main projector and side TV');
-      const actions=document.createElement('span');
-      actions.className='ipad-inline-scripture-actions';
-      actions.innerHTML='<button type="button" data-ipad-inline-main aria-label="Send '+esc(parsed.ref)+' to main projector and side TV">Project + Side TV</button>'+
-        '<button type="button" data-ipad-inline-tv aria-label="Send '+esc(parsed.ref)+' to side TV only">Side TV</button>'+
-        '<button type="button" data-ipad-inline-chapter aria-label="Browse the full chapter for '+esc(parsed.ref)+'">Full Chapter</button>';
-      p.appendChild(actions);
+      const verseButton=document.createElement('button');
+      verseButton.type='button';
+      verseButton.className='ipad-scripture-tap';
+      verseButton.dataset.ipadInlineMain='';
+      verseButton.setAttribute('aria-label','Project '+parsed.ref+' to main and side screens');
+      verseButton.setAttribute('aria-pressed','false');
+      while(p.firstChild)verseButton.appendChild(p.firstChild);
+      p.appendChild(verseButton);
+      const clear=document.createElement('button');
+      clear.type='button';
+      clear.className='ipad-scripture-x';
+      clear.dataset.ipadInlineClear='';
+      clear.setAttribute('aria-label','Clear '+parsed.ref+' from main and side screens');
+      clear.setAttribute('title','Clear projected scripture');
+      clear.textContent='×';
+      clear.hidden=true;
+      p.appendChild(clear);
+    });
+  }
+  function refreshActiveScriptures(){
+    const st=api.getState(),active=String(st?.scriptureOutput?.ref_en||'').trim().replaceAll('–','-');
+    document.querySelectorAll('#manuscript .ipad-clickable-scripture').forEach(p=>{
+      const selected=!!active&&p.dataset.ipadScriptureRef===active;
+      p.classList.toggle('ipad-scripture-active',selected);
+      const clear=p.querySelector('[data-ipad-inline-clear]');
+      if(clear)clear.hidden=!selected;
+      const btn=p.querySelector('[data-ipad-inline-main]');
+      if(btn)btn.setAttribute('aria-pressed',selected?'true':'false');
     });
   }
   function bibleStatus(text,isError=false){
@@ -67,8 +88,7 @@
     const header='<div class="ipad-bank-heading"><strong>'+esc(data.ref||bankChapter)+'</strong><small>'+esc(partial?'Saved lesson references only':'KJV · complete chapter')+'</small></div>';
     el.innerHTML=header+bankRows.map((v,i)=>'<article class="ipad-bank-verse" data-bank-verse="'+esc(v.verse)+'">'+
       '<div class="ipad-bank-verse-text"><span>'+esc(v.verse)+'</span>'+esc(v.text)+'</div>'+
-      '<div class="ipad-pair"><button class="ipad-secondary" type="button" data-ipad-bank-main="'+i+'">Project + Side TV</button>'+
-      '<button class="ipad-secondary" type="button" data-ipad-bank-tv="'+i+'">Side TV</button></div></article>').join('');
+      '<div class="ipad-pair"><button class="ipad-secondary" type="button" data-ipad-bank-main="'+i+'">Project</button></div></article>').join('');
   }
   function lessonChapterFallback(chapter){
     const getChapter=window.MinistryScriptureTools?.chapterOf;
@@ -137,7 +157,7 @@
     const select=$('ipad-lesson-select');
     if(select)select.innerHTML=library.lessons.map(l=>'<option value="'+esc(l.id)+'"'+(l.id===lesson.id?' selected':'')+'>'+esc(l.series+' · '+l.title)+'</option>').join('');
     const bank=$('ipad-verse-list'),verses=lesson.verses||[];
-    if(bank)bank.innerHTML=verses.length?verses.map((v,i)=>'<div class="ipad-item"><strong>'+esc(v.ref||v.ref_en||'')+'</strong><p>'+esc(v.text||v.text_en||'')+'</p><div class="ipad-pair"><button class="ipad-secondary" data-ipad-verse="'+i+'">Main + TV</button><button class="ipad-secondary" data-ipad-tv="'+i+'">Side TV only</button></div></div>').join(''):'<p class="ipad-empty">No verses in the bank.</p>';
+    if(bank)bank.innerHTML=verses.length?verses.map((v,i)=>'<div class="ipad-item"><strong>'+esc(v.ref||v.ref_en||'')+'</strong><p>'+esc(v.text||v.text_en||'')+'</p><div class="ipad-pair"><button class="ipad-secondary" data-ipad-verse="'+i+'">Project</button></div></div>').join(''):'<p class="ipad-empty">No verses in the bank.</p>';
     if($('ipad-verse-count'))$('ipad-verse-count').textContent=verses.length;
     for(const [needle,target] of [['/projector','/projector'],['/class','/class'],['/scriptures','/scriptures'],['/confidence','/confidence']]){
       const a=document.querySelector('.presenter-actions a[href="'+needle+'"]');
@@ -177,6 +197,7 @@
       quick.classList.toggle('ipad-poll-is-live',!!liveCuePoll);
     }
     renderPolls();
+    refreshActiveScriptures();
   }
   function audience(){renderQuestions();renderPolls();}
   async function refreshAudience(){
@@ -218,10 +239,8 @@
       let el;
       if(el=hit('[data-ipad-bank-main]')){sendBankVerse(Number(el.dataset.ipadBankMain),'both');return}
       if(el=hit('[data-ipad-bank-tv]')){sendBankVerse(Number(el.dataset.ipadBankTv),'tv');return}
-      if(el=hit('[data-ipad-inline-chapter]')){const p=el.closest('[data-ipad-inline-scripture]');if(p)openChapter(p.dataset.ipadScriptureRef);return}
-      if(el=hit('[data-ipad-inline-tv]')){sendScriptureFromElement(el,'tv');return}
+      if(el=hit('[data-ipad-inline-clear]')){api.clearPresentedScripture();status('Scripture cleared from main and side screens.','ok');return}
       if(el=hit('[data-ipad-inline-main]')){sendScriptureFromElement(el,'both');return}
-      if(el=hit('[data-ipad-inline-scripture]')){sendScriptureFromElement(el,'both');return}
       if(el=hit('[data-ipad-jump]')){api.go(Number(el.dataset.ipadJump));scrollToLive();return}
       if(el=hit('[data-ipad-verse]')){api.pushVerse(Number(el.dataset.ipadVerse));return}
       if(el=hit('[data-ipad-tv]')){api.pushVerseTV(Number(el.dataset.ipadTv));return}
