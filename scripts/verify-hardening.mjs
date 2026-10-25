@@ -56,7 +56,7 @@ for(const id of ['ministry-lesson-1','ministry-lesson-2','ministry-lesson-3','mi
 }
 const unifiedEngine=fs.readFileSync('engine/engine.js','utf8');
 if(!unifiedEngine.includes('scriptureOutput:null'))fail('persistent Scripture TV state missing');
-if(!unifiedEngine.includes('const autoScripture=scriptureForSlide(t)')||!unifiedEngine.includes('state.scriptureOutput={...autoScripture,revision')||!unifiedEngine.includes('if(autoScripture)resolveSpanish(autoScripture,revision)'))fail('Scripture slides do not auto-follow to side TV');
+if(!unifiedEngine.includes('const autoScripture=scriptureForSlide(t)')||!unifiedEngine.includes('state.scriptureOutput={...autoScripture,revision')||!unifiedEngine.includes("if(autoScripture&&lesson?.id!=='inner-healing-2026-10-25')resolveSpanish(autoScripture,revision)"))fail('Scripture slides do not auto-follow to side TV');
 if(!unifiedEngine.includes("const current=state.scriptureOutput")||!unifiedEngine.includes("scriptureHtml(current)"))fail('Scripture route is not bound to persistent Scripture TV state');
 if(!unifiedEngine.includes('function clearScriptureOutput()'))fail('explicit Scripture TV clear missing');
 if(!unifiedEngine.includes('function pushVerseTV(i)'))fail('Scripture TV-only push missing');
