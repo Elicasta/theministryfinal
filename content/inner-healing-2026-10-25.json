@@ -18,7 +18,14 @@
       "ref": "Psalm 147:3",
       "speakerNote": "Opening. Let the title sit while you introduce the distinction between physical and internal wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A STANDALONE MESSAGE"
+      "cue": "A STANDALONE MESSAGE",
+      "es": {
+        "kicker": "UN MENSAJE ESPECIAL",
+        "title": "La importancia de la sanidad interior",
+        "sub": "Dios sana lo que no siempre se puede ver.",
+        "ref": "Salmo 147:3",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -26,7 +33,12 @@
       "title": "You can be delivered from the thing that hurt you and still need healing from what it taught you.",
       "speakerNote": "Land the entire line. Pause.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE BIG IDEA"
+      "cue": "THE BIG IDEA",
+      "es": {
+        "kicker": "LA IDEA CENTRAL",
+        "title": "Puedes ser libre de aquello que te hirió y todavía necesitar sanidad por lo que esa experiencia te enseñó.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -34,7 +46,13 @@
       "ref": "Psalm 147:3",
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "OUR STARTING POINT"
+      "cue": "OUR STARTING POINT",
+      "es": {
+        "kicker": "NUESTRO PUNTO DE PARTIDA",
+        "ref": "Salmo 147:3",
+        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -42,7 +60,13 @@
       "title": "Symptoms of an Unhealed Inner Life",
       "sub": "The wound may be invisible. Its effects may not be.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION ONE"
+      "cue": "SECTION ONE",
+      "es": {
+        "kicker": "PRIMERA SECCIÓN",
+        "title": "Síntomas de una vida interior que no ha sanado",
+        "sub": "La herida puede ser invisible, pero sus efectos no.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -52,7 +76,15 @@
         "Resentment"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 1/3"
+      "cue": "SYMPTOM ONE · BUILD 1/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 1 DE 3",
+        "title": "El dolor terminó, pero el resentimiento permanece.",
+        "points": [
+          "Resentimiento"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -63,7 +95,16 @@
         "A negative view of life"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 2/3"
+      "cue": "SYMPTOM ONE · BUILD 2/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 2 DE 3",
+        "title": "Cuando el dolor del pasado moldea el presente",
+        "points": [
+          "Resentimiento",
+          "Una visión negativa de la vida"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -75,14 +116,29 @@
         "Recurring cycles"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 3/3"
+      "cue": "SYMPTOM ONE · BUILD 3/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 3 DE 3",
+        "title": "Cuando el dolor del pasado moldea el presente",
+        "points": [
+          "Resentimiento",
+          "Una visión negativa de la vida",
+          "Ciclos que se repiten"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "SYMPTOM TWO",
       "title": "Recurring Thoughts, Sin, and Ultimately Unbreakable Addictions",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO"
+      "cue": "SYMPTOM TWO",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA",
+        "title": "Pensamientos recurrentes, pecado y adicciones difíciles de romper",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -92,7 +148,15 @@
         "Recurring thoughts"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 1/3"
+      "cue": "SYMPTOM TWO · BUILD 1/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 1 DE 3",
+        "title": "Lo que seguimos reviviendo",
+        "points": [
+          "Pensamientos recurrentes"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -103,7 +167,16 @@
         "Sins that provide temporary comfort"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 2/3"
+      "cue": "SYMPTOM TWO · BUILD 2/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 2 DE 3",
+        "title": "A dónde acudimos para sentir alivio",
+        "points": [
+          "Pensamientos recurrentes",
+          "Pecados que ofrecen consuelo temporal"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -115,7 +188,17 @@
         "Damaging addictions"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 3/3"
+      "cue": "SYMPTOM TWO · BUILD 3/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 3 DE 3",
+        "title": "Lo que comienza a dominarnos",
+        "points": [
+          "Pensamientos recurrentes",
+          "Pecados que ofrecen consuelo temporal",
+          "Adicciones que nos dañan"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -123,14 +206,25 @@
       "ref": "Psalm 139:23–24",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION TWO · LOOK WITHIN"
+      "cue": "SECTION TWO · LOOK WITHIN",
+      "es": {
+        "kicker": "SEGUNDA SECCIÓN · MIRAR ADENTRO",
+        "ref": "Salmo 139:23–24",
+        "text": "Examíname, oh Dios, y conoce mi corazón; pruébame y conoce mis pensamientos. Mira si hay en mí camino de maldad y guíame por el camino eterno.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
       "kicker": "PASTORAL CARE",
       "title": "We have learned to function with the pain instead of actually dealing with it.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "PASTORAL CARE"
+      "cue": "PASTORAL CARE",
+      "es": {
+        "kicker": "CUIDADO PASTORAL",
+        "title": "Hemos aprendido a funcionar con el dolor en lugar de enfrentarlo y sanar.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -138,7 +232,13 @@
       "ref": "Proverbs 18:14",
       "text": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE POWER OF UNHEALED HURT"
+      "cue": "THE POWER OF UNHEALED HURT",
+      "es": {
+        "kicker": "EL PODER DEL DOLOR NO SANADO",
+        "ref": "Proverbios 18:14",
+        "text": "El espíritu del hombre puede soportar su enfermedad; pero ¿quién puede sobrellevar un espíritu herido?",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "points",
@@ -148,7 +248,15 @@
         "Makes functioning difficult"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 1/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 1/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 1 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -159,7 +267,16 @@
         "Creates bias"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 2/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 2/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 2 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar",
+          "Nos hace juzgar con prejuicios"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -171,7 +288,17 @@
         "Clouds judgment"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 3/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 3/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 3 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar",
+          "Nos hace juzgar con prejuicios",
+          "Nubla nuestro juicio"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "progression",
@@ -184,7 +311,17 @@
       "sub": "A present event can awaken an older response.",
       "speakerNote": "Point to each node. This visual summarizes the prior three observations; it is not a clinical diagnosis.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A VISUAL MODEL"
+      "cue": "A VISUAL MODEL",
+      "es": {
+        "kicker": "UN MODELO VISUAL",
+        "words": [
+          "Herida del pasado",
+          "Percepción distorsionada",
+          "Reacción en el presente"
+        ],
+        "sub": "Una situación presente puede despertar una reacción del pasado.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -194,7 +331,15 @@
         "Hold on to things too long"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 1/4"
+      "cue": "FOUR RESPONSES · BUILD 1/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 1 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -205,7 +350,16 @@
         "Exaggerate situations"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 2/4"
+      "cue": "FOUR RESPONSES · BUILD 2/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 2 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -217,7 +371,17 @@
         "Cut off unrelated people"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 3/4"
+      "cue": "FOUR RESPONSES · BUILD 3/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 3 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones",
+          "Alejar a personas que no te hirieron"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -230,7 +394,18 @@
         "Shift responsibility"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 4/4"
+      "cue": "FOUR RESPONSES · BUILD 4/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 4 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones",
+          "Alejar a personas que no te hirieron",
+          "Evitar asumir tu responsabilidad"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -238,7 +413,13 @@
       "ref": "Jeremiah 6:14",
       "text": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION THREE · IDENTIFYING HURT"
+      "cue": "SECTION THREE · IDENTIFYING HURT",
+      "es": {
+        "kicker": "TERCERA SECCIÓN · IDENTIFICAR EL DOLOR",
+        "ref": "Jeremías 6:14",
+        "text": "Han tratado superficialmente la herida de mi pueblo, diciendo: «Paz, paz», cuando no hay paz.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "steps",
@@ -253,7 +434,19 @@
       ],
       "speakerNote": "Preview all five, then walk each question one at a time.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A FIVE-QUESTION EXAMINATION"
+      "cue": "A FIVE-QUESTION EXAMINATION",
+      "es": {
+        "kicker": "UN EXAMEN DE CINCO PREGUNTAS",
+        "title": "¿Cómo identificamos la herida?",
+        "steps": [
+          "¿Quién?",
+          "¿Qué?",
+          "¿Cómo?",
+          "¿Por qué?",
+          "¿Cuándo?"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -261,7 +454,13 @@
       "title": "Who hurt you?",
       "sub": "Identify the person. Stop assigning the pain to everyone else.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 01 / 05"
+      "cue": "QUESTION 01 / 05",
+      "es": {
+        "kicker": "PREGUNTA 01 / 05",
+        "title": "¿Quién te hirió?",
+        "sub": "Identifica a la persona. Deja de responsabilizar a los demás por ese dolor.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -269,7 +468,13 @@
       "title": "What did they do?",
       "sub": "Separate the facts from the emotions that followed.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 02 / 05"
+      "cue": "QUESTION 02 / 05",
+      "es": {
+        "kicker": "PREGUNTA 02 / 05",
+        "title": "¿Qué te hicieron?",
+        "sub": "Distingue los hechos de las emociones que vinieron después.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -277,7 +482,13 @@
       "title": "How were you hurt?",
       "sub": "Different kinds of wounds require different responses.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 03 / 05"
+      "cue": "QUESTION 03 / 05",
+      "es": {
+        "kicker": "PREGUNTA 03 / 05",
+        "title": "¿De qué manera te hirieron?",
+        "sub": "No todas las heridas son iguales ni requieren la misma respuesta.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -285,7 +496,13 @@
       "title": "Why were you hurt?",
       "sub": "Someone else's wrong decision does not define your worth.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 04 / 05"
+      "cue": "QUESTION 04 / 05",
+      "es": {
+        "kicker": "PREGUNTA 04 / 05",
+        "title": "¿Por qué te hirieron?",
+        "sub": "La mala decisión de otra persona no define tu valor.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -293,7 +510,13 @@
       "title": "When were you hurt?",
       "sub": "A past season does not have to govern the present.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 05 / 05"
+      "cue": "QUESTION 05 / 05",
+      "es": {
+        "kicker": "PREGUNTA 05 / 05",
+        "title": "¿Cuándo te hirieron?",
+        "sub": "Una etapa del pasado no tiene por qué gobernar tu presente.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -301,7 +524,13 @@
       "ref": "Proverbs 17:22",
       "text": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION FOUR · THE ROAD TO HEALING"
+      "cue": "SECTION FOUR · THE ROAD TO HEALING",
+      "es": {
+        "kicker": "CUARTA SECCIÓN · EL CAMINO A LA SANIDAD",
+        "ref": "Proverbios 17:22",
+        "text": "El corazón alegre hace bien como una medicina; pero el espíritu quebrantado seca los huesos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -309,7 +538,13 @@
       "title": "Choosing not to retaliate",
       "ref": "1 Samuel 24:12",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "DAVID AND SAUL"
+      "cue": "DAVID AND SAUL",
+      "es": {
+        "kicker": "DAVID Y SAÚL",
+        "title": "Decidir no tomar represalias",
+        "ref": "1 Samuel 24:12",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -317,7 +552,13 @@
       "title": "David spared Saul. David still kept his distance.",
       "ref": "1 Samuel 24:22",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "DAVID AND SAUL · THE DISTINCTION"
+      "cue": "DAVID AND SAUL · THE DISTINCTION",
+      "es": {
+        "kicker": "DAVID Y SAÚL · LA DIFERENCIA",
+        "title": "David perdonó la vida de Saúl, pero mantuvo la distancia.",
+        "ref": "1 Samuel 24:22",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "contrast",
@@ -326,14 +567,25 @@
       "right": "HEALING\nRestoring what was damaged",
       "speakerNote": "Keep both terms visible as you explain the difference.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "TWO DIFFERENT WORKS"
+      "cue": "TWO DIFFERENT WORKS",
+      "es": {
+        "kicker": "DOS PROCESOS DISTINTOS",
+        "left": "PERDÓN\nDejar de exigir la deuda",
+        "right": "SANIDAD\nRestaurar lo que fue dañado",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "FORGIVENESS ≠ RESTORATION",
       "title": "Releasing the debt doesn't instantly repair the damage.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FORGIVENESS ≠ RESTORATION"
+      "cue": "FORGIVENESS ≠ RESTORATION",
+      "es": {
+        "kicker": "PERDONAR NO ES LO MISMO QUE SANAR",
+        "title": "Soltar la deuda no repara de inmediato el daño.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -341,7 +593,13 @@
       "title": "I can forgive you for breaking my leg.",
       "sub": "The decision to forgive is real.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A SIMPLE ILLUSTRATION · 1/2"
+      "cue": "A SIMPLE ILLUSTRATION · 1/2",
+      "es": {
+        "kicker": "UNA ILUSTRACIÓN SENCILLA · 1 DE 2",
+        "title": "Puedo perdonarte por haberme roto la pierna.",
+        "sub": "La decisión de perdonar es real.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -349,7 +607,13 @@
       "title": "But my leg is still broken.",
       "sub": "Forgiveness did not automatically restore the bone.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A SIMPLE ILLUSTRATION · 2/2"
+      "cue": "A SIMPLE ILLUSTRATION · 2/2",
+      "es": {
+        "kicker": "UNA ILUSTRACIÓN SENCILLA · 2 DE 2",
+        "title": "Pero mi pierna sigue rota.",
+        "sub": "El perdón no restauró el hueso automáticamente.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -357,7 +621,13 @@
       "title": "Healing Can Be Progressive",
       "sub": "Mark 8:22–25",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION FIVE"
+      "cue": "SECTION FIVE",
+      "es": {
+        "kicker": "QUINTA SECCIÓN",
+        "title": "La sanidad puede ser progresiva",
+        "sub": "Marcos 8:22–25",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -365,7 +635,13 @@
       "ref": "Mark 8:24",
       "text": "And he looked up, and said, I see men as trees, walking.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE FIRST TOUCH"
+      "cue": "THE FIRST TOUCH",
+      "es": {
+        "kicker": "EL PRIMER TOQUE",
+        "ref": "Marcos 8:24",
+        "text": "Y levantó la mirada y dijo: «Veo a los hombres como árboles que caminan».",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "verse",
@@ -373,7 +649,13 @@
       "ref": "Mark 8:25",
       "text": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE SECOND TOUCH"
+      "cue": "THE SECOND TOUCH",
+      "es": {
+        "kicker": "EL SEGUNDO TOQUE",
+        "ref": "Marcos 8:25",
+        "text": "Después puso otra vez las manos sobre sus ojos, e hizo que mirara; y fue restaurado, y veía claramente a todos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "progression",
@@ -385,7 +667,17 @@
       ],
       "sub": "Progress came before complete clarity.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "PROGRESSIVE RESTORATION"
+      "cue": "PROGRESSIVE RESTORATION",
+      "es": {
+        "kicker": "RESTAURACIÓN PROGRESIVA",
+        "words": [
+          "No podía ver",
+          "Veía sin claridad",
+          "Veía claramente"
+        ],
+        "sub": "Hubo progreso antes de que llegara la claridad completa.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -393,7 +685,13 @@
       "title": "Healing sets new boundaries",
       "ref": "Proverbs 22:3",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES OUR DECISIONS"
+      "cue": "HEALING CHANGES OUR DECISIONS",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRAS DECISIONES",
+        "title": "La sanidad establece nuevos límites",
+        "ref": "Proverbios 22:3",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -401,7 +699,13 @@
       "title": "Healing defines relationships",
       "ref": "Romans 12:18",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES OUR RELATIONSHIPS"
+      "cue": "HEALING CHANGES OUR RELATIONSHIPS",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRAS RELACIONES",
+        "title": "La sanidad nos ayuda a definir nuestras relaciones",
+        "ref": "Romanos 12:18",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -409,14 +713,25 @@
       "title": "Healing renews clarity",
       "ref": "Ephesians 4:23",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES HOW WE SEE"
+      "cue": "HEALING CHANGES HOW WE SEE",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRA PERSPECTIVA",
+        "title": "La sanidad nos devuelve la claridad",
+        "ref": "Efesios 4:23",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "THE FRUIT OF HEALING",
       "title": "You remember what happened. You no longer have to keep living in it.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE FRUIT OF HEALING"
+      "cue": "THE FRUIT OF HEALING",
+      "es": {
+        "kicker": "EL FRUTO DE LA SANIDAD",
+        "title": "Recuerdas lo que pasó, pero ya no tienes que seguir viviendo en ello.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "steps",
@@ -429,7 +744,17 @@
       ],
       "speakerNote": "This is the practical three-part response. Advance through each element separately.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION SIX"
+      "cue": "SECTION SIX",
+      "es": {
+        "kicker": "SEXTA SECCIÓN",
+        "title": "¿Cómo comenzamos a sanar?",
+        "steps": [
+          "Por el poder de Dios",
+          "Mediante conversaciones sinceras y apoyo",
+          "Reconociendo lo que necesita sanar"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -437,7 +762,13 @@
       "ref": "Psalm 147:3",
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 1/3"
+      "cue": "HOW WE HEAL · 1/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 1 DE 3",
+        "ref": "Salmo 147:3",
+        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -445,7 +776,13 @@
       "title": "Through genuine processing and conversation",
       "ref": "James 5:16",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 2/3"
+      "cue": "HOW WE HEAL · 2/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 2 DE 3",
+        "title": "Al procesar sinceramente lo que sentimos y hablar de ello",
+        "ref": "Santiago 5:16",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -453,7 +790,13 @@
       "title": "Through recognizing and admitting the wound",
       "ref": "Psalm 139:23",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 3/3"
+      "cue": "HOW WE HEAL · 3/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 3 DE 3",
+        "title": "Al reconocer y admitir que hay una herida",
+        "ref": "Salmo 139:23",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -461,14 +804,25 @@
       "ref": "Isaiah 61:1",
       "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "INVITATION · COME TO THE HEALER"
+      "cue": "INVITATION · COME TO THE HEALER",
+      "es": {
+        "kicker": "INVITACIÓN · VEN AL SANADOR",
+        "ref": "Isaías 61:1",
+        "text": "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido para anunciar buenas noticias a los humildes. Me ha enviado a vendar a los quebrantados de corazón, a proclamar libertad a los cautivos y apertura de la prisión a los presos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
       "kicker": "A PERSONAL INVITATION",
       "title": "Bring Him the places you have learned to hide.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A PERSONAL INVITATION"
+      "cue": "A PERSONAL INVITATION",
+      "es": {
+        "kicker": "UNA INVITACIÓN PERSONAL",
+        "title": "Tráele a Dios aquello que has aprendido a esconder.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -476,7 +830,13 @@
       "ref": "Matthew 11:28",
       "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE INVITATION"
+      "cue": "THE INVITATION",
+      "es": {
+        "kicker": "LA INVITACIÓN",
+        "ref": "Mateo 11:28",
+        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -484,7 +844,13 @@
       "title": "You can be delivered from what hurt you and still need healing from what it taught you.",
       "sub": "Ask God to heal what is happening within you.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE CLOSING DECLARATION"
+      "cue": "THE CLOSING DECLARATION",
+      "es": {
+        "kicker": "LA DECLARACIÓN FINAL",
+        "title": "Puedes ser libre de aquello que te hirió y todavía necesitar sanidad por lo que esa experiencia te enseñó.",
+        "sub": "Pídele a Dios que sane lo que ocurre dentro de ti.",
+        "translationKind": "editorial-slide"
+      }
     }
   ],
   "verses": [
