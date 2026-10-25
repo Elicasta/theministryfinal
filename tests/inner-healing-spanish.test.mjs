@@ -184,3 +184,13 @@ test('cover text is clean in English and Spanish, and side-TV presentation is ce
   assert.match(css,/#scriptures \.ih-side-slide \.contrast-box\s*\{[^}]*justify-content:center;/);
   assert.match(css,/#scriptures \.ih-side-slide \.ih-process-step\s*\{[^}]*align-items:center;/);
 });
+
+test('progressive sermon labels use POINT rather than BUILD without changing Spanish cues',()=>{
+  const progressive=lesson.slides.filter(s=>s.type==='points'&&/ · POINT \\d+\\/\\d+$/.test(s.kicker||''));
+  assert.equal(progressive.length,10);
+  for(const slide of progressive){
+    assert.match(slide.cue,/ · POINT \\d+\\/\\d+$/);
+    assert.doesNotMatch(slide.kicker,/BUILD/);
+    assert.match(slide.es.kicker,/\\d+ DE [34]$/);
+  }
+});
