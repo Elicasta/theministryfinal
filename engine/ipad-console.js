@@ -46,6 +46,12 @@
       const a=document.querySelector('.presenter-actions a[href="'+needle+'"]');
       if(a)a.href=target+'?lesson='+encodeURIComponent(lesson.id);
     }
+    const isSermon=lesson.id==='inner-healing-2026-10-25';
+    const classLink=document.querySelector('.presenter-actions a[href^="/class"]');
+    if(classLink)classLink.style.display=isSermon?'none':'';
+    if($('ipad-feedback'))$('ipad-feedback').textContent=isSermon
+      ?'Sermon mode · Full manuscript and manual projector cues. Audience participation is off.'
+      :'Open the audience link on a second device to test interaction before class.';
     lastPollSignature='';lastQuestionSignature='';
     renderPolls(true);renderQuestions(true);render();
     if(!bound){bound=true;bind();setInterval(refreshAudience,5000);}
@@ -73,6 +79,7 @@
   }
   function audience(){renderQuestions();renderPolls();}
   async function refreshAudience(){
+    if(api.getLesson()?.id==='inner-healing-2026-10-25')return;
     const ok=await api.loadAudienceData();
     if(!ok)status('Audience data is unavailable. Check the connection before showing results.','error');
   }
