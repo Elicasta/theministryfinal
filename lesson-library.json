@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-20",
+  "updatedAt": "2026-10-25",
   "latest": "doctrine-night-tenets-2026-10-20",
   "rules": {
     "stableBuildsAreImmutable": true,
@@ -220,6 +220,28 @@
         "confidence": "/confidence?lesson=doctrine-night-tenets-2026-10-20"
       },
       "engineSource": "/content/doctrine-night-2026-10-20.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "inner-healing-2026-10-25",
+      "series": "Standalone Lessons",
+      "sequence": "One-off",
+      "title": "The Importance of Inner Healing",
+      "scripture": "Psalm 147:3 · Mark 8:22–25 · Isaiah 61:1",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=inner-healing-2026-10-25",
+        "projector": "/projector?lesson=inner-healing-2026-10-25",
+        "manuscript": "/presenter?lesson=inner-healing-2026-10-25",
+        "student": "/class?lesson=inner-healing-2026-10-25",
+        "controller": "/mobile?lesson=inner-healing-2026-10-25",
+        "scriptures": "/scriptures?lesson=inner-healing-2026-10-25",
+        "confidence": "/confidence?lesson=inner-healing-2026-10-25"
+      },
+      "engineSource": "/content/inner-healing-2026-10-25.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
