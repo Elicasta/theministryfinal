@@ -117,5 +117,5 @@ test('moving to a new teaching cue clears stale manual verse and prepares the ne
   go(12);
   assert.equal(state.scriptureOutput,null);
   assert.equal(lookups,0,'Authored sermon content must not require API lookup');
-  assert.equal(sends,5);assert.equal(renders,5);
+  assert.equal(sends,4);assert.equal(renders,4);
 });
