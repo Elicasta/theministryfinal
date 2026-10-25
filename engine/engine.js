@@ -141,11 +141,11 @@ function scriptureHtml(v){
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
   const version=lesson?.id==='inner-healing-2026-10-25'
-    ?'ESPAÑOL · TRADUCCIÓN PROPIA DEL KJV'
+    ?'REINA-VALERA 1960 · RVR1960'
     :sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
-    (lesson?.id==='inner-healing-2026-10-25'?'Texto en español no preparado para este versículo. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
+    (lesson?.id==='inner-healing-2026-10-25'?'RVR1960 no está guardada para esta referencia. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
     ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · '+esc(version)+'</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
@@ -190,7 +190,7 @@ function takeScripture(v,target='both'){
   const bank=lesson?.id==='inner-healing-2026-10-25'
     ?verses().find(row=>String(row.ref_en||row.ref).replace(/–/g,'-')===String(input?.ref_en||'').replace(/–/g,'-')):null;
   const sc=bank?normalizeScripture({...bank,...v,text_es:bank.text_es,ref_es:bank.ref_es,
-    spanishSource:'original-kjv-rendering',spanishStatus:'ready'}):input;
+    spanishSource:bank.spanishSource||'RVR1960',spanishStatus:'ready',copyright:bank.copyright||lesson?.spanishCopyrightNotice||''}):input;
   if(!sc?.ref_en||!sc?.text_en){
     window.MinistryIpadStatus?.('Scripture needs a reference and KJV text before it can be sent.','error');
     return false;
@@ -202,7 +202,7 @@ function takeScripture(v,target='both'){
     state.scriptureCueMode='manual';
     state.sideScreenCleared=false;
     if(!sc.text_es){state.scriptureOutput.spanishStatus='unavailable';
-      state.scriptureOutput.spanishError='La traducción manual solo incluye los versículos de este sermón.';}
+      state.scriptureOutput.spanishError='La RVR1960 guardada incluye únicamente los pasajes de este sermón.';}
   }
   if(target!=='tv'){
     state.overlay={...sc};state.activePoll=state.activeQuestion=null;state.black=false;
@@ -221,7 +221,7 @@ function sermonSpanishSideSlide(s){
   const kind=String(slide.type||'statement').replace(/[^a-z-]/g,'');
   const content=slideHtml(slide,false,'es');
   return '<div class="ih-side-slide ih-side-'+kind+'" lang="es" data-sermon-cue="'+state.slide+'">'
-    +content+(slide.type==='verse'?'<div class="ih-side-verse-source">Traducción propia al español basada en el KJV · no es RVR1960</div>':'')+'</div>';
+    +content+(slide.type==='verse'?'<div class="ih-side-verse-source">Reina-Valera 1960 (RVR1960)</div><div class="ih-side-verse-copyright">'+esc(lesson.spanishCopyrightNotice||'')+'</div>':'')+'</div>';
 }
 function sideTvExplanationHtml(note){
   if(!note?.title||!note?.body)return '';

@@ -49,9 +49,9 @@
       "cue": "OUR STARTING POINT",
       "es": {
         "kicker": "NUESTRO PUNTO DE PARTIDA",
-        "ref": "Salmo 147:3",
-        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
-        "translationKind": "independent-kjv-rendering"
+        "ref": "Salmos 147:3",
+        "text": "El sana a los quebrantados de corazón, Y venda sus heridas.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -209,9 +209,9 @@
       "cue": "SECTION TWO · LOOK WITHIN",
       "es": {
         "kicker": "SEGUNDA SECCIÓN · MIRAR ADENTRO",
-        "ref": "Salmo 139:23–24",
-        "text": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos. Mira si hay en mí algún camino perverso y guíame por el camino eterno.",
-        "translationKind": "independent-kjv-rendering"
+        "ref": "Salmos 139:23-24",
+        "text": "23 Examíname, oh Dios, y conoce mi corazón; Pruébame y conoce mis pensamientos; 24 Y ve si hay en mí camino de perversidad, Y guíame en el camino eterno.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -236,8 +236,8 @@
       "es": {
         "kicker": "EL PODER DEL DOLOR NO SANADO",
         "ref": "Proverbios 18:14",
-        "text": "El ánimo de una persona puede sostenerla en la enfermedad, pero ¿quién puede soportar un espíritu herido?",
-        "translationKind": "independent-kjv-rendering"
+        "text": "El ánimo del hombre soportará su enfermedad; Mas ¿quién soportará al ánimo angustiado?",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -417,8 +417,8 @@
       "es": {
         "kicker": "TERCERA SECCIÓN · IDENTIFICAR EL DOLOR",
         "ref": "Jeremías 6:14",
-        "text": "Han tratado superficialmente la herida de la hija de mi pueblo, diciendo: Paz, paz, cuando no hay paz.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "Y curan la herida de mi pueblo con liviandad, diciendo: Paz, paz; y no hay paz.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -528,8 +528,8 @@
       "es": {
         "kicker": "CUARTA SECCIÓN · EL CAMINO A LA SANIDAD",
         "ref": "Proverbios 17:22",
-        "text": "Un corazón alegre hace bien como una medicina, pero un espíritu quebrantado seca los huesos.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "El corazón alegre constituye buen remedio; Mas el espíritu triste seca los huesos.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -639,8 +639,8 @@
       "es": {
         "kicker": "EL PRIMER TOQUE",
         "ref": "Marcos 8:24",
-        "text": "Él miró hacia arriba y dijo: Veo a los hombres, pero me parecen árboles que caminan.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "El, mirando, dijo: Veo los hombres como árboles, pero los veo que andan.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -653,8 +653,8 @@
       "es": {
         "kicker": "EL SEGUNDO TOQUE",
         "ref": "Marcos 8:25",
-        "text": "Después Jesús puso otra vez las manos sobre sus ojos y le hizo mirar. El hombre quedó restaurado y podía ver claramente a todos.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "Luego le puso otra vez las manos sobre los ojos, y le hizo que mirase; y fue restablecido, y vio de lejos y claramente a todos.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -765,9 +765,9 @@
       "cue": "HOW WE HEAL · 1/3",
       "es": {
         "kicker": "CÓMO SANAMOS · 1 DE 3",
-        "ref": "Salmo 147:3",
-        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
-        "translationKind": "independent-kjv-rendering"
+        "ref": "Salmos 147:3",
+        "text": "El sana a los quebrantados de corazón, Y venda sus heridas.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -808,8 +808,8 @@
       "es": {
         "kicker": "INVITACIÓN · VEN AL SANADOR",
         "ref": "Isaías 61:1",
-        "text": "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido para anunciar buenas noticias a los humildes. Me ha enviado a vendar a los quebrantados de corazón, a proclamar libertad a los cautivos y a anunciar la apertura de la prisión a los que están presos.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "El Espíritu de Jehová el Señor está sobre mí, porque me ungió Jehová; me ha enviado a predicar buenas nuevas a los abatidos, a vendar a los quebrantados de corazón, a publicar libertad a los cautivos, y a los presos apertura de la cárcel;",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -834,8 +834,8 @@
       "es": {
         "kicker": "LA INVITACIÓN",
         "ref": "Mateo 11:28",
-        "text": "Venid a mí todos los que estáis fatigados y cargados, y yo os daré descanso.",
-        "translationKind": "independent-kjv-rendering"
+        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -859,10 +859,11 @@
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "ref_en": "Psalm 147:3",
       "text_en": "He healeth the broken in heart, and bindeth up their wounds.",
-      "ref_es": "Salmo 147:3",
-      "text_es": "Él sana a los quebrantados de corazón y venda sus heridas.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Salmos 147:3",
+      "text_es": "El sana a los quebrantados de corazón, Y venda sus heridas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Hebrews 12:15",
@@ -870,9 +871,10 @@
       "ref_en": "Hebrews 12:15",
       "text_en": "Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;",
       "ref_es": "Hebreos 12:15",
-      "text_es": "Vigilad con cuidado para que ninguno deje de alcanzar la gracia de Dios, y para que ninguna raíz de amargura, al brotar, os cause problemas y contamine a muchos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Mirad bien, no sea que alguno deje de alcanzar la gracia de Dios; que brotando alguna raíz de amargura, os estorbe, y por ella muchos sean contaminados;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 28:1",
@@ -880,9 +882,10 @@
       "ref_en": "Proverbs 28:1",
       "text_en": "The wicked flee when no man pursueth: but the righteous are bold as a lion.",
       "ref_es": "Proverbios 28:1",
-      "text_es": "Los malvados huyen aunque nadie los persiga; pero los justos tienen la valentía de un león.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Huye el impío sin que nadie lo persiga; Mas el justo está confiado como un león.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 15:15",
@@ -890,9 +893,10 @@
       "ref_en": "Proverbs 15:15",
       "text_en": "All the days of the afflicted are evil: but he that is of a merry heart hath a continual feast.",
       "ref_es": "Proverbios 15:15",
-      "text_es": "Para el afligido todos los días son malos, pero quien tiene un corazón alegre disfruta de una fiesta continua.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Todos los días del afligido son difíciles; Mas el de corazón contento tiene un banquete continuo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "John 8:34",
@@ -900,9 +904,10 @@
       "ref_en": "John 8:34",
       "text_en": "Jesus answered them, Verily, verily, I say unto you, Whosoever committeth sin is the servant of sin.",
       "ref_es": "Juan 8:34",
-      "text_es": "Jesús les respondió: De cierto, de cierto os digo que todo el que practica el pecado es esclavo del pecado.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Jesús les respondió: De cierto, de cierto os digo, que todo aquel que hace pecado, esclavo es del pecado.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "2 Corinthians 10:5",
@@ -910,9 +915,10 @@
       "ref_en": "2 Corinthians 10:5",
       "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
       "ref_es": "2 Corintios 10:5",
-      "text_es": "Derribamos los razonamientos y toda altivez que se levanta contra el conocimiento de Dios, y llevamos cautivo todo pensamiento para que obedezca a Cristo.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Romans 6:16",
@@ -920,9 +926,10 @@
       "ref_en": "Romans 6:16",
       "text_en": "Know ye not, that to whom ye yield yourselves servants to obey, his servants ye are to whom ye obey; whether of sin unto death, or of obedience unto righteousness?",
       "ref_es": "Romanos 6:16",
-      "text_es": "¿No sabéis que, cuando os ofrecéis a alguien para obedecerle, os convertís en siervos de aquel a quien obedecéis, ya sea del pecado que lleva a la muerte o de la obediencia que conduce a la justicia?",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "¿No sabéis que si os sometéis a alguien como esclavos para obedecerle, sois esclavos de aquel a quien obedecéis, sea del pecado para muerte, o sea de la obediencia para justicia?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "1 Corinthians 6:12",
@@ -930,19 +937,21 @@
       "ref_en": "1 Corinthians 6:12",
       "text_en": "All things are lawful unto me, but all things are not expedient: all things are lawful for me, but I will not be brought under the power of any.",
       "ref_es": "1 Corintios 6:12",
-      "text_es": "Todo me es permitido, pero no todo me conviene; todo me es permitido, pero no dejaré que nada me domine.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Todas las cosas me son lícitas, mas no todas convienen; todas las cosas me son lícitas, mas yo no me dejaré dominar de ninguna.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Psalm 139:23–24",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
       "ref_en": "Psalm 139:23–24",
       "text_en": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
-      "ref_es": "Salmo 139:23–24",
-      "text_es": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos. Mira si hay en mí algún camino perverso y guíame por el camino eterno.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Salmos 139:23-24",
+      "text_es": "23 Examíname, oh Dios, y conoce mi corazón; Pruébame y conoce mis pensamientos; 24 Y ve si hay en mí camino de perversidad, Y guíame en el camino eterno.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 14:10",
@@ -950,9 +959,10 @@
       "ref_en": "Proverbs 14:10",
       "text_en": "The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy.",
       "ref_es": "Proverbios 14:10",
-      "text_es": "Cada corazón conoce su propia amargura, y ningún extraño puede compartir plenamente su alegría.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El corazón conoce la amargura de su alma; Y extraño no se entremeterá en su alegría.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 18:14",
@@ -960,9 +970,10 @@
       "ref_en": "Proverbs 18:14",
       "text_en": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?",
       "ref_es": "Proverbios 18:14",
-      "text_es": "El ánimo de una persona puede sostenerla en la enfermedad, pero ¿quién puede soportar un espíritu herido?",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El ánimo del hombre soportará su enfermedad; Mas ¿quién soportará al ánimo angustiado?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 15:13",
@@ -970,9 +981,10 @@
       "ref_en": "Proverbs 15:13",
       "text_en": "A merry heart maketh a cheerful countenance: but by sorrow of the heart the spirit is broken.",
       "ref_es": "Proverbios 15:13",
-      "text_es": "Un corazón alegre ilumina el rostro, pero la tristeza del corazón quebranta el espíritu.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El corazón alegre hermosea el rostro; Mas por el dolor del corazón el espíritu se abate.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 19:11",
@@ -980,9 +992,10 @@
       "ref_en": "Proverbs 19:11",
       "text_en": "The discretion of a man deferreth his anger; and it is his glory to pass over a transgression.",
       "ref_es": "Proverbios 19:11",
-      "text_es": "La prudencia de una persona hace que tarde en enojarse, y es para ella un honor pasar por alto una ofensa.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "La cordura del hombre detiene su furor, Y su honra es pasar por alto la ofensa.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Galatians 6:5",
@@ -990,9 +1003,10 @@
       "ref_en": "Galatians 6:5",
       "text_en": "For every man shall bear his own burden.",
       "ref_es": "Gálatas 6:5",
-      "text_es": "Porque cada uno llevará su propia carga.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "porque cada uno llevará su propia carga.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Jeremiah 6:14",
@@ -1000,9 +1014,10 @@
       "ref_en": "Jeremiah 6:14",
       "text_en": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
       "ref_es": "Jeremías 6:14",
-      "text_es": "Han tratado superficialmente la herida de la hija de mi pueblo, diciendo: Paz, paz, cuando no hay paz.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Y curan la herida de mi pueblo con liviandad, diciendo: Paz, paz; y no hay paz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 20:5",
@@ -1010,9 +1025,10 @@
       "ref_en": "Proverbs 20:5",
       "text_en": "Counsel in the heart of man is like deep water; but a man of understanding will draw it out.",
       "ref_es": "Proverbios 20:5",
-      "text_es": "Los propósitos que hay en el corazón humano son como aguas profundas, pero una persona entendida sabe sacarlos a la luz.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Como aguas profundas es el consejo en el corazón del hombre; Mas el hombre entendido lo alcanzará.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 18:13",
@@ -1020,9 +1036,10 @@
       "ref_en": "Proverbs 18:13",
       "text_en": "He that answereth a matter before he heareth it, it is folly and shame unto him.",
       "ref_es": "Proverbios 18:13",
-      "text_es": "Responder a un asunto antes de escucharlo es necedad y vergüenza para quien lo hace.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Al que responde palabra antes de oír, Le es fatuidad y oprobio.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 18:19",
@@ -1030,19 +1047,21 @@
       "ref_en": "Proverbs 18:19",
       "text_en": "A brother offended is harder to be won than a strong city: and their contentions are like the bars of a castle.",
       "ref_es": "Proverbios 18:19",
-      "text_es": "Un hermano ofendido es más difícil de recuperar que una ciudad fortificada, y las contiendas entre hermanos son como los cerrojos de un castillo.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El hermano ofendido es más tenaz que una ciudad fuerte, Y las contiendas de los hermanos son como cerrojos de alcázar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Psalm 27:10",
       "text": "When my father and my mother forsake me, then the LORD will take me up.",
       "ref_en": "Psalm 27:10",
       "text_en": "When my father and my mother forsake me, then the LORD will take me up.",
-      "ref_es": "Salmo 27:10",
-      "text_es": "Aunque mi padre y mi madre me abandonen, el Señor me recibirá.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Salmos 27:10",
+      "text_es": "Aunque mi padre y mi madre me dejaran, Con todo, Jehová me recogerá.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 17:22",
@@ -1050,9 +1069,10 @@
       "ref_en": "Proverbs 17:22",
       "text_en": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones.",
       "ref_es": "Proverbios 17:22",
-      "text_es": "Un corazón alegre hace bien como una medicina, pero un espíritu quebrantado seca los huesos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El corazón alegre constituye buen remedio; Mas el espíritu triste seca los huesos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 4:23",
@@ -1060,9 +1080,10 @@
       "ref_en": "Proverbs 4:23",
       "text_en": "Keep thy heart with all diligence; for out of it are the issues of life.",
       "ref_es": "Proverbios 4:23",
-      "text_es": "Sobre todas las cosas que debes cuidar, guarda tu corazón, porque de él brotan los asuntos de la vida.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Sobre toda cosa guardada, guarda tu corazón; Porque de él mana la vida.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "1 Samuel 24:12",
@@ -1070,9 +1091,10 @@
       "ref_en": "1 Samuel 24:12",
       "text_en": "The LORD judge between me and thee, and the LORD avenge me of thee: but mine hand shall not be upon thee.",
       "ref_es": "1 Samuel 24:12",
-      "text_es": "Que el Señor juzgue entre tú y yo, y que el Señor me haga justicia por lo que me has hecho; pero mi mano no se levantará contra ti.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Juzgue Jehová entre tú y yo, y véngueme de ti Jehová; pero mi mano no será contra ti.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Romans 12:19",
@@ -1080,9 +1102,10 @@
       "ref_en": "Romans 12:19",
       "text_en": "Dearly beloved, avenge not yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, saith the Lord.",
       "ref_es": "Romanos 12:19",
-      "text_es": "Amados míos, no os venguéis vosotros mismos; dejad lugar a la justicia de Dios, porque está escrito: Mía es la venganza; yo daré el pago, dice el Señor.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "No os venguéis vosotros mismos, amados míos, sino dejad lugar a la ira de Dios; porque escrito está: Mía es la venganza, yo pagaré, dice el Señor.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "1 Samuel 24:22",
@@ -1090,19 +1113,21 @@
       "ref_en": "1 Samuel 24:22",
       "text_en": "And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold.",
       "ref_es": "1 Samuel 24:22",
-      "text_es": "David se lo juró a Saúl. Entonces Saúl regresó a su casa, pero David y sus hombres subieron a su refugio.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Entonces David juró a Saúl. Y se fue Saúl a su casa, y David y sus hombres subieron al lugar fuerte.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Ephesians 4:31–32",
       "text": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you.",
       "ref_en": "Ephesians 4:31–32",
       "text_en": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you.",
-      "ref_es": "Efesios 4:31–32",
-      "text_es": "Apartad de vosotros toda amargura, ira, enojo, gritería, palabras ofensivas y toda malicia. Sed amables unos con otros, compasivos y dispuestos a perdonaros, así como Dios os perdonó por medio de Cristo.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Efesios 4:31-32",
+      "text_es": "31 Quítense de vosotros toda amargura, enojo, ira, gritería y maledicencia, y toda malicia. 32 Antes sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Colossians 3:13",
@@ -1110,9 +1135,10 @@
       "ref_en": "Colossians 3:13",
       "text_en": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.",
       "ref_es": "Colosenses 3:13",
-      "text_es": "Soportaos unos a otros y perdonaos mutuamente si alguno tiene una queja contra otro. Así como Cristo os perdonó, perdonad también vosotros.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "soportándoos unos a otros, y perdonándoos unos a otros si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Mark 8:24",
@@ -1120,9 +1146,10 @@
       "ref_en": "Mark 8:24",
       "text_en": "And he looked up, and said, I see men as trees, walking.",
       "ref_es": "Marcos 8:24",
-      "text_es": "Él miró hacia arriba y dijo: Veo a los hombres, pero me parecen árboles que caminan.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El, mirando, dijo: Veo los hombres como árboles, pero los veo que andan.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Mark 8:25",
@@ -1130,9 +1157,10 @@
       "ref_en": "Mark 8:25",
       "text_en": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly.",
       "ref_es": "Marcos 8:25",
-      "text_es": "Después Jesús puso otra vez las manos sobre sus ojos y le hizo mirar. El hombre quedó restaurado y podía ver claramente a todos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Luego le puso otra vez las manos sobre los ojos, y le hizo que mirase; y fue restablecido, y vio de lejos y claramente a todos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Philippians 1:6",
@@ -1140,9 +1168,10 @@
       "ref_en": "Philippians 1:6",
       "text_en": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ:",
       "ref_es": "Filipenses 1:6",
-      "text_es": "Estoy seguro de que aquel que comenzó en vosotros una buena obra la llevará hasta su cumplimiento en el día de Jesucristo.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "estando persuadido de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 22:3",
@@ -1150,9 +1179,10 @@
       "ref_en": "Proverbs 22:3",
       "text_en": "A prudent man foreseeth the evil, and hideth himself: but the simple pass on, and are punished.",
       "ref_es": "Proverbios 22:3",
-      "text_es": "La persona prudente ve venir el peligro y se pone a salvo, pero los ingenuos siguen adelante y sufren las consecuencias.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El avisado ve el mal y se esconde; Mas los simples pasan y reciben el daño.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Romans 12:18",
@@ -1160,9 +1190,10 @@
       "ref_en": "Romans 12:18",
       "text_en": "If it be possible, as much as lieth in you, live peaceably with all men.",
       "ref_es": "Romanos 12:18",
-      "text_es": "Si es posible, y en cuanto dependa de vosotros, vivid en paz con todos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Ephesians 4:23",
@@ -1170,9 +1201,10 @@
       "ref_en": "Ephesians 4:23",
       "text_en": "And be renewed in the spirit of your mind;",
       "ref_es": "Efesios 4:23",
-      "text_es": "Y sed renovados en la actitud de vuestra mente.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "y renovaos en el espíritu de vuestra mente,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "James 5:16",
@@ -1180,9 +1212,10 @@
       "ref_en": "James 5:16",
       "text_en": "Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much.",
       "ref_es": "Santiago 5:16",
-      "text_es": "Confesaos vuestras faltas unos a otros y orad unos por otros para que seáis sanados. La oración ferviente de una persona justa tiene gran poder.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Confesaos vuestras ofensas unos a otros, y orad unos por otros, para que seáis sanados. La oración eficaz del justo puede mucho.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Proverbs 11:14",
@@ -1190,29 +1223,32 @@
       "ref_en": "Proverbs 11:14",
       "text_en": "Where no counsel is, the people fall: but in the multitude of counsellors there is safety.",
       "ref_es": "Proverbios 11:14",
-      "text_es": "Sin dirección sabia el pueblo cae, pero en la abundancia de consejeros hay seguridad.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Donde no hay dirección sabia, caerá el pueblo; Mas en la multitud de consejeros hay seguridad.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Psalm 139:23",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts:",
       "ref_en": "Psalm 139:23",
       "text_en": "Search me, O God, and know my heart: try me, and know my thoughts:",
-      "ref_es": "Salmo 139:23",
-      "text_es": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Salmos 139:23",
+      "text_es": "Examíname, oh Dios, y conoce mi corazón; Pruébame y conoce mis pensamientos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Psalm 51:6",
       "text": "Behold, thou desirest truth in the inward parts: and in the hidden part thou shalt make me to know wisdom.",
       "ref_en": "Psalm 51:6",
       "text_en": "Behold, thou desirest truth in the inward parts: and in the hidden part thou shalt make me to know wisdom.",
-      "ref_es": "Salmo 51:6",
-      "text_es": "Tú deseas la verdad en lo más profundo del ser, y en lo secreto me enseñas sabiduría.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "ref_es": "Salmos 51:6",
+      "text_es": "He aquí, tú amas la verdad en lo íntimo, Y en lo secreto me has hecho comprender sabiduría.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Isaiah 61:1",
@@ -1220,9 +1256,10 @@
       "ref_en": "Isaiah 61:1",
       "text_en": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
       "ref_es": "Isaías 61:1",
-      "text_es": "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido para anunciar buenas noticias a los humildes. Me ha enviado a vendar a los quebrantados de corazón, a proclamar libertad a los cautivos y a anunciar la apertura de la prisión a los que están presos.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "El Espíritu de Jehová el Señor está sobre mí, porque me ungió Jehová; me ha enviado a predicar buenas nuevas a los abatidos, a vendar a los quebrantados de corazón, a publicar libertad a los cautivos, y a los presos apertura de la cárcel;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     },
     {
       "ref": "Matthew 11:28",
@@ -1230,9 +1267,10 @@
       "ref_en": "Matthew 11:28",
       "text_en": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
       "ref_es": "Mateo 11:28",
-      "text_es": "Venid a mí todos los que estáis fatigados y cargados, y yo os daré descanso.",
-      "spanishSource": "Original Spanish rendering of user-supplied KJV",
-      "spanishStatus": "ready"
+      "text_es": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
     }
   ],
   "polls": [],
@@ -1642,6 +1680,7 @@
   "translations": {
     "es": null
   },
-  "spanishSource": "Original Spanish renderings of KJV verses provided in the lesson. Not RVR1960.",
-  "spanishVersionLabel": "ESPAÑOL · TRADUCCIÓN PROPIA DEL KJV"
+  "spanishSource": "RVR1960 verses transcribed directly from user-provided text for this sermon. All non-Scripture slide copy translated editorially.",
+  "spanishVersionLabel": "REINA-VALERA 1960 · RVR1960",
+  "spanishCopyrightNotice": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Reina-Valera 1960 ® es una marca registrada de las Sociedades Bíblicas Unidas y puede ser usada solo bajo licencia."
 }

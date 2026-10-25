@@ -39,13 +39,17 @@ test('52 authored Spanish cues cover every slide type and cumulative reveal',()=
   assert.equal(lesson.slides[6].es.points.length,3);
   assert.equal(lesson.slides[21].es.points.length,4);
 });
-test('all 38 sermon Scriptures are manually authored locally, with no incorrect RVR1960 claims',()=>{
+test('all 38 supplied sermon Scripture passages are saved as RVR1960 with publisher notice',()=>{
   assert.equal(lesson.verses.length,38);
-  assert.match(lesson.spanishSource,/Not RVR1960/);
+  assert.match(lesson.spanishSource,/RVR1960/);
+  assert.match(lesson.spanishCopyrightNotice,/Sociedades Bíblicas en América Latina, 1960/);
+  assert.match(lesson.spanishCopyrightNotice,/Sociedades Bíblicas Unidas, 1988/);
   for(const [i,v] of lesson.verses.entries()){
     assert.ok(v.ref_en&&v.ref_es,'Missing translated verse reference '+i);
     assert.ok(v.text_en&&v.text_es,'Missing translated verse text '+i);
-    assert.equal(v.spanishSource,'Original Spanish rendering of user-supplied KJV');
+    assert.equal(v.spanishSource,'RVR1960');
+    assert.equal(v.spanishStatus,'ready');
+    assert.equal(v.copyright,lesson.spanishCopyrightNotice);
   }
   for(const s of lesson.slides.filter(x=>x.type==='verse')){
     const b=lesson.verses.find(v=>v.ref_en===s.ref);
@@ -112,10 +116,45 @@ test('moving to a new teaching cue clears stale manual verse and prepares the ne
   assert.equal(state.slide,5);assert.equal(state.overlay,null);assert.equal(state.scriptureOutput,null);
   assert.equal(state.scriptureCueMode,'slide');
   go(11);
-  assert.equal(state.scriptureOutput.ref_es,'Salmo 139:23–24');
+  assert.equal(state.scriptureOutput.ref_es,'Salmos 139:23-24');
   assert.ok(state.scriptureOutput.text_es);
   go(12);
   assert.equal(state.scriptureOutput,null);
   assert.equal(lookups,0,'Authored sermon content must not require API lookup');
   assert.equal(sends,4);assert.equal(renders,4);
+});
+
+
+test('user-pasted RVR1960 is preserved verbatim for representative short, long, and multi-verse references',()=>{
+  const refs={
+    'Psalm 147:3':'El sana a los quebrantados de corazón, Y venda sus heridas.',
+    'Proverbs 28:1':'Huye el impío sin que nadie lo persiga; Mas el justo está confiado como un león.',
+    '2 Corinthians 10:5':'derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,',
+    'Psalm 139:23–24':'23 Examíname, oh Dios, y conoce mi corazón; Pruébame y conoce mis pensamientos; 24 Y ve si hay en mí camino de perversidad, Y guíame en el camino eterno.',
+    'Ephesians 4:31–32':'31 Quítense de vosotros toda amargura, enojo, ira, gritería y maledicencia, y toda malicia. 32 Antes sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.',
+    'Mark 8:24':'El, mirando, dijo: Veo los hombres como árboles, pero los veo que andan.',
+    'Isaiah 61:1':'El Espíritu de Jehová el Señor está sobre mí, porque me ungió Jehová; me ha enviado a predicar buenas nuevas a los abatidos, a vendar a los quebrantados de corazón, a publicar libertad a los cautivos, y a los presos apertura de la cárcel;',
+    'Matthew 11:28':'Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.'
+  };
+  for(const [ref,expected] of Object.entries(refs)){
+    const scripture=lesson.verses.find(v=>v.ref_en===ref);
+    assert.ok(scripture,ref+' missing');
+    assert.equal(scripture.text_es,expected,ref+' differs from supplied text');
+  }
+  assert.equal(lesson.verses.find(v=>v.ref_en==='Psalm 147:3').ref_es,'Salmos 147:3');
+  assert.equal(lesson.slides.filter(v=>v.type==='verse').length,10);
+  for(const slide of lesson.slides.filter(v=>v.type==='verse')){
+    assert.equal(slide.es.translationKind,'RVR1960');
+    assert.equal(slide.es.text,lesson.verses.find(v=>v.ref_en===slide.ref).text_es);
+  }
+});
+test('live sermon engine uses cached RVR1960 from user-provided lesson for manuscript tap, no API',()=>{
+  assert.match(engine,/spanishSource:bank\.spanishSource\|\|'RVR1960'/);
+  assert.match(engine,/spanishStatus:'ready',copyright:bank\.copyright/);
+  assert.match(engine,/REINA-VALERA 1960 · RVR1960/);
+  assert.match(engine,/ih-side-verse-source/);
+  assert.match(engine,/ih-side-verse-copyright/);
+  assert.match(engine,/lesson\.spanishCopyrightNotice/);
+  assert.match(engine,/if\(lesson\?\.id!=='inner-healing-2026-10-25'\)resolveSpanish/);
+  assert.doesNotMatch(engine,/TRADUCCIÓN PROPIA DEL KJV/);
 });
