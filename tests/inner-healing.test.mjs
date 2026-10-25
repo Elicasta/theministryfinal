@@ -51,7 +51,7 @@ test('sermon manuscript preserves the full teaching arc and KJV emphasis', () =>
     'When Were You Hurt?',
     'David and Saul',
     'Forgiveness Does Not Equal Healing',
-    'But my leg is still broken',
+    'My leg is still broken',
     'Healing Can Be Progressive',
     'I see men as trees',
     'Healing Sets New Boundaries',
