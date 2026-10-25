@@ -116,7 +116,7 @@ test('moving to a new teaching cue clears stale manual verse and prepares the ne
   assert.equal(state.slide,5);assert.equal(state.overlay,null);assert.equal(state.scriptureOutput,null);
   assert.equal(state.scriptureCueMode,'slide');
   go(11);
-  assert.equal(state.scriptureOutput.ref_es,'Salmo 139:23–24');
+  assert.equal(state.scriptureOutput.ref_es,'Salmos 139:23-24');
   assert.ok(state.scriptureOutput.text_es);
   go(12);
   assert.equal(state.scriptureOutput,null);
