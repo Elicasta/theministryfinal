@@ -25,7 +25,7 @@ test('52 authored Spanish cues cover every slide type and cumulative reveal',()=
   const types=new Set();
   for(const [index,s] of lesson.slides.entries()){
     assert.ok(s.es,'Missing Spanish cue '+index);
-    assert.ok(s.es.kicker,'Missing Spanish kicker '+index);
+    if(s.type!=='cover')assert.ok(s.es.kicker,'Missing Spanish kicker '+index);
     types.add(s.type);
     for(const key of ['title','sub','text','left','right']){
       if(s[key])assert.ok(s.es[key],`Cue ${index} ${key} is not translated`);
@@ -157,4 +157,30 @@ test('live sermon engine uses cached RVR1960 from user-provided lesson for manus
   assert.match(engine,/lesson\.spanishCopyrightNotice/);
   assert.match(engine,/if\(lesson\?\.id!=='inner-healing-2026-10-25'\)resolveSpanish/);
   assert.doesNotMatch(engine,/TRADUCCIÓN PROPIA DEL KJV/);
+});
+
+
+test('cover text is clean in English and Spanish, and side-TV presentation is centered',()=>{
+  const cover=lesson.slides[0];
+  assert.equal(cover.type,'cover');
+  assert.ok(!cover.kicker,'English cover must have no special-message label');
+  assert.ok(!cover.es.kicker,'Spanish cover must have no special-message label');
+  assert.equal(cover.title,'The Importance of Inner Healing');
+  assert.equal(cover.es.title,'La importancia de la sanidad interior');
+  const {state,slideHtml,sermonSpanishSideSlide}=runRender();
+  state.slide=0;
+  const en=slideHtml(cover,true,'en'),es=sermonSpanishSideSlide(cover);
+  assert.doesNotMatch(en,/A STANDALONE MESSAGE/);
+  assert.doesNotMatch(es,/UN MENSAJE ESPECIAL/);
+  assert.match(en,/The Importance of Inner Healing/);
+  assert.match(es,/La importancia de la sanidad interior/);
+  const css=read('engine/inner-healing.css');
+  assert.match(css,/#scriptures \.scripture-inner\.ih-slide-mode\s*\{[^}]*align-items:center;[^}]*justify-content:center;/);
+  assert.match(css,/#scriptures \.ih-side-slide\s*\{[^}]*justify-content:center;[^}]*align-items:center;[^}]*text-align:center;/);
+  assert.match(css,/#scriptures \.ih-side-cover \.cover\s*\{[^}]*align-items:center;[^}]*text-align:center;/);
+  assert.match(css,/65-inch panels/);
+  assert.match(css,/#projector \.cover\s*,/);
+  assert.match(css,/#scriptures \.ih-side-slide \.points li\s*\{[^}]*justify-content:center;/);
+  assert.match(css,/#scriptures \.ih-side-slide \.contrast-box\s*\{[^}]*justify-content:center;/);
+  assert.match(css,/#scriptures \.ih-side-slide \.ih-process-step\s*\{[^}]*align-items:center;/);
 });
