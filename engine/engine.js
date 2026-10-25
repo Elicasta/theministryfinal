@@ -136,6 +136,7 @@ function scriptureHtml(v){
   if(match){
     sc.text_es=sc.text_es||match.text_es||'';
     sc.ref_es=sc.ref_es||match.ref_es||'';
+    sc.copyright=sc.copyright||lesson?.spanishCopyrightNotice||'';
   }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
