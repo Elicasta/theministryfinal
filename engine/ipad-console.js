@@ -7,6 +7,8 @@
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clean=s=>String(s||'').replace(/<[^>]*>/g,'').replace(/&middot;/g,'·');
   let bound=false,lastQuestionSignature='',lastPollSignature='';
+  let bankChapter='',bankRows=[],bankLoadId=0;
+  const chapterCache=new Map();
   function status(message,kind='info'){
     const el=$('ipad-feedback');if(el){el.textContent=message;el.dataset.kind=kind}
   }
@@ -34,6 +36,101 @@
     const host=$('ipad-q-list');if(!host)return;
     host.innerHTML=questions.length?questions.map((q,i)=>'<div class="ipad-item"><strong>'+esc(q.text)+'</strong><div class="ipad-pair"><button class="ipad-secondary" data-ipad-question="'+i+'">Show Question</button></div></div>').join(''):'<p class="ipad-empty">Anonymous questions will appear here when students submit them.</p>';
   }
+  function decorateInlineScriptures(){
+    const parser=window.MinistryScriptureTools;
+    if(!parser)return;
+    document.querySelectorAll('#manuscript .note-body .ih-scripture').forEach(p=>{
+      if(p.dataset.ipadInlineScripture)return;
+      const parsed=parser.parseInline(p.textContent);
+      if(!parsed)return;
+      p.dataset.ipadInlineScripture='true';
+      p.dataset.ipadScriptureRef=parsed.ref;
+      p.dataset.ipadScriptureText=parsed.text;
+      p.classList.add('ipad-clickable-scripture');
+      p.setAttribute('title','Tap the verse to send it to main projector and side TV');
+      const actions=document.createElement('span');
+      actions.className='ipad-inline-scripture-actions';
+      actions.innerHTML='<button type="button" data-ipad-inline-main aria-label="Send '+esc(parsed.ref)+' to main projector and side TV">Project + Side TV</button>'+
+        '<button type="button" data-ipad-inline-tv aria-label="Send '+esc(parsed.ref)+' to side TV only">Side TV</button>'+
+        '<button type="button" data-ipad-inline-chapter aria-label="Browse the full chapter for '+esc(parsed.ref)+'">Full Chapter</button>';
+      p.appendChild(actions);
+    });
+  }
+  function bibleStatus(text,isError=false){
+    const el=$('ipad-bible-status');
+    if(el){el.textContent=text;el.dataset.kind=isError?'error':'info'}
+  }
+  function renderBibleChapter(data,{partial=false}={}){
+    bankRows=Array.isArray(data.verses)?data.verses:[];
+    const el=$('ipad-bible-results');
+    if(!el)return;
+    const header='<div class="ipad-bank-heading"><strong>'+esc(data.ref||bankChapter)+'</strong><small>'+esc(partial?'Saved lesson references only':'KJV · complete chapter')+'</small></div>';
+    el.innerHTML=header+bankRows.map((v,i)=>'<article class="ipad-bank-verse" data-bank-verse="'+esc(v.verse)+'">'+
+      '<div class="ipad-bank-verse-text"><span>'+esc(v.verse)+'</span>'+esc(v.text)+'</div>'+
+      '<div class="ipad-pair"><button class="ipad-secondary" type="button" data-ipad-bank-main="'+i+'">Project + Side TV</button>'+
+      '<button class="ipad-secondary" type="button" data-ipad-bank-tv="'+i+'">Side TV</button></div></article>').join('');
+  }
+  function lessonChapterFallback(chapter){
+    const getChapter=window.MinistryScriptureTools?.chapterOf;
+    const verses=api.getLesson()?.verses||[];
+    const matching=verses.filter(v=>getChapter?.(v.ref_en||v.ref)===chapter);
+    return matching.map(v=>{
+      const m=String(v.ref_en||v.ref).match(/:(\d+)/);
+      return {verse:Number(m?.[1]||0),ref:v.ref_en||v.ref,text:v.text_en||v.text||''};
+    }).filter(v=>v.verse&&v.text);
+  }
+  async function openChapter(input){
+    const parser=window.MinistryScriptureTools;
+    const raw=String(input||'').trim(),chapter=parser?.chapterOf(raw);
+    if(!chapter){bibleStatus('Enter a book and chapter, such as Romans 6.',true);return}
+    const id=++bankLoadId;
+    bankChapter=chapter;
+    if($('ipad-bible-chapter'))$('ipad-bible-chapter').value=chapter;
+    const drawer=$('ipad-bible-drawer');if(drawer)drawer.open=true;
+    const cached=chapterCache.get(chapter);
+    if(cached){renderBibleChapter(cached);bibleStatus(cached.verses.length+' verses in '+chapter+'.');return}
+    bibleStatus('Loading '+chapter+' (KJV)…');
+    try{
+      const response=await fetch('/api/scripture?mode=chapter&ref='+encodeURIComponent(chapter),{cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      if(id!==bankLoadId)return;
+      if(!response.ok||!data.ok)throw new Error(data.error||'Chapter lookup unavailable');
+      chapterCache.set(chapter,data);
+      renderBibleChapter(data);
+      bibleStatus(data.verses.length+' KJV verses. Tap any verse to send it. RVR1960 loads on projection when licensed.');
+    }catch(error){
+      if(id!==bankLoadId)return;
+      const fallback=lessonChapterFallback(chapter);
+      if(fallback.length){
+        renderBibleChapter({ref:chapter,verses:fallback},{partial:true});
+        bibleStatus('Full chapter unavailable: '+(error.message||'network error')+'. Showing '+fallback.length+' saved lesson references only.',true);
+      }else{
+        bankRows=[];
+        if($('ipad-bible-results'))$('ipad-bible-results').innerHTML='';
+        bibleStatus('Could not load '+chapter+': '+(error.message||'network error'),true);
+      }
+    }
+  }
+  function advanceChapter(delta){
+    const match=bankChapter.match(/^(.+?)\s+(\d{1,3})$/);
+    if(!match)return;
+    const next=Number(match[2])+delta;
+    if(next<1){bibleStatus('This is the first chapter.',true);return}
+    openChapter(match[1]+' '+next);
+  }
+  function sendScriptureFromElement(el,target){
+    const p=el.closest('[data-ipad-inline-scripture]');
+    if(!p)return;
+    const ok=api.pushScripture({ref_en:p.dataset.ipadScriptureRef,
+      text_en:p.dataset.ipadScriptureText},target);
+    if(ok)status(p.dataset.ipadScriptureRef+' sent. Checking corresponding RVR1960 text.','ok');
+  }
+  function sendBankVerse(index,target){
+    const v=bankRows[index];
+    if(!v)return;
+    const ok=api.pushScripture({ref_en:v.ref,text_en:v.text},target);
+    if(ok)status(v.ref+' sent. Checking corresponding RVR1960 text.','ok');
+  }
   function mount(){
     const lesson=api.getLesson(),library=api.getLibrary();
     if(!lesson||!library)return;
@@ -52,6 +149,10 @@
     if($('ipad-feedback'))$('ipad-feedback').textContent=isSermon
       ?'Sermon mode · Full manuscript and manual projector cues. Audience participation is off.'
       :'Open the audience link on a second device to test interaction before class.';
+    decorateInlineScriptures();
+    const defaultChapter=window.MinistryScriptureTools?.chapterOf(lesson.verses?.[0]?.ref||lesson.scripture||'')||'Psalm 147';
+    if(!bankChapter)bankChapter=defaultChapter;
+    if($('ipad-bible-chapter'))$('ipad-bible-chapter').value=bankChapter;
     lastPollSignature='';lastQuestionSignature='';
     renderPolls(true);renderQuestions(true);render();
     if(!bound){bound=true;bind();setInterval(refreshAudience,5000);}
@@ -94,6 +195,10 @@
       try{await api.loadLesson(e.target.value,{broadcast:true,reset:true});status('Lesson changed. Projector state reset.','ok');window.scrollTo({top:0,behavior:'smooth'})}
       catch(err){status('Could not load lesson: '+(err.message||'unknown error'),'error')}
     });
+    $('ipad-bible-open')?.addEventListener('click',()=>openChapter($('ipad-bible-chapter')?.value));
+    $('ipad-bible-chapter')?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();openChapter(e.currentTarget.value)}});
+    $('ipad-bible-prev')?.addEventListener('click',()=>advanceChapter(-1));
+    $('ipad-bible-next')?.addEventListener('click',()=>advanceChapter(1));
     $('ipad-prev')?.addEventListener('click',()=>{api.prev();scrollToLive()});
     $('ipad-next')?.addEventListener('click',()=>{api.next();scrollToLive()});
     $('ipad-current-poll')?.addEventListener('click',()=>{
@@ -111,6 +216,12 @@
     $('presenter')?.addEventListener('click',e=>{
       const hit=(selector)=>e.target.closest(selector);
       let el;
+      if(el=hit('[data-ipad-bank-main]')){sendBankVerse(Number(el.dataset.ipadBankMain),'both');return}
+      if(el=hit('[data-ipad-bank-tv]')){sendBankVerse(Number(el.dataset.ipadBankTv),'tv');return}
+      if(el=hit('[data-ipad-inline-chapter]')){const p=el.closest('[data-ipad-inline-scripture]');if(p)openChapter(p.dataset.ipadScriptureRef);return}
+      if(el=hit('[data-ipad-inline-tv]')){sendScriptureFromElement(el,'tv');return}
+      if(el=hit('[data-ipad-inline-main]')){sendScriptureFromElement(el,'both');return}
+      if(el=hit('[data-ipad-inline-scripture]')){sendScriptureFromElement(el,'both');return}
       if(el=hit('[data-ipad-jump]')){api.go(Number(el.dataset.ipadJump));scrollToLive();return}
       if(el=hit('[data-ipad-verse]')){api.pushVerse(Number(el.dataset.ipadVerse));return}
       if(el=hit('[data-ipad-tv]')){api.pushVerseTV(Number(el.dataset.ipadTv));return}
