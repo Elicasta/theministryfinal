@@ -110,7 +110,7 @@ test('iPad and live side screens have revisioned Scripture controls',()=>{
   assert.match(engine,/state\.scriptureRevision!==revision/);
   assert.match(engine,/queuedSyncState=msg/);
   assert.match(engine,/const key=JSON\.stringify\(\[lesson\.id,state\.scriptureRevision/);
-  assert.match(css,/#scriptures \.scripture-secondary\s*\{\s*display:block!important/);
+  assert.match(css,/body\[data-lesson="inner-healing-2026-10-25"\] #scriptures \.scripture-secondary\s*\{\s*display:block!important/);
   assert.match(html,/id="ipad-bible-drawer"/);
   assert.match(html,/src="\/engine\/scripture-tools\.js"/);
 });
