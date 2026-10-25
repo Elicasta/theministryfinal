@@ -280,7 +280,14 @@ async function loadLesson(id,{broadcast=false,reset=false}={}){
   lesson=next; state.lessonId=next.id; theme();
   try{localStorage.setItem('ministry_engine_lesson',next.id)}catch(e){}
   document.title=next.title+' · The Ministry';
-  if(reset){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.scriptureOutput=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null}
+  if(reset){
+    state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;
+    state.scriptureOutput=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;
+    if(next.id==='inner-healing-2026-10-25'){
+      state.scriptureCueMode='slide';state.sideScreenCleared=false;
+      state.scriptureRevision=(state.scriptureRevision||0)+1;
+    }
+  }
   buildForView();
   render();
   if(broadcast)send();
@@ -359,18 +366,21 @@ function render(){
   if(view==='scriptures'){
     const c=$('scripture-content');
     if(lesson?.id==='inner-healing-2026-10-25'){
-      const explicit=state.scriptureCueMode==='manual'&&!state.sideScreenCleared&&state.scriptureOutput;
-      const cleared=!!state.sideScreenCleared;
-      const key=JSON.stringify([lesson.id,state.started,state.slide,state.seq,cleared,
-        explicit&&state.scriptureRevision,explicit&&state.scriptureOutput?.ref_en]);
-      c.classList.toggle('wait',!state.started||cleared);
-      c.classList.remove('with-explanation');
-      c.classList.toggle('ih-slide-mode',!!state.started&&!explicit&&!cleared);
+      // The two side TVs are a Spanish mirror of the English projector, NOT
+      // standalone Scripture waiting screens. The cover is always available,
+      // including standby, reset, and after an older saved "cleared" state.
+      // A manually projected Scripture temporarily takes over both languages.
+      const scriptureTakeover=state.scriptureCueMode==='manual'&&!!state.scriptureOutput;
+      const currentSlide=state.started?s:ss[0];
+      const key=JSON.stringify([lesson.id,state.started,state.slide,state.seq,
+        scriptureTakeover?state.scriptureRevision:0,
+        scriptureTakeover?state.scriptureOutput?.ref_en:'']);
+      c.classList.remove('wait','with-explanation');
+      c.classList.toggle('ih-slide-mode',!scriptureTakeover);
       if(c.dataset.scriptureKey!==key){
         c.dataset.scriptureKey=key;
-        c.innerHTML=cleared?'<div class="scripture-wait-title">ESCRITURA DESPEJADA</div>':
-          explicit?scriptureHtml(state.scriptureOutput):
-          sermonSpanishSideSlide(state.started?s:ss[0]);
+        c.innerHTML=scriptureTakeover?scriptureHtml(state.scriptureOutput):
+          sermonSpanishSideSlide(currentSlide);
       }
     }else{
       const current=state.scriptureOutput;
@@ -493,20 +503,41 @@ function go(i){
 }
 function next(){if(lesson?.id==='inner-healing-2026-10-25'&&state.overlay?.ref_en&&state.started)return go(Math.min(state.slide+1,slides().length-1));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
 function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
-function reset(){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;send();render()}
-function clearTakeover(){state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
-function clearScriptureOutput(){state.scriptureRevision=(state.scriptureRevision||0)+1;state.scriptureOutput=null;send();render()}
+function reset(){
+  state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;
+  state.black=false;state.startedAt=null;state.timerStoppedAt=null;
+  if(lesson?.id==='inner-healing-2026-10-25'){
+    state.scriptureOutput=null;state.scriptureCueMode='slide';
+    state.sideScreenCleared=false;state.scriptureRevision=(state.scriptureRevision||0)+1;
+  }
+  send();render();
+}
+function clearTakeover(){
+  const wasSermonScripture=lesson?.id==='inner-healing-2026-10-25'&&
+    (state.scriptureCueMode==='manual'||!!state.overlay?.ref_en);
+  state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
+  if(wasSermonScripture){
+    state.scriptureOutput=null;state.scriptureCueMode='slide';
+    state.sideScreenCleared=false;state.scriptureRevision=(state.scriptureRevision||0)+1;
+  }
+  send();render();
+}
+function clearScriptureOutput(){
+  if(lesson?.id==='inner-healing-2026-10-25')return clearPresentedScripture();
+  state.scriptureRevision=(state.scriptureRevision||0)+1;state.scriptureOutput=null;send();render();
+}
 function clearPresentedScripture(){
   // A single transport command clears only the scripture takeover and side screen.
   // Ordinary slide state, timer, and any unrelated audience state stay untouched.
   const hasScripture=!!state.scriptureOutput||!!(state.overlay&&(state.overlay.ref_en||state.overlay.ref));
-  if(!hasScripture)return false;
+  // Older synced state may still contain sideScreenCleared=true; clear it too.
+  if(!hasScripture&&!state.sideScreenCleared)return false;
   state.scriptureRevision=(state.scriptureRevision||0)+1;
   state.scriptureOutput=null;
   if(state.overlay&&(state.overlay.ref_en||state.overlay.ref))state.overlay=null;
   if(lesson?.id==='inner-healing-2026-10-25'){
     state.scriptureCueMode='slide';
-    state.sideScreenCleared=true;
+    state.sideScreenCleared=false;
   }
   send();render();
   return true;
