@@ -204,7 +204,8 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
       slides:()=>[{}, {}, {}],
       Date:{now:()=>now},
       scriptureForSlide:()=>null,
-      send:()=>{},render:()=>{}
+      lesson:{id:'doctrine-night'},
+      send:()=>{},render:()=>{},resolveSpanish:()=>{}
     });
   go(0);
   assert.equal(state.startedAt,1000);
