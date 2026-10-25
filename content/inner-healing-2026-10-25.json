@@ -18,7 +18,14 @@
       "ref": "Psalm 147:3",
       "speakerNote": "Opening. Let the title sit while you introduce the distinction between physical and internal wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A STANDALONE MESSAGE"
+      "cue": "A STANDALONE MESSAGE",
+      "es": {
+        "kicker": "UN MENSAJE ESPECIAL",
+        "title": "La importancia de la sanidad interior",
+        "sub": "Dios sana lo que no siempre se puede ver.",
+        "ref": "Salmo 147:3",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -26,7 +33,12 @@
       "title": "You can be delivered from the thing that hurt you and still need healing from what it taught you.",
       "speakerNote": "Land the entire line. Pause.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE BIG IDEA"
+      "cue": "THE BIG IDEA",
+      "es": {
+        "kicker": "LA IDEA CENTRAL",
+        "title": "Puedes ser libre de aquello que te hirió y todavía necesitar sanidad por lo que esa experiencia te enseñó.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -34,7 +46,13 @@
       "ref": "Psalm 147:3",
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "OUR STARTING POINT"
+      "cue": "OUR STARTING POINT",
+      "es": {
+        "kicker": "NUESTRO PUNTO DE PARTIDA",
+        "ref": "Salmo 147:3",
+        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -42,7 +60,13 @@
       "title": "Symptoms of an Unhealed Inner Life",
       "sub": "The wound may be invisible. Its effects may not be.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION ONE"
+      "cue": "SECTION ONE",
+      "es": {
+        "kicker": "PRIMERA SECCIÓN",
+        "title": "Síntomas de una vida interior que no ha sanado",
+        "sub": "La herida puede ser invisible, pero sus efectos no.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -52,7 +76,15 @@
         "Resentment"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 1/3"
+      "cue": "SYMPTOM ONE · BUILD 1/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 1 DE 3",
+        "title": "El dolor terminó, pero el resentimiento permanece.",
+        "points": [
+          "Resentimiento"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -63,7 +95,16 @@
         "A negative view of life"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 2/3"
+      "cue": "SYMPTOM ONE · BUILD 2/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 2 DE 3",
+        "title": "Cuando el dolor del pasado moldea el presente",
+        "points": [
+          "Resentimiento",
+          "Una visión negativa de la vida"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -75,14 +116,29 @@
         "Recurring cycles"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 3/3"
+      "cue": "SYMPTOM ONE · BUILD 3/3",
+      "es": {
+        "kicker": "PRIMER SÍNTOMA · 3 DE 3",
+        "title": "Cuando el dolor del pasado moldea el presente",
+        "points": [
+          "Resentimiento",
+          "Una visión negativa de la vida",
+          "Ciclos que se repiten"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "SYMPTOM TWO",
       "title": "Recurring Thoughts, Sin, and Ultimately Unbreakable Addictions",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO"
+      "cue": "SYMPTOM TWO",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA",
+        "title": "Pensamientos recurrentes, pecado y adicciones difíciles de romper",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -92,7 +148,15 @@
         "Recurring thoughts"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 1/3"
+      "cue": "SYMPTOM TWO · BUILD 1/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 1 DE 3",
+        "title": "Lo que seguimos reviviendo",
+        "points": [
+          "Pensamientos recurrentes"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -103,7 +167,16 @@
         "Sins that provide temporary comfort"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 2/3"
+      "cue": "SYMPTOM TWO · BUILD 2/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 2 DE 3",
+        "title": "A dónde acudimos para sentir alivio",
+        "points": [
+          "Pensamientos recurrentes",
+          "Pecados que ofrecen consuelo temporal"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -115,7 +188,17 @@
         "Damaging addictions"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 3/3"
+      "cue": "SYMPTOM TWO · BUILD 3/3",
+      "es": {
+        "kicker": "SEGUNDO SÍNTOMA · 3 DE 3",
+        "title": "Lo que comienza a dominarnos",
+        "points": [
+          "Pensamientos recurrentes",
+          "Pecados que ofrecen consuelo temporal",
+          "Adicciones que nos dañan"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -123,14 +206,25 @@
       "ref": "Psalm 139:23–24",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION TWO · LOOK WITHIN"
+      "cue": "SECTION TWO · LOOK WITHIN",
+      "es": {
+        "kicker": "SEGUNDA SECCIÓN · MIRAR ADENTRO",
+        "ref": "Salmo 139:23–24",
+        "text": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos. Mira si hay en mí algún camino perverso y guíame por el camino eterno.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
       "kicker": "PASTORAL CARE",
       "title": "We have learned to function with the pain instead of actually dealing with it.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "PASTORAL CARE"
+      "cue": "PASTORAL CARE",
+      "es": {
+        "kicker": "CUIDADO PASTORAL",
+        "title": "Hemos aprendido a funcionar con el dolor en lugar de enfrentarlo y sanar.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -138,7 +232,13 @@
       "ref": "Proverbs 18:14",
       "text": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE POWER OF UNHEALED HURT"
+      "cue": "THE POWER OF UNHEALED HURT",
+      "es": {
+        "kicker": "EL PODER DEL DOLOR NO SANADO",
+        "ref": "Proverbios 18:14",
+        "text": "El ánimo de una persona puede sostenerla en la enfermedad, pero ¿quién puede soportar un espíritu herido?",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "points",
@@ -148,7 +248,15 @@
         "Makes functioning difficult"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 1/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 1/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 1 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -159,7 +267,16 @@
         "Creates bias"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 2/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 2/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 2 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar",
+          "Nos hace juzgar con prejuicios"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -171,7 +288,17 @@
         "Clouds judgment"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HURT CHANGES OUR RESPONSES · 3/3"
+      "cue": "HURT CHANGES OUR RESPONSES · 3/3",
+      "es": {
+        "kicker": "EL DOLOR CAMBIA NUESTRAS RESPUESTAS · 3 DE 3",
+        "title": "Lo que el dolor puede provocar",
+        "points": [
+          "Dificulta nuestra capacidad de funcionar",
+          "Nos hace juzgar con prejuicios",
+          "Nubla nuestro juicio"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "progression",
@@ -184,7 +311,17 @@
       "sub": "A present event can awaken an older response.",
       "speakerNote": "Point to each node. This visual summarizes the prior three observations; it is not a clinical diagnosis.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A VISUAL MODEL"
+      "cue": "A VISUAL MODEL",
+      "es": {
+        "kicker": "UN MODELO VISUAL",
+        "words": [
+          "Herida del pasado",
+          "Percepción distorsionada",
+          "Reacción en el presente"
+        ],
+        "sub": "Una situación presente puede despertar una reacción del pasado.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -194,7 +331,15 @@
         "Hold on to things too long"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 1/4"
+      "cue": "FOUR RESPONSES · BUILD 1/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 1 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -205,7 +350,16 @@
         "Exaggerate situations"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 2/4"
+      "cue": "FOUR RESPONSES · BUILD 2/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 2 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -217,7 +371,17 @@
         "Cut off unrelated people"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 3/4"
+      "cue": "FOUR RESPONSES · BUILD 3/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 3 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones",
+          "Alejar a personas que no te hirieron"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "points",
@@ -230,7 +394,18 @@
         "Shift responsibility"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 4/4"
+      "cue": "FOUR RESPONSES · BUILD 4/4",
+      "es": {
+        "kicker": "CUATRO RESPUESTAS · 4 DE 4",
+        "title": "El dolor puede llevarte a…",
+        "points": [
+          "Aferrarte a las ofensas por demasiado tiempo",
+          "Exagerar las situaciones",
+          "Alejar a personas que no te hirieron",
+          "Evitar asumir tu responsabilidad"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -238,7 +413,13 @@
       "ref": "Jeremiah 6:14",
       "text": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION THREE · IDENTIFYING HURT"
+      "cue": "SECTION THREE · IDENTIFYING HURT",
+      "es": {
+        "kicker": "TERCERA SECCIÓN · IDENTIFICAR EL DOLOR",
+        "ref": "Jeremías 6:14",
+        "text": "Han tratado superficialmente la herida de la hija de mi pueblo, diciendo: Paz, paz, cuando no hay paz.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "steps",
@@ -253,7 +434,19 @@
       ],
       "speakerNote": "Preview all five, then walk each question one at a time.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A FIVE-QUESTION EXAMINATION"
+      "cue": "A FIVE-QUESTION EXAMINATION",
+      "es": {
+        "kicker": "UN EXAMEN DE CINCO PREGUNTAS",
+        "title": "¿Cómo identificamos la herida?",
+        "steps": [
+          "¿Quién?",
+          "¿Qué?",
+          "¿Cómo?",
+          "¿Por qué?",
+          "¿Cuándo?"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -261,7 +454,13 @@
       "title": "Who hurt you?",
       "sub": "Identify the person. Stop assigning the pain to everyone else.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 01 / 05"
+      "cue": "QUESTION 01 / 05",
+      "es": {
+        "kicker": "PREGUNTA 01 / 05",
+        "title": "¿Quién te hirió?",
+        "sub": "Identifica a la persona. Deja de responsabilizar a los demás por ese dolor.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -269,7 +468,13 @@
       "title": "What did they do?",
       "sub": "Separate the facts from the emotions that followed.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 02 / 05"
+      "cue": "QUESTION 02 / 05",
+      "es": {
+        "kicker": "PREGUNTA 02 / 05",
+        "title": "¿Qué te hicieron?",
+        "sub": "Distingue los hechos de las emociones que vinieron después.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -277,7 +482,13 @@
       "title": "How were you hurt?",
       "sub": "Different kinds of wounds require different responses.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 03 / 05"
+      "cue": "QUESTION 03 / 05",
+      "es": {
+        "kicker": "PREGUNTA 03 / 05",
+        "title": "¿De qué manera te hirieron?",
+        "sub": "No todas las heridas son iguales ni requieren la misma respuesta.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -285,7 +496,13 @@
       "title": "Why were you hurt?",
       "sub": "Someone else's wrong decision does not define your worth.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 04 / 05"
+      "cue": "QUESTION 04 / 05",
+      "es": {
+        "kicker": "PREGUNTA 04 / 05",
+        "title": "¿Por qué te hirieron?",
+        "sub": "La mala decisión de otra persona no define tu valor.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -293,7 +510,13 @@
       "title": "When were you hurt?",
       "sub": "A past season does not have to govern the present.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "QUESTION 05 / 05"
+      "cue": "QUESTION 05 / 05",
+      "es": {
+        "kicker": "PREGUNTA 05 / 05",
+        "title": "¿Cuándo te hirieron?",
+        "sub": "Una etapa del pasado no tiene por qué gobernar tu presente.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -301,7 +524,13 @@
       "ref": "Proverbs 17:22",
       "text": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION FOUR · THE ROAD TO HEALING"
+      "cue": "SECTION FOUR · THE ROAD TO HEALING",
+      "es": {
+        "kicker": "CUARTA SECCIÓN · EL CAMINO A LA SANIDAD",
+        "ref": "Proverbios 17:22",
+        "text": "Un corazón alegre hace bien como una medicina, pero un espíritu quebrantado seca los huesos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -309,7 +538,13 @@
       "title": "Choosing not to retaliate",
       "ref": "1 Samuel 24:12",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "DAVID AND SAUL"
+      "cue": "DAVID AND SAUL",
+      "es": {
+        "kicker": "DAVID Y SAÚL",
+        "title": "Decidir no tomar represalias",
+        "ref": "1 Samuel 24:12",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -317,7 +552,13 @@
       "title": "David spared Saul. David still kept his distance.",
       "ref": "1 Samuel 24:22",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "DAVID AND SAUL · THE DISTINCTION"
+      "cue": "DAVID AND SAUL · THE DISTINCTION",
+      "es": {
+        "kicker": "DAVID Y SAÚL · LA DIFERENCIA",
+        "title": "David perdonó la vida de Saúl, pero mantuvo la distancia.",
+        "ref": "1 Samuel 24:22",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "contrast",
@@ -326,14 +567,25 @@
       "right": "HEALING\nRestoring what was damaged",
       "speakerNote": "Keep both terms visible as you explain the difference.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "TWO DIFFERENT WORKS"
+      "cue": "TWO DIFFERENT WORKS",
+      "es": {
+        "kicker": "DOS PROCESOS DISTINTOS",
+        "left": "PERDÓN\nDejar de exigir la deuda",
+        "right": "SANIDAD\nRestaurar lo que fue dañado",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "FORGIVENESS ≠ RESTORATION",
       "title": "Releasing the debt doesn't instantly repair the damage.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FORGIVENESS ≠ RESTORATION"
+      "cue": "FORGIVENESS ≠ RESTORATION",
+      "es": {
+        "kicker": "PERDONAR NO ES LO MISMO QUE SANAR",
+        "title": "Soltar la deuda no repara de inmediato el daño.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -341,7 +593,13 @@
       "title": "I can forgive you for breaking my leg.",
       "sub": "The decision to forgive is real.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A SIMPLE ILLUSTRATION · 1/2"
+      "cue": "A SIMPLE ILLUSTRATION · 1/2",
+      "es": {
+        "kicker": "UNA ILUSTRACIÓN SENCILLA · 1 DE 2",
+        "title": "Puedo perdonarte por haberme roto la pierna.",
+        "sub": "La decisión de perdonar es real.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -349,7 +607,13 @@
       "title": "But my leg is still broken.",
       "sub": "Forgiveness did not automatically restore the bone.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A SIMPLE ILLUSTRATION · 2/2"
+      "cue": "A SIMPLE ILLUSTRATION · 2/2",
+      "es": {
+        "kicker": "UNA ILUSTRACIÓN SENCILLA · 2 DE 2",
+        "title": "Pero mi pierna sigue rota.",
+        "sub": "El perdón no restauró el hueso automáticamente.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -357,7 +621,13 @@
       "title": "Healing Can Be Progressive",
       "sub": "Mark 8:22–25",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION FIVE"
+      "cue": "SECTION FIVE",
+      "es": {
+        "kicker": "QUINTA SECCIÓN",
+        "title": "La sanidad puede ser progresiva",
+        "sub": "Marcos 8:22–25",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -365,7 +635,13 @@
       "ref": "Mark 8:24",
       "text": "And he looked up, and said, I see men as trees, walking.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE FIRST TOUCH"
+      "cue": "THE FIRST TOUCH",
+      "es": {
+        "kicker": "EL PRIMER TOQUE",
+        "ref": "Marcos 8:24",
+        "text": "Él miró hacia arriba y dijo: Veo a los hombres, pero me parecen árboles que caminan.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "verse",
@@ -373,7 +649,13 @@
       "ref": "Mark 8:25",
       "text": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE SECOND TOUCH"
+      "cue": "THE SECOND TOUCH",
+      "es": {
+        "kicker": "EL SEGUNDO TOQUE",
+        "ref": "Marcos 8:25",
+        "text": "Después Jesús puso otra vez las manos sobre sus ojos y le hizo mirar. El hombre quedó restaurado y podía ver claramente a todos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "progression",
@@ -385,7 +667,17 @@
       ],
       "sub": "Progress came before complete clarity.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "PROGRESSIVE RESTORATION"
+      "cue": "PROGRESSIVE RESTORATION",
+      "es": {
+        "kicker": "RESTAURACIÓN PROGRESIVA",
+        "words": [
+          "No podía ver",
+          "Veía sin claridad",
+          "Veía claramente"
+        ],
+        "sub": "Hubo progreso antes de que llegara la claridad completa.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -393,7 +685,13 @@
       "title": "Healing sets new boundaries",
       "ref": "Proverbs 22:3",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES OUR DECISIONS"
+      "cue": "HEALING CHANGES OUR DECISIONS",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRAS DECISIONES",
+        "title": "La sanidad establece nuevos límites",
+        "ref": "Proverbios 22:3",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -401,7 +699,13 @@
       "title": "Healing defines relationships",
       "ref": "Romans 12:18",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES OUR RELATIONSHIPS"
+      "cue": "HEALING CHANGES OUR RELATIONSHIPS",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRAS RELACIONES",
+        "title": "La sanidad nos ayuda a definir nuestras relaciones",
+        "ref": "Romanos 12:18",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -409,14 +713,25 @@
       "title": "Healing renews clarity",
       "ref": "Ephesians 4:23",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HEALING CHANGES HOW WE SEE"
+      "cue": "HEALING CHANGES HOW WE SEE",
+      "es": {
+        "kicker": "LA SANIDAD TRANSFORMA NUESTRA PERSPECTIVA",
+        "title": "La sanidad nos devuelve la claridad",
+        "ref": "Efesios 4:23",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
       "kicker": "THE FRUIT OF HEALING",
       "title": "You remember what happened. You no longer have to keep living in it.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE FRUIT OF HEALING"
+      "cue": "THE FRUIT OF HEALING",
+      "es": {
+        "kicker": "EL FRUTO DE LA SANIDAD",
+        "title": "Recuerdas lo que pasó, pero ya no tienes que seguir viviendo en ello.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "steps",
@@ -429,7 +744,17 @@
       ],
       "speakerNote": "This is the practical three-part response. Advance through each element separately.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SECTION SIX"
+      "cue": "SECTION SIX",
+      "es": {
+        "kicker": "SEXTA SECCIÓN",
+        "title": "¿Cómo comenzamos a sanar?",
+        "steps": [
+          "Por el poder de Dios",
+          "Mediante conversaciones sinceras y apoyo",
+          "Reconociendo lo que necesita sanar"
+        ],
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -437,7 +762,13 @@
       "ref": "Psalm 147:3",
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 1/3"
+      "cue": "HOW WE HEAL · 1/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 1 DE 3",
+        "ref": "Salmo 147:3",
+        "text": "Él sana a los quebrantados de corazón y venda sus heridas.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -445,7 +776,13 @@
       "title": "Through genuine processing and conversation",
       "ref": "James 5:16",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 2/3"
+      "cue": "HOW WE HEAL · 2/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 2 DE 3",
+        "title": "Al procesar sinceramente lo que sentimos y hablar de ello",
+        "ref": "Santiago 5:16",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "statement",
@@ -453,7 +790,13 @@
       "title": "Through recognizing and admitting the wound",
       "ref": "Psalm 139:23",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "HOW WE HEAL · 3/3"
+      "cue": "HOW WE HEAL · 3/3",
+      "es": {
+        "kicker": "CÓMO SANAMOS · 3 DE 3",
+        "title": "Al reconocer y admitir que hay una herida",
+        "ref": "Salmo 139:23",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -461,14 +804,25 @@
       "ref": "Isaiah 61:1",
       "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "INVITATION · COME TO THE HEALER"
+      "cue": "INVITATION · COME TO THE HEALER",
+      "es": {
+        "kicker": "INVITACIÓN · VEN AL SANADOR",
+        "ref": "Isaías 61:1",
+        "text": "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido para anunciar buenas noticias a los humildes. Me ha enviado a vendar a los quebrantados de corazón, a proclamar libertad a los cautivos y a anunciar la apertura de la prisión a los que están presos.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
       "kicker": "A PERSONAL INVITATION",
       "title": "Bring Him the places you have learned to hide.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A PERSONAL INVITATION"
+      "cue": "A PERSONAL INVITATION",
+      "es": {
+        "kicker": "UNA INVITACIÓN PERSONAL",
+        "title": "Tráele a Dios aquello que has aprendido a esconder.",
+        "translationKind": "editorial-slide"
+      }
     },
     {
       "type": "verse",
@@ -476,7 +830,13 @@
       "ref": "Matthew 11:28",
       "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE INVITATION"
+      "cue": "THE INVITATION",
+      "es": {
+        "kicker": "LA INVITACIÓN",
+        "ref": "Mateo 11:28",
+        "text": "Venid a mí todos los que estáis fatigados y cargados, y yo os daré descanso.",
+        "translationKind": "independent-kjv-rendering"
+      }
     },
     {
       "type": "statement",
@@ -484,7 +844,13 @@
       "title": "You can be delivered from what hurt you and still need healing from what it taught you.",
       "sub": "Ask God to heal what is happening within you.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "THE CLOSING DECLARATION"
+      "cue": "THE CLOSING DECLARATION",
+      "es": {
+        "kicker": "LA DECLARACIÓN FINAL",
+        "title": "Puedes ser libre de aquello que te hirió y todavía necesitar sanidad por lo que esa experiencia te enseñó.",
+        "sub": "Pídele a Dios que sane lo que ocurre dentro de ti.",
+        "translationKind": "editorial-slide"
+      }
     }
   ],
   "verses": [
@@ -492,229 +858,381 @@
       "ref": "Psalm 147:3",
       "text": "He healeth the broken in heart, and bindeth up their wounds.",
       "ref_en": "Psalm 147:3",
-      "text_en": "He healeth the broken in heart, and bindeth up their wounds."
+      "text_en": "He healeth the broken in heart, and bindeth up their wounds.",
+      "ref_es": "Salmo 147:3",
+      "text_es": "Él sana a los quebrantados de corazón y venda sus heridas.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Hebrews 12:15",
       "text": "Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;",
       "ref_en": "Hebrews 12:15",
-      "text_en": "Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;"
+      "text_en": "Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled;",
+      "ref_es": "Hebreos 12:15",
+      "text_es": "Vigilad con cuidado para que ninguno deje de alcanzar la gracia de Dios, y para que ninguna raíz de amargura, al brotar, os cause problemas y contamine a muchos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 28:1",
       "text": "The wicked flee when no man pursueth: but the righteous are bold as a lion.",
       "ref_en": "Proverbs 28:1",
-      "text_en": "The wicked flee when no man pursueth: but the righteous are bold as a lion."
+      "text_en": "The wicked flee when no man pursueth: but the righteous are bold as a lion.",
+      "ref_es": "Proverbios 28:1",
+      "text_es": "Los malvados huyen aunque nadie los persiga; pero los justos tienen la valentía de un león.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 15:15",
       "text": "All the days of the afflicted are evil: but he that is of a merry heart hath a continual feast.",
       "ref_en": "Proverbs 15:15",
-      "text_en": "All the days of the afflicted are evil: but he that is of a merry heart hath a continual feast."
+      "text_en": "All the days of the afflicted are evil: but he that is of a merry heart hath a continual feast.",
+      "ref_es": "Proverbios 15:15",
+      "text_es": "Para el afligido todos los días son malos, pero quien tiene un corazón alegre disfruta de una fiesta continua.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "John 8:34",
       "text": "Jesus answered them, Verily, verily, I say unto you, Whosoever committeth sin is the servant of sin.",
       "ref_en": "John 8:34",
-      "text_en": "Jesus answered them, Verily, verily, I say unto you, Whosoever committeth sin is the servant of sin."
+      "text_en": "Jesus answered them, Verily, verily, I say unto you, Whosoever committeth sin is the servant of sin.",
+      "ref_es": "Juan 8:34",
+      "text_es": "Jesús les respondió: De cierto, de cierto os digo que todo el que practica el pecado es esclavo del pecado.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "2 Corinthians 10:5",
       "text": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
       "ref_en": "2 Corinthians 10:5",
-      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;"
+      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
+      "ref_es": "2 Corintios 10:5",
+      "text_es": "Derribamos los razonamientos y toda altivez que se levanta contra el conocimiento de Dios, y llevamos cautivo todo pensamiento para que obedezca a Cristo.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Romans 6:16",
       "text": "Know ye not, that to whom ye yield yourselves servants to obey, his servants ye are to whom ye obey; whether of sin unto death, or of obedience unto righteousness?",
       "ref_en": "Romans 6:16",
-      "text_en": "Know ye not, that to whom ye yield yourselves servants to obey, his servants ye are to whom ye obey; whether of sin unto death, or of obedience unto righteousness?"
+      "text_en": "Know ye not, that to whom ye yield yourselves servants to obey, his servants ye are to whom ye obey; whether of sin unto death, or of obedience unto righteousness?",
+      "ref_es": "Romanos 6:16",
+      "text_es": "¿No sabéis que, cuando os ofrecéis a alguien para obedecerle, os convertís en siervos de aquel a quien obedecéis, ya sea del pecado que lleva a la muerte o de la obediencia que conduce a la justicia?",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "1 Corinthians 6:12",
       "text": "All things are lawful unto me, but all things are not expedient: all things are lawful for me, but I will not be brought under the power of any.",
       "ref_en": "1 Corinthians 6:12",
-      "text_en": "All things are lawful unto me, but all things are not expedient: all things are lawful for me, but I will not be brought under the power of any."
+      "text_en": "All things are lawful unto me, but all things are not expedient: all things are lawful for me, but I will not be brought under the power of any.",
+      "ref_es": "1 Corintios 6:12",
+      "text_es": "Todo me es permitido, pero no todo me conviene; todo me es permitido, pero no dejaré que nada me domine.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Psalm 139:23–24",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
       "ref_en": "Psalm 139:23–24",
-      "text_en": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting."
+      "text_en": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
+      "ref_es": "Salmo 139:23–24",
+      "text_es": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos. Mira si hay en mí algún camino perverso y guíame por el camino eterno.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 14:10",
       "text": "The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy.",
       "ref_en": "Proverbs 14:10",
-      "text_en": "The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy."
+      "text_en": "The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy.",
+      "ref_es": "Proverbios 14:10",
+      "text_es": "Cada corazón conoce su propia amargura, y ningún extraño puede compartir plenamente su alegría.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 18:14",
       "text": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?",
       "ref_en": "Proverbs 18:14",
-      "text_en": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?"
+      "text_en": "The spirit of a man will sustain his infirmity; but a wounded spirit who can bear?",
+      "ref_es": "Proverbios 18:14",
+      "text_es": "El ánimo de una persona puede sostenerla en la enfermedad, pero ¿quién puede soportar un espíritu herido?",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 15:13",
       "text": "A merry heart maketh a cheerful countenance: but by sorrow of the heart the spirit is broken.",
       "ref_en": "Proverbs 15:13",
-      "text_en": "A merry heart maketh a cheerful countenance: but by sorrow of the heart the spirit is broken."
+      "text_en": "A merry heart maketh a cheerful countenance: but by sorrow of the heart the spirit is broken.",
+      "ref_es": "Proverbios 15:13",
+      "text_es": "Un corazón alegre ilumina el rostro, pero la tristeza del corazón quebranta el espíritu.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 19:11",
       "text": "The discretion of a man deferreth his anger; and it is his glory to pass over a transgression.",
       "ref_en": "Proverbs 19:11",
-      "text_en": "The discretion of a man deferreth his anger; and it is his glory to pass over a transgression."
+      "text_en": "The discretion of a man deferreth his anger; and it is his glory to pass over a transgression.",
+      "ref_es": "Proverbios 19:11",
+      "text_es": "La prudencia de una persona hace que tarde en enojarse, y es para ella un honor pasar por alto una ofensa.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Galatians 6:5",
       "text": "For every man shall bear his own burden.",
       "ref_en": "Galatians 6:5",
-      "text_en": "For every man shall bear his own burden."
+      "text_en": "For every man shall bear his own burden.",
+      "ref_es": "Gálatas 6:5",
+      "text_es": "Porque cada uno llevará su propia carga.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Jeremiah 6:14",
       "text": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
       "ref_en": "Jeremiah 6:14",
-      "text_en": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace."
+      "text_en": "They have healed also the hurt of the daughter of my people slightly, saying, Peace, peace; when there is no peace.",
+      "ref_es": "Jeremías 6:14",
+      "text_es": "Han tratado superficialmente la herida de la hija de mi pueblo, diciendo: Paz, paz, cuando no hay paz.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 20:5",
       "text": "Counsel in the heart of man is like deep water; but a man of understanding will draw it out.",
       "ref_en": "Proverbs 20:5",
-      "text_en": "Counsel in the heart of man is like deep water; but a man of understanding will draw it out."
+      "text_en": "Counsel in the heart of man is like deep water; but a man of understanding will draw it out.",
+      "ref_es": "Proverbios 20:5",
+      "text_es": "Los propósitos que hay en el corazón humano son como aguas profundas, pero una persona entendida sabe sacarlos a la luz.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 18:13",
       "text": "He that answereth a matter before he heareth it, it is folly and shame unto him.",
       "ref_en": "Proverbs 18:13",
-      "text_en": "He that answereth a matter before he heareth it, it is folly and shame unto him."
+      "text_en": "He that answereth a matter before he heareth it, it is folly and shame unto him.",
+      "ref_es": "Proverbios 18:13",
+      "text_es": "Responder a un asunto antes de escucharlo es necedad y vergüenza para quien lo hace.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 18:19",
       "text": "A brother offended is harder to be won than a strong city: and their contentions are like the bars of a castle.",
       "ref_en": "Proverbs 18:19",
-      "text_en": "A brother offended is harder to be won than a strong city: and their contentions are like the bars of a castle."
+      "text_en": "A brother offended is harder to be won than a strong city: and their contentions are like the bars of a castle.",
+      "ref_es": "Proverbios 18:19",
+      "text_es": "Un hermano ofendido es más difícil de recuperar que una ciudad fortificada, y las contiendas entre hermanos son como los cerrojos de un castillo.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Psalm 27:10",
       "text": "When my father and my mother forsake me, then the LORD will take me up.",
       "ref_en": "Psalm 27:10",
-      "text_en": "When my father and my mother forsake me, then the LORD will take me up."
+      "text_en": "When my father and my mother forsake me, then the LORD will take me up.",
+      "ref_es": "Salmo 27:10",
+      "text_es": "Aunque mi padre y mi madre me abandonen, el Señor me recibirá.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 17:22",
       "text": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones.",
       "ref_en": "Proverbs 17:22",
-      "text_en": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones."
+      "text_en": "A merry heart doeth good like a medicine: but a broken spirit drieth the bones.",
+      "ref_es": "Proverbios 17:22",
+      "text_es": "Un corazón alegre hace bien como una medicina, pero un espíritu quebrantado seca los huesos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 4:23",
       "text": "Keep thy heart with all diligence; for out of it are the issues of life.",
       "ref_en": "Proverbs 4:23",
-      "text_en": "Keep thy heart with all diligence; for out of it are the issues of life."
+      "text_en": "Keep thy heart with all diligence; for out of it are the issues of life.",
+      "ref_es": "Proverbios 4:23",
+      "text_es": "Sobre todas las cosas que debes cuidar, guarda tu corazón, porque de él brotan los asuntos de la vida.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "1 Samuel 24:12",
       "text": "The LORD judge between me and thee, and the LORD avenge me of thee: but mine hand shall not be upon thee.",
       "ref_en": "1 Samuel 24:12",
-      "text_en": "The LORD judge between me and thee, and the LORD avenge me of thee: but mine hand shall not be upon thee."
+      "text_en": "The LORD judge between me and thee, and the LORD avenge me of thee: but mine hand shall not be upon thee.",
+      "ref_es": "1 Samuel 24:12",
+      "text_es": "Que el Señor juzgue entre tú y yo, y que el Señor me haga justicia por lo que me has hecho; pero mi mano no se levantará contra ti.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Romans 12:19",
       "text": "Dearly beloved, avenge not yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, saith the Lord.",
       "ref_en": "Romans 12:19",
-      "text_en": "Dearly beloved, avenge not yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, saith the Lord."
+      "text_en": "Dearly beloved, avenge not yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, saith the Lord.",
+      "ref_es": "Romanos 12:19",
+      "text_es": "Amados míos, no os venguéis vosotros mismos; dejad lugar a la justicia de Dios, porque está escrito: Mía es la venganza; yo daré el pago, dice el Señor.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "1 Samuel 24:22",
       "text": "And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold.",
       "ref_en": "1 Samuel 24:22",
-      "text_en": "And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold."
+      "text_en": "And David sware unto Saul. And Saul went home; but David and his men gat them up unto the hold.",
+      "ref_es": "1 Samuel 24:22",
+      "text_es": "David se lo juró a Saúl. Entonces Saúl regresó a su casa, pero David y sus hombres subieron a su refugio.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Ephesians 4:31–32",
       "text": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you.",
       "ref_en": "Ephesians 4:31–32",
-      "text_en": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you."
+      "text_en": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ’s sake hath forgiven you.",
+      "ref_es": "Efesios 4:31–32",
+      "text_es": "Apartad de vosotros toda amargura, ira, enojo, gritería, palabras ofensivas y toda malicia. Sed amables unos con otros, compasivos y dispuestos a perdonaros, así como Dios os perdonó por medio de Cristo.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Colossians 3:13",
       "text": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.",
       "ref_en": "Colossians 3:13",
-      "text_en": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye."
+      "text_en": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.",
+      "ref_es": "Colosenses 3:13",
+      "text_es": "Soportaos unos a otros y perdonaos mutuamente si alguno tiene una queja contra otro. Así como Cristo os perdonó, perdonad también vosotros.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Mark 8:24",
       "text": "And he looked up, and said, I see men as trees, walking.",
       "ref_en": "Mark 8:24",
-      "text_en": "And he looked up, and said, I see men as trees, walking."
+      "text_en": "And he looked up, and said, I see men as trees, walking.",
+      "ref_es": "Marcos 8:24",
+      "text_es": "Él miró hacia arriba y dijo: Veo a los hombres, pero me parecen árboles que caminan.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Mark 8:25",
       "text": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly.",
       "ref_en": "Mark 8:25",
-      "text_en": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly."
+      "text_en": "After that he put his hands again upon his eyes, and made him look up: and he was restored, and saw every man clearly.",
+      "ref_es": "Marcos 8:25",
+      "text_es": "Después Jesús puso otra vez las manos sobre sus ojos y le hizo mirar. El hombre quedó restaurado y podía ver claramente a todos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Philippians 1:6",
       "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ:",
       "ref_en": "Philippians 1:6",
-      "text_en": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ:"
+      "text_en": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ:",
+      "ref_es": "Filipenses 1:6",
+      "text_es": "Estoy seguro de que aquel que comenzó en vosotros una buena obra la llevará hasta su cumplimiento en el día de Jesucristo.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 22:3",
       "text": "A prudent man foreseeth the evil, and hideth himself: but the simple pass on, and are punished.",
       "ref_en": "Proverbs 22:3",
-      "text_en": "A prudent man foreseeth the evil, and hideth himself: but the simple pass on, and are punished."
+      "text_en": "A prudent man foreseeth the evil, and hideth himself: but the simple pass on, and are punished.",
+      "ref_es": "Proverbios 22:3",
+      "text_es": "La persona prudente ve venir el peligro y se pone a salvo, pero los ingenuos siguen adelante y sufren las consecuencias.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Romans 12:18",
       "text": "If it be possible, as much as lieth in you, live peaceably with all men.",
       "ref_en": "Romans 12:18",
-      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men."
+      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men.",
+      "ref_es": "Romanos 12:18",
+      "text_es": "Si es posible, y en cuanto dependa de vosotros, vivid en paz con todos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Ephesians 4:23",
       "text": "And be renewed in the spirit of your mind;",
       "ref_en": "Ephesians 4:23",
-      "text_en": "And be renewed in the spirit of your mind;"
+      "text_en": "And be renewed in the spirit of your mind;",
+      "ref_es": "Efesios 4:23",
+      "text_es": "Y sed renovados en la actitud de vuestra mente.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "James 5:16",
       "text": "Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much.",
       "ref_en": "James 5:16",
-      "text_en": "Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much."
+      "text_en": "Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much.",
+      "ref_es": "Santiago 5:16",
+      "text_es": "Confesaos vuestras faltas unos a otros y orad unos por otros para que seáis sanados. La oración ferviente de una persona justa tiene gran poder.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Proverbs 11:14",
       "text": "Where no counsel is, the people fall: but in the multitude of counsellors there is safety.",
       "ref_en": "Proverbs 11:14",
-      "text_en": "Where no counsel is, the people fall: but in the multitude of counsellors there is safety."
+      "text_en": "Where no counsel is, the people fall: but in the multitude of counsellors there is safety.",
+      "ref_es": "Proverbios 11:14",
+      "text_es": "Sin dirección sabia el pueblo cae, pero en la abundancia de consejeros hay seguridad.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Psalm 139:23",
       "text": "Search me, O God, and know my heart: try me, and know my thoughts:",
       "ref_en": "Psalm 139:23",
-      "text_en": "Search me, O God, and know my heart: try me, and know my thoughts:"
+      "text_en": "Search me, O God, and know my heart: try me, and know my thoughts:",
+      "ref_es": "Salmo 139:23",
+      "text_es": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis pensamientos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Psalm 51:6",
       "text": "Behold, thou desirest truth in the inward parts: and in the hidden part thou shalt make me to know wisdom.",
       "ref_en": "Psalm 51:6",
-      "text_en": "Behold, thou desirest truth in the inward parts: and in the hidden part thou shalt make me to know wisdom."
+      "text_en": "Behold, thou desirest truth in the inward parts: and in the hidden part thou shalt make me to know wisdom.",
+      "ref_es": "Salmo 51:6",
+      "text_es": "Tú deseas la verdad en lo más profundo del ser, y en lo secreto me enseñas sabiduría.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Isaiah 61:1",
       "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
       "ref_en": "Isaiah 61:1",
-      "text_en": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;"
+      "text_en": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound;",
+      "ref_es": "Isaías 61:1",
+      "text_es": "El Espíritu del Señor Dios está sobre mí, porque el Señor me ha ungido para anunciar buenas noticias a los humildes. Me ha enviado a vendar a los quebrantados de corazón, a proclamar libertad a los cautivos y a anunciar la apertura de la prisión a los que están presos.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     },
     {
       "ref": "Matthew 11:28",
       "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
       "ref_en": "Matthew 11:28",
-      "text_en": "Come unto me, all ye that labour and are heavy laden, and I will give you rest."
+      "text_en": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "ref_es": "Mateo 11:28",
+      "text_es": "Venid a mí todos los que estáis fatigados y cargados, y yo os daré descanso.",
+      "spanishSource": "Original Spanish rendering of user-supplied KJV",
+      "spanishStatus": "ready"
     }
   ],
   "polls": [],
@@ -1123,5 +1641,7 @@
   ],
   "translations": {
     "es": null
-  }
+  },
+  "spanishSource": "Original Spanish renderings of KJV verses provided in the lesson. Not RVR1960.",
+  "spanishVersionLabel": "ESPAÑOL · TRADUCCIÓN PROPIA DEL KJV"
 }

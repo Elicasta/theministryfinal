@@ -117,7 +117,7 @@
       if(!response.ok||!data.ok)throw new Error(data.error||'Chapter lookup unavailable');
       chapterCache.set(chapter,data);
       renderBibleChapter(data);
-      bibleStatus(data.verses.length+' KJV verses. Tap any verse to send it. RVR1960 loads on projection when licensed.');
+      bibleStatus(data.verses.length+' KJV verses. Tap any verse to send it. '+(api.getLesson()?.id==='inner-healing-2026-10-25'?'Spanish is ready for this sermon’s saved references.':'RVR1960 loads on projection when licensed.'));
     }catch(error){
       if(id!==bankLoadId)return;
       const fallback=lessonChapterFallback(chapter);
@@ -143,13 +143,13 @@
     if(!p)return;
     const ok=api.pushScripture({ref_en:p.dataset.ipadScriptureRef,
       text_en:p.dataset.ipadScriptureText},target);
-    if(ok)status(p.dataset.ipadScriptureRef+' sent. Checking corresponding RVR1960 text.','ok');
+    if(ok)status(p.dataset.ipadScriptureRef+(api.getLesson()?.id==='inner-healing-2026-10-25'?' · español de la lección listo.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function sendBankVerse(index,target){
     const v=bankRows[index];
     if(!v)return;
     const ok=api.pushScripture({ref_en:v.ref,text_en:v.text},target);
-    if(ok)status(v.ref+' sent. Checking corresponding RVR1960 text.','ok');
+    if(ok)status(v.ref+(api.getLesson()?.id==='inner-healing-2026-10-25'?' · mostrando la traducción guardada cuando esté disponible.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function mount(){
     const lesson=api.getLesson(),library=api.getLibrary();
@@ -164,6 +164,8 @@
       if(a)a.href=target+'?lesson='+encodeURIComponent(lesson.id);
     }
     const isSermon=lesson.id==='inner-healing-2026-10-25';
+    const bibleVersionLabel=document.querySelector('#ipad-bible-drawer>summary span');
+    if(bibleVersionLabel)bibleVersionLabel.textContent=isSermon?'KJV + español de la lección':'KJV + RVR1960';
     const classLink=document.querySelector('.presenter-actions a[href^="/class"]');
     if(classLink)classLink.style.display=isSermon?'none':'';
     if($('ipad-feedback'))$('ipad-feedback').textContent=isSermon

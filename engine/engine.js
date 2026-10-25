@@ -81,14 +81,14 @@ function resourceQrCards(large=false){
   return '<div class="resource-qr-grid '+(large?'resource-qr-large':'resource-qr-small')+'">'+cards+'</div>';
 }
 
-function slideHtml(raw,withQr=true){
-  const s=localizedSlide(raw)||{};
+function slideHtml(raw,withQr=true,language=state.language){
+  const s=localizedSlide(raw,language)||{};
   const k=s.kicker?'<div class="p-kicker">'+esc(clean(s.kicker))+'</div>':'';
   const sub=s.sub?'<div class="p-sub">'+esc(clean(s.sub))+'</div>':'';
   const ref=s.ref?'<div class="p-ref">'+esc(clean(s.ref))+'</div>':'';
-  const translation=(state.language==='bilingual'&&s._english&&hasSpanishSlide(s._english))
+  const translation=(language==='bilingual'&&s._english&&hasSpanishSlide(s._english))
     ?'<div class="presented-translation"><div class="translation-label">English</div>'+esc(clean(s._english.title||s._english.text||s._english.sub||''))+'</div>':'';
-  const missing=(state.language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
+  const missing=(language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
 
   if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&lesson?.id!=='inner-healing-2026-10-25'?resourceQrCards(false):'')+'</div>';
   if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
@@ -140,13 +140,15 @@ function scriptureHtml(v){
   }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
-  const version=sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
+  const version=lesson?.id==='inner-healing-2026-10-25'
+    ?'ESPAÑOL · TRADUCCIÓN PROPIA DEL KJV'
+    :sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
-    'RVR1960 no disponible. '+(sc.spanishError||'Comprueba la conexión de la Biblia.');
+    (lesson?.id==='inner-healing-2026-10-25'?'Texto en español no preparado para este versículo. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
     ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
-    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · RVR1960</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
+    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · '+esc(version)+'</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
   const english=(lesson?.id==='inner-healing-2026-10-25'||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
   const notice=spanish&&(sc.spanishSource==='RVR1960'||lesson?.spanishCopyrightNotice)&&sc.copyright
     ?'<div class="scripture-copyright">'+esc(sc.copyright)+'</div>':'';
@@ -184,7 +186,11 @@ async function resolveSpanish(sc,revision){
   send();render();
 }
 function takeScripture(v,target='both'){
-  const sc=normalizeScripture(v);
+  const input=normalizeScripture(v);
+  const bank=lesson?.id==='inner-healing-2026-10-25'
+    ?verses().find(row=>String(row.ref_en||row.ref).replace(/–/g,'-')===String(input?.ref_en||'').replace(/–/g,'-')):null;
+  const sc=bank?normalizeScripture({...bank,...v,text_es:bank.text_es,ref_es:bank.ref_es,
+    spanishSource:'original-kjv-rendering',spanishStatus:'ready'}):input;
   if(!sc?.ref_en||!sc?.text_en){
     window.MinistryIpadStatus?.('Scripture needs a reference and KJV text before it can be sent.','error');
     return false;
@@ -192,17 +198,30 @@ function takeScripture(v,target='both'){
   state.scriptureRevision=(state.scriptureRevision||0)+1;
   const revision=state.scriptureRevision;
   state.scriptureOutput={...sc,revision,spanishStatus:sc.text_es?'ready':'loading'};
+  if(lesson?.id==='inner-healing-2026-10-25'){
+    state.scriptureCueMode='manual';
+    state.sideScreenCleared=false;
+    if(!sc.text_es){state.scriptureOutput.spanishStatus='unavailable';
+      state.scriptureOutput.spanishError='La traducción manual solo incluye los versículos de este sermón.';}
+  }
   if(target!=='tv'){
     state.overlay={...sc};state.activePoll=state.activeQuestion=null;state.black=false;
   }
   send();render();
-  resolveSpanish(sc,revision);
+  if(lesson?.id!=='inner-healing-2026-10-25')resolveSpanish(sc,revision);
   return true;
 }
 function trackSideScripture(){
   const id=state.scriptureOutput?.fumsId;
   if(!id||!window._BAPI?.t||window._ministryTrackedFums===id)return;
   try{window._BAPI.t(id);window._ministryTrackedFums=id}catch(e){}
+}
+function sermonSpanishSideSlide(s){
+  const slide=s||slides()[0];
+  const kind=String(slide.type||'statement').replace(/[^a-z-]/g,'');
+  const content=slideHtml(slide,false,'es');
+  return '<div class="ih-side-slide ih-side-'+kind+'" lang="es" data-sermon-cue="'+state.slide+'">'
+    +content+(slide.type==='verse'?'<div class="ih-side-verse-source">Traducción propia al español basada en el KJV · no es RVR1960</div>':'')+'</div>';
 }
 function sideTvExplanationHtml(note){
   if(!note?.title||!note?.body)return '';
@@ -294,10 +313,10 @@ function render(){
   if(!lesson)return;theme();
   const ss=slides(),s=ss[state.slide]||ss[0];
   if(view==='projector'){
-    $('p-inner').innerHTML=state.started?slideHtml(s,true):slideHtml(ss[0],true);
+    $('p-inner').innerHTML=state.started?slideHtml(s,true,lesson?.id==='inner-healing-2026-10-25'?'en':state.language):slideHtml(ss[0],true,lesson?.id==='inner-healing-2026-10-25'?'en':state.language);
     const t=takeover();$('p-take').classList.toggle('hidden',!t);$('p-take-inner').innerHTML=t;$('p-black').classList.toggle('hidden',!state.black);
   }
-  if(view==='obsslides')$('obs-slide-inner').innerHTML=state.started?slideHtml(s,false):slideHtml(ss[0],false);
+  if(view==='obsslides')$('obs-slide-inner').innerHTML=state.started?slideHtml(s,false,lesson?.id==='inner-healing-2026-10-25'?'en':state.language):slideHtml(ss[0],false,lesson?.id==='inner-healing-2026-10-25'?'en':state.language);
   if(view==='obslowerthirds'){
     const box=$('lower-box');let d=null;
     if(state.overlay)d={title:state.overlay.ref_es&&state.language!=='en'?state.overlay.ref_es:(state.overlay.ref_en||state.overlay.ref),sub:state.language==='en'?(state.overlay.text_en||state.overlay.text):(state.overlay.text_es||state.overlay.text_en||state.overlay.text)};
@@ -308,15 +327,31 @@ function render(){
   }
   if(view==='scriptures'){
     const c=$('scripture-content');
-    const current=state.scriptureOutput;
-    const note=!current&&state.started&&s.type!=='verse'?s.tvExplanationEs:null;
-    const key=JSON.stringify([lesson.id,state.scriptureRevision,current?.ref_en||current?.ref||'',current?.text_es||'',current?.spanishStatus||'',current?.fumsId||'',note?.title||'',note?.body||'']);
-    c.classList.toggle('wait',!current&&!note);
-    c.classList.toggle('with-explanation',!!note);
-    if(c.dataset.scriptureKey!==key){
-      c.dataset.scriptureKey=key;
-      c.innerHTML=(current?scriptureHtml(current):note?'':'<div class="scripture-wait-title">ESPERANDO LA ESCRITURA</div><div class="scripture-wait-sub">El último versículo permanece hasta que llegue uno nuevo.</div>')+sideTvExplanationHtml(note);
-      trackSideScripture();
+    if(lesson?.id==='inner-healing-2026-10-25'){
+      const explicit=state.scriptureCueMode==='manual'&&!state.sideScreenCleared&&state.scriptureOutput;
+      const cleared=!!state.sideScreenCleared;
+      const key=JSON.stringify([lesson.id,state.started,state.slide,state.seq,cleared,
+        explicit&&state.scriptureRevision,explicit&&state.scriptureOutput?.ref_en]);
+      c.classList.toggle('wait',!state.started||cleared);
+      c.classList.remove('with-explanation');
+      c.classList.toggle('ih-slide-mode',!!state.started&&!explicit&&!cleared);
+      if(c.dataset.scriptureKey!==key){
+        c.dataset.scriptureKey=key;
+        c.innerHTML=cleared?'<div class="scripture-wait-title">ESCRITURA DESPEJADA</div>':
+          explicit?scriptureHtml(state.scriptureOutput):
+          sermonSpanishSideSlide(state.started?s:ss[0]);
+      }
+    }else{
+      const current=state.scriptureOutput;
+      const note=!current&&state.started&&s.type!=='verse'?s.tvExplanationEs:null;
+      const key=JSON.stringify([lesson.id,state.scriptureRevision,current?.ref_en||current?.ref||'',current?.text_es||'',current?.spanishStatus||'',current?.fumsId||'',note?.title||'',note?.body||'']);
+      c.classList.toggle('wait',!current&&!note);
+      c.classList.toggle('with-explanation',!!note);
+      if(c.dataset.scriptureKey!==key){
+        c.dataset.scriptureKey=key;
+        c.innerHTML=(current?scriptureHtml(current):note?'':'<div class="scripture-wait-title">ESPERANDO LA ESCRITURA</div><div class="scripture-wait-sub">El último versículo permanece hasta que llegue uno nuevo.</div>')+sideTvExplanationHtml(note);
+        trackSideScripture();
+      }
     }
   }
   if(view==='confidence')renderConfidence();
@@ -403,6 +438,12 @@ function go(i){
   const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
   if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
+  if(lesson?.id==='inner-healing-2026-10-25'){
+    state.scriptureRevision=(state.scriptureRevision||0)+1;
+    state.scriptureOutput=null;
+    state.scriptureCueMode='slide';
+    state.sideScreenCleared=false;
+  }
   const autoScripture=scriptureForSlide(t);
   let revision=null;
   if(autoScripture){
@@ -410,9 +451,9 @@ function go(i){
     state.scriptureOutput={...autoScripture,revision,spanishStatus:autoScripture.text_es?'ready':'loading'};
   }
   send();render();
-  if(autoScripture)resolveSpanish(autoScripture,revision);
+  if(autoScripture&&lesson?.id!=='inner-healing-2026-10-25')resolveSpanish(autoScripture,revision);
 }
-function next(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
+function next(){if(lesson?.id==='inner-healing-2026-10-25'&&state.overlay?.ref_en&&state.started)return go(Math.min(state.slide+1,slides().length-1));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
 function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
 function reset(){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;send();render()}
 function clearTakeover(){state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
@@ -425,6 +466,10 @@ function clearPresentedScripture(){
   state.scriptureRevision=(state.scriptureRevision||0)+1;
   state.scriptureOutput=null;
   if(state.overlay&&(state.overlay.ref_en||state.overlay.ref))state.overlay=null;
+  if(lesson?.id==='inner-healing-2026-10-25'){
+    state.scriptureCueMode='slide';
+    state.sideScreenCleared=true;
+  }
   send();render();
   return true;
 }

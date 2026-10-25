@@ -127,3 +127,141 @@ body[data-lesson="inner-healing-2026-10-25"] #presenter .note-body .ih-talking-p
 body[data-lesson="inner-healing-2026-10-25"] #ipad-polls-drawer,
 body[data-lesson="inner-healing-2026-10-25"] #ipad-audience-drawer,
 body[data-lesson="inner-healing-2026-10-25"] #class-questions-card{display:none!important}
+
+
+/* Spanish side TVs: synchronized slide-by-slide interpretation of every original English cue.
+   Only the Inner Healing sermon gets this mode. Existing teaching and Scripture outputs are unchanged. */
+body[data-lesson="inner-healing-2026-10-25"] #scriptures{
+  background:radial-gradient(ellipse at 83% 9%,rgba(162,96,66,.18),transparent 43%),
+    radial-gradient(ellipse at 0% 100%,rgba(141,90,59,.12),transparent 43%),
+    linear-gradient(155deg,#111415,#1b1a1a 58%,#100d0d)!important;
+  padding:4.5vh 5vw;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .scripture-inner.ih-slide-mode{
+  width:min(1570px,91vw);max-width:min(1570px,91vw);
+  max-height:91vh;min-height:0;overflow-y:auto;
+  scrollbar-width:none;scroll-behavior:auto;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .scripture-inner.ih-slide-mode::-webkit-scrollbar{display:none}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide{
+  width:100%;min-height:min(58vh,650px);max-width:100%;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:clamp(10px,2.2vh,26px);
+  color:#f8f0e6;animation:ih-side-fade .18s ease-out both;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-kicker{
+  color:#e2b78a;font-size:clamp(.83rem,1.05vw,1.2rem);letter-spacing:.17em;
+  text-transform:uppercase;margin:0;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-title{
+  color:#fff3e5;font-size:clamp(3rem,5.4vw,6.5rem);line-height:.99;
+  letter-spacing:-.018em;max-width:1460px;text-wrap:balance;margin:0;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-title.med{
+  font-size:clamp(2.8rem,4.5vw,5.2rem);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .statement{
+  color:#fff3e5;font-size:clamp(3.05rem,5.4vw,7.1rem);line-height:1.04;
+  letter-spacing:-.018em;max-width:1450px;text-wrap:balance;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-ref{
+  color:#d9aa78;font:900 clamp(1.3rem,2vw,2.5rem)/1.14 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.055em;margin:0;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-verse{
+  color:#f6ecdd;max-width:1400px;
+  font:italic 500 clamp(1.85rem,3.25vw,4.3rem)/1.18 Georgia,"Times New Roman",serif;
+  text-wrap:pretty;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-verse .p-verse{
+  font-size:clamp(2rem,3.65vw,4.65rem);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-verse .rule{
+  margin:0;background:#b27e56;width:min(140px,18vw);height:4px;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-verse-source{
+  font:600 clamp(.7rem,.92vw,1rem)/1.3 "Barlow",Arial,sans-serif;
+  letter-spacing:.025em;color:#c5ad95;margin-top:1.5vh;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-sub{
+  font:500 clamp(1.15rem,1.65vw,2rem)/1.36 "Barlow",Arial,sans-serif;
+  color:#ddbf9f;max-width:1400px;margin:0;text-wrap:balance;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points{
+  list-style:none;margin:0;padding:0;width:100%;max-width:1380px;
+  display:grid;gap:clamp(12px,1.9vh,25px);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points li{
+  display:flex;gap:clamp(16px,2vw,34px);align-items:center;
+  color:#e4d0bb;font:750 clamp(1.7rem,2.65vw,3.5rem)/1.1 "Barlow Condensed",Arial,sans-serif;
+  text-wrap:balance;margin:0;padding:clamp(10px,1.5vh,20px) 15px;
+  border-left:3px solid rgba(207,165,131,.35);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points li:before{
+  content:'';display:block;position:static;
+  flex:0 0 clamp(8px,.85vw,14px);width:clamp(8px,.85vw,14px);height:clamp(8px,.85vw,14px);
+  background:#a98c73;border-radius:100%;box-shadow:none;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points li:last-child{
+  color:#ffe9d0;background:rgba(181,110,67,.17);border-left-color:#ddac81;
+  border-radius:0 12px 12px 0;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points li:last-child:before{background:#dfaa7f}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .steps{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1.2vw,18px);width:100%;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .step{
+  min-width:0;padding:clamp(13px,1.8vw,28px);border-radius:16px;
+  border:1px solid #614c3e;background:rgba(255,245,235,.06);
+  align-items:flex-start;display:flex;flex-direction:column;gap:clamp(12px,2vh,24px);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .step-n{
+  background:rgba(223,179,139,.14);color:#dfa977;
+  font:900 clamp(1.4rem,2vw,2.5rem)/1 "Barlow Condensed",Arial,sans-serif;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .step-t{
+  font:800 clamp(1.4rem,2.1vw,2.8rem)/1.08 "Barlow Condensed",Arial,sans-serif;
+  color:#fff0df;text-wrap:balance;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .contrast{
+  width:100%;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,32px);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .contrast-box{
+  border:1px solid #6e5545;background:rgba(255,243,226,.05);border-radius:20px;
+  padding:clamp(22px,3vw,45px);min-height:clamp(230px,33vh,390px);
+  display:flex;align-items:center;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .contrast-box.right{
+  border-color:#c8956d;background:rgba(189,103,66,.13);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .contrast-text{
+  font:850 clamp(2.1rem,3.55vw,4.55rem)/1.13 "Barlow Condensed",Arial,sans-serif;
+  color:#ffeedc;white-space:pre-line;
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .ih-visual{min-height:0;gap:clamp(16px,2vh,28px)}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .ih-process-step{
+  min-height:clamp(210px,28vh,300px);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .ih-process-step strong{
+  font-size:clamp(1.5rem,2.7vw,3.7rem);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .cover{
+  display:flex;flex-direction:column;align-items:flex-start;gap:28px;
+}
+@keyframes ih-side-fade{
+  from{opacity:.8;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@media(max-width:980px){
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures{padding:4vh 4vw}
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .p-title{font-size:clamp(2.5rem,5vw,5rem)}
+}
+@media(max-width:650px){
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .contrast{grid-template-columns:1fr}
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .statement{font-size:clamp(2.2rem,7vw,4rem)}
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .points li{font-size:clamp(1.6rem,4.8vw,2.3rem)}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide{animation:none}
+}
