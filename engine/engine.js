@@ -417,6 +417,17 @@ function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return 
 function reset(){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;send();render()}
 function clearTakeover(){state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
 function clearScriptureOutput(){state.scriptureRevision=(state.scriptureRevision||0)+1;state.scriptureOutput=null;send();render()}
+function clearPresentedScripture(){
+  // A single transport command clears only the scripture takeover and side screen.
+  // Ordinary slide state, timer, and any unrelated audience state stay untouched.
+  const hasScripture=!!state.scriptureOutput||!!(state.overlay&&(state.overlay.ref_en||state.overlay.ref));
+  if(!hasScripture)return false;
+  state.scriptureRevision=(state.scriptureRevision||0)+1;
+  state.scriptureOutput=null;
+  if(state.overlay&&(state.overlay.ref_en||state.overlay.ref))state.overlay=null;
+  send();render();
+  return true;
+}
 function toggleBlack(){state.black=!state.black;send();render()}
 function pushVerse(i){const v=verses()[i];return v?takeScripture(v,'both'):false}
 function pushVerseTV(i){const v=verses()[i];return v?takeScripture(v,'tv'):false}
@@ -616,13 +627,13 @@ async function submitQuestion(){
   }catch(e){st.textContent=e?.message||classText('Could not send.','No se pudo enviar.')}
 }
 
-window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,pushScripture,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
+window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,clearPresentedScripture,toggleBlack,pushVerse,pushVerseTV,pushScripture,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
 
 // Narrow bridge for the authenticated-presenter-facing console. Never expose secrets or raw database credentials.
 window.MinistryIpadBridge={
  snapshot:()=>({lesson,library,state:{...state},questions:[...questions],votes:[...votes]}),
  loadLesson:id=>loadLesson(id,{broadcast:true,reset:true}),
- go,prev,next,reset,clearTakeover,clearScriptureOutput,toggleBlack,
+ go,prev,next,reset,clearTakeover,clearScriptureOutput,clearPresentedScripture,toggleBlack,
  pushVerse,pushVerseTV,pushScripture,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData
 };
 bootstrap().catch(err=>{
