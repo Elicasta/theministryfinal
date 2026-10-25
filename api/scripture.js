@@ -1,4 +1,4 @@
-import {parsePassage, textOf} from '../lib/scripture-reference.mjs';
+import {parsePassage, textOf} from '../lib/scripture-reference.js';
 
 const BASE='https://rest.api.bible/v1';
 const KJV='https://bible-api.com';
