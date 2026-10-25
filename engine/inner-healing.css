@@ -122,3 +122,8 @@ body[data-lesson="inner-healing-2026-10-25"] #presenter .note-body .ih-talking-p
 @media(prefers-reduced-motion:reduce){
   body[data-lesson="inner-healing-2026-10-25"] .points li{animation:none!important}
 }
+
+/* The standalone sermon has no audience Q&A, polls, or participation prompts. */
+body[data-lesson="inner-healing-2026-10-25"] #ipad-polls-drawer,
+body[data-lesson="inner-healing-2026-10-25"] #ipad-audience-drawer,
+body[data-lesson="inner-healing-2026-10-25"] #class-questions-card{display:none!important}
