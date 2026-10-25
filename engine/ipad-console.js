@@ -123,7 +123,7 @@
       if(el=hit('[data-ipad-poll-results]')){api.showPollResults(el.dataset.ipadPollResults);return}
       if(el=hit('[data-ipad-poll-close]')){api.closePoll(el.dataset.ipadPollClose);return}
       if(el=hit('[data-ipad-question]')){api.showQuestion(Number(el.dataset.ipadQuestion));return}
-      if(el=hit('[data-cue]')){api.go(Number(el.dataset.cue));scrollToLive();return}
+      if(el=hit('[data-cue]')){api.go(Number(el.dataset.cue));scrollToLive();e.stopPropagation();return}
     });
   }
   window.MinistryIpadMount=mount;
