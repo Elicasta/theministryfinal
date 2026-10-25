@@ -173,7 +173,7 @@ async function bootstrap(){
   await initNetwork();
   bind();
   if(view==='class')initClass();
-  if(view==='remote'||view==='presenter')loadAudienceData();
+  if((view==='remote'||view==='presenter')&&lesson?.id!=='inner-healing-2026-10-25')loadAudienceData();
 }
 
 function showView(){
