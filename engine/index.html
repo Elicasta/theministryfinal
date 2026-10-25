@@ -9,6 +9,7 @@
 <link id="lesson-theme-css" rel="stylesheet">
 <link rel="stylesheet" href="/engine/engine.css">
 <link rel="stylesheet" href="/engine/ipad-console.css">
+<link rel="stylesheet" href="/engine/inner-healing.css">
 </head>
 <body>
 <div id="remote" class="remote hidden">
@@ -87,9 +88,9 @@
         </div>
       </section>
       <div class="ipad-side-intro"><div class="ey">SESSION</div><select id="ipad-lesson-select" aria-label="Choose lesson"></select></div>
-      <details class="ipad-drawer" open><summary>Live interaction <span id="ipad-poll-count">0</span></summary><div id="ipad-poll-list" class="ipad-drawer-body"></div></details>
+      <details id="ipad-polls-drawer" class="ipad-drawer" open><summary>Live interaction <span id="ipad-poll-count">0</span></summary><div id="ipad-poll-list" class="ipad-drawer-body"></div></details>
       <details class="ipad-drawer"><summary>Scripture bank <span id="ipad-verse-count">0</span></summary><div id="ipad-verse-list" class="ipad-drawer-body"></div></details>
-      <details class="ipad-drawer" open><summary>Audience questions <span id="ipad-question-count">0</span></summary><div id="ipad-q-list" class="ipad-drawer-body"></div><button id="ipad-refresh" class="ipad-secondary">Refresh Questions</button></details>
+      <details id="ipad-audience-drawer" class="ipad-drawer" open><summary>Audience questions <span id="ipad-question-count">0</span></summary><div id="ipad-q-list" class="ipad-drawer-body"></div><button id="ipad-refresh" class="ipad-secondary">Refresh Questions</button></details>
       <details class="ipad-drawer"><summary>Screen controls</summary><div class="ipad-drawer-body"><button id="ipad-black" class="ipad-secondary">Black Projector</button><button id="ipad-clear-scripture" class="ipad-secondary">Clear Scripture TV</button><button id="ipad-end" class="ipad-secondary ipad-danger">End / Reset Session</button></div></details>
       <div id="ipad-feedback" class="ipad-feedback" role="status" aria-live="polite">Open the audience link on a second device to test interaction before class.</div>
     </aside>
@@ -151,7 +152,7 @@
   <main class="class-main">
     <section class="class-card"><div id="class-kicker" class="ey">Waiting for lesson</div><h2 id="class-title">Standby</h2><div id="class-ref" class="class-ref"></div><div id="class-body" class="class-body"></div><ul id="class-points" class="class-points"></ul></section>
     <div id="class-poll"></div>
-    <section class="class-card"><div class="ey" data-class-i18n="anonymousQuestion">Anonymous Question</div><textarea id="class-question" data-class-placeholder="ask" placeholder="Ask something from the lesson…"></textarea><button class="btn" id="class-question-send" data-class-i18n="send">Send Question</button><div id="class-question-state" class="class-state" role="status" aria-live="polite"></div></section>
+    <section id="class-questions-card" class="class-card"><div class="ey" data-class-i18n="anonymousQuestion">Anonymous Question</div><textarea id="class-question" data-class-placeholder="ask" placeholder="Ask something from the lesson…"></textarea><button class="btn" id="class-question-send" data-class-i18n="send">Send Question</button><div id="class-question-state" class="class-state" role="status" aria-live="polite"></div></section>
   </main>
 </div>
 

@@ -35,7 +35,7 @@ function verses(){return lesson?.verses||[]}
 function polls(){return lesson?.polls||[]}
 function poll(id){return polls().find(p=>String(p.id)===String(id))}
 function pollsForSlide(index){return polls().filter(p=>Number.isInteger(p.cueSlide)&&p.cueSlide===index)}
-function theme(){document.body.dataset.theme=lesson?.theme||'default';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
+function theme(){document.body.dataset.theme=lesson?.theme||'default';document.body.dataset.lesson=lesson?.id||'';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
 function classText(en,es){return classLanguage==='es'?(es||en):en}
@@ -71,7 +71,7 @@ function slideHtml(raw,withQr=true){
     ?'<div class="presented-translation"><div class="translation-label">English</div>'+esc(clean(s._english.title||s._english.text||s._english.sub||''))+'</div>':'';
   const missing=(state.language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
 
-  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr?resourceQrCards(false):'')+'</div>';
+  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&lesson?.id!=='inner-healing-2026-10-25'?resourceQrCards(false):'')+'</div>';
   if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
   if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(clean(s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='statement')return k+ref+'<div class="statement">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
@@ -82,6 +82,10 @@ function slideHtml(raw,withQr=true){
   if(s.type==='check')return k+'<div class="check">'+(s.items||[]).map(x=>'<div class="check-item"><div class="check-l">'+esc(clean(Array.isArray(x)?x[0]:x))+'</div><div class="check-v">'+esc(clean(Array.isArray(x)?x[1]:''))+'</div></div>').join('')+'</div>'+sub+missing;
   if(s.type==='levels')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="levels">'+(s.levels||[]).map((x,i)=>'<div class="level"><div class="level-n">'+(i+1)+'</div><div><div class="level-t">'+esc(clean(Array.isArray(x)?x[1]:x))+'</div><div class="level-d">'+esc(clean(Array.isArray(x)?x[2]:''))+'</div></div></div>').join('')+'</div>'+missing;
   if(s.type==='columns')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="contrast"><div class="contrast-box"><div><div class="check-l">'+esc(clean(s.leftTitle||''))+'</div><ul class="points">'+(s.left||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div><div class="contrast-box right"><div><div class="check-l">'+esc(clean(s.rightTitle||''))+'</div><ul class="points">'+(s.right||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div></div>'+sub+missing;
+  if(s.type==='progression'&&lesson?.id==='inner-healing-2026-10-25') {
+    const words=(s.words||[]).slice(0,5);
+    return '<div class="ih-visual"><div class="ih-visual-eyebrow">'+esc(clean(s.kicker||'THE PROCESS'))+'</div><div class="ih-process-grid">'+words.map((word,i)=>'<div class="ih-process-step"><span class="ih-step-n">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(clean(word))+'</strong></div>').join('<div class="ih-process-arrow" aria-hidden="true">→</div>')+'</div>'+sub+'</div>';
+  }
   if(s.type==='progression')return k+'<div class="p-title med">'+(s.words||[]).map(esc).join(' → ')+'</div>'+sub+missing;
   return k+'<div class="p-title med">'+esc(clean(titleOf(s)))+'</div>'+sub+missing;
 }
@@ -202,7 +206,7 @@ function buildPresenter(){
   if($('presenter-lesson'))$('presenter-lesson').textContent=lesson.series+' · '+lesson.sequence+' · '+lesson.title;
   const root=$('manuscript'); if(!root)return;
   const rows=lesson.manuscript?.length?lesson.manuscript:slides().map(s=>({title:titleOf(s),html:s.sub?'<p>'+esc(clean(s.sub))+'</p>':'',refs:s.ref?[s.ref]:[],notes:s.notes||''}));
-  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Slide '+String(i+1).padStart(2,'0')+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button class="note-cue" data-cue="'+i+'">Take Slide '+(i+1)+'</button></div>'+pollsForSlide(i).map(p=>notePollHtml(p,i)).join('')+'<div class="note-body">'+(m.html||'')+'</div>'+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
+  root.innerHTML=rows.map((m,i)=>'<section class="note-section" data-note="'+i+'"><div class="note-head"><div><div class="note-label">Cue '+String(i+1).padStart(2,'0')+' / '+rows.length+'</div><div class="note-title">'+esc(clean(m.title||titleOf(slides()[i])))+'</div></div><button type="button" class="note-cue" data-cue="'+i+'" aria-label="Take projector cue '+(i+1)+': '+esc(clean(titleOf(slides()[i])))+'">TAKE CUE '+String(i+1).padStart(2,'0')+'</button></div>'+pollsForSlide(i).map(p=>notePollHtml(p,i)).join('')+'<div class="note-body">'+(m.html||'')+'</div>'+((m.refs||[]).length?'<div class="note-label">'+(m.refs||[]).map(esc).join(' · ')+'</div>':'')+(m.notes?'<div class="notes">'+esc(clean(m.notes))+'</div>':'')+'</section>').join('');
   window.MinistryIpadMount?.();
 }
 
@@ -266,7 +270,7 @@ function renderRemoteCue(){
 
 function renderPresenterLive(){
   document.querySelectorAll('[data-note]').forEach(n=>n.classList.toggle('is-live',state.started&&Number(n.dataset.note)===state.slide));
-  document.querySelectorAll('[data-cue]').forEach(b=>{const on=state.started&&Number(b.dataset.cue)===state.slide;b.classList.toggle('live',on);b.textContent=on?'LIVE':'Take Slide '+(Number(b.dataset.cue)+1)});
+  document.querySelectorAll('[data-cue]').forEach(b=>{const on=state.started&&Number(b.dataset.cue)===state.slide;b.classList.toggle('live',on);b.textContent=on?'ON SCREEN':'TAKE CUE '+String(Number(b.dataset.cue)+1).padStart(2,'0')});
   document.querySelectorAll('[data-note-poll]').forEach(box=>{
     const active=state.activePoll?.id===box.dataset.notePoll;
     const liveQuestion=active&&state.activePoll.mode==='question';
