@@ -102,7 +102,7 @@ test('moving to a new teaching cue clears stale manual verse and prepares the ne
   const state={started:false,slide:0,overlay:null,activePoll:null,activeQuestion:null,
     scriptureRevision:0,scriptureOutput:null,black:false,startedAt:null,timerStoppedAt:null};
   const go=new Script(slice('function go(i){','function next(){')+'\ngo;').runInNewContext({
-    state,lesson,slides:()=>lesson.slides,Date:{now:()=>1000},
+    state,lesson,slides:()=>lesson.slides,Date:{now:()=>1000},sessionNow:()=>1000,
     scriptureForSlide:i=>{
       const s=lesson.slides[i];return s.type==='verse'?{ref_en:s.ref,text_en:s.text,ref_es:s.es.ref,text_es:s.es.text}:null;
     },

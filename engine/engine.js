@@ -20,6 +20,36 @@ const view=queryView||pathView||'remote';
 
 let library=null, lesson=null, questions=[], votes=[], bc=null, sbUrl='', sbKey='', sbClient=null, rtChannel=null, lastTs=0;
 let queuedSyncState=null,syncWriteBusy=false;
+// A lightweight server clock aligns independent iPad, confidence and control devices.
+// The old local Date.now clock remains a fallback whenever the network is unavailable.
+let clockOffsetMs=0;
+function sessionNow(){return Date.now()+clockOffsetMs}
+async function syncServerClock(){
+  const before=Date.now(),controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),2500);
+  try{
+    const response=await fetch('/api/session-time',{cache:'no-store',signal:controller.signal});
+    const after=Date.now();
+    if(!response.ok||after-before>4500)return false;
+    const result=await response.json();
+    const serverTime=Number(result.now);
+    if(!Number.isFinite(serverTime)||serverTime<1000000000000)return false;
+    clockOffsetMs=serverTime-(before+after)/2;
+    tick();
+    return true;
+  }catch(e){return false}
+  finally{clearTimeout(timeout)}
+}
+function elapsedSessionSeconds(sessionState=state,now=sessionNow()){
+  if(!sessionState?.started||!Number.isFinite(Number(sessionState.startedAt))||
+     Number(sessionState.startedAt)<=0)return 0;
+  const end=Number(sessionState.timerStoppedAt)||now;
+  return Math.max(0,Math.floor((end-Number(sessionState.startedAt))/1000));
+}
+function sessionElapsedLabel(seconds){
+  const s=Math.max(0,Math.floor(Number(seconds)||0));
+  return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+}
 async function flushSyncState(){
   if(syncWriteBusy||!sbUrl||!sbKey)return;
   syncWriteBusy=true;
@@ -263,6 +293,7 @@ async function bootstrap(){
   await loadLesson(preferred);
   showView();
   startLocal();
+  await syncServerClock();
   await initNetwork();
   bind();
   if(view==='class')initClass();
@@ -405,7 +436,9 @@ function renderConfidence(){
   $('conf-status').textContent=(lesson.series+' · '+lesson.sequence).toUpperCase();
   $('conf-k').textContent=state.started?'CURRENT · SLIDE '+(state.slide+1)+' / '+ss.length:'STANDBY';
   $('conf-title').textContent=state.started?clean(titleOf(localizedSlide(s))):lesson.title;
-  $('conf-ref').textContent=state.started?(localizedSlide(s).ref||localizedSlide(s).kicker||lesson.scripture):lesson.scripture;
+  const overlayRef=state.overlay?.ref_en||state.overlay?.ref||'';
+  $('conf-ref').textContent=overlayRef?'ON PROJECTOR · '+clean(overlayRef):
+    state.started?(localizedSlide(s).ref||localizedSlide(s).kicker||lesson.scripture):lesson.scripture;
   $('conf-next').textContent=state.started?(n?clean(titleOf(n)):'End'):clean(titleOf(ss[0]));
   const notes=$('conf-notes');
   const key=lesson.id+':'+idx+':'+(state.started?'live':'standby');
@@ -427,15 +460,20 @@ function renderConfidence(){
 }
 
 function tick(){
-  const end=state.timerStoppedAt||Date.now(),sec=state.startedAt?Math.max(0,Math.floor((end-state.startedAt)/1000)):0;
-  const val=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');
-  if($('conf-time'))$('conf-time').textContent=val;
-  if($('ipad-time'))$('ipad-time').textContent=val;
+  const val=sessionElapsedLabel(elapsedSessionSeconds());
+  // Never run independent counters on the iPad and confidence displays.
+  // Each reads the shared session start timestamp even after Safari suspends.
+  for(const id of ['conf-time','ipad-time']){
+    const el=$(id);if(!el)continue;
+    if(el.textContent!==val)el.textContent=val;
+    el.dataset.running=state.started?'yes':'no';
+    el.setAttribute('aria-label',state.started?'Session elapsed time '+val:'Session not started');
+  }
 }
 
 function go(i){
   const ss=slides();if(!ss.length)return;
-  const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
+  const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=sessionNow();
   if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
   if(lesson?.id==='inner-healing-2026-10-25'){
@@ -529,6 +567,13 @@ function bind(){
     document.addEventListener('click',e=>{const b=e.target.closest('[data-cue]');if(b)go(Number(b.dataset.cue))});
   }
   setInterval(()=>{if(view==='confidence'||view==='presenter')tick()},500);
+  setInterval(()=>{void syncServerClock()},60000);
+  const catchUp=()=>{tick();void syncServerClock().then(()=>{tick();return readLatest()})};
+  // iPad Safari suspends timers in the background. Catch up on foreground,
+  // back/forward restores, or network return, without restarting the session.
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)catchUp()});
+  window.addEventListener('pageshow',catchUp);
+  window.addEventListener('online',catchUp);
   if(view==='scriptures')setInterval(trackSideScripture,1500);
 }
 
@@ -539,7 +584,7 @@ async function readLatest(){
   try{
     const r=await fetch(sbUrl+'/rest/v1/sync_state?id=eq.'+SYNC_ID+'&select=payload',{headers:{apikey:sbKey,Authorization:'Bearer '+sbKey},cache:'no-store'});
     const rows=await r.json(),raw=rows?.[0]?.payload,msg=typeof raw==='string'?JSON.parse(raw):raw;
-    if(msg?.type===TYPE&&msg.room===ROOM&&Date.now()-(msg.ts||msg.state?.ts||0)<TTL)await handle(msg);
+    if(msg?.type===TYPE&&msg.room===ROOM&&sessionNow()-(msg.ts||msg.state?.ts||0)<TTL)await handle(msg);
   }catch(e){}
 }
 async function initNetwork(){
@@ -551,10 +596,13 @@ async function initNetwork(){
     rtChannel=sbClient.channel('ministry-unified-live')
       .on('broadcast',{event:'state'},({payload})=>handle(payload))
       .on('postgres_changes',{event:'*',schema:'public',table:'sync_state',filter:'id=eq.'+SYNC_ID},p=>{try{const raw=p.new?.payload,m=typeof raw==='string'?JSON.parse(raw):raw;handle(m)}catch(e){}})
-      .subscribe(status=>{if(status==='SUBSCRIBED')markSync(true,'Live');if(status==='CHANNEL_ERROR'||status==='TIMED_OUT')markSync(false,'Realtime error')});
+      .subscribe(status=>{
+        if(status==='SUBSCRIBED'){markSync(true,'Live');void readLatest()}
+        if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED')markSync(false,'Realtime error')
+      });
   }catch(e){markSync(false,'Realtime error')}};
   if(window.supabase)start();else{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';sc.onload=start;document.head.appendChild(sc)}
-  setInterval(readLatest,5000);
+  setInterval(readLatest,3000);
 }
 function markSync(ok,label){if($('conf-sync')){$('conf-sync').textContent=label;$('conf-sync').dataset.live=ok?'yes':'no'}if($('ipad-sync')){$('ipad-sync').textContent=label;$('ipad-sync').dataset.live=ok?'yes':'no'}if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
 async function handle(msg){
@@ -567,7 +615,7 @@ async function handle(msg){
   render();
 }
 function send(){
-  const ts=Math.max(Date.now(),lastTs+1);lastTs=ts;
+  const ts=Math.max(sessionNow(),lastTs+1);lastTs=ts;
   state={...state,room:ROOM,type:TYPE,seq:(state.seq||0)+1,ts,lessonId:lesson?.id||state.lessonId};
   const msg={type:TYPE,room:ROOM,state:{...state},ts:state.ts};
   try{if(!bc)bc=new BroadcastChannel(CHANNEL);bc.postMessage(msg)}catch(e){}

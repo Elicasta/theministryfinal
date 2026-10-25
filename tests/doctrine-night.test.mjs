@@ -202,7 +202,7 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
     .runInNewContext({
       state,
       slides:()=>[{}, {}, {}],
-      Date:{now:()=>now},
+      Date:{now:()=>now},sessionNow:()=>now,
       scriptureForSlide:()=>null,
       lesson:{id:'doctrine-night'},
       send:()=>{},render:()=>{},resolveSpanish:()=>{}
