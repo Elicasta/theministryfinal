@@ -68,13 +68,13 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM ONE · BUILD 1/3",
+      "kicker": "SYMPTOM ONE · POINT 1/3",
       "title": "The pain is over. The resentment remains.",
       "points": [
         "Resentment"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 1/3",
+      "cue": "SYMPTOM ONE · POINT 1/3",
       "es": {
         "kicker": "PRIMER SÍNTOMA · 1 DE 3",
         "title": "El dolor terminó, pero el resentimiento permanece.",
@@ -86,14 +86,14 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM ONE · BUILD 2/3",
+      "kicker": "SYMPTOM ONE · POINT 2/3",
       "title": "When old pain shapes the present",
       "points": [
         "Resentment",
         "A negative view of life"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 2/3",
+      "cue": "SYMPTOM ONE · POINT 2/3",
       "es": {
         "kicker": "PRIMER SÍNTOMA · 2 DE 3",
         "title": "Cuando el dolor del pasado moldea el presente",
@@ -106,7 +106,7 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM ONE · BUILD 3/3",
+      "kicker": "SYMPTOM ONE · POINT 3/3",
       "title": "When old pain shapes the present",
       "points": [
         "Resentment",
@@ -114,7 +114,7 @@
         "Recurring cycles"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM ONE · BUILD 3/3",
+      "cue": "SYMPTOM ONE · POINT 3/3",
       "es": {
         "kicker": "PRIMER SÍNTOMA · 3 DE 3",
         "title": "Cuando el dolor del pasado moldea el presente",
@@ -140,13 +140,13 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM TWO · BUILD 1/3",
+      "kicker": "SYMPTOM TWO · POINT 1/3",
       "title": "What we replay",
       "points": [
         "Recurring thoughts"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 1/3",
+      "cue": "SYMPTOM TWO · POINT 1/3",
       "es": {
         "kicker": "SEGUNDO SÍNTOMA · 1 DE 3",
         "title": "Lo que seguimos reviviendo",
@@ -158,14 +158,14 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM TWO · BUILD 2/3",
+      "kicker": "SYMPTOM TWO · POINT 2/3",
       "title": "What we turn to",
       "points": [
         "Recurring thoughts",
         "Sins that provide temporary comfort"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 2/3",
+      "cue": "SYMPTOM TWO · POINT 2/3",
       "es": {
         "kicker": "SEGUNDO SÍNTOMA · 2 DE 3",
         "title": "A dónde acudimos para sentir alivio",
@@ -178,7 +178,7 @@
     },
     {
       "type": "points",
-      "kicker": "SYMPTOM TWO · BUILD 3/3",
+      "kicker": "SYMPTOM TWO · POINT 3/3",
       "title": "What begins to control us",
       "points": [
         "Recurring thoughts",
@@ -186,7 +186,7 @@
         "Damaging addictions"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "SYMPTOM TWO · BUILD 3/3",
+      "cue": "SYMPTOM TWO · POINT 3/3",
       "es": {
         "kicker": "SEGUNDO SÍNTOMA · 3 DE 3",
         "title": "Lo que comienza a dominarnos",
@@ -323,13 +323,13 @@
     },
     {
       "type": "points",
-      "kicker": "FOUR RESPONSES · BUILD 1/4",
+      "kicker": "FOUR RESPONSES · POINT 1/4",
       "title": "Hurt will make you…",
       "points": [
         "Hold on to things too long"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 1/4",
+      "cue": "FOUR RESPONSES · POINT 1/4",
       "es": {
         "kicker": "CUATRO RESPUESTAS · 1 DE 4",
         "title": "El dolor puede llevarte a…",
@@ -341,14 +341,14 @@
     },
     {
       "type": "points",
-      "kicker": "FOUR RESPONSES · BUILD 2/4",
+      "kicker": "FOUR RESPONSES · POINT 2/4",
       "title": "Hurt will make you…",
       "points": [
         "Hold on to things too long",
         "Exaggerate situations"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 2/4",
+      "cue": "FOUR RESPONSES · POINT 2/4",
       "es": {
         "kicker": "CUATRO RESPUESTAS · 2 DE 4",
         "title": "El dolor puede llevarte a…",
@@ -361,7 +361,7 @@
     },
     {
       "type": "points",
-      "kicker": "FOUR RESPONSES · BUILD 3/4",
+      "kicker": "FOUR RESPONSES · POINT 3/4",
       "title": "Hurt will make you…",
       "points": [
         "Hold on to things too long",
@@ -369,7 +369,7 @@
         "Cut off unrelated people"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 3/4",
+      "cue": "FOUR RESPONSES · POINT 3/4",
       "es": {
         "kicker": "CUATRO RESPUESTAS · 3 DE 4",
         "title": "El dolor puede llevarte a…",
@@ -383,7 +383,7 @@
     },
     {
       "type": "points",
-      "kicker": "FOUR RESPONSES · BUILD 4/4",
+      "kicker": "FOUR RESPONSES · POINT 4/4",
       "title": "Hurt will make you…",
       "points": [
         "Hold on to things too long",
@@ -392,7 +392,7 @@
         "Shift responsibility"
       ],
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "FOUR RESPONSES · BUILD 4/4",
+      "cue": "FOUR RESPONSES · POINT 4/4",
       "es": {
         "kicker": "CUATRO RESPUESTAS · 4 DE 4",
         "title": "El dolor puede llevarte a…",
