@@ -472,6 +472,7 @@ function bind(){
     document.addEventListener('click',e=>{const b=e.target.closest('[data-cue]');if(b)go(Number(b.dataset.cue))});
   }
   setInterval(()=>{if(view==='confidence'||view==='presenter')tick()},500);
+  if(view==='scriptures')setInterval(trackSideScripture,1500);
 }
 
 function startLocal(){try{bc=new BroadcastChannel(CHANNEL);bc.onmessage=e=>handle(e.data)}catch(e){}}
