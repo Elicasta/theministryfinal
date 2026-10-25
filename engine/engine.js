@@ -3,6 +3,7 @@
 
 const ROOM='ministry-unified-v2', CHANNEL=ROOM, SYNC_ID=1, TYPE='ministry_unified_state', TTL=14400000;
 const GUIDE_URL='https://apostolicguide.com/';
+const spanishCache=new Map();
 const classUrl=()=>location.origin+'/class'+(lesson?.id?'?lesson='+encodeURIComponent(lesson.id):'');
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -26,7 +27,7 @@ localStorage.setItem('ministry_class_session',classSession);
 
 let state={
   room:ROOM,type:TYPE,lessonId:null,started:false,slide:0,overlay:null,scriptureOutput:null,black:false,activePoll:null,activeQuestion:null,
-  startedAt:null,timerStoppedAt:null,language:'en',seq:0,ts:Date.now()
+  startedAt:null,timerStoppedAt:null,language:'en',scriptureRevision:0,seq:0,ts:Date.now()
 };
 
 function titleOf(s){return s?.title||s?.ref||s?.kicker||'Slide'}
@@ -94,41 +95,95 @@ function normalizeScripture(v){
   if(!v)return null;
   const en=v.ref_en||v.ref||'';
   return {
-    ref_en:en,
-    text_en:v.text_en||v.text||v.kjv||'',
+    ref_en:en, text_en:v.text_en||v.text||v.kjv||'',
     ref_es:v.ref_es||(window.MinistrySpanishRef?.(en)||en),
-    text_es:v.text_es||v.rvr||'',
+    text_es:v.text_es||v.rvr||'', spanishSource:v.spanishSource||'',
+    spanishStatus:v.spanishStatus||'', spanishError:v.spanishError||'',
+    revision:Number(v.revision)||0, fumsId:v.fumsId||'',
     copyright:v.copyright||lesson?.spanishCopyrightNotice||''
   };
 }
 function scriptureForSlide(index){
   const s=slides()[index];
-  if(!s || s.type!=='verse') return null;
+  if(!s||s.type!=='verse')return null;
   const preserved=lesson?.slideScriptures?.[index];
-  if(preserved && (preserved.text_en||preserved.text)) return normalizeScripture(preserved);
+  if(preserved&&(preserved.text_en||preserved.text))return normalizeScripture(preserved);
   const match=verses().find(v=>String(v.ref_en||v.ref||'').trim()===String(s.ref||'').trim());
-  if(match) return normalizeScripture(match);
+  if(match)return normalizeScripture(match);
   return normalizeScripture({ref_en:s.ref||'',text_en:s.text||'',ref_es:s.ref_es||'',text_es:s.text_es||''});
 }
 function scriptureHtml(v){
   const sc=normalizeScripture(v);if(!sc)return '';
-  // A previously broadcast state may have the English text but not the
-  // newly authored Spanish text. Hydrate only from the EXACT verse reference.
-  const matching=verses().find(row=>String(row.ref_en||row.ref||'').trim()===String(sc.ref_en).trim());
-  if(matching){
-    sc.text_es=matching.text_es||sc.text_es;
-    sc.ref_es=matching.ref_es||sc.ref_es;
-    sc.copyright=lesson?.spanishCopyrightNotice||sc.copyright;
+  const match=verses().find(row=>String(row.ref_en||row.ref||'').trim()===String(sc.ref_en).trim());
+  if(match){
+    sc.text_es=sc.text_es||match.text_es||'';
+    sc.ref_es=sc.ref_es||match.ref_es||'';
   }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
+  const version=sc.spanishSource==='RVR1960'?'RVR1960':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960');
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
+  const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
+    'RVR1960 no disponible. '+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
-    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · RVR 1960 · ADAPTACIÓN «EL SEÑOR»</div><div class="scripture-text">'+esc(spanish)+'</div></div>'
-    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+'</div><div class="scripture-missing">No hay texto español guardado para este versículo.</div></div>';
-
-  const notice=spanish?'<div class="scripture-copyright">'+esc(sc.copyright||'Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.')+'</div>':'';
-  return primary+notice;
+    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
+    : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · RVR1960</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
+  const english=sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
+  const notice=spanish&&sc.spanishSource==='RVR1960'&&sc.copyright
+    ?'<div class="scripture-copyright">'+esc(sc.copyright)+'</div>':'';
+  return primary+english+notice;
+}
+async function resolveSpanish(sc,revision){
+  if(!sc?.ref_en||!sc?.text_en)return;
+  const ref=String(sc.ref_en).trim();
+  // Never silently label edited or missing Spanish as RVR1960.
+  let entry=spanishCache.get(ref);
+  if(!entry){
+    try{
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6500);
+      let res;
+      try{res=await fetch('/api/scripture?mode=spanish&ref='+encodeURIComponent(ref),{cache:'no-store',signal:controller.signal})}
+      finally{clearTimeout(timer)}
+      entry=await res.json().catch(()=>({ok:false,error:'The Spanish response was not readable'}));
+      if(!res.ok||!entry.ok)entry={ok:false,error:entry.message||entry.error||'RVR1960 is not configured for this app'};
+      // Cache successful licensed passages, not configuration or network errors.
+      if(entry.ok)spanishCache.set(ref,entry);
+    }catch(error){entry={ok:false,error:error.name==='AbortError'?'Spanish verse request timed out':error.message}}
+  }
+  // An older request must never replace a newer verse on a live side screen.
+  if(state.scriptureRevision!==revision||String(state.scriptureOutput?.ref_en||'').trim()!==ref)return;
+  if(entry.ok){
+    state.scriptureOutput={...state.scriptureOutput,text_es:entry.text_es,
+      spanishSource:'RVR1960',spanishStatus:'ready',spanishError:'',
+      copyright:entry.copyright||'',fumsId:entry.fumsId||'',revision};
+    if(state.overlay&&String(state.overlay.ref_en||'').trim()===ref)state.overlay={...state.overlay,text_es:entry.text_es,spanishSource:'RVR1960'};
+  }else{
+    state.scriptureOutput={...state.scriptureOutput,spanishStatus:'unavailable',
+      spanishError:entry.error||'No authorized RVR1960 text available',revision};
+    window.MinistryIpadStatus?.('English verse sent. '+state.scriptureOutput.spanishError,'error');
+  }
+  send();render();
+}
+function takeScripture(v,target='both'){
+  const sc=normalizeScripture(v);
+  if(!sc?.ref_en||!sc?.text_en){
+    window.MinistryIpadStatus?.('Scripture needs a reference and KJV text before it can be sent.','error');
+    return false;
+  }
+  state.scriptureRevision=(state.scriptureRevision||0)+1;
+  const revision=state.scriptureRevision;
+  state.scriptureOutput={...sc,revision,spanishStatus:sc.text_es?'ready':'loading'};
+  if(target!=='tv'){
+    state.overlay={...sc};state.activePoll=state.activeQuestion=null;state.black=false;
+  }
+  send();render();
+  resolveSpanish(sc,revision);
+  return true;
+}
+function trackSideScripture(){
+  const id=state.scriptureOutput?.fumsId;
+  if(!id||!window._BAPI?.t||window._ministryTrackedFums===id)return;
+  try{window._BAPI.t(id);window._ministryTrackedFums=id}catch(e){}
 }
 function sideTvExplanationHtml(note){
   if(!note?.title||!note?.body)return '';
@@ -235,13 +290,14 @@ function render(){
   if(view==='scriptures'){
     const c=$('scripture-content');
     const current=state.scriptureOutput;
-    const note=state.started&&s.type!=='verse'?s.tvExplanationEs:null;
-    const key=JSON.stringify([lesson.id,current?.ref_en||current?.ref||'',current?.text_es||'',note?.title||'',note?.body||'']);
+    const note=!current&&state.started&&s.type!=='verse'?s.tvExplanationEs:null;
+    const key=JSON.stringify([lesson.id,state.scriptureRevision,current?.ref_en||current?.ref||'',current?.text_es||'',current?.spanishStatus||'',current?.fumsId||'',note?.title||'',note?.body||'']);
     c.classList.toggle('wait',!current&&!note);
     c.classList.toggle('with-explanation',!!note);
     if(c.dataset.scriptureKey!==key){
       c.dataset.scriptureKey=key;
       c.innerHTML=(current?scriptureHtml(current):note?'':'<div class="scripture-wait-title">ESPERANDO LA ESCRITURA</div><div class="scripture-wait-sub">El último versículo permanece hasta que llegue uno nuevo.</div>')+sideTvExplanationHtml(note);
+      trackSideScripture();
     }
   }
   if(view==='confidence')renderConfidence();
@@ -324,22 +380,28 @@ function tick(){
 }
 
 function go(i){
-  const ss=slides();if(!ss.length)return;const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
-  if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
+  const ss=slides();if(!ss.length)return;
+  const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
+  if(!state.started){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
   const autoScripture=scriptureForSlide(t);
-  if(autoScripture) state.scriptureOutput=autoScripture;
-  if(t===ss.length-1)state.timerStoppedAt=null;
+  let revision=null;
+  if(autoScripture){
+    revision=state.scriptureRevision=(state.scriptureRevision||0)+1;
+    state.scriptureOutput={...autoScripture,revision,spanishStatus:autoScripture.text_es?'ready':'loading'};
+  }
   send();render();
+  if(autoScripture)resolveSpanish(autoScripture,revision);
 }
 function next(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
 function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
 function reset(){state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;send();render()}
 function clearTakeover(){state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
-function clearScriptureOutput(){state.scriptureOutput=null;send();render()}
+function clearScriptureOutput(){state.scriptureRevision=(state.scriptureRevision||0)+1;state.scriptureOutput=null;send();render()}
 function toggleBlack(){state.black=!state.black;send();render()}
-function pushVerse(i){const v=verses()[i];if(!v)return;const sc=normalizeScripture(v);state.overlay=sc;state.scriptureOutput=sc;state.activePoll=state.activeQuestion=null;state.black=false;send();render()}
-function pushVerseTV(i){const v=verses()[i];if(!v)return;state.scriptureOutput=normalizeScripture(v);send();render()}
+function pushVerse(i){const v=verses()[i];return v?takeScripture(v,'both'):false}
+function pushVerseTV(i){const v=verses()[i];return v?takeScripture(v,'tv'):false}
+function pushScripture(v,target='both'){return takeScripture(v,target)}
 function setLanguage(lang){if(!['en','es','bilingual'].includes(lang))return;state.language=lang;send();render()}
 
 async function persistPollDefinition(p,status='live'){
@@ -421,7 +483,7 @@ async function initNetwork(){
 function markSync(ok,label){if($('conf-sync')){$('conf-sync').textContent=label;$('conf-sync').dataset.live=ok?'yes':'no'}if($('ipad-sync')){$('ipad-sync').textContent=label;$('ipad-sync').dataset.live=ok?'yes':'no'}if($('r-dot'))$('r-dot').classList.toggle('live',ok);if($('r-sync'))$('r-sync').textContent=label;if($('class-dot'))$('class-dot').classList.toggle('live',ok);if($('class-sync'))$('class-sync').textContent=label}
 async function handle(msg){
   if(msg?.type!==TYPE||msg.room!==ROOM)return;
-  const incoming=msg.state||msg,ts=Number(incoming.ts||msg.ts)||0;if(ts&&lastTs&&ts<lastTs)return;lastTs=Math.max(lastTs,ts);
+  const incoming=msg.state||msg,ts=Number(incoming.ts||msg.ts)||0;if(ts&&lastTs&&ts<=lastTs)return;lastTs=Math.max(lastTs,ts);
   const nextLesson=incoming.lessonId||state.lessonId;
   state={...state,...incoming,type:TYPE,room:ROOM};
   if(nextLesson&&nextLesson!==lesson?.id)await loadLesson(nextLesson);
@@ -429,7 +491,8 @@ async function handle(msg){
   render();
 }
 function send(){
-  state={...state,room:ROOM,type:TYPE,seq:(state.seq||0)+1,ts:Date.now(),lessonId:lesson?.id||state.lessonId};
+  const ts=Math.max(Date.now(),lastTs+1);lastTs=ts;
+  state={...state,room:ROOM,type:TYPE,seq:(state.seq||0)+1,ts,lessonId:lesson?.id||state.lessonId};
   const msg={type:TYPE,room:ROOM,state:{...state},ts:state.ts};
   try{if(!bc)bc=new BroadcastChannel(CHANNEL);bc.postMessage(msg)}catch(e){}
   try{rtChannel?.send({type:'broadcast',event:'state',payload:msg})}catch(e){}
@@ -533,14 +596,14 @@ async function submitQuestion(){
   }catch(e){st.textContent=e?.message||classText('Could not send.','No se pudo enviar.')}
 }
 
-window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
+window.MinistryIpad={view,getLesson:()=>lesson,getLibrary:()=>library,getState:()=>state,getQuestions:()=>questions,getVotes:()=>votes,loadLesson,go,next,prev,reset,clearTakeover,clearScriptureOutput,toggleBlack,pushVerse,pushVerseTV,pushScripture,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData};
 
 // Narrow bridge for the authenticated-presenter-facing console. Never expose secrets or raw database credentials.
 window.MinistryIpadBridge={
  snapshot:()=>({lesson,library,state:{...state},questions:[...questions],votes:[...votes]}),
  loadLesson:id=>loadLesson(id,{broadcast:true,reset:true}),
  go,prev,next,reset,clearTakeover,clearScriptureOutput,toggleBlack,
- pushVerse,pushVerseTV,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData
+ pushVerse,pushVerseTV,pushScripture,launchPoll,showPollResults,closePoll,showQuestion,loadAudienceData
 };
 bootstrap().catch(err=>{
   console.error(err);
