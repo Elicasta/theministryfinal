@@ -19,6 +19,24 @@ const pathView={
 const view=queryView||pathView||'remote';
 
 let library=null, lesson=null, questions=[], votes=[], bc=null, sbUrl='', sbKey='', sbClient=null, rtChannel=null, lastTs=0;
+let queuedSyncState=null,syncWriteBusy=false;
+async function flushSyncState(){
+  if(syncWriteBusy||!sbUrl||!sbKey)return;
+  syncWriteBusy=true;
+  try{
+    while(queuedSyncState){
+      const msg=queuedSyncState;queuedSyncState=null;
+      try{
+        const response=await fetch(sbUrl+'/rest/v1/sync_state',{
+          method:'POST',
+          headers:{'Content-Type':'application/json',apikey:sbKey,Authorization:'Bearer '+sbKey,Prefer:'resolution=merge-duplicates,return=minimal'},
+          body:JSON.stringify({id:SYNC_ID,payload:JSON.stringify(msg),updated_at:new Date(msg.ts).toISOString()})
+        });
+        if(!response.ok)throw new Error('Sync write returned '+response.status);
+      }catch(err){window.MinistryIpadStatus?.('Live sync write failed. Check the projector and connection.','error')}
+    }
+  }finally{syncWriteBusy=false}
+}
 let classEmail=localStorage.getItem('ministry_class_email')||'';
 let classLanguage=localStorage.getItem('ministry_class_language')||(/^es\b/i.test(navigator.language||'')?'es':'en');
 if(!['en','es'].includes(classLanguage))classLanguage='en';
@@ -496,7 +514,7 @@ function send(){
   const msg={type:TYPE,room:ROOM,state:{...state},ts:state.ts};
   try{if(!bc)bc=new BroadcastChannel(CHANNEL);bc.postMessage(msg)}catch(e){}
   try{rtChannel?.send({type:'broadcast',event:'state',payload:msg})}catch(e){}
-  if(sbUrl&&sbKey)fetch(sbUrl+'/rest/v1/sync_state',{method:'POST',headers:{'Content-Type':'application/json',apikey:sbKey,Authorization:'Bearer '+sbKey,Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({id:SYNC_ID,payload:JSON.stringify(msg),updated_at:new Date().toISOString()})}).catch(()=>{});
+  if(sbUrl&&sbKey){queuedSyncState=msg;void flushSyncState()}
 }
 
 const classLabels={
