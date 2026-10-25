@@ -103,3 +103,46 @@
 #presenter .ipad-time{font:900 .84rem/1.25 'Barlow Condensed',Arial,sans-serif;letter-spacing:.05em;font-variant-numeric:tabular-nums;color:#263b32;background:#edf3ed;border:1px solid #b5cabb;border-radius:7px;padding:5px 9px;min-width:49px;text-align:center;white-space:nowrap}
 @media(max-width:960px){#presenter .ipad-live-info .ipad-sync{display:inline-flex!important}}
 @media(max-width:720px){#presenter .ipad-live-info{gap:5px}#presenter .ipad-time{padding:5px 7px;font-size:.82rem;min-width:44px}}
+
+
+/* Tap-ready Scripture inside the sermon manuscript, and full-chapter Bible Bank. */
+#presenter .ipad-clickable-scripture{
+  cursor:pointer;position:relative;transition:border-color .15s,background .15s;
+}
+#presenter .ipad-clickable-scripture:hover{border-color:#a66a44;background:#fff8ed}
+#presenter .ipad-clickable-scripture:focus-within{outline:2px solid #b67d51;outline-offset:2px}
+#presenter .ipad-inline-scripture-actions{
+  display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;font-style:normal;
+}
+#presenter .ipad-inline-scripture-actions button{
+  min-height:43px;padding:8px 12px;border-radius:8px;
+  border:1px solid #a78c77;background:#fff9ee;
+  color:#4d3528;font:800 .74rem 'Barlow',Arial,sans-serif;
+  cursor:pointer;touch-action:manipulation;
+}
+#presenter .ipad-inline-scripture-actions button:first-child{
+  background:#8f452d;color:#fff;border-color:#8f452d;
+}
+#presenter .ipad-inline-scripture-actions button:focus-visible{outline:3px solid #c77749;outline-offset:2px}
+.ipad-bank-label{display:block;color:#62594f;font:800 .72rem 'Barlow',Arial,sans-serif;margin:4px 0 9px}
+.ipad-bank-search{display:flex;gap:7px}
+.ipad-bank-search input{flex:1;min-width:0;background:#fff;border:1px solid #c8bdb0;border-radius:8px;padding:12px 11px;color:#29231f;font:700 .85rem 'Barlow',Arial,sans-serif}
+.ipad-bank-search .ipad-secondary{min-width:61px;background:#2d2927;border-color:#2d2927;color:#fff}
+.ipad-bank-nav{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:9px 0}
+.ipad-bank-nav button{min-width:0;font-size:.7rem;padding:9px}
+.ipad-bank-status{color:#685b50;font:600 .76rem/1.45 'Barlow',Arial,sans-serif;min-height:38px;padding:9px 2px}
+.ipad-bank-status[data-kind=error]{color:#9e1d16}
+.ipad-bank-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #d8cfc2;padding:7px 2px 12px;margin-bottom:10px}
+.ipad-bank-heading strong{font:800 1.12rem 'Barlow Condensed',Arial,sans-serif;color:#302821}
+.ipad-bank-heading small{font:700 .67rem 'Barlow',Arial,sans-serif;color:#756d63}
+.ipad-bank-results{max-height:50vh;overflow:auto;overscroll-behavior:contain;scrollbar-color:#a39b90 #faf7f0}
+.ipad-bank-verse{border-bottom:1px solid #e8e1d8;padding:11px 3px 12px}
+.ipad-bank-verse:last-child{border-bottom:0}
+.ipad-bank-verse-text{font:500 .82rem/1.55 'Barlow',Arial,sans-serif;color:#342d29}
+.ipad-bank-verse-text>span{display:inline-flex;justify-content:center;align-items:center;margin-right:8px;min-width:25px;height:25px;border-radius:5px;background:#eee3d6;color:#86502f;font:900 .7rem 'Barlow',Arial,sans-serif}
+.ipad-bank-verse .ipad-pair{margin-top:7px}
+.ipad-bank-verse .ipad-pair button{min-height:42px}
+@media(max-width:720px){
+ #presenter .ipad-inline-scripture-actions button{flex:1 1 auto}
+ .ipad-bank-results{max-height:55vh}
+}

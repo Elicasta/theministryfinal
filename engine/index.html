@@ -90,6 +90,22 @@
       <div class="ipad-side-intro"><div class="ey">SESSION</div><select id="ipad-lesson-select" aria-label="Choose lesson"></select></div>
       <details id="ipad-polls-drawer" class="ipad-drawer" open><summary>Live interaction <span id="ipad-poll-count">0</span></summary><div id="ipad-poll-list" class="ipad-drawer-body"></div></details>
       <details class="ipad-drawer"><summary>Scripture bank <span id="ipad-verse-count">0</span></summary><div id="ipad-verse-list" class="ipad-drawer-body"></div></details>
+      <details id="ipad-bible-drawer" class="ipad-drawer" open>
+        <summary>Full Bible Bank <span>KJV + RVR1960</span></summary>
+        <div class="ipad-drawer-body">
+          <label class="ipad-bank-label" for="ipad-bible-chapter">Book and chapter</label>
+          <div class="ipad-bank-search">
+            <input type="text" id="ipad-bible-chapter" placeholder="Romans 6" autocomplete="off" spellcheck="false">
+            <button type="button" id="ipad-bible-open" class="ipad-secondary">Open</button>
+          </div>
+          <div class="ipad-bank-nav">
+            <button type="button" id="ipad-bible-prev" class="ipad-secondary">← Chapter</button>
+            <button type="button" id="ipad-bible-next" class="ipad-secondary">Next Chapter →</button>
+          </div>
+          <div id="ipad-bible-status" class="ipad-bank-status" role="status" aria-live="polite">Choose a book and chapter, or tap a verse in the manuscript.</div>
+          <div id="ipad-bible-results" class="ipad-bank-results"></div>
+        </div>
+      </details>
       <details id="ipad-audience-drawer" class="ipad-drawer" open><summary>Audience questions <span id="ipad-question-count">0</span></summary><div id="ipad-q-list" class="ipad-drawer-body"></div><button id="ipad-refresh" class="ipad-secondary">Refresh Questions</button></details>
       <details class="ipad-drawer"><summary>Screen controls</summary><div class="ipad-drawer-body"><button id="ipad-black" class="ipad-secondary">Black Projector</button><button id="ipad-clear-scripture" class="ipad-secondary">Clear Scripture TV</button><button id="ipad-end" class="ipad-secondary ipad-danger">End / Reset Session</button></div></details>
       <div id="ipad-feedback" class="ipad-feedback" role="status" aria-live="polite">Open the audience link on a second device to test interaction before class.</div>
@@ -158,6 +174,8 @@
 
 <script src="/engine/lesson-loader.js"></script>
 <script src="/engine/spanish-ref.js"></script>
+<script src="https://cdn.scripture.api.bible/fums/fumsv2.min.js" async></script>
+<script src="/engine/scripture-tools.js"></script>
 <script src="/engine/engine.js"></script>
 <script src="/engine/ipad-console.js"></script>
 </body>
