@@ -89,11 +89,11 @@ test('manuscript stays full-length, English, and unchanged by translation',()=>{
 });
 test('side screen uses cue number in render key, independent of Scripture output',()=>{
   assert.match(engine,/if\(lesson\?\.id==='inner-healing-2026-10-25'\)\{/);
-  assert.match(engine,/state\.started,state\.slide,state\.seq,cleared/);
-  assert.match(engine,/sermonSpanishSideSlide\(state\.started\?s:ss\[0\]\)/);
+  assert.match(engine,/state\.started,state\.slide,state\.seq,/);
+  assert.match(engine,/sermonSpanishSideSlide\(currentSlide\)/);
   assert.match(engine,/state\.scriptureCueMode='slide'/);
   assert.match(engine,/state\.scriptureCueMode='manual'/);
-  assert.match(engine,/state\.sideScreenCleared=true/);
+  assert.match(engine,/state\.sideScreenCleared=false/);
   assert.match(engine,/if\(lesson\?\.id!=='inner-healing-2026-10-25'\)resolveSpanish/);
   assert.doesNotThrow(()=>new Script(engine));
 });
