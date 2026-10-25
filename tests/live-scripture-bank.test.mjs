@@ -128,10 +128,10 @@ test('standalone sermon manuscript is complete, ordered, and unchanged by UI wor
   const parts=j.manuscript.map((section,index)=>{
     assert.equal(section.slide,index);
     assert.ok(section.html.length>20,'Empty manuscript section '+index);
-    return section.html.replace(/<[^>]*>/g,' ').replace(/\\s+/g,' ').trim();
+    return section.html.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
   });
   const full=parts.join(' ');
-  assert.equal(full.split(/\\s+/).filter(Boolean).length,4721);
+  assert.equal(full.split(/\s+/).filter(Boolean).length,4721);
   for(const exact of [
     'You can be delivered from the thing that hurt you',
     'We have learned to function with the pain',
