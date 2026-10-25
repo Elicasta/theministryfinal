@@ -139,15 +139,15 @@ function scriptureHtml(v){
   }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
-  const version=sc.spanishSource==='RVR1960'?'RVR1960':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960');
+  const version=sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
     'RVR1960 no disponible. '+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
     ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · RVR1960</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
-  const english=sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
-  const notice=spanish&&sc.spanishSource==='RVR1960'&&sc.copyright
+  const english=(lesson?.id==='inner-healing-2026-10-25'||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
+  const notice=spanish&&(sc.spanishSource==='RVR1960'||lesson?.spanishCopyrightNotice)&&sc.copyright
     ?'<div class="scripture-copyright">'+esc(sc.copyright)+'</div>':'';
   return primary+english+notice;
 }
@@ -400,7 +400,7 @@ function tick(){
 function go(i){
   const ss=slides();if(!ss.length)return;
   const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=Date.now();
-  if(!state.started){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
+  if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
   const autoScripture=scriptureForSlide(t);
   let revision=null;
