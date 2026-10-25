@@ -265,3 +265,14 @@ body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide .cover{
 @media(prefers-reduced-motion:reduce){
   body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-slide{animation:none}
 }
+
+/* Readable rights notice on Spanish sermon Scripture side slides (RVR1960). */
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-verse-source{
+  color:#f0cda4;font:800 clamp(.8rem,1vw,1.1rem)/1.2 "Barlow",Arial,sans-serif;
+  letter-spacing:.035em;margin-top:clamp(5px,.8vh,10px);
+}
+body[data-lesson="inner-healing-2026-10-25"] #scriptures .ih-side-verse-copyright{
+  max-width:1280px;color:#b7a79a;
+  font:500 clamp(.6rem,.8vw,.85rem)/1.3 "Barlow",Arial,sans-serif;
+  text-wrap:pretty;
+}
