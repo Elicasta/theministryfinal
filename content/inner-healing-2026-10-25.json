@@ -12,15 +12,13 @@
   "slides": [
     {
       "type": "cover",
-      "kicker": "A STANDALONE MESSAGE",
       "title": "The Importance of Inner Healing",
       "sub": "God heals what cannot always be seen.",
       "ref": "Psalm 147:3",
       "speakerNote": "Opening. Let the title sit while you introduce the distinction between physical and internal wounds.",
       "notes": "Cue from the manuscript. Advance manually.",
-      "cue": "A STANDALONE MESSAGE",
+      "cue": "Opening",
       "es": {
-        "kicker": "UN MENSAJE ESPECIAL",
         "title": "La importancia de la sanidad interior",
         "sub": "Dios sana lo que no siempre se puede ver.",
         "ref": "Salmo 147:3",
