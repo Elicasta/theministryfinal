@@ -111,19 +111,33 @@
 }
 #presenter .ipad-clickable-scripture:hover{border-color:#a66a44;background:#fff8ed}
 #presenter .ipad-clickable-scripture:focus-within{outline:2px solid #b67d51;outline-offset:2px}
-#presenter .ipad-inline-scripture-actions{
-  display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;font-style:normal;
-}
-#presenter .ipad-inline-scripture-actions button{
-  min-height:43px;padding:8px 12px;border-radius:8px;
-  border:1px solid #a78c77;background:#fff9ee;
-  color:#4d3528;font:800 .74rem 'Barlow',Arial,sans-serif;
+#presenter .ipad-scripture-tap{
+  display:block;width:100%;min-height:44px;
+  padding:0 40px 0 0;margin:0;border:0;border-radius:0;
+  background:transparent;color:inherit;text-align:left;
+  font:inherit;line-height:inherit;letter-spacing:inherit;
   cursor:pointer;touch-action:manipulation;
 }
-#presenter .ipad-inline-scripture-actions button:first-child{
-  background:#8f452d;color:#fff;border-color:#8f452d;
+#presenter .ipad-scripture-tap strong{
+  color:inherit;font:inherit;font-weight:800;
 }
-#presenter .ipad-inline-scripture-actions button:focus-visible{outline:3px solid #c77749;outline-offset:2px}
+#presenter .ipad-scripture-tap:focus-visible{
+  outline:2px solid #b67d51;outline-offset:3px;
+}
+#presenter .ipad-scripture-active{
+  background:#faf0dc!important;border-left-color:#8f452d!important;
+}
+#presenter .ipad-scripture-x{
+  position:absolute;right:9px;top:10px;min-width:42px;height:42px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;background:#874630;border:1px solid #874630;
+  border-radius:9px;font:600 1.6rem/1 Arial,sans-serif;
+  cursor:pointer;touch-action:manipulation;
+}
+#presenter .ipad-scripture-x[hidden]{display:none!important}
+#presenter .ipad-scripture-x:focus-visible{
+  outline:3px solid #b67d51;outline-offset:2px;
+}
 .ipad-bank-label{display:block;color:#62594f;font:800 .72rem 'Barlow',Arial,sans-serif;margin:4px 0 9px}
 .ipad-bank-search{display:flex;gap:7px}
 .ipad-bank-search input{flex:1;min-width:0;background:#fff;border:1px solid #c8bdb0;border-radius:8px;padding:12px 11px;color:#29231f;font:700 .85rem 'Barlow',Arial,sans-serif}
@@ -143,6 +157,6 @@
 .ipad-bank-verse .ipad-pair{margin-top:7px}
 .ipad-bank-verse .ipad-pair button{min-height:42px}
 @media(max-width:720px){
- #presenter .ipad-inline-scripture-actions button{flex:1 1 auto}
+ #presenter .ipad-scripture-x{right:8px;top:8px}
  .ipad-bank-results{max-height:55vh}
 }
