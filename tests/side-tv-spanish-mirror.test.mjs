@@ -30,7 +30,7 @@ function createSide(overrideLesson=lesson){
   };
   let broadcasts=0,repaints=0;
   const context={
-    view:'scriptures',state,lesson:overrideLesson,ss:overrideLesson.slides,
+    view:'scriptures',state,lesson:overrideLesson,ss:overrideLesson.slides,isMirroredSermon:()=>true,
     s:overrideLesson.slides[0],$:(id)=>id==='scripture-content'?node:null,
     sermonSpanishSideSlide:slide=>'<div lang="es" class="mirrored">'+
       (slide.es.title||slide.es.text||slide.es.kicker)+
