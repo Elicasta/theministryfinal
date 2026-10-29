@@ -303,7 +303,7 @@ test('side TVs render saved Spanish-only text with last-verse persistence and tr
   const scriptureHtml=new Script(engine.slice(first,last)+';scriptureHtml;').runInNewContext({
     normalizeScripture:v=>({...v,ref_es:v.ref_es||translate(v.ref_en)}),
     verses:()=>lesson.verses,
-    lesson,
+    lesson,isMirroredSermon:()=>false,
     esc:value=>String(value||'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))
   });
   const stale={ref_en:'Deuteronomy 6:4',ref_es:'Deuteronomio 6:4',text_en:'Hear, O Israel: The LORD our God is one LORD:',text_es:''};
