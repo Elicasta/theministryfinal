@@ -117,7 +117,7 @@
       if(!response.ok||!data.ok)throw new Error(data.error||'Chapter lookup unavailable');
       chapterCache.set(chapter,data);
       renderBibleChapter(data);
-      bibleStatus(data.verses.length+' KJV verses. Tap any verse to send it. '+(api.getLesson()?.id==='inner-healing-2026-10-25'?'Exact RVR1960 is saved for all 38 sermon references.':'RVR1960 loads on projection when licensed.'));
+      bibleStatus(data.verses.length+' KJV verses. Tap any verse to send it. '+((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?'Los versículos RVR1960 de esta lección están guardados en el manuscrito.':'RVR1960 loads on projection when licensed.'));
     }catch(error){
       if(id!==bankLoadId)return;
       const fallback=lessonChapterFallback(chapter);
@@ -143,13 +143,13 @@
     if(!p)return;
     const ok=api.pushScripture({ref_en:p.dataset.ipadScriptureRef,
       text_en:p.dataset.ipadScriptureText},target);
-    if(ok)status(p.dataset.ipadScriptureRef+(api.getLesson()?.id==='inner-healing-2026-10-25'?' · RVR1960 lista.':' sent. Checking corresponding RVR1960 text.'),'ok');
+    if(ok)status(p.dataset.ipadScriptureRef+((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 lista.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function sendBankVerse(index,target){
     const v=bankRows[index];
     if(!v)return;
     const ok=api.pushScripture({ref_en:v.ref,text_en:v.text},target);
-    if(ok)status(v.ref+(api.getLesson()?.id==='inner-healing-2026-10-25'?' · RVR1960 guardada para las referencias de este sermón.':' sent. Checking corresponding RVR1960 text.'),'ok');
+    if(ok)status(v.ref+((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 guardada para los versículos de esta lección.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function mount(){
     const lesson=api.getLesson(),library=api.getLibrary();
@@ -163,7 +163,7 @@
       const a=document.querySelector('.presenter-actions a[href="'+needle+'"]');
       if(a)a.href=target+'?lesson='+encodeURIComponent(lesson.id);
     }
-    const isSermon=lesson.id==='inner-healing-2026-10-25';
+    const isSermon=lesson.id==='inner-healing-2026-10-25'||lesson.sideTvSpanishMirror===true;
     const bibleVersionLabel=document.querySelector('#ipad-bible-drawer>summary span');
     if(bibleVersionLabel)bibleVersionLabel.textContent='KJV + RVR1960';
     const classLink=document.querySelector('.presenter-actions a[href^="/class"]');
@@ -203,7 +203,7 @@
   }
   function audience(){renderQuestions();renderPolls();}
   async function refreshAudience(){
-    if(api.getLesson()?.id==='inner-healing-2026-10-25')return;
+    if((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true))return;
     const ok=await api.loadAudienceData();
     if(!ok)status('Audience data is unavailable. Check the connection before showing results.','error');
   }
