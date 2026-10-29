@@ -244,6 +244,28 @@
       "engineSource": "/content/inner-healing-2026-10-25.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "matthew-12-lord-of-the-sabbath-lesson-1",
+      "series": "Matthew Chapter 12",
+      "sequence": "Lesson 1",
+      "title": "The Lord of the Sabbath",
+      "scripture": "Matthew 11:28–30 · Matthew 12:1–21",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "projector": "/projector?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "manuscript": "/presenter?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "student": "/class?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "controller": "/mobile?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "scriptures": "/scriptures?lesson=matthew-12-lord-of-the-sabbath-lesson-1",
+        "confidence": "/confidence?lesson=matthew-12-lord-of-the-sabbath-lesson-1"
+      },
+      "engineSource": "/content/matthew-12-lord-of-the-sabbath-lesson-1.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
     }
   ]
 }
