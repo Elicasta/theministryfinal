@@ -1,0 +1,2650 @@
+{
+  "id": "matthew-12-lord-of-the-sabbath-lesson-1",
+  "slug": "the-lord-of-the-sabbath-lesson-1",
+  "series": "Matthew Chapter 12",
+  "seriesSlug": "matthew-chapter-12",
+  "sequence": "Lesson 1",
+  "title": "The Lord of the Sabbath",
+  "scripture": "Matthew 11:28–30 · Matthew 12:1–21",
+  "taughtAt": null,
+  "theme": "ministry",
+  "status": "ready",
+  "sideTvSpanishMirror": true,
+  "slides": [
+    {
+      "type": "cover",
+      "title": "The Lord of the Sabbath",
+      "sub": "The Lord Who Gives Rest, Has Authority, and Restores",
+      "ref": "Matthew 11:28–30 · Matthew 12:1–21",
+      "es": {
+        "title": "El Señor del día de reposo",
+        "sub": "El Señor que da descanso, tiene autoridad y restaura",
+        "ref": "Mateo 11:28–30 · Mateo 12:1–21",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "Matthew 11:28–30 · Matthew 12:1–21",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "INTRODUCTION",
+      "title": "The Lord Who Gives Rest",
+      "es": {
+        "kicker": "INTRODUCCIÓN",
+        "title": "El Señor que da descanso",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "INTRODUCTION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 11:28-30",
+      "ref": "Matthew 11:28–30",
+      "text": "28 Come unto me, all ye that labour and are heavy laden, and I will give you rest.\n29 Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.\n30 For my yoke is easy, and my burden is light.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 11:28-30",
+        "ref": "Mateo 11:28-30",
+        "text": "28 Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.\n29 Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;\n30 porque mi yugo es fácil, y ligera mi carga.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "REST FOR THE SOUL",
+      "title": "You can rest your body and still carry the burden.",
+      "es": {
+        "kicker": "DESCANSO PARA EL ALMA",
+        "title": "Puedes descansar el cuerpo y seguir cargando la misma preocupación.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "REST FOR THE SOUL",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "Jesus is offering something greater than physical rest. He is offering rest for the soul.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Jesús ofrece algo más grande que el descanso físico: descanso para el alma.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "REST UNDER HIS AUTHORITY · POINT 1/3",
+      "title": "Rest under His direction",
+      "points": [
+        "Rest is not always the absence of responsibility. Sometimes it is learning whose authority you are living under."
+      ],
+      "es": {
+        "kicker": "DESCANSO BAJO SU AUTORIDAD · PUNTO 1/3",
+        "title": "Descanso bajo su dirección",
+        "points": [
+          "El descanso no siempre significa ausencia de responsabilidades. A veces consiste en aprender bajo qué autoridad vivimos."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "REST UNDER HIS AUTHORITY · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "REST UNDER HIS AUTHORITY · POINT 2/3",
+      "title": "Rest under His direction",
+      "points": [
+        "Rest is not always the absence of responsibility. Sometimes it is learning whose authority you are living under.",
+        "Not every burden we carry is one that God has placed upon us."
+      ],
+      "es": {
+        "kicker": "DESCANSO BAJO SU AUTORIDAD · PUNTO 2/3",
+        "title": "Descanso bajo su dirección",
+        "points": [
+          "El descanso no siempre significa ausencia de responsabilidades. A veces consiste en aprender bajo qué autoridad vivimos.",
+          "No toda carga que llevamos ha sido puesta sobre nosotros por Dios."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "REST UNDER HIS AUTHORITY · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "REST UNDER HIS AUTHORITY · POINT 3/3",
+      "title": "Rest under His direction",
+      "points": [
+        "Rest is not always the absence of responsibility. Sometimes it is learning whose authority you are living under.",
+        "Not every burden we carry is one that God has placed upon us.",
+        "Christ invites us to exchange the weight of our own understanding for the rest that comes through learning from Him."
+      ],
+      "es": {
+        "kicker": "DESCANSO BAJO SU AUTORIDAD · PUNTO 3/3",
+        "title": "Descanso bajo su dirección",
+        "points": [
+          "El descanso no siempre significa ausencia de responsabilidades. A veces consiste en aprender bajo qué autoridad vivimos.",
+          "No toda carga que llevamos ha sido puesta sobre nosotros por Dios.",
+          "Cristo nos invita a cambiar el peso de nuestro propio entendimiento por el descanso de aprender de Él."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "REST UNDER HIS AUTHORITY · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "FROM REST TO THE SABBATH",
+      "title": "The Lord who gives rest is the Lord of the Sabbath.",
+      "es": {
+        "kicker": "DEL DESCANSO AL REPOSO",
+        "title": "El Señor que da descanso es el Señor del día de reposo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "FROM REST TO THE SABBATH",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 01",
+      "title": "The Sabbath Was Established by God",
+      "es": {
+        "kicker": "SECCIÓN 01",
+        "title": "Dios estableció el día de reposo",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 01",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Exodus 20:8",
+      "ref": "Exodus 20:8",
+      "text": "Remember the sabbath day, to keep it holy.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Éxodo 20:8",
+        "ref": "Éxodo 20:8",
+        "text": "Acuérdate del día de reposo para santificarlo.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "A GIFT ESTABLISHED BY GOD",
+      "title": "The Sabbath was given by God, not invented by the Pharisees.",
+      "es": {
+        "kicker": "UN REGALO ESTABLECIDO POR DIOS",
+        "title": "Dios dio el día de reposo; no lo inventaron los fariseos.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "A GIFT ESTABLISHED BY GOD",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Deuteronomy 5:15",
+      "ref": "Deuteronomy 5:15",
+      "text": "And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Deuteronomio 5:15",
+        "ref": "Deuteronomio 5:15",
+        "text": "Acuérdate que fuiste siervo en tierra de Egipto, y que el Señor tu Dios te sacó de allá con mano fuerte y brazo extendido; por lo cual el Señor tu Dios te ha mandado que guardes el día de reposo.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The Sabbath reminded Israel of the God who created them, delivered them, and gave them rest.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "El día de reposo le recordaba a Israel al Dios que lo creó, lo libró y le dio descanso.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE PURPOSE OF THE SABBATH · POINT 1/3",
+      "title": "What the Sabbath revealed",
+      "points": [
+        "The Sabbath was holy because God established it."
+      ],
+      "es": {
+        "kicker": "EL PROPÓSITO DEL REPOSO · PUNTO 1/3",
+        "title": "Lo que revelaba el día de reposo",
+        "points": [
+          "El día de reposo era santo porque Dios lo estableció."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE PURPOSE OF THE SABBATH · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE PURPOSE OF THE SABBATH · POINT 2/3",
+      "title": "What the Sabbath revealed",
+      "points": [
+        "The Sabbath was holy because God established it.",
+        "It was a commandment, but it also reflected God's provision for His people."
+      ],
+      "es": {
+        "kicker": "EL PROPÓSITO DEL REPOSO · PUNTO 2/3",
+        "title": "Lo que revelaba el día de reposo",
+        "points": [
+          "El día de reposo era santo porque Dios lo estableció.",
+          "Era un mandamiento y también una expresión del cuidado de Dios por su pueblo."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE PURPOSE OF THE SABBATH · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE PURPOSE OF THE SABBATH · POINT 3/3",
+      "title": "What the Sabbath revealed",
+      "points": [
+        "The Sabbath was holy because God established it.",
+        "It was a commandment, but it also reflected God's provision for His people.",
+        "The problem in Matthew 12 was not the Sabbath itself, but the Pharisees' misunderstanding of its proper application."
+      ],
+      "es": {
+        "kicker": "EL PROPÓSITO DEL REPOSO · PUNTO 3/3",
+        "title": "Lo que revelaba el día de reposo",
+        "points": [
+          "El día de reposo era santo porque Dios lo estableció.",
+          "Era un mandamiento y también una expresión del cuidado de Dios por su pueblo.",
+          "El problema de Mateo 12 no era el día de reposo, sino la interpretación incorrecta de los fariseos."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE PURPOSE OF THE SABBATH · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 02",
+      "title": "David: When Mercy Meets Human Need",
+      "es": {
+        "kicker": "SECCIÓN 02",
+        "title": "David: cuando la misericordia responde a la necesidad",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 02",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:1-2",
+      "ref": "Matthew 12:1–2",
+      "text": "1 At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.\n2 But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:1-2",
+        "ref": "Mateo 12:1-2",
+        "text": "1 En aquel tiempo iba Jesús por los sembrados en un día de reposo; y sus discípulos tuvieron hambre, y comenzaron a arrancar espigas y a comer.\n2 Viéndolo los fariseos, le dijeron: He aquí tus discípulos hacen lo que no es lícito hacer en el día de reposo.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:3-4",
+      "ref": "Matthew 12:3–4",
+      "text": "3 But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;\n4 How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:3-4",
+        "ref": "Mateo 12:3-4",
+        "text": "3 Pero él les dijo: ¿No habéis leído lo que hizo David, cuando él y los que con él estaban tuvieron hambre;\n4 cómo entró en la casa de Dios, y comió los panes de la proposición, que no les era lícito comer ni a él ni a los que con él estaban, sino solamente a los sacerdotes?",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THE DISCIPLES WERE HUNGRY",
+      "title": "Human need meets a narrow interpretation of the Sabbath.",
+      "es": {
+        "kicker": "LOS DISCÍPULOS TENÍAN HAMBRE",
+        "title": "La necesidad humana frente a una interpretación rígida del reposo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE DISCIPLES WERE HUNGRY",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "DAVID AND THE SHEWBREAD",
+      "title": "David, Ahimelech, and the bread reserved for the priests.",
+      "es": {
+        "kicker": "DAVID Y LOS PANES DE LA PROPOSICIÓN",
+        "title": "David, Ahimelec y el pan reservado para los sacerdotes.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "DAVID AND THE SHEWBREAD",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "Why is this significant?",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "¿Por qué es importante?",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "DAVID AND HUMAN NEED · POINT 1/3",
+      "title": "Why David's story matters",
+      "points": [
+        "David's hunger was a genuine human need."
+      ],
+      "es": {
+        "kicker": "DAVID Y LA NECESIDAD HUMANA · PUNTO 1/3",
+        "title": "Por qué importa la historia de David",
+        "points": [
+          "El hambre de David era una necesidad humana real."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "DAVID AND HUMAN NEED · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "DAVID AND HUMAN NEED · POINT 2/3",
+      "title": "Why David's story matters",
+      "points": [
+        "David's hunger was a genuine human need.",
+        "The shewbread was holy, and Jesus acknowledges that its use was ordinarily restricted."
+      ],
+      "es": {
+        "kicker": "DAVID Y LA NECESIDAD HUMANA · PUNTO 2/3",
+        "title": "Por qué importa la historia de David",
+        "points": [
+          "El hambre de David era una necesidad humana real.",
+          "Los panes eran santos, y Jesús reconoce que su uso estaba reservado ordinariamente a los sacerdotes."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "DAVID AND HUMAN NEED · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "DAVID AND HUMAN NEED · POINT 3/3",
+      "title": "Why David's story matters",
+      "points": [
+        "David's hunger was a genuine human need.",
+        "The shewbread was holy, and Jesus acknowledges that its use was ordinarily restricted.",
+        "Yet Jesus appeals to this account to expose the failure of the Pharisees to understand mercy."
+      ],
+      "es": {
+        "kicker": "DAVID Y LA NECESIDAD HUMANA · PUNTO 3/3",
+        "title": "Por qué importa la historia de David",
+        "points": [
+          "El hambre de David era una necesidad humana real.",
+          "Los panes eran santos, y Jesús reconoce que su uso estaba reservado ordinariamente a los sacerdotes.",
+          "Jesús usa este relato para mostrar que los fariseos no habían comprendido la misericordia."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "DAVID AND HUMAN NEED · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "God's holiness and His mercy are not in opposition to one another.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "La santidad y la misericordia de Dios no se oponen entre sí.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 03",
+      "title": "The Priests: Service and Authority",
+      "es": {
+        "kicker": "SECCIÓN 03",
+        "title": "Los sacerdotes: servicio y autoridad",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 03",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:5-6",
+      "ref": "Matthew 12:5–6",
+      "text": "5 Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?\n6 But I say unto you, That in this place is one greater than the temple.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:5-6",
+        "ref": "Mateo 12:5-6",
+        "text": "5 ¿O no habéis leído en la ley, cómo en el día de reposo los sacerdotes en el templo profanan el día de reposo, y son sin culpa?\n6 Pues os digo que uno mayor que el templo está aquí.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SERVICE IN THE TEMPLE",
+      "title": "The priests served on the Sabbath and remained blameless.",
+      "es": {
+        "kicker": "EL SERVICIO EN EL TEMPLO",
+        "title": "Los sacerdotes servían en el día de reposo y no eran culpables.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SERVICE IN THE TEMPLE",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "Why does Jesus say they profane the Sabbath but remain blameless?",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "¿Por qué dice Jesús que los sacerdotes quebrantan el reposo y, sin embargo, no tienen culpa?",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "SERVICE AND GOD'S LAW · POINT 1/3",
+      "title": "The priests were blameless",
+      "points": [
+        "The priests were not disobeying God. They were fulfilling His commandments."
+      ],
+      "es": {
+        "kicker": "EL SERVICIO Y LA LEY DE DIOS · PUNTO 1/3",
+        "title": "Los sacerdotes no tenían culpa",
+        "points": [
+          "Los sacerdotes no desobedecían a Dios; cumplían sus mandamientos."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SERVICE AND GOD'S LAW · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "SERVICE AND GOD'S LAW · POINT 2/3",
+      "title": "The priests were blameless",
+      "points": [
+        "The priests were not disobeying God. They were fulfilling His commandments.",
+        "Their service did not make them guilty."
+      ],
+      "es": {
+        "kicker": "EL SERVICIO Y LA LEY DE DIOS · PUNTO 2/3",
+        "title": "Los sacerdotes no tenían culpa",
+        "points": [
+          "Los sacerdotes no desobedecían a Dios; cumplían sus mandamientos.",
+          "Su servicio no los hacía culpables."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SERVICE AND GOD'S LAW · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "SERVICE AND GOD'S LAW · POINT 3/3",
+      "title": "The priests were blameless",
+      "points": [
+        "The priests were not disobeying God. They were fulfilling His commandments.",
+        "Their service did not make them guilty.",
+        "Jesus demonstrates that the Pharisees' rigid understanding of Sabbath restrictions was incomplete."
+      ],
+      "es": {
+        "kicker": "EL SERVICIO Y LA LEY DE DIOS · PUNTO 3/3",
+        "title": "Los sacerdotes no tenían culpa",
+        "points": [
+          "Los sacerdotes no desobedecían a Dios; cumplían sus mandamientos.",
+          "Su servicio no los hacía culpables.",
+          "Jesús demuestra que la interpretación rígida de los fariseos sobre el reposo era incompleta."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SERVICE AND GOD'S LAW · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "GREATER THAN THE TEMPLE",
+      "title": "One greater than the temple is here.",
+      "es": {
+        "kicker": "MAYOR QUE EL TEMPLO",
+        "title": "Aquí está uno mayor que el templo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "GREATER THAN THE TEMPLE",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "If service to the temple was permitted on the Sabbath, how much greater is the authority of the One who is greater than the temple?",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Si se permitía servir en el templo durante el reposo, ¿cuánta más autoridad tiene Aquel que es mayor que el templo?",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Colossians 2:9",
+      "ref": "Colossians 2:9",
+      "text": "For in him dwelleth all the fulness of the Godhead bodily.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Colosenses 2:9",
+        "ref": "Colosenses 2:9",
+        "text": "Porque en él habita corporalmente toda la plenitud de la Deidad,",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 04",
+      "title": "Mercy Over Sacrifice: The Heart of God",
+      "es": {
+        "kicker": "SECCIÓN 04",
+        "title": "Misericordia antes que sacrificio: el corazón de Dios",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 04",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:7",
+      "ref": "Matthew 12:7",
+      "text": "But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:7",
+        "ref": "Mateo 12:7",
+        "text": "Y si supieseis qué significa: Misericordia quiero, y no sacrificio, no condenaríais a los inocentes;",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Hosea 6:6",
+      "ref": "Hosea 6:6",
+      "text": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Oseas 6:6",
+        "ref": "Oseas 6:6",
+        "text": "Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "WHAT GOD DESIRES",
+      "title": "Religious practice cannot replace mercy and knowing God.",
+      "es": {
+        "kicker": "LO QUE DIOS DESEA",
+        "title": "La práctica religiosa no sustituye la misericordia ni el conocimiento de Dios.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "WHAT GOD DESIRES",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "Notice that Jesus doesn't say His disciples are guilty but forgiven. He declares them guiltless.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Jesús no dice que sus discípulos sean culpables pero perdonados. Declara que no tienen culpa.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE HEART OF THE LAW · POINT 1/3",
+      "title": "Mercy and obedience belong together",
+      "points": [
+        "Religious observance cannot replace genuine obedience to God's will."
+      ],
+      "es": {
+        "kicker": "EL CORAZÓN DE LA LEY · PUNTO 1/3",
+        "title": "La misericordia y la obediencia van juntas",
+        "points": [
+          "La observancia religiosa no sustituye la obediencia verdadera a la voluntad de Dios."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE HEART OF THE LAW · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE HEART OF THE LAW · POINT 2/3",
+      "title": "Mercy and obedience belong together",
+      "points": [
+        "Religious observance cannot replace genuine obedience to God's will.",
+        "God's commandments should never become an excuse for neglecting mercy."
+      ],
+      "es": {
+        "kicker": "EL CORAZÓN DE LA LEY · PUNTO 2/3",
+        "title": "La misericordia y la obediencia van juntas",
+        "points": [
+          "La observancia religiosa no sustituye la obediencia verdadera a la voluntad de Dios.",
+          "Los mandamientos de Dios nunca deben servir como excusa para descuidar la misericordia."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE HEART OF THE LAW · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "THE HEART OF THE LAW · POINT 3/3",
+      "title": "Mercy and obedience belong together",
+      "points": [
+        "Religious observance cannot replace genuine obedience to God's will.",
+        "God's commandments should never become an excuse for neglecting mercy.",
+        "It is possible to know the commandments of God and still misunderstand the character of the God who gave them."
+      ],
+      "es": {
+        "kicker": "EL CORAZÓN DE LA LEY · PUNTO 3/3",
+        "title": "La misericordia y la obediencia van juntas",
+        "points": [
+          "La observancia religiosa no sustituye la obediencia verdadera a la voluntad de Dios.",
+          "Los mandamientos de Dios nunca deben servir como excusa para descuidar la misericordia.",
+          "Es posible conocer los mandamientos de Dios y entender mal el carácter del Dios que los dio."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE HEART OF THE LAW · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 05",
+      "title": "The Lord of the Sabbath Has Authority",
+      "es": {
+        "kicker": "SECCIÓN 05",
+        "title": "El Señor del día de reposo tiene autoridad",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 05",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:8",
+      "ref": "Matthew 12:8",
+      "text": "For the Son of man is Lord even of the sabbath day.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:8",
+        "ref": "Mateo 12:8",
+        "text": "porque el Hijo del Hombre es Señor del día de reposo.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THE DECLARATION OF AUTHORITY",
+      "title": "The Son of man is Lord even of the Sabbath.",
+      "es": {
+        "kicker": "LA DECLARACIÓN DE AUTORIDAD",
+        "title": "El Hijo del Hombre es Señor aun del día de reposo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE DECLARATION OF AUTHORITY",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Exodus 31:13",
+      "ref": "Exodus 31:13",
+      "text": "...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Éxodo 31:13",
+        "ref": "Éxodo 31:13",
+        "text": "Tú hablarás a los hijos de Israel, diciendo: En verdad vosotros guardaréis mis días de reposo; porque es señal entre mí y vosotros por vuestras generaciones, para que sepáis que yo soy el Señor que os santifico.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "LORD EVEN OF THE SABBATH · POINT 1/3",
+      "title": "Christ has authority",
+      "points": [
+        "Christ is greater than the temple."
+      ],
+      "es": {
+        "kicker": "SEÑOR AUN DEL REPOSO · PUNTO 1/3",
+        "title": "Cristo tiene autoridad",
+        "points": [
+          "Cristo es mayor que el templo."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "LORD EVEN OF THE SABBATH · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "LORD EVEN OF THE SABBATH · POINT 2/3",
+      "title": "Christ has authority",
+      "points": [
+        "Christ is greater than the temple.",
+        "Christ is Lord of the Sabbath."
+      ],
+      "es": {
+        "kicker": "SEÑOR AUN DEL REPOSO · PUNTO 2/3",
+        "title": "Cristo tiene autoridad",
+        "points": [
+          "Cristo es mayor que el templo.",
+          "Cristo es Señor del día de reposo."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "LORD EVEN OF THE SABBATH · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "LORD EVEN OF THE SABBATH · POINT 3/3",
+      "title": "Christ has authority",
+      "points": [
+        "Christ is greater than the temple.",
+        "Christ is Lord of the Sabbath.",
+        "Christ has authority to declare what is lawful and to reveal the purpose of God's commandments."
+      ],
+      "es": {
+        "kicker": "SEÑOR AUN DEL REPOSO · PUNTO 3/3",
+        "title": "Cristo tiene autoridad",
+        "points": [
+          "Cristo es mayor que el templo.",
+          "Cristo es Señor del día de reposo.",
+          "Cristo tiene autoridad para declarar lo que es lícito y revelar el propósito de los mandamientos de Dios."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "LORD EVEN OF THE SABBATH · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The Lord of the Sabbath has authority not only to command rest, but to give rest.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "El Señor del día de reposo tiene autoridad no solo para ordenar el descanso, sino también para darlo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 06",
+      "title": "The Lord of the Sabbath Restores",
+      "es": {
+        "kicker": "SECCIÓN 06",
+        "title": "El Señor del día de reposo restaura",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 06",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:9-10",
+      "ref": "Matthew 12:9–10",
+      "text": "9 And when he was departed thence, he went into their synagogue:\n10 And, behold, there was a man which had his hand withered. And they asked him, saying, Is it lawful to heal on the sabbath days? that they might accuse him.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:9-10",
+        "ref": "Mateo 12:9-10",
+        "text": "9 Pasando de allí, vino a la sinagoga de ellos.\n10 Y he aquí había allí uno que tenía seca una mano; y preguntaron a Jesús, para poder acusarle: ¿Es lícito sanar en el día de reposo?",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:11-13",
+      "ref": "Matthew 12:11–13",
+      "text": "11 And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?\n12 How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.\n13 Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:11-13",
+        "ref": "Mateo 12:11-13",
+        "text": "11 El les dijo: ¿Qué hombre habrá de vosotros, que tenga una oveja, y si ésta cayere en un hoyo en día de reposo, no le eche mano, y la levante?\n12 Pues ¿cuánto más vale un hombre que una oveja? Por consiguiente, es lícito hacer el bien en los días de reposo.\n13 Entonces dijo a aquel hombre: Extiende tu mano. Y él la extendió, y le fue restaurada sana como la otra.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "FROM TEACHING TO RESTORATION",
+      "title": "Jesus demonstrates what He has just taught.",
+      "es": {
+        "kicker": "DE LA ENSEÑANZA A LA RESTAURACIÓN",
+        "title": "Jesús demuestra lo que acaba de enseñar.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "FROM TEACHING TO RESTORATION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THEIR INTENTION",
+      "title": "That they might accuse him.",
+      "es": {
+        "kicker": "SU INTENCIÓN",
+        "title": "Para poder acusarlo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THEIR INTENTION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The Sabbath was never intended to make doing good unlawful.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "El día de reposo nunca tuvo el propósito de prohibir hacer el bien.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "AUTHORITY THAT RESTORES · POINT 1/3",
+      "title": "The Lord of the Sabbath restores",
+      "points": [
+        "The Pharisees were looking for grounds to accuse."
+      ],
+      "es": {
+        "kicker": "AUTORIDAD QUE RESTAURA · PUNTO 1/3",
+        "title": "El Señor del día de reposo restaura",
+        "points": [
+          "Los fariseos buscaban motivos para acusar."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "AUTHORITY THAT RESTORES · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "AUTHORITY THAT RESTORES · POINT 2/3",
+      "title": "The Lord of the Sabbath restores",
+      "points": [
+        "The Pharisees were looking for grounds to accuse.",
+        "Jesus was demonstrating the mercy of God."
+      ],
+      "es": {
+        "kicker": "AUTORIDAD QUE RESTAURA · PUNTO 2/3",
+        "title": "El Señor del día de reposo restaura",
+        "points": [
+          "Los fariseos buscaban motivos para acusar.",
+          "Jesús demostraba la misericordia de Dios."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "AUTHORITY THAT RESTORES · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "AUTHORITY THAT RESTORES · POINT 3/3",
+      "title": "The Lord of the Sabbath restores",
+      "points": [
+        "The Pharisees were looking for grounds to accuse.",
+        "Jesus was demonstrating the mercy of God.",
+        "The Lord of the Sabbath did not merely defend His authority. He used His authority to restore."
+      ],
+      "es": {
+        "kicker": "AUTORIDAD QUE RESTAURA · PUNTO 3/3",
+        "title": "El Señor del día de reposo restaura",
+        "points": [
+          "Los fariseos buscaban motivos para acusar.",
+          "Jesús demostraba la misericordia de Dios.",
+          "El Señor del día de reposo no solo defendió su autoridad: la usó para restaurar."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "AUTHORITY THAT RESTORES · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 07",
+      "title": "The Lord of the Sabbath Is Rejected",
+      "es": {
+        "kicker": "SECCIÓN 07",
+        "title": "El Señor del día de reposo es rechazado",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 07",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:14-16",
+      "ref": "Matthew 12:14–16",
+      "text": "14 Then the Pharisees went out, and held a council against him, how they might destroy him.\n15 But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;\n16 And charged them that they should not make him known:",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:14-16",
+        "ref": "Mateo 12:14-16",
+        "text": "14 Y salidos los fariseos, tuvieron consejo contra Jesús para destruirle.\n15 Sabiendo esto Jesús, se apartó de allí; y le siguió mucha gente, y sanaba a todos,\n16 y les encargaba rigurosamente que no le descubriesen;",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THE CONTRADICTION",
+      "title": "He restored a man. They plotted to destroy Him.",
+      "es": {
+        "kicker": "LA CONTRADICCIÓN",
+        "title": "Él restauró a un hombre; ellos conspiraron para destruirlo.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE CONTRADICTION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "They condemned an act of restoration while plotting the destruction of the One who performed it.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Condenaron una restauración mientras planeaban destruir a Aquel que la realizó.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "SECTION 08",
+      "title": "The Lord of the Sabbath Is Meek and Lowly",
+      "es": {
+        "kicker": "SECCIÓN 08",
+        "title": "El Señor del día de reposo es manso y humilde",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "SECTION 08",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:17-19",
+      "ref": "Matthew 12:17–19",
+      "text": "17 That it might be fulfilled which was spoken by Esaias the prophet, saying,\n18 Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.\n19 He shall not strive, nor cry; neither shall any man hear his voice in the streets.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:17-19",
+        "ref": "Mateo 12:17-19",
+        "text": "17 para que se cumpliese lo dicho por el profeta Isaías, cuando dijo:\n18 He aquí mi siervo, a quien he escogido; Mi Amado, en quien se agrada mi alma; Pondré mi Espíritu sobre él, Y a los gentiles anunciará juicio.\n19 No contenderá, ni voceará, Ni nadie oirá en las calles su voz.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 12:20-21",
+      "ref": "Matthew 12:20–21",
+      "text": "20 A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.\n21 And in his name shall the Gentiles trust.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 12:20-21",
+        "ref": "Mateo 12:20-21",
+        "text": "20 La caña cascada no quebrará, Y el pábilo que humea no apagará, Hasta que saque a victoria el juicio.\n21 Y en su nombre esperarán los gentiles.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THE CHOSEN SERVANT",
+      "title": "His authority is revealed together with His gentleness.",
+      "es": {
+        "kicker": "EL SIERVO ESCOGIDO",
+        "title": "Su autoridad se revela junto con su mansedumbre.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE CHOSEN SERVANT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "HIS GENTLENESS",
+      "title": "A bruised reed shall he not break.",
+      "es": {
+        "kicker": "SU MANSEDUMBRE",
+        "title": "No quebrará la caña cascada.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "HIS GENTLENESS",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "THE BRUISED REED",
+      "title": "He does not crush the weak or extinguish a faint flame.",
+      "es": {
+        "kicker": "LA CAÑA CASCADA",
+        "title": "No aplasta al débil ni apaga una llama que apenas arde.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "THE BRUISED REED",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "WHAT WE HAVE SEEN · POINT 1/3",
+      "title": "His authority and His mercy",
+      "points": [
+        "The disciples were hungry. **Jesus defended them.**"
+      ],
+      "es": {
+        "kicker": "LO QUE HEMOS VISTO · PUNTO 1/3",
+        "title": "Su autoridad y su misericordia",
+        "points": [
+          "Los discípulos tenían hambre. Jesús los defendió."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "WHAT WE HAVE SEEN · POINT 1/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "WHAT WE HAVE SEEN · POINT 2/3",
+      "title": "His authority and His mercy",
+      "points": [
+        "The disciples were hungry. **Jesus defended them.**",
+        "The man had a withered hand. **Jesus restored him.**"
+      ],
+      "es": {
+        "kicker": "LO QUE HEMOS VISTO · PUNTO 2/3",
+        "title": "Su autoridad y su misericordia",
+        "points": [
+          "Los discípulos tenían hambre. Jesús los defendió.",
+          "El hombre tenía una mano seca. Jesús lo restauró."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "WHAT WE HAVE SEEN · POINT 2/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "points",
+      "kicker": "WHAT WE HAVE SEEN · POINT 3/3",
+      "title": "His authority and His mercy",
+      "points": [
+        "The disciples were hungry. **Jesus defended them.**",
+        "The man had a withered hand. **Jesus restored him.**",
+        "The Pharisees sought to destroy Him. **Jesus continued healing.**"
+      ],
+      "es": {
+        "kicker": "LO QUE HEMOS VISTO · PUNTO 3/3",
+        "title": "Su autoridad y su misericordia",
+        "points": [
+          "Los discípulos tenían hambre. Jesús los defendió.",
+          "El hombre tenía una mano seca. Jesús lo restauró.",
+          "Los fariseos querían destruirlo. Jesús continuó sanando."
+        ],
+        "translationKind": "editorial-slide"
+      },
+      "cue": "WHAT WE HAVE SEEN · POINT 3/3",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 11:29",
+      "ref": "Matthew 11:29",
+      "text": "...for I am meek and lowly in heart: and ye shall find rest unto your souls.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 11:29",
+        "ref": "Mateo 11:29",
+        "text": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The One who has authority over the Sabbath is also the One who is meek and lowly in heart.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Aquel que tiene autoridad sobre el día de reposo también es manso y humilde de corazón.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "CONCLUSION",
+      "title": "The Lord Who Gives Rest",
+      "es": {
+        "kicker": "CONCLUSIÓN",
+        "title": "El Señor que da descanso",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "CONCLUSION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Matthew 11:28",
+      "ref": "Matthew 11:28",
+      "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 11:28",
+        "ref": "Mateo 11:28",
+        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+        "translationKind": "RVR1960"
+      },
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "BACK TO HIS INVITATION",
+      "title": "Come unto me, and I will give you rest.",
+      "es": {
+        "kicker": "VOLVEMOS A SU INVITACIÓN",
+        "title": "Venid a mí, y yo os daré descanso.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "BACK TO HIS INVITATION",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The Lord of the Sabbath does not simply have authority over a day of rest. He has authority to give rest to the soul.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "El Señor del día de reposo no tiene autoridad solamente sobre un día de descanso. Tiene autoridad para dar descanso al alma.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "The One who calls us to obedience is the same One who invites us to find rest in Him.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "Aquel que nos llama a la obediencia es el mismo que nos invita a encontrar descanso en Él.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "type": "statement",
+      "kicker": "KEY TEACHING POINT",
+      "title": "Because we cannot claim to know the Lord of the Sabbath while refusing to learn from the mercy of the Lord who gives rest.",
+      "es": {
+        "kicker": "PUNTO CENTRAL",
+        "title": "No podemos afirmar que conocemos al Señor del día de reposo si nos negamos a aprender de la misericordia del Señor que da descanso.",
+        "translationKind": "editorial-slide"
+      },
+      "cue": "KEY TEACHING POINT",
+      "notes": "Full original manuscript below; advance manually."
+    }
+  ],
+  "slideScriptures": [
+    null,
+    null,
+    {
+      "ref_en": "Matthew 11:28–30",
+      "text_en": "28 Come unto me, all ye that labour and are heavy laden, and I will give you rest.\n29 Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.\n30 For my yoke is easy, and my burden is light.",
+      "ref_es": "Mateo 11:28-30",
+      "text_es": "28 Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.\n29 Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;\n30 porque mi yugo es fácil, y ligera mi carga.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Exodus 20:8",
+      "text_en": "Remember the sabbath day, to keep it holy.",
+      "ref_es": "Éxodo 20:8",
+      "text_es": "Acuérdate del día de reposo para santificarlo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref_en": "Deuteronomy 5:15",
+      "text_en": "And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.",
+      "ref_es": "Deuteronomio 5:15",
+      "text_es": "Acuérdate que fuiste siervo en tierra de Egipto, y que el Señor tu Dios te sacó de allá con mano fuerte y brazo extendido; por lo cual el Señor tu Dios te ha mandado que guardes el día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:1–2",
+      "text_en": "1 At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.\n2 But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.",
+      "ref_es": "Mateo 12:1-2",
+      "text_es": "1 En aquel tiempo iba Jesús por los sembrados en un día de reposo; y sus discípulos tuvieron hambre, y comenzaron a arrancar espigas y a comer.\n2 Viéndolo los fariseos, le dijeron: He aquí tus discípulos hacen lo que no es lícito hacer en el día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref_en": "Matthew 12:3–4",
+      "text_en": "3 But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;\n4 How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?",
+      "ref_es": "Mateo 12:3-4",
+      "text_es": "3 Pero él les dijo: ¿No habéis leído lo que hizo David, cuando él y los que con él estaban tuvieron hambre;\n4 cómo entró en la casa de Dios, y comió los panes de la proposición, que no les era lícito comer ni a él ni a los que con él estaban, sino solamente a los sacerdotes?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:5–6",
+      "text_en": "5 Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?\n6 But I say unto you, That in this place is one greater than the temple.",
+      "ref_es": "Mateo 12:5-6",
+      "text_es": "5 ¿O no habéis leído en la ley, cómo en el día de reposo los sacerdotes en el templo profanan el día de reposo, y son sin culpa?\n6 Pues os digo que uno mayor que el templo está aquí.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Colossians 2:9",
+      "text_en": "For in him dwelleth all the fulness of the Godhead bodily.",
+      "ref_es": "Colosenses 2:9",
+      "text_es": "Porque en él habita corporalmente toda la plenitud de la Deidad,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref_en": "Matthew 12:7",
+      "text_en": "But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.",
+      "ref_es": "Mateo 12:7",
+      "text_es": "Y si supieseis qué significa: Misericordia quiero, y no sacrificio, no condenaríais a los inocentes;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref_en": "Hosea 6:6",
+      "text_en": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.",
+      "ref_es": "Oseas 6:6",
+      "text_es": "Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:8",
+      "text_en": "For the Son of man is Lord even of the sabbath day.",
+      "ref_es": "Mateo 12:8",
+      "text_es": "porque el Hijo del Hombre es Señor del día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref_en": "Exodus 31:13",
+      "text_en": "...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.",
+      "ref_es": "Éxodo 31:13",
+      "text_es": "Tú hablarás a los hijos de Israel, diciendo: En verdad vosotros guardaréis mis días de reposo; porque es señal entre mí y vosotros por vuestras generaciones, para que sepáis que yo soy el Señor que os santifico.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:9–10",
+      "text_en": "9 And when he was departed thence, he went into their synagogue:\n10 And, behold, there was a man which had his hand withered. And they asked him, saying, Is it lawful to heal on the sabbath days? that they might accuse him.",
+      "ref_es": "Mateo 12:9-10",
+      "text_es": "9 Pasando de allí, vino a la sinagoga de ellos.\n10 Y he aquí había allí uno que tenía seca una mano; y preguntaron a Jesús, para poder acusarle: ¿Es lícito sanar en el día de reposo?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref_en": "Matthew 12:11–13",
+      "text_en": "11 And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?\n12 How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.\n13 Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.",
+      "ref_es": "Mateo 12:11-13",
+      "text_es": "11 El les dijo: ¿Qué hombre habrá de vosotros, que tenga una oveja, y si ésta cayere en un hoyo en día de reposo, no le eche mano, y la levante?\n12 Pues ¿cuánto más vale un hombre que una oveja? Por consiguiente, es lícito hacer el bien en los días de reposo.\n13 Entonces dijo a aquel hombre: Extiende tu mano. Y él la extendió, y le fue restaurada sana como la otra.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:14–16",
+      "text_en": "14 Then the Pharisees went out, and held a council against him, how they might destroy him.\n15 But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;\n16 And charged them that they should not make him known:",
+      "ref_es": "Mateo 12:14-16",
+      "text_es": "14 Y salidos los fariseos, tuvieron consejo contra Jesús para destruirle.\n15 Sabiendo esto Jesús, se apartó de allí; y le siguió mucha gente, y sanaba a todos,\n16 y les encargaba rigurosamente que no le descubriesen;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 12:17–19",
+      "text_en": "17 That it might be fulfilled which was spoken by Esaias the prophet, saying,\n18 Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.\n19 He shall not strive, nor cry; neither shall any man hear his voice in the streets.",
+      "ref_es": "Mateo 12:17-19",
+      "text_es": "17 para que se cumpliese lo dicho por el profeta Isaías, cuando dijo:\n18 He aquí mi siervo, a quien he escogido; Mi Amado, en quien se agrada mi alma; Pondré mi Espíritu sobre él, Y a los gentiles anunciará juicio.\n19 No contenderá, ni voceará, Ni nadie oirá en las calles su voz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref_en": "Matthew 12:20–21",
+      "text_en": "20 A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.\n21 And in his name shall the Gentiles trust.",
+      "ref_es": "Mateo 12:20-21",
+      "text_es": "20 La caña cascada no quebrará, Y el pábilo que humea no apagará, Hasta que saque a victoria el juicio.\n21 Y en su nombre esperarán los gentiles.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref_en": "Matthew 11:29",
+      "text_en": "...for I am meek and lowly in heart: and ye shall find rest unto your souls.",
+      "ref_es": "Mateo 11:29",
+      "text_es": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref_en": "Matthew 11:28",
+      "text_en": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "ref_es": "Mateo 11:28",
+      "text_es": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    null
+  ],
+  "verses": [
+    {
+      "ref": "Matthew 11:28",
+      "ref_en": "Matthew 11:28",
+      "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "text_en": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+      "ref_es": "Mateo 11:28",
+      "text_es": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 11:29",
+      "ref_en": "Matthew 11:29",
+      "text": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
+      "text_en": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
+      "ref_es": "Mateo 11:29",
+      "text_es": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 11:30",
+      "ref_en": "Matthew 11:30",
+      "text": "For my yoke is easy, and my burden is light.",
+      "text_en": "For my yoke is easy, and my burden is light.",
+      "ref_es": "Mateo 11:30",
+      "text_es": "porque mi yugo es fácil, y ligera mi carga.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Exodus 20:8",
+      "ref_en": "Exodus 20:8",
+      "text": "Remember the sabbath day, to keep it holy.",
+      "text_en": "Remember the sabbath day, to keep it holy.",
+      "ref_es": "Éxodo 20:8",
+      "text_es": "Acuérdate del día de reposo para santificarlo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Deuteronomy 5:15",
+      "ref_en": "Deuteronomy 5:15",
+      "text": "And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.",
+      "text_en": "And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.",
+      "ref_es": "Deuteronomio 5:15",
+      "text_es": "Acuérdate que fuiste siervo en tierra de Egipto, y que el Señor tu Dios te sacó de allá con mano fuerte y brazo extendido; por lo cual el Señor tu Dios te ha mandado que guardes el día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:1",
+      "ref_en": "Matthew 12:1",
+      "text": "At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.",
+      "text_en": "At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.",
+      "ref_es": "Mateo 12:1",
+      "text_es": "En aquel tiempo iba Jesús por los sembrados en un día de reposo; y sus discípulos tuvieron hambre, y comenzaron a arrancar espigas y a comer.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:2",
+      "ref_en": "Matthew 12:2",
+      "text": "But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.",
+      "text_en": "But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.",
+      "ref_es": "Mateo 12:2",
+      "text_es": "Viéndolo los fariseos, le dijeron: He aquí tus discípulos hacen lo que no es lícito hacer en el día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:3",
+      "ref_en": "Matthew 12:3",
+      "text": "But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;",
+      "text_en": "But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;",
+      "ref_es": "Mateo 12:3",
+      "text_es": "Pero él les dijo: ¿No habéis leído lo que hizo David, cuando él y los que con él estaban tuvieron hambre;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:4",
+      "ref_en": "Matthew 12:4",
+      "text": "How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?",
+      "text_en": "How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?",
+      "ref_es": "Mateo 12:4",
+      "text_es": "cómo entró en la casa de Dios, y comió los panes de la proposición, que no les era lícito comer ni a él ni a los que con él estaban, sino solamente a los sacerdotes?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Deuteronomy 23:25",
+      "ref_en": "Deuteronomy 23:25",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Deuteronomio 23:25",
+      "text_es": "Cuando entres en la mies de tu prójimo, podrás arrancar espigas con tu mano; mas no aplicarás hoz a la mies de tu prójimo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:1",
+      "ref_en": "1 Samuel 21:1",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:1",
+      "text_es": "Vino David a Nob, al sacerdote Ahimelec; y se sorprendió Ahimelec de su encuentro, y le dijo: ¿Cómo vienes tú solo, y nadie contigo?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:2",
+      "ref_en": "1 Samuel 21:2",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:2",
+      "text_es": "Y respondió David al sacerdote Ahimelec: El rey me encomendó un asunto, y me dijo: Nadie sepa cosa alguna del asunto a que te envío, y lo que te he encomendado; y yo les señalé a los criados un cierto lugar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:3",
+      "ref_en": "1 Samuel 21:3",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:3",
+      "text_es": "Ahora, pues, ¿qué tienes a mano? Dame cinco panes, o lo que tengas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:4",
+      "ref_en": "1 Samuel 21:4",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:4",
+      "text_es": "El sacerdote respondió a David y dijo: No tengo pan común a la mano, solamente tengo pan sagrado; pero lo daré si los criados se han guardado a lo menos de mujeres.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:5",
+      "ref_en": "1 Samuel 21:5",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:5",
+      "text_es": "Y David respondió al sacerdote, y le dijo: En verdad las mujeres han estado lejos de nosotros ayer y anteayer; cuando yo salí, ya los vasos de los jóvenes eran santos, aunque el viaje es profano; ¿cuánto más no serán santos hoy sus vasos?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 21:6",
+      "ref_en": "1 Samuel 21:6",
+      "text": "",
+      "text_en": "",
+      "ref_es": "1 Samuel 21:6",
+      "text_es": "Así el sacerdote le dio el pan sagrado, porque allí no había otro pan sino los panes de la proposición, los cuales habían sido quitados de la presencia del Señor , para poner panes calientes el día que aquéllos fueron quitados.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Leviticus 24:9",
+      "ref_en": "Leviticus 24:9",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Levítico 24:9",
+      "text_es": "Y será de Aarón y de sus hijos, los cuales lo comerán en lugar santo; porque es cosa muy santa para él, de las ofrendas encendidas a el Señor, por derecho perpetuo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:5",
+      "ref_en": "Matthew 12:5",
+      "text": "Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?",
+      "text_en": "Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?",
+      "ref_es": "Mateo 12:5",
+      "text_es": "¿O no habéis leído en la ley, cómo en el día de reposo los sacerdotes en el templo profanan el día de reposo, y son sin culpa?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:6",
+      "ref_en": "Matthew 12:6",
+      "text": "That in this place is one greater than the temple.",
+      "text_en": "That in this place is one greater than the temple.",
+      "ref_es": "Mateo 12:6",
+      "text_es": "Pues os digo que uno mayor que el templo está aquí.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Numbers 28:9",
+      "ref_en": "Numbers 28:9",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Números 28:9",
+      "text_es": "Mas el día de reposo, dos corderos de un año sin defecto, y dos décimas de flor de harina amasada con aceite, como ofrenda, con su libación.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Numbers 28:10",
+      "ref_en": "Numbers 28:10",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Números 28:10",
+      "text_es": "Es el holocausto de cada día de reposo, además del holocausto continuo y su libación.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Colossians 2:9",
+      "ref_en": "Colossians 2:9",
+      "text": "For in him dwelleth all the fulness of the Godhead bodily.",
+      "text_en": "For in him dwelleth all the fulness of the Godhead bodily.",
+      "ref_es": "Colosenses 2:9",
+      "text_es": "Porque en él habita corporalmente toda la plenitud de la Deidad,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:7",
+      "ref_en": "Matthew 12:7",
+      "text": "But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.",
+      "text_en": "But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.",
+      "ref_es": "Mateo 12:7",
+      "text_es": "Y si supieseis qué significa: Misericordia quiero, y no sacrificio, no condenaríais a los inocentes;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Hosea 6:6",
+      "ref_en": "Hosea 6:6",
+      "text": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.",
+      "text_en": "For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.",
+      "ref_es": "Oseas 6:6",
+      "text_es": "Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:8",
+      "ref_en": "Matthew 12:8",
+      "text": "For the Son of man is Lord even of the sabbath day.",
+      "text_en": "For the Son of man is Lord even of the sabbath day.",
+      "ref_es": "Mateo 12:8",
+      "text_es": "porque el Hijo del Hombre es Señor del día de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Exodus 31:13",
+      "ref_en": "Exodus 31:13",
+      "text": "...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.",
+      "text_en": "...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.",
+      "ref_es": "Éxodo 31:13",
+      "text_es": "Tú hablarás a los hijos de Israel, diciendo: En verdad vosotros guardaréis mis días de reposo; porque es señal entre mí y vosotros por vuestras generaciones, para que sepáis que yo soy el Señor que os santifico.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:9",
+      "ref_en": "Matthew 12:9",
+      "text": "And when he was departed thence, he went into their synagogue:",
+      "text_en": "And when he was departed thence, he went into their synagogue:",
+      "ref_es": "Mateo 12:9",
+      "text_es": "Pasando de allí, vino a la sinagoga de ellos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:10",
+      "ref_en": "Matthew 12:10",
+      "text": "That they might accuse him.",
+      "text_en": "That they might accuse him.",
+      "ref_es": "Mateo 12:10",
+      "text_es": "Y he aquí había allí uno que tenía seca una mano; y preguntaron a Jesús, para poder acusarle: ¿Es lícito sanar en el día de reposo?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:11",
+      "ref_en": "Matthew 12:11",
+      "text": "And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?",
+      "text_en": "And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?",
+      "ref_es": "Mateo 12:11",
+      "text_es": "El les dijo: ¿Qué hombre habrá de vosotros, que tenga una oveja, y si ésta cayere en un hoyo en día de reposo, no le eche mano, y la levante?",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:12",
+      "ref_en": "Matthew 12:12",
+      "text": "How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.",
+      "text_en": "How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.",
+      "ref_es": "Mateo 12:12",
+      "text_es": "Pues ¿cuánto más vale un hombre que una oveja? Por consiguiente, es lícito hacer el bien en los días de reposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:13",
+      "ref_en": "Matthew 12:13",
+      "text": "Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.",
+      "text_en": "Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.",
+      "ref_es": "Mateo 12:13",
+      "text_es": "Entonces dijo a aquel hombre: Extiende tu mano. Y él la extendió, y le fue restaurada sana como la otra.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:14",
+      "ref_en": "Matthew 12:14",
+      "text": "Then the Pharisees went out, and held a council against him, how they might destroy him.",
+      "text_en": "Then the Pharisees went out, and held a council against him, how they might destroy him.",
+      "ref_es": "Mateo 12:14",
+      "text_es": "Y salidos los fariseos, tuvieron consejo contra Jesús para destruirle.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:15",
+      "ref_en": "Matthew 12:15",
+      "text": "But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;",
+      "text_en": "But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;",
+      "ref_es": "Mateo 12:15",
+      "text_es": "Sabiendo esto Jesús, se apartó de allí; y le siguió mucha gente, y sanaba a todos,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:16",
+      "ref_en": "Matthew 12:16",
+      "text": "And charged them that they should not make him known:",
+      "text_en": "And charged them that they should not make him known:",
+      "ref_es": "Mateo 12:16",
+      "text_es": "y les encargaba rigurosamente que no le descubriesen;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:17",
+      "ref_en": "Matthew 12:17",
+      "text": "That it might be fulfilled which was spoken by Esaias the prophet, saying,",
+      "text_en": "That it might be fulfilled which was spoken by Esaias the prophet, saying,",
+      "ref_es": "Mateo 12:17",
+      "text_es": "para que se cumpliese lo dicho por el profeta Isaías, cuando dijo:",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:18",
+      "ref_en": "Matthew 12:18",
+      "text": "Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.",
+      "text_en": "Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.",
+      "ref_es": "Mateo 12:18",
+      "text_es": "He aquí mi siervo, a quien he escogido; Mi Amado, en quien se agrada mi alma; Pondré mi Espíritu sobre él, Y a los gentiles anunciará juicio.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:19",
+      "ref_en": "Matthew 12:19",
+      "text": "He shall not strive, nor cry; neither shall any man hear his voice in the streets.",
+      "text_en": "He shall not strive, nor cry; neither shall any man hear his voice in the streets.",
+      "ref_es": "Mateo 12:19",
+      "text_es": "No contenderá, ni voceará, Ni nadie oirá en las calles su voz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:20",
+      "ref_en": "Matthew 12:20",
+      "text": "A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.",
+      "text_en": "A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.",
+      "ref_es": "Mateo 12:20",
+      "text_es": "La caña cascada no quebrará, Y el pábilo que humea no apagará, Hasta que saque a victoria el juicio.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Matthew 12:21",
+      "ref_en": "Matthew 12:21",
+      "text": "And in his name shall the Gentiles trust.",
+      "text_en": "And in his name shall the Gentiles trust.",
+      "ref_es": "Mateo 12:21",
+      "text_es": "Y en su nombre esperarán los gentiles.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 42:1",
+      "ref_en": "Isaiah 42:1",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Isaías 42:1",
+      "text_es": "He aquí mi siervo, yo le sostendré; mi escogido, en quien mi alma tiene contentamiento; he puesto sobre él mi Espíritu; él traerá justicia a las naciones.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 42:2",
+      "ref_en": "Isaiah 42:2",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Isaías 42:2",
+      "text_es": "No gritará, ni alzará su voz, ni la hará oír en las calles.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 42:3",
+      "ref_en": "Isaiah 42:3",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Isaías 42:3",
+      "text_es": "No quebrará la caña cascada, ni apagará el pábilo que humeare; por medio de la verdad traerá justicia.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 42:4",
+      "ref_en": "Isaiah 42:4",
+      "text": "",
+      "text_en": "",
+      "ref_es": "Isaías 42:4",
+      "text_es": "No se cansará ni desmayará, hasta que establezca en la tierra justicia; y las costas esperarán su ley.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    }
+  ],
+  "polls": [],
+  "prompts": [],
+  "manuscript": [
+    {
+      "slide": 0,
+      "title": "The Lord of the Sabbath",
+      "html": "<h2>THE LORD OF THE SABBATH\n### The Lord Who Gives Rest, Has Authority, and Restores\n<strong>Matthew 11:28–30 | Matthew 12:1–21 (KJV)</strong></h2>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 1,
+      "title": "The Lord Who Gives Rest",
+      "html": "<h3>INTRODUCTION: THE LORD WHO GIVES REST</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 2,
+      "title": "Matthew 11:28-30",
+      "html": "<p><strong>Matthew 11:28–30</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 11:28 (KJV)</em></strong> Come unto me, all ye that labour and are heavy laden, and I will give you rest.</p><p class=\"ih-scripture\"><strong><em>Matthew 11:29 (KJV)</em></strong> Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.</p><p class=\"ih-scripture\"><strong><em>Matthew 11:30 (KJV)</em></strong> For my yoke is easy, and my burden is light.</p>",
+      "refs": [
+        "Matthew 11:28",
+        "Matthew 11:29",
+        "Matthew 11:30"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 3,
+      "title": "You can rest your body and still carry the burden.",
+      "html": "<p>We often associate rest with taking a break, getting away from our responsibilities, or having an opportunity to do nothing. But there is a difference between resting physically and finding rest for your soul.</p><p>You can rest your body and still have a troubled mind. You can stop working and still be carrying the same burdens.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 4,
+      "title": "Jesus is offering something greater than physical rest. He is offering rest for the soul.",
+      "html": "<p><strong>Jesus is offering something greater than physical rest. He is offering rest for the soul.</strong></p><p>Notice that Jesus doesn&#39;t begin by telling them to change their circumstances. He says, <strong>&quot;Come unto me.&quot;</strong></p><p>And then He says something interesting: <em>Take my yoke upon you.</em></p><p>A yoke represents service and submission. Jesus is not offering a life without responsibility, but a life under His direction.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 5,
+      "title": "Rest under His direction",
+      "html": "<p class=\"ih-talking-point\">• <strong>Rest is not always the absence of responsibility. Sometimes it is learning whose authority you are living under.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 6,
+      "title": "Rest under His direction",
+      "html": "<p class=\"ih-talking-point\">• Not every burden we carry is one that God has placed upon us.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 7,
+      "title": "Rest under His direction",
+      "html": "<p class=\"ih-talking-point\">• Christ invites us to exchange the weight of our own understanding for the rest that comes through learning from Him.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 8,
+      "title": "The Lord who gives rest is the Lord of the Sabbath.",
+      "html": "<p>Now, what I find interesting is that immediately after this invitation to rest, Matthew introduces Jesus as the <strong>Lord of the Sabbath</strong>.</p><p>The Sabbath was the day of rest established by God. Yet the religious leaders had developed an understanding of its restrictions that led them to condemn people who were not guilty.</p><p>And Jesus is about to show them that they have misunderstood something about the very God whose commandments they claim to defend.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 9,
+      "title": "The Sabbath Was Established by God",
+      "html": "<h3>1. THE SABBATH WAS ESTABLISHED BY GOD</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 10,
+      "title": "Exodus 20:8",
+      "html": "<p><strong>Exodus 20:8</strong></p><p class=\"ih-scripture\"><strong><em>Exodus 20:8 (KJV)</em></strong> Remember the sabbath day, to keep it holy.</p>",
+      "refs": [
+        "Exodus 20:8"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 11,
+      "title": "The Sabbath was given by God, not invented by the Pharisees.",
+      "html": "<p>The Sabbath was not something the Pharisees invented. It was established by God, who commanded Israel to rest on the seventh day.</p><p>It was connected to creation, but it was also a reminder of their deliverance from Egypt.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 12,
+      "title": "Deuteronomy 5:15",
+      "html": "<p><strong>Deuteronomy 5:15</strong></p><p class=\"ih-scripture\"><strong><em>Deuteronomy 5:15 (KJV)</em></strong> And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.</p><p>Israel had been in bondage, serving under Pharaoh. But God delivered them, and the Sabbath became a part of their covenant life with Him.</p>",
+      "refs": [
+        "Deuteronomy 5:15"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 13,
+      "title": "The Sabbath reminded Israel of the God who created them, delivered them, and gave them rest.",
+      "html": "<p><strong>The Sabbath reminded Israel of the God who created them, delivered them, and gave them rest.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 14,
+      "title": "What the Sabbath revealed",
+      "html": "<p class=\"ih-talking-point\">• The Sabbath was holy because God established it.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 15,
+      "title": "What the Sabbath revealed",
+      "html": "<p class=\"ih-talking-point\">• It was a commandment, but it also reflected God&#39;s provision for His people.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 16,
+      "title": "What the Sabbath revealed",
+      "html": "<p class=\"ih-talking-point\">• <strong>The problem in Matthew 12 was not the Sabbath itself, but the Pharisees&#39; misunderstanding of its proper application.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 17,
+      "title": "David: When Mercy Meets Human Need",
+      "html": "<h3>2. DAVID: WHEN MERCY MEETS HUMAN NEED</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 18,
+      "title": "Matthew 12:1-2",
+      "html": "<p><strong>Matthew 12:1–4</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:1 (KJV)</em></strong> At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.</p><p class=\"ih-scripture\"><strong><em>Matthew 12:2 (KJV)</em></strong> But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.</p>",
+      "refs": [
+        "Matthew 12:1",
+        "Matthew 12:2"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 19,
+      "title": "Matthew 12:3-4",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:3 (KJV)</em></strong> But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;</p><p class=\"ih-scripture\"><strong><em>Matthew 12:4 (KJV)</em></strong> How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?</p>",
+      "refs": [
+        "Matthew 12:3",
+        "Matthew 12:4"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 20,
+      "title": "Human need meets a narrow interpretation of the Sabbath.",
+      "html": "<p>The disciples were hungry, and as they walked through the field, they began gathering grain to eat.</p><p>Under Deuteronomy 23:25, gathering grain by hand was permitted. The Pharisees&#39; objection was that they were doing it on the Sabbath.</p><p>Jesus responds by bringing them back to David.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 21,
+      "title": "David, Ahimelech, and the bread reserved for the priests.",
+      "html": "<h4>The story of David (1 Samuel 21:1–6)</h4><p>David was fleeing from Saul when he came to Ahimelech the priest seeking food.</p><p>There was no ordinary bread available, only the consecrated shewbread, which according to Leviticus 24:9 was reserved for the priests.</p><p>Yet Ahimelech gave David the bread.</p><p>Jesus uses this account to challenge the Pharisees&#39; condemnation of His hungry disciples.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 22,
+      "title": "Why is this significant?",
+      "html": "<p><strong>Why is this significant?</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 23,
+      "title": "Why David's story matters",
+      "html": "<p class=\"ih-talking-point\">• David&#39;s hunger was a genuine human need.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 24,
+      "title": "Why David's story matters",
+      "html": "<p class=\"ih-talking-point\">• The shewbread was holy, and Jesus acknowledges that its use was ordinarily restricted.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 25,
+      "title": "Why David's story matters",
+      "html": "<p class=\"ih-talking-point\">• Yet Jesus appeals to this account to expose the failure of the Pharisees to understand mercy.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 26,
+      "title": "God's holiness and His mercy are not in opposition to one another.",
+      "html": "<p><strong>God&#39;s holiness and His mercy are not in opposition to one another.</strong></p><p>This doesn&#39;t mean that human need gives us permission to disregard God&#39;s commandments. Rather, Jesus is showing that their interpretation of the Law has failed to recognize what God desires.</p><p><strong>Application:</strong> We must be careful not to become so concerned with preserving our understanding of religious practices that we lose sight of the people God has called us to serve.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 27,
+      "title": "The Priests: Service and Authority",
+      "html": "<h3>3. THE PRIESTS: SERVICE AND AUTHORITY</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 28,
+      "title": "Matthew 12:5-6",
+      "html": "<p><strong>Matthew 12:5–6</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:5 (KJV)</em></strong> Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?</p><p class=\"ih-scripture\"><strong><em>Matthew 12:6 (KJV)</em></strong> But I say unto you, That in this place is one greater than the temple.</p>",
+      "refs": [
+        "Matthew 12:5",
+        "Matthew 12:6"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 29,
+      "title": "The priests served on the Sabbath and remained blameless.",
+      "html": "<p>Jesus now gives another example, this time concerning the priests.</p><p>According to Numbers 28:9–10, the priests were commanded to perform additional sacrifices on the Sabbath.</p><p>While Israel rested from ordinary work, the priests continued their service in the temple.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 30,
+      "title": "Why does Jesus say they profane the Sabbath but remain blameless?",
+      "html": "<p><strong>Why does Jesus say they profane the Sabbath but remain blameless?</strong></p><p>Because the work they performed was commanded by God Himself.</p><p>What would ordinarily be considered work on the Sabbath was required as part of their service to God.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 31,
+      "title": "The priests were blameless",
+      "html": "<p class=\"ih-talking-point\">• The priests were not disobeying God. They were fulfilling His commandments.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 32,
+      "title": "The priests were blameless",
+      "html": "<p class=\"ih-talking-point\">• Their service did not make them guilty.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 33,
+      "title": "The priests were blameless",
+      "html": "<p class=\"ih-talking-point\">• <strong>Jesus demonstrates that the Pharisees&#39; rigid understanding of Sabbath restrictions was incomplete.</strong></p><p>But then Jesus makes an even greater declaration.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 34,
+      "title": "One greater than the temple is here.",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:6 (KJV)</em></strong> That in this place is one greater than the temple.</p><p>The temple was the center of Israel&#39;s worship, the place associated with God&#39;s presence among His people.</p><p>Yet Jesus declares that One greater than the temple is standing before them.</p>",
+      "refs": [
+        "Matthew 12:6"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 35,
+      "title": "If service to the temple was permitted on the Sabbath, how much greater is the authority of the One who is greater than the temple?",
+      "html": "<p><strong>If service to the temple was permitted on the Sabbath, how much greater is the authority of the One who is greater than the temple?</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 36,
+      "title": "Colossians 2:9",
+      "html": "<p><strong>Colossians 2:9</strong></p><p class=\"ih-scripture\"><strong><em>Colossians 2:9 (KJV)</em></strong> For in him dwelleth all the fulness of the Godhead bodily.</p><p>The Pharisees were defending their understanding of what belonged to God, while failing to recognize the revelation of God standing before them in Christ.</p>",
+      "refs": [
+        "Colossians 2:9"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 37,
+      "title": "Mercy Over Sacrifice: The Heart of God",
+      "html": "<h3>4. MERCY OVER SACRIFICE: THE HEART OF GOD</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 38,
+      "title": "Matthew 12:7",
+      "html": "<p><strong>Matthew 12:7</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:7 (KJV)</em></strong> But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.</p><p>Jesus quotes Hosea 6:6.</p>",
+      "refs": [
+        "Matthew 12:7"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 39,
+      "title": "Hosea 6:6",
+      "html": "<p><strong>Hosea 6:6</strong></p><p class=\"ih-scripture\"><strong><em>Hosea 6:6 (KJV)</em></strong> For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.</p>",
+      "refs": [
+        "Hosea 6:6"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 40,
+      "title": "Religious practice cannot replace mercy and knowing God.",
+      "html": "<p>God was not rejecting the sacrificial system that He Himself established. He was confronting people whose religious practices were disconnected from genuine faithfulness to Him.</p><p>They could offer sacrifices while neglecting the mercy and knowledge of God.</p><p>And now Jesus applies this principle to the Pharisees.</p><p>He tells them that if they understood what God meant by mercy, they would not have condemned the guiltless.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 41,
+      "title": "Notice that Jesus doesn't say His disciples are guilty but forgiven. He declares them guiltless.",
+      "html": "<p><strong>Notice that Jesus doesn&#39;t say His disciples are guilty but forgiven. He declares them guiltless.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 42,
+      "title": "Mercy and obedience belong together",
+      "html": "<p class=\"ih-talking-point\">• Religious observance cannot replace genuine obedience to God&#39;s will.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 43,
+      "title": "Mercy and obedience belong together",
+      "html": "<p class=\"ih-talking-point\">• God&#39;s commandments should never become an excuse for neglecting mercy.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 44,
+      "title": "Mercy and obedience belong together",
+      "html": "<p class=\"ih-talking-point\">• <strong>It is possible to know the commandments of God and still misunderstand the character of the God who gave them.</strong></p><p>Holiness matters. Obedience matters. But neither should be separated from the mercy and goodness of God.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 45,
+      "title": "The Lord of the Sabbath Has Authority",
+      "html": "<h3>5. THE LORD OF THE SABBATH HAS AUTHORITY</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 46,
+      "title": "Matthew 12:8",
+      "html": "<p><strong>Matthew 12:8</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:8 (KJV)</em></strong> For the Son of man is Lord even of the sabbath day.</p>",
+      "refs": [
+        "Matthew 12:8"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 47,
+      "title": "The Son of man is Lord even of the Sabbath.",
+      "html": "<p>Everything Jesus has said leads to this declaration.</p><p>He has referenced David, the priests, the temple, and the mercy of God.</p><p>Now He identifies His own authority.</p><p>The Sabbath was established by God. It was holy unto the Lord.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 48,
+      "title": "Exodus 31:13",
+      "html": "<p><strong>Exodus 31:13</strong></p><p class=\"ih-scripture\"><strong><em>Exodus 31:13 (KJV)</em></strong> ...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.</p><p>Notice that God calls them <em>my sabbaths</em>.</p><p>Yet Jesus declares Himself <strong>Lord even of the Sabbath</strong>.</p><p>He is not merely giving His opinion concerning the Law. He is declaring His authority over what God Himself established.</p>",
+      "refs": [
+        "Exodus 31:13"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 49,
+      "title": "Christ has authority",
+      "html": "<p class=\"ih-talking-point\">• <strong>Christ is greater than the temple.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 50,
+      "title": "Christ has authority",
+      "html": "<p class=\"ih-talking-point\">• <strong>Christ is Lord of the Sabbath.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 51,
+      "title": "Christ has authority",
+      "html": "<p class=\"ih-talking-point\">• <strong>Christ has authority to declare what is lawful and to reveal the purpose of God&#39;s commandments.</strong></p><p>Now connect this back to Matthew 11.</p><p>The One who says, <em>&quot;I will give you rest,&quot;</em> is the very One who declares Himself Lord of the Sabbath.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 52,
+      "title": "The Lord of the Sabbath has authority not only to command rest, but to give rest.",
+      "html": "<p><strong>The Lord of the Sabbath has authority not only to command rest, but to give rest.</strong></p><p>And Jesus is about to demonstrate His authority through an act of restoration.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 53,
+      "title": "The Lord of the Sabbath Restores",
+      "html": "<h3>6. THE LORD OF THE SABBATH RESTORES</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 54,
+      "title": "Matthew 12:9-10",
+      "html": "<p><strong>Matthew 12:9–13</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:9 (KJV)</em></strong> And when he was departed thence, he went into their synagogue:</p><p class=\"ih-scripture\"><strong><em>Matthew 12:10 (KJV)</em></strong> And, behold, there was a man which had his hand withered. And they asked him, saying, Is it lawful to heal on the sabbath days? that they might accuse him.</p>",
+      "refs": [
+        "Matthew 12:9",
+        "Matthew 12:10"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 55,
+      "title": "Matthew 12:11-13",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:11 (KJV)</em></strong> And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?</p><p class=\"ih-scripture\"><strong><em>Matthew 12:12 (KJV)</em></strong> How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.</p><p class=\"ih-scripture\"><strong><em>Matthew 12:13 (KJV)</em></strong> Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.</p>",
+      "refs": [
+        "Matthew 12:11",
+        "Matthew 12:12",
+        "Matthew 12:13"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 56,
+      "title": "Jesus demonstrates what He has just taught.",
+      "html": "<p>Now Jesus moves from teaching about the Sabbath to demonstrating what He has been teaching.</p><p>There is a man with a withered hand, and the Pharisees ask whether healing is lawful on the Sabbath.</p><p>But notice their intention.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 57,
+      "title": "That they might accuse him.",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:10 (KJV)</em></strong> That they might accuse him.</p><p>They were more interested in finding a reason to accuse Jesus than in seeing the man restored.</p><p>Jesus answers by asking whether they would rescue a sheep that had fallen into a pit on the Sabbath.</p><p>If they recognized the importance of rescuing an animal, how much more should they recognize the value of restoring a person?</p>",
+      "refs": [
+        "Matthew 12:10"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 58,
+      "title": "The Sabbath was never intended to make doing good unlawful.",
+      "html": "<p><strong>The Sabbath was never intended to make doing good unlawful.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 59,
+      "title": "The Lord of the Sabbath restores",
+      "html": "<p class=\"ih-talking-point\">• The Pharisees were looking for grounds to accuse.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 60,
+      "title": "The Lord of the Sabbath restores",
+      "html": "<p class=\"ih-talking-point\">• Jesus was demonstrating the mercy of God.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 61,
+      "title": "The Lord of the Sabbath restores",
+      "html": "<p class=\"ih-talking-point\">• <strong>The Lord of the Sabbath did not merely defend His authority. He used His authority to restore.</strong></p><p>And notice that Jesus doesn&#39;t simply explain what is lawful.</p><p>He heals the man.</p><p>The very thing they were questioning becomes the demonstration of His teaching.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 62,
+      "title": "The Lord of the Sabbath Is Rejected",
+      "html": "<h3>7. THE LORD OF THE SABBATH IS REJECTED</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 63,
+      "title": "Matthew 12:14-16",
+      "html": "<p><strong>Matthew 12:14–16</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:14 (KJV)</em></strong> Then the Pharisees went out, and held a council against him, how they might destroy him.</p><p class=\"ih-scripture\"><strong><em>Matthew 12:15 (KJV)</em></strong> But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;</p><p class=\"ih-scripture\"><strong><em>Matthew 12:16 (KJV)</em></strong> And charged them that they should not make him known:</p>",
+      "refs": [
+        "Matthew 12:14",
+        "Matthew 12:15",
+        "Matthew 12:16"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 64,
+      "title": "He restored a man. They plotted to destroy Him.",
+      "html": "<p>There is an incredible contradiction here.</p><p>Jesus has just restored a man&#39;s hand.</p><p>Yet the religious leaders respond by planning how to destroy Him.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 65,
+      "title": "They condemned an act of restoration while plotting the destruction of the One who performed it.",
+      "html": "<p><strong>They condemned an act of restoration while plotting the destruction of the One who performed it.</strong></p><p>And even with this opposition, Jesus continues to heal those who come to Him.</p><p>His authority was never separated from His mercy.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 66,
+      "title": "The Lord of the Sabbath Is Meek and Lowly",
+      "html": "<h3>8. THE LORD OF THE SABBATH IS MEEK AND LOWLY</h3>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 67,
+      "title": "Matthew 12:17-19",
+      "html": "<p><strong>Matthew 12:17–21</strong></p><p class=\"ih-scripture\"><strong><em>Matthew 12:17 (KJV)</em></strong> That it might be fulfilled which was spoken by Esaias the prophet, saying,</p><p class=\"ih-scripture\"><strong><em>Matthew 12:18 (KJV)</em></strong> Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.</p><p class=\"ih-scripture\"><strong><em>Matthew 12:19 (KJV)</em></strong> He shall not strive, nor cry; neither shall any man hear his voice in the streets.</p>",
+      "refs": [
+        "Matthew 12:17",
+        "Matthew 12:18",
+        "Matthew 12:19"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 68,
+      "title": "Matthew 12:20-21",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:20 (KJV)</em></strong> A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.</p><p class=\"ih-scripture\"><strong><em>Matthew 12:21 (KJV)</em></strong> And in his name shall the Gentiles trust.</p>",
+      "refs": [
+        "Matthew 12:20",
+        "Matthew 12:21"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 69,
+      "title": "His authority is revealed together with His gentleness.",
+      "html": "<p>Matthew connects the actions of Jesus to Isaiah 42:1–4.</p><p>This prophecy describes the character of God&#39;s chosen Servant.</p><p>Although He has authority, He does not pursue His mission through self-promotion or unnecessary conflict.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 70,
+      "title": "A bruised reed shall he not break.",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 12:20 (KJV)</em></strong> A bruised reed shall he not break, and smoking flax shall he not quench...</p>",
+      "refs": [
+        "Matthew 12:20"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 71,
+      "title": "He does not crush the weak or extinguish a faint flame.",
+      "html": "<p>A bruised reed is already weakened. Smoking flax describes a wick whose flame is barely burning.</p><p>Yet Christ is described as One who does not crush the weak or extinguish what is barely burning.</p><p>Think about what we have seen throughout the chapter.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 72,
+      "title": "His authority and His mercy",
+      "html": "<p class=\"ih-talking-point\">• The disciples were hungry. <strong>Jesus defended them.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 73,
+      "title": "His authority and His mercy",
+      "html": "<p class=\"ih-talking-point\">• The man had a withered hand. <strong>Jesus restored him.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 74,
+      "title": "His authority and His mercy",
+      "html": "<p class=\"ih-talking-point\">• The Pharisees sought to destroy Him. <strong>Jesus continued healing.</strong></p><p>And this brings us right back to Matthew 11:29.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 75,
+      "title": "Matthew 11:29",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 11:29 (KJV)</em></strong> ...for I am meek and lowly in heart: and ye shall find rest unto your souls.</p>",
+      "refs": [
+        "Matthew 11:29"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 76,
+      "title": "The One who has authority over the Sabbath is also the One who is meek and lowly in heart.",
+      "html": "<p><strong>The One who has authority over the Sabbath is also the One who is meek and lowly in heart.</strong></p><p>His authority is not contrary to His mercy.</p><p>And His gentleness does not diminish His power.</p><hr>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 77,
+      "title": "The Lord Who Gives Rest",
+      "html": "<h3>CONCLUSION: THE LORD WHO GIVES REST</h3><p>We began with the invitation of Jesus in Matthew 11.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 78,
+      "title": "Matthew 11:28",
+      "html": "<p class=\"ih-scripture\"><strong><em>Matthew 11:28 (KJV)</em></strong> Come unto me, all ye that labour and are heavy laden, and I will give you rest.</p>",
+      "refs": [
+        "Matthew 11:28"
+      ],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 79,
+      "title": "Come unto me, and I will give you rest.",
+      "html": "<p>And throughout Matthew 12, we have seen the authority and character of the One making that invitation.</p><p>He is greater than the temple.</p><p>He is Lord of the Sabbath.</p><p>He has the authority to defend the guiltless, to declare what is lawful, and to restore those in need.</p><p>Yet the same Lord who possesses this authority describes Himself as meek and lowly in heart.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 80,
+      "title": "The Lord of the Sabbath does not simply have authority over a day of rest. He has authority to give rest to the soul.",
+      "html": "<p><strong>The Lord of the Sabbath does not simply have authority over a day of rest. He has authority to give rest to the soul.</strong></p><p>And I think that teaches us something important about our relationship with God.</p><p>Our rest is not found in the absence of His authority, but in learning to live under it.</p><p>Because when we understand who He is, we discover that His commandments are not disconnected from His goodness, His holiness is not disconnected from His mercy, and His authority is not disconnected from His love.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 81,
+      "title": "The One who calls us to obedience is the same One who invites us to find rest in Him.",
+      "html": "<p><strong>The One who calls us to obedience is the same One who invites us to find rest in Him.</strong></p><p>And if we claim to follow Him, then our lives should reflect not only His commandments, but also His character.</p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    },
+    {
+      "slide": 82,
+      "title": "Because we cannot claim to know the Lord of the Sabbath while refusing to learn from the mercy of the Lord who gives rest.",
+      "html": "<p><strong>Because we cannot claim to know the Lord of the Sabbath while refusing to learn from the mercy of the Lord who gives rest.</strong></p>",
+      "refs": [],
+      "notes": "Full original manuscript below; advance manually."
+    }
+  ],
+  "manuscriptSourceMd": "# THE LORD OF THE SABBATH\n### The Lord Who Gives Rest, Has Authority, and Restores\n**Matthew 11:28–30 | Matthew 12:1–21 (KJV)**\n\n## INTRODUCTION: THE LORD WHO GIVES REST\n\n**Matthew 11:28–30**\n\n***28 Come unto me, all ye that labour and are heavy laden, and I will give you rest.***\n\n***29 Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.***\n\n***30 For my yoke is easy, and my burden is light.***\n\nWe often associate rest with taking a break, getting away from our responsibilities, or having an opportunity to do nothing. But there is a difference between resting physically and finding rest for your soul.\n\nYou can rest your body and still have a troubled mind. You can stop working and still be carrying the same burdens.\n\n**Jesus is offering something greater than physical rest. He is offering rest for the soul.**\n\nNotice that Jesus doesn't begin by telling them to change their circumstances. He says, **\"Come unto me.\"**\n\nAnd then He says something interesting: *Take my yoke upon you.*\n\nA yoke represents service and submission. Jesus is not offering a life without responsibility, but a life under His direction.\n\n- **Rest is not always the absence of responsibility. Sometimes it is learning whose authority you are living under.**\n- Not every burden we carry is one that God has placed upon us.\n- Christ invites us to exchange the weight of our own understanding for the rest that comes through learning from Him.\n\nNow, what I find interesting is that immediately after this invitation to rest, Matthew introduces Jesus as the **Lord of the Sabbath**.\n\nThe Sabbath was the day of rest established by God. Yet the religious leaders had developed an understanding of its restrictions that led them to condemn people who were not guilty.\n\nAnd Jesus is about to show them that they have misunderstood something about the very God whose commandments they claim to defend.\n\n## 1. THE SABBATH WAS ESTABLISHED BY GOD\n\n**Exodus 20:8**\n\n***Remember the sabbath day, to keep it holy.***\n\nThe Sabbath was not something the Pharisees invented. It was established by God, who commanded Israel to rest on the seventh day.\n\nIt was connected to creation, but it was also a reminder of their deliverance from Egypt.\n\n**Deuteronomy 5:15**\n\n***And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.***\n\nIsrael had been in bondage, serving under Pharaoh. But God delivered them, and the Sabbath became a part of their covenant life with Him.\n\n**The Sabbath reminded Israel of the God who created them, delivered them, and gave them rest.**\n\n- The Sabbath was holy because God established it.\n- It was a commandment, but it also reflected God's provision for His people.\n- **The problem in Matthew 12 was not the Sabbath itself, but the Pharisees' misunderstanding of its proper application.**\n\n## 2. DAVID: WHEN MERCY MEETS HUMAN NEED\n\n**Matthew 12:1–4**\n\n***1 At that time Jesus went on the sabbath day through the corn; and his disciples were an hungred, and began to pluck the ears of corn and to eat.***\n\n***2 But when the Pharisees saw it, they said unto him, Behold, thy disciples do that which is not lawful to do upon the sabbath day.***\n\n***3 But he said unto them, Have ye not read what David did, when he was an hungred, and they that were with him;***\n\n***4 How he entered into the house of God, and did eat the shewbread, which was not lawful for him to eat, neither for them which were with him, but only for the priests?***\n\nThe disciples were hungry, and as they walked through the field, they began gathering grain to eat.\n\nUnder Deuteronomy 23:25, gathering grain by hand was permitted. The Pharisees' objection was that they were doing it on the Sabbath.\n\nJesus responds by bringing them back to David.\n\n### The story of David (1 Samuel 21:1–6)\n\nDavid was fleeing from Saul when he came to Ahimelech the priest seeking food.\n\nThere was no ordinary bread available, only the consecrated shewbread, which according to Leviticus 24:9 was reserved for the priests.\n\nYet Ahimelech gave David the bread.\n\nJesus uses this account to challenge the Pharisees' condemnation of His hungry disciples.\n\n**Why is this significant?**\n\n- David's hunger was a genuine human need.\n- The shewbread was holy, and Jesus acknowledges that its use was ordinarily restricted.\n- Yet Jesus appeals to this account to expose the failure of the Pharisees to understand mercy.\n\n**God's holiness and His mercy are not in opposition to one another.**\n\nThis doesn't mean that human need gives us permission to disregard God's commandments. Rather, Jesus is showing that their interpretation of the Law has failed to recognize what God desires.\n\n**Application:** We must be careful not to become so concerned with preserving our understanding of religious practices that we lose sight of the people God has called us to serve.\n\n## 3. THE PRIESTS: SERVICE AND AUTHORITY\n\n**Matthew 12:5–6**\n\n***5 Or have ye not read in the law, how that on the sabbath days the priests in the temple profane the sabbath, and are blameless?***\n\n***6 But I say unto you, That in this place is one greater than the temple.***\n\nJesus now gives another example, this time concerning the priests.\n\nAccording to Numbers 28:9–10, the priests were commanded to perform additional sacrifices on the Sabbath.\n\nWhile Israel rested from ordinary work, the priests continued their service in the temple.\n\n**Why does Jesus say they profane the Sabbath but remain blameless?**\n\nBecause the work they performed was commanded by God Himself.\n\nWhat would ordinarily be considered work on the Sabbath was required as part of their service to God.\n\n- The priests were not disobeying God. They were fulfilling His commandments.\n- Their service did not make them guilty.\n- **Jesus demonstrates that the Pharisees' rigid understanding of Sabbath restrictions was incomplete.**\n\nBut then Jesus makes an even greater declaration.\n\n***That in this place is one greater than the temple.***\n\nThe temple was the center of Israel's worship, the place associated with God's presence among His people.\n\nYet Jesus declares that One greater than the temple is standing before them.\n\n**If service to the temple was permitted on the Sabbath, how much greater is the authority of the One who is greater than the temple?**\n\n**Colossians 2:9**\n\n***For in him dwelleth all the fulness of the Godhead bodily.***\n\nThe Pharisees were defending their understanding of what belonged to God, while failing to recognize the revelation of God standing before them in Christ.\n\n## 4. MERCY OVER SACRIFICE: THE HEART OF GOD\n\n**Matthew 12:7**\n\n***But if ye had known what this meaneth, I will have mercy, and not sacrifice, ye would not have condemned the guiltless.***\n\nJesus quotes Hosea 6:6.\n\n**Hosea 6:6**\n\n***For I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.***\n\nGod was not rejecting the sacrificial system that He Himself established. He was confronting people whose religious practices were disconnected from genuine faithfulness to Him.\n\nThey could offer sacrifices while neglecting the mercy and knowledge of God.\n\nAnd now Jesus applies this principle to the Pharisees.\n\nHe tells them that if they understood what God meant by mercy, they would not have condemned the guiltless.\n\n**Notice that Jesus doesn't say His disciples are guilty but forgiven. He declares them guiltless.**\n\n- Religious observance cannot replace genuine obedience to God's will.\n- God's commandments should never become an excuse for neglecting mercy.\n- **It is possible to know the commandments of God and still misunderstand the character of the God who gave them.**\n\nHoliness matters. Obedience matters. But neither should be separated from the mercy and goodness of God.\n\n## 5. THE LORD OF THE SABBATH HAS AUTHORITY\n\n**Matthew 12:8**\n\n***For the Son of man is Lord even of the sabbath day.***\n\nEverything Jesus has said leads to this declaration.\n\nHe has referenced David, the priests, the temple, and the mercy of God.\n\nNow He identifies His own authority.\n\nThe Sabbath was established by God. It was holy unto the Lord.\n\n**Exodus 31:13**\n\n***...Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you.***\n\nNotice that God calls them *my sabbaths*.\n\nYet Jesus declares Himself **Lord even of the Sabbath**.\n\nHe is not merely giving His opinion concerning the Law. He is declaring His authority over what God Himself established.\n\n- **Christ is greater than the temple.**\n- **Christ is Lord of the Sabbath.**\n- **Christ has authority to declare what is lawful and to reveal the purpose of God's commandments.**\n\nNow connect this back to Matthew 11.\n\nThe One who says, *\"I will give you rest,\"* is the very One who declares Himself Lord of the Sabbath.\n\n**The Lord of the Sabbath has authority not only to command rest, but to give rest.**\n\nAnd Jesus is about to demonstrate His authority through an act of restoration.\n\n## 6. THE LORD OF THE SABBATH RESTORES\n\n**Matthew 12:9–13**\n\n***9 And when he was departed thence, he went into their synagogue:***\n\n***10 And, behold, there was a man which had his hand withered. And they asked him, saying, Is it lawful to heal on the sabbath days? that they might accuse him.***\n\n***11 And he said unto them, What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out?***\n\n***12 How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days.***\n\n***13 Then saith he to the man, Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other.***\n\nNow Jesus moves from teaching about the Sabbath to demonstrating what He has been teaching.\n\nThere is a man with a withered hand, and the Pharisees ask whether healing is lawful on the Sabbath.\n\nBut notice their intention.\n\n***That they might accuse him.***\n\nThey were more interested in finding a reason to accuse Jesus than in seeing the man restored.\n\nJesus answers by asking whether they would rescue a sheep that had fallen into a pit on the Sabbath.\n\nIf they recognized the importance of rescuing an animal, how much more should they recognize the value of restoring a person?\n\n**The Sabbath was never intended to make doing good unlawful.**\n\n- The Pharisees were looking for grounds to accuse.\n- Jesus was demonstrating the mercy of God.\n- **The Lord of the Sabbath did not merely defend His authority. He used His authority to restore.**\n\nAnd notice that Jesus doesn't simply explain what is lawful.\n\nHe heals the man.\n\nThe very thing they were questioning becomes the demonstration of His teaching.\n\n## 7. THE LORD OF THE SABBATH IS REJECTED\n\n**Matthew 12:14–16**\n\n***14 Then the Pharisees went out, and held a council against him, how they might destroy him.***\n\n***15 But when Jesus knew it, he withdrew himself from thence: and great multitudes followed him, and he healed them all;***\n\n***16 And charged them that they should not make him known:***\n\nThere is an incredible contradiction here.\n\nJesus has just restored a man's hand.\n\nYet the religious leaders respond by planning how to destroy Him.\n\n**They condemned an act of restoration while plotting the destruction of the One who performed it.**\n\nAnd even with this opposition, Jesus continues to heal those who come to Him.\n\nHis authority was never separated from His mercy.\n\n## 8. THE LORD OF THE SABBATH IS MEEK AND LOWLY\n\n**Matthew 12:17–21**\n\n***17 That it might be fulfilled which was spoken by Esaias the prophet, saying,***\n\n***18 Behold my servant, whom I have chosen; my beloved, in whom my soul is well pleased: I will put my spirit upon him, and he shall shew judgment to the Gentiles.***\n\n***19 He shall not strive, nor cry; neither shall any man hear his voice in the streets.***\n\n***20 A bruised reed shall he not break, and smoking flax shall he not quench, till he send forth judgment unto victory.***\n\n***21 And in his name shall the Gentiles trust.***\n\nMatthew connects the actions of Jesus to Isaiah 42:1–4.\n\nThis prophecy describes the character of God's chosen Servant.\n\nAlthough He has authority, He does not pursue His mission through self-promotion or unnecessary conflict.\n\n***A bruised reed shall he not break, and smoking flax shall he not quench...***\n\nA bruised reed is already weakened. Smoking flax describes a wick whose flame is barely burning.\n\nYet Christ is described as One who does not crush the weak or extinguish what is barely burning.\n\nThink about what we have seen throughout the chapter.\n\n- The disciples were hungry. **Jesus defended them.**\n- The man had a withered hand. **Jesus restored him.**\n- The Pharisees sought to destroy Him. **Jesus continued healing.**\n\nAnd this brings us right back to Matthew 11:29.\n\n***...for I am meek and lowly in heart: and ye shall find rest unto your souls.***\n\n**The One who has authority over the Sabbath is also the One who is meek and lowly in heart.**\n\nHis authority is not contrary to His mercy.\n\nAnd His gentleness does not diminish His power.\n\n---\n\n## CONCLUSION: THE LORD WHO GIVES REST\n\nWe began with the invitation of Jesus in Matthew 11.\n\n***Come unto me, all ye that labour and are heavy laden, and I will give you rest.***\n\nAnd throughout Matthew 12, we have seen the authority and character of the One making that invitation.\n\nHe is greater than the temple.\n\nHe is Lord of the Sabbath.\n\nHe has the authority to defend the guiltless, to declare what is lawful, and to restore those in need.\n\nYet the same Lord who possesses this authority describes Himself as meek and lowly in heart.\n\n**The Lord of the Sabbath does not simply have authority over a day of rest. He has authority to give rest to the soul.**\n\nAnd I think that teaches us something important about our relationship with God.\n\nOur rest is not found in the absence of His authority, but in learning to live under it.\n\nBecause when we understand who He is, we discover that His commandments are not disconnected from His goodness, His holiness is not disconnected from His mercy, and His authority is not disconnected from His love.\n\n**The One who calls us to obedience is the same One who invites us to find rest in Him.**\n\nAnd if we claim to follow Him, then our lives should reflect not only His commandments, but also His character.\n\n**Because we cannot claim to know the Lord of the Sabbath while refusing to learn from the mercy of the Lord who gives rest.**",
+  "manuscriptSourceLength": 14713,
+  "translations": {
+    "es": null
+  },
+  "spanishSource": "User-supplied Reina-Valera 1960 (RVR1960) passages.",
+  "spanishVersionLabel": "REINA-VALERA 1960 · RVR1960",
+  "spanishCopyrightNotice": "Texto bíblico: Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.",
+  "translationRequestReferences": [
+    "Matthew 11:28-30",
+    "Exodus 20:8",
+    "Deuteronomy 5:15",
+    "Matthew 12:1-4",
+    "Deuteronomy 23:25",
+    "1 Samuel 21:1-6",
+    "Leviticus 24:9",
+    "Matthew 12:5-6",
+    "Numbers 28:9-10",
+    "Colossians 2:9",
+    "Matthew 12:7",
+    "Hosea 6:6",
+    "Matthew 12:8",
+    "Exodus 31:13",
+    "Matthew 12:9-13",
+    "Matthew 12:14-16",
+    "Matthew 12:17-21",
+    "Isaiah 42:1-4"
+  ],
+  "rvr1960Ready": true
+}
