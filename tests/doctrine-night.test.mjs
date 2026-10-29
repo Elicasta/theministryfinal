@@ -204,7 +204,7 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
       slides:()=>[{}, {}, {}],
       Date:{now:()=>now},sessionNow:()=>now,
       scriptureForSlide:()=>null,
-      lesson:{id:'doctrine-night'},
+      lesson:{id:'doctrine-night'},isMirroredSermon:()=>false,
       send:()=>{},render:()=>{},resolveSpanish:()=>{}
     });
   go(0);
