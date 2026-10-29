@@ -112,7 +112,7 @@ test('each KJV projector cue has a matched RVR1960 Spanish side-TV verse cue',()
    state.slide=index;
    const en=slideHtml(s,true,'en'),es=sermonSpanishSideSlide(s);
    assert.match(es,/lang="es"/);
-   const english=s.title||s.ref||s.kicker,spanish=s.es.title||s.es.ref||s.es.kicker;
+   const english=s.type==='verse'?s.ref:(s.title||s.ref||s.kicker),spanish=s.es.title||s.es.ref||s.es.kicker;
    assert.ok(en.includes(escapeHtml(english)),'English slide missing at '+index);
    assert.ok(es.includes(escapeHtml(spanish)),'Spanish slide missing at '+index);
    if(s.type==='verse'){
