@@ -84,6 +84,7 @@ function verses(){return lesson?.verses||[]}
 function polls(){return lesson?.polls||[]}
 function poll(id){return polls().find(p=>String(p.id)===String(id))}
 function pollsForSlide(index){return polls().filter(p=>Number.isInteger(p.cueSlide)&&p.cueSlide===index)}
+function isMirroredSermon(){return lesson?.id==='inner-healing-2026-10-25'||lesson?.sideTvSpanishMirror===true}
 function theme(){document.body.dataset.theme=lesson?.theme||'default';document.body.dataset.lesson=lesson?.id||'';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
@@ -120,7 +121,7 @@ function slideHtml(raw,withQr=true,language=state.language){
     ?'<div class="presented-translation"><div class="translation-label">English</div>'+esc(clean(s._english.title||s._english.text||s._english.sub||''))+'</div>':'';
   const missing=(language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
 
-  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&lesson?.id!=='inner-healing-2026-10-25'?resourceQrCards(false):'')+'</div>';
+  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&!isMirroredSermon()?resourceQrCards(false):'')+'</div>';
   if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
   if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(clean(s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='statement')return k+ref+'<div class="statement">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
@@ -131,7 +132,7 @@ function slideHtml(raw,withQr=true,language=state.language){
   if(s.type==='check')return k+'<div class="check">'+(s.items||[]).map(x=>'<div class="check-item"><div class="check-l">'+esc(clean(Array.isArray(x)?x[0]:x))+'</div><div class="check-v">'+esc(clean(Array.isArray(x)?x[1]:''))+'</div></div>').join('')+'</div>'+sub+missing;
   if(s.type==='levels')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="levels">'+(s.levels||[]).map((x,i)=>'<div class="level"><div class="level-n">'+(i+1)+'</div><div><div class="level-t">'+esc(clean(Array.isArray(x)?x[1]:x))+'</div><div class="level-d">'+esc(clean(Array.isArray(x)?x[2]:''))+'</div></div></div>').join('')+'</div>'+missing;
   if(s.type==='columns')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="contrast"><div class="contrast-box"><div><div class="check-l">'+esc(clean(s.leftTitle||''))+'</div><ul class="points">'+(s.left||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div><div class="contrast-box right"><div><div class="check-l">'+esc(clean(s.rightTitle||''))+'</div><ul class="points">'+(s.right||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div></div>'+sub+missing;
-  if(s.type==='progression'&&lesson?.id==='inner-healing-2026-10-25') {
+  if(s.type==='progression'&&isMirroredSermon()) {
     const words=(s.words||[]).slice(0,5);
     return '<div class="ih-visual"><div class="ih-visual-eyebrow">'+esc(clean(s.kicker||'THE PROCESS'))+'</div><div class="ih-process-grid">'+words.map((word,i)=>'<div class="ih-process-step"><span class="ih-step-n">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(clean(word))+'</strong></div>').join('<div class="ih-process-arrow" aria-hidden="true">→</div>')+'</div>'+sub+'</div>';
   }
@@ -170,16 +171,16 @@ function scriptureHtml(v){
   }
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
-  const version=lesson?.id==='inner-healing-2026-10-25'
+  const version=isMirroredSermon()
     ?'REINA-VALERA 1960 · RVR1960'
     :sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
-    (lesson?.id==='inner-healing-2026-10-25'?'RVR1960 no está guardada para esta referencia. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
+    (isMirroredSermon()?'RVR1960 no está guardada para esta referencia. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
     ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · '+esc(version)+'</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
-  const english=(lesson?.id==='inner-healing-2026-10-25'||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
+  const english=(isMirroredSermon()||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
   const notice=spanish&&(sc.spanishSource==='RVR1960'||lesson?.spanishCopyrightNotice)&&sc.copyright
     ?'<div class="scripture-copyright">'+esc(sc.copyright)+'</div>':'';
   return primary+english+notice;
@@ -217,7 +218,7 @@ async function resolveSpanish(sc,revision){
 }
 function takeScripture(v,target='both'){
   const input=normalizeScripture(v);
-  const bank=lesson?.id==='inner-healing-2026-10-25'
+  const bank=isMirroredSermon()
     ?verses().find(row=>String(row.ref_en||row.ref).replace(/–/g,'-')===String(input?.ref_en||'').replace(/–/g,'-')):null;
   const sc=bank?normalizeScripture({...bank,...v,text_es:bank.text_es,ref_es:bank.ref_es,
     spanishSource:bank.spanishSource||'RVR1960',spanishStatus:'ready',copyright:bank.copyright||lesson?.spanishCopyrightNotice||''}):input;
@@ -228,17 +229,17 @@ function takeScripture(v,target='both'){
   state.scriptureRevision=(state.scriptureRevision||0)+1;
   const revision=state.scriptureRevision;
   state.scriptureOutput={...sc,revision,spanishStatus:sc.text_es?'ready':'loading'};
-  if(lesson?.id==='inner-healing-2026-10-25'){
+  if(isMirroredSermon()){
     state.scriptureCueMode='manual';
     state.sideScreenCleared=false;
     if(!sc.text_es){state.scriptureOutput.spanishStatus='unavailable';
-      state.scriptureOutput.spanishError='La RVR1960 guardada incluye únicamente los pasajes de este sermón.';}
+      state.scriptureOutput.spanishError='La RVR1960 local solo está disponible para las referencias guardadas de esta lección.';}
   }
   if(target!=='tv'){
     state.overlay={...sc};state.activePoll=state.activeQuestion=null;state.black=false;
   }
   send();render();
-  if(lesson?.id!=='inner-healing-2026-10-25')resolveSpanish(sc,revision);
+  if(!isMirroredSermon())resolveSpanish(sc,revision);
   return true;
 }
 function trackSideScripture(){
@@ -304,7 +305,7 @@ async function bootstrap(){
   await initNetwork();
   bind();
   if(view==='class')initClass();
-  if((view==='remote'||view==='presenter')&&lesson?.id!=='inner-healing-2026-10-25')loadAudienceData();
+  if((view==='remote'||view==='presenter')&&!isMirroredSermon())loadAudienceData();
 }
 
 function showView(){
@@ -351,10 +352,10 @@ function render(){
   if(!lesson)return;theme();
   const ss=slides(),s=ss[state.slide]||ss[0];
   if(view==='projector'){
-    $('p-inner').innerHTML=state.started?slideHtml(s,true,lesson?.id==='inner-healing-2026-10-25'?'en':state.language):slideHtml(ss[0],true,lesson?.id==='inner-healing-2026-10-25'?'en':state.language);
+    $('p-inner').innerHTML=state.started?slideHtml(s,true,isMirroredSermon()?'en':state.language):slideHtml(ss[0],true,isMirroredSermon()?'en':state.language);
     const t=takeover();$('p-take').classList.toggle('hidden',!t);$('p-take-inner').innerHTML=t;$('p-black').classList.toggle('hidden',!state.black);
   }
-  if(view==='obsslides')$('obs-slide-inner').innerHTML=state.started?slideHtml(s,false,lesson?.id==='inner-healing-2026-10-25'?'en':state.language):slideHtml(ss[0],false,lesson?.id==='inner-healing-2026-10-25'?'en':state.language);
+  if(view==='obsslides')$('obs-slide-inner').innerHTML=state.started?slideHtml(s,false,isMirroredSermon()?'en':state.language):slideHtml(ss[0],false,isMirroredSermon()?'en':state.language);
   if(view==='obslowerthirds'){
     const box=$('lower-box');let d=null;
     if(state.overlay)d={title:state.overlay.ref_es&&state.language!=='en'?state.overlay.ref_es:(state.overlay.ref_en||state.overlay.ref),sub:state.language==='en'?(state.overlay.text_en||state.overlay.text):(state.overlay.text_es||state.overlay.text_en||state.overlay.text)};
@@ -365,7 +366,7 @@ function render(){
   }
   if(view==='scriptures'){
     const c=$('scripture-content');
-    if(lesson?.id==='inner-healing-2026-10-25'){
+    if(isMirroredSermon()){
       // The two side TVs are a Spanish mirror of the English projector, NOT
       // standalone Scripture waiting screens. The cover is always available,
       // including standby, reset, and after an older saved "cleared" state.
@@ -486,7 +487,7 @@ function go(i){
   const t=Math.max(0,Math.min(Number(i)||0,ss.length-1)),now=sessionNow();
   if(!state.started||t===0){state.started=true;state.startedAt=now;state.timerStoppedAt=null}
   state.slide=t;state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
-  if(lesson?.id==='inner-healing-2026-10-25'){
+  if(isMirroredSermon()){
     state.scriptureRevision=(state.scriptureRevision||0)+1;
     state.scriptureOutput=null;
     state.scriptureCueMode='slide';
@@ -499,21 +500,21 @@ function go(i){
     state.scriptureOutput={...autoScripture,revision,spanishStatus:autoScripture.text_es?'ready':'loading'};
   }
   send();render();
-  if(autoScripture&&lesson?.id!=='inner-healing-2026-10-25')resolveSpanish(autoScripture,revision);
+  if(autoScripture&&!isMirroredSermon())resolveSpanish(autoScripture,revision);
 }
-function next(){if(lesson?.id==='inner-healing-2026-10-25'&&state.overlay?.ref_en&&state.started)return go(Math.min(state.slide+1,slides().length-1));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
+function next(){if(isMirroredSermon()&&state.overlay?.ref_en&&state.started)return go(Math.min(state.slide+1,slides().length-1));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
 function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
 function reset(){
   state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;
   state.black=false;state.startedAt=null;state.timerStoppedAt=null;
-  if(lesson?.id==='inner-healing-2026-10-25'){
+  if(isMirroredSermon()){
     state.scriptureOutput=null;state.scriptureCueMode='slide';
     state.sideScreenCleared=false;state.scriptureRevision=(state.scriptureRevision||0)+1;
   }
   send();render();
 }
 function clearTakeover(){
-  const wasSermonScripture=lesson?.id==='inner-healing-2026-10-25'&&
+  const wasSermonScripture=isMirroredSermon()&&
     (state.scriptureCueMode==='manual'||!!state.overlay?.ref_en);
   state.overlay=state.activePoll=state.activeQuestion=null;state.black=false;
   if(wasSermonScripture){
@@ -523,7 +524,7 @@ function clearTakeover(){
   send();render();
 }
 function clearScriptureOutput(){
-  if(lesson?.id==='inner-healing-2026-10-25')return clearPresentedScripture();
+  if(isMirroredSermon())return clearPresentedScripture();
   state.scriptureRevision=(state.scriptureRevision||0)+1;state.scriptureOutput=null;send();render();
 }
 function clearPresentedScripture(){
@@ -535,7 +536,7 @@ function clearPresentedScripture(){
   state.scriptureRevision=(state.scriptureRevision||0)+1;
   state.scriptureOutput=null;
   if(state.overlay&&(state.overlay.ref_en||state.overlay.ref))state.overlay=null;
-  if(lesson?.id==='inner-healing-2026-10-25'){
+  if(isMirroredSermon()){
     state.scriptureCueMode='slide';
     state.sideScreenCleared=false;
   }

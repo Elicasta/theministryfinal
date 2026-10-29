@@ -75,7 +75,7 @@ test('no participation or polls interrupt this long-form sermon', () => {
     assert.ok(markup.includes('id="' + id + '"'), 'Missing optional panel identifier: ' + id);
     assert.ok(theme.includes('#' + id), 'Audience interface was not hidden: ' + id);
   }
-  assert.match(projector, /withQr&&lesson\?\.id!=='inner-healing-2026-10-25'/);
+  assert.match(projector, /withQr&&!isMirroredSermon\(\)/);
 });
 
 test('one tap on the manuscript cue advances the synchronized projector', () => {

@@ -204,7 +204,7 @@ test('confidence timer starts at first slide, continues, and resets on taking sl
       slides:()=>[{}, {}, {}],
       Date:{now:()=>now},sessionNow:()=>now,
       scriptureForSlide:()=>null,
-      lesson:{id:'doctrine-night'},
+      lesson:{id:'doctrine-night'},isMirroredSermon:()=>false,
       send:()=>{},render:()=>{},resolveSpanish:()=>{}
     });
   go(0);
@@ -303,7 +303,7 @@ test('side TVs render saved Spanish-only text with last-verse persistence and tr
   const scriptureHtml=new Script(engine.slice(first,last)+';scriptureHtml;').runInNewContext({
     normalizeScripture:v=>({...v,ref_es:v.ref_es||translate(v.ref_en)}),
     verses:()=>lesson.verses,
-    lesson,
+    lesson,isMirroredSermon:()=>false,
     esc:value=>String(value||'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))
   });
   const stale={ref_en:'Deuteronomy 6:4',ref_es:'Deuteronomio 6:4',text_en:'Hear, O Israel: The LORD our God is one LORD:',text_es:''};
