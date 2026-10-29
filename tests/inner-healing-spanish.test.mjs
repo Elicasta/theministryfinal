@@ -14,7 +14,7 @@ const renderFunctions=slice('function slideHtml(raw,withQr=true,language=state.l
 function runRender(){
   const state={language:'en',slide:0};
   const render=new Script(renderFunctions).runInNewContext({
-    lesson,state,esc:escapeHtml,clean:x=>String(x||''),slides:()=>lesson.slides,
+    lesson,state,esc:escapeHtml,clean:x=>String(x||''),slides:()=>lesson.slides,isMirroredSermon:()=>true,
     localizedSlide:(s,lang)=>lang==='es'?{...s,...s.es,_english:s}:s,
     hasSpanishSlide:()=>true,resourceQrCards:()=>'',titleOf:s=>s.title||s.ref||s.kicker
   });
@@ -88,13 +88,13 @@ test('manuscript stays full-length, English, and unchanged by translation',()=>{
     assert.ok(text.includes(p),'Missing original section: '+p);
 });
 test('side screen uses cue number in render key, independent of Scripture output',()=>{
-  assert.match(engine,/if\(lesson\?\.id==='inner-healing-2026-10-25'\)\{/);
+  assert.match(engine,/if\(isMirroredSermon\(\)\)\{/);
   assert.match(engine,/state\.started,state\.slide,state\.seq,/);
   assert.match(engine,/sermonSpanishSideSlide\(currentSlide\)/);
   assert.match(engine,/state\.scriptureCueMode='slide'/);
   assert.match(engine,/state\.scriptureCueMode='manual'/);
   assert.match(engine,/state\.sideScreenCleared=false/);
-  assert.match(engine,/if\(lesson\?\.id!=='inner-healing-2026-10-25'\)resolveSpanish/);
+  assert.match(engine,/if\(!isMirroredSermon\(\)\)resolveSpanish/);
   assert.doesNotThrow(()=>new Script(engine));
 });
 test('moving to a new teaching cue clears stale manual verse and prepares the next Spanish slide',()=>{
@@ -102,7 +102,7 @@ test('moving to a new teaching cue clears stale manual verse and prepares the ne
   const state={started:false,slide:0,overlay:null,activePoll:null,activeQuestion:null,
     scriptureRevision:0,scriptureOutput:null,black:false,startedAt:null,timerStoppedAt:null};
   const go=new Script(slice('function go(i){','function next(){')+'\ngo;').runInNewContext({
-    state,lesson,slides:()=>lesson.slides,Date:{now:()=>1000},sessionNow:()=>1000,
+    state,lesson,slides:()=>lesson.slides,Date:{now:()=>1000},sessionNow:()=>1000,isMirroredSermon:()=>true,
     scriptureForSlide:i=>{
       const s=lesson.slides[i];return s.type==='verse'?{ref_en:s.ref,text_en:s.text,ref_es:s.es.ref,text_es:s.es.text}:null;
     },
@@ -155,7 +155,7 @@ test('live sermon engine uses cached RVR1960 from user-provided lesson for manus
   assert.match(engine,/ih-side-verse-source/);
   assert.match(engine,/ih-side-verse-copyright/);
   assert.match(engine,/lesson\.spanishCopyrightNotice/);
-  assert.match(engine,/if\(lesson\?\.id!=='inner-healing-2026-10-25'\)resolveSpanish/);
+  assert.match(engine,/if\(!isMirroredSermon\(\)\)resolveSpanish/);
   assert.doesNotMatch(engine,/TRADUCCIÓN PROPIA DEL KJV/);
 });
 
