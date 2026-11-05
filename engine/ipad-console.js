@@ -163,13 +163,16 @@
       const a=document.querySelector('.presenter-actions a[href="'+needle+'"]');
       if(a)a.href=target+'?lesson='+encodeURIComponent(lesson.id);
     }
-    const isSermon=lesson.id==='inner-healing-2026-10-25'||lesson.sideTvSpanishMirror===true;
+    const isSermon=lesson.id==='inner-healing-2026-10-25'||lesson.sideTvSpanishMirror===true||lesson.audienceParticipation===false;
     const bibleVersionLabel=document.querySelector('#ipad-bible-drawer>summary span');
     if(bibleVersionLabel)bibleVersionLabel.textContent='KJV + RVR1960';
     const classLink=document.querySelector('.presenter-actions a[href^="/class"]');
     if(classLink)classLink.style.display=isSermon?'none':'';
+    for(const id of ['ipad-polls-drawer','ipad-audience-drawer']){
+      const drawer=$(id);if(drawer)drawer.hidden=isSermon;
+    }
     if($('ipad-feedback'))$('ipad-feedback').textContent=isSermon
-      ?'Sermon mode · Full manuscript and manual projector cues. Audience participation is off.'
+      ?'Sermon mode · Full manuscript and projector cues. Tech team can run Scriptures independently. Audience participation is off.'
       :'Open the audience link on a second device to test interaction before class.';
     decorateInlineScriptures();
     const defaultChapter=window.MinistryScriptureTools?.chapterOf(lesson.verses?.[0]?.ref||lesson.scripture||'')||'Psalm 147';
@@ -203,7 +206,7 @@
   }
   function audience(){renderQuestions();renderPolls();}
   async function refreshAudience(){
-    if((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true))return;
+    if((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true||api.getLesson()?.audienceParticipation===false))return;
     const ok=await api.loadAudienceData();
     if(!ok)status('Audience data is unavailable. Check the connection before showing results.','error');
   }
