@@ -50,3 +50,55 @@ body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #presenter .sermon-rvr-t
 }
 body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #presenter .sermon-rvr-text p{margin:8px 0 12px}
 body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #presenter .sermon-rvr-text strong{font-weight:700;color:#8b3e31}
+
+/*
+ * The Spanish Scripture TV uses the same color system as the main projector.
+ * Keep the Scripture TV independent of slide advancement and manual cues.
+ * Override the engine's black !important screen background only for this sermon.
+ */
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures.scripture-screen{
+  position:fixed;isolation:isolate;
+  background:radial-gradient(ellipse at 79% 15%,#53292388,transparent 43%),radial-gradient(ellipse at 12% 83%,#6f352d55,transparent 48%),linear-gradient(130deg,#08090b,#211819 65%,#0b0a0b)!important;
+  color:#f2eade!important;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures.scripture-screen::before{
+  content:"";position:absolute;inset:3.8%;
+  border:1px solid #d6bdbd30;pointer-events:none;z-index:0;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures.scripture-screen::after{
+  content:"";position:absolute;inset:5%;
+  background:linear-gradient(90deg,#ca7769,transparent 35%) left top/100% 2px no-repeat;
+  pointer-events:none;z-index:0;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-inner{
+  position:relative;z-index:1;
+  color:#f2eade;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-primary{
+  border-left-color:#b8443b;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-ref,
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-secondary .scripture-ref{
+  color:#ce8575;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-text{
+  color:#f2eade;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-secondary{
+  border-top-color:#d6bdbd42;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-secondary .scripture-text{
+  color:#dbc9bd;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-copyright{
+  color:#b7a59a;
+  font:500 clamp(.65rem,.8vw,.84rem)/1.4 'Barlow',Arial,sans-serif;
+  margin-top:clamp(22px,4vh,45px);
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-wait-title{
+  color:#f2eade;
+}
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-wait-sub,
+body[data-lesson="how-to-endure-to-the-end-2026-11-05"] #scriptures .scripture-missing{
+  color:#b7a59a;
+}
