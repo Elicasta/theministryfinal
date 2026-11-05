@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b111b">
+<title>How to Endure to the End · The Ministry Presenter</title>
+<style>
+:root{color-scheme:dark;--bg:#0b111b;--paper:#121d2c;--paper2:#17263a;--ink:#f4f3ef;--muted:#a9b9c9;--stroke:#304259;--accent:#d9ad72;--verse:#e8edf3;--reading-size:22px;--head:#fff}
+:root[data-theme="light"]{color-scheme:light;--bg:#f1f0eb;--paper:#fffefa;--paper2:#ecece7;--ink:#152332;--muted:#536577;--stroke:#d3dadb;--accent:#8d5529;--verse:#2b3740;--head:#0a1d2b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button:disabled{opacity:.36;cursor:default}
+.app{min-height:100dvh}.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--stroke);padding:12px clamp(16px,2.5vw,30px);display:flex;align-items:center;gap:16px;justify-content:space-between}.brand{font-size:.69rem;font-weight:850;letter-spacing:.18em}.brand b{color:var(--accent)}.subtitle{margin-top:3px;color:var(--muted);font-size:.72rem}.tools{display:flex;align-items:center;gap:8px}.tool{border:1px solid var(--stroke);background:var(--paper);color:var(--ink);border-radius:10px;min-height:39px;min-width:42px;padding:7px 11px;font-weight:750}.timer{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:.85rem;min-width:43px;text-align:right}
+.layout{display:grid;grid-template-columns:minmax(225px,290px) minmax(0,1fr);gap:24px;max-width:1470px;margin:0 auto;padding:24px clamp(14px,2.5vw,30px) 128px}
+.sidebar{min-width:0}.side-inner{position:sticky;top:95px;max-height:calc(100dvh - 180px);overflow:auto;background:var(--paper);border:1px solid var(--stroke);border-radius:15px;padding:16px}.sidebar-title{font-size:.69rem;text-transform:uppercase;color:var(--accent);letter-spacing:.16em;font-weight:850;padding:4px 10px 13px}.group{font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:850;padding:16px 10px 7px;border-top:1px solid var(--stroke);margin-top:8px}.group:first-of-type{margin-top:0}.jump{display:flex;width:100%;gap:8px;align-items:center;text-align:left;background:none;color:var(--muted);border:0;border-radius:10px;padding:10px;font-size:.85rem;line-height:1.3;font-weight:650}.jump span{font-size:.66rem;opacity:.7;font-variant-numeric:tabular-nums}.jump.active{background:var(--paper2);color:var(--ink);box-shadow:inset 3px 0 0 var(--accent)}.jump:hover{color:var(--ink)}
+.reader{min-width:0}.hero{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:5px 5px 20px}.eyebrow{color:var(--accent);font-size:.72rem;letter-spacing:.15em;font-weight:850;text-transform:uppercase}.sermon-title{margin:9px 0 9px;color:var(--head);font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.01;font-weight:850;letter-spacing:-.045em}.context{color:var(--muted);font-size:.85rem;line-height:1.5}.mode{align-self:flex-start;border:1px solid var(--stroke);border-radius:30px;color:var(--muted);white-space:nowrap;padding:8px 11px;font-size:.65rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.paper{min-height:400px;background:var(--paper);border:1px solid var(--stroke);border-radius:22px;padding:clamp(24px,4.3vw,56px);box-shadow:0 18px 45px #00000015}.paper-group{font-size:.81rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--accent)}.paper-index{color:var(--muted);font-size:.78rem;font-weight:750;margin:8px 0 25px}.paper h2{margin:0 0 18px;color:var(--head);font-size:clamp(2.1rem,4.6vw,4.1rem);line-height:1.04;letter-spacing:-.05em}.point-label,.ref-label{font-weight:850;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}.point{font-size:calc(var(--reading-size) * 1.12);line-height:1.46;font-weight:700;letter-spacing:-.025em;margin:9px 0 29px;max-width:45ch}.cue-line{border-top:1px solid var(--stroke);padding:20px 0 4px;margin-top:4px}.refs{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.ref-chip{padding:8px 11px;background:var(--paper2);border-radius:8px;color:var(--ink);font-size:.86rem;font-weight:700}.verse-block{padding:21px 0 16px;border-bottom:1px solid var(--stroke)}.verse-block:last-child{border:0}.verse-ref{color:var(--accent);font-weight:850;font-size:.95rem;margin-bottom:12px}.verse-line{font-size:var(--reading-size);line-height:1.62;color:var(--verse);margin:10px 0}.verse-number{font-weight:800;color:var(--accent);font-size:.7em;vertical-align:top;display:inline-block;min-width:29px;padding-top:2px}.declaration{margin-top:36px;padding:24px;border-left:4px solid var(--accent);background:var(--paper2);border-radius:0 12px 12px 0;font-size:calc(var(--reading-size) * 1.3);font-weight:850;line-height:1.3}.closing-caption{color:var(--accent);font-weight:850;letter-spacing:.12em;font-size:.7rem;margin-bottom:12px}.footer{position:fixed;z-index:22;bottom:0;left:0;right:0;border-top:1px solid var(--stroke);background:var(--bg);padding:12px max(16px,env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:center;gap:16px}.nav{border-radius:11px;border:1px solid var(--stroke);background:var(--paper);color:var(--ink);min-height:50px;min-width:115px;padding:9px 16px;font-weight:800}.nav.next{background:var(--accent);color:#141c25;border-color:var(--accent)}.count{min-width:80px;text-align:center;color:var(--muted);font-size:.85rem;font-weight:800}.progress-track{position:fixed;left:0;right:0;bottom:0;height:3px;background:var(--stroke);z-index:24}.progress-bar{height:100%;background:var(--accent);transition:width .2s ease}.jump-mobile{display:none}.error{padding:40px;color:var(--ink)}
+@media(max-width:950px){.layout{grid-template-columns:minmax(0,1fr);padding-top:12px;max-width:830px}.sidebar{display:none}.jump-mobile{display:block;width:100%;color:var(--ink);background:var(--paper);border:1px solid var(--stroke);border-radius:10px;padding:11px 13px;margin-bottom:18px;font-size:.9rem}.hero{padding:0 4px 18px}.mode{display:none}.paper{padding:clamp(24px,5vw,44px)}}
+@media(max-width:530px){.brand{letter-spacing:.09em;font-size:.62rem}.subtitle{font-size:.62rem}.top{gap:7px;padding:11px 12px}.tools{gap:5px}.tool{min-width:35px;padding:7px}.timer{display:none}.sermon-title{font-size:2.4rem}.paper{padding:23px 20px;border-radius:15px}.paper h2{font-size:2.25rem}.nav{min-width:90px}.footer{gap:10px}.count{min-width:58px}}
+@media print{.top,.sidebar,.footer,.jump-mobile,.mode{display:none!important}.layout{display:block;padding:0}.paper{box-shadow:none;border:0;padding:0}.hero{padding-top:0}.verse-block{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div><div class="brand">THE <b>MINISTRY</b> · IPAD PRESENTER</div><div class="subtitle">Private preaching notes · No slides / no projector connection</div></div>
+ <div class="tools">
+  <span id="timer" class="timer" aria-label="Elapsed reading time">00:00</span>
+  <button class="tool" id="smaller" aria-label="Decrease text size">A−</button>
+  <button class="tool" id="larger" aria-label="Increase text size">A+</button>
+  <button class="tool" id="theme" aria-label="Toggle light and dark mode">☼</button>
+  <button class="tool" id="fullscreen" aria-label="Enter full screen">⛶</button>
+ </div>
+</header>
+<div class="layout">
+ <aside class="sidebar"><nav class="side-inner" aria-label="Sermon sections"><div class="sidebar-title">Sermon Navigator</div><div id="toc"></div></nav></aside>
+ <main class="reader">
+  <select id="jump-mobile" class="jump-mobile" aria-label="Jump to section"></select>
+  <div class="hero"><div><div class="eyebrow">Thursday · November 5, 2026 · KJV</div><h1 class="sermon-title">How to Endure to the End</h1><div class="context">Preaching manuscript · Scripture cues are for reference only. Your tech team controls the screens.</div></div><div class="mode">NOTES ONLY</div></div>
+  <article id="paper" class="paper" aria-live="polite"><p>Loading sermon...</p></article>
+ </main>
+</div>
+<footer class="footer" aria-label="Reading navigation">
+ <button id="prev" class="nav">← Previous</button>
+ <span id="count" class="count">1 / 12</span>
+ <button id="next" class="nav next">Next →</button>
+</footer>
+<div class="progress-track"><div id="progress" class="progress-bar"></div></div>
+</div>
+<script>
+(() => {
+'use strict';
+const DATA_URL='/content/how-to-endure-to-the-end-2026-11-05.json';
+const KEY='ministry-sermon-endure-2026-11-05';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let sections=[],index=0,seconds=0,clock=null;
+const persisted=(()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return {}}})();
+let size=Number.isFinite(persisted.size)?Math.max(18,Math.min(34,persisted.size)):23;
+let theme=persisted.theme==='light'?'light':'dark';
+function save(){try{localStorage.setItem(KEY,JSON.stringify({index,size,theme}))}catch{}}
+function configure(){
+ document.documentElement.dataset.theme=theme;
+ document.documentElement.style.setProperty('--reading-size',size+'px');
+ $('theme').textContent=theme==='dark'?'☼':'☾';
+}
+function navigate(i){
+ if(!sections.length)return;
+ index=Math.max(0,Math.min(sections.length-1,Number(i)||0));save();render();
+ window.scrollTo({top:0,behavior:'instant'});
+}
+function render(){
+ const s=sections[index];if(!s)return;
+ const refs=s.scriptures.map(v=>'<span class="ref-chip">'+esc(v.ref)+'</span>').join('');
+ const scripture=s.scriptures.map(v=>'<section class="verse-block"><div class="verse-ref">'+esc(v.ref)+' · KJV</div>'+v.verses.map(line=>'<p class="verse-line"><span class="verse-number">'+esc(line.number)+'</span>'+esc(line.text)+'</p>').join('')+'</section>').join('');
+ $('paper').innerHTML='<div class="paper-group">'+esc(s.group)+'</div><div class="paper-index">'+esc(s.label)+' · SECTION '+String(index+1).padStart(2,'0')+' / '+sections.length+'</div><h2>'+esc(s.title)+'</h2><div class="point-label">Main Point</div><p class="point">'+esc(s.point)+'</p><div class="cue-line"><div class="ref-label">Scripture cues for tech team</div><div class="refs">'+refs+'</div></div>'+scripture+(s.declaration?'<div class="declaration"><div class="closing-caption">CLOSING DECLARATION</div>'+esc(s.declaration)+'</div>':'');
+ $('count').textContent=(index+1)+' / '+sections.length;
+ $('progress').style.width=((index+1)/sections.length*100)+'%';
+ $('prev').disabled=index===0;
+ $('next').disabled=index===sections.length-1;
+ $('next').textContent=index===sections.length-1?'Finished':'Next →';
+ $('jump-mobile').value=String(index);
+ document.querySelectorAll('[data-jump]').forEach(btn=>{const active=Number(btn.dataset.jump)===index;btn.classList.toggle('active',active);if(active)btn.setAttribute('aria-current','step');else btn.removeAttribute('aria-current')});
+}
+function buildNav(){
+ let lastGroup='';
+ $('toc').innerHTML=sections.map((s,i)=>{let group='';if(s.group!==lastGroup){group='<div class="group">'+esc(s.group)+'</div>';lastGroup=s.group}return group+'<button class="jump" data-jump="'+i+'"><span>'+String(i+1).padStart(2,'0')+'</span>'+esc(s.title)+'</button>'}).join('');
+ $('jump-mobile').innerHTML=sections.map((s,i)=>'<option value="'+i+'">'+(i+1)+'. '+esc(s.title)+'</option>').join('');
+ $('toc').addEventListener('click',e=>{const b=e.target.closest('[data-jump]');if(b)navigate(Number(b.dataset.jump))});
+ $('jump-mobile').addEventListener('change',e=>navigate(e.target.value));
+}
+function tick(){seconds++;$('timer').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+$('prev').addEventListener('click',()=>navigate(index-1));
+$('next').addEventListener('click',()=>navigate(index+1));
+$('larger').addEventListener('click',()=>{size=Math.min(34,size+2);configure();save()});
+$('smaller').addEventListener('click',()=>{size=Math.max(18,size-2);configure();save()});
+$('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';configure();save()});
+$('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{}});
+document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();navigate(index+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();navigate(index-1)}});
+configure();
+fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Sermon data unavailable');return r.json()}).then(data=>{
+ if(data.mode!=='notes-only'||!Array.isArray(data.sections)||!data.sections.length)throw new Error('Unexpected sermon format');
+ sections=data.sections;index=Math.min(Math.max(0,Number(persisted.index)||0),sections.length-1);buildNav();render();clock=setInterval(tick,1000);
+}).catch(err=>{$('paper').innerHTML='<div class="error"><h2>Unable to load the notes</h2><p>'+esc(err.message)+'</p><p>Make sure you are online and refresh this page before the service.</p></div>'});
+})();
+</script>
+</body></html>
