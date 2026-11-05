@@ -143,13 +143,13 @@
     if(!p)return;
     const ok=api.pushScripture({ref_en:p.dataset.ipadScriptureRef,
       text_en:p.dataset.ipadScriptureText},target);
-    if(ok)status(p.dataset.ipadScriptureRef+((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 lista.':' sent. Checking corresponding RVR1960 text.'),'ok');
+    if(ok)status(p.dataset.ipadScriptureRef+((api.getLesson()?.localRvr1960||api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 lista.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function sendBankVerse(index,target){
     const v=bankRows[index];
     if(!v)return;
     const ok=api.pushScripture({ref_en:v.ref,text_en:v.text},target);
-    if(ok)status(v.ref+((api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 guardada para los versículos de esta lección.':' sent. Checking corresponding RVR1960 text.'),'ok');
+    if(ok)status(v.ref+((api.getLesson()?.localRvr1960||api.getLesson()?.id==='inner-healing-2026-10-25'||api.getLesson()?.sideTvSpanishMirror===true)?' · RVR1960 guardada para los versículos de esta lección.':' sent. Checking corresponding RVR1960 text.'),'ok');
   }
   function mount(){
     const lesson=api.getLesson(),library=api.getLibrary();
