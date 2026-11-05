@@ -74,7 +74,7 @@ test('visual changes stay isolated to this one lesson',()=>{
   assert.match(theme,/\.p-verse/);
   assert.match(theme,/#presenter \.sermon-main-point/);
   const body=theme.replace(/\/\*[\s\S]*?\*\//g,'');
-  for(const block of body.split('}').filter(Boolean)){
+  for(const block of body.split('}').filter(part=>part.includes('{'))){
     assert.ok(block.split('{')[0].trim().startsWith('body[data-lesson="'+id+'"]'),
       'Unscoped selector in custom theme: '+block.slice(0,85));
   }
