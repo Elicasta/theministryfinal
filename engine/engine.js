@@ -121,7 +121,7 @@ function slideHtml(raw,withQr=true,language=state.language){
     ?'<div class="presented-translation"><div class="translation-label">English</div>'+esc(clean(s._english.title||s._english.text||s._english.sub||''))+'</div>':'';
   const missing=(language!=='en'&&s._translationMissing)?'<div class="p-sub">Spanish translation not authored for this slide yet.</div>':'';
 
-  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&!isMirroredSermon()?resourceQrCards(false):'')+'</div>';
+  if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&!isMirroredSermon()&&!lesson?.hideAudienceQr?resourceQrCards(false):'')+'</div>';
   if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
   if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(clean(s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='statement')return k+ref+'<div class="statement">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
@@ -305,7 +305,7 @@ async function bootstrap(){
   await initNetwork();
   bind();
   if(view==='class')initClass();
-  if((view==='remote'||view==='presenter')&&!isMirroredSermon())loadAudienceData();
+  if((view==='remote'||view==='presenter')&&!isMirroredSermon()&&lesson?.audienceParticipation!==false)loadAudienceData();
 }
 
 function showView(){
@@ -493,7 +493,9 @@ function go(i){
     state.scriptureCueMode='slide';
     state.sideScreenCleared=false;
   }
-  const autoScripture=scriptureForSlide(t);
+  // Some sermons have Scripture slides for the projector while the tech team
+  // owns the dedicated Scripture TV. Never take over that output on navigation.
+  const autoScripture=lesson?.scriptureManualOnly?null:scriptureForSlide(t);
   let revision=null;
   if(autoScripture){
     revision=state.scriptureRevision=(state.scriptureRevision||0)+1;
