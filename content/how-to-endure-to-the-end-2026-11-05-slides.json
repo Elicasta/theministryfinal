@@ -6,7 +6,7 @@
   "sequence": "Thursday Service · Nov 5",
   "title": "How to Endure to the End",
   "scripture": "Matthew 24:12–13",
-  "translation": "KJV",
+  "translation": "KJV / RVR1960",
   "taughtAt": null,
   "theme": "ministry",
   "status": "ready",
@@ -28,15 +28,24 @@
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 24:12–13",
-      "ref": "Matthew 24:12–13",
+      "title": "Matthew 24:12-13",
+      "ref": "Matthew 24:12-13",
       "text": "12. And because iniquity shall abound, the love of many shall wax cold.\n13. But he that shall endure unto the end, the same shall be saved.",
       "sectionKey": "main",
       "sourceRef": "Matthew 24:12–13",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 24:12–13. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 24:12–13. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 24:12-13",
+        "ref": "Mateo 24:12-13",
+        "text": "12. y por haberse multiplicado la maldad, el amor de muchos se enfriará.\n13. Mas el que persevere hasta el fin, este será salvo."
+      },
+      "ref_es": "Mateo 24:12-13",
+      "text_es": "12. y por haberse multiplicado la maldad, el amor de muchos se enfriará.\n13. Mas el que persevere hasta el fin, este será salvo."
     },
     {
       "type": "points",
@@ -65,7 +74,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 2 Peter 3:9. Coordinate reading with the tech team."
+      "notes": "Scripture: 2 Peter 3:9. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "2 Pedro 3:9",
+        "ref": "2 Pedro 3:9",
+        "text": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento."
+      },
+      "ref_es": "2 Pedro 3:9",
+      "text_es": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento."
     },
     {
       "type": "verse",
@@ -78,7 +96,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Revelation 7:9. Coordinate reading with the tech team."
+      "notes": "Scripture: Revelation 7:9. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Apocalipsis 7:9",
+        "ref": "Apocalipsis 7:9",
+        "text": "Después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos;"
+      },
+      "ref_es": "Apocalipsis 7:9",
+      "text_es": "Después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos;"
     },
     {
       "type": "points",
@@ -121,33 +148,60 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 2 Corinthians 10:5. Coordinate reading with the tech team."
+      "notes": "Scripture: 2 Corinthians 10:5. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "2 Corintios 10:5",
+        "ref": "2 Corintios 10:5",
+        "text": "derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,"
+      },
+      "ref_es": "2 Corintios 10:5",
+      "text_es": "derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,"
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Philippians 3:13–14",
-      "ref": "Philippians 3:13–14",
+      "title": "Philippians 3:13-14",
+      "ref": "Philippians 3:13-14",
       "text": "13. Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,\n14. I press toward the mark for the prize of the high calling of God in Christ Jesus.",
       "sectionKey": "mind",
       "sourceRef": "Philippians 3:13–14",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Philippians 3:13–14. Coordinate reading with the tech team."
+      "notes": "Scripture: Philippians 3:13–14. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Filipenses 3:13-14",
+        "ref": "Filipenses 3:13-14",
+        "text": "13. Hermanos, yo mismo no pretendo haberlo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está delante,\n14. prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús."
+      },
+      "ref_es": "Filipenses 3:13-14",
+      "text_es": "13. Hermanos, yo mismo no pretendo haberlo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está delante,\n14. prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús."
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Numbers 11:4–5",
-      "ref": "Numbers 11:4–5",
+      "title": "Numbers 11:4-5",
+      "ref": "Numbers 11:4-5",
       "text": "4. And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?\n5. We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:",
       "sectionKey": "mind",
       "sourceRef": "Numbers 11:4–6",
       "part": 1,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Numbers 11:4–5. Coordinate reading with the tech team."
+      "notes": "Scripture: Numbers 11:4–5. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Números 11:4-5",
+        "ref": "Números 11:4-5",
+        "text": "4. Y la gente extranjera que se mezcló con ellos tuvo un vivo deseo, y los hijos de Israel también volvieron a llorar y dijeron: ¡Quién nos diera a comer carne!\n5. Nos acordamos del pescado que comíamos en Egipto de balde, de los pepinos, los melones, los puerros, las cebollas y los ajos;"
+      },
+      "ref_es": "Números 11:4-5",
+      "text_es": "4. Y la gente extranjera que se mezcló con ellos tuvo un vivo deseo, y los hijos de Israel también volvieron a llorar y dijeron: ¡Quién nos diera a comer carne!\n5. Nos acordamos del pescado que comíamos en Egipto de balde, de los pepinos, los melones, los puerros, las cebollas y los ajos;"
     },
     {
       "type": "verse",
@@ -160,7 +214,16 @@
       "part": 2,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Numbers 11:6. Coordinate reading with the tech team."
+      "notes": "Scripture: Numbers 11:6. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Números 11:6",
+        "ref": "Números 11:6",
+        "text": "y ahora nuestra alma se seca; pues nada sino este maná ven nuestros ojos."
+      },
+      "ref_es": "Números 11:6",
+      "text_es": "y ahora nuestra alma se seca; pues nada sino este maná ven nuestros ojos."
     },
     {
       "type": "points",
@@ -188,7 +251,16 @@
       "part": 1,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Romans 12:1. Coordinate reading with the tech team."
+      "notes": "Scripture: Romans 12:1. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Romanos 12:1",
+        "ref": "Romanos 12:1",
+        "text": "Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional."
+      },
+      "ref_es": "Romanos 12:1",
+      "text_es": "Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional."
     },
     {
       "type": "verse",
@@ -201,7 +273,16 @@
       "part": 2,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Romans 12:2. Coordinate reading with the tech team."
+      "notes": "Scripture: Romans 12:2. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Romanos 12:2",
+        "ref": "Romanos 12:2",
+        "text": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta."
+      },
+      "ref_es": "Romanos 12:2",
+      "text_es": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta."
     },
     {
       "type": "verse",
@@ -214,7 +295,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Luke 9:23. Coordinate reading with the tech team."
+      "notes": "Scripture: Luke 9:23. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Lucas 9:23",
+        "ref": "Lucas 9:23",
+        "text": "Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame."
+      },
+      "ref_es": "Lucas 9:23",
+      "text_es": "Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame."
     },
     {
       "type": "points",
@@ -243,7 +333,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Romans 12:18. Coordinate reading with the tech team."
+      "notes": "Scripture: Romans 12:18. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Romanos 12:18",
+        "ref": "Romanos 12:18",
+        "text": "Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres."
+      },
+      "ref_es": "Romanos 12:18",
+      "text_es": "Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres."
     },
     {
       "type": "verse",
@@ -256,20 +355,38 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Hebrews 12:14. Coordinate reading with the tech team."
+      "notes": "Scripture: Hebrews 12:14. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Hebreos 12:14",
+        "ref": "Hebreos 12:14",
+        "text": "Seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor."
+      },
+      "ref_es": "Hebreos 12:14",
+      "text_es": "Seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor."
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 24:10–12",
-      "ref": "Matthew 24:10–12",
+      "title": "Matthew 24:10-12",
+      "ref": "Matthew 24:10-12",
       "text": "10. And then shall many be offended, and shall betray one another, and shall hate one another.\n11. And many false prophets shall rise, and shall deceive many.\n12. And because iniquity shall abound, the love of many shall wax cold.",
       "sectionKey": "relationships",
       "sourceRef": "Matthew 24:10–12",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 24:10–12. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 24:10–12. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 24:10-12",
+        "ref": "Mateo 24:10-12",
+        "text": "10. Muchos tropezarán entonces, y se entregarán unos a otros, y unos a otros se aborrecerán.\n11. Y muchos falsos profetas se levantarán, y engañarán a muchos;\n12. y por haberse multiplicado la maldad, el amor de muchos se enfriará."
+      },
+      "ref_es": "Mateo 24:10-12",
+      "text_es": "10. Muchos tropezarán entonces, y se entregarán unos a otros, y unos a otros se aborrecerán.\n11. Y muchos falsos profetas se levantarán, y engañarán a muchos;\n12. y por haberse multiplicado la maldad, el amor de muchos se enfriará."
     },
     {
       "type": "points",
@@ -310,7 +427,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 1 Thessalonians 5:18. Coordinate reading with the tech team."
+      "notes": "Scripture: 1 Thessalonians 5:18. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "1 Tesalonicenses 5:18",
+        "ref": "1 Tesalonicenses 5:18",
+        "text": "Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús."
+      },
+      "ref_es": "1 Tesalonicenses 5:18",
+      "text_es": "Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús."
     },
     {
       "type": "points",
@@ -339,7 +465,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 1 Thessalonians 5:17. Coordinate reading with the tech team."
+      "notes": "Scripture: 1 Thessalonians 5:17. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "1 Tesalonicenses 5:17",
+        "ref": "1 Tesalonicenses 5:17",
+        "text": "Orad sin cesar."
+      },
+      "ref_es": "1 Tesalonicenses 5:17",
+      "text_es": "Orad sin cesar."
     },
     {
       "type": "verse",
@@ -352,7 +487,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Luke 18:1. Coordinate reading with the tech team."
+      "notes": "Scripture: Luke 18:1. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Lucas 18:1",
+        "ref": "Lucas 18:1",
+        "text": "También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar,"
+      },
+      "ref_es": "Lucas 18:1",
+      "text_es": "También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar,"
     },
     {
       "type": "verse",
@@ -365,7 +509,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 26:41. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 26:41. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 26:41",
+        "ref": "Mateo 26:41",
+        "text": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil."
+      },
+      "ref_es": "Mateo 26:41",
+      "text_es": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil."
     },
     {
       "type": "points",
@@ -394,7 +547,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 1 Corinthians 10:12. Coordinate reading with the tech team."
+      "notes": "Scripture: 1 Corinthians 10:12. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "1 Corintios 10:12",
+        "ref": "1 Corintios 10:12",
+        "text": "Así que, el que piensa estar firme, mire que no caiga."
+      },
+      "ref_es": "1 Corintios 10:12",
+      "text_es": "Así que, el que piensa estar firme, mire que no caiga."
     },
     {
       "type": "verse",
@@ -407,20 +569,38 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 1 Peter 5:8. Coordinate reading with the tech team."
+      "notes": "Scripture: 1 Peter 5:8. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "1 Pedro 5:8",
+        "ref": "1 Pedro 5:8",
+        "text": "Sed sobrios, y velad; porque vuestro adversario el diablo, como león rugiente, anda alrededor buscando a quien devorar;"
+      },
+      "ref_es": "1 Pedro 5:8",
+      "text_es": "Sed sobrios, y velad; porque vuestro adversario el diablo, como león rugiente, anda alrededor buscando a quien devorar;"
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Jude 24:24",
-      "ref": "Jude 24:24",
+      "title": "Jude 1:24",
+      "ref": "Jude 1:24",
       "text": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,",
       "sectionKey": "watch",
       "sourceRef": "Jude 24",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Jude 24:24. Coordinate reading with the tech team."
+      "notes": "Scripture: Jude 24:24. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Judas 1:24",
+        "ref": "Judas 1:24",
+        "text": "Y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría,"
+      },
+      "ref_es": "Judas 1:24",
+      "text_es": "Y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría,"
     },
     {
       "type": "points",
@@ -453,15 +633,24 @@
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Romans 13:11–12",
-      "ref": "Romans 13:11–12",
+      "title": "Romans 13:11-12",
+      "ref": "Romans 13:11-12",
       "text": "11. And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.\n12. The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.",
       "sectionKey": "awake",
       "sourceRef": "Romans 13:11–12",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Romans 13:11–12. Coordinate reading with the tech team."
+      "notes": "Scripture: Romans 13:11–12. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Romanos 13:11-12",
+        "ref": "Romanos 13:11-12",
+        "text": "11. Y esto, conociendo el tiempo, que es ya hora de levantarnos del sueño; porque ahora está más cerca de nosotros nuestra salvación que cuando creímos.\n12. La noche está avanzada, y se acerca el día. Desechemos, pues, las obras de las tinieblas, y vistámonos las armas de la luz."
+      },
+      "ref_es": "Romanos 13:11-12",
+      "text_es": "11. Y esto, conociendo el tiempo, que es ya hora de levantarnos del sueño; porque ahora está más cerca de nosotros nuestra salvación que cuando creímos.\n12. La noche está avanzada, y se acerca el día. Desechemos, pues, las obras de las tinieblas, y vistámonos las armas de la luz."
     },
     {
       "type": "points",
@@ -480,54 +669,90 @@
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 25:1–3",
-      "ref": "Matthew 25:1–3",
+      "title": "Matthew 25:1-3",
+      "ref": "Matthew 25:1-3",
       "text": "1. Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.\n2. And five of them were wise, and five were foolish.\n3. They that were foolish took their lamps, and took no oil with them:",
       "sectionKey": "ready",
       "sourceRef": "Matthew 25:1–13",
       "part": 1,
       "partTotal": 5,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 25:1–3. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 25:1–3. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 25:1-3",
+        "ref": "Mateo 25:1-3",
+        "text": "1. Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo.\n2. Cinco de ellas eran prudentes y cinco insensatas.\n3. Las insensatas, tomando sus lámparas, no tomaron consigo aceite;"
+      },
+      "ref_es": "Mateo 25:1-3",
+      "text_es": "1. Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo.\n2. Cinco de ellas eran prudentes y cinco insensatas.\n3. Las insensatas, tomando sus lámparas, no tomaron consigo aceite;"
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 25:4–6",
-      "ref": "Matthew 25:4–6",
+      "title": "Matthew 25:4-6",
+      "ref": "Matthew 25:4-6",
       "text": "4. But the wise took oil in their vessels with their lamps.\n5. While the bridegroom tarried, they all slumbered and slept.\n6. And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.",
       "sectionKey": "ready",
       "sourceRef": "Matthew 25:1–13",
       "part": 2,
       "partTotal": 5,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 25:4–6. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 25:4–6. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 25:4-6",
+        "ref": "Mateo 25:4-6",
+        "text": "4. mas las prudentes tomaron aceite en sus vasijas, juntamente con sus lámparas.\n5. Y tardándose el esposo, cabecearon todas y se durmieron.\n6. Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!"
+      },
+      "ref_es": "Mateo 25:4-6",
+      "text_es": "4. mas las prudentes tomaron aceite en sus vasijas, juntamente con sus lámparas.\n5. Y tardándose el esposo, cabecearon todas y se durmieron.\n6. Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!"
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 25:7–9",
-      "ref": "Matthew 25:7–9",
+      "title": "Matthew 25:7-9",
+      "ref": "Matthew 25:7-9",
       "text": "7. Then all those virgins arose, and trimmed their lamps.\n8. And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.\n9. But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.",
       "sectionKey": "ready",
       "sourceRef": "Matthew 25:1–13",
       "part": 3,
       "partTotal": 5,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 25:7–9. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 25:7–9. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 25:7-9",
+        "ref": "Mateo 25:7-9",
+        "text": "7. Entonces todas aquellas vírgenes se levantaron, y arreglaron sus lámparas.\n8. Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan.\n9. Mas las prudentes respondieron diciendo: Para que no nos falte a nosotras y a vosotras, id más bien a los que venden, y comprad para vosotras mismas."
+      },
+      "ref_es": "Mateo 25:7-9",
+      "text_es": "7. Entonces todas aquellas vírgenes se levantaron, y arreglaron sus lámparas.\n8. Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan.\n9. Mas las prudentes respondieron diciendo: Para que no nos falte a nosotras y a vosotras, id más bien a los que venden, y comprad para vosotras mismas."
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Matthew 25:10–12",
-      "ref": "Matthew 25:10–12",
+      "title": "Matthew 25:10-12",
+      "ref": "Matthew 25:10-12",
       "text": "10. And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.\n11. Afterward came also the other virgins, saying, Lord, Lord, open to us.\n12. But he answered and said, Verily I say unto you, I know you not.",
       "sectionKey": "ready",
       "sourceRef": "Matthew 25:1–13",
       "part": 4,
       "partTotal": 5,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 25:10–12. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 25:10–12. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 25:10-12",
+        "ref": "Mateo 25:10-12",
+        "text": "10. Pero mientras ellas iban a comprar, vino el esposo; y las que estaban preparadas entraron con él a las bodas; y se cerró la puerta.\n11. Después vinieron también las otras vírgenes, diciendo: ¡Señor, señor, ábrenos!\n12. Mas él, respondiendo, dijo: De cierto os digo, que no os conozco."
+      },
+      "ref_es": "Mateo 25:10-12",
+      "text_es": "10. Pero mientras ellas iban a comprar, vino el esposo; y las que estaban preparadas entraron con él a las bodas; y se cerró la puerta.\n11. Después vinieron también las otras vírgenes, diciendo: ¡Señor, señor, ábrenos!\n12. Mas él, respondiendo, dijo: De cierto os digo, que no os conozco."
     },
     {
       "type": "verse",
@@ -540,7 +765,16 @@
       "part": 5,
       "partTotal": 5,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 25:13. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 25:13. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 25:13",
+        "ref": "Mateo 25:13",
+        "text": "Velad, pues, porque no sabéis el día ni la hora en que el Hijo del Hombre ha de venir."
+      },
+      "ref_es": "Mateo 25:13",
+      "text_es": "Velad, pues, porque no sabéis el día ni la hora en que el Hijo del Hombre ha de venir."
     },
     {
       "type": "points",
@@ -560,28 +794,46 @@
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "2 Timothy 2:3–4",
-      "ref": "2 Timothy 2:3–4",
+      "title": "2 Timothy 2:3-4",
+      "ref": "2 Timothy 2:3-4",
       "text": "3. Thou therefore endure hardness, as a good soldier of Jesus Christ.\n4. No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.",
       "sectionKey": "faithfully",
       "sourceRef": "2 Timothy 2:3–4",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 2 Timothy 2:3–4. Coordinate reading with the tech team."
+      "notes": "Scripture: 2 Timothy 2:3–4. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "2 Timoteo 2:3-4",
+        "ref": "2 Timoteo 2:3-4",
+        "text": "3. Tú, pues, sufre penalidades como buen soldado de Jesucristo.\n4. Ninguno que milita se enreda en los negocios de la vida, a fin de agradar a aquel que lo tomó por soldado."
+      },
+      "ref_es": "2 Timoteo 2:3-4",
+      "text_es": "3. Tú, pues, sufre penalidades como buen soldado de Jesucristo.\n4. Ninguno que milita se enreda en los negocios de la vida, a fin de agradar a aquel que lo tomó por soldado."
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "2 Timothy 4:7–8",
-      "ref": "2 Timothy 4:7–8",
+      "title": "2 Timothy 4:7-8",
+      "ref": "2 Timothy 4:7-8",
       "text": "7. I have fought a good fight, I have finished my course, I have kept the faith:\n8. Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.",
       "sectionKey": "faithfully",
       "sourceRef": "2 Timothy 4:7–8",
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 2 Timothy 4:7–8. Coordinate reading with the tech team."
+      "notes": "Scripture: 2 Timothy 4:7–8. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "2 Timoteo 4:7-8",
+        "ref": "2 Timoteo 4:7-8",
+        "text": "7. He peleado la buena batalla, he acabado la carrera, he guardado la fe.\n8. Por lo demás, me está guardada la corona de justicia, la cual me dará el Señor, juez justo, en aquel día; y no solo a mí, sino también a todos los que aman su venida."
+      },
+      "ref_es": "2 Timoteo 4:7-8",
+      "text_es": "7. He peleado la buena batalla, he acabado la carrera, he guardado la fe.\n8. Por lo demás, me está guardada la corona de justicia, la cual me dará el Señor, juez justo, en aquel día; y no solo a mí, sino también a todos los que aman su venida."
     },
     {
       "type": "points",
@@ -610,20 +862,38 @@
       "part": 1,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Hebrews 12:1. Coordinate reading with the tech team."
+      "notes": "Scripture: Hebrews 12:1. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Hebreos 12:1",
+        "ref": "Hebreos 12:1",
+        "text": "Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,"
+      },
+      "ref_es": "Hebreos 12:1",
+      "text_es": "Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,"
     },
     {
       "type": "verse",
       "kicker": "SCRIPTURE · KJV",
-      "title": "Hebrews 12:2–3",
-      "ref": "Hebrews 12:2–3",
+      "title": "Hebrews 12:2-3",
+      "ref": "Hebrews 12:2-3",
       "text": "2. Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.\n3. For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.",
       "sectionKey": "conclusion",
       "sourceRef": "Hebrews 12:1–3",
       "part": 2,
       "partTotal": 2,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Hebrews 12:2–3. Coordinate reading with the tech team."
+      "notes": "Scripture: Hebrews 12:2–3. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Hebreos 12:2-3",
+        "ref": "Hebreos 12:2-3",
+        "text": "2. puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios.\n3. Considerad a aquel que sufrió tal contradicción de pecadores contra sí mismo, para que vuestro ánimo no se canse hasta desmayar."
+      },
+      "ref_es": "Hebreos 12:2-3",
+      "text_es": "2. puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios.\n3. Considerad a aquel que sufrió tal contradicción de pecadores contra sí mismo, para que vuestro ánimo no se canse hasta desmayar."
     },
     {
       "type": "verse",
@@ -636,7 +906,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: 2 Timothy 4:7. Coordinate reading with the tech team."
+      "notes": "Scripture: 2 Timothy 4:7. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "2 Timoteo 4:7",
+        "ref": "2 Timoteo 4:7",
+        "text": "He peleado la buena batalla, he acabado la carrera, he guardado la fe."
+      },
+      "ref_es": "2 Timoteo 4:7",
+      "text_es": "He peleado la buena batalla, he acabado la carrera, he guardado la fe."
     },
     {
       "type": "statement",
@@ -658,7 +937,16 @@
       "part": 1,
       "partTotal": 1,
       "cue": "SCRIPTURE · KJV",
-      "notes": "Scripture: Matthew 24:13. Coordinate reading with the tech team."
+      "notes": "Scripture: Matthew 24:13. Coordinate reading with the tech team.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Mateo 24:13",
+        "ref": "Mateo 24:13",
+        "text": "Mas el que persevere hasta el fin, este será salvo."
+      },
+      "ref_es": "Mateo 24:13",
+      "text_es": "Mas el que persevere hasta el fin, este será salvo."
     }
   ],
   "manuscript": [
@@ -674,9 +962,9 @@
     {
       "slide": 1,
       "title": "Matthew 24:12–13",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:12–13</div><p class=\"ih-scripture\"><strong><em>Matthew 24:12 (KJV) And because iniquity shall abound, the love of many shall wax cold.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:13 (KJV) But he that shall endure unto the end, the same shall be saved.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:12–13</div><p class=\"ih-scripture\"><strong><em>Matthew 24:12 (KJV) And because iniquity shall abound, the love of many shall wax cold.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:13 (KJV) But he that shall endure unto the end, the same shall be saved.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 24:12-13</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>12.</strong> y por haberse multiplicado la maldad, el amor de muchos se enfriará.</p><p><strong>13.</strong> Mas el que persevere hasta el fin, este será salvo.</p></div></details>",
       "refs": [
-        "Matthew 24:12–13"
+        "Matthew 24:12-13"
       ],
       "notes": "Scripture: Matthew 24:12–13. Coordinate reading with the tech team."
     },
@@ -693,7 +981,7 @@
     {
       "slide": 3,
       "title": "2 Peter 3:9",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Peter 3:9</div><p class=\"ih-scripture\"><strong><em>2 Peter 3:9 (KJV) The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Peter 3:9</div><p class=\"ih-scripture\"><strong><em>2 Peter 3:9 (KJV) The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 2 Pedro 3:9</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>9.</strong> El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento.</p></div></details>",
       "refs": [
         "2 Peter 3:9"
       ],
@@ -702,7 +990,7 @@
     {
       "slide": 4,
       "title": "Revelation 7:9",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Revelation 7:9</div><p class=\"ih-scripture\"><strong><em>Revelation 7:9 (KJV) After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Revelation 7:9</div><p class=\"ih-scripture\"><strong><em>Revelation 7:9 (KJV) After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Apocalipsis 7:9</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>9.</strong> Después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos;</p></div></details>",
       "refs": [
         "Revelation 7:9"
       ],
@@ -729,7 +1017,7 @@
     {
       "slide": 7,
       "title": "2 Corinthians 10:5",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Corinthians 10:5</div><p class=\"ih-scripture\"><strong><em>2 Corinthians 10:5 (KJV) Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Corinthians 10:5</div><p class=\"ih-scripture\"><strong><em>2 Corinthians 10:5 (KJV) Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 2 Corintios 10:5</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>5.</strong> derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,</p></div></details>",
       "refs": [
         "2 Corinthians 10:5"
       ],
@@ -738,25 +1026,25 @@
     {
       "slide": 8,
       "title": "Philippians 3:13–14",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Philippians 3:13–14</div><p class=\"ih-scripture\"><strong><em>Philippians 3:13 (KJV) Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,</em></strong></p><p class=\"ih-scripture\"><strong><em>Philippians 3:14 (KJV) I press toward the mark for the prize of the high calling of God in Christ Jesus.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Philippians 3:13–14</div><p class=\"ih-scripture\"><strong><em>Philippians 3:13 (KJV) Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,</em></strong></p><p class=\"ih-scripture\"><strong><em>Philippians 3:14 (KJV) I press toward the mark for the prize of the high calling of God in Christ Jesus.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Filipenses 3:13-14</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>13.</strong> Hermanos, yo mismo no pretendo haberlo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está delante,</p><p><strong>14.</strong> prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús.</p></div></details>",
       "refs": [
-        "Philippians 3:13–14"
+        "Philippians 3:13-14"
       ],
       "notes": "Scripture: Philippians 3:13–14. Coordinate reading with the tech team."
     },
     {
       "slide": 9,
       "title": "Numbers 11:4–5",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Numbers 11:4–5</div><p class=\"ih-scripture\"><strong><em>Numbers 11:4 (KJV) And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?</em></strong></p><p class=\"ih-scripture\"><strong><em>Numbers 11:5 (KJV) We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Numbers 11:4–5</div><p class=\"ih-scripture\"><strong><em>Numbers 11:4 (KJV) And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?</em></strong></p><p class=\"ih-scripture\"><strong><em>Numbers 11:5 (KJV) We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Números 11:4-5</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>4.</strong> Y la gente extranjera que se mezcló con ellos tuvo un vivo deseo, y los hijos de Israel también volvieron a llorar y dijeron: ¡Quién nos diera a comer carne!</p><p><strong>5.</strong> Nos acordamos del pescado que comíamos en Egipto de balde, de los pepinos, los melones, los puerros, las cebollas y los ajos;</p></div></details>",
       "refs": [
-        "Numbers 11:4–5"
+        "Numbers 11:4-5"
       ],
       "notes": "Scripture: Numbers 11:4–5. Coordinate reading with the tech team."
     },
     {
       "slide": 10,
       "title": "Numbers 11:6",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Numbers 11:6</div><p class=\"ih-scripture\"><strong><em>Numbers 11:6 (KJV) But now our soul is dried away: there is nothing at all, beside this manna, before our eyes.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Numbers 11:6</div><p class=\"ih-scripture\"><strong><em>Numbers 11:6 (KJV) But now our soul is dried away: there is nothing at all, beside this manna, before our eyes.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Números 11:6</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>6.</strong> y ahora nuestra alma se seca; pues nada sino este maná ven nuestros ojos.</p></div></details>",
       "refs": [
         "Numbers 11:6"
       ],
@@ -775,7 +1063,7 @@
     {
       "slide": 12,
       "title": "Romans 12:1",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:1</div><p class=\"ih-scripture\"><strong><em>Romans 12:1 (KJV) I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:1</div><p class=\"ih-scripture\"><strong><em>Romans 12:1 (KJV) I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Romanos 12:1</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>1.</strong> Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.</p></div></details>",
       "refs": [
         "Romans 12:1"
       ],
@@ -784,7 +1072,7 @@
     {
       "slide": 13,
       "title": "Romans 12:2",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:2</div><p class=\"ih-scripture\"><strong><em>Romans 12:2 (KJV) And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:2</div><p class=\"ih-scripture\"><strong><em>Romans 12:2 (KJV) And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Romanos 12:2</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>2.</strong> No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta.</p></div></details>",
       "refs": [
         "Romans 12:2"
       ],
@@ -793,7 +1081,7 @@
     {
       "slide": 14,
       "title": "Luke 9:23",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Luke 9:23</div><p class=\"ih-scripture\"><strong><em>Luke 9:23 (KJV) And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Luke 9:23</div><p class=\"ih-scripture\"><strong><em>Luke 9:23 (KJV) And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Lucas 9:23</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>23.</strong> Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame.</p></div></details>",
       "refs": [
         "Luke 9:23"
       ],
@@ -813,7 +1101,7 @@
     {
       "slide": 16,
       "title": "Romans 12:18",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:18</div><p class=\"ih-scripture\"><strong><em>Romans 12:18 (KJV) If it be possible, as much as lieth in you, live peaceably with all men.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 12:18</div><p class=\"ih-scripture\"><strong><em>Romans 12:18 (KJV) If it be possible, as much as lieth in you, live peaceably with all men.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Romanos 12:18</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>18.</strong> Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres.</p></div></details>",
       "refs": [
         "Romans 12:18"
       ],
@@ -822,7 +1110,7 @@
     {
       "slide": 17,
       "title": "Hebrews 12:14",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:14</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:14 (KJV) Follow peace with all men, and holiness, without which no man shall see the Lord:</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:14</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:14 (KJV) Follow peace with all men, and holiness, without which no man shall see the Lord:</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Hebreos 12:14</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>14.</strong> Seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor.</p></div></details>",
       "refs": [
         "Hebrews 12:14"
       ],
@@ -831,9 +1119,9 @@
     {
       "slide": 18,
       "title": "Matthew 24:10–12",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:10–12</div><p class=\"ih-scripture\"><strong><em>Matthew 24:10 (KJV) And then shall many be offended, and shall betray one another, and shall hate one another.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:11 (KJV) And many false prophets shall rise, and shall deceive many.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:12 (KJV) And because iniquity shall abound, the love of many shall wax cold.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:10–12</div><p class=\"ih-scripture\"><strong><em>Matthew 24:10 (KJV) And then shall many be offended, and shall betray one another, and shall hate one another.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:11 (KJV) And many false prophets shall rise, and shall deceive many.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 24:12 (KJV) And because iniquity shall abound, the love of many shall wax cold.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 24:10-12</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>10.</strong> Muchos tropezarán entonces, y se entregarán unos a otros, y unos a otros se aborrecerán.</p><p><strong>11.</strong> Y muchos falsos profetas se levantarán, y engañarán a muchos;</p><p><strong>12.</strong> y por haberse multiplicado la maldad, el amor de muchos se enfriará.</p></div></details>",
       "refs": [
-        "Matthew 24:10–12"
+        "Matthew 24:10-12"
       ],
       "notes": "Scripture: Matthew 24:10–12. Coordinate reading with the tech team."
     },
@@ -856,7 +1144,7 @@
     {
       "slide": 21,
       "title": "1 Thessalonians 5:18",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Thessalonians 5:18</div><p class=\"ih-scripture\"><strong><em>1 Thessalonians 5:18 (KJV) In every thing give thanks: for this is the will of God in Christ Jesus concerning you.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Thessalonians 5:18</div><p class=\"ih-scripture\"><strong><em>1 Thessalonians 5:18 (KJV) In every thing give thanks: for this is the will of God in Christ Jesus concerning you.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 1 Tesalonicenses 5:18</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>18.</strong> Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.</p></div></details>",
       "refs": [
         "1 Thessalonians 5:18"
       ],
@@ -876,7 +1164,7 @@
     {
       "slide": 23,
       "title": "1 Thessalonians 5:17",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Thessalonians 5:17</div><p class=\"ih-scripture\"><strong><em>1 Thessalonians 5:17 (KJV) Pray without ceasing.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Thessalonians 5:17</div><p class=\"ih-scripture\"><strong><em>1 Thessalonians 5:17 (KJV) Pray without ceasing.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 1 Tesalonicenses 5:17</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>17.</strong> Orad sin cesar.</p></div></details>",
       "refs": [
         "1 Thessalonians 5:17"
       ],
@@ -885,7 +1173,7 @@
     {
       "slide": 24,
       "title": "Luke 18:1",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Luke 18:1</div><p class=\"ih-scripture\"><strong><em>Luke 18:1 (KJV) And he spake a parable unto them to this end, that men ought always to pray, and not to faint;</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Luke 18:1</div><p class=\"ih-scripture\"><strong><em>Luke 18:1 (KJV) And he spake a parable unto them to this end, that men ought always to pray, and not to faint;</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Lucas 18:1</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>1.</strong> También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar,</p></div></details>",
       "refs": [
         "Luke 18:1"
       ],
@@ -894,7 +1182,7 @@
     {
       "slide": 25,
       "title": "Matthew 26:41",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 26:41</div><p class=\"ih-scripture\"><strong><em>Matthew 26:41 (KJV) Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 26:41</div><p class=\"ih-scripture\"><strong><em>Matthew 26:41 (KJV) Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 26:41</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>41.</strong> Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil.</p></div></details>",
       "refs": [
         "Matthew 26:41"
       ],
@@ -914,7 +1202,7 @@
     {
       "slide": 27,
       "title": "1 Corinthians 10:12",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Corinthians 10:12</div><p class=\"ih-scripture\"><strong><em>1 Corinthians 10:12 (KJV) Wherefore let him that thinketh he standeth take heed lest he fall.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Corinthians 10:12</div><p class=\"ih-scripture\"><strong><em>1 Corinthians 10:12 (KJV) Wherefore let him that thinketh he standeth take heed lest he fall.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 1 Corintios 10:12</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>12.</strong> Así que, el que piensa estar firme, mire que no caiga.</p></div></details>",
       "refs": [
         "1 Corinthians 10:12"
       ],
@@ -923,7 +1211,7 @@
     {
       "slide": 28,
       "title": "1 Peter 5:8",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Peter 5:8</div><p class=\"ih-scripture\"><strong><em>1 Peter 5:8 (KJV) Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Peter 5:8</div><p class=\"ih-scripture\"><strong><em>1 Peter 5:8 (KJV) Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 1 Pedro 5:8</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>8.</strong> Sed sobrios, y velad; porque vuestro adversario el diablo, como león rugiente, anda alrededor buscando a quien devorar;</p></div></details>",
       "refs": [
         "1 Peter 5:8"
       ],
@@ -931,12 +1219,12 @@
     },
     {
       "slide": 29,
-      "title": "Jude 24:24",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Jude 24:24</div><p class=\"ih-scripture\"><strong><em>Jude 24:24 (KJV) Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,</em></strong></p>",
+      "title": "Jude 1:24",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Jude 1:24</div><p class=\"ih-scripture\"><strong><em>Jude 1:24 (KJV) Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Judas 1:24</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>24.</strong> Y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría,</p></div></details>",
       "refs": [
-        "Jude 24:24"
+        "Jude 1:24"
       ],
-      "notes": "Scripture: Jude 24:24. Coordinate reading with the tech team."
+      "notes": "Scripture: Jude 1:24. Coordinate reading with the tech team."
     },
     {
       "slide": 30,
@@ -957,9 +1245,9 @@
     {
       "slide": 32,
       "title": "Romans 13:11–12",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 13:11–12</div><p class=\"ih-scripture\"><strong><em>Romans 13:11 (KJV) And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.</em></strong></p><p class=\"ih-scripture\"><strong><em>Romans 13:12 (KJV) The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Romans 13:11–12</div><p class=\"ih-scripture\"><strong><em>Romans 13:11 (KJV) And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.</em></strong></p><p class=\"ih-scripture\"><strong><em>Romans 13:12 (KJV) The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Romanos 13:11-12</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>11.</strong> Y esto, conociendo el tiempo, que es ya hora de levantarnos del sueño; porque ahora está más cerca de nosotros nuestra salvación que cuando creímos.</p><p><strong>12.</strong> La noche está avanzada, y se acerca el día. Desechemos, pues, las obras de las tinieblas, y vistámonos las armas de la luz.</p></div></details>",
       "refs": [
-        "Romans 13:11–12"
+        "Romans 13:11-12"
       ],
       "notes": "Scripture: Romans 13:11–12. Coordinate reading with the tech team."
     },
@@ -975,43 +1263,43 @@
     {
       "slide": 34,
       "title": "Matthew 25:1–3",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:1–3</div><p class=\"ih-scripture\"><strong><em>Matthew 25:1 (KJV) Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:2 (KJV) And five of them were wise, and five were foolish.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:3 (KJV) They that were foolish took their lamps, and took no oil with them:</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:1–3</div><p class=\"ih-scripture\"><strong><em>Matthew 25:1 (KJV) Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:2 (KJV) And five of them were wise, and five were foolish.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:3 (KJV) They that were foolish took their lamps, and took no oil with them:</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 25:1-3</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>1.</strong> Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo.</p><p><strong>2.</strong> Cinco de ellas eran prudentes y cinco insensatas.</p><p><strong>3.</strong> Las insensatas, tomando sus lámparas, no tomaron consigo aceite;</p></div></details>",
       "refs": [
-        "Matthew 25:1–3"
+        "Matthew 25:1-3"
       ],
       "notes": "Scripture: Matthew 25:1–3. Coordinate reading with the tech team."
     },
     {
       "slide": 35,
       "title": "Matthew 25:4–6",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:4–6</div><p class=\"ih-scripture\"><strong><em>Matthew 25:4 (KJV) But the wise took oil in their vessels with their lamps.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:5 (KJV) While the bridegroom tarried, they all slumbered and slept.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:6 (KJV) And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:4–6</div><p class=\"ih-scripture\"><strong><em>Matthew 25:4 (KJV) But the wise took oil in their vessels with their lamps.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:5 (KJV) While the bridegroom tarried, they all slumbered and slept.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:6 (KJV) And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 25:4-6</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>4.</strong> mas las prudentes tomaron aceite en sus vasijas, juntamente con sus lámparas.</p><p><strong>5.</strong> Y tardándose el esposo, cabecearon todas y se durmieron.</p><p><strong>6.</strong> Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!</p></div></details>",
       "refs": [
-        "Matthew 25:4–6"
+        "Matthew 25:4-6"
       ],
       "notes": "Scripture: Matthew 25:4–6. Coordinate reading with the tech team."
     },
     {
       "slide": 36,
       "title": "Matthew 25:7–9",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:7–9</div><p class=\"ih-scripture\"><strong><em>Matthew 25:7 (KJV) Then all those virgins arose, and trimmed their lamps.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:8 (KJV) And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:9 (KJV) But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:7–9</div><p class=\"ih-scripture\"><strong><em>Matthew 25:7 (KJV) Then all those virgins arose, and trimmed their lamps.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:8 (KJV) And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:9 (KJV) But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 25:7-9</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>7.</strong> Entonces todas aquellas vírgenes se levantaron, y arreglaron sus lámparas.</p><p><strong>8.</strong> Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan.</p><p><strong>9.</strong> Mas las prudentes respondieron diciendo: Para que no nos falte a nosotras y a vosotras, id más bien a los que venden, y comprad para vosotras mismas.</p></div></details>",
       "refs": [
-        "Matthew 25:7–9"
+        "Matthew 25:7-9"
       ],
       "notes": "Scripture: Matthew 25:7–9. Coordinate reading with the tech team."
     },
     {
       "slide": 37,
       "title": "Matthew 25:10–12",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:10–12</div><p class=\"ih-scripture\"><strong><em>Matthew 25:10 (KJV) And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:11 (KJV) Afterward came also the other virgins, saying, Lord, Lord, open to us.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:12 (KJV) But he answered and said, Verily I say unto you, I know you not.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:10–12</div><p class=\"ih-scripture\"><strong><em>Matthew 25:10 (KJV) And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:11 (KJV) Afterward came also the other virgins, saying, Lord, Lord, open to us.</em></strong></p><p class=\"ih-scripture\"><strong><em>Matthew 25:12 (KJV) But he answered and said, Verily I say unto you, I know you not.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 25:10-12</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>10.</strong> Pero mientras ellas iban a comprar, vino el esposo; y las que estaban preparadas entraron con él a las bodas; y se cerró la puerta.</p><p><strong>11.</strong> Después vinieron también las otras vírgenes, diciendo: ¡Señor, señor, ábrenos!</p><p><strong>12.</strong> Mas él, respondiendo, dijo: De cierto os digo, que no os conozco.</p></div></details>",
       "refs": [
-        "Matthew 25:10–12"
+        "Matthew 25:10-12"
       ],
       "notes": "Scripture: Matthew 25:10–12. Coordinate reading with the tech team."
     },
     {
       "slide": 38,
       "title": "Matthew 25:13",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:13</div><p class=\"ih-scripture\"><strong><em>Matthew 25:13 (KJV) Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 25:13</div><p class=\"ih-scripture\"><strong><em>Matthew 25:13 (KJV) Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 25:13</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>13.</strong> Velad, pues, porque no sabéis el día ni la hora en que el Hijo del Hombre ha de venir.</p></div></details>",
       "refs": [
         "Matthew 25:13"
       ],
@@ -1030,18 +1318,18 @@
     {
       "slide": 40,
       "title": "2 Timothy 2:3–4",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 2:3–4</div><p class=\"ih-scripture\"><strong><em>2 Timothy 2:3 (KJV) Thou therefore endure hardness, as a good soldier of Jesus Christ.</em></strong></p><p class=\"ih-scripture\"><strong><em>2 Timothy 2:4 (KJV) No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 2:3–4</div><p class=\"ih-scripture\"><strong><em>2 Timothy 2:3 (KJV) Thou therefore endure hardness, as a good soldier of Jesus Christ.</em></strong></p><p class=\"ih-scripture\"><strong><em>2 Timothy 2:4 (KJV) No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 2 Timoteo 2:3-4</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>3.</strong> Tú, pues, sufre penalidades como buen soldado de Jesucristo.</p><p><strong>4.</strong> Ninguno que milita se enreda en los negocios de la vida, a fin de agradar a aquel que lo tomó por soldado.</p></div></details>",
       "refs": [
-        "2 Timothy 2:3–4"
+        "2 Timothy 2:3-4"
       ],
       "notes": "Scripture: 2 Timothy 2:3–4. Coordinate reading with the tech team."
     },
     {
       "slide": 41,
       "title": "2 Timothy 4:7–8",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 4:7–8</div><p class=\"ih-scripture\"><strong><em>2 Timothy 4:7 (KJV) I have fought a good fight, I have finished my course, I have kept the faith:</em></strong></p><p class=\"ih-scripture\"><strong><em>2 Timothy 4:8 (KJV) Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 4:7–8</div><p class=\"ih-scripture\"><strong><em>2 Timothy 4:7 (KJV) I have fought a good fight, I have finished my course, I have kept the faith:</em></strong></p><p class=\"ih-scripture\"><strong><em>2 Timothy 4:8 (KJV) Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 2 Timoteo 4:7-8</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>7.</strong> He peleado la buena batalla, he acabado la carrera, he guardado la fe.</p><p><strong>8.</strong> Por lo demás, me está guardada la corona de justicia, la cual me dará el Señor, juez justo, en aquel día; y no solo a mí, sino también a todos los que aman su venida.</p></div></details>",
       "refs": [
-        "2 Timothy 4:7–8"
+        "2 Timothy 4:7-8"
       ],
       "notes": "Scripture: 2 Timothy 4:7–8. Coordinate reading with the tech team."
     },
@@ -1059,7 +1347,7 @@
     {
       "slide": 43,
       "title": "Hebrews 12:1",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:1</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:1 (KJV) Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:1</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:1 (KJV) Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Hebreos 12:1</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>1.</strong> Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,</p></div></details>",
       "refs": [
         "Hebrews 12:1"
       ],
@@ -1068,16 +1356,16 @@
     {
       "slide": 44,
       "title": "Hebrews 12:2–3",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:2–3</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:2 (KJV) Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.</em></strong></p><p class=\"ih-scripture\"><strong><em>Hebrews 12:3 (KJV) For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Hebrews 12:2–3</div><p class=\"ih-scripture\"><strong><em>Hebrews 12:2 (KJV) Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.</em></strong></p><p class=\"ih-scripture\"><strong><em>Hebrews 12:3 (KJV) For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Hebreos 12:2-3</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>2.</strong> puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios.</p><p><strong>3.</strong> Considerad a aquel que sufrió tal contradicción de pecadores contra sí mismo, para que vuestro ánimo no se canse hasta desmayar.</p></div></details>",
       "refs": [
-        "Hebrews 12:2–3"
+        "Hebrews 12:2-3"
       ],
       "notes": "Scripture: Hebrews 12:2–3. Coordinate reading with the tech team."
     },
     {
       "slide": 45,
       "title": "2 Timothy 4:7",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 4:7</div><p class=\"ih-scripture\"><strong><em>2 Timothy 4:7 (KJV) I have fought a good fight, I have finished my course, I have kept the faith:</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 2 Timothy 4:7</div><p class=\"ih-scripture\"><strong><em>2 Timothy 4:7 (KJV) I have fought a good fight, I have finished my course, I have kept the faith:</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · 2 Timoteo 4:7</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>7.</strong> He peleado la buena batalla, he acabado la carrera, he guardado la fe.</p></div></details>",
       "refs": [
         "2 Timothy 4:7"
       ],
@@ -1093,7 +1381,7 @@
     {
       "slide": 47,
       "title": "Matthew 24:13",
-      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:13</div><p class=\"ih-scripture\"><strong><em>Matthew 24:13 (KJV) But he that shall endure unto the end, the same shall be saved.</em></strong></p>",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Matthew 24:13</div><p class=\"ih-scripture\"><strong><em>Matthew 24:13 (KJV) But he that shall endure unto the end, the same shall be saved.</em></strong></p><details class=\"sermon-rvr\"><summary>RVR1960 · Mateo 24:13</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>13.</strong> Mas el que persevere hasta el fin, este será salvo.</p></div></details>",
       "refs": [
         "Matthew 24:13"
       ],
@@ -1103,147 +1391,307 @@
   "slideScriptures": [
     null,
     {
-      "ref_en": "Matthew 24:12–13",
-      "text_en": "12. And because iniquity shall abound, the love of many shall wax cold.\n13. But he that shall endure unto the end, the same shall be saved."
+      "ref_en": "Matthew 24:12-13",
+      "text_en": "12. And because iniquity shall abound, the love of many shall wax cold.\n13. But he that shall endure unto the end, the same shall be saved.",
+      "ref_es": "Mateo 24:12-13",
+      "text_es": "12. y por haberse multiplicado la maldad, el amor de muchos se enfriará.\n13. Mas el que persevere hasta el fin, este será salvo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "2 Peter 3:9",
-      "text_en": "The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance."
+      "text_en": "The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.",
+      "ref_es": "2 Pedro 3:9",
+      "text_es": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Revelation 7:9",
-      "text_en": "After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;"
+      "text_en": "After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;",
+      "ref_es": "Apocalipsis 7:9",
+      "text_es": "Después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     null,
     {
       "ref_en": "2 Corinthians 10:5",
-      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;"
+      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
+      "ref_es": "2 Corintios 10:5",
+      "text_es": "derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Philippians 3:13–14",
-      "text_en": "13. Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,\n14. I press toward the mark for the prize of the high calling of God in Christ Jesus."
+      "ref_en": "Philippians 3:13-14",
+      "text_en": "13. Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,\n14. I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+      "ref_es": "Filipenses 3:13-14",
+      "text_es": "13. Hermanos, yo mismo no pretendo haberlo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está delante,\n14. prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Numbers 11:4–5",
-      "text_en": "4. And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?\n5. We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:"
+      "ref_en": "Numbers 11:4-5",
+      "text_en": "4. And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?\n5. We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:",
+      "ref_es": "Números 11:4-5",
+      "text_es": "4. Y la gente extranjera que se mezcló con ellos tuvo un vivo deseo, y los hijos de Israel también volvieron a llorar y dijeron: ¡Quién nos diera a comer carne!\n5. Nos acordamos del pescado que comíamos en Egipto de balde, de los pepinos, los melones, los puerros, las cebollas y los ajos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Numbers 11:6",
-      "text_en": "But now our soul is dried away: there is nothing at all, beside this manna, before our eyes."
+      "text_en": "But now our soul is dried away: there is nothing at all, beside this manna, before our eyes.",
+      "ref_es": "Números 11:6",
+      "text_es": "y ahora nuestra alma se seca; pues nada sino este maná ven nuestros ojos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "Romans 12:1",
-      "text_en": "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service."
+      "text_en": "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.",
+      "ref_es": "Romanos 12:1",
+      "text_es": "Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Romans 12:2",
-      "text_en": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God."
+      "text_en": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.",
+      "ref_es": "Romanos 12:2",
+      "text_es": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Luke 9:23",
-      "text_en": "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me."
+      "text_en": "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
+      "ref_es": "Lucas 9:23",
+      "text_es": "Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "Romans 12:18",
-      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men."
+      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men.",
+      "ref_es": "Romanos 12:18",
+      "text_es": "Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Hebrews 12:14",
-      "text_en": "Follow peace with all men, and holiness, without which no man shall see the Lord:"
+      "text_en": "Follow peace with all men, and holiness, without which no man shall see the Lord:",
+      "ref_es": "Hebreos 12:14",
+      "text_es": "Seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Matthew 24:10–12",
-      "text_en": "10. And then shall many be offended, and shall betray one another, and shall hate one another.\n11. And many false prophets shall rise, and shall deceive many.\n12. And because iniquity shall abound, the love of many shall wax cold."
+      "ref_en": "Matthew 24:10-12",
+      "text_en": "10. And then shall many be offended, and shall betray one another, and shall hate one another.\n11. And many false prophets shall rise, and shall deceive many.\n12. And because iniquity shall abound, the love of many shall wax cold.",
+      "ref_es": "Mateo 24:10-12",
+      "text_es": "10. Muchos tropezarán entonces, y se entregarán unos a otros, y unos a otros se aborrecerán.\n11. Y muchos falsos profetas se levantarán, y engañarán a muchos;\n12. y por haberse multiplicado la maldad, el amor de muchos se enfriará.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     null,
     {
       "ref_en": "1 Thessalonians 5:18",
-      "text_en": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you."
+      "text_en": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+      "ref_es": "1 Tesalonicenses 5:18",
+      "text_es": "Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "1 Thessalonians 5:17",
-      "text_en": "Pray without ceasing."
+      "text_en": "Pray without ceasing.",
+      "ref_es": "1 Tesalonicenses 5:17",
+      "text_es": "Orad sin cesar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Luke 18:1",
-      "text_en": "And he spake a parable unto them to this end, that men ought always to pray, and not to faint;"
+      "text_en": "And he spake a parable unto them to this end, that men ought always to pray, and not to faint;",
+      "ref_es": "Lucas 18:1",
+      "text_es": "También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Matthew 26:41",
-      "text_en": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak."
+      "text_en": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
+      "ref_es": "Mateo 26:41",
+      "text_es": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "1 Corinthians 10:12",
-      "text_en": "Wherefore let him that thinketh he standeth take heed lest he fall."
+      "text_en": "Wherefore let him that thinketh he standeth take heed lest he fall.",
+      "ref_es": "1 Corintios 10:12",
+      "text_es": "Así que, el que piensa estar firme, mire que no caiga.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "1 Peter 5:8",
-      "text_en": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:"
+      "text_en": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:",
+      "ref_es": "1 Pedro 5:8",
+      "text_es": "Sed sobrios, y velad; porque vuestro adversario el diablo, como león rugiente, anda alrededor buscando a quien devorar;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Jude 24:24",
-      "text_en": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,"
+      "ref_en": "Jude 1:24",
+      "text_en": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,",
+      "ref_es": "Judas 1:24",
+      "text_es": "Y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     null,
     {
-      "ref_en": "Romans 13:11–12",
-      "text_en": "11. And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.\n12. The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light."
+      "ref_en": "Romans 13:11-12",
+      "text_en": "11. And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.\n12. The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.",
+      "ref_es": "Romanos 13:11-12",
+      "text_es": "11. Y esto, conociendo el tiempo, que es ya hora de levantarnos del sueño; porque ahora está más cerca de nosotros nuestra salvación que cuando creímos.\n12. La noche está avanzada, y se acerca el día. Desechemos, pues, las obras de las tinieblas, y vistámonos las armas de la luz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
-      "ref_en": "Matthew 25:1–3",
-      "text_en": "1. Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.\n2. And five of them were wise, and five were foolish.\n3. They that were foolish took their lamps, and took no oil with them:"
+      "ref_en": "Matthew 25:1-3",
+      "text_en": "1. Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.\n2. And five of them were wise, and five were foolish.\n3. They that were foolish took their lamps, and took no oil with them:",
+      "ref_es": "Mateo 25:1-3",
+      "text_es": "1. Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo.\n2. Cinco de ellas eran prudentes y cinco insensatas.\n3. Las insensatas, tomando sus lámparas, no tomaron consigo aceite;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Matthew 25:4–6",
-      "text_en": "4. But the wise took oil in their vessels with their lamps.\n5. While the bridegroom tarried, they all slumbered and slept.\n6. And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him."
+      "ref_en": "Matthew 25:4-6",
+      "text_en": "4. But the wise took oil in their vessels with their lamps.\n5. While the bridegroom tarried, they all slumbered and slept.\n6. And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.",
+      "ref_es": "Mateo 25:4-6",
+      "text_es": "4. mas las prudentes tomaron aceite en sus vasijas, juntamente con sus lámparas.\n5. Y tardándose el esposo, cabecearon todas y se durmieron.\n6. Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Matthew 25:7–9",
-      "text_en": "7. Then all those virgins arose, and trimmed their lamps.\n8. And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.\n9. But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves."
+      "ref_en": "Matthew 25:7-9",
+      "text_en": "7. Then all those virgins arose, and trimmed their lamps.\n8. And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.\n9. But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.",
+      "ref_es": "Mateo 25:7-9",
+      "text_es": "7. Entonces todas aquellas vírgenes se levantaron, y arreglaron sus lámparas.\n8. Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan.\n9. Mas las prudentes respondieron diciendo: Para que no nos falte a nosotras y a vosotras, id más bien a los que venden, y comprad para vosotras mismas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Matthew 25:10–12",
-      "text_en": "10. And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.\n11. Afterward came also the other virgins, saying, Lord, Lord, open to us.\n12. But he answered and said, Verily I say unto you, I know you not."
+      "ref_en": "Matthew 25:10-12",
+      "text_en": "10. And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.\n11. Afterward came also the other virgins, saying, Lord, Lord, open to us.\n12. But he answered and said, Verily I say unto you, I know you not.",
+      "ref_es": "Mateo 25:10-12",
+      "text_es": "10. Pero mientras ellas iban a comprar, vino el esposo; y las que estaban preparadas entraron con él a las bodas; y se cerró la puerta.\n11. Después vinieron también las otras vírgenes, diciendo: ¡Señor, señor, ábrenos!\n12. Mas él, respondiendo, dijo: De cierto os digo, que no os conozco.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "Matthew 25:13",
-      "text_en": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh."
+      "text_en": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.",
+      "ref_es": "Mateo 25:13",
+      "text_es": "Velad, pues, porque no sabéis el día ni la hora en que el Hijo del Hombre ha de venir.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
-      "ref_en": "2 Timothy 2:3–4",
-      "text_en": "3. Thou therefore endure hardness, as a good soldier of Jesus Christ.\n4. No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier."
+      "ref_en": "2 Timothy 2:3-4",
+      "text_en": "3. Thou therefore endure hardness, as a good soldier of Jesus Christ.\n4. No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.",
+      "ref_es": "2 Timoteo 2:3-4",
+      "text_es": "3. Tú, pues, sufre penalidades como buen soldado de Jesucristo.\n4. Ninguno que milita se enreda en los negocios de la vida, a fin de agradar a aquel que lo tomó por soldado.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "2 Timothy 4:7–8",
-      "text_en": "7. I have fought a good fight, I have finished my course, I have kept the faith:\n8. Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing."
+      "ref_en": "2 Timothy 4:7-8",
+      "text_en": "7. I have fought a good fight, I have finished my course, I have kept the faith:\n8. Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.",
+      "ref_es": "2 Timoteo 4:7-8",
+      "text_es": "7. He peleado la buena batalla, he acabado la carrera, he guardado la fe.\n8. Por lo demás, me está guardada la corona de justicia, la cual me dará el Señor, juez justo, en aquel día; y no solo a mí, sino también a todos los que aman su venida.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "Hebrews 12:1",
-      "text_en": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,"
+      "text_en": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,",
+      "ref_es": "Hebreos 12:1",
+      "text_es": "Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref_en": "Hebrews 12:2–3",
-      "text_en": "2. Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.\n3. For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds."
+      "ref_en": "Hebrews 12:2-3",
+      "text_en": "2. Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.\n3. For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.",
+      "ref_es": "Hebreos 12:2-3",
+      "text_es": "2. puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios.\n3. Considerad a aquel que sufrió tal contradicción de pecadores contra sí mismo, para que vuestro ánimo no se canse hasta desmayar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref_en": "2 Timothy 4:7",
-      "text_en": "I have fought a good fight, I have finished my course, I have kept the faith:"
+      "text_en": "I have fought a good fight, I have finished my course, I have kept the faith:",
+      "ref_es": "2 Timoteo 4:7",
+      "text_es": "He peleado la buena batalla, he acabado la carrera, he guardado la fe.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     null,
     {
       "ref_en": "Matthew 24:13",
-      "text_en": "But he that shall endure unto the end, the same shall be saved."
+      "text_en": "But he that shall endure unto the end, the same shall be saved.",
+      "ref_es": "Mateo 24:13",
+      "text_es": "Mas el que persevere hasta el fin, este será salvo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     }
   ],
   "verses": [
@@ -1251,277 +1699,507 @@
       "ref": "Matthew 24:12",
       "ref_en": "Matthew 24:12",
       "text": "And because iniquity shall abound, the love of many shall wax cold.",
-      "text_en": "And because iniquity shall abound, the love of many shall wax cold."
+      "text_en": "And because iniquity shall abound, the love of many shall wax cold.",
+      "ref_es": "Mateo 24:12",
+      "text_es": "y por haberse multiplicado la maldad, el amor de muchos se enfriará.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 24:13",
       "ref_en": "Matthew 24:13",
       "text": "But he that shall endure unto the end, the same shall be saved.",
-      "text_en": "But he that shall endure unto the end, the same shall be saved."
+      "text_en": "But he that shall endure unto the end, the same shall be saved.",
+      "ref_es": "Mateo 24:13",
+      "text_es": "Mas el que persevere hasta el fin, este será salvo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Peter 3:9",
       "ref_en": "2 Peter 3:9",
       "text": "The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.",
-      "text_en": "The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance."
+      "text_en": "The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.",
+      "ref_es": "2 Pedro 3:9",
+      "text_es": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Revelation 7:9",
       "ref_en": "Revelation 7:9",
       "text": "After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;",
-      "text_en": "After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;"
+      "text_en": "After this I beheld, and, lo, a great multitude, which no man could number, of all nations, and kindreds, and people, and tongues, stood before the throne, and before the Lamb, clothed with white robes, and palms in their hands;",
+      "ref_es": "Apocalipsis 7:9",
+      "text_es": "Después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Corinthians 10:5",
       "ref_en": "2 Corinthians 10:5",
       "text": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
-      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;"
+      "text_en": "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ;",
+      "ref_es": "2 Corintios 10:5",
+      "text_es": "derribando argumentos y toda altivez que se levanta contra el conocimiento de Dios, y llevando cautivo todo pensamiento a la obediencia a Cristo,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Philippians 3:13",
       "ref_en": "Philippians 3:13",
       "text": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,",
-      "text_en": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,"
+      "text_en": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before,",
+      "ref_es": "Filipenses 3:13",
+      "text_es": "Hermanos, yo mismo no pretendo haberlo ya alcanzado; pero una cosa hago: olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está delante,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Philippians 3:14",
       "ref_en": "Philippians 3:14",
       "text": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
-      "text_en": "I press toward the mark for the prize of the high calling of God in Christ Jesus."
+      "text_en": "I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+      "ref_es": "Filipenses 3:14",
+      "text_es": "prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Numbers 11:4",
       "ref_en": "Numbers 11:4",
       "text": "And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?",
-      "text_en": "And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?"
+      "text_en": "And the mixt multitude that was among them fell a lusting: and the children of Israel also wept again, and said, Who shall give us flesh to eat?",
+      "ref_es": "Números 11:4",
+      "text_es": "Y la gente extranjera que se mezcló con ellos tuvo un vivo deseo, y los hijos de Israel también volvieron a llorar y dijeron: ¡Quién nos diera a comer carne!",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Numbers 11:5",
       "ref_en": "Numbers 11:5",
       "text": "We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:",
-      "text_en": "We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:"
+      "text_en": "We remember the fish, which we did eat in Egypt freely; the cucumbers, and the melons, and the leeks, and the onions, and the garlick:",
+      "ref_es": "Números 11:5",
+      "text_es": "Nos acordamos del pescado que comíamos en Egipto de balde, de los pepinos, los melones, los puerros, las cebollas y los ajos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Numbers 11:6",
       "ref_en": "Numbers 11:6",
       "text": "But now our soul is dried away: there is nothing at all, beside this manna, before our eyes.",
-      "text_en": "But now our soul is dried away: there is nothing at all, beside this manna, before our eyes."
+      "text_en": "But now our soul is dried away: there is nothing at all, beside this manna, before our eyes.",
+      "ref_es": "Números 11:6",
+      "text_es": "y ahora nuestra alma se seca; pues nada sino este maná ven nuestros ojos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Romans 12:1",
       "ref_en": "Romans 12:1",
       "text": "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.",
-      "text_en": "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service."
+      "text_en": "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.",
+      "ref_es": "Romanos 12:1",
+      "text_es": "Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Romans 12:2",
       "ref_en": "Romans 12:2",
       "text": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.",
-      "text_en": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God."
+      "text_en": "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.",
+      "ref_es": "Romanos 12:2",
+      "text_es": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Luke 9:23",
       "ref_en": "Luke 9:23",
       "text": "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
-      "text_en": "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me."
+      "text_en": "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
+      "ref_es": "Lucas 9:23",
+      "text_es": "Y decía a todos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, tome su cruz cada día, y sígame.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Romans 12:18",
       "ref_en": "Romans 12:18",
       "text": "If it be possible, as much as lieth in you, live peaceably with all men.",
-      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men."
+      "text_en": "If it be possible, as much as lieth in you, live peaceably with all men.",
+      "ref_es": "Romanos 12:18",
+      "text_es": "Si es posible, en cuanto dependa de vosotros, estad en paz con todos los hombres.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Hebrews 12:14",
       "ref_en": "Hebrews 12:14",
       "text": "Follow peace with all men, and holiness, without which no man shall see the Lord:",
-      "text_en": "Follow peace with all men, and holiness, without which no man shall see the Lord:"
+      "text_en": "Follow peace with all men, and holiness, without which no man shall see the Lord:",
+      "ref_es": "Hebreos 12:14",
+      "text_es": "Seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 24:10",
       "ref_en": "Matthew 24:10",
       "text": "And then shall many be offended, and shall betray one another, and shall hate one another.",
-      "text_en": "And then shall many be offended, and shall betray one another, and shall hate one another."
+      "text_en": "And then shall many be offended, and shall betray one another, and shall hate one another.",
+      "ref_es": "Mateo 24:10",
+      "text_es": "Muchos tropezarán entonces, y se entregarán unos a otros, y unos a otros se aborrecerán.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 24:11",
       "ref_en": "Matthew 24:11",
       "text": "And many false prophets shall rise, and shall deceive many.",
-      "text_en": "And many false prophets shall rise, and shall deceive many."
+      "text_en": "And many false prophets shall rise, and shall deceive many.",
+      "ref_es": "Mateo 24:11",
+      "text_es": "Y muchos falsos profetas se levantarán, y engañarán a muchos;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "1 Thessalonians 5:18",
       "ref_en": "1 Thessalonians 5:18",
       "text": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
-      "text_en": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you."
+      "text_en": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+      "ref_es": "1 Tesalonicenses 5:18",
+      "text_es": "Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "1 Thessalonians 5:17",
       "ref_en": "1 Thessalonians 5:17",
       "text": "Pray without ceasing.",
-      "text_en": "Pray without ceasing."
+      "text_en": "Pray without ceasing.",
+      "ref_es": "1 Tesalonicenses 5:17",
+      "text_es": "Orad sin cesar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Luke 18:1",
       "ref_en": "Luke 18:1",
       "text": "And he spake a parable unto them to this end, that men ought always to pray, and not to faint;",
-      "text_en": "And he spake a parable unto them to this end, that men ought always to pray, and not to faint;"
+      "text_en": "And he spake a parable unto them to this end, that men ought always to pray, and not to faint;",
+      "ref_es": "Lucas 18:1",
+      "text_es": "También les refirió Jesús una parábola sobre la necesidad de orar siempre, y no desmayar,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 26:41",
       "ref_en": "Matthew 26:41",
       "text": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
-      "text_en": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak."
+      "text_en": "Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.",
+      "ref_es": "Mateo 26:41",
+      "text_es": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "1 Corinthians 10:12",
       "ref_en": "1 Corinthians 10:12",
       "text": "Wherefore let him that thinketh he standeth take heed lest he fall.",
-      "text_en": "Wherefore let him that thinketh he standeth take heed lest he fall."
+      "text_en": "Wherefore let him that thinketh he standeth take heed lest he fall.",
+      "ref_es": "1 Corintios 10:12",
+      "text_es": "Así que, el que piensa estar firme, mire que no caiga.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "1 Peter 5:8",
       "ref_en": "1 Peter 5:8",
       "text": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:",
-      "text_en": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:"
+      "text_en": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour:",
+      "ref_es": "1 Pedro 5:8",
+      "text_es": "Sed sobrios, y velad; porque vuestro adversario el diablo, como león rugiente, anda alrededor buscando a quien devorar;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
-      "ref": "Jude 24:24",
-      "ref_en": "Jude 24:24",
+      "ref": "Jude 1:24",
+      "ref_en": "Jude 1:24",
       "text": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,",
-      "text_en": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,"
+      "text_en": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy,",
+      "ref_es": "Judas 1:24",
+      "text_es": "Y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Romans 13:11",
       "ref_en": "Romans 13:11",
       "text": "And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.",
-      "text_en": "And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed."
+      "text_en": "And that, knowing the time, that now it is high time to awake out of sleep: for now is our salvation nearer than when we believed.",
+      "ref_es": "Romanos 13:11",
+      "text_es": "Y esto, conociendo el tiempo, que es ya hora de levantarnos del sueño; porque ahora está más cerca de nosotros nuestra salvación que cuando creímos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Romans 13:12",
       "ref_en": "Romans 13:12",
       "text": "The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.",
-      "text_en": "The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light."
+      "text_en": "The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armour of light.",
+      "ref_es": "Romanos 13:12",
+      "text_es": "La noche está avanzada, y se acerca el día. Desechemos, pues, las obras de las tinieblas, y vistámonos las armas de la luz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:1",
       "ref_en": "Matthew 25:1",
       "text": "Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.",
-      "text_en": "Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom."
+      "text_en": "Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth to meet the bridegroom.",
+      "ref_es": "Mateo 25:1",
+      "text_es": "Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:2",
       "ref_en": "Matthew 25:2",
       "text": "And five of them were wise, and five were foolish.",
-      "text_en": "And five of them were wise, and five were foolish."
+      "text_en": "And five of them were wise, and five were foolish.",
+      "ref_es": "Mateo 25:2",
+      "text_es": "Cinco de ellas eran prudentes y cinco insensatas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:3",
       "ref_en": "Matthew 25:3",
       "text": "They that were foolish took their lamps, and took no oil with them:",
-      "text_en": "They that were foolish took their lamps, and took no oil with them:"
+      "text_en": "They that were foolish took their lamps, and took no oil with them:",
+      "ref_es": "Mateo 25:3",
+      "text_es": "Las insensatas, tomando sus lámparas, no tomaron consigo aceite;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:4",
       "ref_en": "Matthew 25:4",
       "text": "But the wise took oil in their vessels with their lamps.",
-      "text_en": "But the wise took oil in their vessels with their lamps."
+      "text_en": "But the wise took oil in their vessels with their lamps.",
+      "ref_es": "Mateo 25:4",
+      "text_es": "mas las prudentes tomaron aceite en sus vasijas, juntamente con sus lámparas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:5",
       "ref_en": "Matthew 25:5",
       "text": "While the bridegroom tarried, they all slumbered and slept.",
-      "text_en": "While the bridegroom tarried, they all slumbered and slept."
+      "text_en": "While the bridegroom tarried, they all slumbered and slept.",
+      "ref_es": "Mateo 25:5",
+      "text_es": "Y tardándose el esposo, cabecearon todas y se durmieron.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:6",
       "ref_en": "Matthew 25:6",
       "text": "And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.",
-      "text_en": "And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him."
+      "text_en": "And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him.",
+      "ref_es": "Mateo 25:6",
+      "text_es": "Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:7",
       "ref_en": "Matthew 25:7",
       "text": "Then all those virgins arose, and trimmed their lamps.",
-      "text_en": "Then all those virgins arose, and trimmed their lamps."
+      "text_en": "Then all those virgins arose, and trimmed their lamps.",
+      "ref_es": "Mateo 25:7",
+      "text_es": "Entonces todas aquellas vírgenes se levantaron, y arreglaron sus lámparas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:8",
       "ref_en": "Matthew 25:8",
       "text": "And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.",
-      "text_en": "And the foolish said unto the wise, Give us of your oil; for our lamps are gone out."
+      "text_en": "And the foolish said unto the wise, Give us of your oil; for our lamps are gone out.",
+      "ref_es": "Mateo 25:8",
+      "text_es": "Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:9",
       "ref_en": "Matthew 25:9",
       "text": "But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.",
-      "text_en": "But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves."
+      "text_en": "But the wise answered, saying, Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.",
+      "ref_es": "Mateo 25:9",
+      "text_es": "Mas las prudentes respondieron diciendo: Para que no nos falte a nosotras y a vosotras, id más bien a los que venden, y comprad para vosotras mismas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:10",
       "ref_en": "Matthew 25:10",
       "text": "And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.",
-      "text_en": "And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut."
+      "text_en": "And while they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut.",
+      "ref_es": "Mateo 25:10",
+      "text_es": "Pero mientras ellas iban a comprar, vino el esposo; y las que estaban preparadas entraron con él a las bodas; y se cerró la puerta.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:11",
       "ref_en": "Matthew 25:11",
       "text": "Afterward came also the other virgins, saying, Lord, Lord, open to us.",
-      "text_en": "Afterward came also the other virgins, saying, Lord, Lord, open to us."
+      "text_en": "Afterward came also the other virgins, saying, Lord, Lord, open to us.",
+      "ref_es": "Mateo 25:11",
+      "text_es": "Después vinieron también las otras vírgenes, diciendo: ¡Señor, señor, ábrenos!",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:12",
       "ref_en": "Matthew 25:12",
       "text": "But he answered and said, Verily I say unto you, I know you not.",
-      "text_en": "But he answered and said, Verily I say unto you, I know you not."
+      "text_en": "But he answered and said, Verily I say unto you, I know you not.",
+      "ref_es": "Mateo 25:12",
+      "text_es": "Mas él, respondiendo, dijo: De cierto os digo, que no os conozco.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Matthew 25:13",
       "ref_en": "Matthew 25:13",
       "text": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.",
-      "text_en": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh."
+      "text_en": "Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.",
+      "ref_es": "Mateo 25:13",
+      "text_es": "Velad, pues, porque no sabéis el día ni la hora en que el Hijo del Hombre ha de venir.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Timothy 2:3",
       "ref_en": "2 Timothy 2:3",
       "text": "Thou therefore endure hardness, as a good soldier of Jesus Christ.",
-      "text_en": "Thou therefore endure hardness, as a good soldier of Jesus Christ."
+      "text_en": "Thou therefore endure hardness, as a good soldier of Jesus Christ.",
+      "ref_es": "2 Timoteo 2:3",
+      "text_es": "Tú, pues, sufre penalidades como buen soldado de Jesucristo.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Timothy 2:4",
       "ref_en": "2 Timothy 2:4",
       "text": "No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.",
-      "text_en": "No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier."
+      "text_en": "No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.",
+      "ref_es": "2 Timoteo 2:4",
+      "text_es": "Ninguno que milita se enreda en los negocios de la vida, a fin de agradar a aquel que lo tomó por soldado.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Timothy 4:7",
       "ref_en": "2 Timothy 4:7",
       "text": "I have fought a good fight, I have finished my course, I have kept the faith:",
-      "text_en": "I have fought a good fight, I have finished my course, I have kept the faith:"
+      "text_en": "I have fought a good fight, I have finished my course, I have kept the faith:",
+      "ref_es": "2 Timoteo 4:7",
+      "text_es": "He peleado la buena batalla, he acabado la carrera, he guardado la fe.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "2 Timothy 4:8",
       "ref_en": "2 Timothy 4:8",
       "text": "Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.",
-      "text_en": "Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing."
+      "text_en": "Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them also that love his appearing.",
+      "ref_es": "2 Timoteo 4:8",
+      "text_es": "Por lo demás, me está guardada la corona de justicia, la cual me dará el Señor, juez justo, en aquel día; y no solo a mí, sino también a todos los que aman su venida.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Hebrews 12:1",
       "ref_en": "Hebrews 12:1",
       "text": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,",
-      "text_en": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,"
+      "text_en": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,",
+      "ref_es": "Hebreos 12:1",
+      "text_es": "Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Hebrews 12:2",
       "ref_en": "Hebrews 12:2",
       "text": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
-      "text_en": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God."
+      "text_en": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
+      "ref_es": "Hebreos 12:2",
+      "text_es": "puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     },
     {
       "ref": "Hebrews 12:3",
       "ref_en": "Hebrews 12:3",
       "text": "For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.",
-      "text_en": "For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds."
+      "text_en": "For consider him that endured such contradiction of sinners against himself, lest ye be wearied and faint in your minds.",
+      "ref_es": "Hebreos 12:3",
+      "text_es": "Considerad a aquel que sufrió tal contradicción de pecadores contra sí mismo, para que vuestro ánimo no se canse hasta desmayar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     }
   ],
   "polls": [],
@@ -1959,6 +2637,111 @@
           ]
         }
       ]
+    }
+  ],
+  "localRvr1960": true,
+  "spanishSource": "RVR1960",
+  "spanishCopyrightNotice": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.",
+  "suppliedSpanishPassages": [
+    {
+      "en": "Matthew 24:12–13",
+      "es": "Mateo 24:12-13"
+    },
+    {
+      "en": "2 Peter 3:9",
+      "es": "2 Pedro 3:9"
+    },
+    {
+      "en": "Revelation 7:9",
+      "es": "Apocalipsis 7:9"
+    },
+    {
+      "en": "2 Corinthians 10:5",
+      "es": "2 Corintios 10:5"
+    },
+    {
+      "en": "Philippians 3:13–14",
+      "es": "Filipenses 3:13-14"
+    },
+    {
+      "en": "Numbers 11:4–6",
+      "es": "Números 11:4-6"
+    },
+    {
+      "en": "Romans 12:1–2",
+      "es": "Romanos 12:1-2"
+    },
+    {
+      "en": "Luke 9:23",
+      "es": "Lucas 9:23"
+    },
+    {
+      "en": "Romans 12:18",
+      "es": "Romanos 12:18"
+    },
+    {
+      "en": "Hebrews 12:14",
+      "es": "Hebreos 12:14"
+    },
+    {
+      "en": "Matthew 24:10–12",
+      "es": "Mateo 24:10-12"
+    },
+    {
+      "en": "1 Thessalonians 5:18",
+      "es": "1 Tesalonicenses 5:18"
+    },
+    {
+      "en": "1 Thessalonians 5:17",
+      "es": "1 Tesalonicenses 5:17"
+    },
+    {
+      "en": "Luke 18:1",
+      "es": "Lucas 18:1"
+    },
+    {
+      "en": "Matthew 26:41",
+      "es": "Mateo 26:41"
+    },
+    {
+      "en": "1 Corinthians 10:12",
+      "es": "1 Corintios 10:12"
+    },
+    {
+      "en": "1 Peter 5:8",
+      "es": "1 Pedro 5:8"
+    },
+    {
+      "en": "Jude 24",
+      "es": "Judas 1:24"
+    },
+    {
+      "en": "Romans 13:11–12",
+      "es": "Romanos 13:11-12"
+    },
+    {
+      "en": "Matthew 25:1–13",
+      "es": "Mateo 25:1-13"
+    },
+    {
+      "en": "2 Timothy 2:3–4",
+      "es": "2 Timoteo 2:3-4"
+    },
+    {
+      "en": "2 Timothy 4:7–8",
+      "es": "2 Timoteo 4:7-8"
+    },
+    {
+      "en": "Hebrews 12:1–3",
+      "es": "Hebreos 12:1-3"
+    },
+    {
+      "en": "2 Timothy 4:7",
+      "es": "2 Timoteo 4:7"
+    },
+    {
+      "en": "Matthew 24:13",
+      "es": "Mateo 24:13"
     }
   ]
 }
