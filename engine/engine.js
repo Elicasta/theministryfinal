@@ -218,7 +218,7 @@ async function resolveSpanish(sc,revision){
 }
 function takeScripture(v,target='both'){
   const input=normalizeScripture(v);
-  const bank=isMirroredSermon()
+  const bank=(isMirroredSermon()||lesson?.localRvr1960===true)
     ?verses().find(row=>String(row.ref_en||row.ref).replace(/–/g,'-')===String(input?.ref_en||'').replace(/–/g,'-')):null;
   const sc=bank?normalizeScripture({...bank,...v,text_es:bank.text_es,ref_es:bank.ref_es,
     spanishSource:bank.spanishSource||'RVR1960',spanishStatus:'ready',copyright:bank.copyright||lesson?.spanishCopyrightNotice||''}):input;
@@ -239,7 +239,9 @@ function takeScripture(v,target='both'){
     state.overlay={...sc};state.activePoll=state.activeQuestion=null;state.black=false;
   }
   send();render();
-  if(!isMirroredSermon())resolveSpanish(sc,revision);
+  // A licensed, supplied RVR1960 pair is ready offline. Never overwrite it
+  // with an asynchronous API result or an unavailable error.
+  if(!isMirroredSermon()&&!sc.text_es)resolveSpanish(sc,revision);
   return true;
 }
 function trackSideScripture(){
