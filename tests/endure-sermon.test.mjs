@@ -143,3 +143,23 @@ test('Spanish is available for all scripture slides while KJV stays on the main 
   assert.match(engine,/!isMirroredSermon\(\)&&!sc\.text_es\)resolveSpanish\(sc,revision\)/);
   assert.match(theme,/\.sermon-rvr summary/);
 });
+
+test('Spanish side screens match the main projector color palette',()=>{
+  const main=theme.match(/body\[data-lesson="how-to-endure-to-the-end-2026-11-05"\] #projector \.stage,[\s\S]*?background:([^;]+);/);
+  const side=theme.match(/body\[data-lesson="how-to-endure-to-the-end-2026-11-05"\] #scriptures\.scripture-screen\{[\s\S]*?background:([^;]+);/);
+  assert.ok(main,'Main projector background missing');
+  assert.ok(side,'Side-screen background missing');
+  assert.equal(side[1].trim(),main[1].trim(),'Side-screen gradient must match main');
+  for(const fragment of [
+    '#scriptures .scripture-primary',
+    'border-left-color:#b8443b',
+    '#scriptures .scripture-ref',
+    'color:#ce8575',
+    '#scriptures .scripture-text',
+    'color:#f2eade',
+    '#scriptures .scripture-copyright',
+    '#scriptures .scripture-wait-title'
+  ])assert.ok(theme.includes(fragment),'Side-screen color rule missing: '+fragment);
+  assert.equal(lesson.scriptureManualOnly,true);
+  assert.equal(lesson.sideTvSpanishMirror,false);
+});
