@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-25",
-  "latest": "doctrine-night-tenets-2026-10-20",
+  "updatedAt": "2026-11-05",
+  "latest": "how-to-endure-to-the-end-2026-11-05",
   "rules": {
     "stableBuildsAreImmutable": true,
     "requiredArtifacts": [
@@ -264,6 +264,27 @@
         "confidence": "/confidence?lesson=matthew-12-lord-of-the-sabbath-lesson-1"
       },
       "engineSource": "/content/matthew-12-lord-of-the-sabbath-lesson-1.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "how-to-endure-to-the-end-2026-11-05",
+      "series": "Standalone Lessons",
+      "sequence": "Thursday Service · Nov 5",
+      "title": "How to Endure to the End",
+      "scripture": "Matthew 24:12–13",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=how-to-endure-to-the-end-2026-11-05",
+        "projector": "/projector?lesson=how-to-endure-to-the-end-2026-11-05",
+        "manuscript": "/presenter?lesson=how-to-endure-to-the-end-2026-11-05",
+        "controller": "/mobile?lesson=how-to-endure-to-the-end-2026-11-05",
+        "scriptures": "/scriptures?lesson=how-to-endure-to-the-end-2026-11-05",
+        "confidence": "/confidence?lesson=how-to-endure-to-the-end-2026-11-05"
+      },
+      "engineSource": "/content/how-to-endure-to-the-end-2026-11-05-slides.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
