@@ -128,10 +128,6 @@
       "dest": "/engine/index.html"
     },
     {
-      "src": "/presenter/endure",
-      "dest": "/presenter-notes-endure.html"
-    },
-    {
       "src": "/lessons",
       "dest": "/library/index.html"
     },
