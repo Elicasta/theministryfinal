@@ -85,7 +85,7 @@ function polls(){return lesson?.polls||[]}
 function poll(id){return polls().find(p=>String(p.id)===String(id))}
 function pollsForSlide(index){return polls().filter(p=>Number.isInteger(p.cueSlide)&&p.cueSlide===index)}
 function isMirroredSermon(){return lesson?.id==='inner-healing-2026-10-25'||lesson?.sideTvSpanishMirror===true}
-function theme(){document.body.dataset.theme=lesson?.theme||'default';document.body.dataset.lesson=lesson?.id||'';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
+function theme(){document.body.dataset.theme=lesson?.theme||'default';document.body.dataset.lesson=lesson?.id||'';document.body.dataset.spanishMirror=isMirroredSermon()?'true':'false';const link=$('lesson-theme-css');if(link){if(lesson?.theme==='evidence'){if(link.getAttribute('href')!=='/kingdom-evidence.css')link.setAttribute('href','/kingdom-evidence.css')}else link.removeAttribute('href')}}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
 function classText(en,es){return classLanguage==='es'?(es||en):en}
@@ -317,7 +317,7 @@ async function loadLesson(id,{broadcast=false,reset=false}={}){
   if(reset){
     state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;
     state.scriptureOutput=null;state.black=false;state.startedAt=null;state.timerStoppedAt=null;
-    if(next.id==='inner-healing-2026-10-25'){
+    if(next.id==='inner-healing-2026-10-25'||next.sideTvSpanishMirror===true){
       state.scriptureCueMode='slide';state.sideScreenCleared=false;
       state.scriptureRevision=(state.scriptureRevision||0)+1;
     }
@@ -538,7 +538,7 @@ function go(i){
   if(autoScripture&&!isMirroredSermon())resolveSpanish(autoScripture,revision);
 }
 function next(){if(isMirroredSermon()&&state.overlay?.ref_en&&state.started)return go(Math.min(state.slide+1,slides().length-1));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return go(0);if(state.slide<slides().length-1)return go(state.slide+1);reset()}
-function prev(){if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
+function prev(){if(isMirroredSermon()&&state.overlay?.ref_en&&state.started)return go(Math.max(state.slide-1,0));if(state.overlay||state.activePoll||state.activeQuestion)return clearTakeover();if(!state.started)return;if(state.slide>0)return go(state.slide-1);reset()}
 function reset(){
   state.started=false;state.slide=0;state.overlay=state.activePoll=state.activeQuestion=null;
   state.black=false;state.startedAt=null;state.timerStoppedAt=null;
@@ -678,7 +678,8 @@ async function handle(msg){
   const nextLesson=incoming.lessonId||state.lessonId;
   state={...state,...incoming,type:TYPE,room:ROOM};
   if(nextLesson&&nextLesson!==lesson?.id)await loadLesson(nextLesson);
-  // Scripture TV state is explicit: clearing it stays cleared until a verse is actually sent.
+  // Mirrored sermons always display the current Spanish cue; manual Scripture takes priority.
+  // Non-mirrored lessons retain the explicit Scripture-TV standby behavior.
   render();
 }
 function send(){
