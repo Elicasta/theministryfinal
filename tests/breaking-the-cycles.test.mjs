@@ -33,10 +33,10 @@ test('the new one-off is registered as the latest live iPad manuscript and slide
   assert.ok(html.includes('/presenter?lesson=' + id));
 });
 
-test('all 18 cues carry full presenter notes and remain aligned with the projector', () => {
-  assert.equal(lesson.slides.length, 18);
-  assert.equal(lesson.manuscript.length, 18);
-  assert.equal(lesson.slideScriptures.length, 18);
+test('all 21 cues carry full presenter notes and remain aligned with the projector', () => {
+  assert.equal(lesson.slides.length, 21);
+  assert.equal(lesson.manuscript.length, 21);
+  assert.equal(lesson.slideScriptures.length, 21);
   assert.equal(lesson.slides[0].type, 'cover');
   assert.equal(lesson.slides.at(-1).closingDeclaration, true);
   assert.equal(lesson.slides.filter(s => s.type === 'verse').length, 7);
@@ -46,9 +46,17 @@ test('all 18 cues carry full presenter notes and remain aligned with the project
     assert.ok(lesson.manuscript[i].html.length > 20, 'Missing presenter notes for cue ' + i);
     assert.ok(lesson.slides[i].es, 'Missing Spanish slide text for cue ' + i);
   }
-  for (const heading of ['Recognize the Cycle', 'Forgive Yourself', 'Commit to a New Way'])
+  for (const heading of ['Recognize the Cycle', 'Forgive Yourself', 'Commit to a New Way', 'When We Refuse Correction', 'The Same Failure, Again', 'Correction Is Not Condemnation'])
     assert.ok(lesson.manuscriptSourceMd.includes(heading));
   assert.ok(lesson.manuscriptSourceMd.includes("And this time, I'm not going back."));
+  const correction = lesson.slides.findIndex(s => s.title === 'When We Refuse Correction');
+  const forgive = lesson.slides.findIndex(s => s.title === 'Forgive Yourself');
+  assert.ok(correction > 0 && correction < forgive, 'Correction teaching must precede forgiveness');
+  assert.equal(lesson.slides[correction + 1].title, 'The Same Failure, Again');
+  assert.equal(lesson.slides[correction + 2].title, 'Correction Is Not Condemnation');
+  assert.ok(lesson.manuscript[correction].html.includes('Proverbs 12:1'));
+  assert.ok(lesson.manuscript[correction + 1].html.includes('Proverbs 15:31'));
+  for (let i = correction; i <= correction + 2; i++) assert.ok(lesson.slides[i].es?.title, 'Spanish correction slide ' + i);
 });
 
 test('each supplied passage has aligned KJV and RVR1960 with the preferred Señor rendering', () => {
@@ -69,7 +77,7 @@ test('each supplied passage has aligned KJV and RVR1960 with the preferred Seño
     assert.equal(map.spanishStatus, 'ready');
     assert.ok(lesson.manuscript[slideIndex].html.includes('class="ih-scripture"'), en + ' iPad KJV');
     assert.ok(lesson.manuscript[slideIndex].html.includes('class="sermon-rvr"'), es + ' iPad Spanish');
-    assert.ok(lesson.manuscript[slideIndex].html.includes('Nombre divino adaptado a Señor'), es + ' adaptation disclosure');
+    assert.ok(lesson.manuscript[slideIndex].html.includes('Nombre divino adaptado a «el Señor»'), es + ' adaptation disclosure');
     assert.equal(lesson.suppliedSpanishPassages.find(p => p.ref === es).verses.length, count);
     assert.equal(slide.es.text.split('\n').length, count);
   }
@@ -84,7 +92,7 @@ test('each supplied passage has aligned KJV and RVR1960 with the preferred Seño
   };
   for (const [ref, text] of Object.entries(expectedRvr))
     assert.equal(lesson.verses.find(v => v.ref_es === ref)?.text_es, text);
-  assert.equal(lesson.divineNameDisplay, 'Señor');
+  assert.equal(lesson.divineNameDisplay, 'el Señor');
   assert.ok(lesson.spanishAdaptationNotice.includes('Señor'));
   for (const row of lesson.verses) assert.ok(!row.text_es.includes('Jehová'), row.ref_es);
   for (const slide of lesson.slides.filter(x => x.type === 'verse')) {
