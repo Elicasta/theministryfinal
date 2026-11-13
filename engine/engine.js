@@ -89,13 +89,41 @@ function theme(){document.body.dataset.theme=lesson?.theme||'default';document.b
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||'').trim())}
 function langText(en,es){return state.language==='es'?(es||en):en}
 function classText(en,es){return classLanguage==='es'?(es||en):en}
+function contentPresent(value){
+  if(typeof value==='string')return value.trim().length>0;
+  if(Array.isArray(value))return value.some(contentPresent);
+  return false;
+}
 function hasSpanishSlide(s){
-  return !!(s?.es || lesson?.translations?.es?.slides?.[s?._index]);
+  const tr=s?.es||lesson?.translations?.es?.slides?.[s?._index];
+  if(!tr)return false;
+  const fields=s?.type==='verse'?['text']:s?.type==='progression'?['words','steps','title']:s?.type==='points'?['title','points']:['title','text','sub'];
+  return fields.some(field=>contentPresent(tr[field]));
 }
 function localizedSlide(s,language=state.language){
-  if(!s || language==='en') return s;
+  if(!s || language==='en')return s;
   const tr=s.es||lesson?.translations?.es?.slides?.[s._index]||null;
-  return tr?{...s,...tr,_english:s}:{...s,_translationMissing:true,_english:s};
+  if(!tr)return {...s,_translationMissing:true,_english:s};
+  const merged={...s,...tr,_english:s};
+  // A partial/empty translation must never turn a populated slide into a blank screen.
+  // Fall back to authored English only when actual Spanish content is unavailable.
+  const primary=s.type==='verse'?['text']:s.type==='points'?['title','points']:
+    s.type==='progression'?['title']:['title'];
+  let missing=false;
+  for(const field of primary){
+    if(!contentPresent(merged[field])&&contentPresent(s[field])){
+      merged[field]=s[field];missing=true;
+    }
+  }
+  if(s.type==='progression'){
+    const steps=contentPresent(tr.words)?tr.words:contentPresent(tr.steps)?tr.steps:
+      contentPresent(s.words)?s.words:s.steps;
+    merged.steps=steps;
+    if(!contentPresent(tr.words)&&!contentPresent(tr.steps))missing=true;
+  }
+  if(!hasSpanishSlide(s))missing=true;
+  if(missing)merged._translationMissing=true;
+  return merged;
 }
 function localizedPoll(p,language=state.language){
   if(!p||language==='en')return p;
@@ -133,10 +161,13 @@ function slideHtml(raw,withQr=true,language=state.language){
   if(s.type==='levels')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="levels">'+(s.levels||[]).map((x,i)=>'<div class="level"><div class="level-n">'+(i+1)+'</div><div><div class="level-t">'+esc(clean(Array.isArray(x)?x[1]:x))+'</div><div class="level-d">'+esc(clean(Array.isArray(x)?x[2]:''))+'</div></div></div>').join('')+'</div>'+missing;
   if(s.type==='columns')return k+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><div class="contrast"><div class="contrast-box"><div><div class="check-l">'+esc(clean(s.leftTitle||''))+'</div><ul class="points">'+(s.left||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div><div class="contrast-box right"><div><div class="check-l">'+esc(clean(s.rightTitle||''))+'</div><ul class="points">'+(s.right||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul></div></div></div>'+sub+missing;
   if(s.type==='progression'&&isMirroredSermon()) {
-    const words=(s.words||[]).slice(0,5);
-    return '<div class="ih-visual"><div class="ih-visual-eyebrow">'+esc(clean(s.kicker||'THE PROCESS'))+'</div><div class="ih-process-grid">'+words.map((word,i)=>'<div class="ih-process-step"><span class="ih-step-n">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(clean(word))+'</strong></div>').join('<div class="ih-process-arrow" aria-hidden="true">→</div>')+'</div>'+sub+'</div>';
+    const words=(contentPresent(s.words)?s.words:contentPresent(s.steps)?s.steps:[]).slice(0,5);
+    return '<div class="ih-visual"><div class="ih-visual-eyebrow">'+esc(clean(s.kicker||'THE PROCESS'))+'</div><div class="ih-process-grid">'+words.map((word,i)=>'<div class="ih-process-step"><span class="ih-step-n">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(clean(word))+'</strong></div>').join('<div class="ih-process-arrow" aria-hidden="true">→</div>')+'</div>'+(!words.length?'<div class="p-title med">'+esc(clean(s.title||'Proceso'))+'</div>':'')+sub+missing+'</div>';
   }
-  if(s.type==='progression')return k+'<div class="p-title med">'+(s.words||[]).map(esc).join(' → ')+'</div>'+sub+missing;
+  if(s.type==='progression'){
+    const words=contentPresent(s.words)?s.words:contentPresent(s.steps)?s.steps:[];
+    return k+'<div class="p-title med">'+(words.length?words.map(word=>esc(clean(word))).join(' → '):esc(clean(s.title||'')))+'</div>'+sub+missing;
+  }
   return k+'<div class="p-title med">'+esc(clean(titleOf(s)))+'</div>'+sub+missing;
 }
 
@@ -254,7 +285,7 @@ function sermonSpanishSideSlide(s){
   const kind=String(slide.type||'statement').replace(/[^a-z-]/g,'');
   const content=slideHtml(slide,false,'es');
   return '<div class="ih-side-slide ih-side-'+kind+'" lang="es" data-sermon-cue="'+state.slide+'">'
-    +content+(slide.type==='verse'?'<div class="ih-side-verse-source">Reina-Valera 1960 (RVR1960)</div><div class="ih-side-verse-copyright">'+esc(lesson.spanishCopyrightNotice||'')+'</div>':'')+'</div>';
+    +content+(slide.type==='verse'?'<div class="ih-side-verse-source">'+esc(lesson.spanishVersionLabel||'Reina-Valera 1960 (RVR1960)')+'</div><div class="ih-side-verse-copyright">'+esc(lesson.spanishCopyrightNotice||'')+'</div>':'')+'</div>';
 }
 function sideTvExplanationHtml(note){
   if(!note?.title||!note?.body)return '';
