@@ -51,8 +51,8 @@ test('all 18 cues carry full presenter notes and remain aligned with the project
   assert.ok(lesson.manuscriptSourceMd.includes("And this time, I'm not going back."));
 });
 
-test('every supplied RVR1960 passage is aligned word-for-word with KJV passage and bank verses', () => {
-  assert.equal(lesson.spanishSource, 'RVR1960');
+test('each supplied passage has aligned KJV and RVR1960 with the preferred Señor rendering', () => {
+  assert.match(lesson.spanishSource, /RVR1960.*Señor/);
   assert.equal(lesson.suppliedSpanishPassages.length, 7);
   assert.equal(lesson.localRvr1960, true);
   assert.match(lesson.spanishCopyrightNotice, /Sociedades Bíblicas Unidas, 1988/);
@@ -73,14 +73,21 @@ test('every supplied RVR1960 passage is aligned word-for-word with KJV passage a
   const expectedRvr = {
     'Efesios 4:22':'En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,',
     'Jueces 2:19':'Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.',
-    'Hageo 1:5':'Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos.',
-    'Miqueas 7:8':'Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz.',
+    'Hageo 1:5':'Pues así ha dicho el Señor de los ejércitos: Meditad bien sobre vuestros caminos.',
+    'Miqueas 7:8':'Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, el Señor será mi luz.',
     'Isaías 43:19':'He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad.',
-    'Deuteronomio 30:20':'amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar.',
+    'Deuteronomio 30:20':'amando al Señor tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró el Señor a tus padres, Abraham, Isaac y Jacob, que les había de dar.',
     'Gálatas 6:9':'No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.'
   };
   for (const [ref, text] of Object.entries(expectedRvr))
     assert.equal(lesson.verses.find(v => v.ref_es === ref)?.text_es, text);
+  assert.equal(lesson.divineNameDisplay, 'Señor');
+  assert.ok(lesson.spanishAdaptationNotice.includes('Señor'));
+  for (const row of lesson.verses) assert.ok(!row.text_es.includes('Jehová'), row.ref_es);
+  for (const slide of lesson.slides.filter(x => x.type === 'verse')) {
+    assert.ok(!slide.es.text.includes('Jehová'), slide.ref);
+    assert.equal(lesson.slideScriptures[lesson.slides.indexOf(slide)].text_es, slide.es.text);
+  }
 });
 
 test('scripture TVs remain under manual tech control; audience participation is off', () => {
