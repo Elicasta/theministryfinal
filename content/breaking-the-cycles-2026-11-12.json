@@ -10,7 +10,7 @@
   "theme": "ministry",
   "status": "ready",
   "translation": "KJV / RVR1960",
-  "sideTvSpanishMirror": false,
+  "sideTvSpanishMirror": true,
   "audienceParticipation": false,
   "hideAudienceQr": true,
   "scriptureManualOnly": true,
@@ -194,6 +194,27 @@
       }
     },
     {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 12:1",
+      "ref": "Proverbs 12:1",
+      "text": "1 Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.",
+      "ref_es": "Proverbios 12:1",
+      "text_es": "1 El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.",
+      "sectionKey": "recognize",
+      "sourceRef": "Proverbs 12:1",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Scripture: Proverbs 12:1. Loving correction is part of learning. The iPad manuscript includes the full teaching section before this verse.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Proverbios 12:1",
+        "ref": "Proverbios 12:1",
+        "text": "1 El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.",
+        "translationKind": "RVR1960"
+      }
+    },
+    {
       "type": "progression",
       "kicker": "THE CYCLE OF RESISTING CORRECTION",
       "title": "The Same Failure, Again",
@@ -219,6 +240,27 @@
           "El mismo fracaso regresa"
         ],
         "ref": "Proverbios 15:31–32"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 15:31–32",
+      "ref": "Proverbs 15:31–32",
+      "text": "31 The ear that heareth the reproof of life abideth among the wise.\n32 He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.",
+      "ref_es": "Proverbios 15:31-32",
+      "text_es": "31 El oído que escucha las amonestaciones de la vida, entre los sabios morará.\n32 El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.",
+      "sectionKey": "recognize",
+      "sourceRef": "Proverbs 15:31–32",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Scripture: Proverbs 15:31–32. A teachable spirit changes the pattern. The iPad manuscript includes reflection questions.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Proverbios 15:31-32",
+        "ref": "Proverbios 15:31-32",
+        "text": "31 El oído que escucha las amonestaciones de la vida, entre los sabios morará.\n32 El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.",
+        "translationKind": "RVR1960"
       }
     },
     {
@@ -480,7 +522,25 @@
     },
     null,
     null,
+    {
+      "ref_en": "Proverbs 12:1",
+      "text_en": "1 Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.",
+      "ref_es": "Proverbios 12:1",
+      "text_es": "1 El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
     null,
+    {
+      "ref_en": "Proverbs 15:31–32",
+      "text_en": "31 The ear that heareth the reproof of life abideth among the wise.\n32 He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.",
+      "ref_es": "Proverbios 15:31-32",
+      "text_es": "31 El oído que escucha las amonestaciones de la vida, entre los sabios morará.\n32 El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
     null,
     null,
     {
@@ -604,13 +664,31 @@
       "slide": 8
     },
     {
+      "slide": 9,
+      "title": "Proverbs 12:1",
+      "refs": [
+        "Proverbs 12:1"
+      ],
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 12:1</div><p class=\"ih-scripture\"><strong><em>Proverbs 12:1 (KJV)</em></strong> Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.</p><details class=\"sermon-rvr\"><summary>RVR1960 · Proverbios 12:1</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>1.</strong> El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.</p></div><p class=\"sermon-scripture-caption\">Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.</p></details><p>Scripture: Proverbs 12:1. Loving correction is part of learning. The iPad manuscript includes the full teaching section before this verse.</p>",
+      "notes": "Full KJV and RVR1960 Scripture texts for the correction section."
+    },
+    {
       "title": "The Same Failure, Again",
       "refs": [
         "Proverbs 15:31–32"
       ],
       "html": "\n<h3>The Cycle of Resisting Correction</h3>\n<p><strong>Mistake → correction → defensiveness → no change → same failure.</strong></p>\n<p>Think about how often this happens. Somebody points out an attitude, a decision, or a habit. Instead of examining it, we immediately explain why they are wrong. Then the same issue comes back. And we wonder why we are still struggling with the same thing.</p>\n<p><strong>Proverbs 15:31–32 (KJV):</strong></p>\n<p><strong>31</strong> The ear that heareth the reproof of life abideth among the wise.</p>\n<p><strong>32</strong> He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.</p>\n<p>The Bible connects receiving reproof with gaining understanding. <strong>Growth requires the humility to hear what we may not want to hear.</strong></p>\n<ul>\n<li>Am I actually learning from my failures, or am I simply getting better at explaining them?</li>\n<li>When was the last time someone corrected me and I changed something?</li>\n<li>Are people afraid to tell me the truth because of how I respond?</li>\n</ul>",
       "notes": "Explain the feedback loop slowly. This is a pattern that repeats when we will not listen.",
-      "slide": 9
+      "slide": 10
+    },
+    {
+      "slide": 11,
+      "title": "Proverbs 15:31–32",
+      "refs": [
+        "Proverbs 15:31–32"
+      ],
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 15:31–32</div><p class=\"ih-scripture\"><strong><em>Proverbs 15:31 (KJV)</em></strong> The ear that heareth the reproof of life abideth among the wise.</p><p class=\"ih-scripture\"><strong><em>Proverbs 15:32 (KJV)</em></strong> He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.</p><details class=\"sermon-rvr\"><summary>RVR1960 · Proverbios 15:31-32</summary><div lang=\"es\" class=\"sermon-rvr-text\"><p><strong>31.</strong> El oído que escucha las amonestaciones de la vida, entre los sabios morará.</p><p><strong>32.</strong> El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.</p></div><p class=\"sermon-scripture-caption\">Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.</p></details><p>Scripture: Proverbs 15:31–32. A teachable spirit changes the pattern. The iPad manuscript includes reflection questions.</p>",
+      "notes": "Full KJV and RVR1960 Scripture texts for the correction section."
     },
     {
       "title": "Correction Is Not Condemnation",
@@ -619,17 +697,17 @@
       ],
       "html": "\n<h3>How the Cycle Begins to Break</h3>\n<p><strong>Correction is not condemnation. It can be the very mercy of God pointing us toward a different future.</strong></p>\n<p>When correction comes, we can pause and ask, <em>“Lord, is there something here that I need to receive?”</em></p>\n<ul>\n<li><strong>Listen</strong> before defending yourself.</li>\n<li><strong>Examine</strong> what is true instead of assuming every correction is an attack.</li>\n<li><strong>Repent</strong> where you were wrong.</li>\n<li><strong>Adjust</strong> something practical, not just your words.</li>\n<li><strong>Grow</strong> by doing something differently the next time.</li>\n</ul>\n<p>The goal isn't to feel guilty forever. The goal is to learn, change, and move forward.</p>\n<p><strong>And that leads us to the next part of this message: Forgive Yourself.</strong> After we own what needs to change, we cannot allow shame to trap us in what we used to be.</p>",
       "notes": "Make the transition: correction gives us a chance to take a different direction; then introduce forgiveness and mercy.",
-      "slide": 10
+      "slide": 12
     },
     {
-      "slide": 11,
+      "slide": 13,
       "title": "Forgive Yourself",
       "refs": [],
       "html": "<h3>2. Forgive Yourself</h3><ul><li>Cycles often feed off guilt.</li><li>We sometimes stay in a cycle because we feel bad leaving the cycle.</li><li>Sometimes we have a relationship with our cycle that makes it difficult to leave.</li></ul><p>We repent, but we don't forgive ourselves, and so shame becomes the leash that pulls us back.</p><p><strong>Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.</strong></p>",
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 12,
+      "slide": 14,
       "title": "Micah 7:8–9",
       "refs": [
         "Micah 7:8–9"
@@ -638,7 +716,7 @@
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 13,
+      "slide": 15,
       "title": "Isaiah 43:18–19",
       "refs": [
         "Isaiah 43:18–19"
@@ -647,21 +725,21 @@
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 14,
+      "slide": 16,
       "title": "God Will Make a Way",
       "refs": [],
       "html": "<p>God's trying to do something new, but you're still rehearsing something old.</p><ul><li>God will make a new thing grow in unexpected places.</li><li>God will make a new way in impossible places.</li><li>God's way unfolds according to His timing, not yours.</li></ul><p><strong>Don't keep rehearsing what God has called you to move beyond.</strong></p>",
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 15,
+      "slide": 17,
       "title": "Commit to a New Way",
       "refs": [],
       "html": "<h3>3. Commit to a New Way</h3><p>Recognition without change is just awareness.</p><p><strong>But commitment creates transformation.</strong></p><ul><li>Cycles break when choices change.</li><li>You can't pray your way out of something you keep walking back into.</li><li>We get to choose what we want, but it starts with a commitment.</li><li>Commitment starts with commitment to God.</li><li>God wants you to listen, obey and do.</li><li>When we commit to God, God fulfills His promises.</li></ul>",
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 16,
+      "slide": 18,
       "title": "Deuteronomy 30:19–20",
       "refs": [
         "Deuteronomy 30:19–20"
@@ -670,14 +748,14 @@
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 17,
+      "slide": 19,
       "title": "Consistency Over Comfort",
       "refs": [],
       "html": "<p>When Israel finally committed to walk differently, to tear down idols, to return to the covenant, the pattern shifted. Likewise, when you start choosing <em>consistency over comfort,</em> you'll start seeing <em>change over chaos.</em></p><ul><li>Commitment looks like boundaries.</li><li>It looks like prayer <em>and</em> practical steps.</li><li>It looks like accountability and obedience.</li></ul><p><strong>You can't just wish the cycle away. You have to walk it out.</strong></p>",
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 18,
+      "slide": 20,
       "title": "Galatians 6:9",
       "refs": [
         "Galatians 6:9"
@@ -686,14 +764,14 @@
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 19,
+      "slide": 21,
       "title": "It's Not Perfection. It's Persistence.",
       "refs": [],
       "html": "<h3>Conclusion</h3><ul><li>Breaking a cycle doesn't happen in one night. It happens when your <em>direction</em> changes.</li><li>It's not about perfection; it's about persistence.</li><li>Correction helps turn repeated failure into growth, but only when we receive it.</li><li>If you fall, rise again. If you slip, reset. If you fail, forgive.</li><li>Israel's story shows us that God's mercy is greater than our patterns.</li><li>He doesn't give up on His people. He keeps calling them higher.</li></ul><p><strong>And He's calling you higher tonight.</strong></p>",
       "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
     },
     {
-      "slide": 20,
+      "slide": 22,
       "title": "I Will No Longer Live in Circles.",
       "refs": [],
       "html": "<h3>Declaration</h3><p><strong>“I will no longer live in circles.</strong></p><p><strong>I will move forward in faith.</strong></p><p><strong>I am forgiven.</strong></p><p><strong>I am free.</strong></p><p><strong>And this time, I'm not going back.”</strong></p>",
@@ -865,6 +943,39 @@
       "spanishSource": "RVR1960 (nombre divino presentado como «el Señor»)",
       "spanishStatus": "ready",
       "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 12:1",
+      "ref_en": "Proverbs 12:1",
+      "text": "Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.",
+      "text_en": "Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.",
+      "ref_es": "Proverbios 12:1",
+      "text_es": "El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 15:31",
+      "ref_en": "Proverbs 15:31",
+      "text": "The ear that heareth the reproof of life abideth among the wise.",
+      "text_en": "The ear that heareth the reproof of life abideth among the wise.",
+      "ref_es": "Proverbios 15:31",
+      "text_es": "El oído que escucha las amonestaciones de la vida, entre los sabios morará.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 15:32",
+      "ref_en": "Proverbs 15:32",
+      "text": "He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.",
+      "text_en": "He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding.",
+      "ref_es": "Proverbios 15:32",
+      "text_es": "El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
     }
   ],
   "polls": [],
@@ -970,10 +1081,33 @@
           "text": "No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos."
         }
       ]
+    },
+    {
+      "ref": "Proverbios 12:1",
+      "verses": [
+        {
+          "number": 1,
+          "text": "El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante."
+        }
+      ]
+    },
+    {
+      "ref": "Proverbios 15:31-32",
+      "verses": [
+        {
+          "number": 31,
+          "text": "El oído que escucha las amonestaciones de la vida, entre los sabios morará."
+        },
+        {
+          "number": 32,
+          "text": "El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento."
+        }
+      ]
     }
   ],
-  "manuscriptSourceMd": "# BREAKING THE CYCLES\n\n## Opening\nPTL everyone. Tonight I want to talk to you about *the process of breaking the cycles in our life.*\n\nNow, these cycles can look different for each of us. Maybe it's that constant back-and-forth with someone, maybe it's the same mental spiral, or that emotional rollercoaster you can't seem to step off of.\n\nBut tonight, I want to show you from the Word of God that *you don't have to live stuck.*\n\nGod didn't save you just to spin in circles. He saved you to *move forward.*\n\nNow if we look at the Bible we will find that the people of Israel found themselves in a cycle with the Lord. This cycle was a cycle of disobedience, returning to the Lord, doing well, then slowly slipping back to this pattern.\n\nWhen we think about this we can find ourselves slowly slipping back into old habits, into old thought patterns and old ways of doing things. But we must get up and return to the Lord.\n\n---\n\n# Ephesians 4:22–24\n\n## Ephesians 4:22–24\n**Opening passage as originally supplied:**\nYou were taught to put off your old self, which belongs to your former manner of life and is corrupt through deceitful desires, and to be renewed in the spirit of your minds, and to put on the new self, created after the likeness of God in true righteousness and holiness.\n\n**The KJV wording is projected for consistency with the Scripture bank. The supplied RVR1960 text is available in Spanish.**\n\n- Put off the old self.\n- Be renewed in the spirit of your mind.\n- Put on the new self.\n\n---\n\n# You Don't Have to Live Stuck\n\nWe see Israel return again and again to the same behaviors.\n- Disobedience.\n- Returning to the Lord.\n- Walking well for a season.\n- Slipping back into the same patterns.\n\nWhat do we do when old habits or old thought patterns start returning?\n\n**We must get up and return to the Lord.**\n\n---\n\n# Recognize the Cycle\n\n## 1. Recognize the Cycle\nLet's start with recognition.\n\n**You can't fix what you won't face.**\n\nIn Judges 2:18–19, the Bible says every time the Lord raised up judges to deliver Israel, the people would serve Him for a while, but as soon as that leader died, *they returned and corrupted themselves more than their fathers.*\n\n**That's a cycle.**\n\n---\n\n# Judges 2:18–19\n\n- Every time the Lord raised up judges, He delivered the people.\n- As soon as the judge died, they returned to the same behaviors.\n- Sometimes the pattern became even worse than before.\n\n**It wasn't that God changed.**\n- It was that they didn't recognize the pattern long enough to change their *heart.*\n- Sometimes we get so used to dysfunction that we call it normal.\n\n---\n\n# Disobedience → Oppression → Repentance → Restoration\n\nDisobedience → oppression → repentance → restoration → back to disobedience.\n\nWe start thinking, *“That's just how I am.”* But what if that's just the cycle talking?\n\nBefore freedom can begin, there has to be a moment of recognition, a moment where you say, *“This is not who I'm meant to be.”*\n\n---\n\n# Haggai 1:5–7\n\n## Consider Your Ways\n**Haggai 1:5–7**\n\nGod was calling His people to self-awareness. The breakthrough starts when you stop blaming everyone else and start asking:\n\n- *“Lord, what are You showing me about me?”*\n- Where am I overworking at something that consistently isn't working?\n- Where might I have a loop that doesn't produce?\n\n**Give the room a moment to reflect.**\n\n---\n\n# Lord, What Are You Showing Me About Me?\n\nThe point is not to blame yourself for every hardship, but to examine the patterns you do have the power to change.\n\n- Where am I overworking at something that's consistently not working?\n- Where might I have a loop that doesn't produce?\n- What is the Lord showing me about me?\n\n---\n\n# When We Refuse Correction\n\nWhen We Refuse Correction, We Repeat Failure We just asked, “Lord, what are You showing me about me?” But what happens when God allows someone to point out what we need to change, and we refuse to listen? Sometimes the reason we keep experiencing the same failures isn't because we lack ability. It's because we refuse correction. We defend what we should be changing. We justify what we should be confronting. And because we never address the issue, we find ourselves living the same experience again. Proverbs 12:1 (KJV): Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish. Notice the connection: instruction and knowledge. If I refuse instruction, I refuse an opportunity to learn. Sometimes correction exposes a blind spot. Sometimes the same issue follows us from one relationship, ministry, or responsibility to another because we have not changed. Our pride can make every correction sound like an attack, even when it is an invitation to grow. You cannot grow beyond what you refuse to have corrected. Important distinction: Not every criticism is right. Correction must be weighed against truth, Scripture, and wisdom. But we cannot use that fact as a reason to reject every honest warning.\n\n---\n\n# The Same Failure, Again\n\nThe Cycle of Resisting Correction Mistake → correction → defensiveness → no change → same failure. Think about how often this happens. Somebody points out an attitude, a decision, or a habit. Instead of examining it, we immediately explain why they are wrong. Then the same issue comes back. And we wonder why we are still struggling with the same thing. Proverbs 15:31–32 (KJV): 31 The ear that heareth the reproof of life abideth among the wise. 32 He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding. The Bible connects receiving reproof with gaining understanding. Growth requires the humility to hear what we may not want to hear. Am I actually learning from my failures, or am I simply getting better at explaining them? When was the last time someone corrected me and I changed something? Are people afraid to tell me the truth because of how I respond?\n\n---\n\n# Correction Is Not Condemnation\n\nHow the Cycle Begins to Break Correction is not condemnation. It can be the very mercy of God pointing us toward a different future. When correction comes, we can pause and ask, “Lord, is there something here that I need to receive?” Listen before defending yourself. Examine what is true instead of assuming every correction is an attack. Repent where you were wrong. Adjust something practical, not just your words. Grow by doing something differently the next time. The goal isn't to feel guilty forever. The goal is to learn, change, and move forward. And that leads us to the next part of this message: Forgive Yourself. After we own what needs to change, we cannot allow shame to trap us in what we used to be.\n\n---\n\n# Forgive Yourself\n\n## 2. Forgive Yourself\n- Cycles often feed off guilt.\n- We sometimes stay in a cycle because we feel bad leaving the cycle.\n- Sometimes we have a relationship with our cycle that makes it difficult to leave.\n\nWe repent, but we don't forgive ourselves, and so shame becomes the leash that pulls us back.\n\n**Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.**\n\n---\n\n# Micah 7:8–9\n\n## Micah 7:8–9\n- Notice that: *he didn't stay down.*\n- He understood that even in failure, God's mercy was still present.\n\nIf the enemy can keep you focused on what you did, you'll never step into who you're becoming.\n\nForgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.\n\n**Notice also that Micah acknowledges his sin while trusting God to bring him to the light.**\n\n---\n\n# Isaiah 43:18–19\n\n## Isaiah 43:18–19\n- God's trying to do something new, but you're still rehearsing something old.\n- God will make a new thing grow in unexpected places.\n- God will make a new way in impossible places.\n- God will make a way according to His timing, not yours.\n\n---\n\n# God Will Make a Way\n\nGod's trying to do something new, but you're still rehearsing something old.\n\n- God will make a new thing grow in unexpected places.\n- God will make a new way in impossible places.\n- God's way unfolds according to His timing, not yours.\n\n**Don't keep rehearsing what God has called you to move beyond.**\n\n---\n\n# Commit to a New Way\n\n## 3. Commit to a New Way\nRecognition without change is just awareness.\n\n**But commitment creates transformation.**\n\n- Cycles break when choices change.\n- You can't pray your way out of something you keep walking back into.\n- We get to choose what we want, but it starts with a commitment.\n- Commitment starts with commitment to God.\n- God wants you to listen, obey and do.\n- When we commit to God, God fulfills His promises.\n\n---\n\n# Deuteronomy 30:19–20\n\n## Deuteronomy 30:19–20\n**“Therefore choose life.”**\n\n- God sets before His people life and death, blessing and cursing.\n- Commitment begins with loving Him, obeying His voice, and cleaving to Him.\n- He is our life.\n\n**We don't merely choose to stop repeating a cycle; we choose a new way of walking with God.**\n\n---\n\n# Consistency Over Comfort\n\nWhen Israel finally committed to walk differently, to tear down idols, to return to the covenant, the pattern shifted. Likewise, when you start choosing *consistency over comfort,* you'll start seeing *change over chaos.*\n\n- Commitment looks like boundaries.\n- It looks like prayer *and* practical steps.\n- It looks like accountability and obedience.\n\n**You can't just wish the cycle away. You have to walk it out.**\n\n---\n\n# Galatians 6:9\n\n## Galatians 6:9\n**“Let us not be weary in well doing: for in due season we shall reap, if we faint not.”**\n\n- The cycle ends when you stay consistent long enough for the new habit to take root.\n- In order for us to have new habits we have to stay consistent.\n- For how long? **As long as it takes!**\n- But you can't get tired. Keep going in well doing.\n\n---\n\n# It's Not Perfection. It's Persistence.\n\n## Conclusion\n- Breaking a cycle doesn't happen in one night. It happens when your *direction* changes.\n- It's not about perfection; it's about persistence.\n- If you fall, rise again. If you slip, reset. If you fail, forgive.\n- Israel's story shows us that God's mercy is greater than our patterns.\n- He doesn't give up on His people. He keeps calling them higher.\n\n**And He's calling you higher tonight.**\n\n---\n\n# I Will No Longer Live in Circles.\n\n## Declaration\n**“I will no longer live in circles.**\n\n**I will move forward in faith.**\n\n**I am forgiven.**\n\n**I am free.**\n\n**And this time, I'm not going back.”**",
+  "manuscriptSourceMd": "# BREAKING THE CYCLES\n\nOpening PTL everyone. Tonight I want to talk to you about the process of breaking the cycles in our life. Now, these cycles can look different for each of us. Maybe it's that constant back-and-forth with someone, maybe it's the same mental spiral, or that emotional rollercoaster you can't seem to step off of. But tonight, I want to show you from the Word of God that you don't have to live stuck. God didn't save you just to spin in circles. He saved you to move forward. Now if we look at the Bible we will find that the people of Israel found themselves in a cycle with the Lord. This cycle was a cycle of disobedience, returning to the Lord, doing well, then slowly slipping back to this pattern. When we think about this we can find ourselves slowly slipping back into old habits, into old thought patterns and old ways of doing things. But we must get up and return to the Lord.\n\n---\n\n# Ephesians 4:22–24\n\nKJV · Ephesians 4:22–24 Ephesians 4:22 (KJV) That ye put off concerning the former conversation the old man, which is corrupt according to the deceitful lusts; Ephesians 4:23 (KJV) And be renewed in the spirit of your mind; Ephesians 4:24 (KJV) And that ye put on the new man, which after God is created in righteousness and true holiness. RVR1960 (el Señor) · Efesios 4:22-24 22. En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos, 23. y renovaos en el espíritu de vuestra mente, 24. y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Ephesians 4:22–24 Opening passage as originally supplied: You were taught to put off your old self, which belongs to your former manner of life and is corrupt through deceitful desires, and to be renewed in the spirit of your minds, and to put on the new self, created after the likeness of God in true righteousness and holiness. The KJV wording is projected for consistency with the Scripture bank. The supplied RVR1960 text is available in Spanish. Put off the old self. Be renewed in the spirit of your mind. Put on the new self.\n\n---\n\n# You Don't Have to Live Stuck\n\nWe see Israel return again and again to the same behaviors. Disobedience. Returning to the Lord. Walking well for a season. Slipping back into the same patterns. What do we do when old habits or old thought patterns start returning? We must get up and return to the Lord.\n\n---\n\n# Recognize the Cycle\n\n1. Recognize the Cycle Let's start with recognition. You can't fix what you won't face. In Judges 2:18–19, the Bible says every time the Lord raised up judges to deliver Israel, the people would serve Him for a while, but as soon as that leader died, they returned and corrupted themselves more than their fathers. That's a cycle.\n\n---\n\n# Judges 2:18–19\n\nKJV · Judges 2:18–19 Judges 2:18 (KJV) And when the LORD raised them up judges, then the LORD was with the judge, and delivered them out of the hand of their enemies all the days of the judge: for it repented the LORD because of their groanings by reason of them that oppressed them and vexed them. Judges 2:19 (KJV) And it came to pass, when the judge was dead, that they returned, and corrupted themselves more than their fathers, in following other gods to serve them, and to bow down unto them; they ceased not from their own doings, nor from their stubborn way. RVR1960 (el Señor) · Jueces 2:18-19 18. Y cuando el Señor les levantaba jueces, el Señor estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque el Señor era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían. 19. Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Every time the Lord raised up judges, He delivered the people. As soon as the judge died, they returned to the same behaviors. Sometimes the pattern became even worse than before. It wasn't that God changed. It was that they didn't recognize the pattern long enough to change their heart. Sometimes we get so used to dysfunction that we call it normal.\n\n---\n\n# Disobedience → Oppression → Repentance → Restoration\n\nDisobedience → oppression → repentance → restoration → back to disobedience. We start thinking, “That's just how I am.” But what if that's just the cycle talking? Before freedom can begin, there has to be a moment of recognition, a moment where you say, “This is not who I'm meant to be.”\n\n---\n\n# Haggai 1:5–7\n\nKJV · Haggai 1:5–7 Haggai 1:5 (KJV) Now therefore thus saith the LORD of hosts; Consider your ways. Haggai 1:6 (KJV) Ye have sown much, and bring in little; ye eat, but ye have not enough; ye drink, but ye are not filled with drink; ye clothe you, but there is none warm; and he that earneth wages earneth wages to put it into a bag with holes. Haggai 1:7 (KJV) Thus saith the LORD of hosts; Consider your ways. RVR1960 (el Señor) · Hageo 1:5-7 5. Pues así ha dicho el Señor de los ejércitos: Meditad bien sobre vuestros caminos. 6. Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto. 7. Así ha dicho el Señor de los ejércitos: Meditad sobre vuestros caminos. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Consider Your Ways Haggai 1:5–7 God was calling His people to self-awareness. The breakthrough starts when you stop blaming everyone else and start asking: “Lord, what are You showing me about me?” Where am I overworking at something that consistently isn't working? Where might I have a loop that doesn't produce? Give the room a moment to reflect.\n\n---\n\n# Lord, What Are You Showing Me About Me?\n\nThe point is not to blame yourself for every hardship, but to examine the patterns you do have the power to change. Where am I overworking at something that's consistently not working? Where might I have a loop that doesn't produce? What is the Lord showing me about me?\n\n---\n\n# When We Refuse Correction\n\nWhen We Refuse Correction, We Repeat Failure We just asked, “Lord, what are You showing me about me?” But what happens when God allows someone to point out what we need to change, and we refuse to listen? Sometimes the reason we keep experiencing the same failures isn't because we lack ability. It's because we refuse correction. We defend what we should be changing. We justify what we should be confronting. And because we never address the issue, we find ourselves living the same experience again. Proverbs 12:1 (KJV): Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish. Notice the connection: instruction and knowledge. If I refuse instruction, I refuse an opportunity to learn. Sometimes correction exposes a blind spot. Sometimes the same issue follows us from one relationship, ministry, or responsibility to another because we have not changed. Our pride can make every correction sound like an attack, even when it is an invitation to grow. You cannot grow beyond what you refuse to have corrected. Important distinction: Not every criticism is right. Correction must be weighed against truth, Scripture, and wisdom. But we cannot use that fact as a reason to reject every honest warning.\n\n---\n\n# Proverbs 12:1\n\nKJV · Proverbs 12:1 Proverbs 12:1 (KJV) Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish. RVR1960 · Proverbios 12:1 1. El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Scripture: Proverbs 12:1. Loving correction is part of learning. The iPad manuscript includes the full teaching section before this verse.\n\n---\n\n# The Same Failure, Again\n\nThe Cycle of Resisting Correction Mistake → correction → defensiveness → no change → same failure. Think about how often this happens. Somebody points out an attitude, a decision, or a habit. Instead of examining it, we immediately explain why they are wrong. Then the same issue comes back. And we wonder why we are still struggling with the same thing. Proverbs 15:31–32 (KJV): 31 The ear that heareth the reproof of life abideth among the wise. 32 He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding. The Bible connects receiving reproof with gaining understanding. Growth requires the humility to hear what we may not want to hear. Am I actually learning from my failures, or am I simply getting better at explaining them? When was the last time someone corrected me and I changed something? Are people afraid to tell me the truth because of how I respond?\n\n---\n\n# Proverbs 15:31–32\n\nKJV · Proverbs 15:31–32 Proverbs 15:31 (KJV) The ear that heareth the reproof of life abideth among the wise. Proverbs 15:32 (KJV) He that refuseth instruction despiseth his own soul: but he that heareth reproof getteth understanding. RVR1960 · Proverbios 15:31-32 31. El oído que escucha las amonestaciones de la vida, entre los sabios morará. 32. El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Scripture: Proverbs 15:31–32. A teachable spirit changes the pattern. The iPad manuscript includes reflection questions.\n\n---\n\n# Correction Is Not Condemnation\n\nHow the Cycle Begins to Break Correction is not condemnation. It can be the very mercy of God pointing us toward a different future. When correction comes, we can pause and ask, “Lord, is there something here that I need to receive?” Listen before defending yourself. Examine what is true instead of assuming every correction is an attack. Repent where you were wrong. Adjust something practical, not just your words. Grow by doing something differently the next time. The goal isn't to feel guilty forever. The goal is to learn, change, and move forward. And that leads us to the next part of this message: Forgive Yourself. After we own what needs to change, we cannot allow shame to trap us in what we used to be.\n\n---\n\n# Forgive Yourself\n\n2. Forgive Yourself Cycles often feed off guilt. We sometimes stay in a cycle because we feel bad leaving the cycle. Sometimes we have a relationship with our cycle that makes it difficult to leave. We repent, but we don't forgive ourselves, and so shame becomes the leash that pulls us back. Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.\n\n---\n\n# Micah 7:8–9\n\nKJV · Micah 7:8–9 Micah 7:8 (KJV) Rejoice not against me, O mine enemy: when I fall, I shall arise; when I sit in darkness, the LORD shall be a light unto me. Micah 7:9 (KJV) I will bear the indignation of the LORD, because I have sinned against him, until he plead my cause, and execute judgment for me: he will bring me forth to the light, and I shall behold his righteousness. RVR1960 (el Señor) · Miqueas 7:8-9 8. Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, el Señor será mi luz. 9. La ira del Señor soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Micah 7:8–9 Notice that: he didn't stay down. He understood that even in failure, God's mercy was still present. If the enemy can keep you focused on what you did, you'll never step into who you're becoming. Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner. Notice also that Micah acknowledges his sin while trusting God to bring him to the light.\n\n---\n\n# Isaiah 43:18–19\n\nKJV · Isaiah 43:18–19 Isaiah 43:18 (KJV) Remember ye not the former things, neither consider the things of old. Isaiah 43:19 (KJV) Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert. RVR1960 (el Señor) · Isaías 43:18-19 18. No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas. 19. He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Isaiah 43:18–19 God's trying to do something new, but you're still rehearsing something old. God will make a new thing grow in unexpected places. God will make a new way in impossible places. God will make a way according to His timing, not yours.\n\n---\n\n# God Will Make a Way\n\nGod's trying to do something new, but you're still rehearsing something old. God will make a new thing grow in unexpected places. God will make a new way in impossible places. God's way unfolds according to His timing, not yours. Don't keep rehearsing what God has called you to move beyond.\n\n---\n\n# Commit to a New Way\n\n3. Commit to a New Way Recognition without change is just awareness. But commitment creates transformation. Cycles break when choices change. You can't pray your way out of something you keep walking back into. We get to choose what we want, but it starts with a commitment. Commitment starts with commitment to God. God wants you to listen, obey and do. When we commit to God, God fulfills His promises.\n\n---\n\n# Deuteronomy 30:19–20\n\nKJV · Deuteronomy 30:19–20 Deuteronomy 30:19 (KJV) I call heaven and earth to record this day against you, that I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live: Deuteronomy 30:20 (KJV) That thou mayest love the LORD thy God, and that thou mayest obey his voice, and that thou mayest cleave unto him: for he is thy life, and the length of thy days: that thou mayest dwell in the land which the LORD sware unto thy fathers, to Abraham, to Isaac, and to Jacob, to give them. RVR1960 (el Señor) · Deuteronomio 30:19-20 19. A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia; 20. amando al Señor tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró el Señor a tus padres, Abraham, Isaac y Jacob, que les había de dar. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Deuteronomy 30:19–20 “Therefore choose life.” God sets before His people life and death, blessing and cursing. Commitment begins with loving Him, obeying His voice, and cleaving to Him. He is our life. We don't merely choose to stop repeating a cycle; we choose a new way of walking with God.\n\n---\n\n# Consistency Over Comfort\n\nWhen Israel finally committed to walk differently, to tear down idols, to return to the covenant, the pattern shifted. Likewise, when you start choosing consistency over comfort, you'll start seeing change over chaos. Commitment looks like boundaries. It looks like prayer and practical steps. It looks like accountability and obedience. You can't just wish the cycle away. You have to walk it out.\n\n---\n\n# Galatians 6:9\n\nKJV · Galatians 6:9 Galatians 6:9 (KJV) And let us not be weary in well doing: for in due season we shall reap, if we faint not. RVR1960 (el Señor) · Gálatas 6:9 9. No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos. Nombre divino adaptado a «el Señor», «del Señor» o «al Señor» según el contexto. Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988. Galatians 6:9 “Let us not be weary in well doing: for in due season we shall reap, if we faint not.” The cycle ends when you stay consistent long enough for the new habit to take root. In order for us to have new habits we have to stay consistent. For how long? As long as it takes! But you can't get tired. Keep going in well doing.\n\n---\n\n# It's Not Perfection. It's Persistence.\n\nConclusion Breaking a cycle doesn't happen in one night. It happens when your direction changes. It's not about perfection; it's about persistence. Correction helps turn repeated failure into growth, but only when we receive it. If you fall, rise again. If you slip, reset. If you fail, forgive. Israel's story shows us that God's mercy is greater than our patterns. He doesn't give up on His people. He keeps calling them higher. And He's calling you higher tonight.\n\n---\n\n# I Will No Longer Live in Circles.\n\nDeclaration “I will no longer live in circles. I will move forward in faith. I am forgiven. I am free. And this time, I'm not going back.”",
   "spanishVersionLabel": "Reina-Valera 1960 (nombre divino presentado como «el Señor»)",
   "spanishAdaptationNotice": "Los pasajes españoles proporcionados conservan su redacción salvo la sustitución editorial de «Jehová» por «el Señor», con las contracciones gramaticales «del Señor» y «al Señor» cuando corresponden.",
-  "divineNameDisplay": "el Señor"
+  "divineNameDisplay": "el Señor",
+  "spanishScreensFollowSlides": true
 }
