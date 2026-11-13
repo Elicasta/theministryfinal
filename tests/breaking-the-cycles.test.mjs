@@ -17,6 +17,8 @@ const passages = [
   ['Isaiah 43:18–19', 'Isaías 43:18-19', 2],
   ['Deuteronomy 30:19–20', 'Deuteronomio 30:19-20', 2],
   ['Galatians 6:9', 'Gálatas 6:9', 1],
+  ['Proverbs 12:1', 'Proverbios 12:1', 1],
+  ['Proverbs 15:31–32', 'Proverbios 15:31-32', 2],
 ];
 
 test('the new one-off is registered as the latest live iPad manuscript and slide deck', () => {
@@ -33,13 +35,13 @@ test('the new one-off is registered as the latest live iPad manuscript and slide
   assert.ok(html.includes('/presenter?lesson=' + id));
 });
 
-test('all 21 cues carry full presenter notes and remain aligned with the projector', () => {
-  assert.equal(lesson.slides.length, 21);
-  assert.equal(lesson.manuscript.length, 21);
-  assert.equal(lesson.slideScriptures.length, 21);
+test('all 23 cues carry full presenter notes and remain aligned with the projector', () => {
+  assert.equal(lesson.slides.length, 23);
+  assert.equal(lesson.manuscript.length, 23);
+  assert.equal(lesson.slideScriptures.length, 23);
   assert.equal(lesson.slides[0].type, 'cover');
   assert.equal(lesson.slides.at(-1).closingDeclaration, true);
-  assert.equal(lesson.slides.filter(s => s.type === 'verse').length, 7);
+  assert.equal(lesson.slides.filter(s => s.type === 'verse').length, 9);
   for (let i = 0; i < lesson.slides.length; i++) {
     assert.equal(lesson.manuscript[i].slide, i);
     assert.equal(lesson.manuscript[i].title, lesson.slides[i].title);
@@ -52,19 +54,21 @@ test('all 21 cues carry full presenter notes and remain aligned with the project
   const correction = lesson.slides.findIndex(s => s.title === 'When We Refuse Correction');
   const forgive = lesson.slides.findIndex(s => s.title === 'Forgive Yourself');
   assert.ok(correction > 0 && correction < forgive, 'Correction teaching must precede forgiveness');
-  assert.equal(lesson.slides[correction + 1].title, 'The Same Failure, Again');
-  assert.equal(lesson.slides[correction + 2].title, 'Correction Is Not Condemnation');
+  assert.equal(lesson.slides[correction + 1].ref, 'Proverbs 12:1');
+  assert.equal(lesson.slides[correction + 2].title, 'The Same Failure, Again');
+  assert.equal(lesson.slides[correction + 3].ref, 'Proverbs 15:31–32');
+  assert.equal(lesson.slides[correction + 4].title, 'Correction Is Not Condemnation');
   assert.ok(lesson.manuscript[correction].html.includes('Proverbs 12:1'));
-  assert.ok(lesson.manuscript[correction + 1].html.includes('Proverbs 15:31'));
-  for (let i = correction; i <= correction + 2; i++) assert.ok(lesson.slides[i].es?.title, 'Spanish correction slide ' + i);
+  assert.ok(lesson.manuscript[correction + 3].html.includes('Proverbs 15:31'));
+  for (let i = correction; i <= correction + 4; i++) assert.ok(lesson.slides[i].es?.title, 'Spanish correction slide ' + i);
 });
 
 test('each supplied passage has aligned KJV and RVR1960 with the preferred Señor rendering', () => {
   assert.match(lesson.spanishSource, /RVR1960.*Señor/);
-  assert.equal(lesson.suppliedSpanishPassages.length, 7);
+  assert.equal(lesson.suppliedSpanishPassages.length, 9);
   assert.equal(lesson.localRvr1960, true);
   assert.match(lesson.spanishCopyrightNotice, /Sociedades Bíblicas Unidas, 1988/);
-  assert.equal(lesson.verses.length, 15);
+  assert.equal(lesson.verses.length, 18);
   for (const [en, es, count] of passages) {
     const slideIndex = lesson.slides.findIndex(s => s.type === 'verse' && s.ref === en);
     assert.notEqual(slideIndex, -1, 'Missing Scripture slide ' + en);
@@ -82,6 +86,9 @@ test('each supplied passage has aligned KJV and RVR1960 with the preferred Seño
     assert.equal(slide.es.text.split('\n').length, count);
   }
   const expectedRvr = {
+    'Proverbios 12:1':'El que ama la instrucción ama la sabiduría; mas el que aborrece la reprensión es ignorante.',
+    'Proverbios 15:31':'El oído que escucha las amonestaciones de la vida, entre los sabios morará.',
+    'Proverbios 15:32':'El que tiene en poco la disciplina menosprecia su alma; mas el que escucha la corrección tiene entendimiento.',
     'Efesios 4:22':'En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,',
     'Jueces 2:19':'Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.',
     'Hageo 1:5':'Pues así ha dicho el Señor de los ejércitos: Meditad bien sobre vuestros caminos.',
@@ -107,7 +114,8 @@ test('scripture TVs remain under manual tech control; audience participation is 
   assert.equal(lesson.hideAudienceQr, true);
   assert.equal(lesson.polls.length, 0);
   assert.equal(lesson.prompts.length, 0);
-  assert.equal(lesson.sideTvSpanishMirror, false);
+  assert.equal(lesson.sideTvSpanishMirror, true);
+  assert.equal(lesson.spanishScreensFollowSlides,true);
   assert.match(engine, /lesson\?\.scriptureManualOnly\?null:scriptureForSlide\(t\)/);
 });
 
