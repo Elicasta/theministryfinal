@@ -80,7 +80,7 @@ test('no participation or polls interrupt this long-form sermon', () => {
 
 test('one tap on the manuscript cue advances the synchronized projector', () => {
   assert.match(consoleJs, /api\.go\(Number\(el\.dataset\.cue\)\)/);
-  assert.match(projector, /const autoScripture=scriptureForSlide\(t\)/);
+  assert.match(projector, /const autoScripture=lesson\?\.scriptureManualOnly\?null:scriptureForSlide\(t\)/);
   assert.match(projector, /function send\(\)/);
   assert.match(projector, /ih-process-grid/);
   assert.match(theme, /prefers-reduced-motion/);
