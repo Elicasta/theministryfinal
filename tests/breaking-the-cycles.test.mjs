@@ -81,7 +81,12 @@ test('each supplied passage has aligned KJV and RVR1960 with the preferred Seño
     assert.equal(map.spanishStatus, 'ready');
     assert.ok(lesson.manuscript[slideIndex].html.includes('class="ih-scripture"'), en + ' iPad KJV');
     assert.ok(lesson.manuscript[slideIndex].html.includes('class="sermon-rvr"'), es + ' iPad Spanish');
-    assert.ok(lesson.manuscript[slideIndex].html.includes('Nombre divino adaptado a «el Señor»'), es + ' adaptation disclosure');
+    if (!en.startsWith('Proverbs')) {
+      assert.ok(lesson.manuscript[slideIndex].html.includes('Nombre divino adaptado a «el Señor»'), es + ' adaptation disclosure');
+    } else {
+      assert.ok(lesson.manuscript[slideIndex].html.includes('RVR1960'), es + ' version label');
+      assert.ok(lesson.manuscript[slideIndex].html.includes('Sociedades Bíblicas Unidas, 1988'), es + ' copyright');
+    }
     assert.equal(lesson.suppliedSpanishPassages.find(p => p.ref === es).verses.length, count);
     assert.equal(slide.es.text.split('\n').length, count);
   }
