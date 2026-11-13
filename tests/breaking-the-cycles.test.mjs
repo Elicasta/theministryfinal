@@ -67,6 +67,9 @@ test('each supplied passage has aligned KJV and RVR1960 with the preferred Seño
     assert.equal(map.text_en, slide.text);
     assert.equal(map.text_es, slide.es.text);
     assert.equal(map.spanishStatus, 'ready');
+    assert.ok(lesson.manuscript[slideIndex].html.includes('class="ih-scripture"'), en + ' iPad KJV');
+    assert.ok(lesson.manuscript[slideIndex].html.includes('class="sermon-rvr"'), es + ' iPad Spanish');
+    assert.ok(lesson.manuscript[slideIndex].html.includes('Nombre divino adaptado a Señor'), es + ' adaptation disclosure');
     assert.equal(lesson.suppliedSpanishPassages.find(p => p.ref === es).verses.length, count);
     assert.equal(slide.es.text.split('\n').length, count);
   }
