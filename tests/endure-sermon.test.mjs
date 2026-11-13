@@ -15,14 +15,14 @@ const theme=read('engine/endure-sermon.css');
 const html=read('engine/index.html');
 const routes=JSON.parse(read('vercel.json')).routes;
 
-test('full sermon is the latest original iPad console lesson',()=>{
-  assert.equal(library.latest,id);
+test('archived Endure sermon remains available in the original iPad console',()=>{
+  assert.notEqual(library.latest,id);
   const matching=library.lessons.filter(x=>x.id===id);
   assert.equal(matching.length,1);
   assert.equal(matching[0].artifacts.presentation,'/presenter?lesson='+id);
   assert.equal(matching[0].engineSource,'/content/'+id+'-slides.json');
   assert.ok(html.includes('/engine/endure-sermon.css'));
-  assert.ok(html.includes('/presenter?lesson='+id));
+  assert.ok(html.includes('/presenter?lesson='+library.latest));
   assert.ok(!routes.some(x=>x.src==='/presenter/endure'));
 });
 
