@@ -95,7 +95,7 @@ test('side screen uses cue number in render key, independent of Scripture output
   assert.match(engine,/state\.scriptureCueMode='slide'/);
   assert.match(engine,/state\.scriptureCueMode='manual'/);
   assert.match(engine,/state\.sideScreenCleared=false/);
-  assert.match(engine,/if\(!isMirroredSermon\(\)\)resolveSpanish/);
+  assert.match(engine,/if\(autoScripture&&!isMirroredSermon\(\)\)resolveSpanish/);
   assert.doesNotThrow(()=>new Script(engine));
 });
 test('moving to a new teaching cue clears stale manual verse and prepares the next Spanish slide',()=>{
@@ -156,7 +156,7 @@ test('live sermon engine uses cached RVR1960 from user-provided lesson for manus
   assert.match(engine,/ih-side-verse-source/);
   assert.match(engine,/ih-side-verse-copyright/);
   assert.match(engine,/lesson\.spanishCopyrightNotice/);
-  assert.match(engine,/if\(!isMirroredSermon\(\)\)resolveSpanish/);
+  assert.match(engine,/if\(autoScripture&&!isMirroredSermon\(\)\)resolveSpanish/);
   assert.doesNotMatch(engine,/TRADUCCIÓN PROPIA DEL KJV/);
 });
 
