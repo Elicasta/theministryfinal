@@ -45,3 +45,11 @@ The archive intentionally keeps multiple proven engines:
 - Matthew 11 uses the Kingdom Evidence engine and full manuscript presenter.
 
 The library is the organizing layer across those engines. It does not force them into one runtime.
+
+## Scripture translation and presentation policy
+
+- Use **KJV** for the main English Scripture slides, with Spanish displayed through the existing translation and side-screen workflow.
+- When **RVR1960** Scripture text is supplied, preserve the passage wording except render the divine name as **Señor**, not **Jehová**. Apply grammatical changes such as **del Señor** and **al Señor**.
+- As an adapted rendering, label it **RVR1960 (nombre divino adaptado a Señor)** rather than claiming an unmodified quotation. Retain the RVR1960 copyright notice.
+- Keep the localized slide text, slideScriptures, and Spanish verse-bank entries synchronized, and test that no displayed Spanish Scripture still contains the older divine-name form.
+- New one-off sermons belong to **Standalone Lessons**. They require a full iPad manuscript, aligned projector cues, and explicit Scripture screen controls without overwriting earlier stable manuscripts.
