@@ -1,0 +1,869 @@
+{
+  "id": "breaking-the-cycles-2026-11-12",
+  "slug": "breaking-the-cycles",
+  "series": "Standalone Lessons",
+  "seriesSlug": "standalone-lessons",
+  "sequence": "One-off · Nov 12",
+  "title": "Breaking the Cycles",
+  "scripture": "Ephesians 4:22–24",
+  "taughtAt": null,
+  "theme": "ministry",
+  "status": "ready",
+  "translation": "KJV / RVR1960",
+  "sideTvSpanishMirror": false,
+  "audienceParticipation": false,
+  "hideAudienceQr": true,
+  "scriptureManualOnly": true,
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "STANDALONE MESSAGE",
+      "title": "BREAKING THE CYCLES",
+      "sub": "Put off the old. Be renewed. Put on the new.",
+      "ref": "Ephesians 4:22–24",
+      "cue": "STANDALONE MESSAGE",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "title": "ROMPIENDO LOS CICLOS",
+        "sub": "Despojaos del viejo hombre. Renovaos. Vestíos del nuevo.",
+        "ref": "Efesios 4:22–24"
+      },
+      "sectionKey": "opening"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Ephesians 4:22–24",
+      "ref": "Ephesians 4:22–24",
+      "text": "22 That ye put off concerning the former conversation the old man, which is corrupt according to the deceitful lusts;\n23 And be renewed in the spirit of your mind;\n24 And that ye put on the new man, which after God is created in righteousness and true holiness.",
+      "ref_es": "Efesios 4:22-24",
+      "text_es": "22 En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,\n23 y renovaos en el espíritu de vuestra mente,\n24 y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad.",
+      "sourceRef": "Ephesians 4:22–24",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Efesios 4:22-24",
+        "ref": "Efesios 4:22-24",
+        "text": "22 En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,\n23 y renovaos en el espíritu de vuestra mente,\n24 y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "opening"
+    },
+    {
+      "type": "statement",
+      "kicker": "OPENING",
+      "title": "You Don't Have to Live Stuck",
+      "sub": "God saved you to move forward.",
+      "cue": "OPENING",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "INTRODUCCIÓN",
+        "title": "No tienes que quedarte estancado",
+        "sub": "Dios te salvó para avanzar."
+      },
+      "sectionKey": "opening"
+    },
+    {
+      "type": "points",
+      "kicker": "01 · RECOGNIZE",
+      "title": "Recognize the Cycle",
+      "points": [
+        "You can't fix what you won't face.",
+        "Don't call familiar dysfunction normal.",
+        "Recognize the pattern before repeating it."
+      ],
+      "cue": "01 · RECOGNIZE",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "01 · RECONOCER",
+        "title": "Reconoce el ciclo",
+        "points": [
+          "No puedes corregir lo que te niegas a enfrentar.",
+          "No llames normal a un patrón destructivo.",
+          "Reconoce el patrón antes de repetirlo."
+        ]
+      },
+      "sectionKey": "recognize"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Judges 2:18–19",
+      "ref": "Judges 2:18–19",
+      "text": "18 And when the LORD raised them up judges, then the LORD was with the judge, and delivered them out of the hand of their enemies all the days of the judge: for it repented the LORD because of their groanings by reason of them that oppressed them and vexed them.\n19 And it came to pass, when the judge was dead, that they returned, and corrupted themselves more than their fathers, in following other gods to serve them, and to bow down unto them; they ceased not from their own doings, nor from their stubborn way.",
+      "ref_es": "Jueces 2:18-19",
+      "text_es": "18 Y cuando Jehová les levantaba jueces, Jehová estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque Jehová era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían.\n19 Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.",
+      "sourceRef": "Judges 2:18–19",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Jueces 2:18-19",
+        "ref": "Jueces 2:18-19",
+        "text": "18 Y cuando Jehová les levantaba jueces, Jehová estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque Jehová era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían.\n19 Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "recognize"
+    },
+    {
+      "type": "progression",
+      "kicker": "THE PATTERN",
+      "title": "Disobedience → Oppression → Repentance → Restoration",
+      "steps": [
+        "Disobedience",
+        "Oppression",
+        "Repentance",
+        "Restoration",
+        "Back to disobedience"
+      ],
+      "cue": "THE PATTERN",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "EL PATRÓN",
+        "title": "Desobediencia → Opresión → Arrepentimiento → Restauración",
+        "steps": [
+          "Desobediencia",
+          "Opresión",
+          "Arrepentimiento",
+          "Restauración",
+          "Otra vez desobediencia"
+        ]
+      },
+      "sectionKey": "recognize"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Haggai 1:5–7",
+      "ref": "Haggai 1:5–7",
+      "text": "5 Now therefore thus saith the LORD of hosts; Consider your ways.\n6 Ye have sown much, and bring in little; ye eat, but ye have not enough; ye drink, but ye are not filled with drink; ye clothe you, but there is none warm; and he that earneth wages earneth wages to put it into a bag with holes.\n7 Thus saith the LORD of hosts; Consider your ways.",
+      "ref_es": "Hageo 1:5-7",
+      "text_es": "5 Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos.\n6 Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto.\n7 Así ha dicho Jehová de los ejércitos: Meditad sobre vuestros caminos.",
+      "sourceRef": "Haggai 1:5–7",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Hageo 1:5-7",
+        "ref": "Hageo 1:5-7",
+        "text": "5 Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos.\n6 Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto.\n7 Así ha dicho Jehová de los ejércitos: Meditad sobre vuestros caminos.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "recognize"
+    },
+    {
+      "type": "statement",
+      "kicker": "REFLECTION",
+      "title": "Lord, What Are You Showing Me About Me?",
+      "sub": "Consider your ways. · Haggai 1:5",
+      "cue": "REFLECTION",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "REFLEXIÓN",
+        "title": "Señor, ¿qué me estás mostrando de mí?",
+        "sub": "Meditad sobre vuestros caminos. · Hageo 1:5"
+      },
+      "sectionKey": "recognize"
+    },
+    {
+      "type": "points",
+      "kicker": "02 · RELEASE",
+      "title": "Forgive Yourself",
+      "points": [
+        "Cycles often feed off guilt.",
+        "Shame can pull you back into the past.",
+        "Rise again rather than stay down."
+      ],
+      "cue": "02 · RELEASE",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "02 · DEJAR ATRÁS",
+        "title": "Perdónate",
+        "points": [
+          "Los ciclos a menudo se alimentan de la culpa.",
+          "La vergüenza puede atarte al pasado.",
+          "Levántate en vez de quedarte caído."
+        ]
+      },
+      "sectionKey": "forgive"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Micah 7:8–9",
+      "ref": "Micah 7:8–9",
+      "text": "8 Rejoice not against me, O mine enemy: when I fall, I shall arise; when I sit in darkness, the LORD shall be a light unto me.\n9 I will bear the indignation of the LORD, because I have sinned against him, until he plead my cause, and execute judgment for me: he will bring me forth to the light, and I shall behold his righteousness.",
+      "ref_es": "Miqueas 7:8-9",
+      "text_es": "8 Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz.\n9 La ira de Jehová soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia.",
+      "sourceRef": "Micah 7:8–9",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Miqueas 7:8-9",
+        "ref": "Miqueas 7:8-9",
+        "text": "8 Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz.\n9 La ira de Jehová soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "forgive"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Isaiah 43:18–19",
+      "ref": "Isaiah 43:18–19",
+      "text": "18 Remember ye not the former things, neither consider the things of old.\n19 Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+      "ref_es": "Isaías 43:18-19",
+      "text_es": "18 No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas.\n19 He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad.",
+      "sourceRef": "Isaiah 43:18–19",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Isaías 43:18-19",
+        "ref": "Isaías 43:18-19",
+        "text": "18 No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas.\n19 He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "forgive"
+    },
+    {
+      "type": "statement",
+      "kicker": "NEW THINGS",
+      "title": "God Will Make a Way",
+      "sub": "A way in the wilderness. Rivers in the desert.",
+      "cue": "NEW THINGS",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "COSAS NUEVAS",
+        "title": "Dios abrirá camino",
+        "sub": "Camino en el desierto. Ríos en la soledad."
+      },
+      "sectionKey": "forgive"
+    },
+    {
+      "type": "points",
+      "kicker": "03 · COMMIT",
+      "title": "Commit to a New Way",
+      "points": [
+        "Recognition without change is only awareness.",
+        "Cycles break when choices change.",
+        "Commit first to loving and obeying God."
+      ],
+      "cue": "03 · COMMIT",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "03 · COMPROMISO",
+        "title": "Comprométete con un nuevo camino",
+        "points": [
+          "Reconocer sin cambiar es solo conciencia.",
+          "Los ciclos se rompen cuando cambian las decisiones.",
+          "Comprométete primero con amar y obedecer a Dios."
+        ]
+      },
+      "sectionKey": "commit"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Deuteronomy 30:19–20",
+      "ref": "Deuteronomy 30:19–20",
+      "text": "19 I call heaven and earth to record this day against you, that I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live:\n20 That thou mayest love the LORD thy God, and that thou mayest obey his voice, and that thou mayest cleave unto him: for he is thy life, and the length of thy days: that thou mayest dwell in the land which the LORD sware unto thy fathers, to Abraham, to Isaac, and to Jacob, to give them.",
+      "ref_es": "Deuteronomio 30:19-20",
+      "text_es": "19 A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia;\n20 amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar.",
+      "sourceRef": "Deuteronomy 30:19–20",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Deuteronomio 30:19-20",
+        "ref": "Deuteronomio 30:19-20",
+        "text": "19 A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia;\n20 amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "commit"
+    },
+    {
+      "type": "points",
+      "kicker": "PRACTICAL COMMITMENT",
+      "title": "Consistency Over Comfort",
+      "points": [
+        "Boundaries",
+        "Prayer and practical steps",
+        "Accountability",
+        "Obedience"
+      ],
+      "cue": "PRACTICAL COMMITMENT",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "COMPROMISO PRÁCTICO",
+        "title": "Constancia antes que comodidad",
+        "points": [
+          "Límites",
+          "Oración y pasos prácticos",
+          "Responsabilidad",
+          "Obediencia"
+        ]
+      },
+      "sectionKey": "commit"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Galatians 6:9",
+      "ref": "Galatians 6:9",
+      "text": "9 And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+      "ref_es": "Gálatas 6:9",
+      "text_es": "9 No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.",
+      "sourceRef": "Galatians 6:9",
+      "cue": "SCRIPTURE · KJV",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "type": "verse",
+        "kicker": "ESCRITURA · RVR1960",
+        "title": "Gálatas 6:9",
+        "ref": "Gálatas 6:9",
+        "text": "9 No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.",
+        "translationKind": "RVR1960"
+      },
+      "sectionKey": "commit"
+    },
+    {
+      "type": "points",
+      "kicker": "CONCLUSION",
+      "title": "It's Not Perfection. It's Persistence.",
+      "points": [
+        "Change your direction.",
+        "If you fall, rise. If you slip, reset.",
+        "God's mercy is greater than your patterns."
+      ],
+      "cue": "CONCLUSION",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "CONCLUSIÓN",
+        "title": "No es perfección. Es perseverancia.",
+        "points": [
+          "Cambia tu dirección.",
+          "Si caes, levántate. Si tropiezas, vuelve a comenzar.",
+          "La misericordia de Dios es mayor que tus patrones."
+        ]
+      },
+      "sectionKey": "conclusion"
+    },
+    {
+      "type": "statement",
+      "kicker": "DECLARATION",
+      "title": "I Will No Longer Live in Circles.",
+      "sub": "I will move forward in faith.",
+      "closingDeclaration": true,
+      "cue": "DECLARATION",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript.",
+      "es": {
+        "kicker": "DECLARACIÓN",
+        "title": "No viviré más dando vueltas.",
+        "sub": "Avanzaré en fe."
+      },
+      "sectionKey": "conclusion"
+    }
+  ],
+  "slideScriptures": [
+    null,
+    {
+      "ref_en": "Ephesians 4:22–24",
+      "text_en": "22 That ye put off concerning the former conversation the old man, which is corrupt according to the deceitful lusts;\n23 And be renewed in the spirit of your mind;\n24 And that ye put on the new man, which after God is created in righteousness and true holiness.",
+      "ref_es": "Efesios 4:22-24",
+      "text_es": "22 En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,\n23 y renovaos en el espíritu de vuestra mente,\n24 y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref_en": "Judges 2:18–19",
+      "text_en": "18 And when the LORD raised them up judges, then the LORD was with the judge, and delivered them out of the hand of their enemies all the days of the judge: for it repented the LORD because of their groanings by reason of them that oppressed them and vexed them.\n19 And it came to pass, when the judge was dead, that they returned, and corrupted themselves more than their fathers, in following other gods to serve them, and to bow down unto them; they ceased not from their own doings, nor from their stubborn way.",
+      "ref_es": "Jueces 2:18-19",
+      "text_es": "18 Y cuando Jehová les levantaba jueces, Jehová estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque Jehová era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían.\n19 Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref_en": "Haggai 1:5–7",
+      "text_en": "5 Now therefore thus saith the LORD of hosts; Consider your ways.\n6 Ye have sown much, and bring in little; ye eat, but ye have not enough; ye drink, but ye are not filled with drink; ye clothe you, but there is none warm; and he that earneth wages earneth wages to put it into a bag with holes.\n7 Thus saith the LORD of hosts; Consider your ways.",
+      "ref_es": "Hageo 1:5-7",
+      "text_es": "5 Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos.\n6 Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto.\n7 Así ha dicho Jehová de los ejércitos: Meditad sobre vuestros caminos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref_en": "Micah 7:8–9",
+      "text_en": "8 Rejoice not against me, O mine enemy: when I fall, I shall arise; when I sit in darkness, the LORD shall be a light unto me.\n9 I will bear the indignation of the LORD, because I have sinned against him, until he plead my cause, and execute judgment for me: he will bring me forth to the light, and I shall behold his righteousness.",
+      "ref_es": "Miqueas 7:8-9",
+      "text_es": "8 Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz.\n9 La ira de Jehová soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref_en": "Isaiah 43:18–19",
+      "text_en": "18 Remember ye not the former things, neither consider the things of old.\n19 Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+      "ref_es": "Isaías 43:18-19",
+      "text_es": "18 No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas.\n19 He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref_en": "Deuteronomy 30:19–20",
+      "text_en": "19 I call heaven and earth to record this day against you, that I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live:\n20 That thou mayest love the LORD thy God, and that thou mayest obey his voice, and that thou mayest cleave unto him: for he is thy life, and the length of thy days: that thou mayest dwell in the land which the LORD sware unto thy fathers, to Abraham, to Isaac, and to Jacob, to give them.",
+      "ref_es": "Deuteronomio 30:19-20",
+      "text_es": "19 A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia;\n20 amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref_en": "Galatians 6:9",
+      "text_en": "9 And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+      "ref_es": "Gálatas 6:9",
+      "text_es": "9 No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null
+  ],
+  "manuscript": [
+    {
+      "slide": 0,
+      "title": "BREAKING THE CYCLES",
+      "refs": [
+        "Ephesians 4:22–24"
+      ],
+      "html": "<h3>Opening</h3><p>PTL everyone. Tonight I want to talk to you about <em>the process of breaking the cycles in our life.</em></p><p>Now, these cycles can look different for each of us. Maybe it's that constant back-and-forth with someone, maybe it's the same mental spiral, or that emotional rollercoaster you can't seem to step off of.</p><p>But tonight, I want to show you from the Word of God that <em>you don't have to live stuck.</em></p><p>God didn't save you just to spin in circles. He saved you to <em>move forward.</em></p><p>Now if we look at the Bible we will find that the people of Israel found themselves in a cycle with the Lord. This cycle was a cycle of disobedience, returning to the Lord, doing well, then slowly slipping back to this pattern.</p><p>When we think about this we can find ourselves slowly slipping back into old habits, into old thought patterns and old ways of doing things. But we must get up and return to the Lord.</p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 1,
+      "title": "Ephesians 4:22–24",
+      "refs": [
+        "Ephesians 4:22–24"
+      ],
+      "html": "<h3>Ephesians 4:22–24</h3><p><strong>Opening passage as originally supplied:</strong></p><p>You were taught to put off your old self, which belongs to your former manner of life and is corrupt through deceitful desires, and to be renewed in the spirit of your minds, and to put on the new self, created after the likeness of God in true righteousness and holiness.</p><p><strong>The KJV wording is projected for consistency with the Scripture bank. The supplied RVR1960 text is available in Spanish.</strong></p><ul><li>Put off the old self.</li><li>Be renewed in the spirit of your mind.</li><li>Put on the new self.</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 2,
+      "title": "You Don't Have to Live Stuck",
+      "refs": [],
+      "html": "<p>We see Israel return again and again to the same behaviors.</p><ul><li>Disobedience.</li><li>Returning to the Lord.</li><li>Walking well for a season.</li><li>Slipping back into the same patterns.</li></ul><p>What do we do when old habits or old thought patterns start returning?</p><p><strong>We must get up and return to the Lord.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 3,
+      "title": "Recognize the Cycle",
+      "refs": [],
+      "html": "<h3>1. Recognize the Cycle</h3><p>Let's start with recognition.</p><p><strong>You can't fix what you won't face.</strong></p><p>In Judges 2:18–19, the Bible says every time the Lord raised up judges to deliver Israel, the people would serve Him for a while, but as soon as that leader died, <em>they returned and corrupted themselves more than their fathers.</em></p><p><strong>That's a cycle.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 4,
+      "title": "Judges 2:18–19",
+      "refs": [
+        "Judges 2:18–19"
+      ],
+      "html": "<ul><li>Every time the Lord raised up judges, He delivered the people.</li><li>As soon as the judge died, they returned to the same behaviors.</li><li>Sometimes the pattern became even worse than before.</li></ul><p><strong>It wasn't that God changed.</strong></p><ul><li>It was that they didn't recognize the pattern long enough to change their <em>heart.</em></li><li>Sometimes we get so used to dysfunction that we call it normal.</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 5,
+      "title": "Disobedience → Oppression → Repentance → Restoration",
+      "refs": [],
+      "html": "<p>Disobedience → oppression → repentance → restoration → back to disobedience.</p><p>We start thinking, <em>“That's just how I am.”</em> But what if that's just the cycle talking?</p><p>Before freedom can begin, there has to be a moment of recognition, a moment where you say, <em>“This is not who I'm meant to be.”</em></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 6,
+      "title": "Haggai 1:5–7",
+      "refs": [
+        "Haggai 1:5–7"
+      ],
+      "html": "<h3>Consider Your Ways</h3><p><strong>Haggai 1:5–7</strong></p><p>God was calling His people to self-awareness. The breakthrough starts when you stop blaming everyone else and start asking:</p><ul><li><em>“Lord, what are You showing me about me?”</em></li><li>Where am I overworking at something that consistently isn't working?</li><li>Where might I have a loop that doesn't produce?</li></ul><p><strong>Give the room a moment to reflect.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 7,
+      "title": "Lord, What Are You Showing Me About Me?",
+      "refs": [],
+      "html": "<p>The point is not to blame yourself for every hardship, but to examine the patterns you do have the power to change.</p><ul><li>Where am I overworking at something that's consistently not working?</li><li>Where might I have a loop that doesn't produce?</li><li>What is the Lord showing me about me?</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 8,
+      "title": "Forgive Yourself",
+      "refs": [],
+      "html": "<h3>2. Forgive Yourself</h3><ul><li>Cycles often feed off guilt.</li><li>We sometimes stay in a cycle because we feel bad leaving the cycle.</li><li>Sometimes we have a relationship with our cycle that makes it difficult to leave.</li></ul><p>We repent, but we don't forgive ourselves, and so shame becomes the leash that pulls us back.</p><p><strong>Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 9,
+      "title": "Micah 7:8–9",
+      "refs": [
+        "Micah 7:8–9"
+      ],
+      "html": "<h3>Micah 7:8–9</h3><ul><li>Notice that: <em>he didn't stay down.</em></li><li>He understood that even in failure, God's mercy was still present.</li></ul><p>If the enemy can keep you focused on what you did, you'll never step into who you're becoming.</p><p>Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.</p><p><strong>Notice also that Micah acknowledges his sin while trusting God to bring him to the light.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 10,
+      "title": "Isaiah 43:18–19",
+      "refs": [
+        "Isaiah 43:18–19"
+      ],
+      "html": "<h3>Isaiah 43:18–19</h3><ul><li>God's trying to do something new, but you're still rehearsing something old.</li><li>God will make a new thing grow in unexpected places.</li><li>God will make a new way in impossible places.</li><li>God will make a way according to His timing, not yours.</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 11,
+      "title": "God Will Make a Way",
+      "refs": [],
+      "html": "<p>God's trying to do something new, but you're still rehearsing something old.</p><ul><li>God will make a new thing grow in unexpected places.</li><li>God will make a new way in impossible places.</li><li>God's way unfolds according to His timing, not yours.</li></ul><p><strong>Don't keep rehearsing what God has called you to move beyond.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 12,
+      "title": "Commit to a New Way",
+      "refs": [],
+      "html": "<h3>3. Commit to a New Way</h3><p>Recognition without change is just awareness.</p><p><strong>But commitment creates transformation.</strong></p><ul><li>Cycles break when choices change.</li><li>You can't pray your way out of something you keep walking back into.</li><li>We get to choose what we want, but it starts with a commitment.</li><li>Commitment starts with commitment to God.</li><li>God wants you to listen, obey and do.</li><li>When we commit to God, God fulfills His promises.</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 13,
+      "title": "Deuteronomy 30:19–20",
+      "refs": [
+        "Deuteronomy 30:19–20"
+      ],
+      "html": "<h3>Deuteronomy 30:19–20</h3><p><strong>“Therefore choose life.”</strong></p><ul><li>God sets before His people life and death, blessing and cursing.</li><li>Commitment begins with loving Him, obeying His voice, and cleaving to Him.</li><li>He is our life.</li></ul><p><strong>We don't merely choose to stop repeating a cycle; we choose a new way of walking with God.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 14,
+      "title": "Consistency Over Comfort",
+      "refs": [],
+      "html": "<p>When Israel finally committed to walk differently, to tear down idols, to return to the covenant, the pattern shifted. Likewise, when you start choosing <em>consistency over comfort,</em> you'll start seeing <em>change over chaos.</em></p><ul><li>Commitment looks like boundaries.</li><li>It looks like prayer <em>and</em> practical steps.</li><li>It looks like accountability and obedience.</li></ul><p><strong>You can't just wish the cycle away. You have to walk it out.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 15,
+      "title": "Galatians 6:9",
+      "refs": [
+        "Galatians 6:9"
+      ],
+      "html": "<h3>Galatians 6:9</h3><p><strong>“Let us not be weary in well doing: for in due season we shall reap, if we faint not.”</strong></p><ul><li>The cycle ends when you stay consistent long enough for the new habit to take root.</li><li>In order for us to have new habits we have to stay consistent.</li><li>For how long? <strong>As long as it takes!</strong></li><li>But you can't get tired. Keep going in well doing.</li></ul>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 16,
+      "title": "It's Not Perfection. It's Persistence.",
+      "refs": [],
+      "html": "<h3>Conclusion</h3><ul><li>Breaking a cycle doesn't happen in one night. It happens when your <em>direction</em> changes.</li><li>It's not about perfection; it's about persistence.</li><li>If you fall, rise again. If you slip, reset. If you fail, forgive.</li><li>Israel's story shows us that God's mercy is greater than our patterns.</li><li>He doesn't give up on His people. He keeps calling them higher.</li></ul><p><strong>And He's calling you higher tonight.</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    },
+    {
+      "slide": 17,
+      "title": "I Will No Longer Live in Circles.",
+      "refs": [],
+      "html": "<h3>Declaration</h3><p><strong>“I will no longer live in circles.</strong></p><p><strong>I will move forward in faith.</strong></p><p><strong>I am forgiven.</strong></p><p><strong>I am free.</strong></p><p><strong>And this time, I'm not going back.”</strong></p>",
+      "notes": "Advance manually. Full teaching notes are in the iPad manuscript."
+    }
+  ],
+  "verses": [
+    {
+      "ref": "Ephesians 4:22",
+      "ref_en": "Ephesians 4:22",
+      "text": "That ye put off concerning the former conversation the old man, which is corrupt according to the deceitful lusts;",
+      "text_en": "That ye put off concerning the former conversation the old man, which is corrupt according to the deceitful lusts;",
+      "ref_es": "Efesios 4:22",
+      "text_es": "En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Ephesians 4:23",
+      "ref_en": "Ephesians 4:23",
+      "text": "And be renewed in the spirit of your mind;",
+      "text_en": "And be renewed in the spirit of your mind;",
+      "ref_es": "Efesios 4:23",
+      "text_es": "y renovaos en el espíritu de vuestra mente,",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Ephesians 4:24",
+      "ref_en": "Ephesians 4:24",
+      "text": "And that ye put on the new man, which after God is created in righteousness and true holiness.",
+      "text_en": "And that ye put on the new man, which after God is created in righteousness and true holiness.",
+      "ref_es": "Efesios 4:24",
+      "text_es": "y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Judges 2:18",
+      "ref_en": "Judges 2:18",
+      "text": "And when the LORD raised them up judges, then the LORD was with the judge, and delivered them out of the hand of their enemies all the days of the judge: for it repented the LORD because of their groanings by reason of them that oppressed them and vexed them.",
+      "text_en": "And when the LORD raised them up judges, then the LORD was with the judge, and delivered them out of the hand of their enemies all the days of the judge: for it repented the LORD because of their groanings by reason of them that oppressed them and vexed them.",
+      "ref_es": "Jueces 2:18",
+      "text_es": "Y cuando Jehová les levantaba jueces, Jehová estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque Jehová era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Judges 2:19",
+      "ref_en": "Judges 2:19",
+      "text": "And it came to pass, when the judge was dead, that they returned, and corrupted themselves more than their fathers, in following other gods to serve them, and to bow down unto them; they ceased not from their own doings, nor from their stubborn way.",
+      "text_en": "And it came to pass, when the judge was dead, that they returned, and corrupted themselves more than their fathers, in following other gods to serve them, and to bow down unto them; they ceased not from their own doings, nor from their stubborn way.",
+      "ref_es": "Jueces 2:19",
+      "text_es": "Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Haggai 1:5",
+      "ref_en": "Haggai 1:5",
+      "text": "Now therefore thus saith the LORD of hosts; Consider your ways.",
+      "text_en": "Now therefore thus saith the LORD of hosts; Consider your ways.",
+      "ref_es": "Hageo 1:5",
+      "text_es": "Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Haggai 1:6",
+      "ref_en": "Haggai 1:6",
+      "text": "Ye have sown much, and bring in little; ye eat, but ye have not enough; ye drink, but ye are not filled with drink; ye clothe you, but there is none warm; and he that earneth wages earneth wages to put it into a bag with holes.",
+      "text_en": "Ye have sown much, and bring in little; ye eat, but ye have not enough; ye drink, but ye are not filled with drink; ye clothe you, but there is none warm; and he that earneth wages earneth wages to put it into a bag with holes.",
+      "ref_es": "Hageo 1:6",
+      "text_es": "Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Haggai 1:7",
+      "ref_en": "Haggai 1:7",
+      "text": "Thus saith the LORD of hosts; Consider your ways.",
+      "text_en": "Thus saith the LORD of hosts; Consider your ways.",
+      "ref_es": "Hageo 1:7",
+      "text_es": "Así ha dicho Jehová de los ejércitos: Meditad sobre vuestros caminos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Micah 7:8",
+      "ref_en": "Micah 7:8",
+      "text": "Rejoice not against me, O mine enemy: when I fall, I shall arise; when I sit in darkness, the LORD shall be a light unto me.",
+      "text_en": "Rejoice not against me, O mine enemy: when I fall, I shall arise; when I sit in darkness, the LORD shall be a light unto me.",
+      "ref_es": "Miqueas 7:8",
+      "text_es": "Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Micah 7:9",
+      "ref_en": "Micah 7:9",
+      "text": "I will bear the indignation of the LORD, because I have sinned against him, until he plead my cause, and execute judgment for me: he will bring me forth to the light, and I shall behold his righteousness.",
+      "text_en": "I will bear the indignation of the LORD, because I have sinned against him, until he plead my cause, and execute judgment for me: he will bring me forth to the light, and I shall behold his righteousness.",
+      "ref_es": "Miqueas 7:9",
+      "text_es": "La ira de Jehová soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 43:18",
+      "ref_en": "Isaiah 43:18",
+      "text": "Remember ye not the former things, neither consider the things of old.",
+      "text_en": "Remember ye not the former things, neither consider the things of old.",
+      "ref_es": "Isaías 43:18",
+      "text_es": "No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Isaiah 43:19",
+      "ref_en": "Isaiah 43:19",
+      "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+      "text_en": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+      "ref_es": "Isaías 43:19",
+      "text_es": "He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Deuteronomy 30:19",
+      "ref_en": "Deuteronomy 30:19",
+      "text": "I call heaven and earth to record this day against you, that I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live:",
+      "text_en": "I call heaven and earth to record this day against you, that I have set before you life and death, blessing and cursing: therefore choose life, that both thou and thy seed may live:",
+      "ref_es": "Deuteronomio 30:19",
+      "text_es": "A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia;",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Deuteronomy 30:20",
+      "ref_en": "Deuteronomy 30:20",
+      "text": "That thou mayest love the LORD thy God, and that thou mayest obey his voice, and that thou mayest cleave unto him: for he is thy life, and the length of thy days: that thou mayest dwell in the land which the LORD sware unto thy fathers, to Abraham, to Isaac, and to Jacob, to give them.",
+      "text_en": "That thou mayest love the LORD thy God, and that thou mayest obey his voice, and that thou mayest cleave unto him: for he is thy life, and the length of thy days: that thou mayest dwell in the land which the LORD sware unto thy fathers, to Abraham, to Isaac, and to Jacob, to give them.",
+      "ref_es": "Deuteronomio 30:20",
+      "text_es": "amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Galatians 6:9",
+      "ref_en": "Galatians 6:9",
+      "text": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+      "text_en": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+      "ref_es": "Gálatas 6:9",
+      "text_es": "No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos.",
+      "spanishSource": "RVR1960",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    }
+  ],
+  "polls": [],
+  "prompts": [],
+  "translations": {
+    "es": null
+  },
+  "localRvr1960": true,
+  "spanishSource": "RVR1960",
+  "spanishCopyrightNotice": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.",
+  "suppliedSpanishPassages": [
+    {
+      "ref": "Efesios 4:22-24",
+      "verses": [
+        {
+          "number": 22,
+          "text": "En cuanto a la pasada manera de vivir, despojaos del viejo hombre, que está viciado conforme a los deseos engañosos,"
+        },
+        {
+          "number": 23,
+          "text": "y renovaos en el espíritu de vuestra mente,"
+        },
+        {
+          "number": 24,
+          "text": "y vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad."
+        }
+      ]
+    },
+    {
+      "ref": "Jueces 2:18-19",
+      "verses": [
+        {
+          "number": 18,
+          "text": "Y cuando Jehová les levantaba jueces, Jehová estaba con el juez, y los libraba de mano de los enemigos todo el tiempo de aquel juez; porque Jehová era movido a misericordia por sus gemidos a causa de los que los oprimían y afligían."
+        },
+        {
+          "number": 19,
+          "text": "Mas acontecía que al morir el juez, ellos volvían atrás, y se corrompían más que sus padres, siguiendo a dioses ajenos para servirles, e inclinándose delante de ellos; y no se apartaban de sus obras, ni de su obstinado camino."
+        }
+      ]
+    },
+    {
+      "ref": "Hageo 1:5-7",
+      "verses": [
+        {
+          "number": 5,
+          "text": "Pues así ha dicho Jehová de los ejércitos: Meditad bien sobre vuestros caminos."
+        },
+        {
+          "number": 6,
+          "text": "Sembráis mucho, y recogéis poco; coméis, y no os saciáis; bebéis, y no quedáis satisfechos; os vestís, y no os calentáis; y el que trabaja a jornal recibe su jornal en saco roto."
+        },
+        {
+          "number": 7,
+          "text": "Así ha dicho Jehová de los ejércitos: Meditad sobre vuestros caminos."
+        }
+      ]
+    },
+    {
+      "ref": "Miqueas 7:8-9",
+      "verses": [
+        {
+          "number": 8,
+          "text": "Tú, enemiga mía, no te alegres de mí, porque aunque caí, me levantaré; aunque more en tinieblas, Jehová será mi luz."
+        },
+        {
+          "number": 9,
+          "text": "La ira de Jehová soportaré, porque pequé contra él, hasta que juzgue mi causa y haga mi justicia; él me sacará a luz; veré su justicia."
+        }
+      ]
+    },
+    {
+      "ref": "Isaías 43:18-19",
+      "verses": [
+        {
+          "number": 18,
+          "text": "No os acordéis de las cosas pasadas, ni traigáis a memoria las cosas antiguas."
+        },
+        {
+          "number": 19,
+          "text": "He aquí que yo hago cosa nueva; pronto saldrá a luz; ¿no la conoceréis? Otra vez abriré camino en el desierto, y ríos en la soledad."
+        }
+      ]
+    },
+    {
+      "ref": "Deuteronomio 30:19-20",
+      "verses": [
+        {
+          "number": 19,
+          "text": "A los cielos y a la tierra llamo por testigos hoy contra vosotros, que os he puesto delante la vida y la muerte, la bendición y la maldición; escoge, pues, la vida, para que vivas tú y tu descendencia;"
+        },
+        {
+          "number": 20,
+          "text": "amando a Jehová tu Dios, atendiendo a su voz, y siguiéndole a él; porque él es vida para ti, y prolongación de tus días; a fin de que habites sobre la tierra que juró Jehová a tus padres, Abraham, Isaac y Jacob, que les había de dar."
+        }
+      ]
+    },
+    {
+      "ref": "Gálatas 6:9",
+      "verses": [
+        {
+          "number": 9,
+          "text": "No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos."
+        }
+      ]
+    }
+  ],
+  "manuscriptSourceMd": "# BREAKING THE CYCLES\n\n## Opening\nPTL everyone. Tonight I want to talk to you about *the process of breaking the cycles in our life.*\n\nNow, these cycles can look different for each of us. Maybe it's that constant back-and-forth with someone, maybe it's the same mental spiral, or that emotional rollercoaster you can't seem to step off of.\n\nBut tonight, I want to show you from the Word of God that *you don't have to live stuck.*\n\nGod didn't save you just to spin in circles. He saved you to *move forward.*\n\nNow if we look at the Bible we will find that the people of Israel found themselves in a cycle with the Lord. This cycle was a cycle of disobedience, returning to the Lord, doing well, then slowly slipping back to this pattern.\n\nWhen we think about this we can find ourselves slowly slipping back into old habits, into old thought patterns and old ways of doing things. But we must get up and return to the Lord.\n\n---\n\n# Ephesians 4:22–24\n\n## Ephesians 4:22–24\n**Opening passage as originally supplied:**\nYou were taught to put off your old self, which belongs to your former manner of life and is corrupt through deceitful desires, and to be renewed in the spirit of your minds, and to put on the new self, created after the likeness of God in true righteousness and holiness.\n\n**The KJV wording is projected for consistency with the Scripture bank. The supplied RVR1960 text is available in Spanish.**\n\n- Put off the old self.\n- Be renewed in the spirit of your mind.\n- Put on the new self.\n\n---\n\n# You Don't Have to Live Stuck\n\nWe see Israel return again and again to the same behaviors.\n- Disobedience.\n- Returning to the Lord.\n- Walking well for a season.\n- Slipping back into the same patterns.\n\nWhat do we do when old habits or old thought patterns start returning?\n\n**We must get up and return to the Lord.**\n\n---\n\n# Recognize the Cycle\n\n## 1. Recognize the Cycle\nLet's start with recognition.\n\n**You can't fix what you won't face.**\n\nIn Judges 2:18–19, the Bible says every time the Lord raised up judges to deliver Israel, the people would serve Him for a while, but as soon as that leader died, *they returned and corrupted themselves more than their fathers.*\n\n**That's a cycle.**\n\n---\n\n# Judges 2:18–19\n\n- Every time the Lord raised up judges, He delivered the people.\n- As soon as the judge died, they returned to the same behaviors.\n- Sometimes the pattern became even worse than before.\n\n**It wasn't that God changed.**\n- It was that they didn't recognize the pattern long enough to change their *heart.*\n- Sometimes we get so used to dysfunction that we call it normal.\n\n---\n\n# Disobedience → Oppression → Repentance → Restoration\n\nDisobedience → oppression → repentance → restoration → back to disobedience.\n\nWe start thinking, *“That's just how I am.”* But what if that's just the cycle talking?\n\nBefore freedom can begin, there has to be a moment of recognition, a moment where you say, *“This is not who I'm meant to be.”*\n\n---\n\n# Haggai 1:5–7\n\n## Consider Your Ways\n**Haggai 1:5–7**\n\nGod was calling His people to self-awareness. The breakthrough starts when you stop blaming everyone else and start asking:\n\n- *“Lord, what are You showing me about me?”*\n- Where am I overworking at something that consistently isn't working?\n- Where might I have a loop that doesn't produce?\n\n**Give the room a moment to reflect.**\n\n---\n\n# Lord, What Are You Showing Me About Me?\n\nThe point is not to blame yourself for every hardship, but to examine the patterns you do have the power to change.\n\n- Where am I overworking at something that's consistently not working?\n- Where might I have a loop that doesn't produce?\n- What is the Lord showing me about me?\n\n---\n\n# Forgive Yourself\n\n## 2. Forgive Yourself\n- Cycles often feed off guilt.\n- We sometimes stay in a cycle because we feel bad leaving the cycle.\n- Sometimes we have a relationship with our cycle that makes it difficult to leave.\n\nWe repent, but we don't forgive ourselves, and so shame becomes the leash that pulls us back.\n\n**Forgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.**\n\n---\n\n# Micah 7:8–9\n\n## Micah 7:8–9\n- Notice that: *he didn't stay down.*\n- He understood that even in failure, God's mercy was still present.\n\nIf the enemy can keep you focused on what you did, you'll never step into who you're becoming.\n\nForgiving yourself isn't excusing the past. It's releasing the past so it can't keep you prisoner.\n\n**Notice also that Micah acknowledges his sin while trusting God to bring him to the light.**\n\n---\n\n# Isaiah 43:18–19\n\n## Isaiah 43:18–19\n- God's trying to do something new, but you're still rehearsing something old.\n- God will make a new thing grow in unexpected places.\n- God will make a new way in impossible places.\n- God will make a way according to His timing, not yours.\n\n---\n\n# God Will Make a Way\n\nGod's trying to do something new, but you're still rehearsing something old.\n\n- God will make a new thing grow in unexpected places.\n- God will make a new way in impossible places.\n- God's way unfolds according to His timing, not yours.\n\n**Don't keep rehearsing what God has called you to move beyond.**\n\n---\n\n# Commit to a New Way\n\n## 3. Commit to a New Way\nRecognition without change is just awareness.\n\n**But commitment creates transformation.**\n\n- Cycles break when choices change.\n- You can't pray your way out of something you keep walking back into.\n- We get to choose what we want, but it starts with a commitment.\n- Commitment starts with commitment to God.\n- God wants you to listen, obey and do.\n- When we commit to God, God fulfills His promises.\n\n---\n\n# Deuteronomy 30:19–20\n\n## Deuteronomy 30:19–20\n**“Therefore choose life.”**\n\n- God sets before His people life and death, blessing and cursing.\n- Commitment begins with loving Him, obeying His voice, and cleaving to Him.\n- He is our life.\n\n**We don't merely choose to stop repeating a cycle; we choose a new way of walking with God.**\n\n---\n\n# Consistency Over Comfort\n\nWhen Israel finally committed to walk differently, to tear down idols, to return to the covenant, the pattern shifted. Likewise, when you start choosing *consistency over comfort,* you'll start seeing *change over chaos.*\n\n- Commitment looks like boundaries.\n- It looks like prayer *and* practical steps.\n- It looks like accountability and obedience.\n\n**You can't just wish the cycle away. You have to walk it out.**\n\n---\n\n# Galatians 6:9\n\n## Galatians 6:9\n**“Let us not be weary in well doing: for in due season we shall reap, if we faint not.”**\n\n- The cycle ends when you stay consistent long enough for the new habit to take root.\n- In order for us to have new habits we have to stay consistent.\n- For how long? **As long as it takes!**\n- But you can't get tired. Keep going in well doing.\n\n---\n\n# It's Not Perfection. It's Persistence.\n\n## Conclusion\n- Breaking a cycle doesn't happen in one night. It happens when your *direction* changes.\n- It's not about perfection; it's about persistence.\n- If you fall, rise again. If you slip, reset. If you fail, forgive.\n- Israel's story shows us that God's mercy is greater than our patterns.\n- He doesn't give up on His people. He keeps calling them higher.\n\n**And He's calling you higher tonight.**\n\n---\n\n# I Will No Longer Live in Circles.\n\n## Declaration\n**“I will no longer live in circles.**\n\n**I will move forward in faith.**\n\n**I am forgiven.**\n\n**I am free.**\n\n**And this time, I'm not going back.”**"
+}
