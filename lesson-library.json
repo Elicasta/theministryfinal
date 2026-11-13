@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-05",
-  "latest": "how-to-endure-to-the-end-2026-11-05",
+  "updatedAt": "2026-11-12",
+  "latest": "breaking-the-cycles-2026-11-12",
   "rules": {
     "stableBuildsAreImmutable": true,
     "requiredArtifacts": [
@@ -285,6 +285,27 @@
         "confidence": "/confidence?lesson=how-to-endure-to-the-end-2026-11-05"
       },
       "engineSource": "/content/how-to-endure-to-the-end-2026-11-05-slides.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "breaking-the-cycles-2026-11-12",
+      "series": "Standalone Lessons",
+      "sequence": "One-off",
+      "title": "Breaking the Cycles",
+      "scripture": "Ephesians 4:22–24",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=breaking-the-cycles-2026-11-12",
+        "projector": "/projector?lesson=breaking-the-cycles-2026-11-12",
+        "manuscript": "/presenter?lesson=breaking-the-cycles-2026-11-12",
+        "controller": "/mobile?lesson=breaking-the-cycles-2026-11-12",
+        "scriptures": "/scriptures?lesson=breaking-the-cycles-2026-11-12",
+        "confidence": "/confidence?lesson=breaking-the-cycles-2026-11-12"
+      },
+      "engineSource": "/content/breaking-the-cycles-2026-11-12.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
