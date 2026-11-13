@@ -56,7 +56,20 @@ for(const id of ['ministry-lesson-1','ministry-lesson-2','ministry-lesson-3','mi
 }
 const unifiedEngine=fs.readFileSync('engine/engine.js','utf8');
 if(!unifiedEngine.includes('scriptureOutput:null'))fail('persistent Scripture TV state missing');
-if(!unifiedEngine.includes('const autoScripture=scriptureForSlide(t)')||!unifiedEngine.includes('state.scriptureOutput={...autoScripture,revision')||!unifiedEngine.includes("if(autoScripture&&!isMirroredSermon())resolveSpanish(autoScripture,revision)"))fail('Scripture slides do not auto-follow to side TV');
+if(!unifiedEngine.includes('const autoScripture=lesson?.scriptureManualOnly?null:scriptureForSlide(t)')||
+   !unifiedEngine.includes('state.scriptureOutput={...autoScripture,revision')||
+   !unifiedEngine.includes("if(autoScripture&&!isMirroredSermon())resolveSpanish(autoScripture,revision)"))
+  fail('Legacy Scripture auto-follow and opt-in manual Scripture behavior are missing');
+if(!unifiedEngine.includes('sermonSpanishSideSlide(currentSlide)')||
+   !unifiedEngine.includes("const scriptureTakeover=state.scriptureCueMode==='manual'&&!!state.scriptureOutput")||
+   !unifiedEngine.includes("document.body.dataset.spanishMirror=isMirroredSermon()?'true':'false'"))
+  fail('Mirrored Spanish side TV must follow the current teaching slide and support manual overrides');
+const oneOff=readJson('content/breaking-the-cycles-2026-11-12.json');
+if(oneOff.sideTvSpanishMirror!==true||oneOff.slides.length!==oneOff.manuscript.length||
+   oneOff.slides.length!==oneOff.slideScriptures.length||
+   oneOff.slides.some(slide=>!slide.es||slide.type==='verse'&&!slide.es.text)||
+   oneOff.slides.some((slide,i)=>slide.type==='verse'&&!oneOff.slideScriptures[i]?.text_es))
+  fail('Breaking the Cycles has incomplete Spanish mirrored cues or Scripture texts');
 if(!unifiedEngine.includes("const current=state.scriptureOutput")||!unifiedEngine.includes("scriptureHtml(current)"))fail('Scripture route is not bound to persistent Scripture TV state');
 if(!unifiedEngine.includes('function clearScriptureOutput()'))fail('explicit Scripture TV clear missing');
 if(!unifiedEngine.includes('function pushVerseTV(i)'))fail('Scripture TV-only push missing');
