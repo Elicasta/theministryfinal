@@ -16,7 +16,8 @@ function runRender(){
   const render=new Script(renderFunctions).runInNewContext({
     lesson,state,esc:escapeHtml,clean:x=>String(x||''),slides:()=>lesson.slides,isMirroredSermon:()=>true,
     localizedSlide:(s,lang)=>lang==='es'?{...s,...s.es,_english:s}:s,
-    hasSpanishSlide:()=>true,resourceQrCards:()=>'',titleOf:s=>s.title||s.ref||s.kicker
+    hasSpanishSlide:()=>true,contentPresent:value=>typeof value==='string'?value.trim().length>0:Array.isArray(value)?value.some(v=>!!v):false,
+    resourceQrCards:()=>'',titleOf:s=>s.title||s.ref||s.kicker
   });
   return {state,...render};
 }
