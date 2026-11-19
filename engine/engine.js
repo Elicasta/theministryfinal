@@ -203,7 +203,7 @@ function scriptureHtml(v){
   const spanish=sc.text_es||'';
   const spanishRef=sc.ref_es||sc.ref_en;
   const version=isMirroredSermon()
-    ?'REINA-VALERA 1960 · RVR1960'
+    ?(lesson?.spanishVersionLabel||'REINA-VALERA 1960 · RVR1960')
     :sc.spanishSource==='RVR1960'?'RVR1960':(spanish&&/adaptaci[oó]n|adaptado|editorial/i.test(lesson?.spanishSource||'')?'RVR 1960 · ADAPTACIÓN «EL SEÑOR»':(spanish?'TEXTO ESPAÑOL DE LA LECCIÓN':'RVR1960'));
   const sized=spanish.length>190?' scripture-long':spanish.length>105?' scripture-medium':'';
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
