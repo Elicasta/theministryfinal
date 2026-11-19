@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-12",
+  "updatedAt": "2026-11-19",
   "latest": "breaking-the-cycles-2026-11-12",
   "rules": {
     "stableBuildsAreImmutable": true,
@@ -306,6 +306,27 @@
         "confidence": "/confidence?lesson=breaking-the-cycles-2026-11-12"
       },
       "engineSource": "/content/breaking-the-cycles-2026-11-12.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "personal-responsibility-2026-11-19",
+      "series": "Standalone Lessons",
+      "sequence": "Bible Study · Nov 19",
+      "title": "The Importance of Personal Responsibility",
+      "scripture": "Galatians 6:4–5",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=personal-responsibility-2026-11-19",
+        "projector": "/projector?lesson=personal-responsibility-2026-11-19",
+        "manuscript": "/presenter?lesson=personal-responsibility-2026-11-19",
+        "controller": "/mobile?lesson=personal-responsibility-2026-11-19",
+        "scriptures": "/scriptures?lesson=personal-responsibility-2026-11-19",
+        "confidence": "/confidence?lesson=personal-responsibility-2026-11-19"
+      },
+      "engineSource": "/content/personal-responsibility-2026-11-19.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
