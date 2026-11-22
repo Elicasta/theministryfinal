@@ -1,0 +1,1615 @@
+{
+  "id": "inquiring-2026-11-22",
+  "slug": "inquiring-2026-11-22",
+  "series": "Standalone Lessons",
+  "seriesSlug": "standalone-lessons",
+  "sequence": "Sunday Bible Study · Nov 22",
+  "title": "The Importance of Inquiring",
+  "scripture": "1 Samuel 30:6–8 · Joshua 9:14–16",
+  "taughtAt": null,
+  "status": "ready",
+  "theme": "ministry",
+  "durationMinutes": {
+    "min": 30,
+    "target": 38,
+    "max": 45
+  },
+  "spanishVersionLabel": "Reina-Valera 1960 (nombre divino adaptado a Señor)",
+  "spanishCopyrightNotice": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.",
+  "spanishSource": "User-supplied RVR1960 adapted to Señor",
+  "sideTvSpanishMirror": true,
+  "spanishScreensFollowSlides": true,
+  "scriptureManualOnly": true,
+  "hideAudienceQr": true,
+  "audienceParticipation": false,
+  "localRvr1960": true,
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "BIBLE STUDY",
+      "title": "THE IMPORTANCE OF INQUIRING",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ESTUDIO BÍBLICO",
+        "title": "LA IMPORTANCIA DE CONSULTAR",
+        "sub": "Busca a Dios. Recibe consejo. Camina en sabiduría.",
+        "ref": "1 Samuel 30:8 · Joshua 9:14"
+      },
+      "sub": "Seek God. Receive counsel. Walk in wisdom.",
+      "ref": "1 Samuel 30:8 · Joshua 9:14"
+    },
+    {
+      "type": "prompt",
+      "kicker": "TEACHING",
+      "title": "HAVE YOU INQUIRED?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿HAS CONSULTADO?"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "WHAT DOES IT MEAN TO INQUIRE?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿QUÉ SIGNIFICA CONSULTAR?",
+        "points": [
+          "Reconoce lo que no sabes",
+          "Pregunta para aprender, no para recibir aprobación",
+          "Acepta la posibilidad de corrección"
+        ]
+      },
+      "points": [
+        "Recognize what you don't know",
+        "Ask to learn, not to be affirmed",
+        "Stay willing to receive correction"
+      ]
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "WE DON'T ALWAYS KNOW WHAT WE THINK WE KNOW",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "NO SIEMPRE SABEMOS LO QUE CREEMOS SABER"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 3:5-7",
+      "ref": "Proverbs 3:5-7",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.",
+      "ref_es": "Proverbios 3:5-7",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Proverbios 3:5-7",
+        "ref": "Proverbios 3:5-7",
+        "text": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "WHY DON'T WE INQUIRE?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿POR QUÉ NO CONSULTAMOS?",
+        "points": [
+          "Suponemos que ya sabemos",
+          "Tememos una respuesta incómoda",
+          "Tememos parecer desinformados",
+          "Ya decidimos de antemano"
+        ]
+      },
+      "points": [
+        "We assume we already know",
+        "We fear hearing what we don't want",
+        "We fear looking uninformed",
+        "Our minds are already decided"
+      ]
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "ref": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "text": "",
+      "ref_es": "Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "text_es": "",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+        "ref": "Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+        "text": "",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "ref": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "text": "",
+      "ref_es": "Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "text_es": "",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+        "ref": "Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+        "text": "",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "DAVID INQUIRED OF THE LORD",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "DAVID CONSULTÓ AL SEÑOR",
+        "ref": "1 Samuel 30:1–20"
+      },
+      "ref": "1 Samuel 30:1–20"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 30:1-2",
+      "ref": "1 Samuel 30:1-2",
+      "text": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.",
+      "ref_es": "1 Samuel 30:1-2",
+      "text_es": "1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 30:1-2",
+        "ref": "1 Samuel 30:1-2",
+        "text": "1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 30:3-4",
+      "ref": "1 Samuel 30:3-4",
+      "text": "3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.",
+      "ref_es": "1 Samuel 30:3-4",
+      "text_es": "3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 30:3-4",
+        "ref": "1 Samuel 30:3-4",
+        "text": "3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 30:6",
+      "ref": "1 Samuel 30:6",
+      "text": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.",
+      "ref_es": "1 Samuel 30:6",
+      "text_es": "6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 30:6",
+        "ref": "1 Samuel 30:6",
+        "text": "6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 30:7-8",
+      "ref": "1 Samuel 30:7-8",
+      "text": "7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "ref_es": "1 Samuel 30:7-8",
+      "text_es": "7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 30:7-8",
+        "ref": "1 Samuel 30:7-8",
+        "text": "7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "PRESSURE DIDN'T CHANGE DAVID'S RESPONSE",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "LA PRESIÓN NO CAMBIÓ SU RESPUESTA",
+        "points": [
+          "Su familia estaba desaparecida",
+          "Sus hombres lo amenazaban",
+          "Aun así consultó al Señor"
+        ]
+      },
+      "points": [
+        "His family was missing",
+        "His men threatened him",
+        "He still inquired of the Lord"
+      ]
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "DAVID DIDN'T JUST ASK. HE OBEYED.",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "DAVID NO SOLO CONSULTÓ. OBEDECIÓ.",
+        "ref": "1 Samuel 30:9–20"
+      },
+      "ref": "1 Samuel 30:9–20"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 30:18-19",
+      "ref": "1 Samuel 30:18-19",
+      "text": "18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.",
+      "ref_es": "1 Samuel 30:18-19",
+      "text_es": "18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 30:18-19",
+        "ref": "1 Samuel 30:18-19",
+        "text": "18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "ref": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "text": "",
+      "ref_es": "Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "text_es": "",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+        "ref": "Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+        "text": "",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "INQUIRING WAS DAVID'S HABIT",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "CONSULTAR ERA UN HÁBITO DE DAVID"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 23:1-2",
+      "ref": "1 Samuel 23:1-2",
+      "text": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.",
+      "ref_es": "1 Samuel 23:1-2",
+      "text_es": "1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 23:1-2",
+        "ref": "1 Samuel 23:1-2",
+        "text": "1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 23:3-4",
+      "ref": "1 Samuel 23:3-4",
+      "text": "3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.",
+      "ref_es": "1 Samuel 23:3-4",
+      "text_es": "3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 23:3-4",
+        "ref": "1 Samuel 23:3-4",
+        "text": "3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "1 Samuel 23:5",
+      "ref": "1 Samuel 23:5",
+      "text": "5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "ref_es": "1 Samuel 23:5",
+      "text_es": "5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "1 Samuel 23:5",
+        "ref": "1 Samuel 23:5",
+        "text": "5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "ref": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "text": "",
+      "ref_es": "Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "text_es": "",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+        "ref": "Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+        "text": "",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "THE COVENANT MADE WITHOUT INQUIRY",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "EL PACTO HECHO SIN CONSULTAR",
+        "ref": "Joshua 9:3–27"
+      },
+      "ref": "Joshua 9:3–27"
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:3-4",
+      "ref": "Joshua 9:3-4",
+      "text": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;",
+      "ref_es": "Josué 9:3-4",
+      "text_es": "3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:3-4",
+        "ref": "Josué 9:3-4",
+        "text": "3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:5-6",
+      "ref": "Joshua 9:5-6",
+      "text": "5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.",
+      "ref_es": "Josué 9:5-6",
+      "text_es": "5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:5-6",
+        "ref": "Josué 9:5-6",
+        "text": "5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:7",
+      "ref": "Joshua 9:7",
+      "text": "7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?",
+      "ref_es": "Josué 9:7",
+      "text_es": "7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:7",
+        "ref": "Josué 9:7",
+        "text": "7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "THE EVIDENCE LOOKED CONVINCING",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "LA EVIDENCIA PARECÍA CONVINCENTE",
+        "points": [
+          "Examinaron la comida y la ropa",
+          "Aceptaron la historia",
+          "No consultaron al Señor"
+        ]
+      },
+      "points": [
+        "They examined the food and clothing",
+        "They accepted the story",
+        "They didn't inquire of the Lord"
+      ]
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:14",
+      "ref": "Joshua 9:14",
+      "text": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.",
+      "ref_es": "Josué 9:14",
+      "text_es": "14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:14",
+        "ref": "Josué 9:14",
+        "text": "14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:15-16",
+      "ref": "Joshua 9:15-16",
+      "text": "15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "ref_es": "Josué 9:15-16",
+      "text_es": "15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:15-16",
+        "ref": "Josué 9:15-16",
+        "text": "15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:18-19",
+      "ref": "Joshua 9:18-19",
+      "text": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.",
+      "ref_es": "Josué 9:18-19",
+      "text_es": "18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:18-19",
+        "ref": "Josué 9:18-19",
+        "text": "18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Joshua 9:20-21",
+      "ref": "Joshua 9:20-21",
+      "text": "20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "ref_es": "Josué 9:20-21",
+      "text_es": "20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Josué 9:20-21",
+        "ref": "Josué 9:20-21",
+        "text": "20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "WHAT HAPPENS WHEN WE DON'T INQUIRE?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿QUÉ PASA CUANDO NO CONSULTAMOS?",
+        "points": [
+          "Entendemos mal las situaciones",
+          "Nos comprometemos apresuradamente",
+          "Otros enfrentan las consecuencias"
+        ]
+      },
+      "points": [
+        "We misunderstand situations",
+        "We make hasty commitments",
+        "Others can face the consequences"
+      ]
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "IT TAKES HUMILITY TO INQUIRE",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "CONSULTAR REQUIERE HUMILDAD"
+      }
+    },
+    {
+      "type": "points",
+      "kicker": "TEACHING",
+      "title": "HOW DO WE LEARN TO INQUIRE?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿CÓMO APRENDEMOS A CONSULTAR?",
+        "points": [
+          "Detente y reconoce la necesidad",
+          "Ora y consulta al Señor",
+          "Escucha y examina con la Escritura",
+          "Busca consejo piadoso",
+          "Obedece lo que es correcto"
+        ]
+      },
+      "points": [
+        "Stop and identify the need",
+        "Pray and ask the Lord",
+        "Listen and test by Scripture",
+        "Seek godly counsel",
+        "Obey what is right"
+      ]
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "ref": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "text": "",
+      "ref_es": "Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "text_es": "",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+        "ref": "Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+        "text": "",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "prompt",
+      "kicker": "TEACHING",
+      "title": "WHEN WAS THE LAST TIME YOU INQUIRED?",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "¿CUÁNDO FUE LA ÚLTIMA VEZ QUE CONSULTASTE?"
+      }
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "TWO STORIES. TWO RESPONSES.",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "DOS HISTORIAS. DOS RESPUESTAS."
+      }
+    },
+    {
+      "type": "verse",
+      "kicker": "SCRIPTURE · KJV",
+      "title": "Proverbs 3:5-6",
+      "ref": "Proverbs 3:5-6",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.",
+      "ref_es": "Proverbios 3:5-6",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.",
+      "notes": "Read Scripture aloud.",
+      "es": {
+        "kicker": "ESCRITURA · RVR1960 ADAPTADA",
+        "title": "Proverbios 3:5-6",
+        "ref": "Proverbios 3:5-6",
+        "text": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.",
+        "translationKind": "Reina-Valera 1960 (nombre divino adaptado a Señor)"
+      }
+    },
+    {
+      "type": "statement",
+      "kicker": "TEACHING",
+      "title": "BEFORE YOU REACT, INQUIRE.",
+      "notes": "Follow the full iPad manuscript.",
+      "es": {
+        "kicker": "ENSEÑANZA",
+        "title": "ANTES DE REACCIONAR, CONSULTA.",
+        "sub": "La sabiduría comienza cuando sabemos preguntar."
+      },
+      "sub": "Wisdom begins when we know when to ask."
+    }
+  ],
+  "slideScriptures": [
+    null,
+    null,
+    null,
+    null,
+    {
+      "ref": "Proverbs 3:5-7",
+      "ref_en": "Proverbs 3:5-7",
+      "ref_es": "Proverbios 3:5-7",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.",
+      "text_en": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "ref_en": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "ref_es": "Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "ref_en": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "ref_es": "Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref": "1 Samuel 30:1-2",
+      "ref_en": "1 Samuel 30:1-2",
+      "ref_es": "1 Samuel 30:1-2",
+      "text": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.",
+      "text_en": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.",
+      "text_es": "1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:3-4",
+      "ref_en": "1 Samuel 30:3-4",
+      "ref_es": "1 Samuel 30:3-4",
+      "text": "3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.",
+      "text_en": "3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.",
+      "text_es": "3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:6",
+      "ref_en": "1 Samuel 30:6",
+      "ref_es": "1 Samuel 30:6",
+      "text": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.",
+      "text_en": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.",
+      "text_es": "6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:7-8",
+      "ref_en": "1 Samuel 30:7-8",
+      "ref_es": "1 Samuel 30:7-8",
+      "text": "7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_en": "7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_es": "7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref": "1 Samuel 30:18-19",
+      "ref_en": "1 Samuel 30:18-19",
+      "ref_es": "1 Samuel 30:18-19",
+      "text": "18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.",
+      "text_en": "18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.",
+      "text_es": "18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "ref_en": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "ref_es": "Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref": "1 Samuel 23:1-2",
+      "ref_en": "1 Samuel 23:1-2",
+      "ref_es": "1 Samuel 23:1-2",
+      "text": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.",
+      "text_en": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.",
+      "text_es": "1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:3-4",
+      "ref_en": "1 Samuel 23:3-4",
+      "ref_es": "1 Samuel 23:3-4",
+      "text": "3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.",
+      "text_en": "3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.",
+      "text_es": "3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:5",
+      "ref_en": "1 Samuel 23:5",
+      "ref_es": "1 Samuel 23:5",
+      "text": "5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_en": "5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_es": "5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "ref_en": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "ref_es": "Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref": "Joshua 9:3-4",
+      "ref_en": "Joshua 9:3-4",
+      "ref_es": "Josué 9:3-4",
+      "text": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;",
+      "text_en": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;",
+      "text_es": "3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:5-6",
+      "ref_en": "Joshua 9:5-6",
+      "ref_es": "Josué 9:5-6",
+      "text": "5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.",
+      "text_en": "5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.",
+      "text_es": "5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:7",
+      "ref_en": "Joshua 9:7",
+      "ref_es": "Josué 9:7",
+      "text": "7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?",
+      "text_en": "7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?",
+      "text_es": "7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    {
+      "ref": "Joshua 9:14",
+      "ref_en": "Joshua 9:14",
+      "ref_es": "Josué 9:14",
+      "text": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.",
+      "text_en": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.",
+      "text_es": "14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:15-16",
+      "ref_en": "Joshua 9:15-16",
+      "ref_es": "Josué 9:15-16",
+      "text": "15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_en": "15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_es": "15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:18-19",
+      "ref_en": "Joshua 9:18-19",
+      "ref_es": "Josué 9:18-19",
+      "text": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.",
+      "text_en": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.",
+      "text_es": "18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:20-21",
+      "ref_en": "Joshua 9:20-21",
+      "ref_es": "Josué 9:20-21",
+      "text": "20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_en": "20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_es": "20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    null,
+    {
+      "ref": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "ref_en": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "ref_es": "Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null,
+    null,
+    {
+      "ref": "Proverbs 3:5-6",
+      "ref_en": "Proverbs 3:5-6",
+      "ref_es": "Proverbios 3:5-6",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.",
+      "text_en": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    null
+  ],
+  "verses": [
+    {
+      "ref": "Proverbs 3:5-7",
+      "ref_en": "Proverbs 3:5-7",
+      "ref_es": "Proverbios 3:5-7",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.",
+      "text_en": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 3:5-6",
+      "ref_en": "Proverbs 3:5-6",
+      "ref_es": "Proverbios 3:5-6",
+      "text": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.",
+      "text_en": "5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.",
+      "text_es": "5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 12:15",
+      "ref_en": "Proverbs 12:15",
+      "ref_es": "Proverbios 12:15",
+      "text": "15 The way of a fool is right in his own eyes: but he that hearkeneth unto counsel is wise.",
+      "text_en": "15 The way of a fool is right in his own eyes: but he that hearkeneth unto counsel is wise.",
+      "text_es": "15 El camino del necio es derecho en su opinión; Mas el que obedece al consejo es sabio.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 15:22",
+      "ref_en": "Proverbs 15:22",
+      "ref_es": "Proverbios 15:22",
+      "text": "22 Without counsel purposes are disappointed: but in the multitude of counsellors they are established.",
+      "text_en": "22 Without counsel purposes are disappointed: but in the multitude of counsellors they are established.",
+      "text_es": "22 Los pensamientos son frustrados donde no hay consejo; Mas en la multitud de consejeros se afirman.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:1-20",
+      "ref_en": "1 Samuel 30:1-20",
+      "ref_es": "1 Samuel 30:1-20",
+      "text": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.\n3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.\n5 And David’s two wives were taken captives, Ahinoam the Jezreelitess, and Abigail the wife of Nabal the Carmelite.\n6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.\n7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.\n9 So David went, he and the six hundred men that were with him, and came to the brook Besor, where those that were left behind stayed.\n10 But David pursued, he and four hundred men: for two hundred abode behind, which were so faint that they could not go over the brook Besor.\n11 And they found an Egyptian in the field, and brought him to David, and gave him bread, and he did eat; and they made him drink water;\n12 And they gave him a piece of a cake of figs, and two clusters of raisins: and when he had eaten, his spirit came again to him: for he had eaten no bread, nor drunk any water, three days and three nights.\n13 And David said unto him, To whom belongest thou? and whence art thou? And he said, I am a young man of Egypt, servant to an Amalekite; and my master left me, because three days agone I fell sick.\n14 We made an invasion upon the south of the Cherethites, and upon the coast which belongeth to Judah, and upon the south of Caleb; and we burned Ziklag with fire.\n15 And David said to him, Canst thou bring me down to this company? And he said, Swear unto me by God, that thou wilt neither kill me, nor deliver me into the hands of my master, and I will bring thee down to this company.\n16 And when he had brought him down, behold, they were spread abroad upon all the earth, eating and drinking, and dancing, because of all the great spoil that they had taken out of the land of the Philistines, and out of the land of Judah.\n17 And David smote them from the twilight even unto the evening of the next day: and there escaped not a man of them, save four hundred young men, which rode upon camels, and fled.\n18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.\n20 And David took all the flocks and the herds, which they drave before those other cattle, and said, This is David’s spoil.",
+      "text_en": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.\n3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.\n5 And David’s two wives were taken captives, Ahinoam the Jezreelitess, and Abigail the wife of Nabal the Carmelite.\n6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.\n7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.\n9 So David went, he and the six hundred men that were with him, and came to the brook Besor, where those that were left behind stayed.\n10 But David pursued, he and four hundred men: for two hundred abode behind, which were so faint that they could not go over the brook Besor.\n11 And they found an Egyptian in the field, and brought him to David, and gave him bread, and he did eat; and they made him drink water;\n12 And they gave him a piece of a cake of figs, and two clusters of raisins: and when he had eaten, his spirit came again to him: for he had eaten no bread, nor drunk any water, three days and three nights.\n13 And David said unto him, To whom belongest thou? and whence art thou? And he said, I am a young man of Egypt, servant to an Amalekite; and my master left me, because three days agone I fell sick.\n14 We made an invasion upon the south of the Cherethites, and upon the coast which belongeth to Judah, and upon the south of Caleb; and we burned Ziklag with fire.\n15 And David said to him, Canst thou bring me down to this company? And he said, Swear unto me by God, that thou wilt neither kill me, nor deliver me into the hands of my master, and I will bring thee down to this company.\n16 And when he had brought him down, behold, they were spread abroad upon all the earth, eating and drinking, and dancing, because of all the great spoil that they had taken out of the land of the Philistines, and out of the land of Judah.\n17 And David smote them from the twilight even unto the evening of the next day: and there escaped not a man of them, save four hundred young men, which rode upon camels, and fled.\n18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.\n20 And David took all the flocks and the herds, which they drave before those other cattle, and said, This is David’s spoil.",
+      "text_es": "1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.\n3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.\n5 Las dos mujeres de David, Ahinoam jezreelita y Abigail la que fue mujer de Nabal el de Carmel, también eran cautivas.\n6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.\n7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.\n9 Partió, pues, David, él y los seiscientos hombres que con él estaban, y llegaron hasta el torrente de Besor, donde se quedaron algunos.\n10 Y David siguió adelante con cuatrocientos hombres; porque se quedaron atrás doscientos, que cansados no pudieron pasar el torrente de Besor.\n11 Y hallaron en el campo a un hombre egipcio, el cual trajeron a David, y le dieron pan, y comió, y le dieron a beber agua.\n12 Le dieron también un pedazo de masa de higos secos y dos racimos de pasas. Y luego que comió, volvió en él su espíritu; porque no había comido pan ni bebido agua en tres días y tres noches.\n13 Y le dijo David: ¿De quién eres tú, y de dónde eres? Y respondió el joven egipcio: Yo soy siervo de un amalecita, y me dejó mi amo hoy hace tres días, porque estaba yo enfermo;\n14 pues hicimos una incursión a la parte del Neguev que es de los cereteos, y de Judá, y al Neguev de Caleb; y pusimos fuego a Siclag.\n15 Y le dijo David: ¿Me llevarás tú a esa tropa? Y él dijo: Júrame por Dios que no me matarás, ni me entregarás en mano de mi amo, y yo te llevaré a esa gente.\n16 Lo llevó, pues; y he aquí que estaban desparramados sobre toda aquella tierra, comiendo y bebiendo y haciendo fiesta, por todo aquel gran botín que habían tomado de la tierra de los filisteos y de la tierra de Judá.\n17 Y los hirió David desde aquella mañana hasta la tarde del día siguiente; y no escapó de ellos ninguno, sino cuatrocientos jóvenes que montaron sobre los camellos y huyeron.\n18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.\n20 Tomó también David todas las ovejas y el ganado mayor; y trayéndolo todo delante, decían: Este es el botín de David.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:6-8",
+      "ref_en": "1 Samuel 30:6-8",
+      "ref_es": "1 Samuel 30:6-8",
+      "text": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.\n7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_en": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.\n7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_es": "6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.\n7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:18-19",
+      "ref_en": "1 Samuel 30:18-19",
+      "ref_es": "1 Samuel 30:18-19",
+      "text": "18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.",
+      "text_en": "18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.",
+      "text_es": "18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:1-5",
+      "ref_en": "1 Samuel 23:1-5",
+      "ref_es": "1 Samuel 23:1-5",
+      "text": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.\n3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.\n5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_en": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.\n3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.\n5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_es": "1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.\n3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.\n5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:3-27",
+      "ref_en": "Joshua 9:3-27",
+      "ref_es": "Josué 9:3-27",
+      "text": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;\n5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.\n7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?\n8 And they said unto Joshua, We are thy servants. And Joshua said unto them, Who are ye? and from whence come ye?\n9 And they said unto him, From a very far country thy servants are come because of the name of the LORD thy God: for we have heard the fame of him, and all that he did in Egypt,\n10 And all that he did to the two kings of the Amorites, that were beyond Jordan, to Sihon king of Heshbon, and to Og king of Bashan, which was at Ashtaroth.\n11 Wherefore our elders and all the inhabitants of our country spake to us, saying, Take victuals with you for the journey, and go to meet them, and say unto them, We are your servants: therefore now make ye a league with us.\n12 This our bread we took hot for our provision out of our houses on the day we came forth to go unto you; but now, behold, it is dry, and it is mouldy:\n13 And these bottles of wine, which we filled, were new; and, behold, they be rent: and these our garments and our shoes are become old by reason of the very long journey.\n14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.\n15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.\n17 And the children of Israel journeyed, and came unto their cities on the third day. Now their cities were Gibeon, and Chephirah, and Beeroth, and Kirjathjearim.\n18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.\n20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.\n22 And Joshua called for them, and he spake unto them, saying, Wherefore have ye beguiled us, saying, We are very far from you; when ye dwell among us?\n23 Now therefore ye are cursed, and there shall none of you be freed from being bondmen, and hewers of wood and drawers of water for the house of my God.\n24 And they answered Joshua, and said, Because it was certainly told thy servants, how that the LORD thy God commanded his servant Moses to give you all the land, and to destroy all the inhabitants of the land from before you, therefore we were sore afraid of our lives because of you, and have done this thing.\n25 And now, behold, we are in thine hand: as it seemeth good and right unto thee to do unto us, do.\n26 And so did he unto them, and delivered them out of the hand of the children of Israel, that they slew them not.\n27 And Joshua made them that day hewers of wood and drawers of water for the congregation, and for the altar of the LORD, even unto this day, in the place which he should choose.",
+      "text_en": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;\n5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.\n7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?\n8 And they said unto Joshua, We are thy servants. And Joshua said unto them, Who are ye? and from whence come ye?\n9 And they said unto him, From a very far country thy servants are come because of the name of the LORD thy God: for we have heard the fame of him, and all that he did in Egypt,\n10 And all that he did to the two kings of the Amorites, that were beyond Jordan, to Sihon king of Heshbon, and to Og king of Bashan, which was at Ashtaroth.\n11 Wherefore our elders and all the inhabitants of our country spake to us, saying, Take victuals with you for the journey, and go to meet them, and say unto them, We are your servants: therefore now make ye a league with us.\n12 This our bread we took hot for our provision out of our houses on the day we came forth to go unto you; but now, behold, it is dry, and it is mouldy:\n13 And these bottles of wine, which we filled, were new; and, behold, they be rent: and these our garments and our shoes are become old by reason of the very long journey.\n14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.\n15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.\n17 And the children of Israel journeyed, and came unto their cities on the third day. Now their cities were Gibeon, and Chephirah, and Beeroth, and Kirjathjearim.\n18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.\n20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.\n22 And Joshua called for them, and he spake unto them, saying, Wherefore have ye beguiled us, saying, We are very far from you; when ye dwell among us?\n23 Now therefore ye are cursed, and there shall none of you be freed from being bondmen, and hewers of wood and drawers of water for the house of my God.\n24 And they answered Joshua, and said, Because it was certainly told thy servants, how that the LORD thy God commanded his servant Moses to give you all the land, and to destroy all the inhabitants of the land from before you, therefore we were sore afraid of our lives because of you, and have done this thing.\n25 And now, behold, we are in thine hand: as it seemeth good and right unto thee to do unto us, do.\n26 And so did he unto them, and delivered them out of the hand of the children of Israel, that they slew them not.\n27 And Joshua made them that day hewers of wood and drawers of water for the congregation, and for the altar of the LORD, even unto this day, in the place which he should choose.",
+      "text_es": "3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,\n5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.\n7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?\n8 Ellos respondieron a Josué: Nosotros somos tus siervos. Y Josué les dijo: ¿Quiénes sois vosotros, y de dónde venís?\n9 Y ellos respondieron: Tus siervos han venido de tierra muy lejana, por causa del nombre del Señor tu Dios; porque hemos oído su fama, y todo lo que hizo en Egipto,\n10 y todo lo que hizo a los dos reyes de los amorreos que estaban al otro lado del Jordán: a Sehón rey de Hesbón, y a Og rey de Basán, que estaba en Astarot.\n11 Por lo cual nuestros ancianos y todos los moradores de nuestra tierra nos dijeron: Tomad en vuestras manos provisión para el camino, e id al encuentro de ellos, y decidles: Nosotros somos vuestros siervos; haced ahora alianza con nosotros.\n12 Este nuestro pan lo tomamos caliente de nuestras casas para el camino el día que salimos para venir a vosotros; y helo aquí ahora ya seco y mohoso.\n13 Estos cueros de vino también los llenamos nuevos; helos aquí ya rotos; también estos nuestros vestidos y nuestros zapatos están ya viejos a causa de lo muy largo del camino.\n14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.\n15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.\n17 Y salieron los hijos de Israel, y al tercer día llegaron a las ciudades de ellos; y sus ciudades eran Gabaón, Cafira, Beerot y Quiriat-jearim.\n18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.\n20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.\n22 Y llamándolos Josué, les habló diciendo: ¿Por qué nos habéis engañado, diciendo: Habitamos muy lejos de vosotros, siendo así que moráis en medio de nosotros?\n23 Ahora, pues, malditos sois, y no dejará de haber de entre vosotros siervos, y quien corte la leña y saque el agua para la casa de mi Dios.\n24 Y ellos respondieron a Josué y dijeron: Como fue dado a entender a tus siervos que el Señor tu Dios había mandado a Moisés su siervo que os había de dar toda la tierra, y que había de destruir a todos los moradores de la tierra delante de vosotros, por esto temimos en gran manera por nuestras vidas a causa de vosotros, e hicimos esto.\n25 Ahora, pues, henos aquí en tu mano; lo que te pareciere bueno y recto hacer de nosotros, hazlo.\n26 Y él lo hizo así con ellos; pues los libró de la mano de los hijos de Israel, y no los mataron.\n27 Y Josué los destinó aquel día a ser leñadores y aguadores para la congregación, y para el altar del Señor en el lugar que el Señor eligiese, lo que son hasta hoy.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:14-16",
+      "ref_en": "Joshua 9:14-16",
+      "ref_es": "Josué 9:14-16",
+      "text": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.\n15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_en": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.\n15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_es": "14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.\n15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:18-21",
+      "ref_en": "Joshua 9:18-21",
+      "ref_es": "Josué 9:18-21",
+      "text": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.\n20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_en": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.\n20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_es": "18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.\n20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "James 1:5",
+      "ref_en": "James 1:5",
+      "ref_es": "Santiago 1:5",
+      "text": "5 If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.",
+      "text_en": "5 If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.",
+      "text_es": "5 Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "James 1:22",
+      "ref_en": "James 1:22",
+      "ref_es": "Santiago 1:22",
+      "text": "22 But be ye doers of the word, and not hearers only, deceiving your own selves.",
+      "text_en": "22 But be ye doers of the word, and not hearers only, deceiving your own selves.",
+      "text_es": "22 Pero sed hacedores de la palabra, y no tan solamente oidores, engañándoos a vosotros mismos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Acts 13:22",
+      "ref_en": "Acts 13:22",
+      "ref_es": "Hechos 13:22",
+      "text": "22 And when he had removed him, he raised up unto them David to be their king; to whom also he gave testimony, and said, I have found David the son of Jesse, a man after mine own heart, which shall fulfil all my will.",
+      "text_en": "22 And when he had removed him, he raised up unto them David to be their king; to whom also he gave testimony, and said, I have found David the son of Jesse, a man after mine own heart, which shall fulfil all my will.",
+      "text_es": "22 Quitado este, les levantó por rey a David, de quien dio también testimonio diciendo: He hallado a David hijo de Isaí, varón conforme a mi corazón, quien hará todo lo que yo quiero.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "ref_en": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "ref_es": "Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "ref_en": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "ref_es": "Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:1-2",
+      "ref_en": "1 Samuel 30:1-2",
+      "ref_es": "1 Samuel 30:1-2",
+      "text": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.",
+      "text_en": "1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.",
+      "text_es": "1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:3-4",
+      "ref_en": "1 Samuel 30:3-4",
+      "ref_es": "1 Samuel 30:3-4",
+      "text": "3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.",
+      "text_en": "3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.",
+      "text_es": "3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:6",
+      "ref_en": "1 Samuel 30:6",
+      "ref_es": "1 Samuel 30:6",
+      "text": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.",
+      "text_en": "6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.",
+      "text_es": "6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 30:7-8",
+      "ref_en": "1 Samuel 30:7-8",
+      "ref_es": "1 Samuel 30:7-8",
+      "text": "7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_en": "7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.",
+      "text_es": "7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "ref_en": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "ref_es": "Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:1-2",
+      "ref_en": "1 Samuel 23:1-2",
+      "ref_es": "1 Samuel 23:1-2",
+      "text": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.",
+      "text_en": "1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.",
+      "text_es": "1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:3-4",
+      "ref_en": "1 Samuel 23:3-4",
+      "ref_es": "1 Samuel 23:3-4",
+      "text": "3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.",
+      "text_en": "3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.",
+      "text_es": "3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "1 Samuel 23:5",
+      "ref_en": "1 Samuel 23:5",
+      "ref_es": "1 Samuel 23:5",
+      "text": "5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_en": "5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.",
+      "text_es": "5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "ref_en": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "ref_es": "Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:3-4",
+      "ref_en": "Joshua 9:3-4",
+      "ref_es": "Josué 9:3-4",
+      "text": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;",
+      "text_en": "3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;",
+      "text_es": "3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:5-6",
+      "ref_en": "Joshua 9:5-6",
+      "ref_es": "Josué 9:5-6",
+      "text": "5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.",
+      "text_en": "5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.",
+      "text_es": "5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:7",
+      "ref_en": "Joshua 9:7",
+      "ref_es": "Josué 9:7",
+      "text": "7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?",
+      "text_en": "7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?",
+      "text_es": "7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:14",
+      "ref_en": "Joshua 9:14",
+      "ref_es": "Josué 9:14",
+      "text": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.",
+      "text_en": "14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.",
+      "text_es": "14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:15-16",
+      "ref_en": "Joshua 9:15-16",
+      "ref_es": "Josué 9:15-16",
+      "text": "15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_en": "15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.",
+      "text_es": "15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:18-19",
+      "ref_en": "Joshua 9:18-19",
+      "ref_es": "Josué 9:18-19",
+      "text": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.",
+      "text_en": "18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.",
+      "text_es": "18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "Joshua 9:20-21",
+      "ref_en": "Joshua 9:20-21",
+      "ref_es": "Josué 9:20-21",
+      "text": "20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_en": "20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.",
+      "text_es": "20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    },
+    {
+      "ref": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "ref_en": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "ref_es": "Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "text": "",
+      "text_en": "",
+      "text_es": "",
+      "spanishSource": "RVR1960-adapted",
+      "spanishStatus": "ready",
+      "copyright": "Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988."
+    }
+  ],
+  "manuscript": [
+    {
+      "slide": 0,
+      "title": "THE IMPORTANCE OF INQUIRING",
+      "refs": [
+        "1 Samuel 30:8 · Joshua 9:14"
+      ],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>This morning, I want to talk to you about the importance of inquiring.</p><p>Many times we fail to receive counsel, not because guidance or leadership is absent, but because we do not ask. How many times have we made a decision without inquiring of the Lord?</p><p>This lesson contrasts David's response at Ziklag with Israel's response to the Gibeonites.</p><p>Central message: Recognize what you do not know. Seek God's wisdom. Receive counsel. Obey what is right.</p>"
+    },
+    {
+      "slide": 1,
+      "title": "HAVE YOU INQUIRED?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>When was the last time you genuinely stopped and asked: Lord, what should I do?</p><p>Many times, the problem is not that counsel was unavailable. It is that we never asked.</p><p>Announcing what we plan to do is not the same thing as asking for guidance.</p>"
+    },
+    {
+      "slide": 2,
+      "title": "WHAT DOES IT MEAN TO INQUIRE?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>To inquire means to ask for information, understanding, or direction.</p><p>Inquiring begins with the acknowledgment that I do not know enough to decide wisely. It is not a speech about what I have already decided.</p><p>An inquiry leaves room for information that may change my mind. It is asking with the intention to receive something I did not have.</p>"
+    },
+    {
+      "slide": 3,
+      "title": "WE DON'T ALWAYS KNOW WHAT WE THINK WE KNOW",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>Why is inquiry important? Our own understanding is limited.</p><p>Sometimes we know one part of a story but assume we know everything. Experience is useful, but it does not make us all-knowing.</p><p>Wisdom starts when we admit that there is information we may not possess.</p>"
+    },
+    {
+      "slide": 4,
+      "title": "Proverbs 3:5-7",
+      "refs": [
+        "Proverbs 3:5-7"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 3:5-7</div><p class=\"ih-scripture\">5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.<br>6 In all thy ways acknowledge him, and he shall direct thy paths.<br>7 Be not wise in thine own eyes: fear the LORD, and depart from evil.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 3:5-7</summary><p lang=\"es\">5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.<br>6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.<br>7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;</p></details><p>“Lean not unto thine own understanding.” God is not condemning knowledge. He is teaching us not to depend entirely on our own judgment.</p><p>“In all thy ways acknowledge him.” Seek Him before you make commitments, not only when those commitments become problems.</p>"
+    },
+    {
+      "slide": 5,
+      "title": "WHY DON'T WE INQUIRE?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>We assume we already know the answer.</p><p>We do not want to hear an answer that contradicts our desires.</p><p>We are afraid to look inexperienced or uninformed.</p><p>We have already made up our minds and want approval, not counsel.</p><p>Ask yourself: Would I still ask for advice if I knew it might challenge what I want?</p>"
+    },
+    {
+      "slide": 6,
+      "title": "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?",
+      "refs": [
+        "Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?</div><p class=\"ih-scripture\"></p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?</summary><p lang=\"es\"></p></details><p>Read the passage aloud and explain it in context.</p>"
+    },
+    {
+      "slide": 7,
+      "title": "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.",
+      "refs": [
+        "Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden."
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.</div><p class=\"ih-scripture\"></p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.</summary><p lang=\"es\"></p></details><p>Read the passage aloud and explain it in context.</p>"
+    },
+    {
+      "slide": 8,
+      "title": "DAVID INQUIRED OF THE LORD",
+      "refs": [
+        "1 Samuel 30:1–20"
+      ],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>In 1 Samuel 30, David and his men returned to Ziklag and found their city burned.</p><p>The Amalekites had taken their wives and children captive. The men wept until they had no strength to weep. Then the men became so distressed they spoke of stoning David.</p><p>David had lost his home, his family was missing, and his own life was under pressure.</p><p>Pressure did not change where David sought direction.</p>"
+    },
+    {
+      "slide": 9,
+      "title": "1 Samuel 30:1-2",
+      "refs": [
+        "1 Samuel 30:1-2"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 30:1-2</div><p class=\"ih-scripture\">1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;<br>2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:1-2</summary><p lang=\"es\">1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.<br>2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.</p></details><p>The Amalekites invaded, burned Ziklag, and took its inhabitants captive. The passage says they had not killed the captives.</p>"
+    },
+    {
+      "slide": 10,
+      "title": "1 Samuel 30:3-4",
+      "refs": [
+        "1 Samuel 30:3-4"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 30:3-4</div><p class=\"ih-scripture\">3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.<br>4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:3-4</summary><p lang=\"es\">3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.<br>4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.</p></details><p>David and the men saw the devastation when they returned. Their grief was real; they cried until exhausted.</p>"
+    },
+    {
+      "slide": 11,
+      "title": "1 Samuel 30:6",
+      "refs": [
+        "1 Samuel 30:6"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 30:6</div><p class=\"ih-scripture\">6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:6</summary><p lang=\"es\">6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.</p></details><p>The men spoke of stoning David. Yet David encouraged himself in the Lord his God.</p><p>Even under pressure, David knew where to go for strength.</p>"
+    },
+    {
+      "slide": 12,
+      "title": "1 Samuel 30:7-8",
+      "refs": [
+        "1 Samuel 30:7-8"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 30:7-8</div><p class=\"ih-scripture\">7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.<br>8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:7-8</summary><p lang=\"es\">7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.<br>8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.</p></details><p>David asked for the ephod and inquired of the Lord: Should I pursue? Will I overtake them?</p><p>God told David to pursue, and promised that he would recover all.</p><p>His desire to recover his family was good, but he still needed direction. Good intentions do not remove our need to seek God.</p>"
+    },
+    {
+      "slide": 13,
+      "title": "PRESSURE DIDN'T CHANGE DAVID'S RESPONSE",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>David knew his wives and children were at stake. He also knew his own life was in danger.</p><p>He could have reacted immediately, but he stopped and asked the Lord.</p><p>Sometimes we mistake urgency for direction. A real need does not mean we should abandon wisdom.</p><p>Ask: When did you last stop and inquire in the middle of a difficult situation?</p>"
+    },
+    {
+      "slide": 14,
+      "title": "DAVID DIDN'T JUST ASK. HE OBEYED.",
+      "refs": [
+        "1 Samuel 30:9–20"
+      ],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>God directed David to pursue, and David obeyed.</p><p>Six hundred men began the pursuit. Two hundred remained at the brook Besor because of exhaustion. David continued with four hundred.</p><p>They found an abandoned Egyptian servant who led them to the Amalekites. David fought and recovered the captives and possessions.</p><p>Read the full account in 1 Samuel 30:9–20 from the Scripture bank.</p>"
+    },
+    {
+      "slide": 15,
+      "title": "1 Samuel 30:18-19",
+      "refs": [
+        "1 Samuel 30:18-19"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 30:18-19</div><p class=\"ih-scripture\">18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.<br>19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:18-19</summary><p lang=\"es\">18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.<br>19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.</p></details><p>David recovered everything, as the Lord had promised in this specific account.</p><p>The lesson is that David sought God and obeyed the direction given, not that every request guarantees an identical outcome.</p>"
+    },
+    {
+      "slide": 16,
+      "title": "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.",
+      "refs": [
+        "James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right."
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.</div><p class=\"ih-scripture\"></p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.</summary><p lang=\"es\"></p></details><p>Read the passage aloud and explain it in context.</p>"
+    },
+    {
+      "slide": 17,
+      "title": "INQUIRING WAS DAVID'S HABIT",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>Ziklag was not the first time David inquired.</p><p>In 1 Samuel 23, David heard that the Philistines were attacking Keilah. He inquired before acting. When his men expressed fear, he inquired again, and God reaffirmed His direction.</p><p>Inquiring was part of how David approached decisions, not merely a desperate last resort.</p>"
+    },
+    {
+      "slide": 18,
+      "title": "1 Samuel 23:1-2",
+      "refs": [
+        "1 Samuel 23:1-2"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 23:1-2</div><p class=\"ih-scripture\">1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.<br>2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:1-2</summary><p lang=\"es\">1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.<br>2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.</p></details><p>David heard of the Philistine attack on Keilah. Rather than acting automatically, he asked the Lord whether to intervene.</p>"
+    },
+    {
+      "slide": 19,
+      "title": "1 Samuel 23:3-4",
+      "refs": [
+        "1 Samuel 23:3-4"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 23:3-4</div><p class=\"ih-scripture\">3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?<br>4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:3-4</summary><p lang=\"es\">3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?<br>4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.</p></details><p>David's men were fearful. David went back to the Lord, received confirmation, and did not allow fear alone to decide the outcome.</p>"
+    },
+    {
+      "slide": 20,
+      "title": "1 Samuel 23:5",
+      "refs": [
+        "1 Samuel 23:5"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · 1 Samuel 23:5</div><p class=\"ih-scripture\">5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:5</summary><p lang=\"es\">5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.</p></details><p>David obeyed and delivered Keilah from the Philistines.</p>"
+    },
+    {
+      "slide": 21,
+      "title": "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.",
+      "refs": [
+        "Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom."
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.</div><p class=\"ih-scripture\"></p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.</summary><p lang=\"es\"></p></details><p>Read the passage aloud and explain it in context.</p>"
+    },
+    {
+      "slide": 22,
+      "title": "THE COVENANT MADE WITHOUT INQUIRY",
+      "refs": [
+        "Joshua 9:3–27"
+      ],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>Joshua 9 gives the opposite example.</p><p>The people of Gibeon heard what Israel had done to Jericho and Ai. Afraid for their lives, they decided to deceive the Israelites.</p><p>They put on old garments, carried worn shoes, patched wine containers, and brought dry, moldy bread to make it look as though they came from far away.</p><p>They then asked Joshua and Israel to make a covenant.</p>"
+    },
+    {
+      "slide": 23,
+      "title": "Joshua 9:3-4",
+      "refs": [
+        "Joshua 9:3-4"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:3-4</div><p class=\"ih-scripture\">3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,<br>4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:3-4</summary><p lang=\"es\">3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,<br>4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,</p></details><p>The Gibeonites deliberately planned a deception and disguised themselves as travelers.</p>"
+    },
+    {
+      "slide": 24,
+      "title": "Joshua 9:5-6",
+      "refs": [
+        "Joshua 9:5-6"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:5-6</div><p class=\"ih-scripture\">5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.<br>6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:5-6</summary><p lang=\"es\">5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.<br>6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.</p></details><p>Their clothes, footwear, wine containers and bread all supported the false story they told Israel.</p>"
+    },
+    {
+      "slide": 25,
+      "title": "Joshua 9:7",
+      "refs": [
+        "Joshua 9:7"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:7</div><p class=\"ih-scripture\">7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:7</summary><p lang=\"es\">7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?</p></details><p>Israel even raised the possibility that these visitors lived nearby. They recognized there might be a problem, but did not seek the Lord's counsel.</p>"
+    },
+    {
+      "slide": 26,
+      "title": "THE EVIDENCE LOOKED CONVINCING",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>The Israelites examined the provisions. Everything seemed to support the Gibeonites' explanation.</p><p>But appearance was not the full truth.</p><p>Many times we assume we know, because the evidence looks convincing. Yet we are working from incomplete information.</p><p>They had an opportunity to ask God, but did not.</p>"
+    },
+    {
+      "slide": 27,
+      "title": "Joshua 9:14",
+      "refs": [
+        "Joshua 9:14"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:14</div><p class=\"ih-scripture\">14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:14</summary><p lang=\"es\">14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.</p></details><p>This is the central statement: “and asked not counsel at the mouth of the LORD.”</p><p>They assessed what they could see, but neglected to inquire of God.</p>"
+    },
+    {
+      "slide": 28,
+      "title": "Joshua 9:15-16",
+      "refs": [
+        "Joshua 9:15-16"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:15-16</div><p class=\"ih-scripture\">15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.<br>16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:15-16</summary><p lang=\"es\">15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.<br>16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.</p></details><p>Joshua made peace and a covenant with the visitors. Three days later, the Israelites discovered that these people were their neighbors.</p><p>The agreement had already been made.</p>"
+    },
+    {
+      "slide": 29,
+      "title": "Joshua 9:18-19",
+      "refs": [
+        "Joshua 9:18-19"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:18-19</div><p class=\"ih-scripture\">18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.<br>19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:18-19</summary><p lang=\"es\">18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.<br>19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.</p></details><p>Israel did not kill the Gibeonites because the leaders had sworn an oath in the Lord's name.</p><p>The congregation was upset with its leaders. Their decision affected the whole people.</p>"
+    },
+    {
+      "slide": 30,
+      "title": "Joshua 9:20-21",
+      "refs": [
+        "Joshua 9:20-21"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Joshua 9:20-21</div><p class=\"ih-scripture\">20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.<br>21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:20-21</summary><p lang=\"es\">20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.<br>21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.</p></details><p>The leaders allowed the Gibeonites to live, assigning them work as woodcutters and water carriers.</p><p>A decision made without sufficient understanding created an ongoing obligation.</p>"
+    },
+    {
+      "slide": 31,
+      "title": "WHAT HAPPENS WHEN WE DON'T INQUIRE?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>We can misunderstand motives, enter commitments too quickly, act on incomplete information, or create problems that affect other people.</p><p>How often do we react without hearing the whole story? How often do we decide under pressure without asking what God wants?</p><p>Some mistakes are hard to reverse. Wise inquiry can prevent avoidable consequences.</p>"
+    },
+    {
+      "slide": 32,
+      "title": "IT TAKES HUMILITY TO INQUIRE",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>We must recognize that we are not all-knowing.</p><p>Inquiring requires humility. We must be willing to say “I don't know,” “I might be wrong,” or “I need help.”</p><p>Wise believers do not confuse independence with maturity.</p>"
+    },
+    {
+      "slide": 33,
+      "title": "HOW DO WE LEARN TO INQUIRE?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>First: stop and recognize the need. What do I know? What am I missing? Am I acting from pressure or emotion?</p><p>Second: pray to the Lord. Ask, “Lord, what should I do?”</p><p>Third: stop and listen. Examine your motives and any impressions against Scripture. God's direction will not contradict His Word. Not every feeling is divine instruction.</p><p>Fourth: seek godly counsel. A pastor or spiritually mature believer may have experience you do not.</p><p>Fifth: obey what is right. Ask with a willingness to receive and act on truth.</p>"
+    },
+    {
+      "slide": 34,
+      "title": "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.",
+      "refs": [
+        "James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right."
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.</div><p class=\"ih-scripture\"></p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.</summary><p lang=\"es\"></p></details><p>Read the passage aloud and explain it in context.</p>"
+    },
+    {
+      "slide": 35,
+      "title": "WHEN WAS THE LAST TIME YOU INQUIRED?",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>Not merely: when was the last time you asked God to bless something you had already decided?</p><p>When was the last time you sincerely asked, “Lord, what should I do?”</p><p>Think about a decision you are facing now. Have you sought Scripture, prayer, and wise counsel?</p>"
+    },
+    {
+      "slide": 36,
+      "title": "TWO STORIES. TWO RESPONSES.",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>David faced devastating pressure and sought God. Joshua's leaders saw convincing evidence but failed to ask the Lord.</p><p>One story illustrates the wisdom of inquiring. The other warns us about acting without sufficient guidance.</p><p>God may not disclose every fact about tomorrow, but He calls us to seek wisdom and trust Him.</p>"
+    },
+    {
+      "slide": 37,
+      "title": "Proverbs 3:5-6",
+      "refs": [
+        "Proverbs 3:5-6"
+      ],
+      "notes": "KJV on the main projector, adapted RVR1960 on Spanish side screens.",
+      "html": "<div class=\"sermon-scripture-caption\">KJV · Proverbs 3:5-6</div><p class=\"ih-scripture\">5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.<br>6 In all thy ways acknowledge him, and he shall direct thy paths.</p><details class=\"sermon-rvr\"><summary>Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 3:5-6</summary><p lang=\"es\">5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.<br>6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.</p></details><p>Return to the starting principle. Trust the Lord with your whole heart and acknowledge Him in all your ways.</p><p>Inquiring is not just an emergency measure. It is a way of living.</p>"
+    },
+    {
+      "slide": 38,
+      "title": "BEFORE YOU REACT, INQUIRE.",
+      "refs": [],
+      "notes": "Teach from the full manuscript. Advance manually.",
+      "html": "<p>When we fail to inquire, we risk acting without the information we need. Without understanding, we can make mistakes.</p><p>When we inquire, we seek wisdom through prayer, Scripture, and godly counsel.</p><p>Before you make the decision, inquire. Before you react, inquire. Before you commit, inquire. And when you receive godly direction, be willing to obey.</p><p>Closing prayer: Lord, teach us to trust You. Give us humble hearts willing to receive counsel and correction. Help us walk in Your Word rather than rely only on our own understanding. In Jesus' name, amen.</p>"
+    }
+  ],
+  "polls": [],
+  "prompts": [],
+  "translations": {
+    "es": {}
+  },
+  "manuscriptSourceMd": "# THE IMPORTANCE OF INQUIRING\n\n**Bible Study | 30–45 Minutes**\n\n**Main Scriptures:** 1 Samuel 30:6–8; Joshua 9:14–16 (KJV)\n\n**Central Message:** Wisdom begins when we recognize what we do not know, seek God, receive counsel, and obey what is right.\n\n**Supporting Texts:** Proverbs 3:5–7; Proverbs 12:15; Proverbs 15:22; 1 Samuel 30:1–20; 1 Samuel 23:1–5; James 1:5,22; Acts 13:22; Joshua 9:3–27.\n\n---\n\n## THE IMPORTANCE OF INQUIRING\n\nThis morning, I want to talk to you about the importance of inquiring.\n\nMany times we fail to receive counsel, not because guidance or leadership is absent, but because we do not ask. How many times have we made a decision without inquiring of the Lord?\n\nThis lesson contrasts David's response at Ziklag with Israel's response to the Gibeonites.\n\nCentral message: Recognize what you do not know. Seek God's wisdom. Receive counsel. Obey what is right.\n\n---\n\n## HAVE YOU INQUIRED?\n\nWhen was the last time you genuinely stopped and asked: Lord, what should I do?\n\nMany times, the problem is not that counsel was unavailable. It is that we never asked.\n\nAnnouncing what we plan to do is not the same thing as asking for guidance.\n\n---\n\n## WHAT DOES IT MEAN TO INQUIRE?\n\nTo inquire means to ask for information, understanding, or direction.\n\nInquiring begins with the acknowledgment that I do not know enough to decide wisely. It is not a speech about what I have already decided.\n\nAn inquiry leaves room for information that may change my mind. It is asking with the intention to receive something I did not have.\n\n---\n\n## WE DON'T ALWAYS KNOW WHAT WE THINK WE KNOW\n\nWhy is inquiry important? Our own understanding is limited.\n\nSometimes we know one part of a story but assume we know everything. Experience is useful, but it does not make us all-knowing.\n\nWisdom starts when we admit that there is information we may not possess.\n\n---\n\n## Proverbs 3:5-7\n\n**KJV**\n\n5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n7 Be not wise in thine own eyes: fear the LORD, and depart from evil.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 3:5-7**\n\n5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n7 No seas sabio en tu propia opinión; Teme al Señor, y apártate del mal;\n\n“Lean not unto thine own understanding.” God is not condemning knowledge. He is teaching us not to depend entirely on our own judgment.\n\n“In all thy ways acknowledge him.” Seek Him before you make commitments, not only when those commitments become problems.\n\n---\n\n## WHY DON'T WE INQUIRE?\n\nWe assume we already know the answer.\n\nWe do not want to hear an answer that contradicts our desires.\n\nWe are afraid to look inexperienced or uninformed.\n\nWe have already made up our minds and want approval, not counsel.\n\nAsk yourself: Would I still ask for advice if I knew it might challenge what I want?\n\n---\n\n## Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?\n\n**KJV**\n\n\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.\n\nIt takes humility to say: I may be wrong. I do not know. Can you help me understand?**\n\n\n\nRead the passage aloud and explain it in context.\n\n---\n\n## Proverbs 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.\n\n**KJV**\n\n\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 15:22-Seeking godly counsel is not weakness.\n\nDo not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.\n\nGood counsel can reveal dangers our own desires have hidden.**\n\n\n\nRead the passage aloud and explain it in context.\n\n---\n\n## DAVID INQUIRED OF THE LORD\n\nIn 1 Samuel 30, David and his men returned to Ziklag and found their city burned.\n\nThe Amalekites had taken their wives and children captive. The men wept until they had no strength to weep. Then the men became so distressed they spoke of stoning David.\n\nDavid had lost his home, his family was missing, and his own life was under pressure.\n\nPressure did not change where David sought direction.\n\n---\n\n## 1 Samuel 30:1-2\n\n**KJV**\n\n1 And it came to pass, when David and his men were come to Ziklag on the third day, that the Amalekites had invaded the south, and Ziklag, and smitten Ziklag, and burned it with fire;\n2 And had taken the women captives, that were therein: they slew not any, either great or small, but carried them away, and went on their way.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:1-2**\n\n1 Cuando David y sus hombres vinieron a Siclag al tercer día, los de Amalec habían invadido el Neguev y a Siclag, y habían asolado a Siclag y le habían prendido fuego.\n2 Y se habían llevado cautivas a las mujeres y a todos los que estaban allí, desde el menor hasta el mayor; pero a nadie habían dado muerte, sino se los habían llevado al seguir su camino.\n\nThe Amalekites invaded, burned Ziklag, and took its inhabitants captive. The passage says they had not killed the captives.\n\n---\n\n## 1 Samuel 30:3-4\n\n**KJV**\n\n3 So David and his men came to the city, and, behold, it was burned with fire; and their wives, and their sons, and their daughters, were taken captives.\n4 Then David and the people that were with him lifted up their voice and wept, until they had no more power to weep.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:3-4**\n\n3 Vino, pues, David con los suyos a la ciudad, y he aquí que estaba quemada, y sus mujeres y sus hijos e hijas habían sido llevados cautivos.\n4 Entonces David y la gente que con él estaba alzaron su voz y lloraron, hasta que les faltaron las fuerzas para llorar.\n\nDavid and the men saw the devastation when they returned. Their grief was real; they cried until exhausted.\n\n---\n\n## 1 Samuel 30:6\n\n**KJV**\n\n6 And David was greatly distressed; for the people spake of stoning him, because the soul of all the people was grieved, every man for his sons and for his daughters: but David encouraged himself in the LORD his God.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:6**\n\n6 Y David se angustió mucho, porque el pueblo hablaba de apedrearlo, pues todo el pueblo estaba en amargura de alma, cada uno por sus hijos y por sus hijas; mas David se fortaleció en el Señor su Dios.\n\nThe men spoke of stoning David. Yet David encouraged himself in the Lord his God.\n\nEven under pressure, David knew where to go for strength.\n\n---\n\n## 1 Samuel 30:7-8\n\n**KJV**\n\n7 And David said to Abiathar the priest, Ahimelech’s son, I pray thee, bring me hither the ephod. And Abiathar brought thither the ephod to David.\n8 And David enquired at the LORD, saying, Shall I pursue after this troop? shall I overtake them? And he answered him, Pursue: for thou shalt surely overtake them, and without fail recover all.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:7-8**\n\n7 Y dijo David al sacerdote Abiatar hijo de Ahimelec: Yo te ruego que me acerques el efod. Y Abiatar acercó el efod a David.\n8 Y David consultó al Señor, diciendo: ¿Perseguiré a estos merodeadores? ¿Los podré alcanzar? Y él le dijo: Síguelos, porque ciertamente los alcanzarás, y de cierto librarás a los cautivos.\n\nDavid asked for the ephod and inquired of the Lord: Should I pursue? Will I overtake them?\n\nGod told David to pursue, and promised that he would recover all.\n\nHis desire to recover his family was good, but he still needed direction. Good intentions do not remove our need to seek God.\n\n---\n\n## PRESSURE DIDN'T CHANGE DAVID'S RESPONSE\n\nDavid knew his wives and children were at stake. He also knew his own life was in danger.\n\nHe could have reacted immediately, but he stopped and asked the Lord.\n\nSometimes we mistake urgency for direction. A real need does not mean we should abandon wisdom.\n\nAsk: When did you last stop and inquire in the middle of a difficult situation?\n\n---\n\n## DAVID DIDN'T JUST ASK. HE OBEYED.\n\nGod directed David to pursue, and David obeyed.\n\nSix hundred men began the pursuit. Two hundred remained at the brook Besor because of exhaustion. David continued with four hundred.\n\nThey found an abandoned Egyptian servant who led them to the Amalekites. David fought and recovered the captives and possessions.\n\nRead the full account in 1 Samuel 30:9–20 from the Scripture bank.\n\n---\n\n## 1 Samuel 30:18-19\n\n**KJV**\n\n18 And David recovered all that the Amalekites had carried away: and David rescued his two wives.\n19 And there was nothing lacking to them, neither small nor great, neither sons nor daughters, neither spoil, nor any thing that they had taken to them: David recovered all.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 30:18-19**\n\n18 Y libró David todo lo que los amalecitas habían tomado, y asimismo libertó David a sus dos mujeres.\n19 Y no les faltó cosa alguna, chica ni grande, así de hijos como de hijas, del robo, y de todas las cosas que les habían tomado; todo lo recuperó David.\n\nDavid recovered everything, as the Lord had promised in this specific account.\n\nThe lesson is that David sought God and obeyed the direction given, not that every request guarantees an identical outcome.\n\n---\n\n## James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.\n\n**KJV**\n\n\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.\n\nIf our intention is only to hear what we already want, we are not genuinely seeking direction.\n\nInquiring must be joined to a willingness to obey what is right.**\n\n\n\nRead the passage aloud and explain it in context.\n\n---\n\n## INQUIRING WAS DAVID'S HABIT\n\nZiklag was not the first time David inquired.\n\nIn 1 Samuel 23, David heard that the Philistines were attacking Keilah. He inquired before acting. When his men expressed fear, he inquired again, and God reaffirmed His direction.\n\nInquiring was part of how David approached decisions, not merely a desperate last resort.\n\n---\n\n## 1 Samuel 23:1-2\n\n**KJV**\n\n1 Then they told David, saying, Behold, the Philistines fight against Keilah, and they rob the threshingfloors.\n2 Therefore David enquired of the LORD, saying, Shall I go and smite these Philistines? And the LORD said unto David, Go, and smite the Philistines, and save Keilah.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:1-2**\n\n1 Dieron aviso a David, diciendo: He aquí que los filisteos combaten a Keila, y roban las eras.\n2 Y David consultó al Señor, diciendo: ¿Iré a atacar a estos filisteos? Y el Señor respondió a David: Ve, ataca a los filisteos, y libra a Keila.\n\nDavid heard of the Philistine attack on Keilah. Rather than acting automatically, he asked the Lord whether to intervene.\n\n---\n\n## 1 Samuel 23:3-4\n\n**KJV**\n\n3 And David’s men said unto him, Behold, we be afraid here in Judah: how much more then if we come to Keilah against the armies of the Philistines?\n4 Then David enquired of the LORD yet again. And the LORD answered him and said, Arise, go down to Keilah; for I will deliver the Philistines into thine hand.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:3-4**\n\n3 Pero los que estaban con David le dijeron: He aquí que nosotros aquí en Judá estamos con miedo; ¿cuánto más si fuéremos a Keila contra el ejército de los filisteos?\n4 Entonces David volvió a consultar al Señor. Y el Señor le respondió y dijo: Levántate, desciende a Keila, pues yo entregaré en tus manos a los filisteos.\n\nDavid's men were fearful. David went back to the Lord, received confirmation, and did not allow fear alone to decide the outcome.\n\n---\n\n## 1 Samuel 23:5\n\n**KJV**\n\n5 So David and his men went to Keilah, and fought with the Philistines, and brought away their cattle, and smote them with a great slaughter. So David saved the inhabitants of Keilah.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · 1 Samuel 23:5**\n\n5 Fue, pues, David con sus hombres a Keila, y peleó contra los filisteos, se llevó sus ganados, y les causó una gran derrota; y libró David a los de Keila.\n\nDavid obeyed and delivered Keilah from the Philistines.\n\n---\n\n## Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.\n\n**KJV**\n\n\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.\n\nA heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.**\n\n\n\nRead the passage aloud and explain it in context.\n\n---\n\n## THE COVENANT MADE WITHOUT INQUIRY\n\nJoshua 9 gives the opposite example.\n\nThe people of Gibeon heard what Israel had done to Jericho and Ai. Afraid for their lives, they decided to deceive the Israelites.\n\nThey put on old garments, carried worn shoes, patched wine containers, and brought dry, moldy bread to make it look as though they came from far away.\n\nThey then asked Joshua and Israel to make a covenant.\n\n---\n\n## Joshua 9:3-4\n\n**KJV**\n\n3 And when the inhabitants of Gibeon heard what Joshua had done unto Jericho and to Ai,\n4 They did work wilily, and went and made as if they had been ambassadors, and took old sacks upon their asses, and wine bottles, old, and rent, and bound up;\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:3-4**\n\n3 Mas los moradores de Gabaón, cuando oyeron lo que Josué había hecho a Jericó y a Hai,\n4 usaron de astucia; pues fueron y se fingieron embajadores, y tomaron sacos viejos sobre sus asnos, y cueros viejos de vino, rotos y remendados,\n\nThe Gibeonites deliberately planned a deception and disguised themselves as travelers.\n\n---\n\n## Joshua 9:5-6\n\n**KJV**\n\n5 And old shoes and clouted upon their feet, and old garments upon them; and all the bread of their provision was dry and mouldy.\n6 And they went to Joshua unto the camp at Gilgal, and said unto him, and to the men of Israel, We be come from a far country: now therefore make ye a league with us.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:5-6**\n\n5 y zapatos viejos y recosidos en sus pies, con vestidos viejos sobre sí; y todo el pan que traían para el camino era seco y mohoso.\n6 Y vinieron a Josué al campamento en Gilgal, y le dijeron a él y a los de Israel: Nosotros venimos de tierra muy lejana; haced, pues, ahora alianza con nosotros.\n\nTheir clothes, footwear, wine containers and bread all supported the false story they told Israel.\n\n---\n\n## Joshua 9:7\n\n**KJV**\n\n7 And the men of Israel said unto the Hivites, Peradventure ye dwell among us; and how shall we make a league with you?\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:7**\n\n7 Y los de Israel respondieron a los heveos: Quizá habitáis en medio de nosotros. ¿Cómo, pues, podremos hacer alianza con vosotros?\n\nIsrael even raised the possibility that these visitors lived nearby. They recognized there might be a problem, but did not seek the Lord's counsel.\n\n---\n\n## THE EVIDENCE LOOKED CONVINCING\n\nThe Israelites examined the provisions. Everything seemed to support the Gibeonites' explanation.\n\nBut appearance was not the full truth.\n\nMany times we assume we know, because the evidence looks convincing. Yet we are working from incomplete information.\n\nThey had an opportunity to ask God, but did not.\n\n---\n\n## Joshua 9:14\n\n**KJV**\n\n14 And the men took of their victuals, and asked not counsel at the mouth of the LORD.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:14**\n\n14 Y los hombres de Israel tomaron de las provisiones de ellos, y no consultaron al Señor.\n\nThis is the central statement: “and asked not counsel at the mouth of the LORD.”\n\nThey assessed what they could see, but neglected to inquire of God.\n\n---\n\n## Joshua 9:15-16\n\n**KJV**\n\n15 And Joshua made peace with them, and made a league with them, to let them live: and the princes of the congregation sware unto them.\n16 And it came to pass at the end of three days after they had made a league with them, that they heard that they were their neighbours, and that they dwelt among them.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:15-16**\n\n15 Y Josué hizo paz con ellos, y celebró con ellos alianza concediéndoles la vida; y también lo juraron los príncipes de la congregación.\n16 Pasados tres días después que hicieron alianza con ellos, oyeron que eran sus vecinos, y que habitaban en medio de ellos.\n\nJoshua made peace and a covenant with the visitors. Three days later, the Israelites discovered that these people were their neighbors.\n\nThe agreement had already been made.\n\n---\n\n## Joshua 9:18-19\n\n**KJV**\n\n18 And the children of Israel smote them not, because the princes of the congregation had sworn unto them by the LORD God of Israel. And all the congregation murmured against the princes.\n19 But all the princes said unto all the congregation, We have sworn unto them by the LORD God of Israel: now therefore we may not touch them.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:18-19**\n\n18 Y no los mataron los hijos de Israel, por cuanto los príncipes de la congregación les habían jurado por el Señor, Dios de Israel. Y toda la congregación murmuraba contra los príncipes.\n19 Mas todos los príncipes respondieron a toda la congregación: Nosotros les hemos jurado por el Señor, Dios de Israel; por tanto, ahora no les podemos tocar.\n\nIsrael did not kill the Gibeonites because the leaders had sworn an oath in the Lord's name.\n\nThe congregation was upset with its leaders. Their decision affected the whole people.\n\n---\n\n## Joshua 9:20-21\n\n**KJV**\n\n20 This we will do to them; we will even let them live, lest wrath be upon us, because of the oath which we sware unto them.\n21 And the princes said unto them, Let them live; but let them be hewers of wood and drawers of water unto all the congregation; as the princes had promised them.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Josué 9:20-21**\n\n20 Esto haremos con ellos: les dejaremos vivir, para que no venga ira sobre nosotros por causa del juramento que les hemos hecho.\n21 Dijeron, pues, de ellos los príncipes: Dejadlos vivir; y fueron constituidos leñadores y aguadores para toda la congregación, concediéndoles la vida, según les habían prometido los príncipes.\n\nThe leaders allowed the Gibeonites to live, assigning them work as woodcutters and water carriers.\n\nA decision made without sufficient understanding created an ongoing obligation.\n\n---\n\n## WHAT HAPPENS WHEN WE DON'T INQUIRE?\n\nWe can misunderstand motives, enter commitments too quickly, act on incomplete information, or create problems that affect other people.\n\nHow often do we react without hearing the whole story? How often do we decide under pressure without asking what God wants?\n\nSome mistakes are hard to reverse. Wise inquiry can prevent avoidable consequences.\n\n---\n\n## IT TAKES HUMILITY TO INQUIRE\n\nWe must recognize that we are not all-knowing.\n\nInquiring requires humility. We must be willing to say “I don't know,” “I might be wrong,” or “I need help.”\n\nWise believers do not confuse independence with maturity.\n\n---\n\n## HOW DO WE LEARN TO INQUIRE?\n\nFirst: stop and recognize the need. What do I know? What am I missing? Am I acting from pressure or emotion?\n\nSecond: pray to the Lord. Ask, “Lord, what should I do?”\n\nThird: stop and listen. Examine your motives and any impressions against Scripture. God's direction will not contradict His Word. Not every feeling is divine instruction.\n\nFourth: seek godly counsel. A pastor or spiritually mature believer may have experience you do not.\n\nFifth: obey what is right. Ask with a willingness to receive and act on truth.\n\n---\n\n## James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.\n\n**KJV**\n\n\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.\n\nPrayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.**\n\n\n\nRead the passage aloud and explain it in context.\n\n---\n\n## WHEN WAS THE LAST TIME YOU INQUIRED?\n\nNot merely: when was the last time you asked God to bless something you had already decided?\n\nWhen was the last time you sincerely asked, “Lord, what should I do?”\n\nThink about a decision you are facing now. Have you sought Scripture, prayer, and wise counsel?\n\n---\n\n## TWO STORIES. TWO RESPONSES.\n\nDavid faced devastating pressure and sought God. Joshua's leaders saw convincing evidence but failed to ask the Lord.\n\nOne story illustrates the wisdom of inquiring. The other warns us about acting without sufficient guidance.\n\nGod may not disclose every fact about tomorrow, but He calls us to seek wisdom and trust Him.\n\n---\n\n## Proverbs 3:5-6\n\n**KJV**\n\n5 Trust in the LORD with all thine heart; and lean not unto thine own understanding.\n6 In all thy ways acknowledge him, and he shall direct thy paths.\n\n**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 3:5-6**\n\n5 Fíate del Señor de todo tu corazón, Y no te apoyes en tu propia prudencia.\n6 Reconócelo en todos tus caminos, Y él enderezará tus veredas.\n\nReturn to the starting principle. Trust the Lord with your whole heart and acknowledge Him in all your ways.\n\nInquiring is not just an emergency measure. It is a way of living.\n\n---\n\n## BEFORE YOU REACT, INQUIRE.\n\nWhen we fail to inquire, we risk acting without the information we need. Without understanding, we can make mistakes.\n\nWhen we inquire, we seek wisdom through prayer, Scripture, and godly counsel.\n\nBefore you make the decision, inquire. Before you react, inquire. Before you commit, inquire. And when you receive godly direction, be willing to obey.\n\nClosing prayer: Lord, teach us to trust You. Give us humble hearts willing to receive counsel and correction. Help us walk in Your Word rather than rely only on our own understanding. In Jesus' name, amen.\n\n---\n\n**Spanish Scripture source:** Reina-Valera 1960 (nombre divino adaptado a Señor). Reina-Valera 1960 ® © Sociedades Bíblicas en América Latina, 1960. Renovado © Sociedades Bíblicas Unidas, 1988.\n\n**Delivery:** Read the full stories using the Scripture bank. Keep displayed verses brief and large. Give application points time to settle. Do not rush the conclusion.\n",
+  "sourceManuscript": "/content/standalone/inquiring/lesson.md",
+  "teacherGuide": {
+    "target": "38 minutes",
+    "range": "30–45 minutes",
+    "instruction": "Read the KJV stories aloud. The full narrative is in the Scripture bank. Keep the screen text large, using short verse cues. Never rush the ending."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-22",
   "latest": "breaking-the-cycles-2026-11-12",
   "rules": {
     "stableBuildsAreImmutable": true,
@@ -327,6 +327,27 @@
         "confidence": "/confidence?lesson=personal-responsibility-2026-11-19"
       },
       "engineSource": "/content/personal-responsibility-2026-11-19.json",
+      "manuscriptType": "native",
+      "engine": "ministry-unified-v2"
+    },
+    {
+      "id": "inquiring-2026-11-22",
+      "series": "Standalone Lessons",
+      "sequence": "Sunday Bible Study · Nov 22",
+      "title": "The Importance of Inquiring",
+      "scripture": "1 Samuel 30:6–8 · Joshua 9:14–16",
+      "taughtAt": null,
+      "status": "ready",
+      "knownGood": false,
+      "artifacts": {
+        "presentation": "/presenter?lesson=inquiring-2026-11-22",
+        "projector": "/projector?lesson=inquiring-2026-11-22",
+        "manuscript": "/presenter?lesson=inquiring-2026-11-22",
+        "controller": "/mobile?lesson=inquiring-2026-11-22",
+        "scriptures": "/scriptures?lesson=inquiring-2026-11-22",
+        "confidence": "/confidence?lesson=inquiring-2026-11-22"
+      },
+      "engineSource": "/content/inquiring-2026-11-22.json",
       "manuscriptType": "native",
       "engine": "ministry-unified-v2"
     }
