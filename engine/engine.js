@@ -8,6 +8,7 @@ const classUrl=()=>location.origin+'/class'+(lesson?.id?'?lesson='+encodeURIComp
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clean=s=>String(s??'').replace(/<[^>]*>/g,'').replace(/&middot;/g,'·').replace(/&rarr;/g,'→').replace(/&ldquo;|&rdquo;/g,'"').replace(/&rsquo;/g,"'");
+const scriptureParagraph=s=>clean(s).replace(/\s*\r?\n\s*/g,' ').replace(/[ \t]{2,}/g,' ').trim();
 const qr=u=>'https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=12&data='+encodeURIComponent(u);
 
 const path=location.pathname.toLowerCase().replace(/\/+$/,'')||'/';
@@ -151,7 +152,7 @@ function slideHtml(raw,withQr=true,language=state.language){
 
   if(s.type==='cover')return '<div class="cover">'+k+'<div class="p-title">'+esc(clean(s.title))+'</div><div class="rule"></div>'+sub+ref+missing+(withQr&&!isMirroredSermon()&&!lesson?.hideAudienceQr?resourceQrCards(false):'')+'</div>';
   if(s.type==='resources')return '<div class="resource-qr-slide">'+k+'<div class="p-title med">'+esc(clean(s.title||'Study & resources'))+'</div>'+sub+resourceQrCards(true)+missing+'</div>';
-  if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(clean(s.text||''))+'</div>'+sub+missing+translation;
+  if(s.type==='verse')return k+ref+'<div class="rule"></div><div class="p-verse">'+esc(scriptureParagraph(s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='statement')return k+ref+'<div class="statement">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='prompt')return k+'<div class="p-title med">'+esc(clean(s.title||s.text||''))+'</div>'+sub+missing+translation;
   if(s.type==='points'||s.type==='illustration')return k+ref+'<div class="p-title med">'+esc(clean(s.title||''))+'</div><ul class="points">'+(s.points||[]).map(x=>'<li>'+esc(clean(x))+'</li>').join('')+'</ul>'+sub+missing+translation;
@@ -209,9 +210,9 @@ function scriptureHtml(v){
   const missing=sc.spanishStatus==='loading'?'Buscando el texto RVR1960…':
     (isMirroredSermon()?'RVR1960 no está guardada para esta referencia. ':'RVR1960 no disponible. ')+(sc.spanishError||'Comprueba la conexión de la Biblia.');
   const primary=spanish
-    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(spanish)+'</div></div>'
+    ? '<div class="scripture-primary'+sized+'"><div class="scripture-ref">'+esc(spanishRef)+' · '+version+'</div><div class="scripture-text" lang="es">'+esc(scriptureParagraph(spanish))+'</div></div>'
     : '<div class="scripture-primary scripture-unavailable"><div class="scripture-ref">'+esc(spanishRef)+' · '+esc(version)+'</div><div class="scripture-missing">'+esc(missing)+'</div></div>';
-  const english=(isMirroredSermon()||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(sc.text_en)+'</div></div>':'';
+  const english=(isMirroredSermon()||!spanish)&&sc.text_en?'<div class="scripture-secondary"><div class="scripture-ref">'+esc(sc.ref_en)+' · KJV</div><div class="scripture-text" lang="en">'+esc(scriptureParagraph(sc.text_en))+'</div></div>':'';
   const notice=spanish&&(sc.spanishSource==='RVR1960'||lesson?.spanishCopyrightNotice)&&sc.copyright
     ?'<div class="scripture-copyright">'+esc(sc.copyright)+'</div>':'';
   return primary+english+notice;
@@ -293,7 +294,7 @@ function sideTvExplanationHtml(note){
 }
 function projectorScriptureHtml(v){
   const sc=normalizeScripture(v); if(!sc)return '';
-  return '<div class="take-ref">'+esc(sc.ref_en)+'</div><div class="take-text">'+esc(sc.text_en)+'</div>';
+  return '<div class="take-ref">'+esc(sc.ref_en)+'</div><div class="take-text">'+esc(scriptureParagraph(sc.text_en))+'</div>';
 }
 
 function takeover(){

@@ -1,26 +1,161 @@
-/* Standalone Inquiring lesson. Scoped to protect all existing stable presentations. */
-body[data-lesson="inquiring-2026-11-22"]{--gold:#d5a968;--sage:#edcba2}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .stage{background:radial-gradient(ellipse at 78% 18%,rgba(143,93,35,.13),transparent 45%),linear-gradient(145deg,#070808,#151412 60%,#080808)}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .stage-inner{width:min(90vw,1600px);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .cover{align-items:flex-start;text-align:left}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .cover .p-title{margin:0;text-align:left;font-size:clamp(5rem,10vw,11rem);line-height:.9;color:#fff6e9;text-wrap:balance}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-kicker{font-size:clamp(1.15rem,1.6vw,2rem);letter-spacing:.12em;line-height:1.25;color:#e9c48d;margin-bottom:clamp(10px,2vh,22px)}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-ref{font-size:clamp(1.45rem,1.9vw,2.2rem);line-height:1.25;letter-spacing:.06em;color:#edc89d;margin:0 0 clamp(10px,2vh,22px)}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .rule{margin:clamp(8px,1.5vh,18px) 0}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-verse{font-family:'Barlow',Arial,sans-serif;font-weight:600;font-size:clamp(2.25rem,3.12vw,4rem);line-height:1.22;color:#fff8ec;max-width:1550px;white-space:pre-line;text-wrap:pretty}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-title.med{font-size:clamp(3.5rem,6.3vw,7.8rem);line-height:1.02;color:#fff5e7;text-wrap:balance}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .statement{font-family:'Barlow Condensed',Arial,sans-serif;font-weight:800;font-size:clamp(4rem,7vw,8.7rem);line-height:1.05;letter-spacing:-.01em;color:#fff7eb;text-wrap:balance}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points{gap:clamp(13px,2vh,26px)}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points li{font-family:'Barlow',Arial,sans-serif;font-size:clamp(2rem,2.8vw,3.6rem);font-weight:700;line-height:1.21;color:#f9f4e8;padding-left:42px;text-wrap:pretty}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points li:before{width:12px;height:12px;top:.48em}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-sub{font-size:clamp(1.7rem,2.5vw,3.1rem);line-height:1.28;color:#e7d2b7}
-body[data-lesson="inquiring-2026-11-22"] #presenter .note-body{font-size:clamp(1.12rem,1.4vw,1.42rem);line-height:1.72}
-body[data-lesson="inquiring-2026-11-22"] #presenter .note-title{font-size:clamp(1.6rem,2vw,2.1rem)}
-body[data-lesson="inquiring-2026-11-22"] #presenter .ih-scripture{font-size:1.05em;line-height:1.62}
-body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-verse{font-family:'Barlow',Arial,sans-serif;font-weight:600;font-size:clamp(2.15rem,3vw,3.75rem);line-height:1.23;white-space:pre-line}
-body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .points li{font-size:clamp(2rem,2.7vw,3.4rem);line-height:1.22}
-body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-ref{font-size:clamp(1.2rem,1.6vw,1.95rem)}
-@media(max-height:740px) and (min-width:850px){
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-verse{font-size:clamp(2rem,2.65vw,3rem);line-height:1.18}
-body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .rule{margin:8px 0}
+/* Inquiring lesson: midnight blue and cool cyan, large 16:9 type, no forced verse line breaks. */
+body[data-lesson="inquiring-2026-11-22"]{
+  --bg:#071224;--panel:#0b1a2b;--panel2:#122840;--line:#294762;
+  --ink:#f6faff;--muted:#b9d0e4;--gold:#7ed5ff;--sage:#b1dfff;
+  --engine-accent:#7ed5ff;--engine-accent-soft:#b8eaff;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .stage{
+  background:
+    radial-gradient(ellipse at 74% 12%,rgba(42,129,183,.22),transparent 44%),
+    radial-gradient(ellipse at 10% 90%,rgba(28,83,135,.2),transparent 46%),
+    linear-gradient(145deg,#040b19 0%,#0b1e37 55%,#061222 100%);
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .stage-inner{
+  width:min(92vw,1660px);max-height:93dvh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .cover{
+  width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .cover .p-title{
+  width:100%;margin:0 auto;max-width:1520px;
+  font-size:clamp(4.8rem,9vw,10.6rem);line-height:.94;
+  color:#f7fbff;text-align:center;text-wrap:balance;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-kicker{
+  color:#7ed5ff;font-size:clamp(1.1rem,1.5vw,1.85rem);line-height:1.23;
+  letter-spacing:.14em;margin:0 auto clamp(12px,2vh,24px);text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-ref{
+  color:#a8ddff;font-size:clamp(1.45rem,2.1vw,2.6rem);line-height:1.2;
+  letter-spacing:.045em;margin:0 auto clamp(10px,1.6vh,19px);text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .rule{
+  background:#4faddf;width:clamp(105px,9vw,165px);height:3px;
+  margin:clamp(9px,1.35vh,18px) auto;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-verse{
+  color:#f7fbff;font-family:'Barlow',Arial,sans-serif;font-style:normal;font-weight:600;
+  font-size:clamp(2.5rem,3.35vw,4.4rem);line-height:1.21;
+  width:100%;max-width:1570px;white-space:normal;overflow-wrap:normal;
+  text-wrap:pretty;text-align:center;margin:0 auto;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-title.med{
+  width:100%;max-width:1540px;margin:0 auto;
+  color:#f6faff;font-size:clamp(3.6rem,6.6vw,7.8rem);
+  line-height:1.02;text-align:center;text-wrap:balance;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .statement{
+  color:#f7fbff;font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;
+  font-size:clamp(4rem,7.8vw,9.5rem);line-height:1.05;
+  width:100%;max-width:1600px;margin:0 auto;text-align:center;text-wrap:balance;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-sub{
+  color:#b8dbf0;font-family:'Barlow',Arial,sans-serif;font-style:normal;font-weight:500;
+  font-size:clamp(1.7rem,2.35vw,3rem);line-height:1.3;
+  max-width:1320px;margin:clamp(12px,2vh,25px) auto 0;text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points{
+  width:min(88vw,1390px);gap:clamp(9px,1.45vh,20px);
+  margin:clamp(12px,2vh,24px) auto 0;padding:0;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points li{
+  color:#f2f9ff;font:700 clamp(2.15rem,3.15vw,3.95rem)/1.14 'Barlow',Arial,sans-serif;
+  padding-left:clamp(30px,3vw,44px);margin:0;text-align:left;text-wrap:pretty;
+}
+body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .points li:before{
+  background:#73cfff;box-shadow:0 0 12px rgba(74,176,240,.2);
+  width:11px;height:11px;top:.5em;
+}
+body[data-lesson="inquiring-2026-11-22"] #projector .takeover{
+  background:radial-gradient(circle at 75% 15%,rgba(39,120,183,.19),transparent 42%),
+    linear-gradient(140deg,#05101f,#0d2341);
+}
+body[data-lesson="inquiring-2026-11-22"] #projector .take-inner{
+  width:min(90vw,1580px);max-height:88dvh;overflow-y:auto;scrollbar-width:none;
+  text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] #projector .take-ref{
+  color:#91dcff;font-size:clamp(1.6rem,2.15vw,2.7rem);text-align:center;
+  margin-bottom:clamp(14px,2vh,26px);
+}
+body[data-lesson="inquiring-2026-11-22"] #projector .take-text{
+  color:#f7fbff;font:600 clamp(2.4rem,3.35vw,4.35rem)/1.2 'Barlow',Arial,sans-serif;
+  white-space:normal;text-wrap:pretty;text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] #presenter .note-body{
+  font-size:clamp(1.12rem,1.4vw,1.42rem);line-height:1.72;
+}
+body[data-lesson="inquiring-2026-11-22"] #presenter .note-title{
+  font-size:clamp(1.6rem,2vw,2.1rem);
+}
+body[data-lesson="inquiring-2026-11-22"] #presenter .ih-scripture{
+  font-size:1.05em;line-height:1.62;
+}
+
+/* Spanish side TVs share the lesson's blue palette and centered titles. */
+body[data-lesson="inquiring-2026-11-22"] #scriptures{
+  background:radial-gradient(circle at 80% 12%,rgba(32,115,174,.22),transparent 42%),
+    linear-gradient(145deg,#041021,#102843 55%,#071529)!important;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide{
+  justify-content:center;align-items:center;text-align:center;color:#f7fbff;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-kicker{
+  color:#7ed5ff;text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-title,
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .statement{
+  color:#f7fbff;text-align:center;margin-inline:auto;text-wrap:balance;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-ref{
+  color:#9cddff;text-align:center;margin-inline:auto;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-sub{
+  color:#c1e0f3;text-align:center;margin-inline:auto;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .rule{
+  background:#67c8f7;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-verse{
+  font:600 clamp(2.5rem,3.4vw,4.65rem)/1.21 'Barlow',Arial,sans-serif;
+  color:#f7fbff;width:100%;max-width:1530px;white-space:normal;
+  text-wrap:pretty;text-align:center;margin-inline:auto;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-verse .p-verse{
+  font-size:clamp(2.5rem,3.4vw,4.65rem);line-height:1.21;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-verse-source{
+  color:#9ad9ff;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-verse-copyright{
+  color:#a4c1d3;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .points li,
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .points li:last-child{
+  color:#f0f9ff!important;background:transparent!important;
+  border-left:0!important;border-bottom:2px solid rgba(132,205,247,.3)!important;
+  border-radius:0!important;
+  font:700 clamp(2rem,3vw,3.85rem)/1.12 'Barlow',Arial,sans-serif;
+  text-align:center;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .points li:before,
+body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .points li:last-child:before{
+  background:#75cffb!important;box-shadow:none!important;
+}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .scripture-ref{color:#91d9ff}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .scripture-primary{border-left-color:#70cfff}
+body[data-lesson="inquiring-2026-11-22"] #scriptures .scripture-text{
+  color:#f7fbff;font-family:'Barlow',Arial,sans-serif;font-style:normal;
+  font-weight:600;line-height:1.2;white-space:normal;
+}
+@media(max-height:740px) and (min-width:800px){
+  body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .p-verse{
+    font-size:clamp(2.4rem,3.2vw,4.1rem);line-height:1.16;
+  }
+  body[data-lesson="inquiring-2026-11-22"] :is(#projector,#obsslides) .rule{margin:8px auto}
+  body[data-lesson="inquiring-2026-11-22"] #scriptures .ih-side-slide .p-verse{
+    font-size:clamp(2.4rem,3.1vw,4.1rem);line-height:1.16;
+  }
 }
