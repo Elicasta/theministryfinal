@@ -6,8 +6,8 @@ const id='inquiring-2026-11-22',l=JSON.parse(read('content/'+id+'.json'));
 const lib=JSON.parse(read('lesson-library.json'));
 const spanish=JSON.parse(read('content/'+id+'-rvr1960-supplied.json'));
 const css=read('engine/inquiring.css'),js=read('engine/engine.js'),html=read('engine/index.html');
-const pattern=/^(?:(?:1|2|3) )?[A-Za-z ]+ \\d+:\\d+(?:-\\d+)?$/;
-const parseRef=ref=>/^(.*?) (\\d+):(\\d+)(?:-(\\d+))?$/.exec(ref);
+const pattern=/^(?:(?:1|2|3) )?[A-Za-z ]+ \d+:\d+(?:-\d+)?$/;
+const parseRef=ref=>/^(.*?) (\d+):(\d+)(?:-(\d+))?$/.exec(ref);
 test('lesson routes are registered without changing the default',()=>{
  const x=lib.lessons.find(s=>s.id===id);assert.ok(x);
  assert.equal(x.engineSource,'/content/'+id+'.json');assert.notEqual(lib.latest,id);
@@ -53,13 +53,13 @@ test('Spanish source, Lord adaptation and safely paginated Scripture bank',()=>{
 });
 test('paragraph Scripture rendering, centered titles, legible type, uniform bullets and cool blue palette',()=>{
  assert.match(js,/const scriptureParagraph=s=>/);
- assert.match(js,/esc\\(scriptureParagraph\\(s\\.text\\|\\|''\\)\\)/);
- assert.match(js,/esc\\(scriptureParagraph\\(spanish\\)\\)/);
- assert.match(js,/esc\\(scriptureParagraph\\(sc\\.text_en\\)\\)/);
+ assert.match(js,/esc\(scriptureParagraph\(s\.text\|\|''\)\)/);
+ assert.match(js,/esc\(scriptureParagraph\(spanish\)\)/);
+ assert.match(js,/esc\(scriptureParagraph\(sc\.text_en\)\)/);
  assert.match(css,/white-space:normal/);
  assert.match(css,/text-align:center/);
  assert.match(css,/align-items:center/);
- assert.match(css,/p-verse\\{[\\s\\S]*?font-size:clamp\\(2\\.5rem,3\\.35vw,4\\.4rem\\)/);
- assert.match(css,/points li:last-child\\{[\\s\\S]*?background:transparent!important/);
+ assert.match(css,/p-verse\{[\s\S]*?font-size:clamp\(2\.5rem,3\.35vw,4\.4rem\)/);
+ assert.match(css,/points li:last-child\{[\s\S]*?background:transparent!important/);
  assert.ok(css.includes('#071224')&&css.includes('#7ed5ff'));
 });
