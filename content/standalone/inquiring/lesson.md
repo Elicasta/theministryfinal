@@ -86,43 +86,37 @@ Ask yourself: Would I still ask for advice if I knew it might challenge what I w
 
 ---
 
-## Proverbs 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.
-
-It takes humility to say: I may be wrong. I do not know. Can you help me understand?
+## Proverbs 12:15
 
 **KJV**
 
+15 The way of a fool is right in his own eyes: but he that hearkeneth unto counsel is wise.
 
+**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 12:15**
 
-**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 12:15-The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.
+15 El camino del necio es derecho en su opinión; Mas el que obedece al consejo es sabio.
 
-It takes humility to say: I may be wrong. I do not know. Can you help me understand?**
+The fool thinks his way is right in his own eyes. The wise man hearkens to counsel.
 
-
-
-Read the passage aloud and explain it in context.
+It takes humility to say: I may be wrong. I do not know. Can you help me understand?
 
 ---
 
-## Proverbs 15:22-Seeking godly counsel is not weakness.
+## Proverbs 15:22
+
+**KJV**
+
+22 Without counsel purposes are disappointed: but in the multitude of counsellors they are established.
+
+**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 15:22**
+
+22 Los pensamientos son frustrados donde no hay consejo; Mas en la multitud de consejeros se afirman.
+
+Seeking godly counsel is not weakness.
 
 Do not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.
 
 Good counsel can reveal dangers our own desires have hidden.
-
-**KJV**
-
-
-
-**Reina-Valera 1960 (nombre divino adaptado a Señor) · Proverbios 15:22-Seeking godly counsel is not weakness.
-
-Do not keep asking different people until someone finally agrees with you. Seek mature, trustworthy believers who can help you see what you are missing.
-
-Good counsel can reveal dangers our own desires have hidden.**
-
-
-
-Read the passage aloud and explain it in context.
 
 ---
 
@@ -248,25 +242,21 @@ The lesson is that David sought God and obeyed the direction given, not that eve
 
 ---
 
-## James 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.
+## James 1:22
+
+**KJV**
+
+22 But be ye doers of the word, and not hearers only, deceiving your own selves.
+
+**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:22**
+
+22 Pero sed hacedores de la palabra, y no tan solamente oidores, engañándoos a vosotros mismos.
+
+Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.
 
 If our intention is only to hear what we already want, we are not genuinely seeking direction.
 
 Inquiring must be joined to a willingness to obey what is right.
-
-**KJV**
-
-
-
-**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:22-Some people ask for advice but do nothing with it. Others become angry when they receive an answer they do not like.
-
-If our intention is only to hear what we already want, we are not genuinely seeking direction.
-
-Inquiring must be joined to a willingness to obey what is right.**
-
-
-
-Read the passage aloud and explain it in context.
 
 ---
 
@@ -326,21 +316,19 @@ David obeyed and delivered Keilah from the Philistines.
 
 ---
 
-## Acts 13:22-David was described as a man after God's own heart, who would fulfill His will.
-
-A heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.
+## Acts 13:22
 
 **KJV**
 
+22 And when he had removed him, he raised up unto them David to be their king; to whom also he gave testimony, and said, I have found David the son of Jesse, a man after mine own heart, which shall fulfil all my will.
 
+**Reina-Valera 1960 (nombre divino adaptado a Señor) · Hechos 13:22**
 
-**Reina-Valera 1960 (nombre divino adaptado a Señor) · Hechos 13:22-David was described as a man after God's own heart, who would fulfill His will.
+22 Quitado este, les levantó por rey a David, de quien dio también testimonio diciendo: He hallado a David hijo de Isaí, varón conforme a mi corazón, quien hará todo lo que yo quiero.
 
-A heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.**
+David was described as a man after God's own heart, who would fulfill His will.
 
-
-
-Read the passage aloud and explain it in context.
+A heart for God is willing to ask and willing to listen. It does not rely only on its own wisdom.
 
 ---
 
@@ -518,21 +506,19 @@ Fifth: obey what is right. Ask with a willingness to receive and act on truth.
 
 ---
 
-## James 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.
-
-Prayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.
+## James 1:5
 
 **KJV**
 
+5 If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.
 
+**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:5**
 
-**Reina-Valera 1960 (nombre divino adaptado a Señor) · Santiago 1:5-God invites believers to ask Him for wisdom. He gives generously and without reproach.
+5 Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada.
 
-Prayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.**
+God invites believers to ask Him for wisdom. He gives generously and without reproach.
 
-
-
-Read the passage aloud and explain it in context.
+Prayer: Lord, give me wisdom. Show me what I may be missing. Help me receive counsel and do what is right.
 
 ---
 
